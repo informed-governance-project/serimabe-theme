@@ -1,0 +1,21 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'header.css' %}">
+
+<div class="header">
+    <div class="row">
+        <nav class="col-md-6 hidden-sm hidden-xs"> <!-- NAV LEFT -->
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item title">SERIMA.LU</li>
+            </ul>
+        </nav>
+        <nav class="col-md-6 hidden-sm hidden-xs"> <!-- NAV RIGHT -->
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item"><a href="https://web.ilr.lu/FR/ILR/_layouts/15/ILR.Internet/ContactUs.aspx">CONTACT</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
