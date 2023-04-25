@@ -1,6 +1,4 @@
 {% load django_bootstrap5 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
 {% load static %}
 
 <link rel="stylesheet" href="{% static 'header.css' %}">
@@ -10,7 +8,7 @@
       <!-- Logo -->
       <a class="navbar-brand" href="#">
         <img src="{% static 'images/logo.png' %}" alt="Logo" width="100px" class="d-inline-block align-text-top">
-        Governance Platform
+        {{ custom.site_name }}
       </a>
   
       <!-- Responsive Menu Button -->
@@ -32,6 +30,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            {% include "home/language_selector.html" %}  
           </li>
         </ul>
       </div>
