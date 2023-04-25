@@ -19,13 +19,13 @@
             </div>
             <div class="col-12 col-md-4 mb-3 mb-md-0 text-center">
                 <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
-                    class="text-muted" target="_blank" rel="noopener noreferrer">{% translate "Terms of Service" %}</a>
+                    class="text-muted" target="{% if regulator.tos_url %} _blank {% endif %}" rel="noopener noreferrer">{% translate "Terms of Service" %}</a>
                 <span class="mx-2 text-muted">|</span>
                 <a href="{% if regulator.privacy_policy_url %} {{ regulator.privacy_policy_url }} {% else %} {% url 'privacy' %} {% endif %}"
-                    class="text-muted" target="_blank" rel="noopener noreferrer">{% translate "Privacy Policy" %}</a>
+                    class="text-muted" target="{% if regulator.privacy_policy_url %} _blank {% endif %}" rel="noopener noreferrer">{% translate "Privacy Policy" %}</a>
                 <span class="mx-2 text-muted">|</span>
                 <a href="{% if regulator.contact_us_url %} {{ regulator.contact_us_url }} {% endif %}"
-                    class="text-muted" target="_blank" rel="noopener noreferrer">{% translate "Contact us" %}</a>
+                    class="text-muted" target="{% if regulator.contact_us_url %} _blank {% endif %}" rel="noopener noreferrer">{% translate "Contact us" %}</a>
             </div>
         </div>
     
