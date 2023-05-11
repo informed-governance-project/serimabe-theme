@@ -2,7 +2,13 @@
 {% load static %}
 {% load i18n %} 
 
-<link rel="stylesheet" href="{% static 'header.css' %}">
+{% block bootstrap5_extra_head %}
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <script src='{% static "npm_components/@popperjs/core/dist/umd/popper.min.js" %}'></script>
+    <script src='{% static "npm_components/jquery/dist/jquery.min.js" %}'></script>
+{% endblock %}
+
+{% bootstrap_javascript %}
 
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <div class="container-fluid">
@@ -21,8 +27,15 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           {% include "operateur/menu.html" %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">{% translate "Logout" %}</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle"></i> {% trans 'Your Account' %}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'two_factor:profile' %}">{% trans 'Account Security' %}</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             {% include "home/language_selector.html" %}  
