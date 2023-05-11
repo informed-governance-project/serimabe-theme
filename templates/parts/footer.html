@@ -6,8 +6,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}" />
 {% endblock %}
 
-<footer class="footer bg-light py-3">
-    
+<footer class="footer mt-auto bg-light py-3">
+    <div class=" container">
         <div class="row align-items-center d-flex justify-content-center">
             <div class="col-12 col-md-2 mb-3 mb-md-0 text-center">
                 <a class="nav-link" href="{% if regulator.website %} {{ regulator.website }} {% endif %}"
@@ -15,7 +15,7 @@
                     <img class="regulator_logo" src="{% static 'images/regulator_logo.png' %}"
                         title="{{ regulator.name }}" alt="{{ regulator.name }}">
                 </a>
-
+    
             </div>
             <div class="col-12 col-md-4 mb-3 mb-md-0 text-center">
                 <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
@@ -27,6 +27,8 @@
                 <a href="{% if regulator.contact_us_url %} {{ regulator.contact_us_url }} {% endif %}"
                     class="text-muted" target="{% if regulator.contact_us_url %} _blank {% endif %}" rel="noopener noreferrer">{% translate "Contact us" %}</a>
             </div>
-        </div>
-    
+        </div>  
+
+    </div>
+
 </footer>
