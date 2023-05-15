@@ -1,86 +1,54 @@
-{% extends 'home/base.html' %}
+{% extends 'registration/base.html' %}
 
 {% load django_bootstrap5 %}
-{% load static %}
-{% load i18n %} 
+{% load i18n %}
 
-{% bootstrap_css %}
-{% block bootstrap5_extra_head %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" /> 
-    <link rel="stylesheet" type="text/css" href="{% static 'npm_components/bootstrap-icons/font/bootstrap-icons.css' %}" />
-{% endblock %}
-{% block bootstrap5_title %}
-        {% block title %}{% endblock %}
-{% endblock %}
+{% block login_content %}
+    {% if wizard.steps.current == 'auth' %}
+    <h5 class="my-3 py-3">{% trans "Enter your credentials." %}</h5>
 
-{% block bootstrap5_before_content %}
-    <div class="d-flex position-absolute top-0 end-0 p-1">
-        {% include "home/language_selector.html" %}  
-    </div>
-{% endblock %}
-
-{% block bootstrap5_content %}
-
-    <div class="background">
-        <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                    <div class="card shadow px-5 py-3 mb-5 rounded-1">
-                        <div class="card-body text-center">
-                            <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
-                            {% if wizard.steps.current == 'auth' %}
-                            <h5 class="my-3 py-3">{% trans "Enter your credentials." %}</h5>
-                            
-                            {% elif wizard.steps.current == 'backup' %}
-                                <p class="my-3 py-3 text-start text-wrap">
-                                    {% blocktrans trimmed %}Use this form for entering backup tokens for logging in.
-                                    These tokens have been generated for you to print and keep safe. Please
-                                    enter one of these backup tokens to login to your account.{% endblocktrans %}
-                                </p>
-                            {% endif %}
-                            <div class="mb-md-4 mt-md-4 pb-2">
-                                <form method="post">
-                                    {% csrf_token %}
-                                    {{ wizard.management_form }}                                    
-                                    {% for field in wizard.form %}
-                                        {% bootstrap_field field show_label=False %} 
-                                    {% endfor %}
-                                    {% bootstrap_button button_type="submit" content=_("Log In") %}
-                                </form>
-                                {% block 'backup_tokens' %}
-                                    {% if backup_tokens %}
-                                    <hr>
-                                    <div class="backup_tokens_form">
-                                    <form action="" method="post">
-                                        {% csrf_token %}
-                                            <p>{% trans "As a last resort, you can use a backup token:" %}</p>
-                                            <p>
-                                                <button name="wizard_goto_step" type="submit" value="backup"
-                                                    class="btn btn-sm btn-secondary btn-block">{% trans "Use Backup Token" %}</button>
-                                            </p>
-                                    </form>
-                                    </div>
-                                    {% endif %}
-                                {% endblock %}
-                                {% if wizard.steps.current == 'auth' %}
-                                    <p class="small mb-2 pb-lg-2"><a class="text-muted" href="{% url 'password_reset' %}">{% translate "Forgot password?" %}</a></p>
-                                    <p>Need to notify an incident ?</p>
-                                    <p><a href="#!" class="link-info">{% translate "Anonymous notification" %}</a></p>
-                                {% endif %}
-                            </div> 
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+    {% elif wizard.steps.current == 'backup' %}
+    <p class="my-3 py-3 text-start text-wrap">
+        {% blocktrans trimmed %}Use this form for entering backup tokens for logging in.
+        These tokens have been generated for you to print and keep safe. Please
+        enter one of these backup tokens to login to your account.{% endblocktrans %}
+    </p>
+    {% endif %}
+    <div class="mb-md-4 mt-md-4 pb-2">
+        <form method="post">
+            {% csrf_token %}
+            {{ wizard.management_form }}
+            {% for field in wizard.form %}
+            {% bootstrap_field field show_label=False %}
+            {% endfor %}
+            {% bootstrap_button button_type="submit" content=_("Log In") %}
+        </form>
+        {% block 'backup_tokens' %}
+        {% if backup_tokens %}
+        <hr>
+        <div class="backup_tokens_form">
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>{% trans "As a last resort, you can use a backup token:" %}</p>
+                <p>
+                    {% bootstrap_button name="wizard_goto_step" button_type="submit" button_class="btn-secondary btn-sm" value="backup" content=_("Use Backup Token") %}
+                </p>
+            </form>
         </div>
-    </div> 
-{% endblock %}
-
-{% block bootstrap5_after_content %}
-    <div class="position-absolute bottom-0 w-100">
-        {% include "parts/footer.html" %}    
+        {% endif %}
+        {% endblock %}
+        {% if wizard.steps.current == 'auth' %}
+        <p class="small mb-2 pb-lg-2">
+            <a class="text-muted" href="{% url 'password_reset' %}">
+                {% translate "Forgot password?" %}
+            </a>
+        </p>
+        <p>{% translate "Need to notify an incident ?" %}</p>
+        <p>
+            <a href="#!" class="link-info">
+                {% translate "Anonymous notification" %}
+            </a>
+        </p>
+        {% endif %}
     </div>
-{% endblock %}
-    
-
+{% endblock login_content %}
