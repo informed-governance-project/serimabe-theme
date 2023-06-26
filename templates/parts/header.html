@@ -26,7 +26,12 @@
       <!-- Navigation Menu -->
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          {% include "operateur/menu.html" %}
+          {% if is_regulator == True %}
+            {% include "regulator/menu.html" %}
+          {% endif %}
+          {% if is_regulator == False  %}
+            {% include "operateur/menu.html" %}
+          {% endif %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-person-circle"></i> {% trans 'Your Account' %}

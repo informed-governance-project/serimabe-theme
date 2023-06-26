@@ -1,0 +1,17 @@
+{% extends 'registration/base.html' %}
+
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block bootstrap5_title %}
+    {% trans "Select company to use" %}
+{% endblock %}
+
+{% block login_content %}
+    <h5>{% translate "Your account is attached to several companies. Which one do you want to use?" %}</h5>
+    <form method="POST">
+        {% csrf_token %}
+        {% bootstrap_field form.select_company show_label=False %}
+        {% bootstrap_button button_type="submit" content=_("Save") %}
+    </form>
+{% endblock login_content %}
