@@ -9,3 +9,10 @@
     --primary: #e78484 !important;
     --secondary: #f51616 !important;
 } */
+
+.header-links {
+    display: flex;
+    column-gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
