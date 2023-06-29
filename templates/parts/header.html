@@ -32,6 +32,11 @@
           {% if is_regulator == False  %}
             {% include "operateur/menu.html" %}
           {% endif %}
+          {% if is_staff == True %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'admin:index' %}">{% translate "Administration" %}</a>
+            </li>
+          {% endif %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-person-circle"></i> {% trans 'Your Account' %}
