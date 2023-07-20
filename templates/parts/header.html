@@ -32,7 +32,7 @@
           {% if is_regulator == False  %}
             {% include "operateur/menu.html" %}
           {% endif %}
-          {% if is_staff == True %}
+          {% if only_admin == False %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'admin:index' %}">{% translate "Administration" %}</a>
             </li>
