@@ -18,6 +18,7 @@
         <form method="post">
             {% csrf_token %}
             {{ wizard.management_form }}
+            {% bootstrap_form_errors wizard.form %}
             {% for field in wizard.form %}
             {% bootstrap_field field show_label=False %}
             {% endfor %}
