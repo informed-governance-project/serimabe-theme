@@ -1,12 +1,19 @@
 {% load i18n %}
 {% load static %}
+<head>
+    <base href="{{ url_site }}">
+</head>
 
-<h3>{% translate "Dear Operator" %},</h3>
-<p>{{ content|safe }}</p>
+<h4>{% translate "Dear Operator" %},</h4>
+{% autoescape off %}
+<div>
+    {{ content|linebreaks|safe }}
+</div>
+{% endautoescape %}
 <p>
-    <img class="regulator_logo" src="{% static 'images/regulator_logo.png' %}">
+    <img class="mw-50" src="{% static 'images/regulator_logo.png' %}">
     <p>Governance Platform team</p>
-    <p><a href="mailto:niss@ilr.lu">mail@exemple.com</a></p>
+    <p><a href="mailto:mail@exemple.com">mail@exemple.com</a></p>
     <p><strong>Name Company</strong></p>
 </p>
 
