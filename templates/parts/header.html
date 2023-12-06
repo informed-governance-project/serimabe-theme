@@ -14,7 +14,7 @@
     <div class="container-fluid">
       <!-- Logo -->
       <a class="navbar-brand" href="/">
-        <img src="{% static 'images/logo.png' %}" alt="Logo" width="100px" class="d-inline-block align-text-top">
+        <img src="{% static 'images/logo.png' %}" alt="Logo" width="30px" class="d-inline-block align-text-top">
         {{ site_name }}
       </a>
   
@@ -32,7 +32,7 @@
           {% if is_regulator == False  %}
             {% include "operateur/menu.html" %}
           {% endif %}
-          {% if only_admin == False %}
+          {% if is_staff %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'admin:index' %}">{% translate "Administration" %}</a>
             </li>
