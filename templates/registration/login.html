@@ -44,10 +44,10 @@
                 {% translate "Forgotten your password or username?" %}
             </a>
         </p>
-        <p>{% translate "Need to notify an incident ?" %}</p>
+        <p>{% translate "No account and need to notify an incident ?" %}</p>
         <p>
-            <a href="#!" class="link-info">
-                {% translate "Anonymous notification" %}
+            <a href="{% url 'registration' %}" class="link-info">
+                {% translate "Sign Up" %}
             </a>
         </p>
         {% endif %}
