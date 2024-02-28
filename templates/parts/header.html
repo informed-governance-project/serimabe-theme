@@ -10,7 +10,7 @@
 
 
 
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="navbar navbar-expand-md navbar-light">
     <div class="container-fluid">
       <!-- Logo -->
       <a class="navbar-brand" href="/">
@@ -45,6 +45,8 @@
               <li><a class="dropdown-item" href="{% url 'edit_account' %}">{% trans 'Account' %}</a></li>
               <li><a class="dropdown-item" href="{% url 'two_factor:profile' %}">{% trans 'Security' %}</a></li>
               <li><a class="dropdown-item" href="{% url 'password_change' %}">{% trans 'Password' %}</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#" id="btnThemeSwitch">{% trans 'Light theme' %}</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="{% url 'logout' %}">{% trans 'Log out' %}</a></li>
             </ul>
