@@ -25,6 +25,7 @@
   
       <!-- Navigation Menu -->
       <div class="collapse navbar-collapse" id="navbarNav">
+        {% if user.is_authenticated %}
         <ul class="navbar-nav ms-auto">
           {% if is_regulator == True %}
             {% include "regulator/menu.html" %}
@@ -55,6 +56,7 @@
             {% include "home/language_selector.html" %}  
           </li>
         </ul>
+        {% endif %}
       </div>
     </div>
   </nav>
