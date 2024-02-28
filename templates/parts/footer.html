@@ -6,27 +6,25 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}" />
 {% endblock %}
 
-<footer class="footer mt-auto py-3">
-    <div class=" container">
-        <div class="row align-items-center d-flex justify-content-center">
-            <div class="col-12 col-md-2 mb-3 mb-md-0 text-center">
-                <a class="nav-link" href="{% if regulator.website %} {{ regulator.website }} {% endif %}"
-                    target="_blank" rel="noopener noreferrer">
-                    <img class="regulator_logo" src="{% static 'images/regulator_logo.png' %}"
-                        title="{{ regulator.name }}" alt="{{ regulator.name }}">
-                </a>
-            </div>
-            <div class="col-12 col-md-4 mb-3 mb-md-0 text-center">
-                <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
-                    class="text-muted" target="{% if regulator.tos_url %} _blank {% endif %}" rel="noopener noreferrer">{% translate "Terms of Service" %}</a>
-                <span class="mx-2 text-muted">|</span>
-                <a href="{% if regulator.privacy_policy_url %} {{ regulator.privacy_policy_url }} {% else %} {% url 'privacy' %} {% endif %}"
-                    class="text-muted" target="{% if regulator.privacy_policy_url %} _blank {% endif %}" rel="noopener noreferrer">{% translate "Privacy Policy" %}</a>
-                <span class="mx-2 text-muted">|</span>
-                <a href="{% if regulator.contact_us_url %} {{ regulator.contact_us_url }} {% endif %}"
-                    class="text-muted" target="{% if regulator.contact_us_url %} _blank {% endif %}" rel="noopener noreferrer">{% translate "Contact us" %}</a>
-                
-            </div>
-        </div>  
-    </div>
+<footer class="footer mt-auto py-3 bg-dark">
+    <div class="container">
+    <ul class="nav justify-content-center border-bottom">
+      <li class="nav-item"><a href="/" class="nav-link px-2 text-white">Home</a></li>
+      <li class="nav-item"><a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
+                                class="nav-link px-2 text-white"
+                                target="{% if regulator.tos_url %} _blank {% endif %}"
+                                rel="noopener noreferrer">{% translate "Terms of Service" %}</a></li>
+      <li class="nav-item"><a href="{% if regulator.privacy_policy_url %} {{ regulator.privacy_policy_url }} {% else %} {% url 'privacy' %} {% endif %}"
+                                class="nav-link px-2 text-white"
+                                target="{% if regulator.privacy_policy_url %} _blank {% endif %}"
+                                rel="noopener noreferrer">{% translate "Privacy Policy" %}</a></li>
+      <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-white">{% translate "About" %}</a></li>
+    </ul>
+    <p class="text-center text-white">
+      <small><b>A project from the <a href="https://www.lhc.lu" target="_blank" rel="noopener noreferrer">Luxembourg House of Cybersecurity</a>.</b></small>
+      <small>Operated by <a href="{{ regulator.website }}" target="_blank" rel="noopener noreferrer">{{ regulator.name }}</span>.</a></small>
+      <small>Version: <a href="{{ version_url }}" target="_blank" rel="noopener noreferrer">{{ app_version }}</a></small>
+    </p>
+</div>
 </footer>
+  
