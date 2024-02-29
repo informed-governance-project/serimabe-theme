@@ -1,2 +1,4 @@
 # default-theme
-Default theme for governance platform
+
+
+Default theme for NISINP used by IBPT.
