@@ -28,3 +28,9 @@
     </div>
     
 {% endblock login_content %}
+
+{% block helper_login_content %}
+    <h2 class="card-title">{% translate "Incident Notification" %}</h2><br><br>
+    <p class="card-text">{% translate "If you would like to notify an incident to your competent authority, please login or create an account" %}</p><br><br>
+    <a role="button" class="btn btn-light btn-lg" href="{% url 'login' %}" id="registration_button">{% translate "Log in" %}</a>
+{% endblock helper_login_content %}
