@@ -1,0 +1,13 @@
+/* Redefine color of the incidents table */
+
+.table-danger {
+    background-color: #ff4c4c !important;
+}
+
+.table-success {
+    background-color: #84df90 !important;
+}
+
+.table-info {
+    background-color: #99dde9 !important;
+}
