@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-30 09:07+0000\n"
+"POT-Creation-Date: 2024-04-10 08:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: theme/templates/operateur/menu.html:4
 msgid "Security Objectives"
 msgstr ""
@@ -35,38 +36,45 @@ msgid "Comunication"
 msgstr ""
 
 #: theme/templates/operateur/menu.html:16
+#: theme/templates/registration/login.html:57
+#: theme/templates/registration/signup.html:32
+#: theme/templates/regulator/menu.html:13
 msgid "Incident Notification"
 msgstr ""
 
-#: theme/templates/parts/footer.html:22
+#: theme/templates/parts/footer.html:16
 msgid "Terms of Service"
 msgstr ""
 
-#: theme/templates/parts/footer.html:25
+#: theme/templates/parts/footer.html:20
 msgid "Privacy Policy"
 msgstr ""
 
-#: theme/templates/parts/footer.html:28
-msgid "Contact us"
-msgstr ""
-
-#: theme/templates/parts/header.html:32
-msgid "Your Account"
-msgstr ""
-
-#: theme/templates/parts/header.html:35
-msgid "Account Security"
-msgstr ""
-
-#: theme/templates/parts/header.html:36
-#: theme/templates/registration/password_change_done.html:7
-#: theme/templates/registration/password_change_done.html:11
-#: theme/templates/registration/password_change_form.html:7
-#: theme/templates/registration/password_change_form.html:11
-msgid "Password change"
+#: theme/templates/parts/footer.html:21
+msgid "About"
 msgstr ""
 
 #: theme/templates/parts/header.html:38
+msgid "Administration"
+msgstr ""
+
+#: theme/templates/parts/header.html:46
+msgid "Account"
+msgstr ""
+
+#: theme/templates/parts/header.html:47
+msgid "Security"
+msgstr ""
+
+#: theme/templates/parts/header.html:48
+msgid "Password"
+msgstr ""
+
+#: theme/templates/parts/header.html:50
+msgid "Light theme"
+msgstr ""
+
+#: theme/templates/parts/header.html:52
 msgid "Log out"
 msgstr ""
 
@@ -81,43 +89,63 @@ msgid ""
 "backup tokens to login to your account."
 msgstr ""
 
-#: theme/templates/registration/login.html:24
+#: theme/templates/registration/login.html:25
 #: theme/templates/registration/password_reset_complete.html:15
+#: theme/templates/registration/signup.html:34
 msgid "Log in"
 msgstr ""
 
-#: theme/templates/registration/login.html:32
+#: theme/templates/registration/login.html:33
 msgid "As a last resort, you can use a backup token:"
 msgstr ""
 
-#: theme/templates/registration/login.html:34
+#: theme/templates/registration/login.html:35
 msgid "Use Backup Token"
 msgstr ""
 
-#: theme/templates/registration/login.html:43
+#: theme/templates/registration/login.html:44
 #: theme/templates/registration/password_reset_form.html:11
 msgid "Forgotten your password or username?"
 msgstr ""
 
-#: theme/templates/registration/login.html:46
-msgid "Need to notify an incident ?"
+#: theme/templates/registration/login.html:47
+msgid "No account and need to notify an incident ?"
 msgstr ""
 
-#: theme/templates/registration/login.html:49
-msgid "Anonymous notification"
+#: theme/templates/registration/login.html:50
+#: theme/templates/registration/signup.html:7
+msgid "Sign Up"
+msgstr ""
+
+#: theme/templates/registration/login.html:58
+#: theme/templates/registration/signup.html:33
+msgid ""
+"If you would like to notify an incident to your competent authority, please "
+"login or create an account"
+msgstr ""
+
+#: theme/templates/registration/login.html:59
+msgid "Create an account"
+msgstr ""
+
+#: theme/templates/registration/password_change_done.html:7
+#: theme/templates/registration/password_change_done.html:11
+#: theme/templates/registration/password_change_form.html:7
+#: theme/templates/registration/password_change_form.html:12
+msgid "Password change"
 msgstr ""
 
 #: theme/templates/registration/password_change_done.html:12
 msgid "Your password was changed."
 msgstr ""
 
-#: theme/templates/registration/password_change_form.html:12
+#: theme/templates/registration/password_change_form.html:13
 msgid ""
 "Please enter your old password, for security’s sake, and then enter your new "
 "password twice so we can verify you typed it in correctly."
 msgstr ""
 
-#: theme/templates/registration/password_change_form.html:19
+#: theme/templates/registration/password_change_form.html:20
 #: theme/templates/registration/password_reset_confirm.html:18
 msgid "Change my password"
 msgstr ""
@@ -208,6 +236,23 @@ msgstr ""
 
 #: theme/templates/registration/password_reset_form.html:18
 msgid "Reset my password"
+msgstr ""
+
+#: theme/templates/registration/select_company.html:7
+msgid "Select company to use"
+msgstr ""
+
+#: theme/templates/registration/select_company.html:11
+msgid ""
+"Your account is attached to several companies. Which one do you want to use?"
+msgstr ""
+
+#: theme/templates/registration/select_company.html:15
+msgid "Save"
+msgstr ""
+
+#: theme/templates/registration/signup.html:26
+msgid "Register"
 msgstr ""
 
 #: theme/templates/regulator/menu.html:4

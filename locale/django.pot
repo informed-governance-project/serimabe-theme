@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-10 08:47+0200\n"
+"POT-Creation-Date: 2024-04-18 10:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,71 +16,70 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: theme/templates/operateur/menu.html:4
 msgid "Security Objectives"
-msgstr "Objectifs de sécurité"
+msgstr ""
 
 #: theme/templates/operateur/menu.html:7
 msgid "Dependencies"
-msgstr "Dépendances"
+msgstr ""
 
 #: theme/templates/operateur/menu.html:10
 msgid "Risk Management"
-msgstr "Gestion de risques"
+msgstr ""
 
 #: theme/templates/operateur/menu.html:13
 #: theme/templates/regulator/menu.html:10
 msgid "Comunication"
-msgstr "Communication"
+msgstr ""
 
 #: theme/templates/operateur/menu.html:16
 #: theme/templates/registration/login.html:57
 #: theme/templates/registration/signup.html:32
 #: theme/templates/regulator/menu.html:13
 msgid "Incident Notification"
-msgstr "Notification d'incident"
+msgstr ""
 
 #: theme/templates/parts/footer.html:16
 msgid "Terms of Service"
-msgstr "Conditions d'utilisation"
+msgstr ""
 
 #: theme/templates/parts/footer.html:20
 msgid "Privacy Policy"
-msgstr "Politique de confidentialité"
+msgstr ""
 
 #: theme/templates/parts/footer.html:21
 msgid "About"
-msgstr "A propos"
+msgstr ""
 
 #: theme/templates/parts/header.html:38
 msgid "Administration"
-msgstr "Administration"
+msgstr ""
 
 #: theme/templates/parts/header.html:46
 msgid "Account"
-msgstr "Compte"
+msgstr ""
 
 #: theme/templates/parts/header.html:47
 msgid "Security"
-msgstr "Sécurité"
+msgstr ""
 
 #: theme/templates/parts/header.html:48
 msgid "Password"
-msgstr "Mot de passe"
+msgstr ""
 
 #: theme/templates/parts/header.html:50
 msgid "Light theme"
-msgstr "Thème clair"
+msgstr ""
 
 #: theme/templates/parts/header.html:52
 msgid "Log out"
-msgstr "Déconnexion"
+msgstr ""
 
 #: theme/templates/registration/login.html:8
 msgid "Enter your credentials."
-msgstr "Entrez vos informations d'identification."
+msgstr ""
 
 #: theme/templates/registration/login.html:12
 msgid ""
@@ -88,37 +87,34 @@ msgid ""
 "been generated for you to print and keep safe. Please enter one of these "
 "backup tokens to login to your account."
 msgstr ""
-"Utilisez ce formulaire pour saisir des jetons de sauvegarde pour l'ouverture d'une session. Ces tokens "
-"ont été générés pour que vous puissiez les imprimer et les conserver. Veuillez saisir l'un de ces tokens"
-"de sauvegarde pour vous connecter à votre compte."
 
 #: theme/templates/registration/login.html:25
 #: theme/templates/registration/password_reset_complete.html:15
 #: theme/templates/registration/signup.html:34
 msgid "Log in"
-msgstr "Se connecter"
+msgstr ""
 
 #: theme/templates/registration/login.html:33
 msgid "As a last resort, you can use a backup token:"
-msgstr "En dernier recours, vous pouvez utiliser un token de sauvegarde :"
+msgstr ""
 
 #: theme/templates/registration/login.html:35
 msgid "Use Backup Token"
-msgstr "Utiliser le token de sauvegarde"
+msgstr ""
 
 #: theme/templates/registration/login.html:44
 #: theme/templates/registration/password_reset_form.html:11
 msgid "Forgotten your password or username?"
-msgstr "Vous avez oublié votre mot de passe ou votre nom d'utilisateur ?"
+msgstr ""
 
 #: theme/templates/registration/login.html:47
 msgid "No account and need to notify an incident ?"
-msgstr "Pas de compte et besoin de notifier un incident ?"
+msgstr ""
 
 #: theme/templates/registration/login.html:50
 #: theme/templates/registration/signup.html:7
 msgid "Sign Up"
-msgstr "S'enregistrer"
+msgstr ""
 
 #: theme/templates/registration/login.html:58
 #: theme/templates/registration/signup.html:33
@@ -126,93 +122,82 @@ msgid ""
 "If you would like to notify an incident to your competent authority, please "
 "login or create an account"
 msgstr ""
-"Si vous souhaitez notifier un incident à votre autorité compétente, veuillez "
-"vous connecter ou créer un compte"
 
 #: theme/templates/registration/login.html:59
 msgid "Create an account"
-msgstr "Créer un compte"
+msgstr ""
 
 #: theme/templates/registration/password_change_done.html:7
 #: theme/templates/registration/password_change_done.html:11
 #: theme/templates/registration/password_change_form.html:7
 #: theme/templates/registration/password_change_form.html:12
 msgid "Password change"
-msgstr "Changement de mot de passe"
+msgstr ""
 
 #: theme/templates/registration/password_change_done.html:12
 msgid "Your password was changed."
-msgstr "Votre mot de passe a été changé"
+msgstr ""
 
 #: theme/templates/registration/password_change_form.html:13
 msgid ""
 "Please enter your old password, for security’s sake, and then enter your new "
 "password twice so we can verify you typed it in correctly."
 msgstr ""
-"Veuillez saisir votre ancien mot de passe, par mesure de sécurité, puis saisissez votre nouveau "
-"mot de passe deux fois pour que nous puissions vérifier que vous l'avez tapé correctement."
 
 #: theme/templates/registration/password_change_form.html:20
 #: theme/templates/registration/password_reset_confirm.html:18
 msgid "Change my password"
-msgstr "Changer mon mot de passe"
+msgstr ""
 
 #: theme/templates/registration/password_reset_complete.html:8
 #: theme/templates/registration/password_reset_complete.html:12
 msgid "Password reset complete"
-msgstr "Réinitialisation du mot de passe terminée"
+msgstr ""
 
 #: theme/templates/registration/password_reset_complete.html:13
 msgid "Your password has been set.  You may go ahead and log in now."
-msgstr "Votre mot de passe a été défini, Vous pouvez maintenant vous connecter"
+msgstr ""
 
 #: theme/templates/registration/password_reset_confirm.html:7
 msgid "Enter new password?"
-msgstr "Définir un nouveau mot de passe ?"
+msgstr ""
 
 #: theme/templates/registration/password_reset_confirm.html:12
 msgid "Set a new password!"
-msgstr "Définir un nouveau mot de passe"
+msgstr ""
 
 #: theme/templates/registration/password_reset_confirm.html:13
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
 msgstr ""
-"Entrez votre mot de passe deux fois, ainsi nous pouvons vérifier que vous l'avez tapé correctement"
 
 #: theme/templates/registration/password_reset_confirm.html:21
 msgid "Invalid link"
-msgstr "Lien invalide"
+msgstr ""
 
 #: theme/templates/registration/password_reset_confirm.html:22
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
 msgstr ""
-"Le lien pour la restauration du mot de passe est invalide, probablement parce qu'il "
-"a déjà été utilisé. Effectuez une nouvelle demande de restauration de mot de passe"
 
 #: theme/templates/registration/password_reset_done.html:7
 #: theme/templates/registration/password_reset_done.html:11
 msgid "Email Sent"
-msgstr "Email envoyé"
+msgstr ""
 
 #: theme/templates/registration/password_reset_done.html:13
 msgid ""
 "We’ve emailed you instructions for setting your password, if an account "
 "exists with the email you entered. You should receive them shortly."
 msgstr ""
-"Nous vous avons envoyé les instructions pour restaurer votre mot de passe,"
-"si un compte existe avec l'email entré. Vous devriez le recevoir rapidement"
 
 #: theme/templates/registration/password_reset_done.html:14
 msgid ""
 "If you don’t receive an email, please make sure you’ve entered the address "
 "you registered with, and check your spam folder."
 msgstr ""
-"Si vous n'avez pas reçu d'emails, merci de vérifier que vous avez entré"
-"l'adresse avec laquelle vous vous êtes enregistrée ainsi que le dossier des spams"
 
 #: theme/templates/registration/password_reset_email.html:2
 #, python-format
@@ -220,36 +205,33 @@ msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
 msgstr ""
-"Vous recevez cet email parce que vous avez demandé une restauration de mot de passe sur %(site_name)s"
 
 #: theme/templates/registration/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
-msgstr "Merci d'aller à la page suivante et choisir un nouveau mot de passe:"
+msgstr ""
 
 #: theme/templates/registration/password_reset_email.html:8
 msgid "Your username, in case you’ve forgotten:"
-msgstr "Votre nom d'utilisateur:"
+msgstr ""
 
 #: theme/templates/registration/password_reset_email.html:10
 msgid "Thanks for using our site!"
-msgstr "Merci d'utiliser notre site"
+msgstr ""
 
 #: theme/templates/registration/password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
-msgstr "L'équipe %(site_name)s"
+msgstr ""
 
 #: theme/templates/registration/password_reset_form.html:7
 msgid "Forgot Your Password?"
-msgstr "Mot de passe oublié ?"
+msgstr ""
 
 #: theme/templates/registration/password_reset_form.html:13
 msgid ""
 "Forgotten your password? Enter your email address below, and we’ll email "
 "instructions for setting a new one."
 msgstr ""
-"Mot de passe oublié ? Entrez votre adresse e-mail, et nous allons vous envoyer"
-"les instructions pour en saisir un nouveau"
 
 #: theme/templates/registration/password_reset_form.html:18
 msgid "Reset my password"
@@ -257,26 +239,25 @@ msgstr ""
 
 #: theme/templates/registration/select_company.html:7
 msgid "Select company to use"
-msgstr "Choisissez la société"
+msgstr ""
 
 #: theme/templates/registration/select_company.html:11
 msgid ""
 "Your account is attached to several companies. Which one do you want to use?"
 msgstr ""
-"Votre compte est associé à plusieurs companies. Laquelle voulez-vous utiliser ?"
 
 #: theme/templates/registration/select_company.html:15
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr ""
 
 #: theme/templates/registration/signup.html:26
 msgid "Register"
-msgstr "Enregistrer"
+msgstr ""
 
 #: theme/templates/regulator/menu.html:4
 msgid "Dashboard"
-msgstr "Tableau de bord"
+msgstr ""
 
 #: theme/templates/regulator/menu.html:7
 msgid "User Management"
-msgstr "Gestion des utilisateurs"
+msgstr ""
