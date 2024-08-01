@@ -1,27 +1,51 @@
-<div class="cover_information">
-    <h1>Incident notification report</h1>
-    <ul>
-        <li>
-            <span class="bold">{{ _('Company name') }}</span>
-            : {{ incident.company_name }}
-        </li>
-        <li>
-            <span class="bold">{{ _('Incident reference') }}</span>
-            : {{ incident.incident_id }}
-        </li>
-        <li>
-            <span class="bold">{{ _('Incident notification datetime') }}</span>
-            : {{ incident.incident_notification_date|date:'Y-m-d' }}
-        </li>
-        <li>
-            <span class="bold">{{ _('Is impact significant') }}</span>
-            : {% if incident.is_significative_impact %}{{ _('yes') }}{% else %}{{ _('no') }}{% endif %}
-        </li>
-        <li>
-            <span class="bold">{{ _('Police report reference') }}</span>
-            : {{ incident.complaint_reference }}
-        </li>
-    </ul>
-</div>
+{% load i18n %}
 
+<div class="my-6">
+    <div class="d-flex justify-content-center">
+        <img class="text-center"
+        src="file:{{ static_theme_dir }}/images/regulator_logo.png" 
+        alt="Logo">
+
+    </div>
+
+    <h1 class="mt-5 mb-2 text-center fw-bold">{% translate "Incident notification report" %}</h1>
+    <div class="mt-5 p-4 pb-0 border border-secondary border-1 rounded">
+        <p>
+            <span class="fw-bold">
+                {% translate "Company name" %}:
+            </span>
+            {{ incident.company_name }}
+        </p>
+        <p>
+            <span class="fw-bold">
+                {% translate "Incident reference" %}:
+            </span>
+            {{ incident.incident_id }}
+        </p>
+        <p>
+            <span class="fw-bold">
+                {% translate "Incident notification datetime" %}:
+            </span>
+            {{ incident.incident_notification_date|date:'Y-m-d' }}
+        </p>
+        <p>
+            <span class="fw-bold">
+                {% translate "Is impact significant" %}:
+            </span>
+            {% if incident.is_significative_impact %}
+            {% translate "yes" %}
+            {% else %}
+            {% translate "no" %}
+            {% endif %}
+        </p>
+        {% if incident.complaint_reference %}
+        <p>
+            <span class="fw-bold">
+                {% translate "Police report reference" %}:
+            </span>
+            {{ incident.complaint_reference }}
+        </p>
+        {% endif %}
+    </div>
+</div>
 <p class="page-break" ></p>

@@ -3,6 +3,10 @@
 
 // Include any default variable overrides here (though functions won't be available)
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+// Importing bootstrap
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+// To compile scss file, run this command at root project ** npm run compile-scss **
 
 // Then add additional custom code here
+
