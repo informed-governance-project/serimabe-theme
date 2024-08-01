@@ -11,11 +11,12 @@
         <title>{{ _('Incident report') }}</title>
     </head>
     <body>
+        <div id="page">
+            {% include 'report/cover.html' %}
+            {% include 'report/contact.html' %}
 
-        {% include 'report/cover.html' %}
-        {% include 'report/contact.html' %}
-
-        {% include 'report/questions_answers.html' %}
+            {% include 'report/questions_answers.html' %}
+        </div>
 
     </body>
 </html>

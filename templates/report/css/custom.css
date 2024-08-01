@@ -3,7 +3,7 @@
     margin: 2.5cm 2cm 2cm 2.5cm; /* Set margin on each page */
     padding: 15px 0 15px 0;
     @top-left {
-        background-image: var(--tool_logo_url);
+        background-image: var('static/images/regulator_logo.png');
         background-repeat: no-repeat;
         content: '';
         background-size: 100%;
@@ -54,6 +54,32 @@
     @bottom-right { content: none;}
 }
 
+/* Numbered the title */
+
+#page {
+	counter-reset: heading2;
+}
+h2:before {
+	content: counter(heading2)". ";
+	counter-increment: heading2;
+}
+h2 {
+	counter-reset: heading3;
+}
+h3:before {
+	content: counter(heading2)"." counter(heading3)". ";
+	counter-increment: heading3;
+}
+h3 {
+	counter-reset: heading4;
+}
+h4:before {
+	content: counter(heading2)"." counter(heading3)"."counter(heading4)". ";
+	counter-increment: heading4;
+}
+
+
+
 p, li, div {
   margin-bottom: 10px;
   text-align: justify;
@@ -61,8 +87,18 @@ p, li, div {
 }
 
 
-h1{font-size:26px;}
-h2{font-size:24px;}
+h1 {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 100px;
+    text-transform: capitalize;
+}
+
+h2 {
+    font-size: 24px;
+    text-transform: capitalize;
+}
+
 h3{font-size:22px;}
 h4{font-size:20px;}
 h5{font-size:18px;}
@@ -102,14 +138,38 @@ h6{font-size:16px;}
 
 /* COVER */
 
-.cover_information {
-    display: table-cell;
+.cover_information, .contact {
+    position: relative;
     width: 100%;
-    vertical-align: left;
-}
+    height: 100%;
+  }
 .cover_information ul {
+    border: 1px solid black;
+    position: relative;
+    margin-top: 120px;
+    bottom : 10px;
+}
+.cover_information ul li, .contact ul li, .sectors ul li {
+    position: relative;
+    left: 0;
     list-style: none;
-    padding-left: 0;
+    margin: 4px 0;
+    border-left: 2px solid red;
+    padding-left: 12px;
+}
+
+.cover_information ul li span {
+    position: relative;
+    padding: 2px;
+    display: inline-block;
+    z-index: 1;
+  }
+
+/* CONTACT DETAILS */
+
+.contact ul {
+    position: relative;
+    bottom : 10px;
 }
 
 /* CHART */
