@@ -1,9 +1,9 @@
-# This file was generated from translations_FE.xlsx
+# This file was generated from serima_frontend_translations_V0.6.xlsx
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-01 10:19+0200\n"
-"PO-Revision-Date: 2024-08-01 10:14+0200\n"
+"POT-Creation-Date: 2024-08-01 12:10+0200\n"
+"PO-Revision-Date: 2024-08-01 12:08+0200\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -217,43 +217,43 @@ msgstr "Opmerking"
 
 #: theme/templates/operateur/menu.html:4
 msgid "Security Objectives"
-msgstr "Sicherheitsziele"
+msgstr "Beveiligingsdoelstellingen"
 
 #: theme/templates/operateur/menu.html:7
 msgid "Dependencies"
-msgstr "Abhängigkeiten"
+msgstr "Afhankelijkheden"
 
 #: theme/templates/operateur/menu.html:10
 msgid "Risk Management"
-msgstr "Risikomanagement"
+msgstr "Risicobeheer"
 
 #: theme/templates/operateur/menu.html:13
 #: theme/templates/regulator/menu.html:10
 msgid "Communication"
-msgstr "Kommunikation"
+msgstr "Communicatie"
 
 #: theme/templates/operateur/menu.html:16
 #: theme/templates/registration/login.html:59
 #: theme/templates/registration/signup.html:35
 #: theme/templates/regulator/menu.html:13
 msgid "Incident Notification"
-msgstr "Benachrichtigung über einen Sicherheitsvorfall"
+msgstr "Incidentmelding"
 
 #: theme/templates/parts/footer.html:16
 msgid "Terms of Service"
-msgstr "Nutzungsbedingungen"
+msgstr "Dienstvoorwaarden"
 
 #: theme/templates/parts/footer.html:20
 msgid "Privacy Policy"
-msgstr "Datenschutzrichtlinie"
+msgstr "Privacybeleid"
 
 #: theme/templates/parts/footer.html:21
 msgid "About"
-msgstr "Über uns"
+msgstr "Over"
 
 #: theme/templates/parts/header.html:38
 msgid "Administration"
-msgstr "Verwaltung"
+msgstr "Beheer"
 
 #: theme/templates/parts/header.html:46
 msgid "Account"
@@ -261,15 +261,15 @@ msgstr "Account"
 
 #: theme/templates/parts/header.html:47
 msgid "Security"
-msgstr "Sicherheit"
+msgstr "Beveiliging"
 
 #: theme/templates/parts/header.html:48
 msgid "Password"
-msgstr "Passwort"
+msgstr "Wachtwoord"
 
 #: theme/templates/parts/header.html:50
 msgid "Light theme"
-msgstr "Hell"
+msgstr "Licht thema"
 
 #: theme/templates/parts/header.html:52
 msgid "Log out"
@@ -277,7 +277,7 @@ msgstr "Uitloggen"
 
 #: theme/templates/registration/login.html:8
 msgid "Enter your credentials."
-msgstr "Geben Sie Ihre Anmeldeinformationen ein."
+msgstr "Inloggegevens invoeren."
 
 #: theme/templates/registration/login.html:12
 msgid ""
@@ -287,12 +287,11 @@ msgid ""
 "were generated for you when setting up 2FA, and you were asked to keep them "
 "in a secure location."
 msgstr ""
-"Im Falle des Zugriffverlustes auf Ihr Konto, können Sie dieses Formular "
-"verwenden, um den Zugang zu Ihrem Konto mit Hilfe einer der "
-"Wiederherstellungscodes (Backup-Tokens) für die Zwei-Faktor-"
-"Authentifizierung (2FA) wiederherzustellen. Diese Wiederherstellungscodes "
-"wurden für Sie bei der Einrichtung der 2FA generiert und Sie wurden gebeten, "
-"diese an einem sicheren Ort zu verwahren. "
+"Als u geen toegang meer hebt tot uw account kunt u dit formulier gebruiken "
+"om met behulp van een van de herstelcodes (back-uptokens) voor "
+"tweefactorauthenticatie (2FA) opnieuw toegang te krijgen tot uw account. "
+"Deze herstelcodes werden voor u aangemaakt bij het instellen van 2FA en toen "
+"werd u gevraagd om ze op een beveiligde plek te bewaren."
 
 #: theme/templates/registration/login.html:26
 #: theme/templates/registration/password_reset_complete.html:15
@@ -302,27 +301,25 @@ msgstr "Inloggen"
 
 #: theme/templates/registration/login.html:34
 msgid "As a last resort, you can use a backup token:"
-msgstr ""
-"Als letztes Mittel können Sie einen Wiederherstellungscode (Backup-Token) "
-"verwenden:"
+msgstr "In laatste instantie kunt u een back-uptoken gebruiken:"
 
 #: theme/templates/registration/login.html:36
 msgid "Use Backup Token"
-msgstr "Wiederherstellungscode verwenden"
+msgstr "Back-uptoken gebruiken"
 
 #: theme/templates/registration/login.html:45
 #: theme/templates/registration/password_reset_form.html:11
 msgid "Have you forgotten your password or username?"
-msgstr "Haben Sie Ihr Passwort oder Ihren Benutzernamen vergessen?"
+msgstr "Bent u uw wachtwoord of gebruikersnaam vergeten?"
 
 #: theme/templates/registration/login.html:48
 msgid "Do you not have an account and need to report an incident?"
-msgstr "Sie haben kein Benutzerkonto und müssen einen Vorfall melden?"
+msgstr "Hebt u geen account en moet u een incident rapporteren?"
 
 #: theme/templates/registration/login.html:51
 #: theme/templates/registration/signup.html:7
 msgid "Register"
-msgstr "Registrieren"
+msgstr "Aanmelden"
 
 #: theme/templates/registration/login.html:63
 #: theme/templates/registration/signup.html:39
@@ -330,96 +327,94 @@ msgid ""
 "If you would like to notify an incident to your competent authority, please "
 "login or create an account."
 msgstr ""
-"Wenn Sie einen Vorfall an die zuständige Behörde melden möchten, melden Sie "
-"sich bitte an oder erstellen Sie ein Konto."
+"Als u een incident wilt melden aan uw bevoegde autoriteit, gelieve dan in te "
+"loggen of een account aan te maken."
 
 #: theme/templates/registration/login.html:67
 #: theme/templates/registration/signup.html:27
 msgid "Create account"
-msgstr "Benutzerkonto erstellen"
+msgstr "Account aanmaken"
 
 #: theme/templates/registration/password_change_done.html:7
 #: theme/templates/registration/password_change_done.html:11
 #: theme/templates/registration/password_change_form.html:7
 #: theme/templates/registration/password_change_form.html:12
 msgid "Change password"
-msgstr "Passwort ändern"
+msgstr "Wachtwoord wijzigen "
 
 #: theme/templates/registration/password_change_done.html:12
 msgid "Your password has been changed."
-msgstr "Ihr Passwort wurde geändert."
+msgstr "Uw wachtwoord is gewijzigd."
 
 #: theme/templates/registration/password_change_form.html:13
 msgid "Please enter your old password. Then enter your new password twice."
 msgstr ""
-"Bitte geben Sie Ihr altes Passwort ein. Geben Sie dann zweimal Ihr neues "
-"Passwort ein."
+"Gelieve uw oude wachtwoord in te voeren. Voer vervolgens uw nieuwe "
+"wachtwoord tweemaal in."
 
 #: theme/templates/registration/password_change_form.html:20
 #: theme/templates/registration/password_reset_confirm.html:18
 msgid "Change my password"
-msgstr "Mein Passwort ändern"
+msgstr "Mijn wachtwoord veranderen"
 
 #: theme/templates/registration/password_reset_complete.html:8
 #: theme/templates/registration/password_reset_complete.html:12
 msgid "Your password has been reset"
-msgstr "Ihr Passwort wurde zurückgesetzt."
+msgstr "Uw wachtwoord is gereset"
 
 #: theme/templates/registration/password_reset_complete.html:13
 msgid "Your password has been set. You may log in now."
-msgstr "Ihr Passwort wurde festgelegt. Sie können sich nun anmelden."
+msgstr "Uw wachtwoord is ingesteld.  U kunt nu inloggen."
 
 #: theme/templates/registration/password_reset_confirm.html:7
 msgid "Set a new password?"
-msgstr "Ein neues Passwort festlegen?"
+msgstr "Een nieuw wachtwoord instellen?"
 
 #: theme/templates/registration/password_reset_confirm.html:12
 msgid "Set a new password!"
-msgstr "Ein neues Passwort festlegen!"
+msgstr "Een nieuw wachtwoord instellen!"
 
 #: theme/templates/registration/password_reset_confirm.html:13
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
 msgstr ""
-"Geben Sie Ihr Passwort zweimal ein, damit wir überprüfen können, ob Sie es "
-"richtig eingegeben haben."
+"Gelieve uw nieuwe wachtwoord tweemaal in te voeren, zodat we kunnen nagaan "
+"of u het correct hebt getypt."
 
 #: theme/templates/registration/password_reset_confirm.html:21
 msgid "Invalid link"
-msgstr "Ungültiger Link"
+msgstr "Ongeldige link"
 
 #: theme/templates/registration/password_reset_confirm.html:22
 msgid ""
 "The link for password recovery is invalid, likely because it has already "
 "been used. Please submit a new request for password recovery."
 msgstr ""
-"Der Link für die Wiederherstellung des Passworts ist ungültig, "
-"wahrscheinlich weil er  bereits verwendet wurde. Stellen Sie einen neuen "
-"Antrag auf Wiederherstellung des Passworts."
+"De link voor het wachtwoordherstel is ongeldig, waarschijnlijk omdat die al "
+"is gebruikt. Gelieve opnieuw een wachtwoordherstel aan te vragen."
 
 #: theme/templates/registration/password_reset_done.html:7
 #: theme/templates/registration/password_reset_done.html:11
 msgid "E-mail sent"
-msgstr "E-Mail gesendet"
+msgstr "E-mail verzonden"
 
 #: theme/templates/registration/password_reset_done.html:13
 msgid ""
 "We have sent you instructions to reset your password. Provided an account "
 "with the entered e-mail exists, you should receive it shortly."
 msgstr ""
-"Wir haben Ihnen eine Anleitung zur Wiederherstellung Ihres Passworts "
-"gesendet. Vorausgesetzt, dass ein Konto mit der eingegebenen E-Mail "
-"existiert, sollten Sie diese in Kürze erhalten."
+"We hebben u instructies toegezonden om uw wachtwoord te resetten. Als er een "
+"account met het ingevoerde mailadres bestaat, zou u deze binnenkort moeten "
+"ontvangen."
 
 #: theme/templates/registration/password_reset_done.html:14
 msgid ""
 "If you have not received an e-mail, please check if it is the e-mail address "
 "with which you registered or your spam folder."
 msgstr ""
-"Wenn Sie keine E-Mail erhalten haben, überprüfen Sie bitte, ob es sich um "
-"die E-Mail-Adresse handelt, mit der Sie sich registriert haben oder Ihren "
-"Spam-Ordner."
+"Hebt u geen e-mail ontvangen, kijk dan na of u zich met dit mailadres hebt "
+"aangemeld of kijk in uw spammap."
 
 #: theme/templates/registration/password_reset_email.html:2
 #, python-format
@@ -427,46 +422,45 @@ msgid ""
 "You're receiving this e-mail because you requested a password reset for your "
 "user account at %(site_name)s."
 msgstr ""
-"Sie erhalten diese E-Mail, weil Sie eine Wiederherstellung des Passworts für "
-"%(site_name)s angefordert haben."
+"U ontvangt deze e-mail omdat u een reset van uw wachtwoord hebt aangevraagd "
+"voor uw gebruikersaccount bij %(site_name)s."
 
 #: theme/templates/registration/password_reset_email.html:4
 msgid "Please go to the following page and set up a new password:"
-msgstr ""
-"Bitte gehen Sie auf die folgende Seite und legen Sie ein neues Passwort fest:"
+msgstr "Ga naar de volgende bladzijde en stel een nieuw wachtwoord in:"
 
 #: theme/templates/registration/password_reset_email.html:8
 msgid "Your username:"
-msgstr "Ihr Benutzername:"
+msgstr "Uw gebruikersnaam:"
 
 #: theme/templates/registration/password_reset_email.html:10
 msgid "Thank you for visiting our website!"
-msgstr "Vielen Dank für Ihren Besuch auf unserer Webseite!"
+msgstr "Bedankt voor uw bezoek aan onze website!"
 
 #: theme/templates/registration/password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
-msgstr "Ihr %(site_name)s-Team"
+msgstr "Het %(site_name)s-team"
 
 #: theme/templates/registration/password_reset_form.html:7
 msgid "Forgot Password?"
-msgstr "Passwort vergessen?"
+msgstr "Wachtwoord vergeten?"
 
 #: theme/templates/registration/password_reset_form.html:13
 msgid ""
 "Have you forgotten your password? Enter your e-mail address and we will send "
 "you instructions on how to set a new password."
 msgstr ""
-"Haben Sie Ihr Passwort vergessen? Geben Sie Ihre E-Mail-Adresse ein und wir "
-"senden Ihnen Anweisungen, wie Sie ein neues Passwort festlegen können."
+"Bent u uw wachtwoord vergeten? Vul uw mailadres in en wij zullen u "
+"instructies toesturen om een nieuw wachtwoord in te stellen."
 
 #: theme/templates/registration/password_reset_form.html:18
 msgid "Reset password"
-msgstr "Passwort zurücksetzen"
+msgstr "Wachtwoord resetten"
 
 #: theme/templates/registration/select_company.html:7
 msgid "Select your company"
-msgstr "Wählen Sie Ihr Unternehmen aus."
+msgstr "Uw onderneming selecteren "
 
 #: theme/templates/registration/select_company.html:11
 msgid ""
@@ -549,11 +543,11 @@ msgstr "Getroffen diensten"
 
 #: theme/templates/regulator/menu.html:4
 msgid "Dashboard"
-msgstr "Übersicht"
+msgstr "Dashboard"
 
 #: theme/templates/regulator/menu.html:7
 msgid "User Management"
-msgstr "Nutzerverwaltung"
+msgstr "Gebruikersbeheer"
 
 #: theme/templates/report/contact.html:1
 msgid "Contact details"
