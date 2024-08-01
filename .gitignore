@@ -1,0 +1,19 @@
+# Ignore the following
+__pycache__/
+*.py[cod]
+*.sqlite[3]
+.idea
+.vscode/
+
+docs/_build/
+
+*.egg-info/
+npm-debug.log
+node_modules/
+
+*.mo
+
+logs/
+sent_emails/
+
+static/npm_components
