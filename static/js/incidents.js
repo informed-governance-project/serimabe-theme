@@ -2,14 +2,11 @@ $(document).ready(function () {
     $('#incidents-table').DataTable( {
         paging: false,
         searching: false,
-        order: [[0, 'asc']],
+        order: [[0, 'desc']],
         columnDefs: [
             {
                 targets: 0,
-                type:'datetime',
-                orderable: true,
-                def: () => new Date(),
-                format: 'd M Y, H:i',
+                type:'date',
             },
             {
                 targets: 1,
