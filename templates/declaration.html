@@ -64,5 +64,6 @@
 
 {% endblock %}
 {% block bootstrap5_extra_script %}
+  {{ block.super }}
   <script src='{% static "js/declaration.js" %}'></script>
 {% endblock %}

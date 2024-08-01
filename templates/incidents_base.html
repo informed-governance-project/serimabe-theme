@@ -10,6 +10,7 @@
 {% endblock %}
 
 {% block bootstrap5_extra_script %}
+{{ block.super }}
 <script type="text/javascript" src="{% static 'npm_components/datatables.net/js/jquery.dataTables.min.js' %}"></script>
 <link rel="stylesheet" href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
 <script type="text/javascript"
