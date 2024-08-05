@@ -9,7 +9,7 @@
     </div>
 
     <h1 class="mt-5 mb-2 text-center fw-bold">{% translate "Incident notification report" %}</h1>
-    <div class="mt-5 p-4 pb-0 border border-secondary border-1 rounded">
+    <div class="mt-5 p-4 pb-2 border border-secondary border-1 rounded">
         <p>
             <span class="fw-bold">
                 {% translate "Company name" %}:
@@ -18,34 +18,22 @@
         </p>
         <p>
             <span class="fw-bold">
-                {% translate "Incident reference" %}:
+                {% translate "Reference" %}:
             </span>
             {{ incident.incident_id }}
         </p>
         <p>
             <span class="fw-bold">
-                {% translate "Incident notification datetime" %}:
+                {% translate "Date of notification" %}:
             </span>
-            {{ incident.incident_notification_date|date:'Y-m-d' }}
+            {{ incident.incident_notification_date|date:"d M Y, H:i" }}
         </p>
         <p>
             <span class="fw-bold">
-                {% translate "Is impact significant" %}:
+                {% translate "Status" %}:
             </span>
-            {% if incident.is_significative_impact %}
-            {% translate "yes" %}
-            {% else %}
-            {% translate "no" %}
-            {% endif %}
+            {{ incident.get_incident_status_display }}   
         </p>
-        {% if incident.complaint_reference %}
-        <p>
-            <span class="fw-bold">
-                {% translate "Police report reference" %}:
-            </span>
-            {{ incident.complaint_reference }}
-        </p>
-        {% endif %}
     </div>
 </div>
 <p class="page-break" ></p>

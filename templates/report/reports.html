@@ -1,0 +1,48 @@
+{% load i18n %}
+
+<h2 id="incident_reports" class="fw-bold">{% translate "Reports" %}</h2>
+{% for incident_workflow_label, category_questions_answers in incident_workflows_answer.items %}
+    {% if not forloop.first %}
+    <div class="my-4"></div>
+    {% endif %}
+    <h3 id="{{ forloop.counter }}" >{{ incident_workflow_label }}</h3>
+    {% for category_label, questions_answers in category_questions_answers.items %}
+        <h6 class="border bg-light m-0 p-2 fw-bold">{{ category_label }}</h6>
+        <table class="table table-sm table-bordered m-0">
+            <tbody>
+                {% for question_label, answers in questions_answers.items %}
+                    <tr>
+                        <th class="col-7 fw-normal">
+                            {{ question_label }}
+                        </th>
+                        <td class="col-5">
+                            {% for answer_label in answers %}
+                                <span>{{ answer_label }}</span>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+    {% for label, impacts in incident_workflows_impact.items %}
+        {% if impacts and incident_workflow_label == label %}
+            <h6 class="border bg-light m-0 p-2 fw-bold">
+                {% translate "Impacts" %}
+            </h6>
+            <table class="table table-sm table-bordered m-0">
+                <tbody>
+                    {% for impact in impacts %}
+                    <tr>
+                        <td>
+                            {{ impact }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% endfor %}
+{% empty %}
+    {% translate "No report was submitted" %}
+{% endfor %}

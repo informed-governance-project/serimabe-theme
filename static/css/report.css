@@ -2,48 +2,13 @@
     size: A4; /* Change from the default size of A4 */
     margin: 2.5cm 2cm 2cm 2.5cm; /* Set margin on each page */
     padding: 15px 0 15px 0;
-    @top-left {
-        background-image: var('static/images/regulator_logo.png');
-        background-repeat: no-repeat;
-        content: '';
-        background-size: 100%;
-        background-position: center bottom;
-        margin-bottom: 5px;
-        height: 2.5cm;
-        width: 25%;
-    }
     @top-center {
-        background: #404040;
-        content: '';
-        display: block;
-        height: 0.2px;
-        opacity: 0.5;
+        content: element(header);
         width: 100%;
-    }
-    @bottom-left {
-        background-image: var(--left_logo_url);
-        background-repeat: no-repeat;
-        content: '';
-        background-size: 50%;
-        background-position: left center;
-        margin-bottom: 5px;
-        height: 2cm;
-        width: 25%;
     }
     @bottom-center {
-        background: #404040;
-        content: '';
-        display: block;
-        height: 0.2px;
-        opacity: 0.5;
+        content: element(footer);
         width: 100%;
-    }
-    @bottom-right {
-        content: counter(page);
-        height: 2cm;
-        width: 1cm;
-        text-align: center;
-        font-size: 14px;
     }
 }
 @page:first {
@@ -54,11 +19,39 @@
     @bottom-right { content: none;}
 }
 
+
+
+
+.doc-references {
+    text-align: center;
+    font-size: 10px;
+    width: 100%;    
+}
+
+#header {
+    position: running(header);
+    margin-bottom: -50px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #404040;
+}
+
+#footer {
+    position: running(footer);
+    margin-top: -50px;
+    padding-top: 5px;
+    border-top: 1px solid #404040;
+}
+
+.page-number:before {
+    content: "Page " counter(page);
+}
+
 /* Numbered the title */
 
 #page {
-	counter-reset: heading2;
+	counter-reset: heading2 heading3 heading4;
 }
+
 h2:before {
 	content: counter(heading2)". ";
 	counter-increment: heading2;
@@ -83,34 +76,10 @@ h4:before {
 }
 
 
-/* LOGOS */
-
-.tool_logo {
-    margin-top: 30%;
-    width: 80%;
-}
-
-.left_cover_logo {
-    width: 30%;
-}
-
-
 /* TOC */
-
-.toc {
-    list-style: none;
-    padding-left: 0;
-}
-
-.toc li {
-    border-bottom: .25pt solid #c1c1c1;
-    margin: .25cm 0;
-    padding-top: .25cm;
-}
-
-.toc li a {
-    color: inherit;
-    text-decoration-line: inherit;
+.toc-heading:before {
+    content: '';
+    counter-reset: heading2;
 }
 
 .toc li a::before {
@@ -120,17 +89,4 @@ h4:before {
 .toc li a::after {
     content: target-counter(attr(href), page);
     float: right;
-}
-
-.toc li > ul {
-    padding-left: 20px;
-}
-
-.sub_chapiter {
-    list-style: none;
-    margin: .1cm 0 !important;
-    padding-top: .1cm !important;
-}
-.sub_chapiter a::before {
-    font-size: 14px;
 }

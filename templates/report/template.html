@@ -5,15 +5,35 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="title" content="{{ _('Incident report') }}" />
-        <meta name="author" content="NC3" />
-        <title>{{ _('Incident report') }}</title>
+        <meta name="title" content="{% translate 'Incident report' %}" />
+        <title>{% translate "Incident report" %}</title>
     </head>
     <body>
         <div id="page">
+            {% include 'report/header.html' %}
+            {% include 'report/footer.html' %}
             {% include 'report/cover.html' %}
-            {% include 'report/contact.html' %}
-            {% include 'report/questions_answers.html' %}
+            {% include 'report/toc.html' %}
+            {% include 'report/details.html' %}
+            {% include 'report/contacts.html' %}
+            {% include 'report/reports.html' %}
         </div>
     </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toc = document.querySelector('.toc');
+            const headings = document.querySelectorAll('h2, h3, h4');
+            let tocHTML = '';
+        
+            headings.forEach((heading, index) => {
+                const level = parseInt(heading.tagName.substring(1));
+                const number = `${'0'.repeat(level - 2)}${index + 1}`;
+                tocHTML += `<li class="border-bottom border-secondary pt-1">
+                    <a class="text-decoration-none text-reset" href="#${heading.id}">${number}. ${heading.textContent}</a>
+                </li>`;
+            });
+        
+            toc.innerHTML = tocHTML;
+        });
+    </script>
 </html>
