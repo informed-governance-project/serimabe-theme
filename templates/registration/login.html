@@ -23,7 +23,7 @@
         {% for field in wizard.form %}
         {% bootstrap_field field show_label=False %}
         {% endfor %}
-        {% bootstrap_button button_type="submit" button_class="btn-danger" content=_("Log in") %}
+        {% bootstrap_button button_type="submit" button_class="btn-primary" content=_("Log in") %}
     </form>
     {% block 'backup_tokens' %}
     {% if backup_tokens %}
