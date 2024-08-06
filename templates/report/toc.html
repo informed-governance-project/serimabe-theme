@@ -1,0 +1,22 @@
+{% load i18n %}
+
+<h2 class="toc-heading fw-bold">{% translate "Table of contents" %}</h2>
+<ul class="toc list-unstyled pt-3">
+    <li class="border-bottom border-secondary">
+        <a class="text-decoration-none text-reset" href="#incident_details"></a>
+    </li>
+    <li class="border-bottom border-secondary">
+        <a class="text-decoration-none text-reset" href="#incident_contacts"></a>
+    </li>
+    <li class="border-bottom border-secondary">
+        <a class="text-decoration-none text-reset" href="#incident_reports"></a>
+    </li>
+    <ul class="list-unstyled ps-4 small">
+        {% for incident_workflow_label, category_questions_answers in incident_workflows_answer.items %}
+            <li class="border-bottom border-secondary pt-1">
+                <a class="text-decoration-none text-reset" href="#{{ forloop.counter }}"></a>
+            </li>
+        {% endfor %}
+    </ul>
+</ul>
+<p class="page-break" ></p>

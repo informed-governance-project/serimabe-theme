@@ -4,7 +4,7 @@
 {% load i18n %}
 
 {% block bootstrap5_title %}
-    {% trans "Sign Up" %}
+    {% trans "Register" %}
 {% endblock %}
 
 {% block login_content %}
@@ -23,14 +23,23 @@
                 <div class="col-6">{% bootstrap_field form.password2 show_help=False %}</div>    
             </div>
         
-            <button class="btn btn-primary" type="submit">{% translate "Register" %}</button>
+            <button class="btn btn-danger" type="submit">
+                {% translate "Create account" %}
+            </button>
         </form>
     </div>
     
 {% endblock login_content %}
-
 {% block helper_login_content %}
-    <h2 class="card-title">{% translate "Incident Notification" %}</h2><br><br>
-    <p class="card-text">{% translate "If you would like to notify an incident to your competent authority, please login or create an account" %}</p><br><br>
-    <a role="button" class="btn btn-light btn-lg" href="{% url 'login' %}" id="registration_button">{% translate "Log in" %}</a>
+    <h2 class="card-title">
+        {% translate "Incident Notification" %}
+    </h2>
+    <br><br>
+    <p class="card-text">
+        {% translate "If you would like to notify an incident to your competent authority, please login or create an account." %}
+    </p>
+    <br><br>
+    <a role="button" class="btn btn-light btn-lg" href="{% url 'login' %}" id="registration_button">
+        {% translate "Log in" %}
+    </a>
 {% endblock helper_login_content %}

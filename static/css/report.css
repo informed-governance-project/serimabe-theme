@@ -1,0 +1,92 @@
+@page {
+    size: A4; /* Change from the default size of A4 */
+    margin: 2.5cm 2cm 2cm 2.5cm; /* Set margin on each page */
+    padding: 15px 0 15px 0;
+    @top-center {
+        content: element(header);
+        width: 100%;
+    }
+    @bottom-center {
+        content: element(footer);
+        width: 100%;
+    }
+}
+@page:first {
+    @top-left { content: none;}
+    @top-center { content: none;}
+    @bottom-left { content: none;}
+    @bottom-center { content: none;}
+    @bottom-right { content: none;}
+}
+
+
+
+
+.doc-references {
+    text-align: center;
+    font-size: 10px;
+    width: 100%;    
+}
+
+#header {
+    position: running(header);
+    margin-bottom: -50px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #404040;
+}
+
+#footer {
+    position: running(footer);
+    margin-top: -50px;
+    padding-top: 5px;
+    border-top: 1px solid #404040;
+}
+
+.page-number:before {
+    content: "Page " counter(page);
+}
+
+/* Numbered the title */
+
+#page {
+	counter-reset: heading2 heading3 heading4;
+}
+
+h2:before {
+	content: counter(heading2)". ";
+	counter-increment: heading2;
+}
+h2 {
+	counter-reset: heading3;
+}
+h3:before {
+	content: counter(heading2)"." counter(heading3)". ";
+	counter-increment: heading3;
+}
+h3 {
+	counter-reset: heading4;
+}
+h4:before {
+	content: counter(heading2)"." counter(heading3)"."counter(heading4)". ";
+	counter-increment: heading4;
+}
+
+.page-break {
+    page-break-before: always
+}
+
+
+/* TOC */
+.toc-heading:before {
+    content: '';
+    counter-reset: heading2;
+}
+
+.toc li a::before {
+    content: target-text(attr(href));
+}
+
+.toc li a::after {
+    content: target-counter(attr(href), page);
+    float: right;
+}
