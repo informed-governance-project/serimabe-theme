@@ -52,6 +52,10 @@
 	counter-reset: heading2 heading3 heading4;
 }
 
+#content { 
+    counter-reset: heading2; 
+}
+
 h2:before {
 	content: counter(heading2)". ";
 	counter-increment: heading2;
@@ -82,11 +86,11 @@ h4:before {
     counter-reset: heading2;
 }
 
-.toc li a::before {
+.toc a::before {
     content: target-text(attr(href));
 }
 
-.toc li a::after {
+.toc a::after {
     content: target-counter(attr(href), page);
     float: right;
 }

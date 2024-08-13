@@ -1,45 +1,48 @@
 {% load i18n %}
-<h2 id="incident_details" class="fw-bold text-danger">
+{% load custom_filters %}
+
+<h2 id="security_measures" class="fw-bold text-danger">
     {% translate "Security Measures in place" %}
 </h2>
 <div>
-    <h3 class="fw-bold text-danger">
+    <h3 id="security_measures_1" class="fw-bold text-danger">
         {% translate "Sophistication level breakdown" %}
     </h3>
     <div class="col-10 mx-auto py-3">
-        <img src="data:image/png;base64,{{ bar_chart }}" class="img-fluid"/>
+        <img src="data:image/png;base64,{{ bar_chart }}" class="img-fluid" />
     </div>
 </div>
 <div>
-    <h3 class="fw-bold text-danger">
+    <h3 id="security_measures_2" class="fw-bold text-danger">
         {% translate "Security Objectives ranking by sophistication level" %}
     </h3>
     <table class="table table-sm table-bordered small">
         <thead class="thead-light">
             <tr>
                 {% for sophistication_level in sophistication_levels %}
-                    <th class="text-center">{{ sophistication_level }}</th>
+                <th class="text-center">{{ sophistication_level }}</th>
                 {% endfor %}
             </tr>
         </thead>
         <tbody>
             {% for rows in "1234"|make_list %}
-                <tr>
-                    {% for sophistication_level in sophistication_levels %}
-                        <td>SO {% lorem 10 w random %}</td>
-                    {% endfor %}
-                </tr>
+            <tr>
+                {% for sophistication_level in sophistication_levels %}
+                <td>SO {% lorem 10 w random %}</td>
+                {% endfor %}
+            </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
 <div>
-    <h3 class="fw-bold text-danger">
+    <h3 id="security_measures_3" class="fw-bold text-danger">
         {% translate "Security Objectives with the highest sophistication level for the sector" %}
     </h3>
     <div class="row">
         {% for year in years %}
-        <div class="{% if years|length == 2 %}col-6{% elif years|length == 3 %}col-4{% elif years|length == 4 %}col-3{% else %}col-2{% endif %}">
+        <div
+            class="{% if years|length == 2 %}col-6{% elif years|length == 3 %}col-4{% elif years|length == 4 %}col-3{% else %}col-2{% endif %}">
             <div class="fw-bold">
                 {{ year }}
             </div>
@@ -60,12 +63,13 @@
     </div>
 </div>
 <div>
-    <h3 class="fw-bold text-danger">
+    <h3 id="security_measures_4" class="fw-bold text-danger">
         {% translate "Security Objectives with the lowest sophistication level for the sector" %}
     </h3>
     <div class="row">
         {% for year in years %}
-        <div class="{% if years|length == 2 %}col-6{% elif years|length == 3 %}col-4{% elif years|length == 4 %}col-3{% else %}col-2{% endif %}">
+        <div
+            class="{% if years|length == 2 %}col-6{% elif years|length == 3 %}col-4{% elif years|length == 4 %}col-3{% else %}col-2{% endif %}">
             <div class="fw-bold">
                 {{ year }}
             </div>
@@ -86,13 +90,16 @@
     </div>
 </div>
 <div>
-    <h3 class="fw-bold text-danger">
+    <h3 id="security_measures_5" class="fw-bold text-danger">
         {% translate "Evolution of the Security Objectives since the previous year" %}
     </h3>
     <div class="col mx-auto py-3">
-        <img src="data:image/png;base64,{{ radar_chart }}" class="img-fluid"/>
+        <img src="data:image/png;base64,{{ radar_chart_so_by_category }}" class="img-fluid" />
     </div>
     <table class="table table-sm table-bordered small">
+        <caption>
+            <img src="data:image/png;base64,{{ colorbar }}" class="img-fluid" />
+        </caption>
         <thead class="thead-light">
             <tr>
                 <th class="col-7 text-center">{% translate "Domain" %}</th>
@@ -104,21 +111,106 @@
         </thead>
         <tbody>
             {% for so_category in so_categories %}
-                <tr>
-                    <td>{{ so_category }}</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">-></td>
-                    <td class="text-center">0</td>
-                </tr>
+            <tr>
+                {% with value_2023="0123"|make_list|random value_2024="0123"|make_list|random%}
+                <td>{{ so_category }}</td>
+                <td class="text-center">{{ value_2023 }}</td>
+                <td class="text-center" style="background-color: {{ value_2024|get_color }};">
+                    {{ value_2024 }}
+                </td>
+                <td class="text-center">
+                    {% if value_2024 > value_2023 %}
+                    <i class="bi bi-arrow-up-right"></i>
+                    {% elif value_2024 < value_2023 %} <i class="bi bi-arrow-down-right"></i>
+                        {% else %}
+                        <i class="bi bi-arrow-right"></i>
+                        {% endif %}
+                </td>
+                <td class="text-center">{{"0123"|make_list|random }}</td>
+                {% endwith %}
+            </tr>
             {% endfor %}
         </tbody>
     </table>
-
+    <div class="col mx-auto py-3">
+        <img src="data:image/png;base64,{{ radar_chart_so_list }}" class="img-fluid" />
+    </div>
+    <table class="table table-sm table-bordered small">
+        <caption>
+            <img src="data:image/png;base64,{{ colorbar }}" class="img-fluid" />
+        </caption>
+        <thead class="thead-light">
+            <tr>
+                <th class="col-2 text-center">{% translate "Objective" %}</th>
+                <th class="col-7 text-center">{% translate "Label" %}</th>
+                <th class="col-1 text-center">2023</th>
+                <th class="col-1 text-center">2024</th>
+                <th class="col-1 text-center">{% translate "Evolution" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for so in so_list %}
+            <tr>
+                {% with value_2023="0123"|make_list|random value_2024="0123"|make_list|random%}
+                <td>{{ so }}</td>
+                <td>{% lorem 5 w random %}</td>
+                <td class="text-center">{{ value_2023 }}</td>
+                <td class="text-center" style="background-color: {{ value_2024|get_color }};">
+                    {{ value_2024 }}
+                </td>
+                <td class="text-center">
+                    {% if value_2024 > value_2023 %}
+                    <i class="bi bi-arrow-up-right"></i>
+                    {% elif value_2024 < value_2023 %} <i class="bi bi-arrow-down-right"></i>
+                        {% else %}
+                        <i class="bi bi-arrow-right"></i>
+                        {% endif %}
+                </td>
+                {% endwith %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
-<h3 class="fw-bold text-danger">
-    {% translate "Evolution of the weakest Security Objectives" %}
-</h3>
-
-
-
+<div>
+    <h3 id="security_measures_6" class="fw-bold text-danger">
+        {% translate "Evolution of the weakest Security Objectives" %}
+    </h3>
+    <table class="table table-sm table-bordered small">
+        <caption>
+            <img src="data:image/png;base64,{{ colorbar }}" class="img-fluid" />
+        </caption>
+        <thead class="thead-light">
+            <tr>
+                <th class="col-2 text-center">{% translate "Objective" %}</th>
+                <th class="col-7 text-center">{% translate "Label" %}</th>
+                <th class="col-1 text-center">2023</th>
+                <th class="col-1 text-center">2024</th>
+                <th class="col-1 text-center">{% translate "Evolution" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for so in so_list %}
+            {% if forloop.counter <= 5 %} <tr>
+                {% with value_2023="0123"|make_list|random value_2024="0123"|make_list|random%}
+                <td>{{ so }}</td>
+                <td>{% lorem 5 w random %}</td>
+                <td class="text-center">{{ value_2023 }}</td>
+                <td class="text-center" style="background-color: {{ value_2024|get_color }};">
+                    {{ value_2024 }}
+                </td>
+                <td class="text-center">
+                    {% if value_2024 > value_2023 %}
+                    <i class="bi bi-arrow-up-right"></i>
+                    {% elif value_2024 < value_2023 %} <i class="bi bi-arrow-down-right"></i>
+                        {% else %}
+                        <i class="bi bi-arrow-right"></i>
+                        {% endif %}
+                </td>
+                {% endwith %}
+                </tr>
+                {% endif %}
+                {% endfor %}
+        </tbody>
+    </table>
+</div>

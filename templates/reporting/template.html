@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="title" content="{% translate 'Incident report' %}" />
         <title>{% translate "Incident report" %}</title>
+        <link rel="stylesheet" href="file:{{ static_dir }}/npm_components/bootstrap-icons/font/bootstrap-icons.css">
     </head>
     <body>
         <div id="page">
@@ -14,8 +15,9 @@
             {% include 'reporting/footer.html' %}
             {% include 'reporting/cover.html' %}
             {% include 'reporting/toc.html' %}
-            {% include 'reporting/security_mesures.html' %}
-
+            <div id="content">
+                {% include 'reporting/security_mesures.html' %}
+            </div>
         </div>
     </body>
     <script>
