@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="file:{{ static_dir }}/npm_components/bootstrap-icons/font/bootstrap-icons.css">
     </head>
     <body>
+        {% with title_class="fw-bold text-danger" table_class="table table-sm table-bordered small" chart_class="py-3" %}
         <div id="page">
             {% include 'reporting/header.html' %}
             {% include 'reporting/footer.html' %}
@@ -17,24 +18,10 @@
             {% include 'reporting/toc.html' %}
             <div id="content">
                 {% include 'reporting/security_mesures.html' %}
+                {% include 'reporting/risks.html' %}
+                {% include 'reporting/observations.html' %}
             </div>
         </div>
+        {% endwith %}
     </body>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toc = document.querySelector('.toc');
-            const headings = document.querySelectorAll('h2, h3, h4');
-            let tocHTML = '';
-        
-            headings.forEach((heading, index) => {
-                const level = parseInt(heading.tagName.substring(1));
-                const number = `${'0'.repeat(level - 2)}${index + 1}`;
-                tocHTML += `<li class="border-bottom border-secondary pt-1">
-                    <a class="text-decoration-none text-reset" href="#${heading.id}">${number}. ${heading.textContent}</a>
-                </li>`;
-            });
-        
-            toc.innerHTML = tocHTML;
-        });
-    </script>
 </html>
