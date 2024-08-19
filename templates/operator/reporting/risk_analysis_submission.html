@@ -1,0 +1,21 @@
+{% extends 'home/base.html' %}
+{% load i18n %}
+{% load tz %}
+{% load static %}
+{% load custom_filters %}
+{% load django_bootstrap5 %}
+
+{% block bootstrap5_title %}
+    {% translate "Risk analysis submission" %}
+{% endblock %}
+
+{% block content %}
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        {% bootstrap_form form %}
+        {% bootstrap_button button_type="submit" content="Submit"|translate %}
+    </form>
+    
+{% endblock %}
+
