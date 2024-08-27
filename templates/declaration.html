@@ -7,7 +7,7 @@
 {% block content %}
 <link rel="stylesheet" href="/static/npm_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/static/npm_components/bootstrap-select/dist/css/bootstrap-select.css" />
-<script src="/static/npm_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
 
 <div class="card">
   <form action="" method="post">
@@ -65,5 +65,6 @@
 {% endblock %}
 {% block bootstrap5_extra_script %}
   {{ block.super }}
+  <script src="/static/npm_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
   <script src='{% static "js/declaration.js" %}'></script>
 {% endblock %}
