@@ -116,13 +116,7 @@
                 {{incident.incident_notification_date|date:"d M Y, H:i" }}
             </td>
             <td class="table-group-divider"> <!-- Reference -->
-                {% block content_table_incident_id %}
-                {% for field in incident.formsStatus %}
-                {% if field.name == "incident_id" %}
-                {% bootstrap_field field show_label=False wrapper_class="m-0" %}
-                {% endif %}
-                {% endfor %}
-                {% endblock %}
+                {{incident.incident_id}}
             </td>
             <td class="table-group-divider"> <!-- Regulation or Regulator(observer case) -->
                 {% block content_table_regulation_or_regulator %}
