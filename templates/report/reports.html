@@ -18,7 +18,7 @@
             <td class="col-5">
                 {% for answer_label in answers %}
                 <p style="word-break:break-all">
-                    {{ answer_label }}
+                    {{ answer_label|linebreaksbr }}
                 </p>
                 {% endfor %}
             </td>
@@ -37,7 +37,7 @@
         {% for impact in impacts %}
         <tr>
             <td>
-                {{ impact }}
+                {{ impact|linebreaksbr }}
             </td>
         </tr>
         {% endfor %}
