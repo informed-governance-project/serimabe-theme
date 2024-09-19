@@ -31,7 +31,7 @@
                     href="{% if filtered_workflows %}{% url 'edit_workflow' %}{% else %}{% url 'create_workflow' %}{% endif %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}">
                     {{ report }}
                 </a>
-                {% with incident_workflows=incident|get_incident_workflow_by_workflow_operator:report %}
+                {% with incident_workflows=incident|get_incident_workflow_by_workflow:report %}
                 {% if incident_workflows %}
                 <button class="btn text-secondary p-0 ps-1 report_versions"
                     data-workflows="{{ incident_workflows }}"
