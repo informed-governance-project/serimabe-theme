@@ -10,10 +10,12 @@
 {{ block.super }}
 <button class="btn text-secondary p-0 border-0 contacts_incident"
     data-contacts='{
-        "contact_name": "{{ incident.contact_title }} {{ incident.contact_firstname }} {{ incident.contact_lastname }}",
+        "contact_name": "{{ incident.contact_firstname }} {{ incident.contact_lastname }}",
+        "contact_jobtitle": "{{ incident.contact_title }}",
         "contact_email": "{{ incident.contact_email }}",
         "contact_telephone": "{{ incident.contact_telephone }}",
-        "technical_name": "{{ incident.technical_title }} {{ incident.technical_firstname }} {{ incident.technical_lastname }}",
+        "technical_name": "{{ incident.technical_firstname }} {{ incident.technical_lastname }}",
+        "technical_jobtitle": "{{ incident.technical_title }}",
         "technical_email": "{{ incident.technical_email }}",
         "technical_telephone": "{{ incident.technical_telephone }}"
     }'
