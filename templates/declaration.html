@@ -60,8 +60,13 @@
   </form>
 </div>
 <br />
-<a href="{% url 'incidents' %}">{% bootstrap_button button_type="" content="Cancel"|translate button_class="btn-danger" %}</a>
-
+<a href="{% url 'incidents' %}">
+  {% if action == 'Create' %}
+      {% bootstrap_button button_type="" content="Cancel"|translate button_class="btn-danger" %}
+  {% else %}
+      {% bootstrap_button button_type="" content="Close"|translate button_class="btn-danger" %}
+  {% endif %}
+</a>
 {% endblock %}
 {% block bootstrap5_extra_script %}
   {{ block.super }}
