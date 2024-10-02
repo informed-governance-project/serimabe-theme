@@ -9,6 +9,14 @@
 <li class="nav-item d-none">
     <a class="nav-link" href="#">{% translate "Communication" %}</a>
 </li>
-<li class="nav-item">
-    <a class="nav-link" href="{% url 'incidents' %}">{% translate "Incident Notification" %}</a>
-</li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {% translate "Incident Notification" %}
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="{% url 'incidents' %}">{% translate "Dashboard" %}</a></li>
+        <li><hr class="dropdown-divider"></li>  
+        <li><a class="dropdown-item" href="{% url 'declaration' %}">{% translate "Report an incident" %}</a></li>
+        <li><a class="dropdown-item" href="{% url 'regulator_incidents' %}">{% translate "My incidents" %}</a></li>
+    </ul>
+  </li>
