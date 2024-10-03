@@ -140,9 +140,9 @@
                 <ul class="m-0 p-0">
                     {% for sector in incident.affected_sectors.all %}
                     {% if sector.parent is None %}
-                    {{ sector.name }}
+                    {{ sector.get_safe_translation }}
                     {% else %}
-                    {{ sector.parent }}
+                    {{ sector.parent.get_safe_translation }}
                     {% endif %}
                     <br />
                     {% endfor %}
@@ -152,7 +152,7 @@
                 <ul class="m-0 p-0">
                     {% for sector in incident.affected_sectors.all %}
                     {% if sector.parent is not None %}
-                    {{ sector.name }}
+                    {{ sector.get_safe_translation }}
                     {% endif %}
                     <br />
                     {% endfor %}
