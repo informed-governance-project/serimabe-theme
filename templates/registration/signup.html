@@ -22,8 +22,10 @@
                 <div class="col-6">{% bootstrap_field form.password1 show_help=False %}</div>         
                 <div class="col-6">{% bootstrap_field form.password2 show_help=False %}</div>    
             </div>
-        
-            <button class="btn btn-danger" type="submit">
+            <div>
+                {% bootstrap_field form.accept_terms %}
+            </div>
+            <button class="btn btn-primary" type="submit">
                 {% translate "Create account" %}
             </button>
         </form>
