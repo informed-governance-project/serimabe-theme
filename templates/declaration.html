@@ -60,7 +60,11 @@
   </form>
 </div>
 <br />
+{% if is_regulator_incident %}
+<a href="{% url 'regulator_incidents' %}">
+{% else %}
 <a href="{% url 'incidents' %}">
+{% endif %}
   {% if action == 'Create' %}
       {% bootstrap_button button_type="" content="Cancel"|translate button_class="btn-danger" %}
   {% else %}

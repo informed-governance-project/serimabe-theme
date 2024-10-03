@@ -8,7 +8,11 @@
 <script src='{% static "js/incidents_operator.js" %}'></script>
 {% endblock %}
 
-{% block content_title %}{% endblock %}
+{% block content_title %}
+{% if is_regulator_incidents %}
+<h3>{% translate "My incidents" %}</h3>
+{% endif %}
+{% endblock %}
 
 {% block content_table_incident_id %}
     {{ incident.incident_id }}
