@@ -11,6 +11,7 @@
 <div class="">
     <form action="" method="POST">
         {% csrf_token %}
+        {% bootstrap_form_errors form %}       
         <div class="row">
             <div class="col-6">{% bootstrap_field form.first_name %}</div>
             <div class="col-6">{% bootstrap_field form.last_name %}</div>
@@ -24,7 +25,7 @@
         </div>
         <div>
             <input class="form-check-input" type="checkbox" id="{{ form.accept_terms.id_for_label }}"
-                name="{{ form.accept.name }}">
+                name="{{ form.accept_terms.name }}">
             <label class="form-check-label" for="{{ form.accept_terms.id_for_label }}">
                 {{ form.accept_terms.label|safe }}
                 <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
