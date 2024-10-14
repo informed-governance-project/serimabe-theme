@@ -1,0 +1,51 @@
+{% extends template_header|default:"home/base.html" %}
+
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block bootstrap5_title %}
+{% block title %}{% translate "Accept terms" %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+<div class="modal" id="termsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{% translate "Terms of Service" %}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="post">
+                <div class="modal-body">
+                    {% csrf_token %}
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="{{ form.accept.id_for_label }}"
+                            name="{{ form.accept.name }}">
+                        <label class="form-check-label" for="{{ form.accept.id_for_label }}">
+                            {{ form.accept.label|safe }}
+                            <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
+                                rel="noopener noreferrer" target="{% if regulator.tos_url %} _blank {% endif %}">
+                                {% translate "Terms of Service" %}
+                            </a>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">{% translate "Continue" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let termsModal = new bootstrap.Modal(document.getElementById('termsModal'));
+        let checkbox = document.getElementById('{{ form.accept.id_for_label }}');
+        termsModal.show();
+        if (checkbox) {
+            checkbox.focus();
+        }
+    });
+</script>
+{% endblock %}

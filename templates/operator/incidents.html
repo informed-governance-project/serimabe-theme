@@ -8,7 +8,11 @@
 <script src='{% static "js/incidents_operator.js" %}'></script>
 {% endblock %}
 
-{% block content_title %}{% endblock %}
+{% block content_title %}
+{% if is_regulator_incidents %}
+<h3>{% translate "My incidents" %}</h3>
+{% endif %}
+{% endblock %}
 
 {% block content_table_incident_id %}
     {{ incident.incident_id }}
@@ -31,7 +35,7 @@
                     href="{% if filtered_workflows %}{% url 'edit_workflow' %}{% else %}{% url 'create_workflow' %}{% endif %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}">
                     {{ report }}
                 </a>
-                {% with incident_workflows=incident|get_incident_workflow_by_workflow_operator:report %}
+                {% with incident_workflows=incident|get_incident_workflow_by_workflow:report %}
                 {% if incident_workflows %}
                 <button class="btn text-secondary p-0 ps-1 report_versions"
                     data-workflows="{{ incident_workflows }}"

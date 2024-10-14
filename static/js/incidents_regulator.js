@@ -40,7 +40,7 @@ function onChangeIncident(value, id) {
     });
 }
 
-function onChangeWorkflowStatus(value,id,workflow_id) {
+function onChangeWorkflowStatus(value, id, workflow_id) {
     const csrftoken = getCookie('csrftoken');
 
     let formdata = $(value).serialize();

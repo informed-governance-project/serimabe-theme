@@ -4,10 +4,16 @@
 {% load custom_filters %}
 {% load static %}
 
-{% block content %}
+{% block bootstrap5_extra_script %}
+{{ block.super }}
 <link rel="stylesheet" href="/static/npm_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/static/npm_components/bootstrap-select/dist/css/bootstrap-select.css" />
+<link rel="stylesheet" href="{% static 'css/incidents.css' %}" />
 <script src="/static/npm_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+<script src='{% static "js/declaration.js" %}'></script>
+{% endblock %}
+
+{% block content %}
 
 <div class="card">
   <form action="" method="post">
@@ -60,10 +66,15 @@
   </form>
 </div>
 <br />
-<a href="{% url 'incidents' %}">{% bootstrap_button button_type="" content="Cancel"|translate button_class="btn-danger" %}</a>
-
-{% endblock %}
-{% block bootstrap5_extra_script %}
-  {{ block.super }}
-  <script src='{% static "js/declaration.js" %}'></script>
+{% if is_regulator_incident %}
+<a href="{% url 'regulator_incidents' %}">
+{% else %}
+<a href="{% url 'incidents' %}">
+{% endif %}
+  {% if action == 'Create' %}
+      {% bootstrap_button button_type="" content="Cancel"|translate button_class="btn-danger" %}
+  {% else %}
+      {% bootstrap_button button_type="" content="Close"|translate button_class="btn-danger" %}
+  {% endif %}
+</a>
 {% endblock %}

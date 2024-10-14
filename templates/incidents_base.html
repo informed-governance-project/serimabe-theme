@@ -6,12 +6,12 @@
 {% load django_bootstrap5 %}
 
 {% block bootstrap5_title %}
-    {% translate "Incidents" %}
+{% translate "Incidents" %}
 {% endblock %}
 
 {% block bootstrap5_extra_script %}
 {{ block.super }}
-<script type="text/javascript" src="{% static 'npm_components/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
 <link rel="stylesheet" href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
 <script type="text/javascript"
     src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
@@ -19,15 +19,13 @@
 <script src="/static/npm_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src='{% static "js/incidents.js" %}'></script>
 <link rel="stylesheet" href="{% static 'css/incidents.css' %}" />
-{% endblock %}
-
-{% block content %}
+{% endblock %}{% block content %}
 {% block content_title %}
 <h3>{% translate "Reported incidents" %}</h3>
 {% endblock %}
 {% settings_value "TIME_ZONE" as time_zone %}
-<div class="d-flex {% if is_regulator or is_observer %}justify-content-end{% else %}justify-content-between{% endif %}">
-    {% if not is_regulator and not is_observer %}
+<div class="d-flex {% if is_regulator and not is_regulator_incidents or is_observer %}justify-content-end{% else %}justify-content-between{% endif %}">
+    {% if not is_regulator and not is_observer or is_regulator_incidents %}
     <div>
         <a role="button" class="btn btn-primary btn-sm" href="{% url 'declaration' %}">
             {% translate "Report an incident" %}
@@ -77,25 +75,25 @@
 <table id="incidents-table" class="table align-middle table-sm small">
     <thead>
         <tr>
-            <th scope="col">{% translate "Incident notification date" %}</th>
-            <th scope="col">{% translate "Reference" %}</th>
-            <th scope="col">
+            <th class="text-start">{% translate "Incident notification date" %}</th>
+            <th>{% translate "Reference" %}</th>
+            <th>
                 {% if is_observer %}
                 {% translate "Regulator" %}
                 {% else %}
                 {% translate "Regulation" %}
                 {% endif %}
             </th>
-            <th scope="col">
-                {% if is_regulator or is_observer %}
+            <th>
+                {% if is_regulator and not is_regulator_incidents or is_observer %}
                 {% translate "Operator" %}
                 {% else %}
                 {% translate "Regulator" %}
                 {% endif %}
             </th>
-            <th scope="col">{% translate "Sectors" %}</th>
-            <th scope="col">{% translate "Subsectors" %}</th>
-            <th scope="col">
+            <th>{% translate "Sectors" %}</th>
+            <th>{% translate "Subsectors" %}</th>
+            <th>
                 <table class="table table-borderless table-sm m-0">
                     <tr>
                         <td>{% translate "Report" %}</td>
@@ -103,16 +101,16 @@
                     </tr>
                 </table>
             </th>
-            <th scope="col">{% translate "Incident status" %}</th>
-            <th scope="col">{% translate "Significant impact" %}</th>
-            <th scope="col">{% translate "Actions" %}</th>
+            <th>{% translate "Incident status" %}</th>
+            <th>{% translate "Significant impact" %}</th>
+            <th>{% translate "Actions" %}</thss=>
         </tr>
     </thead>
     <tbody>
         {% for incident in incidents %}
         {% timezone time_zone %}
         <tr>
-            <td class="table-group-divider"> <!-- NoIncident notification date -->
+            <td class="table-group-divider text-start"> <!-- NoIncident notification date -->
                 {{incident.incident_notification_date|date:"d M Y, H:i" }}
             </td>
             <td class="table-group-divider"> <!-- Reference -->
@@ -131,16 +129,20 @@
             </td>
             <td class="table-group-divider"> <!-- Regulator / Operator -->
                 {% block content_table_entity %}
+                {% if incident.company %}
                 {{ incident.company.identifier }}
+                {% else %}
+                {{ incident.regulator }}
+                {% endif %}
                 {% endblock %}
             </td>
             <td class="table-group-divider"> <!-- Sectors -->
                 <ul class="m-0 p-0">
                     {% for sector in incident.affected_sectors.all %}
                     {% if sector.parent is None %}
-                    {{ sector.name }}
+                    {{ sector.get_safe_translation }}
                     {% else %}
-                    {{ sector.parent }}
+                    {{ sector.parent.get_safe_translation }}
                     {% endif %}
                     <br />
                     {% endfor %}
@@ -150,7 +152,7 @@
                 <ul class="m-0 p-0">
                     {% for sector in incident.affected_sectors.all %}
                     {% if sector.parent is not None %}
-                    {{ sector.name }}
+                    {{ sector.get_safe_translation }}
                     {% endif %}
                     <br />
                     {% endfor %}
@@ -170,19 +172,17 @@
                             {% with incident_workflows=incident|get_incident_workflow_by_workflow:report %}
                             {% if incident_workflows %}
                             <button class="btn text-secondary p-0 ps-1 report_versions"
-                                data-workflows="{{ incident_workflows }}"
-                                data-report="{{ report }}"
+                                data-workflows="{{ incident_workflows }}" data-report="{{ report }}"
                                 data-incident-ref="{{ incident.incident_id}}"
                                 data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
-                                data-download-url="{% url 'download_incident_report_pdf' 0 %}"
-                                data-bs-toggle="modal"
-                                data-bs-target="#report_versions"
-                                title="Report versions">
+                                data-download-url="{% url 'download_incident_report_pdf' 0 %}" data-bs-toggle="modal"
+                                data-bs-target="#report_versions" title="Report versions">
                                 <i class="bi bi-clock-history"></i>
                             </button>
                             {% endif %}
                             {% if filtered_workflows %}
-                            <a class="btn text-secondary p-0 {% if not incident_workflows %}ps-1{% endif %} border-0" href="{% url 'download_incident_report_pdf' filtered_workflows.instance.id %}"
+                            <a class="btn text-secondary p-0 {% if not incident_workflows %}ps-1{% endif %} border-0"
+                                href="{% url 'download_incident_report_pdf' filtered_workflows.instance.id %}"
                                 title="Download">
                                 <i class="bi bi-filetype-pdf"></i>
                             </a>
@@ -272,7 +272,8 @@
         {% endfor %}
         {% if incidents.has_next %}
         <li>
-            <a class="page-link text-decoration-none" href="?{% url_replace request 'page' incidents.next_page_number %}">
+            <a class="page-link text-decoration-none"
+                href="?{% url_replace request 'page' incidents.next_page_number %}">
                 &raquo;
             </a>
         </li>
@@ -296,9 +297,8 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"></div>
 </div>
 
-<div class="modal fade modal-sm" id="report_versions" data-bs-backdrop="static"
-     data-bs-keyboard="false" tabindex="-1" aria-labelledby="report_versions_label"
-     aria-hidden="true">
+<div class="modal fade modal-sm" id="report_versions" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="report_versions_label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         {% include "modals/report_versions.html" %}
     </div>

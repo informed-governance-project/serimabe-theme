@@ -1,0 +1,55 @@
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block content %}
+<div class="modal-content">
+    <div class="modal-header bg-primary text-white">
+        <h4 class="modal-title" id="contacts_incident_label">
+            {% translate "Contacts" %}
+        </h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body text-center">
+        <div class="card" id="contact-card">
+            <div class="card-body text-center">
+                <h5 class="card-title" id="contact-name"></h5>
+                <h6 class="card-subtitle text-muted" id="contact-jobtitle"></h6>
+                <h6 class="small card-subtitle text-muted fst-italic" id="card-subtitle-contact">{% translate "Person in charge" %}</h6>
+                <span id="translated-both-contact-text" class="d-none">
+                    {% translate "Person in charge and technical contact" %}
+                </span>
+            </div>
+            <ul class="list-group list-group-flush bg-white">
+                <li class="list-group-item">
+                    <i class="bi bi-envelope me-2"></i>
+                    <span id="contact-email"></span>
+                </li>
+                <li class="list-group-item">
+                    <i class="bi bi-phone me-2"></i>
+                    <span id="contact-telephone"></span>
+                </li>
+            </ul>
+        </div>
+        <div id="technical-card">
+            <hr />
+            <div class="card" >
+                <div class="card-body text-center">
+                    <h5 class="card-title" id="technical-name"></h5>
+                    <h6 class="card-subtitle text-muted" id="technical-jobtitle"></h6>                   
+                    <h6 class="small card-subtitle text-muted fst-italic">{% translate "Technical contact" %}</h6>
+                </div>
+                <ul class="list-group list-group-flush bg-white">
+                    <li class="list-group-item">
+                        <i class="bi bi-envelope me-2"></i>
+                        <span id="technical-email"></span>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="bi bi-phone me-2"></i>
+                        <span id="technical-telephone"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

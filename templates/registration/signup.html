@@ -4,42 +4,54 @@
 {% load i18n %}
 
 {% block bootstrap5_title %}
-    {% trans "Register" %}
+{% trans "Register" %}
 {% endblock %}
 
 {% block login_content %}
-    <div class="">
-        <form action="" method="POST">
-            {% csrf_token %}
-            <div class="row">
-                <div class="col-6">{% bootstrap_field form.first_name %}</div>
-                <div class="col-6">{% bootstrap_field form.last_name %}</div>            
-            </div>
-            <div>
-                {% bootstrap_field form.email %}
-            </div>
-            <div class="row">
-                <div class="col-6">{% bootstrap_field form.password1 show_help=False %}</div>         
-                <div class="col-6">{% bootstrap_field form.password2 show_help=False %}</div>    
-            </div>
-        
-            <button class="btn btn-danger" type="submit">
-                {% translate "Create account" %}
-            </button>
-        </form>
-    </div>
-    
+<div class="">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form_errors form %}       
+        <div class="row">
+            <div class="col-6">{% bootstrap_field form.first_name %}</div>
+            <div class="col-6">{% bootstrap_field form.last_name %}</div>
+        </div>
+        <div>
+            {% bootstrap_field form.email %}
+        </div>
+        <div class="row">
+            <div class="col-6">{% bootstrap_field form.password1 show_help=False %}</div>
+            <div class="col-6">{% bootstrap_field form.password2 show_help=False %}</div>
+        </div>
+        <div>
+            <input class="form-check-input" type="checkbox" id="{{ form.accept_terms.id_for_label }}"
+                name="{{ form.accept_terms.name }}">
+            <label class="form-check-label" for="{{ form.accept_terms.id_for_label }}">
+                {{ form.accept_terms.label|safe }}
+                <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
+                    rel="noopener noreferrer" 
+                    target="_blank">
+                    {% translate "Terms of Service" %}
+                </a>
+            </label>
+        </div>
+        <button class="btn btn-danger mt-3" type="submit">
+            {% translate "Create account" %}
+        </button>
+    </form>
+</div>
+
 {% endblock login_content %}
 {% block helper_login_content %}
-    <h2 class="card-title">
-        {% translate "Incident Notification" %}
-    </h2>
-    <br><br>
-    <p class="card-text">
-        {% translate "If you would like to notify an incident to your competent authority, please login or create an account." %}
-    </p>
-    <br><br>
-    <a role="button" class="btn btn-light btn-lg" href="{% url 'login' %}" id="registration_button">
-        {% translate "Log in" %}
-    </a>
+<h2 class="card-title">
+    {% translate "Incident Notification" %}
+</h2>
+<br><br>
+<p class="card-text">
+    {% translate "If you would like to notify an incident to your competent authority, please login or create an  account." %}
+</p>
+<br><br>
+<a role="button" class="btn btn-light btn-lg" href="{% url 'login' %}" id="registration_button">
+    {% translate "Log in" %}
+</a>
 {% endblock helper_login_content %}
