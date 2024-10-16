@@ -1,0 +1,123 @@
+{% extends 'home/base.html' %}
+{% block bootstrap5_title %}{{ action }} Security Objective{% endblock %}
+{% load django_bootstrap5 %}
+{% load static %}
+{% load i18n %} 
+{% block bootstrap5_extra_script %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/so_declaration.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-header small d-none d-xl-flex justify-content-between flex-wrap ">
+    {% for security_objective, maturity_levels in security_objectives.items %}
+    <button type="button" class="btn btn-light btn-sm shadow-sm" data-bs-target="#security_objectives_carousel" data-bs-slide-to="{{ forloop.counter0 }}">
+      {{ security_objective.unique_code }}
+    </button>
+  {% endfor %}
+  </div>
+  <div class="card-body">
+    <div id="security_objectives_carousel" 
+      class="carousel slide" 
+      data-bs-touch="false" 
+      data-bs-interval="false" 
+      data-bs-wrap="false">
+      <div class="carousel-inner">
+        {% for security_objective, maturity_levels in security_objectives.items %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <h4 class="card-title">{{ security_objective.unique_code }}: {{ security_objective.objective }}</h4>
+          <h5 class="card-subtitle mb-3 text-muted">{{ security_objective.description }}</h5>
+          <div class="table-responsive">
+            <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th class="col-1 text-center align-middle">
+                    {% translate "Level" %}
+                  </th>
+                  <th class="col-3 text-center align-middle">
+                    {% translate "Security Measure" %}
+                  </th>
+                  <th class="col-4 text-center align-middle">
+                    {% translate "Evidence" %}
+                  </th>
+                  <th class="col-1 text-center align-middle">
+                    {% translate "Measure in place ?" %}
+                  </th>
+                  <th class="col-3 text-center align-middle">
+                    {% translate "Comments" %}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for maturity_level, values in maturity_levels.items %}
+                  {% for measure in values.measures %}
+                    {% for evidence in measure.evidences %}
+                      <tr>
+                      {% if forloop.parentloop.first and forloop.first %}
+                      <th rowspan="{{ values.evidence_count }}" class="col-1 text-center align-middle">
+                          {{ maturity_level }}
+                      </th>
+                      {% endif %}
+                      {% if forloop.first %}
+                      <td rowspan="{{  measure.evidences|length }}" class="col-3">
+                        {{ measure }}
+                      </td>
+                      {% endif %}
+                      <td class="col-4">
+                        {{ evidence }}
+                      </td>
+                      <td class="col-1 fixed-height">
+                        <div class="checkbox-is-measure d-flex justify-content-center align-items-center h-100">
+                          {% bootstrap_field evidence.so_answer_form.is_measure_in_place show_label=False wrapper_class="m-0" %}
+                        </div>
+                      </td>
+                      <td class="col-3">
+                        {% bootstrap_field evidence.so_answer_form.operator_comment show_label=False wrapper_class="m-0" %}
+                      </td>
+                      {% empty %}
+                      <th class="col-2 text-center align-middle">
+                        {{ maturity_level }}
+                      </th>
+                      <td class="col-3">
+                        {{ measure }}
+                      </td>
+                      <td class="col-4"></td>
+                      <td class="col-1"></td>
+                      <td class="col-3"></td>
+                      {% endfor %}
+                    </tr>
+                  {% endfor %}  
+                {% empty %}
+                  <h3>{% translate "No security measures data" %}</h3>
+                {% endfor %} 
+              </tbody>
+            </table>
+          </div>
+        </div>
+        {% empty %}
+        <h3>{% translate "No security objectives data" %}</h3>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="card-footer p-3">
+      <div class="d-flex justify-content-center">
+        <a class="carousel-control-prev position-relative" 
+          type="button" 
+          data-bs-target="#security_objectives_carousel" 
+          data-bs-slide="prev">
+          <i class="carousel-control-prev-icon bi bi-caret-left-fill text-primary h1"></i>
+        </a>
+        <a class="carousel-control-next position-relative" 
+          type="button" 
+          data-bs-target="#security_objectives_carousel" 
+          data-bs-slide="next">
+          <i class="carousel-control-next-icon bi bi-caret-right-fill text-primary h1"></i>
+        </a>
+      </div>
+  </div>
+  </div>
+</div>
+{% endblock %}
+
