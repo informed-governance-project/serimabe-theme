@@ -1,0 +1,31 @@
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block content %}
+<div class="modal-content">
+    <div class="modal-header bg-primary text-white">
+        <h4 class="modal-title" id="select_SO_standard_label">
+            {% translate "Select security objective standard" %}
+        </h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <form action="{% url 'select_so_standard' %}" method="post">
+        {% csrf_token %}
+        <div class="modal-body">
+            {% bootstrap_form_errors form %}
+            {% bootstrap_messages %}
+            {% if not messages %}
+                {% bootstrap_field form.so_standard %}
+                {% bootstrap_field form.year %}            
+            {% endif %}
+        </div>
+        {% if not messages %}
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+                {% translate "Declare" %}
+            </button>
+        </div>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}
