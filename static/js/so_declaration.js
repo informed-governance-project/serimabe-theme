@@ -1,14 +1,4 @@
 $(document).ready(function () {
-
-  // $('.copy_so_declaration').on( "click", function() {
-  //   let $this = $(this);
-  //   let modalCopyForm = $("#modal-copy-declaration-form");
-  //   let copyUrlBase = $this.data('copy-url');
-  //   let standardAnswerId = $this.data('standard-answer-id');
-  //   let copyUrl = copyUrlBase.replace('0', standardAnswerId);
-  //   modalDeleteButton.attr('action', copyUrl);
-  // });
-
   $('.delete_so_declaration').on( "click", function() {
     let $this = $(this);
     let modalDeleteButton = $("#modal-delete-declaration-button");
@@ -18,18 +8,17 @@ $(document).ready(function () {
     modalDeleteButton.attr('href', deleteUrl);
   });
 
-})
-
-$('.copy_so_declaration').on( "click", function() {
-  let $this = $(this);
-  let standardAnswerId = $this.data('standard-answer-id');
-  let $popup = $("#copy_so_declaration");
-  let popup_url = `/securityobjectives/copy/${standardAnswerId}`;
-
-  $(".modal-dialog", $popup).load(popup_url, function () {
-      $popup.modal("show");
+  $('.copy_so_declaration').on( "click", function() {
+    let $this = $(this);
+    let standardAnswerId = $this.data('standard-answer-id');
+    let $popup = $("#copy_so_declaration");
+    let popup_url = `/securityobjectives/copy/${standardAnswerId}`;
+  
+    $(".modal-dialog", $popup).load(popup_url, function () {
+        $popup.modal("show");
+    });
   });
-});
+})
 
 function update_so_answer(form){
     const csrftoken = $('input[name=csrfmiddlewaretoken]').val();

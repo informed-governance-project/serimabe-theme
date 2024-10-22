@@ -15,7 +15,7 @@
 {% block content %}
 <div class="d-flex">
     <div class="me-auto">
-        <a role="button" class="btn btn-primary btn-sm select_SO_Standard" data-bs-toggle="modal" data-bs-target="#select_SO_Standard">
+        <a role="button" class="btn btn-primary btn-sm select_so_standard" data-bs-toggle="modal" data-bs-target="#select_so_standard">
             {% translate "New declaration" %}
         </a>
     </div>
@@ -120,6 +120,12 @@
 </div>
 
 <!-- Modals -->
+
+<div id="spinner-overlay">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
 
 <div class="modal fade" id="delete_so_declaration" data-bs-backdrop="static"
 data-bs-keyboard="false" tabindex="-1" aria-labelledby="delete_so_declaration_label"
