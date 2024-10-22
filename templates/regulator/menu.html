@@ -23,7 +23,7 @@
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         {% translate "Security Objectives" %}
     </a>
-    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="{% url 'so_declaration' %}">{% translate "Declaration" %}</a></li>
+    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+        <li><a class="btn dropdown-item select_SO_Standard" data-bs-toggle="modal" data-bs-target="#select_SO_Standard">{% translate "Declaration" %}</a></li>
     </ul>
   </li>
