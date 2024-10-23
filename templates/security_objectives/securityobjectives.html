@@ -8,7 +8,7 @@
 
 {% block bootstrap5_extra_script %}
 {{ block.super }}
-<script src='{% static "js/so_declaration.js" %}'></script>
+<script src='{% static "js/so_dashboard.js" %}'></script>
 {% endblock %}
 
 
@@ -73,6 +73,10 @@
                         title="Copy">
                         <i class="bi bi-copy"></i>
                     </button>
+                    <a class="btn text-primary p-0 border-0" href="{% url 'download_so_declaration_pdf' standard.id %}"
+                        title="Download">
+                        <i class="bi bi-filetype-pdf"></i>
+                    </a>
                     <a class="btn p-0 border-0 {% if standard.answered_percentage < 100 or not standard.status == 'UNDE' %}text-secondary disabled{% else %}text-success{% endif %}" 
                         href="{% url 'submit_so_declaration' standard.id  %}"
                         title="Submit"
