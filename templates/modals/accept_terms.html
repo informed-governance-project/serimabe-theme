@@ -12,14 +12,18 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">{% translate "Terms of Service" %}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                {% if is_only_admin %} 
+                    <h1>{% translate "Terms of Service" %}</h1>
+                {% else %}
+                    <h5 class="modal-title">{% translate "Terms of Service" %}</h5>
+                {% endif %}
+                <button type="button" class="btn-close {% if is_only_admin %}hidden{% endif %}" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="" method="post">
                 <div class="modal-body">
                     {% csrf_token %}
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="{{ form.accept.id_for_label }}"
+                        <input class="form-check-input {% if is_only_admin %}input{% endif %}" type="checkbox" id="{{ form.accept.id_for_label }}"
                             name="{{ form.accept.name }}">
                         <label class="form-check-label" for="{{ form.accept.id_for_label }}">
                             {{ form.accept.label|safe }}
@@ -30,8 +34,8 @@
                         </label>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger">{% translate "Continue" %}</button>
+                <div class="modal-footer {% if is_only_admin %}double-padding{% endif %}">
+                    <button type="submit" class="btn btn-danger {% if is_only_admin %}button{% endif %}">{% translate "Continue" %}</button>
                 </div>
             </form>
         </div>
