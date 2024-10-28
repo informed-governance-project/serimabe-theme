@@ -24,9 +24,9 @@
 <table id="securityobjectives-table" class="table align-middle table-sm small">
     <thead>
         <tr>
-            <th class="col-2">{% translate "Notification date" %}</th>
+            <th class="col-2">{% translate "Creation date" %}</th>
             <th class="col-2">{% translate "Standard" %}</th>
-            <th class="col-1">{% translate "Submitter" %}</th>
+            <th class="col-1">{% translate "Creator" %}</th>
             <th class="col-1">{% translate "Year" %}</th>
             <th class="col-2">{% translate "Progress" %}</th>
             <th class="col-2">{% translate "Status" %}</th>
@@ -59,31 +59,42 @@
             </td>
             <td class="col-2 table-group-divider">{{standard.get_status_display}}</td>
             <td class="col-1 table-group-divider">
-                <div class="d-flex align-items-center justify-content-around">
-                    <a class="btn p-0 border-0 {% if not standard.status == 'UNDE' %}text-secondary disabled{% else %}text-primary{% endif %}" 
+                <div class="d-flex align-items-center">
+                    {% if not is_regulator %}
+                    <a class="btn border-0 px-2 {% if not standard.status == 'UNDE' %}text-secondary disabled{% else %}text-primary{% endif %}" 
                         href="{% url 'so_declaration' %}?id={{ standard.id }}"
                         title="Edit"
                         {% if not standard.status == 'UNDE' %}aria-disabled="true" disabled{% endif %}>
                         <i class="bi bi-pencil-fill"></i>
                     </a>
-                    <button class="btn text-primary p-0 border-0 copy_so_declaration"
+                    {% else %}
+                    <a class="btn border-0 px-2 {% if standard.status == 'UNDE' %}text-secondary disabled{% else %}text-primary{% endif %}" 
+                        href="{% url 'so_declaration' %}?id={{ standard.id }}"
+                        title="Review"
+                        {% if standard.status == 'UNDE' %}aria-disabled="true" disabled{% endif %}>
+                        <i class="bi bi-pencil-fill"></i>
+                    </a>
+                    {% endif %}                    
+                    <a class="btn border-0 px-2 text-primary " 
+                        href="{% url 'download_so_declaration_pdf' standard.id %}"
+                        title="Download">
+                        <i class="bi bi-filetype-pdf"></i>
+                    </a>
+                    {% if not is_regulator %}
+                    <button class="btn border-0 px-2 text-primary copy_so_declaration"
                         data-standard-answer-id="{{ standard.id }}"
                         data-bs-toggle="modal"
                         data-bs-target="#copy_so_declaration"
                         title="Copy">
                         <i class="bi bi-copy"></i>
                     </button>
-                    <a class="btn text-primary p-0 border-0" href="{% url 'download_so_declaration_pdf' standard.id %}"
-                        title="Download">
-                        <i class="bi bi-filetype-pdf"></i>
-                    </a>
-                    <a class="btn p-0 border-0 {% if standard.answered_percentage < 100 or not standard.status == 'UNDE' %}text-secondary disabled{% else %}text-success{% endif %}" 
+                    <a class="btn border-0 px-2 {% if standard.answered_percentage < 100 or not standard.status == 'UNDE' %}text-secondary disabled{% else %}text-success{% endif %}" 
                         href="{% url 'submit_so_declaration' standard.id  %}"
                         title="Submit"
                         aria-disabled="true">
                         <i class="bi bi-file-earmark-arrow-up-fill"></i>
                     </a>
-                    <button class="btn p-0 border-0 delete_so_declaration {% if not standard.status == 'UNDE' %}text-secondary{% else %}text-danger{% endif %}"
+                    <button class="btn border-0 px-2 delete_so_declaration {% if not standard.status == 'UNDE' %}text-secondary{% else %}text-danger{% endif %}"
                         data-standard-answer-id="{{ standard.id }}"
                         data-delete-url="{% url 'delete_so_declaration' 0 %}"
                         data-bs-toggle="modal"
@@ -91,7 +102,8 @@
                         title="Delete"
                         {% if not standard.status == 'UNDE' %} disabled{% endif %}>
                         <i class="bi bi-trash3-fill"></i>
-                    </button>                    
+                    </button>
+                    {% endif %}                    
                 </div>
             </td>
         </tr>
