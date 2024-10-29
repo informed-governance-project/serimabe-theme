@@ -77,10 +77,12 @@
                   <td class="col-3 lh-sm">
                     {{ measure.evidence|linebreaksbr }}
                   </td>
-                  <td class="col-1 fixed-height">
-                    <div class="checkbox-is-measure d-flex justify-content-center align-items-center h-100">
+                  <td class="col-1 align-middle">
+                    {% if not forloop.parentloop.first %}
+                    <div class="checkbox-is-measure d-flex justify-content-center">
                       {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0" %}
                     </div>
+                    {% endif %}
                   </td>
                   <td class="{% if is_regulator %}col-2{% else %}col-4{% endif %} lh-sm">
                     {% bootstrap_field measure.answer_form.comment show_label=False wrapper_class="m-0" %}
