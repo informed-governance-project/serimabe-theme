@@ -16,7 +16,7 @@ $(document).ready(function () {
 });
 
 
-function update_so_answer(form) {
+function update_so_declaration(form) {
   const csrftoken = $('input[name=csrfmiddlewaretoken]').val();
   const id = form.name.split('-').shift();
   const name = form.name.split('-').pop();
