@@ -13,16 +13,53 @@
 
 
 {% block content %}
-{% if not is_regulator %}
 <div class="d-flex">
+    {% if not is_regulator %}
     <div class="me-auto">
         <a role="button" class="btn btn-primary btn-sm select_so_standard" data-bs-toggle="modal" data-bs-target="#select_so_standard">
             {% translate "New declaration" %}
         </a>
     </div>
+    {% endif %}
+    <button class="btn btn-primary btn-sm ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilters"
+        aria-expanded="false" aria-controls="collapseFilters">
+        {% translate "Filter" %}
+        {% if is_filtered %}
+        <span>
+            ({% translate "Applied" %})
+        </span>
+        {% endif %}
+        <i class="bi bi-funnel-fill"></i>
+    </button>
 </div>
-{% endif %}
+<div class="my-2">
+    <div id="collapseFilters" class="collapse">
+        <form method="get">
+            <div class="row">
+                <div class="col-3">
+                    {% bootstrap_field filter.form.standard %}
+                </div>
+                <div class="col-3">
+                    {% bootstrap_field filter.form.year_of_submission %}
+                </div>
+                <div class="col-3">
+                    {% bootstrap_field filter.form.status %}
+                </div>
+                <div class="col-3">
+                    {% bootstrap_field filter.form.submitter_company %}
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-danger btn-sm" type="submit" name="reset" value="true">
+                    {% translate "Reset" %}
+                </button>
+                <input class="btn btn-primary btn-sm ms-2" type="submit" value='{{_("Search")}}' />
+            </div>
+        </form>
+    </div>
+</div>
 
+{% if filter.qs %}
 <table id="securityobjectives-table" class="table align-middle table-sm small">
     <thead>
         <tr>
@@ -136,6 +173,9 @@
     </ul>
  {% endif %}
 </div>
+{% else %}
+<p>{% translate "No security objectives declaration" %}</p>
+{% endif %}
 
 <!-- Modals -->
 
