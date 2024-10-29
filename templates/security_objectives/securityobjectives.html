@@ -65,7 +65,13 @@
         <tr>
             <th class="col-2">{% translate "Creation date" %}</th>
             <th class="col-2">{% translate "Standard" %}</th>
-            <th class="col-1">{% translate "Creator" %}</th>
+            <th class="col-1">
+                {% if not is_regulator %}
+                {% translate "Creator" %}
+                {% else %}
+                {% translate "Company" %}
+                {% endif %}
+            </th>
             <th class="col-1">{% translate "Year" %}</th>
             <th class="col-2">{% translate "Progress" %}</th>
             <th class="col-2">{% translate "Status" %}</th>
@@ -79,7 +85,13 @@
             <td class="col-2 table-group-divider">{{standard.standard_notification_date|date:"d M Y, H:i" }}</td>
             {% endtimezone %}
             <td class="col-2 table-group-divider">{{standard.standard.label}}</td>
-            <td class="col-1 table-group-divider">{{standard.creator_name}}</td>
+            <td class="col-1 table-group-divider">
+                {% if not is_regulator %}
+                {{ standard.creator_name }}
+                {% else %}
+                {{ standard.creator_company_name }}
+                {% endif %}
+            </td>
             <td class="col-1 table-group-divider">{{standard.year_of_submission}}</td>
             <td class="col-2 table-group-divider">
                 <div class="progress w-75">
