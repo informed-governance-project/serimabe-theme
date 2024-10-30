@@ -67,7 +67,8 @@
 <table id="securityobjectives-table" class="table align-middle table-sm small">
     <thead>
         <tr>
-            <th class="col-2">{% translate "Creation date" %}</th>
+            <th class="col-1">{% translate "Last update" %}</th>
+            <th class="col-1">{% translate "Submit date" %}</th>
             <th class="col-2">{% translate "Standard" %}</th>
             <th class="col-1">
                 {% if not is_regulator %}
@@ -86,8 +87,9 @@
         {% for standard in standard_answers %}
         <tr>
             {% timezone "Europe/Paris" %}
-            <td class="col-2 table-group-divider">{{standard.standard_notification_date|date:"d M Y, H:i" }}</td>
+            <td class="col-1 table-group-divider">{{standard.last_update|date:"d M Y, H:i" }}</td>
             {% endtimezone %}
+            <td class="col-1 table-group-divider">{{standard.submit_date|date:"d M Y, H:i" }}</td>
             <td class="col-2 table-group-divider">{{standard.standard.label}}</td>
             <td class="col-1 table-group-divider">
                 {% if not is_regulator %}
