@@ -46,7 +46,11 @@
                     {% bootstrap_field filter.form.status %}
                 </div>
                 <div class="col-3">
+                    {% if is_regulator %}
                     {% bootstrap_field filter.form.submitter_company %}
+                    {% else %}
+                    {% bootstrap_field filter.form.submitter_user %}
+                    {% endif %}
                 </div>
             </div>
             <div class="d-flex justify-content-end">
