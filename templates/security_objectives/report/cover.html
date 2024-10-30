@@ -30,9 +30,15 @@
         </p>
         <p>
             <span class="fw-bold">
-                {% translate "Date of notification" %}:
+                {% translate "Last update" %}:
             </span>
-            {{ standard_answer.standard_notification_date|date:"d M Y, H:i" }}
+            {{ standard_answer.last_update|date:"d M Y, H:i" }}
+        </p>
+        <p>
+            <span class="fw-bold">
+                {% translate "Submit date" %}:
+            </span>
+            {{ standard_answer.submit_date|date:"d M Y, H:i" }}
         </p>
         <p>
             <span class="fw-bold">
