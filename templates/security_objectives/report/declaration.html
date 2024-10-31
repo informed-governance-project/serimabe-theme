@@ -1,12 +1,12 @@
 {% load i18n %}
 {% for security_objective, maturity_levels in security_objectives.items %}
 <div class="page-landscape">
-  <div class="d-flex">
+  <div class="d-flex m-0 mb-1">
     <div class="me-auto">
       <h5 id="{{ security_objective.unique_code }}" class="fw-bold m-0">
         {{ security_objective.unique_code }}: {{ security_objective.objective }}
       </h5>
-      <h6 class="card-subtitle mb-3 text-muted">{{ security_objective.description }}</h6>
+      <h6 class="card-subtitle text-muted">{{ security_objective.description }}</h6>
     </div>
     {% if is_regulator %}
     <div class="col-2 text-end">
@@ -22,7 +22,7 @@
         [{% translate "Not reviewed" %}]
       </h5>
       {% endif %}
-      <h6 class="card-subtitle text-end text-muted py-1 m-0">
+      <h6 class="card-subtitle text-end text-muted m-0">
         {% translate "Score" %} : {{ security_objective.status.score|default:0|floatformat:"2" }}
       </h6>
     </div>

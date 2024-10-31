@@ -1,40 +1,57 @@
 @page {
-    size: A4; /* Change from the default size of A4 */
-    margin: 2.5cm 2cm 2cm 2.5cm; /* Set margin on each page */
+    size: A4;
+    /* Change from the default size of A4 */
+    margin: 2.5cm 2cm 2cm 2.5cm;
+    /* Set margin on each page */
     padding: 15px 0 15px 0;
+
     @top-center {
         content: element(header);
         width: 100%;
     }
+
     @bottom-center {
         content: element(footer);
         width: 100%;
     }
 }
-@page:first {
-    @top-left { content: none;}
-    @top-center { content: none;}
-    @bottom-left { content: none;}
-    @bottom-center { content: none;}
-    @bottom-right { content: none;}
+
+@page: first {
+    @top-left {
+        content: none;
+    }
+
+    @top-center {
+        content: none;
+    }
+
+    @bottom-left {
+        content: none;
+    }
+
+    @bottom-center {
+        content: none;
+    }
+
+    @bottom-right {
+        content: none;
+    }
 }
 
 @page page-landscape {
     size: landscape;
-    margin: 1.5cm 1.5cm 1.5cm 1.5cm; /* Set margin on each page */
+    margin: 1.5cm 1.5cm 1.5cm 1.5cm;
+    /* Set margin on each page */
 }
 
 .page-landscape {
     page: page-landscape;
 }
 
-
-
-
 .doc-references {
     text-align: center;
     font-size: 10px;
-    width: 100%;    
+    width: 100%;
 }
 
 #header {
@@ -58,30 +75,34 @@
 /* Numbered the title */
 
 #page {
-	counter-reset: heading2 heading3 heading4;
+    counter-reset: heading2 heading3 heading4;
 }
 
-#content { 
-    counter-reset: heading2; 
+#content {
+    counter-reset: heading2;
 }
 
 h2:before {
-	content: counter(heading2)". ";
-	counter-increment: heading2;
+    content: counter(heading2)". ";
+    counter-increment: heading2;
 }
+
 h2 {
-	counter-reset: heading3;
+    counter-reset: heading3;
 }
+
 h3:before {
-	content: counter(heading2)"." counter(heading3)". ";
-	counter-increment: heading3;
+    content: counter(heading2)"." counter(heading3)". ";
+    counter-increment: heading3;
 }
+
 h3 {
-	counter-reset: heading4;
+    counter-reset: heading4;
 }
+
 h4:before {
-	content: counter(heading2)"." counter(heading3)"."counter(heading4)". ";
-	counter-increment: heading4;
+    content: counter(heading2)"." counter(heading3)"." counter(heading4)". ";
+    counter-increment: heading4;
 }
 
 .page-break {
