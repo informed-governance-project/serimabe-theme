@@ -70,28 +70,28 @@
                 {% for measure in measures %}
                 <tr>
                   {% if forloop.first %}
-                  <th rowspan="{{ measures|length }}" class="col-1 text-center align-middle lh-sm">
+                  <th rowspan="{{ measures|length }}" class="col-1 table-group-divider text-center align-middle lh-sm">
                     {{ maturity_level }}
                   </th>
                   {% endif %}
-                  <td class="col-3 lh-sm">
+                  <td class="col-3 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
                     {{ measure }}
                   </td>
-                  <td class="col-3 lh-sm">
+                  <td class="col-3 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
                     {{ measure.evidence|linebreaksbr }}
                   </td>
-                  <td class="col-1 align-middle">
+                  <td class="col-1 align-middle {% if forloop.first %}table-group-divider{% endif %}">
                     {% if not forloop.parentloop.first %}
                     <div class="checkbox-is-measure d-flex justify-content-center">
                       {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0" %}
                     </div>
                     {% endif %}
                   </td>
-                  <td class="{% if is_regulator %}col-2{% else %}col-4{% endif %} lh-sm">
+                  <td class="{% if is_regulator %}col-2{% else %}col-4{% endif %} lh-sm {% if forloop.first %}table-group-divider{% endif %}">
                     {% bootstrap_field measure.answer_form.comment show_label=False wrapper_class="m-0" %}
                   </td>
                   {% if is_regulator %}
-                  <td class="col-2 lh-sm">
+                  <td class="col-2 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
                     {% bootstrap_field measure.answer_form.review_comment show_label=False wrapper_class="m-0" %}
                   </td>
                   {% endif %}
