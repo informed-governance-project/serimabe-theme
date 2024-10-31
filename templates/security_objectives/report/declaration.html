@@ -17,14 +17,14 @@
         {% else %}text-dark{% endif %}">
         [{{ security_objective.status.get_status_display }}]
       </h5>
-      <h6 class="card-subtitle text-end text-muted py-1 m-0">
-        {% translate "Score" %} : {{ security_objective.score|default:0|floatformat:"2" }}
-      </h6>
       {% else %}
       <h5 class="fw-bold m-0">
         [{% translate "Not reviewed" %}]
       </h5>
       {% endif %}
+      <h6 class="card-subtitle text-end text-muted py-1 m-0">
+        {% translate "Score" %} : {{ security_objective.status.score|default:0|floatformat:"2" }}
+      </h6>
     </div>
     {% endif %}
   </div>
