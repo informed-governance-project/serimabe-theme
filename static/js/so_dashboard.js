@@ -1,4 +1,48 @@
 $(document).ready(function () {
+  $('#securityobjectives-table').DataTable({
+    paging: true,
+    searching: false,
+    order: [[0, 'desc']],
+    columnDefs: [
+      {
+        targets: 0,
+        type: 'date',
+      },
+      {
+        targets: 1,
+        type: 'date',
+      },
+      {
+        targets: 2,
+        orderable: true,
+        type: 'string'
+      },
+      {
+        targets: 3,
+        orderable: true,
+        type: 'string'
+      },
+      {
+        targets: 4,
+        orderable: true,
+        type: 'string'
+      },
+      {
+        targets: 5,
+        orderable: true,
+      },
+      {
+        targets: 6,
+        orderable: true,
+        type: 'string'
+      },
+      {
+        targets: 7,
+        orderable: false,
+      },
+    ]
+  });
+
   $('.delete_so_declaration').on( "click", function() {
     let $this = $(this);
     let modalDeleteButton = $("#modal-delete-declaration-button");

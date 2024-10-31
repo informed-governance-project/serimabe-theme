@@ -8,6 +8,9 @@
 
 {% block bootstrap5_extra_script %}
 {{ block.super }}
+<script type="text/javascript" src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
+<script type="text/javascript"src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
 <script src='{% static "js/so_dashboard.js" %}'></script>
 {% endblock %}
 
@@ -67,8 +70,8 @@
 <table id="securityobjectives-table" class="table align-middle table-sm small">
     <thead>
         <tr>
-            <th class="col-1">{% translate "Last update" %}</th>
-            <th class="col-1">{% translate "Submit date" %}</th>
+            <th class="col-1 text-start">{% translate "Last update" %}</th>
+            <th class="col-1 text-start">{% translate "Submit date" %}</th>
             <th class="col-2">{% translate "Standard" %}</th>
             <th class="col-1">
                 {% if not is_regulator %}
@@ -78,7 +81,7 @@
                 {% endif %}
             </th>
             <th class="col-1">{% translate "Year" %}</th>
-            <th class="col-2">{% translate "Progress" %}</th>
+            <th class="col-2 text-start">{% translate "Progress" %}</th>
             <th class="col-2">{% translate "Status" %}</th>
             <th class="col-1">{% translate "Actions" %}</th>
         </tr>
@@ -87,9 +90,9 @@
         {% for standard in standard_answers %}
         <tr>
             {% timezone "Europe/Paris" %}
-            <td class="col-1 table-group-divider">{{standard.last_update|date:"d M Y, H:i" }}</td>
+            <td class="col-1 table-group-divider text-start">{{standard.last_update|date:"d M Y, H:i" }}</td>
             {% endtimezone %}
-            <td class="col-1 table-group-divider">{{standard.submit_date|date:"d M Y, H:i" }}</td>
+            <td class="col-1 table-group-divider text-start">{{standard.submit_date|date:"d M Y, H:i" }}</td>
             <td class="col-2 table-group-divider">{{standard.standard.label}}</td>
             <td class="col-1 table-group-divider">
                 {% if not is_regulator %}
@@ -167,30 +170,6 @@
         {% endfor %}
     </tbody>
 </table>
-<div >
-    {% if standard_answers.has_other_pages %}
-        <ul class="pagination">
-        {% if standard_answers.has_previous %}
-            <li><a href="?{% url_replace request 'page' standard_answers.previous_page_number %}" class="page-link">&laquo;</a></li>
-        {% else %}
-            <li class="page-link disabled"><span>&laquo;</span></li>
-        {% endif %}
-        {% for i in standard_answers.paginator.page_range %}
-            {% if standard_answers.number == i %}
-                <li class="page-link active"><span>{{ i }} <span class="sr-only">
-            </span></span></li>
-            {% else %}
-                <li class="page-link"><a href="?{% url_replace request 'page' i %}">{{ i }}</a></li>
-            {% endif %}
-        {% endfor %}
-        {% if standard_answers.has_next %}
-            <li><a class="page-link" href="?{% url_replace request 'page' standard_answers.next_page_number %}">&raquo;</a></li>
-        {% else %}
-            <li class="page-link disabled"><span>&raquo;</span></li>
-        {% endif %}
-    </ul>
- {% endif %}
-</div>
 {% else %}
 <p>{% translate "No security objectives declaration" %}</p>
 {% endif %}
