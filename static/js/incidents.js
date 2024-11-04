@@ -1,29 +1,27 @@
 $(document).ready(function () {
     $('#incidents-table').DataTable( {
-        paging: false,
+        paging: true,
         searching: false,
         order: [[0, 'desc']],
         columnDefs: [
             {
                 targets: 0,
+                orderable: true,
                 type:'date',
             },
             {
                 targets: 1,
                 orderable: true,
-                type:'string'
+                type:'string',
             },
             {
                 targets: 6,
                 orderable: false,
             },
             {
-                targets: 7,
-                orderable: false,
-            },
-            {
                 targets: 8,
-                orderable: false,
+                orderable: true,
+                type:'html',
             },
             {
                 targets: 9,
