@@ -8,11 +8,37 @@ $(document).ready(function () {
     });
   }
 
-  $security_objectives_carousel.on('slid.bs.carousel', function () { 
-    adjustTextareaHeights();  
+  function checkImplementation() {
+    $('.form-check-input').each(function () {
+      const checkboxId = $(this).attr('id');
+      const commentId = checkboxId.replace('is_implemented', 'comment');
+      const textarea = $('#' + commentId).not(".not-required"); 
+      if (textarea.length && $(this).is(':checked') && textarea.val().trim() === "") {
+        textarea
+          .addClass("border border-danger border-2")
+          .attr("placeholder", "Comment required");
+      } else {
+        textarea
+          .removeClass("border border-danger border-2")
+          .removeAttr('placeholder');;
+      }
+    });
+  }
+
+  $('.form-check-input').on('change', function () {
+    checkImplementation();
+  });
+  $('textarea[id*="-comment"]').not(".not-required").on('input', function () {
+    checkImplementation();
+  });
+
+
+  $security_objectives_carousel.on('slid.bs.carousel', function () {
+    adjustTextareaHeights();
   });
 
   adjustTextareaHeights();
+  checkImplementation();
 });
 
 
@@ -21,7 +47,7 @@ function update_so_declaration(form) {
   const id = form.name.split('-').shift();
   const name = form.name.split('-').pop();
   if (form.checked !== undefined) form.value = form.checked;
-  if (form.value) {
+  if (form.value !== undefined) {
     data = JSON.stringify({ "id": id, [name]: form.value });
     url = window.location.href.split(window.location.host).pop();
 
