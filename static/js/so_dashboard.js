@@ -15,26 +15,27 @@ $(document).ready(function () {
       {
         targets: 2,
         orderable: true,
-        type: 'string'
+        type: 'string-utf8'
       },
       {
         targets: 3,
         orderable: true,
-        type: 'string'
+        type: 'string-utf8'
       },
       {
         targets: 4,
         orderable: true,
-        type: 'string'
+        type: 'num'
       },
       {
         targets: 5,
         orderable: true,
+        type: 'num',
       },
       {
         targets: 6,
         orderable: true,
-        type: 'string'
+        type: 'string-utf8'
       },
       {
         targets: 7,
