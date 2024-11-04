@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#incidents-table').DataTable( {
+    $('#incidents-table').DataTable({
         paging: true,
         searching: false,
         order: [[0, 'desc']],
@@ -7,12 +7,12 @@ $(document).ready(function () {
             {
                 targets: 0,
                 orderable: true,
-                type:'date',
+                type: 'date',
             },
             {
                 targets: 1,
                 orderable: true,
-                type:'string',
+                type: 'string',
             },
             {
                 targets: 6,
@@ -21,7 +21,7 @@ $(document).ready(function () {
             {
                 targets: 8,
                 orderable: true,
-                type:'html',
+                type: 'html',
             },
             {
                 targets: 9,
@@ -30,7 +30,7 @@ $(document).ready(function () {
         ]
     });
 
-    $('.access_log').on( "click", function() {
+    $(document).on("click", '.access_log', function () {
         var $popup = $("#access_log");
         var popup_url = 'access_log/' + $(this).data("incident-id");
 
@@ -39,7 +39,7 @@ $(document).ready(function () {
         });
     });
 
-    $('.report_versions').on( "click", function() {
+    $(document).on("click", '.report_versions', function () {
         let $this = $(this);
         let incidentRef = $this.data('report');
         let reportId = $this.data('incident-ref');
@@ -55,7 +55,7 @@ $(document).ready(function () {
         $modalincidentRef.text(incidentRef);
         $modalWorkflowRows.empty();
 
-        workflows.forEach(function(workflow) {
+        workflows.forEach(function (workflow) {
             let reviewUrl = reviewUrlBase + workflow.id;
             let downloadUrl = downloadUrlBase.replace('0', workflow.id);
             let date = new Date(workflow.timestamp);
@@ -87,7 +87,7 @@ $(document).ready(function () {
         });
     });
 
-    $('.delete_incident').on( "click", function() {
+    $(document).on("click", '.delete_incident', function () {
         let $this = $(this);
         let modalDeleteButton = $("#modal-delete-button");
         let deleteUrlBase = $this.data('delete-url');
@@ -96,7 +96,7 @@ $(document).ready(function () {
         modalDeleteButton.attr('href', deleteUrl);
     });
 
-    $('.contacts_incident').on("click", function () {
+    $(document).on("click", '.contacts_incident', function () {
         let $this = $(this);
         const contacts = $this.data('contacts');
         if (contacts.contact_name == contacts.technical_name) {

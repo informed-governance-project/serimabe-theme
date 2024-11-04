@@ -44,7 +44,7 @@ $(document).ready(function () {
     ]
   });
 
-  $('.delete_so_declaration').on( "click", function() {
+  $(document).on("click", ".delete_so_declaration", function () {
     let $this = $(this);
     let modalDeleteButton = $("#modal-delete-declaration-button");
     let deleteUrlBase = $this.data('delete-url');
@@ -53,14 +53,14 @@ $(document).ready(function () {
     modalDeleteButton.attr('href', deleteUrl);
   });
 
-  $('.copy_so_declaration').on( "click", function() {
+  $(document).on("click", ".copy_so_declaration", function () {
     let $this = $(this);
     let standardAnswerId = $this.data('standard-answer-id');
     let $popup = $("#copy_so_declaration");
     let popup_url = `/securityobjectives/copy/${standardAnswerId}`;
-  
+
     $(".modal-dialog", $popup).load(popup_url, function () {
-        $popup.modal("show");
+      $popup.modal("show");
     });
   });
 })
