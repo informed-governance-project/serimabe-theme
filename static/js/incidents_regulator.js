@@ -58,8 +58,10 @@ function onChangeWorkflowStatus(value, id, workflow_id) {
             let workflow_id = response.id;
             let $tdElement = $('#workflow_review_status_' + workflow_id);
             let newClass = getReviewStatusClass(newReviewStatus);
-            $tdElement.removeClass();
-            $tdElement.addClass(newClass);
+            lastClass = $tdElement.attr('class').split(' ').pop();
+            $tdElement
+            .removeClass(lastClass)
+            .addClass(newClass);
         },
         error: function (error) {
             console.log(error);
