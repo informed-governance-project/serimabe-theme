@@ -8,8 +8,9 @@
 
 {% block bootstrap5_extra_script %}
 {{ block.super }}
-<script type="text/javascript" src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
 <link rel="stylesheet" href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/so_dashboard.css' %}" />
+<script type="text/javascript" src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
 <script type="text/javascript"src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
 <script src='{% static "js/so_dashboard.js" %}'></script>
 {% endblock %}
@@ -39,13 +40,16 @@
     <div id="collapseFilters" class="collapse">
         <form method="get">
             <div class="row">
-                <div class="col-3">
+                <div class="col-2">
                     {% bootstrap_field filter.form.standard %}
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     {% bootstrap_field filter.form.year_of_submission %}
                 </div>
                 <div class="col-3">
+                    {% bootstrap_field filter.form.sectors wrapper_class="sector-filter" %}
+                </div>
+                <div class="col-2">
                     {% bootstrap_field filter.form.status %}
                 </div>
                 <div class="col-3">
@@ -72,7 +76,7 @@
         <tr>
             <th class="col-1 text-start">{% translate "Last update" %}</th>
             <th class="col-1 text-start">{% translate "Submit date" %}</th>
-            <th class="col-2">{% translate "Standard" %}</th>
+            <th class="col-1">{% translate "Standard" %}</th>
             <th class="col-1">
                 {% if not is_regulator %}
                 {% translate "Creator" %}
@@ -80,9 +84,10 @@
                 {% translate "Company" %}
                 {% endif %}
             </th>
+            <th class="col-2">{% translate "Sectors" %}</th>
             <th class="col-1 text-start">{% translate "Year" %}</th>
             <th class="col-2 text-start">{% translate "Progress" %}</th>
-            <th class="col-2">{% translate "Status" %}</th>
+            <th class="col-1">{% translate "Status" %}</th>
             <th class="col-1">{% translate "Actions" %}</th>
         </tr>
     </thead>
@@ -93,13 +98,21 @@
             <td class="col-1 table-group-divider text-start">{{standard.last_update|date:"d M Y, H:i" }}</td>
             {% endtimezone %}
             <td class="col-1 table-group-divider text-start">{{standard.submit_date|date:"d M Y, H:i" }}</td>
-            <td class="col-2 table-group-divider">{{standard.standard.label}}</td>
+            <td class="col-1 table-group-divider">{{standard.standard.label}}</td>
             <td class="col-1 table-group-divider">
                 {% if not is_regulator %}
                 {{ standard.creator_name }}
                 {% else %}
                 {{ standard.creator_company_name }}
                 {% endif %}
+            </td>
+            <td class="col-2 table-group-divider">
+                <ul class="m-0 p-0">
+                    {% for sector in standard.sectors.all %}
+                    {{ sector }}
+                    <br />
+                    {% endfor %}
+                </ul>
             </td>
             <td class="col-1 table-group-divider text-start">{{standard.year_of_submission}}</td>
             <td class="col-2 table-group-divider">
@@ -117,7 +130,7 @@
                     {% endwith %}
                 </div>
             </td>
-            <td class="col-2 table-group-divider">{{standard.get_status_display}}</td>
+            <td class="col-1 table-group-divider">{{standard.get_status_display}}</td>
             <td class="col-1 table-group-divider">
                 <div class="d-flex align-items-center">
                     {% if not is_regulator %}

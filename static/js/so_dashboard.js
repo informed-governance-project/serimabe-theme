@@ -25,20 +25,25 @@ $(document).ready(function () {
       {
         targets: 4,
         orderable: true,
-        type: 'num'
+        type: 'string-utf8'
       },
       {
         targets: 5,
         orderable: true,
-        type: 'num',
+        type: 'num'
       },
       {
         targets: 6,
         orderable: true,
-        type: 'string-utf8'
+        type: 'num',
       },
       {
         targets: 7,
+        orderable: true,
+        type: 'string-utf8'
+      },
+      {
+        targets: 8,
         orderable: false,
       },
     ]
@@ -62,5 +67,6 @@ $(document).ready(function () {
     $(".modal-dialog", $popup).load(popup_url, function () {
       $popup.modal("show");
     });
+    
   });
 })
