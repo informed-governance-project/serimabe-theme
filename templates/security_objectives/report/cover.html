@@ -17,6 +17,19 @@
             {{ standard_answer.submitter_company }}
         </p>
         <p>
+            <div class="d-flex justify-content-start">
+                <div class="fw-bold">
+                    {% translate "Sectors" %}:
+                </div>
+                <ul class="ms-1 p-0">
+                    {% for sector in standard_answer.sectors.all %}
+                    {{ sector }}
+                    <br />
+                    {% endfor %}
+                </ul>
+            </div>
+        </p>
+        <p>
             <span class="fw-bold">
                 {% translate "Standard" %}:
             </span>
