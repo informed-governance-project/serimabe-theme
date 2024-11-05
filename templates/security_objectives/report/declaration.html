@@ -44,7 +44,7 @@
           {% translate "Measure in place ?" %}
         </th>
         <th class="{% if is_regulator %}col-2{% else %}col-4{% endif %} text-center align-middle">
-          {% translate "Comment" %}
+          {% translate "Justification" %}
         </th>
         {% if is_regulator %}
         <th class="col-2 text-center align-middle">
@@ -74,7 +74,7 @@
           </div>
         </td>
         <td class="{% if is_regulator %}col-2{% else %}col-4{% endif %} lh-sm {% if forloop.first %}table-group-divider{% endif %}">
-          {{ measure.comment|default:""|linebreaksbr }}
+          {{ measure.justification|default:""|linebreaksbr }}
         </td>
         {% if is_regulator %}
         <td class="col-2 lh-sm {% if forloop.first %}table-group-divider{% endif %}">

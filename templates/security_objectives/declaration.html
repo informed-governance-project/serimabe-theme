@@ -56,7 +56,7 @@
                   {% translate "Measure in place ?" %}
                 </th>
                 <th class="{% if is_regulator %}col-2{% else %}col-4{% endif %} text-center align-middle">
-                  {% translate "Comment" %}
+                  {% translate "Justification" %}
                 </th>
                 {% if is_regulator %}
                 <th class="col-2 text-center align-middle">
@@ -87,9 +87,9 @@
                   </td>
                   <td class="{% if is_regulator %}col-2{% else %}col-4{% endif %} lh-sm {% if forloop.first %}table-group-divider{% endif %}">
                     {% if forloop.parentloop.first %}
-                    {% bootstrap_field measure.answer_form.comment show_label=False wrapper_class="m-0" field_class="not-required" %}
+                    {% bootstrap_field measure.answer_form.justification show_label=False wrapper_class="m-0" field_class="not-required" %}
                     {%else %}
-                    {% bootstrap_field measure.answer_form.comment show_label=False wrapper_class="m-0" %}
+                    {% bootstrap_field measure.answer_form.justification show_label=False wrapper_class="m-0" %}
                     {% endif %}
                   </td>
                   {% if is_regulator %}

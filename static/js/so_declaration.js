@@ -11,12 +11,12 @@ $(document).ready(function () {
   function checkImplementation() {
     $('.form-check-input').each(function () {
       const checkboxId = $(this).attr('id');
-      const commentId = checkboxId.replace('is_implemented', 'comment');
-      const textarea = $('#' + commentId).not(".not-required"); 
+      const justificationId = checkboxId.replace('is_implemented', 'justification');
+      const textarea = $('#' + justificationId).not(".not-required"); 
       if (textarea.length && $(this).is(':checked') && textarea.val().trim() === "") {
         textarea
           .addClass("border border-danger border-2")
-          .attr("placeholder", "Comment required");
+          .attr("placeholder", "Justification required");
       } else {
         textarea
           .removeClass("border border-danger border-2")
@@ -28,7 +28,7 @@ $(document).ready(function () {
   $('.form-check-input').on('change', function () {
     checkImplementation();
   });
-  $('textarea[id*="-comment"]').not(".not-required").on('input', function () {
+  $('textarea[id*="-justification"]').not(".not-required").on('input', function () {
     checkImplementation();
   });
 
