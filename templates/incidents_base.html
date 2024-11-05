@@ -103,7 +103,7 @@
             </th>
             <th>{% translate "Incident status" %}</th>
             <th>{% translate "Significant impact" %}</th>
-            <th>{% translate "Actions" %}</thss=>
+            <th>{% translate "Actions" %}</th>
         </tr>
     </thead>
     <tbody>
@@ -210,7 +210,7 @@
                 {% block content_table_incident_status %}
                 {% for field in incident.formsStatus %}
                 {% if field.name == "incident_status" %}
-                {% bootstrap_field field show_label=False wrapper_class="m-0" %}
+                {% bootstrap_field field show_label=False wrapper_class="m-0"%}
                 {% endif %}
                 {% endfor %}
                 {% endblock %}
