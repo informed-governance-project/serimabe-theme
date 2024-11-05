@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  $('.so_status_form').find('option').addClass("bg-body text-dark");
+
   let $security_objectives_carousel = $('#security_objectives_carousel');
 
   function adjustTextareaHeights() {
@@ -12,7 +14,7 @@ $(document).ready(function () {
     $('.form-check-input').each(function () {
       const checkboxId = $(this).attr('id');
       const justificationId = checkboxId.replace('is_implemented', 'justification');
-      const textarea = $('#' + justificationId).not(".not-required"); 
+      const textarea = $('#' + justificationId).not(".not-required");
       if (textarea.length && $(this).is(':checked') && textarea.val().trim() === "") {
         textarea
           .addClass("border border-danger border-2")
@@ -48,7 +50,7 @@ function update_so_declaration(form) {
   const name = form.name.split('-').pop();
   if (form.checked !== undefined) form.value = form.checked;
   if (form.value !== undefined) {
-    data = JSON.stringify({ "id": id, [name]: form.value });
+    data = JSON.stringify({ "id": id, [name]: form.value });   
     url = window.location.href.split(window.location.host).pop();
 
     fetch(url, {
@@ -60,7 +62,31 @@ function update_so_declaration(form) {
       },
       body: data
     })
-      .then()
+      .then((response) => {
+        response.json()
+          .then(data => {
+            if (data.data.status){             
+              switch (data.data.status) {
+                case "PASS":
+                  $('.carousel-item.active')
+                    .find('.so_status_form')
+                    .removeClass("bg-danger")
+                    .addClass("text-white bg-success")
+                  break;
+                case "FAIL":
+                  $('.carousel-item.active')
+                  .find('.so_status_form')
+                  .removeClass("bg-success")
+                  .addClass("text-white bg-danger")
+                  break;
+                default:
+                  $('.carousel-item.active')
+                  .find('.so_status_form')
+                  .removeClass("text-white bg-success bg-danger")
+              }
+            }
+          })
+      })
       .catch((error) => {
         console.log(error);
       });
