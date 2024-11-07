@@ -1,0 +1,122 @@
+{% extends 'home/base.html' %}
+{% load i18n %}
+{% load tz %}
+{% load static %}
+{% load SO_custom_filters %}
+{% load django_bootstrap5 %}
+
+{% block bootstrap5_title %}{% translate "Security objectives" %}{% endblock %}
+
+{% block bootstrap5_extra_script %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/so_dashboard.css' %}" />
+<script type="text/javascript" src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
+<script type="text/javascript"src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
+<script src='{% static "js/so_dashboard.js" %}'></script>
+{% endblock %}
+
+{% block content %}
+{% settings_value "TIME_ZONE" as time_zone %}
+
+{% block content_title %}
+<h3>{% translate "Security objectives" %}</h3>
+{% endblock %}
+
+<div class="d-flex">
+    {% block content_new_declaration %}{% endblock %}
+    <button class="btn btn-primary btn-sm ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilters"
+        aria-expanded="false" aria-controls="collapseFilters">
+        {% translate "Filter" %}
+        {% if is_filtered %}
+        <span>
+            ({% translate "Applied" %})
+        </span>
+        {% endif %}
+        <i class="bi bi-funnel-fill"></i>
+    </button>
+</div>
+{% block content_filter %}{% endblock %}
+
+{% if filter.qs %}
+<table id="securityobjectives-table" class="table align-middle table-sm small">
+    <thead>
+        <tr>
+            <th class="col-1 text-start">{% translate "Last update" %}</th>
+            <th class="col-1 text-start">{% translate "Submit date" %}</th>
+            <th class="col-1">{% translate "Standard" %}</th>
+            <th class="col-1">
+                {% if not is_regulator %}
+                {% translate "Creator" %}
+                {% else %}
+                {% translate "Company" %}
+                {% endif %}
+            </th>
+            <th class="col-2">{% translate "Sectors" %}</th>
+            <th class="col-1 text-start">{% translate "Year" %}</th>
+            <th class="col-2 text-start">{% translate "Progress" %}</th>
+            <th class="col-1">{% translate "Status" %}</th>
+            <th class="col-1">{% translate "Actions" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for standard in standard_answers %}
+        {% timezone time_zone %}
+        <tr>
+            <td class="col-1 table-group-divider text-start">{{standard.last_update|date:"d M Y, H:i" }}</td>
+            <td class="col-1 table-group-divider text-start">{{standard.submit_date|date:"d M Y, H:i" }}</td>
+            <td class="col-1 table-group-divider">{{standard.standard.label}}</td>
+            <td class="col-1 table-group-divider">
+                {% if not is_regulator %}
+                {{ standard.creator_name }}
+                {% else %}
+                {{ standard.creator_company_name }}
+                {% endif %}
+            </td>
+            <td class="col-2 table-group-divider">
+                <ul class="m-0 p-0">
+                    {% for sector in standard.sectors.all %}
+                    {{ sector }}
+                    <br />
+                    {% endfor %}
+                </ul>
+            </td>
+            <td class="col-1 table-group-divider text-start">{{standard.year_of_submission}}</td>
+            <td class="col-2 table-group-divider">
+                <div class="progress w-75">
+                    {% with progress_value=standard.answered_percentage|default:0|floatformat:'0' %}
+                    <div class="progress-bar progress-bar-striped {% if progress_value == '100' %}bg-success{% endif %}"
+                        role="progressbar" 
+                        style="width: {{ progress_value }}%"
+                        aria-valuenow="{{ progress_value }}" 
+                        aria-valuemin="0" aria-valuemax="100">
+                      <span class="small">
+                        {{ progress_value }}%
+                      </span>
+                    </div>
+                    {% endwith %}
+                </div>
+            </td>
+            <td class="col-1 table-group-divider">{{standard.get_status_display}}</td>
+            <td class="col-1 table-group-divider">
+                <div class="d-flex align-items-center">
+                    {% block content_table_actions %}{% endblock %}                    
+                </div>
+            </td>
+        </tr>
+        {% endtimezone %}
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>{% translate "No security objectives declaration" %}</p>
+{% endif %}
+
+<!-- Modals -->
+{% block content_modals %}
+<div class="modal fade" id="review_comment_so_declaration" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="review_comment_so_declaration_label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"></div>
+</div>
+{% endblock %}
+{% endblock %}
