@@ -84,4 +84,13 @@ $(document).ready(function () {
     });
 
   });
+
+  $(document).on("click", '.so_access_log', function () {
+    var $popup = $("#so_access_log");
+    var popup_url = 'access_log/' + $(this).data("standard-answer-id");
+
+    $(".modal-dialog", $popup).load(popup_url, function () {
+        $popup.modal("show");
+    });
+});
 })

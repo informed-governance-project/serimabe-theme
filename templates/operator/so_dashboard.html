@@ -69,6 +69,9 @@
     href="{% url 'submit_so_declaration' standard.id  %}" title="Submit" aria-disabled="true">
     <i class="bi bi-file-earmark-arrow-up-fill"></i>
 </a>
+<button class="btn border-0 px-2 text-primary so_access_log" data-standard-answer-id="{{ standard.id }}" title="Access Log">
+    <i class="bi bi-file-earmark-person"></i>
+</button>
 <button class="btn border-0 px-2 delete_so_declaration {% if not standard.status == 'UNDE' %}text-secondary{% else %}text-danger{% endif %}"
     data-standard-answer-id="{{ standard.id }}"
     data-delete-url="{% url 'delete_so_declaration' 0 %}"

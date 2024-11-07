@@ -42,12 +42,14 @@
     {% if standard.status == 'UNDE' %}aria-disabled="true" disabled{% endif %}>
     <i class="bi bi-pencil-fill"></i>
 </a>
-<a class="btn border-0 px-2 text-primary " href="{% url 'download_so_declaration_pdf' standard.id %}" title="Download">
-    <i class="bi bi-filetype-pdf"></i>
-</a>
 <button class="btn border-0 px-2 text-primary review_comment_so_declaration" data-standard-answer-id="{{ standard.id }}"
     data-bs-toggle="modal" data-bs-target="#review_comment_so_declaration"  title="Review comment">
     <i class="bi bi-envelope-plus"></i>
 </button>
-
+<a class="btn border-0 px-2 text-primary" href="{% url 'download_so_declaration_pdf' standard.id %}" title="Download">
+    <i class="bi bi-filetype-pdf"></i>
+</a>
+<button class="btn border-0 px-2 text-primary so_access_log" data-standard-answer-id="{{ standard.id }}" title="Access Log">
+    <i class="bi bi-file-earmark-person"></i>
+</button>
 {% endblock %}
