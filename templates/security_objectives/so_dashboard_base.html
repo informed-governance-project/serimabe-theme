@@ -97,7 +97,9 @@
                     {% endwith %}
                 </div>
             </td>
-            <td class="col-1 table-group-divider">{{standard.get_status_display}}</td>
+            <td class="col-1 table-group-divider status_column {% status_class standard.status  %}">
+                    {{standard.get_status_display}}
+            </td>
             <td class="col-1 table-group-divider">
                 <div class="d-flex align-items-center">
                     {% block content_table_actions %}{% endblock %}                    
