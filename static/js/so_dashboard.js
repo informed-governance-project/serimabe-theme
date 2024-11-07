@@ -67,6 +67,21 @@ $(document).ready(function () {
     $(".modal-dialog", $popup).load(popup_url, function () {
       $popup.modal("show");
     });
-    
+  });
+
+  $(document).on("click", ".review_comment_so_declaration", function () {
+    let $this = $(this);
+    let standardAnswerId = $this.data('standard-answer-id');
+    let $popup = $("#review_comment_so_declaration");
+    let popup_url = `/securityobjectives/review_comment/${standardAnswerId}`;
+    $popup.find(".modal-dialog").empty();
+    $(".modal-dialog", $popup).load(popup_url, function () {
+      $popup.modal("show");
+      $("#id_deadline").datepicker({
+        showOptions: { direction: "up" },
+        minDate: new Date(),
+      });
+    });
+
   });
 })
