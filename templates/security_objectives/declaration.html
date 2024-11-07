@@ -55,10 +55,10 @@
                 <th class="col-1 text-center align-middle">
                   {% translate "Measure in place ?" %}
                 </th>
-                <th class="{% if is_regulator %}col-2{% else %}col-4{% endif %} text-center align-middle">
+                <th class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}col-2{% else %}col-4{% endif %} text-center align-middle">
                   {% translate "Justification" %}
                 </th>
-                {% if is_regulator %}
+                {% if is_regulator or security_objective.declaration_status != "UNDE" %}
                 <th class="col-2 text-center align-middle">
                   {% translate "Review Comment" %}
                 </th>
@@ -85,14 +85,14 @@
                       {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0" %}
                     </div>
                   </td>
-                  <td class="{% if is_regulator %}col-2{% else %}col-4{% endif %} lh-sm {% if forloop.first %}table-group-divider{% endif %}">
+                  <td class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}col-2{% else %}col-4{% endif %} lh-sm {% if forloop.first %}table-group-divider{% endif %}">
                     {% if forloop.parentloop.first %}
                     {% bootstrap_field measure.answer_form.justification show_label=False wrapper_class="m-0" field_class="not-required" %}
                     {%else %}
                     {% bootstrap_field measure.answer_form.justification show_label=False wrapper_class="m-0" %}
                     {% endif %}
                   </td>
-                  {% if is_regulator %}
+                  {% if is_regulator or security_objective.declaration_status != "UNDE" %}
                   <td class="col-2 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
                     {% bootstrap_field measure.answer_form.review_comment show_label=False wrapper_class="m-0" %}
                   </td>
