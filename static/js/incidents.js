@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('#incidents-table').DataTable({
+        dom: 'rt<"mt-2 bottom d-flex justify-content-between"lip><"clear">',
         paging: true,
         searching: false,
         order: [[0, 'desc']],
