@@ -50,7 +50,7 @@ function update_so_declaration(form) {
   const name = form.name.split('-').pop();
   if (form.checked !== undefined) form.value = form.checked;
   if (form.value !== undefined) {
-    data = JSON.stringify({ "id": id, [name]: form.value });   
+    data = JSON.stringify({ "id": id, [name]: form.value });
     url = window.location.href.split(window.location.host).pop();
 
     fetch(url, {
@@ -65,7 +65,7 @@ function update_so_declaration(form) {
       .then((response) => {
         response.json()
           .then(data => {
-            if (data.data.status){             
+            if (data.data.status) {
               switch (data.data.status) {
                 case "PASS":
                   $('.carousel-item.active')
@@ -75,14 +75,26 @@ function update_so_declaration(form) {
                   break;
                 case "FAIL":
                   $('.carousel-item.active')
-                  .find('.so_status_form')
-                  .removeClass("bg-success")
-                  .addClass("text-white bg-danger")
+                    .find('.so_status_form')
+                    .removeClass("bg-success")
+                    .addClass("text-white bg-danger")
                   break;
                 default:
                   $('.carousel-item.active')
-                  .find('.so_status_form')
-                  .removeClass("text-white bg-success bg-danger")
+                    .find('.so_status_form')
+                    .removeClass("text-white bg-success bg-danger")
+              }
+            }
+            if (data.objective_state) {
+              so_id = data.objective_state.id;
+              $so_objective_button = $("#security_objective_selector").find(`#${so_id}`);
+              $so_objective_button.removeClass("btn-success btn-warning btn-light");
+              if (data.objective_state.is_completed) {
+                $so_objective_button.addClass("btn-success");
+              } else if (data.objective_state.is_partially) {
+                $so_objective_button.addClass("btn-warning");
+              } else if (data.objective_state.is_not_started) {
+                $so_objective_button.addClass("btn-light");
               }
             }
           })
