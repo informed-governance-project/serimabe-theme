@@ -27,14 +27,15 @@ $(document).ready(function () {
     });
   }
 
-  function checkRequiredFields() {
+  function checkRequiredFields() {  
     const $activeSlide = $('.carousel-item.active');
-    const $checkboxes_required = $activeSlide.find(".form-check-input").not(".not-required")
-    const $textareas_required = $activeSlide.find(".form-control").not(".not-required")
-    const $checkbox_no_required = $activeSlide.find(".form-check-input.not-required")
-    const $textarea_no_required = $activeSlide.find(".form-control.not-required")
+    const $checkboxes_required = $activeSlide.find(".form-check-input").not(".not-required, .readonly_field")
+    const $textareas_required = $activeSlide.find(".form-control").not(".not-required, .readonly_field")
+    const $checkbox_no_required = $activeSlide.find(".form-check-input.not-required").not(".readonly_field")
+    const $textarea_no_required = $activeSlide.find(".form-control.not-required").not(".readonly_field")
     const $anyRequiredChecked = $checkboxes_required.is(":checked");
     const $anyNonRequiredChecked = $checkbox_no_required.is(":checked");
+
 
     if ($anyRequiredChecked) {
       $checkbox_no_required.prop("checked", false).prop("disabled", true);
@@ -93,6 +94,7 @@ function update_so_declaration(form) {
       .then((response) => {
         response.json()
           .then(data => {
+            if (data.success == "false") return
             if (data.data.status) {
               switch (data.data.status) {
                 case "PASS":
@@ -115,6 +117,7 @@ function update_so_declaration(form) {
             }
             if (data.objective_state) {
               so_id = data.objective_state.id;
+              console.log(so_id);
               $so_objective_button = $("#security_objective_selector").find(`#${so_id}`);
               $so_objective_button.removeClass("btn-success btn-warning btn-light");
               if (data.objective_state.is_completed) {
