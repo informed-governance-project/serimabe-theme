@@ -1,6 +1,7 @@
 $(document).ready(function () {
-  $('#securityobjectives-table').DataTable({
-    dom: 'rt<"mt-2 bottom d-flex justify-content-between"lip><"clear">',
+  let table = $('#securityobjectives-table').DataTable({
+    dom: 'rt<"table_controls mt-3 bottom d-flex justify-content-between lh-1 small"lip><"clear">',
+    autoWidth: false,
     paging: true,
     searching: false,
     order: [[0, 'desc']],
@@ -50,6 +51,8 @@ $(document).ready(function () {
     ]
   });
 
+  displayPagination(table);
+
   $(document).on("click", ".delete_so_declaration", function () {
     let $this = $(this);
     let modalDeleteButton = $("#modal-delete-declaration-button");
@@ -91,7 +94,12 @@ $(document).ready(function () {
     var popup_url = 'access_log/' + $(this).data("standard-answer-id");
 
     $(".modal-dialog", $popup).load(popup_url, function () {
-        $popup.modal("show");
+      $popup.modal("show");
     });
-});
+  });
 })
+
+function displayPagination(table) {
+  let rowCount = table.data().length;
+  if (rowCount <= 10) $('.table_controls').addClass("d-none");
+}

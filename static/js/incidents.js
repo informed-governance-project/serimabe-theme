@@ -1,6 +1,7 @@
 $(document).ready(function () {
-    $('#incidents-table').DataTable({
-        dom: 'rt<"mt-2 bottom d-flex justify-content-between"lip><"clear">',
+    let table = $('#incidents-table').DataTable({
+        dom: 'rt<"table_controls mt-3 bottom d-flex justify-content-between lh-1 small"lip><"clear">',
+        autoWidth: false,
         paging: true,
         searching: false,
         order: [[0, 'desc']],
@@ -30,6 +31,8 @@ $(document).ready(function () {
             },
         ]
     });
+
+    displayPagination(table);
 
     $(document).on("click", '.access_log', function () {
         var $popup = $("#access_log");
@@ -116,3 +119,8 @@ $(document).ready(function () {
         $('#technical-telephone').text(contacts.technical_telephone);
     });
 });
+
+function displayPagination(table) {
+    let rowCount = table.data().length;
+    if (rowCount <= 10) $('.table_controls').addClass("d-none");
+  }
