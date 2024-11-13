@@ -1,7 +1,7 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 {% load tz %}
-{% load custom_filters %}
+{% load SO_custom_filters %}
 {% load static %}
 
 
@@ -20,14 +20,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-        <h6>{{ incident.incident_id }}</h6>
         {% if log %}
         <table id="access-log-table" class="table table-sm small">
             <thead class="table-light">
                 <tr>
                     <th class="text-start">{% translate "Date" %}</th>
                     <th>{% translate "User" %}</th>
-                    <th>{% translate "Document" %}</th>
                     <th>{% translate "Action" %}</th>
                 </tr>
             </thead>
@@ -43,14 +41,6 @@
                         {{record.user.get_full_name }}
                         {% else %}
                         {{record.user__full_name }}
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if record.incident_report %}
-                        {{ record.incident_report.workflow.name }}
-                        ({{ record.incident_report.timestamp|date:"d/m/Y H:i" }})
-                        {% else %}
-                        {{record.incident.incident_id }}
                         {% endif %}
                     </td>
                     <td>{{record.action }}</td>

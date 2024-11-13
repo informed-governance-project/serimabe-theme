@@ -1,0 +1,70 @@
+{% load i18n %}
+
+<div class="my-6">
+    <div class="d-flex justify-content-center">
+        <img class="text-center"
+        src="file:{{ static_theme_dir }}/images/regulator_logo.png" 
+        alt="Logo">
+
+    </div>
+
+    <h1 class="mt-5 mb-2 text-center fw-bold">{% translate "Security objectives declaration" %}</h1>
+    <div class="mt-5 p-4 pb-2 border border-secondary border-1 rounded">
+        <p>
+            <span class="fw-bold">
+                {% translate "Company name" %}:
+            </span>
+            {{ standard_answer.submitter_company }}
+        </p>
+        <p>
+            <div class="d-flex justify-content-start">
+                <div class="fw-bold">
+                    {% translate "Sectors" %}:
+                </div>
+                <ul class="ms-1 p-0">
+                    {% for sector in standard_answer.sectors.all %}
+                    {{ sector }}
+                    <br />
+                    {% endfor %}
+                </ul>
+            </div>
+        </p>
+        <p>
+            <span class="fw-bold">
+                {% translate "Standard" %}:
+            </span>
+            {{ standard_answer.standard }}
+        </p>
+        <p>
+            <span class="fw-bold">
+                {% translate "Year" %}:
+            </span>
+            {{ standard_answer.year_of_submission }}
+        </p>
+        <p>
+            <span class="fw-bold">
+                {% translate "Last update" %}:
+            </span>
+            {{ standard_answer.last_update|date:"d M Y, H:i" }}
+        </p>
+        <p>
+            <span class="fw-bold">
+                {% translate "Submit date" %}:
+            </span>
+            {{ standard_answer.submit_date|date:"d M Y, H:i" }}
+        </p>
+        <p>
+            <span class="fw-bold">
+                {% translate "Progress" %}:
+            </span>
+            {{ standard_answer.answered_percentage|default:0|floatformat:'0' }}%
+        </p>
+        <p>
+            <span class="fw-bold">
+                {% translate "Status" %}:
+            </span>
+            {{ standard_answer.get_status_display }}   
+        </p>
+    </div>
+</div>
+<p class="page-break" ></p>

@@ -1,29 +1,29 @@
 $(document).ready(function () {
-    $('#incidents-table').DataTable( {
-        paging: false,
+    let table = $('#incidents-table').DataTable({
+        dom: 'rt<"table_controls mt-3 bottom d-flex justify-content-between lh-1 small"lip><"clear">',
+        autoWidth: false,
+        paging: true,
         searching: false,
         order: [[0, 'desc']],
         columnDefs: [
             {
                 targets: 0,
-                type:'date',
+                orderable: true,
+                type: 'date',
             },
             {
                 targets: 1,
                 orderable: true,
-                type:'string'
+                type: 'string',
             },
             {
                 targets: 6,
                 orderable: false,
             },
             {
-                targets: 7,
-                orderable: false,
-            },
-            {
                 targets: 8,
-                orderable: false,
+                orderable: true,
+                type: 'html',
             },
             {
                 targets: 9,
@@ -32,7 +32,9 @@ $(document).ready(function () {
         ]
     });
 
-    $('.access_log').on( "click", function() {
+    displayPagination(table);
+
+    $(document).on("click", '.access_log', function () {
         var $popup = $("#access_log");
         var popup_url = 'access_log/' + $(this).data("incident-id");
 
@@ -41,7 +43,7 @@ $(document).ready(function () {
         });
     });
 
-    $('.report_versions').on( "click", function() {
+    $(document).on("click", '.report_versions', function () {
         let $this = $(this);
         let incidentRef = $this.data('report');
         let reportId = $this.data('incident-ref');
@@ -57,7 +59,7 @@ $(document).ready(function () {
         $modalincidentRef.text(incidentRef);
         $modalWorkflowRows.empty();
 
-        workflows.forEach(function(workflow) {
+        workflows.forEach(function (workflow) {
             let reviewUrl = reviewUrlBase + workflow.id;
             let downloadUrl = downloadUrlBase.replace('0', workflow.id);
             let date = new Date(workflow.timestamp);
@@ -89,7 +91,7 @@ $(document).ready(function () {
         });
     });
 
-    $('.delete_incident').on( "click", function() {
+    $(document).on("click", '.delete_incident', function () {
         let $this = $(this);
         let modalDeleteButton = $("#modal-delete-button");
         let deleteUrlBase = $this.data('delete-url');
@@ -98,7 +100,7 @@ $(document).ready(function () {
         modalDeleteButton.attr('href', deleteUrl);
     });
 
-    $('.contacts_incident').on("click", function () {
+    $(document).on("click", '.contacts_incident', function () {
         let $this = $(this);
         const contacts = $this.data('contacts');
         if (contacts.contact_name == contacts.technical_name) {
@@ -117,3 +119,8 @@ $(document).ready(function () {
         $('#technical-telephone').text(contacts.technical_telephone);
     });
 });
+
+function displayPagination(table) {
+    let rowCount = table.data().length;
+    if (rowCount <= 10) $('.table_controls').addClass("d-none");
+  }
