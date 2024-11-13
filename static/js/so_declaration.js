@@ -27,9 +27,35 @@ $(document).ready(function () {
     });
   }
 
+  function checkRequiredFields() {
+    const $activeSlide = $('.carousel-item.active');
+    const $checkboxes_required = $activeSlide.find(".form-check-input").not(".not-required")
+    const $textareas_required = $activeSlide.find(".form-control").not(".not-required")
+    const $checkbox_no_required = $activeSlide.find(".form-check-input.not-required")
+    const $textarea_no_required = $activeSlide.find(".form-control.not-required")
+    const $anyRequiredChecked = $checkboxes_required.is(":checked");
+    const $anyNonRequiredChecked = $checkbox_no_required.is(":checked");
+
+    if ($anyRequiredChecked) {
+      $checkbox_no_required.prop("checked", false).prop("disabled", true);
+      $textarea_no_required.prop("disabled", true);
+    } else if ($anyNonRequiredChecked) {
+      $checkboxes_required.prop("disabled", true);
+      $textareas_required.prop("disabled", true);
+    } else {
+      $checkboxes_required
+        .add($textareas_required)
+        .add($checkbox_no_required)
+        .add($textarea_no_required)
+        .prop("disabled", false);
+    }
+  }
+
   $('.form-check-input').on('change', function () {
     checkImplementation();
+    checkRequiredFields()
   });
+
   $('textarea[id*="-justification"]').not(".not-required").on('input', function () {
     checkImplementation();
   });
@@ -37,10 +63,12 @@ $(document).ready(function () {
 
   $security_objectives_carousel.on('slid.bs.carousel', function () {
     adjustTextareaHeights();
+    checkRequiredFields();
   });
 
   adjustTextareaHeights();
   checkImplementation();
+  checkRequiredFields();
 });
 
 

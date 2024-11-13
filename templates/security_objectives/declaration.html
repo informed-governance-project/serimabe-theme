@@ -87,7 +87,11 @@
                 </td>
                 <td class="col-1 align-middle {% if forloop.first %}table-group-divider{% endif %}">
                   <div class="checkbox-is-measure d-flex justify-content-center">
+                    {% if forloop.parentloop.first %}
+                    {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0" field_class="not-required" %}
+                    {%else %}
                     {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0" %}
+                    {% endif %}
                   </div>
                 </td>
                 <td
