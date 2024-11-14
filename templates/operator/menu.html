@@ -15,7 +15,9 @@
 <li class="nav-item">
     <a class="nav-link" href="{% url 'incidents' %}">{% translate "Incident Notification" %}</a>
 </li>
+{% if "securityobjectives" in app_module_available %}
 <li class="nav-item">
     <a class="nav-link" href="{% url 'securityobjectives' %}">{% translate "Security Objectives" %}</a>
 </li>
+{% endif %}
 
