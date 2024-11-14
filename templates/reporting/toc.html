@@ -2,25 +2,30 @@
 {% load custom_filters %}
 
 <h2 class="toc-heading fw-bold text-danger">{% translate "Table of contents" %}</h2>
-<div class="toc pt-3">
-    <h2 class="border-bottom border-secondary h6">
+<ul class="toc list-unstyled pt-3">
+    <li class="border-bottom border-secondary">
         <a class="text-decoration-none text-reset" href="#security_measures"></a>
-    </h2>
-    {% for index in "6"|range_list %}
-    <h3 class="border-bottom border-secondary h6 ms-3">
-        <a class="text-decoration-none text-reset" href="#security_measures_{{ index }}"></a>
-    </h3>
-    {% endfor %}
-    <h2 class="border-bottom border-secondary h6">
+    </li>
+    <ul class="list-unstyled ps-4 small">
+        {% for index in "6"|range_list %}
+        <li class="border-bottom border-secondary pt-1">
+            <a class="text-decoration-none text-reset" href="#security_measures_{{ index }}"></a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <li class="border-bottom border-secondary">
         <a class="text-decoration-none text-reset" href="#risks"></a>
-    </h2>
-    {% for index in "11"|range_list %}
-    <h3 class="border-bottom border-secondary h6 ms-3">
-        <a class="text-decoration-none text-reset" href="#risks_{{ index }}"></a>
-    </h3>
-    {% endfor %}
-    <h2 class="border-bottom border-secondary h6">
+    </li>
+    <ul class="list-unstyled ps-4 small">
+        {% for index in "11"|range_list %}
+        <li class="border-bottom border-secondary pt-1">
+            <a class="text-decoration-none text-reset" href="#risks_{{ index }}"></a>
+        </li>
+        {% endfor %}
+    </ul>
+    <li class="border-bottom border-secondary">
         <a class="text-decoration-none text-reset" href="#observations"></a>
-    </h2>
-</div>
+    </li>
+</ul>
 <p class="page-break" ></p>
