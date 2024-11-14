@@ -31,7 +31,7 @@
     </ul>
   </li>
   {% endif %}
-  {% if "reporting" in user_module_permissions %}
+  {% if "reporting" in app_module_available and "reporting" in user_module_permissions %}
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         {% translate "Reporting" %}
