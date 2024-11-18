@@ -8,14 +8,24 @@
 
     </div>
 
-    <h1 class="mt-5 mb-2 text-center fw-bold">{% translate "Annual report" %}</h1>
-    <h1 class="mt-5 mb-2 text-center fw-bold">2024</h1>
+    <h1 class="mt-5 mb-2 text-center fw-bold">
+        {% translate "Annual report" %}
+    </h1>
+    <h1 class="mt-5 mb-2 text-center fw-bold">
+        {{ year }}
+    </h1>
     <div class="mt-5 p-4 pb-2 border border-secondary border-1 rounded">
         <p>
             <span class="fw-bold">
                 {% translate "Company name" %}:
             </span>
-            {{ incident.company_name }}
+            {{ company.name }}
+        </p>
+        <p>
+            <span class="fw-bold">
+                {% translate "Sector" %}:
+            </span>
+            {{ sector }}
         </p>
     </div>
 </div>
