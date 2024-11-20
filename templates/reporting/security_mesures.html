@@ -1,5 +1,5 @@
 {% load i18n %}
-{% load custom_filters %}
+{% load reporting_filters %}
 
 <h2 id="security_measures" class="{{ title_class }}">
     {% translate "Security Measures in place" %}
@@ -19,16 +19,17 @@
     <table class="{{ table_class }}">
         <thead class="thead-light">
             <tr>
-                {% for sophistication_level in sophistication_levels %}
-                <th class="text-center">{{ sophistication_level }}</th>
+                {% for level in so_data.company_so_by_level.keys %}
+                    <th class="text-center lh-sm">{{ level }}</th>
                 {% endfor %}
             </tr>
         </thead>
-        <tbody>
-            {% for rows in "1234"|make_list %}
+            {% for i in so_data.max_of_company_count|range_list %}
             <tr>
-                {% for sophistication_level in sophistication_levels %}
-                <td>SO {% lorem 10 w random %}</td>
+                {% for level, security_objectives in so_data.company_so_by_level.items %}
+                <td class="lh-sm">
+                    {{ security_objectives|index:i|default_if_none:""}}                       
+                </td>
                 {% endfor %}
             </tr>
             {% endfor %}
@@ -40,25 +41,28 @@
         {% translate "Security Objectives with the highest sophistication level for the sector" %}
     </h3>
     <div class="row">
-        {% for year in years %}
-        <div
-            class="{% if years|length == 2 %}col-6{% elif years|length == 3 %}col-4{% elif years|length == 4 %}col-3{% else %}col-2{% endif %}">
-            <div class="fw-bold">
-                {{ year }}
+        {% for year, security_objectives in so_data.sector_so_by_year_desc.items %}
+        {% if security_objectives|length > 0 %}
+            <div
+                class="{% if so_data.years|length == 2 %}col-6{% elif so_data.years|length == 3 %}col-4{% else %}col-12{% endif %}">
+                <div class="fw-bold">
+                    {{ year }}
+                </div>
+                <table class="{{ table_class }}">
+                    <tbody>
+                        {% for security_objective in security_objectives|slice:":5" %}
+                        <tr>
+                            <th class="col-2 thead-light text-center">
+                                # {{ forloop.counter }}
+                            </th>
+                            <td class="col-10 lh-sm">{{ security_objective }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
             </div>
-            <table class="{{ table_class }}">
-                <tbody>
-                    {% for securityObjective in "12345"|make_list %}
-                    <tr>
-                        <th class="col-2 thead-light text-center">
-                            # {{ forloop.counter }}
-                        </th>
-                        <td class="col-10">SO {{ forloop.counter }}: {% lorem 10 w random %}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>
@@ -67,25 +71,27 @@
         {% translate "Security Objectives with the lowest sophistication level for the sector" %}
     </h3>
     <div class="row">
-        {% for year in years %}
+        {% for year, security_objectives in so_data.sector_so_by_year_asc.items %}
+        {% if security_objectives|length > 0 %}
         <div
-            class="{% if years|length == 2 %}col-6{% elif years|length == 3 %}col-4{% elif years|length == 4 %}col-3{% else %}col-2{% endif %}">
-            <div class="fw-bold">
+            class="{% if so_data.years|length == 2 %}col-6{% elif so_data.years|length == 3 %}col-4{% else %}col-12{% endif %}">
+        <div class="fw-bold">
                 {{ year }}
             </div>
             <table class="{{ table_class }}">
                 <tbody>
-                    {% for securityObjective in "12345"|make_list %}
+                    {% for security_objective in security_objectives|slice:":5" %}
                     <tr>
                         <th class="col-2 thead-light text-center">
                             # {{ forloop.counter }}
                         </th>
-                        <td class="col-10">SO {{ forloop.counter }}: {% lorem 10 w random %}</td>
+                        <td class="col-10 lh-sm">{{ security_objective }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>
@@ -102,32 +108,51 @@
         </caption>
         <thead class="thead-light">
             <tr>
-                <th class="col-7 text-center">{% translate "Domain" %}</th>
-                <th class="col-1 text-center">2023</th>
-                <th class="col-1 text-center">2024</th>
-                <th class="col-1 text-center">{% translate "Evolution" %}</th>
-                <th class="col-1 text-center">{% translate "Sector average" %}</th>
+                <th class="col-7 text-center lh-sm">{% translate "Domain" %}</th>
+                {% for year in so_data.years %}
+                <th class="col-1 text-center lh-sm">{{ year }}</th>
+                {% endfor %}
+                {% if so_data.years|length > 1 %}
+                <th class="col-1 text-center lh-sm">{% translate "Evolution" %}</th>
+                {% endif %}
+                <th class="col-1 text-center lh-sm">
+                    {% translate "Sector average" %} {{ year }}
+                </th>
             </tr>
         </thead>
         <tbody>
-            {% for so_category in so_categories %}
+            {% for domains, years in so_data.company_so_by_domain.items %}
             <tr>
-                {% with value_2023="0123"|make_list|random value_2024="0123"|make_list|random%}
-                <td>{{ so_category }}</td>
-                <td class="text-center">{{ value_2023 }}</td>
-                <td class="text-center" style="background-color: {{ value_2024|get_color }};">
-                    {{ value_2024 }}
-                </td>
+                <td class="lh-sm">{{ domains }}</td>
+                {% for year, value in years.items %}
+                {% if not forloop.last %}
                 <td class="text-center">
-                    {% if value_2024 > value_2023 %}
-                    <i class="bi bi-arrow-up-right"></i>
-                    {% elif value_2024 < value_2023 %} <i class="bi bi-arrow-down-right"></i>
-                        {% else %}
-                        <i class="bi bi-arrow-right"></i>
-                        {% endif %}
+                    {{ value.score|floatformat:"1" }}
                 </td>
-                <td class="text-center">{{"0123"|make_list|random }}</td>
-                {% endwith %}
+                {% else %}
+                <td class="text-center" style="background-color: {{ value.score|get_color }};">
+                    {{ value.score|floatformat:"1" }}
+                </td>
+                {% if so_data.years|length > 1 %}
+                <td class="text-center">
+                    {% for year, value in years.items %}
+                    {% if not forloop.first %}
+                        {% if value.evolution == True %}
+                        <i class="bi bi-arrow-up-right"></i>
+                        {% elif value.evolution == False  %}
+                        <i class="bi bi-arrow-down-right"></i>
+                        {% else %}
+                            <i class="bi bi-arrow-right"></i>                        
+                        {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                {% endif %}
+                <td class="text-center">
+                    {{ value.sector_avg|floatformat:"1" }}
+                </td>
+                {% endif %} 
+                {% endfor %}
             </tr>
             {% endfor %}
         </tbody>
@@ -143,31 +168,48 @@
             <tr>
                 <th class="col-2 text-center">{% translate "Objective" %}</th>
                 <th class="col-7 text-center">{% translate "Label" %}</th>
-                <th class="col-1 text-center">2023</th>
-                <th class="col-1 text-center">2024</th>
+                {% for year in so_data.years %}
+                <th class="col-1 text-center">{{ year }}</th>
+                {% endfor %}
+                {% if so_data.years|length > 1 %}
                 <th class="col-1 text-center">{% translate "Evolution" %}</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
-            {% for so in so_list %}
-            <tr>
-                {% with value_2023="0123"|make_list|random value_2024="0123"|make_list|random%}
-                <td>{{ so }}</td>
-                <td>{% lorem 5 w random %}</td>
-                <td class="text-center">{{ value_2023 }}</td>
-                <td class="text-center" style="background-color: {{ value_2024|get_color }};">
-                    {{ value_2024 }}
-                </td>
-                <td class="text-center">
-                    {% if value_2024 > value_2023 %}
-                    <i class="bi bi-arrow-up-right"></i>
-                    {% elif value_2024 < value_2023 %} <i class="bi bi-arrow-down-right"></i>
-                        {% else %}
-                        <i class="bi bi-arrow-right"></i>
+            {% for security_objectives, years in so_data.company_so_by_year.items %}               
+                <tr>
+                    <td class="lh-sm">{{ security_objectives.unique_code }}</td>
+                    <td class="lh-sm">{{ security_objectives.objective }}</td>
+                    {% for year, value in years.items %}
+                    {% if  not forloop.last %}
+                    <td class="text-center">
+                        {{ value.score }}
+                    </td>
+                    {% else %}
+                    <td class="text-center" style="background-color: {{ value.score|get_color }};">
+                        {{ value.score }}
+                    </td>                    
+                        {% if so_data.years|length > 1 %}
+                            <td class="text-center">
+                                {% for year, value in years.items %}
+                                {% if not forloop.first %}
+                                    {% if value.evolution == True %}
+                                    <i class="bi bi-arrow-up-right"></i>
+                                    {% elif value.evolution == False  %}
+                                    <i class="bi bi-arrow-down-right"></i>
+                                    {% else %}
+                                        <i class="bi bi-arrow-right"></i>                        
+                                    {% endif %}
+                                {% endif %}
+                                {% endfor %}
+                            </td>
                         {% endif %}
-                </td>
-                {% endwith %}
-            </tr>
+                    {% endif %}
+                    {% endfor %}
+
+                </tr>
+                
             {% endfor %}
         </tbody>
     </table>
@@ -184,8 +226,9 @@
             <tr>
                 <th class="col-2 text-center">{% translate "Objective" %}</th>
                 <th class="col-7 text-center">{% translate "Label" %}</th>
-                <th class="col-1 text-center">2023</th>
-                <th class="col-1 text-center">2024</th>
+                {% for year in so_data.years %}
+                <th class="col-1 text-center">{{ year }}</th>
+                {% endfor %}
                 <th class="col-1 text-center">{% translate "Evolution" %}</th>
             </tr>
         </thead>
