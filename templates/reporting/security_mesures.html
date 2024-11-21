@@ -182,7 +182,7 @@
                     <td class="lh-sm">{{ security_objectives.unique_code }}</td>
                     <td class="lh-sm">{{ security_objectives.objective }}</td>
                     {% for year, value in years.items %}
-                    {% if  not forloop.last %}
+                    {% if not forloop.last %}
                     <td class="text-center">
                         {{ value.score }}
                     </td>
@@ -207,14 +207,11 @@
                         {% endif %}
                     {% endif %}
                     {% endfor %}
-
                 </tr>
-                
             {% endfor %}
         </tbody>
     </table>
 </div>
-<div>
     <h3 id="security_measures_6" class="{{ title_class }}">
         {% translate "Evolution of the weakest Security Objectives" %}
     </h3>
@@ -227,33 +224,50 @@
                 <th class="col-2 text-center">{% translate "Objective" %}</th>
                 <th class="col-7 text-center">{% translate "Label" %}</th>
                 {% for year in so_data.years %}
-                <th class="col-1 text-center">{{ year }}</th>
+                <th class="col-1 text-center">
+                    {{ year }}
+                </th>
                 {% endfor %}
+                {% if so_data.years|length > 1 %}
                 <th class="col-1 text-center">{% translate "Evolution" %}</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
-            {% for so in so_list %}
-            {% if forloop.counter <= 5 %} <tr>
-                {% with value_2023="0123"|make_list|random value_2024="0123"|make_list|random%}
-                <td>{{ so }}</td>
-                <td>{% lorem 5 w random %}</td>
-                <td class="text-center">{{ value_2023 }}</td>
-                <td class="text-center" style="background-color: {{ value_2024|get_color }};">
-                    {{ value_2024 }}
-                </td>
+            {% for security_objectives, years in so_data.company_so_by_priority.items %}    
+            {% if forloop.counter <= 5 %} 
+            <tr>
+                <td class="lh-sm">{{ security_objectives.unique_code }}</td>
+                <td class="lh-sm">{{ security_objectives.objective }}</td>
+                {% for year, value in years.items %}
+                {% if not forloop.last %}
                 <td class="text-center">
-                    {% if value_2024 > value_2023 %}
-                    <i class="bi bi-arrow-up-right"></i>
-                    {% elif value_2024 < value_2023 %} <i class="bi bi-arrow-down-right"></i>
-                        {% else %}
-                        <i class="bi bi-arrow-right"></i>
-                        {% endif %}
+                    {{ value.score }}
                 </td>
-                {% endwith %}
-                </tr>
+                {% else %}
+                <td class="text-center" style="background-color: {{ value.score|get_color }};">
+                    {{ value.score }}
+                </td>                    
+                    {% if so_data.years|length > 1 %}
+                        <td class="text-center">
+                            {% for year, value in years.items %}
+                            {% if not forloop.first %}
+                                {% if value.evolution == True %}
+                                <i class="bi bi-arrow-up-right"></i>
+                                {% elif value.evolution == False  %}
+                                <i class="bi bi-arrow-down-right"></i>
+                                {% else %}
+                                    <i class="bi bi-arrow-right"></i>                        
+                                {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                        </td>
+                    {% endif %}
                 {% endif %}
                 {% endfor %}
+            </tr>
+            {% endif %}
+            {% endfor %}
         </tbody>
     </table>
 </div>
