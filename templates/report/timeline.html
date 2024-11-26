@@ -1,5 +1,5 @@
 {% load i18n %}
-<h2 id="incident_timeline" class="fw-bold">{% translate "Timeline" %}</h2>
+<h2 id="incident_timeline" class="fw-bold">{% translate "Incident Timeline" %}</h2>
 
 <table class="table table-sm table-bordered">
     <tbody>
@@ -21,3 +21,18 @@
         </tr>
     </tbody>
 </table>
+
+{% if report_list %}
+<h2 id="incident_timeline" class="fw-bold">{% translate "Report Timeline" %}</h2>
+
+<table class="table table-sm table-bordered">
+    <tbody>
+        {% for report in report_list %}
+        <tr>
+            <th>{{ report.workflow.name }}</th>
+            <td>{{ report.timestamp|date:"d M Y, H:i" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
