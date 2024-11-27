@@ -8,7 +8,11 @@
 
     </div>
 
-    <h1 class="mt-5 mb-2 text-center fw-bold">{% translate "Incident notification report" %}</h1>
+    <h1 class="mt-5 mb-2 text-center fw-bold">{% translate "Incident notification report" %}
+        {% if report_name %}
+            <br>{{report_name}}
+        {% endif %}
+    </h1>
     <div class="mt-5 p-4 pb-2 border border-secondary border-1 rounded">
         <p>
             <span class="fw-bold">
