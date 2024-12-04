@@ -44,7 +44,8 @@
                 <th class="d-flex align-items-center justify-content-center">
                     <input id="select_all_companies"class="form-check-input large-checkbox" type="checkbox">
                 </th>
-                <th class="col-11">{% translate "Operator" %}</th>
+                <th class="col-auto">{% translate "Operator" %}</th>
+                <th class="col-auto">{% translate "Sectors" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -55,8 +56,16 @@
                     <td class="col-1 table-group-divider">
                         {% bootstrap_field form.selected show_label=False field_class="large-checkbox"  wrapper_class="d-flex align-items-center justify-content-center" %}
                     </td>
-                    <td class="col-11 table-group-divider">
+                    <td class="col-auto table-group-divider">
                         {{ form.name.value }}
+                    </td>
+                    <td class="col-auto table-group-divider">
+                        <ul class="m-0 p-0">
+                            {% for sector in form.instance.get_sectors %}
+                            {{ sector }}
+                            <br />
+                            {% endfor %}
+                        </ul>
                     </td>
                 </tr>
             {% endfor %}
