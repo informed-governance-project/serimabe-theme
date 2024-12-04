@@ -1,6 +1,12 @@
 {% extends 'home/base.html' %}
 {% load i18n %}
 {% load django_bootstrap5 %}
+{% load static %}
+
+{% block bootstrap5_extra_script %}
+{{ block.super }}
+<script src='{% static "js/reporting_dashboard.js" %}'></script>
+{% endblock %}
 
 {% block bootstrap5_title %}
     {% translate "Reporting" %}
@@ -8,36 +14,35 @@
 
 {% block content %}
 <h3>{% translate "Report generation" %}</h3>
-<div class="d-flex">
-    <div class="me-auto">
-        <a role="button" class="btn btn-primary btn-sm create_so_declaration" data-bs-toggle="modal"
-            data-bs-target="#create_so_declaration">
-            {% translate "Generate report(s)" %}
-        </a>
-    </div>
-    <button class="btn btn-primary btn-sm ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilters"
-    aria-expanded="false" aria-controls="collapseFilters">
-    {% translate "Filter" %}
-    {% if is_filtered %}
-    <span>
-        ({% translate "Applied" %})
-    </span>
-    {% endif %}
-    <i class="bi bi-funnel-fill"></i>
-    </button>
-</div>
-<div class="my-2">
-    <div id="collapseFilters" class="collapse">
-    </div>
-</div>
 <form method="POST" action="">
     {% csrf_token %}
     {{ formset.management_form }}
+    <div class="d-flex">
+        <div class="me-auto">
+            <button id="generateButton" role="submit" class="btn btn-primary btn-sm">
+                {% translate "Generate report(s)" %}
+            </button>
+        </div>
+        <button class="btn btn-primary btn-sm ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilters"
+        aria-expanded="false" aria-controls="collapseFilters">
+        {% translate "Filter" %}
+        {% if is_filtered %}
+        <span>
+            ({% translate "Applied" %})
+        </span>
+        {% endif %}
+        <i class="bi bi-funnel-fill"></i>
+        </button>
+    </div>
+    <div class="my-2">
+        <div id="collapseFilters" class="collapse">
+        </div>
+    </div>
     <table class="table align-middle table-sm small">
         <thead>
             <tr>
-                <th class="col-1">
-                    <input class="form-check-input" type="checkbox">
+                <th class="d-flex align-items-center justify-content-center">
+                    <input id="select_all_companies"class="form-check-input large-checkbox" type="checkbox">
                 </th>
                 <th class="col-11">{% translate "Operator" %}</th>
             </tr>
@@ -48,7 +53,7 @@
                     {% bootstrap_field form.id %}
                     {% bootstrap_field form.name %}
                     <td class="col-1 table-group-divider">
-                        {% bootstrap_field form.selected show_label=False %}
+                        {% bootstrap_field form.selected show_label=False field_class="large-checkbox"  wrapper_class="d-flex align-items-center justify-content-center" %}
                     </td>
                     <td class="col-11 table-group-divider">
                         {{ form.name.value }}
@@ -57,7 +62,6 @@
             {% endfor %}
         </tbody>
     </table>
-    <button type="submit" class="btn btn-primary">Submit Action</button>
 </form>
 {% endblock %}
 
