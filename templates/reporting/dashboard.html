@@ -5,26 +5,26 @@
 
 {% block bootstrap5_extra_script %}
 {{ block.super }}
+<link rel="stylesheet" href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
+<script type="text/javascript" src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
+<script type="text/javascript"src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
 <script src='{% static "js/reporting_dashboard.js" %}'></script>
 {% endblock %}
 
 {% block bootstrap5_title %}
-    {% translate "Reporting" %}
+{% translate "Reporting" %}
 {% endblock %}
 
 {% block content %}
 <h3>{% translate "Report generation" %}</h3>
-<form method="POST" action="">
-    {% csrf_token %}
-    {{ formset.management_form }}
-    <div class="d-flex">
-        <div class="me-auto">
-            <button id="generateButton" role="submit" class="btn btn-primary btn-sm">
-                {% translate "Generate report(s)" %}
-            </button>
-        </div>
-        <button class="btn btn-primary btn-sm ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilters"
-        aria-expanded="false" aria-controls="collapseFilters">
+<div class="d-flex">
+    <div class="me-auto">
+        <button id="generateButton" class="btn btn-primary btn-sm">
+            {% translate "Generate report(s)" %}
+        </button>
+    </div>
+    <button class="btn btn-primary btn-sm ms-auto" type="button" data-bs-toggle="collapse"
+        data-bs-target="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters">
         {% translate "Filter" %}
         {% if is_filtered %}
         <span>
@@ -32,17 +32,36 @@
         </span>
         {% endif %}
         <i class="bi bi-funnel-fill"></i>
-        </button>
+    </button>
+</div>
+<div class="my-2">
+    <div id="collapseFilters" class="collapse">
+        <form method="GET">
+            <div class="d-flex justify-content-end">
+                <div class="col-3">
+                    {% bootstrap_field filter.form.name %}
+                </div>
+                <div class="col-3">
+                    {% bootstrap_field filter.form.sectors wrapper_class="sector-filter" %}
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-danger btn-sm" type="submit" name="reset" value="true">
+                    {% translate "Reset" %}
+                </button>
+                <input class="btn btn-primary btn-sm ms-2" type="submit" value='{{_("Search")}}' />
+            </div>
+        </form>
     </div>
-    <div class="my-2">
-        <div id="collapseFilters" class="collapse">
-        </div>
-    </div>
-    <table class="table align-middle table-sm small">
+</div>
+<form id="companyTableForm" method="POST" action="">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    <table id="reporting-table" class="table align-middle table-sm small">
         <thead>
             <tr>
                 <th class="d-flex align-items-center justify-content-center">
-                    <input id="select_all_companies"class="form-check-input large-checkbox" type="checkbox">
+                    <input id="select_all_companies" class="form-check-input large-checkbox" type="checkbox">
                 </th>
                 <th class="col-auto">{% translate "Operator" %}</th>
                 <th class="col-auto">{% translate "Sectors" %}</th>
@@ -50,27 +69,26 @@
         </thead>
         <tbody>
             {% for form in formset %}
-                <tr>
-                    {% bootstrap_field form.id %}
-                    {% bootstrap_field form.name %}
-                    <td class="col-1 table-group-divider">
-                        {% bootstrap_field form.selected show_label=False field_class="large-checkbox"  wrapper_class="d-flex align-items-center justify-content-center" %}
-                    </td>
-                    <td class="col-auto table-group-divider">
-                        {{ form.name.value }}
-                    </td>
-                    <td class="col-auto table-group-divider">
-                        <ul class="m-0 p-0">
-                            {% for sector in form.instance.get_sectors %}
-                            {{ sector }}
-                            <br />
-                            {% endfor %}
-                        </ul>
-                    </td>
-                </tr>
+            <tr>
+                {% bootstrap_field form.id %}
+                {% bootstrap_field form.name %}
+                <td class="col-1 table-group-divider">
+                    {% bootstrap_field form.selected show_label=False field_class="large-checkbox" wrapper_class="d-flex align-items-center justify-content-center" %}
+                </td>
+                <td class="col-auto table-group-divider">
+                    {{ form.name.value }}
+                </td>
+                <td class="col-auto table-group-divider">
+                    <ul class="m-0 p-0">
+                        {% for sector in form.instance.get_sectors %}
+                        {{ sector }}
+                        <br />
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>
 </form>
 {% endblock %}
-
