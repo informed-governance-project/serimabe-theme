@@ -1,0 +1,23 @@
+{% extends 'home/base.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block bootstrap5_title %}
+    {% translate "Add configuration" %}
+{% endblock %}
+
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form_errors form %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">
+            {% translate "Save" %}
+        </button>
+        <a class="btn btn-danger" type="button" href="{% url 'report_configuration' %}">
+            {% translate "Cancel" %}
+        </a>
+    </form>
+    
+{% endblock %}
+

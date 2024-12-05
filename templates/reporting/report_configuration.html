@@ -1,0 +1,58 @@
+{% extends 'home/base.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block bootstrap5_title %}
+{% translate "Report configuration" %}
+{% endblock %}
+
+{% block content %}
+<h3>{% translate "Configuration by sector" %}</h3>
+<div class="d-flex">
+    <div class="me-auto">
+        <a class="btn btn-primary btn-sm" type="button" href="{% url 'add_report_configuration' %}">
+            {% translate "Add configuration" %}
+        </a>
+    </div>
+</div>
+<table class="table align-middle table-sm small">
+    <thead>
+        <tr>
+            <th class="col-auto">{% translate "Sector" %}</th>
+            <th class="col-auto">{% translate "Reporting year" %}</th>
+            <th class="col-auto">{% translate "Number of year to compare" %}</th>
+            <th class="col-auto">{% translate "High risk rate threshold" %}</th>
+            <th class="col-auto">{% translate "Ranking" %}</th>
+            <th class="col-auto">{% translate "Actions" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for configuration in report_configurations %}
+        <tr>
+            <td>
+                {{ configuration.sector }}
+            </td>
+            <td>
+                {{ configuration.reporting_year }}
+            </td>
+            <td>
+                {{ configuration.number_of_year }}
+            </td>
+            <td>
+                {{ configuration.threshold_for_high_risk }}
+            </td>
+            <td>
+                {{ configuration.top_ranking }}
+            </td>
+            <td>
+                <a class="btn border-0 px-2 text-primary" 
+                    href="{% url 'edit_report_configuration' configuration.id  %}"
+                    title="Edit">
+                    <i class="bi bi-pencil-fill"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
