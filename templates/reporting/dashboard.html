@@ -1,11 +1,13 @@
 {% extends 'home/base.html' %}
 {% load i18n %}
 {% load django_bootstrap5 %}
+{% load reporting_filters %}
 {% load static %}
 
 {% block bootstrap5_extra_script %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/reporting_dashboard.css' %}" />
 <script type="text/javascript" src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
 <script type="text/javascript"src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
 <script src='{% static "js/reporting_dashboard.js" %}'></script>
@@ -39,6 +41,9 @@
         <form method="GET">
             <div class="d-flex justify-content-end">
                 <div class="col-3">
+                    {% bootstrap_field filter.form.year %}
+                </div>
+                <div class="col-3">
                     {% bootstrap_field filter.form.name %}
                 </div>
                 <div class="col-3">
@@ -63,8 +68,11 @@
                 <th class="d-flex align-items-center justify-content-center">
                     <input id="select_all_companies" class="form-check-input large-checkbox" type="checkbox">
                 </th>
+                <th class="col-auto">{% translate "Year" %}</th>
                 <th class="col-auto">{% translate "Operator" %}</th>
                 <th class="col-auto">{% translate "Sectors" %}</th>
+                <th class="col-auto">{% translate "Security objectives" %}</th>
+                <th class="col-auto">{% translate "Risk analysis" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -76,6 +84,9 @@
                     {% bootstrap_field form.selected show_label=False field_class="large-checkbox" wrapper_class="d-flex align-items-center justify-content-center" %}
                 </td>
                 <td class="col-auto table-group-divider">
+                    {{ form.year.value }}
+                </td>
+                <td class="col-auto table-group-divider">
                     {{ form.name.value }}
                 </td>
                 <td class="col-auto table-group-divider">
@@ -85,6 +96,24 @@
                         <br />
                         {% endfor %}
                     </ul>
+                </td>
+                <td class="col-auto table-group-divider">
+                    {% with exists=form.instance|security_objective_exists:form.year.value %}
+                    <div class="form-check d-flex align-items-center justify-content-center boolean-checkbox">
+                        <input class="form-check-input large-checkbox no-opacity" type="checkbox"
+                            {% if exists %}checked{% endif %} 
+                            disabled>
+                    </div>
+                    {% endwith %}
+                </td>
+                <td class="col-auto table-group-divider">
+                    {% with exists=form.instance|risk_analysis_exists:form.year.value %}
+                    <div class="form-check d-flex align-items-center justify-content-center boolean-checkbox">
+                        <input class="form-check-input large-checkbox no-opacity" type="checkbox"
+                            {% if exists %}checked{% endif %} 
+                            disabled>
+                    </div>
+                    {% endwith %}
                 </td>
             </tr>
             {% endfor %}

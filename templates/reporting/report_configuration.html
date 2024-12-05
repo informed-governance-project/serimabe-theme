@@ -9,7 +9,7 @@
 {% block content %}
 <h3>{% translate "Configuration by sector" %}</h3>
 <div class="d-flex">
-    <div class="me-auto">
+    <div class="ms-auto">
         <a class="btn btn-primary btn-sm" type="button" href="{% url 'add_report_configuration' %}">
             {% translate "Add configuration" %}
         </a>
@@ -42,7 +42,7 @@
                 {{ configuration.threshold_for_high_risk }}
             </td>
             <td>
-                {{ configuration.top_ranking }}
+                {{ configuration.get_top_ranking_display }}
             </td>
             <td>
                 <a class="btn border-0 px-2 text-primary" 
