@@ -10,23 +10,28 @@ $(document).ready(function () {
         autoWidth: false,
         paging: true,
         searching: false,
-        order: [[1, 'asc']],
+        order: [[2, 'asc']],
         columnDefs: [
-            {
+            {   
                 targets: 0,
                 orderable: false,
             },
-            {
+            {   
                 targets: 1,
-                orderable: true,
-                type: 'string-utf8'
+                orderable: false, 
+                type: 'string-utf8' 
             },
-            {
+            {   
                 targets: 2,
-                orderable: true,
-                type: 'string-utf8'
+                orderable: true, 
+                type: 'string-utf8' 
             },
-        ]
+            {   
+                targets: 3,
+                orderable: true, 
+                type: 'string-utf8' 
+            },
+        ],
     });
 
     displayPagination(table);
@@ -43,7 +48,7 @@ $(document).ready(function () {
     function displayPagination(table) {
         let rowCount = table.data().length;
         if (rowCount <= 10) $('.table_controls').addClass("d-none");
-      }
+    }
 
     checkboxes.on("change", function () {
         updateCheckAll();

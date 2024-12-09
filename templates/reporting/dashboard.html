@@ -80,6 +80,7 @@
             <tr>
                 {% bootstrap_field form.id %}
                 {% bootstrap_field form.name %}
+                {% bootstrap_field form.sector %}
                 <td class="col-1 table-group-divider">
                     {% bootstrap_field form.selected show_label=False field_class="large-checkbox" wrapper_class="d-flex align-items-center justify-content-center" %}
                 </td>
@@ -90,30 +91,23 @@
                     {{ form.name.value }}
                 </td>
                 <td class="col-auto table-group-divider">
-                    <ul class="m-0 p-0">
-                        {% for sector in form.instance.get_sectors %}
-                        {{ sector }}
-                        <br />
-                        {% endfor %}
-                    </ul>
+                    {{ form.initial.sector }}
                 </td>
                 <td class="col-auto table-group-divider">
-                    {% with exists=form.instance|security_objective_exists:form.year.value %}
+                    {% security_objective_exists form.instance form.year.value form.initial.sector as exists %}
                     <div class="form-check d-flex align-items-center justify-content-center boolean-checkbox">
                         <input class="form-check-input large-checkbox no-opacity" type="checkbox"
                             {% if exists %}checked{% endif %} 
                             disabled>
                     </div>
-                    {% endwith %}
                 </td>
                 <td class="col-auto table-group-divider">
-                    {% with exists=form.instance|risk_analysis_exists:form.year.value %}
+                    {% risk_analysis_exists form.instance form.year.value form.initial.sector as exists %}
                     <div class="form-check d-flex align-items-center justify-content-center boolean-checkbox">
                         <input class="form-check-input large-checkbox no-opacity" type="checkbox"
                             {% if exists %}checked{% endif %} 
                             disabled>
                     </div>
-                    {% endwith %}
                 </td>
             </tr>
             {% endfor %}
