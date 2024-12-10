@@ -33,7 +33,7 @@
             {% csrf_token %}
             <p>{% trans "As a last resort, you can use a backup token:" %}</p>
             <p>
-                {% bootstrap_button name="wizard_goto_step" button_type="submit" button_class="btn-secondary btn-sm" value="backup" content=_("Use Backup Token") %}
+                {% bootstrap_button name="wizard_goto_step" button_type="submit" button_class="btn-secondary btn-sm" value="backup" content=_("Use backup token") %}
             </p>
         </form>
     </div>

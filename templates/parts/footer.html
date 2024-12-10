@@ -17,7 +17,7 @@
       <li class="nav-item"><a href="{% if regulator.privacy_policy_url %} {{ regulator.privacy_policy_url }} {% else %} {% url 'privacy' %} {% endif %}"
                                 class="nav-link px-2 text-white"
                                 target="{% if regulator.privacy_policy_url %} _blank {% endif %}"
-                                rel="noopener noreferrer">{% translate "Privacy Policy" %}</a></li>
+                                rel="noopener noreferrer">{% translate "Privacy policy" %}</a></li>
       <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-white">{% translate "About" %}</a></li>
       <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link px-2 text-white">{% translate "Contact" %}</a></li>
     </ul>
