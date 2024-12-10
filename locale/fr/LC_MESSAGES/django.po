@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-10 15:00+0100\n"
-"PO-Revision-Date: 2024-12-10 15:24+0100\n"
+"POT-Creation-Date: 2024-12-10 16:26+0100\n"
+"PO-Revision-Date: 2024-12-10 16:24+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -13,54 +13,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: xls-to-po 1.0\n"
 "X-Generator: Poedit 3.5\n"
-
-#: theme/globals.py:5
-msgid "Capellen"
-msgstr ""
-
-#: theme/globals.py:6
-msgid "Clervaux"
-msgstr ""
-
-#: theme/globals.py:7
-msgid "Diekirch"
-msgstr ""
-
-#: theme/globals.py:8
-msgid "Echternach"
-msgstr ""
-
-#: theme/globals.py:9
-msgid "Esch-sur-Alzette"
-msgstr ""
-
-#: theme/globals.py:10
-msgid "Grevenmacher"
-msgstr ""
-
-#: theme/globals.py:11
-msgid "Luxembourg"
-msgstr ""
-
-#: theme/globals.py:12
-msgid "Mersch"
-msgstr ""
-
-#: theme/globals.py:13
-msgid "Redange"
-msgstr ""
-
-#: theme/globals.py:14
-msgid "Remich"
-msgstr ""
-
-#: theme/globals.py:15
-msgid "Vianden"
-msgstr ""
-
-#: theme/globals.py:16
-msgid "Wiltz"
-msgstr ""
 
 #: theme/templates/contact_form.html:6
 #: theme/templates/regulator/incident_edit.html:31
@@ -240,6 +192,7 @@ msgid "Actions"
 msgstr "Actions"
 
 #: theme/templates/incidents_base.html:179
+#: theme/templates/modals/report_versions.html:8
 #: theme/templates/observer/incidents.html:35
 #: theme/templates/operator/incidents.html:48
 msgid "Version control"
@@ -321,49 +274,25 @@ msgstr "Annuler"
 msgid "Delete"
 msgstr "Supprimer"
 
-#: theme/templates/modals/report_versions.html:8
-msgid "Report versions"
-msgstr ""
-
 #: theme/templates/modals/workflow_comment.html:8
 msgid "Comment"
 msgstr "Commentaire"
 
 #: theme/templates/operator/incidents.html:13
-#: theme/templates/regulator/menu.html:19
+#: theme/templates/regulator/menu.html:9
 msgid "My incidents"
 msgstr ""
 
-#: theme/templates/operator/menu.html:4
-msgid "Security Objectives"
-msgstr ""
-
-#: theme/templates/operator/menu.html:7
-msgid "Dependencies"
-msgstr "Dépendances"
-
-#: theme/templates/operator/menu.html:10
-msgid "Risk Management"
-msgstr ""
-
-#: theme/templates/operator/menu.html:13 theme/templates/regulator/menu.html:10
-msgid "Communication"
-msgstr "Communication"
-
-#: theme/templates/operator/menu.html:16
+#: theme/templates/operator/menu.html:3
 #: theme/templates/registration/login.html:59
 #: theme/templates/registration/signup.html:47
-#: theme/templates/regulator/menu.html:14
+#: theme/templates/regulator/menu.html:4
 msgid "Incident Notification"
-msgstr ""
-
-#: theme/templates/operator/reporting/risk_analysis_submission.html:9
-msgid "Risk analysis submission"
-msgstr ""
+msgstr "Notification d'incident"
 
 #: theme/templates/parts/footer.html:20
-msgid "Privacy Policy"
-msgstr ""
+msgid "Privacy policy"
+msgstr "Politique de confidentialité"
 
 #: theme/templates/parts/footer.html:21
 msgid "About"
@@ -426,8 +355,8 @@ msgid "As a last resort, you can use a backup token:"
 msgstr "En dernier recours, vous pouvez utiliser un jeton de secours :"
 
 #: theme/templates/registration/login.html:36
-msgid "Use Backup Token"
-msgstr ""
+msgid "Use backup token"
+msgstr "Utiliser le jeton de secours"
 
 #: theme/templates/registration/login.html:45
 #: theme/templates/registration/password_reset_form.html:11
@@ -444,6 +373,7 @@ msgid "Register"
 msgstr "S'enregistrer"
 
 #: theme/templates/registration/login.html:63
+#: theme/templates/registration/signup.html:51
 msgid ""
 "If you would like to notify an incident to your competent authority, please "
 "login or create an account."
@@ -545,7 +475,7 @@ msgid ""
 "user account at %(site_name)s."
 msgstr ""
 "Vous recevez ce courriel parce que vous avez demandé une restauration de mot "
-"de passe sur %(site_name)s"
+"de passe sur %(site_name)s."
 
 #: theme/templates/registration/password_reset_email.html:4
 msgid "Please go to the following page and set up a new password:"
@@ -566,8 +496,8 @@ msgid "The %(site_name)s team"
 msgstr "L'équipe %(site_name)s"
 
 #: theme/templates/registration/password_reset_form.html:7
-msgid "Forgot Password?"
-msgstr ""
+msgid "Forgot password?"
+msgstr "Mot de passe oublié ?"
 
 #: theme/templates/registration/password_reset_form.html:13
 msgid "Forgot your password? Enter your email to receive reset instructions."
@@ -588,12 +518,6 @@ msgid "Your account is linked to multiple companies. Select one to proceed."
 msgstr ""
 "Votre compte est lié à plusieurs entreprises. Sélectionnez-en une pour "
 "continuer."
-
-#: theme/templates/registration/signup.html:51
-msgid ""
-"If you would like to notify an incident to your competent authority, please "
-"login or create an  account."
-msgstr ""
 
 #: theme/templates/regulator/incident_edit.html:9
 msgid "Edit incident data"
@@ -626,12 +550,14 @@ msgid "Is impact significant?"
 msgstr "L'impact est-il significatif ?"
 
 #: theme/templates/regulator/incident_edit.html:52
-msgid "yes"
-msgstr ""
+#: theme/templates/report/details.html:58
+msgid "Yes"
+msgstr "Oui"
 
 #: theme/templates/regulator/incident_edit.html:52
-msgid "no"
-msgstr ""
+#: theme/templates/report/details.html:60
+msgid "No"
+msgstr "Non"
 
 #: theme/templates/regulator/incident_edit.html:59
 #: theme/templates/regulator/incident_edit.html:77
@@ -653,13 +579,9 @@ msgstr "Bases légales"
 msgid "Impacted services"
 msgstr "Services impactés"
 
-#: theme/templates/regulator/menu.html:4 theme/templates/regulator/menu.html:17
+#: theme/templates/regulator/menu.html:7
 msgid "Dashboard"
 msgstr "Tableau de bord"
-
-#: theme/templates/regulator/menu.html:7
-msgid "User Management"
-msgstr ""
 
 #: theme/templates/report/contacts.html:2
 msgid "Contact details"
@@ -680,14 +602,6 @@ msgstr ""
 #: theme/templates/report/details.html:37
 msgid "Impacted sectors"
 msgstr "Secteurs impactés"
-
-#: theme/templates/report/details.html:58
-msgid "Yes"
-msgstr "Oui"
-
-#: theme/templates/report/details.html:60
-msgid "No"
-msgstr "Non"
 
 #: theme/templates/report/footer.html:5
 msgid "Confidential"
@@ -737,36 +651,3 @@ msgstr ""
 #: theme/templates/report/toc.html:3
 msgid "Table of contents"
 msgstr ""
-
-#~ msgid "Edit impacts"
-#~ msgstr "Modifier les impacts"
-
-#~ msgid "Security objectives"
-#~ msgstr "Objectifs de sécurité"
-
-#~ msgid "Risk management"
-#~ msgstr "Gestion de risques"
-
-#~ msgid "Privacy policy"
-#~ msgstr "Politique de confidentialité"
-
-#~ msgid "Use backup token"
-#~ msgstr "Utiliser le jeton de secours"
-
-#~ msgid "Forgot password?"
-#~ msgstr "Mot de passe oublié ?"
-
-#~ msgid "Company name"
-#~ msgstr "Nom de l’entreprise"
-
-#~ msgid "Incident notification datetime"
-#~ msgstr "Date de notification de l'incident"
-
-#~ msgid "User management"
-#~ msgstr "Gestion des utilisateurs"
-
-#~ msgid "Incident report answers"
-#~ msgstr "Réponses aux rapports d'incidents"
-
-#~ msgid "Answers"
-#~ msgstr "Réponses"
