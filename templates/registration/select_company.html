@@ -4,11 +4,11 @@
 {% load i18n %}
 
 {% block bootstrap5_title %}
-    {% trans "Select your company" %}
+    {% translate "Select company" %}
 {% endblock %}
 
 {% block login_content %}
-    <h5>{% translate "Your account is linked with multiple companies. Which one do you want to use?" %}</h5>
+    <h5>{% translate "Your account is linked to multiple companies. Select one to proceed." %}</h5>
     <form method="POST">
         {% csrf_token %}
         {% bootstrap_field form.select_company show_label=False %}
