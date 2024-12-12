@@ -31,6 +31,26 @@ $(document).ready(function () {
                 orderable: true, 
                 type: 'string-utf8' 
             },
+            {   
+                targets: 4,
+                orderable: true, 
+                type: 'html' 
+            },
+            {   
+                targets: 5,
+                orderable: true, 
+                type: 'html' 
+            },
+            {   
+                targets: 6,
+                orderable: true, 
+                type: 'num' 
+            },
+            {   
+                targets: 7,
+                orderable: false, 
+                type: 'html' 
+            },
         ],
     });
 

@@ -73,6 +73,8 @@
                 <th class="col-auto">{% translate "Sectors" %}</th>
                 <th class="col-auto">{% translate "Security objectives" %}</th>
                 <th class="col-auto">{% translate "Risk analysis" %}</th>
+                <th class="col-auto">{% translate "Number of recommendations" %}</th>
+                <th class="col-auto">{% translate "Actions" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -108,6 +110,17 @@
                             {% if exists %}checked{% endif %} 
                             disabled>
                     </div>
+                </td>
+                <td class="col-auto table-group-divider">
+                    {% get_report_recommandations form.instance form.year.value form.initial.sector as report_recommendations %}
+                    {{ report_recommendations|length }}
+                </td>
+                <td class="col-auto table-group-divider">
+                    <a class="btn border-0 px-2 text-primary" 
+                        title="{% translate 'Recommendations' %}"  
+                        href="{% url 'report_recommendations' form.instance.id form.initial.sector.id form.year.value %}">
+                        <i class="bi bi-list-stars"></i>
+                    </a>
                 </td>
             </tr>
             {% endfor %}
