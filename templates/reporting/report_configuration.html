@@ -19,10 +19,10 @@
     <thead>
         <tr>
             <th class="col-auto">{% translate "Sector" %}</th>
-            <th class="col-auto">{% translate "Reporting year" %}</th>
             <th class="col-auto">{% translate "Number of year to compare" %}</th>
             <th class="col-auto">{% translate "High risk rate threshold" %}</th>
             <th class="col-auto">{% translate "Ranking" %}</th>
+            <th class="col-auto">{% translate "Number of security objectives excluded" %}</th>
             <th class="col-auto">{% translate "Actions" %}</th>
         </tr>
     </thead>
@@ -33,9 +33,6 @@
                 {{ configuration.sector }}
             </td>
             <td>
-                {{ configuration.reporting_year }}
-            </td>
-            <td>
                 {{ configuration.number_of_year }}
             </td>
             <td>
@@ -43,6 +40,9 @@
             </td>
             <td>
                 {{ configuration.get_top_ranking_display }}
+            </td>
+            <td>
+                {{ configuration.so_excluded.count }}
             </td>
             <td>
                 <a class="btn border-0 px-2 text-primary" 
