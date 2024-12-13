@@ -28,7 +28,7 @@
     {% if not is_regulator and not is_observer or is_regulator_incidents %}
     <div>
         <a role="button" class="btn btn-primary btn-sm" href="{% url 'declaration' %}">
-            {% translate "Report an incident" %}
+            {% translate "Notify an incident" %}
         </a>
     </div>
     {% endif %}
@@ -37,7 +37,7 @@
         {% translate "Filter" %}
         {% if is_filtered %}
         <span>
-            ({% translate "Applied" %})
+            ({% translate "Active" %})
         </span>
         {% endif %}
         <i class="bi bi-funnel-fill"></i>
@@ -75,13 +75,13 @@
 <table id="incidents-table" class="table align-middle table-sm small">
     <thead>
         <tr>
-            <th class="text-start">{% translate "Incident notification date" %}</th>
+            <th class="text-start">{% translate "Incident creation date" %}</th>
             <th>{% translate "Reference" %}</th>
             <th>
                 {% if is_observer %}
                 {% translate "Regulator" %}
                 {% else %}
-                {% translate "Regulation" %}
+                {% translate "Legal basis" %}
                 {% endif %}
             </th>
             <th>
@@ -97,7 +97,7 @@
                 <table class="table table-borderless table-sm m-0">
                     <tr>
                         <td>{% translate "Report" %}</td>
-                        <td>{% translate "Status" %}</td>
+                        <td>{% translate "Report status" %}</td>
                     </tr>
                 </table>
             </th>
@@ -176,7 +176,7 @@
                                 data-incident-ref="{{ incident.incident_id}}"
                                 data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
                                 data-download-url="{% url 'download_incident_report_pdf' 0 %}" data-bs-toggle="modal"
-                                data-bs-target="#report_versions" title="Report versions">
+                                data-bs-target="#report_versions" title="{% translate 'Version control' %}">
                                 <i class="bi bi-clock-history"></i>
                             </button>
                             {% endif %}

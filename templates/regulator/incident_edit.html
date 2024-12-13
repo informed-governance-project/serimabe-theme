@@ -32,7 +32,7 @@
             : {{ incident.company_name }}
         </div>
         <div class="d-flex flex-row justify-content-left">
-            <span>{{ _('Incident notification datetime') }}</span>
+            <span>{{ _('Incident notification creation date') }}</span>
             : {{ incident.preliminary_notification_date|date:'Y-m-d' }}
         </div>
         <div class="d-flex flex-row justify-content-left">
@@ -40,15 +40,15 @@
             : {{ incident.final_notification_date|date:'Y-m-d' }}
         </div>
         <div class="d-flex flex-row justify-content-left">
-            <span>{{ _('Incident reference') }}</span>
+            <span>{{ _('Incident ID') }}</span>
             : {{ incident.incident_reference }}
         </div>
         <div class="d-flex flex-row justify-content-left">
-            <span>{{ _('Police report reference') }}</span>
+            <span>{{ _('Criminal complaint file number') }}</span>
             : {{ incident.complaint_reference }}
         </div>
         <div class="d-flex flex-row justify-content-left">
-            <span>{{ _('Is impact significant') }}</span>
+            <span>{{ _('Is impact significant?') }}</span>
             : {% if incident.is_significative_impact %}{{ _('yes') }}{% else %}{{ _('no') }}{% endif %}
         </div>
 
@@ -64,7 +64,7 @@
         <div class="d-flex flex-row justify-content-left">
             {{ _('Last name') }}: {{ incident.contact_lastname }}</div>
         <div class="d-flex flex-row justify-content-left">
-            {{ _('E-mail') }}: {{ incident.contact_email }}
+            {{ _('Email') }}: {{ incident.contact_email }}
         </div>
         <div class="d-flex flex-row justify-content-left">
             {{ _('Phone number') }}: {{ incident.contact_telephone }}
@@ -83,14 +83,14 @@
             {{ _('Last name') }}: {{ incident.technical_lastname }}
         </div>
         <div class="d-flex flex-row justify-content-left">
-            {{ _('E-mail') }}: {{ incident.technical_email }}
+            {{ _('Email') }}: {{ incident.technical_email }}
         </div>
         <div class="d-flex flex-row justify-content-left">
             {{ _('Phone number') }}: {{ incident.technical_telephone }}
         </div>
 
         <div class="d-flex flex-row justify-content-left">
-            <span class="bold">{{ _('Regulations') }}</span>
+            <span class="bold">{{ _('Legal bases') }}</span>
             <ul>
             {% for regulation in incident.regulations.all %}
                 <li>{{ regulation.label }}</li>
@@ -98,7 +98,7 @@
             </ul>
         </div>
         <div class="d-flex flex-row justify-content-left">
-            <span class="bold">{{ _('Affected services') }}</span>
+            <span class="bold">{{ _('Impacted services') }}</span>
             <ul>
             {% for service in incident.affected_services.all %}
                 <li>{{ service.name }}</li>

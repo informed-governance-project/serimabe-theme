@@ -12,10 +12,10 @@
     <tbody>
         {% for question_label, answers in questions_answers.items %}
         <tr>
-            <th class="col-7 fw-normal">
+            <th class="col-5 fw-normal">
                 {{ question_label }}
             </th>
-            <td class="col-5">
+            <td class="col-7">
                 {% for answer_label in answers %}
                 <p style="word-break:break-all">
                     {{ answer_label|linebreaksbr }}

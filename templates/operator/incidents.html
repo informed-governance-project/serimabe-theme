@@ -45,7 +45,7 @@
                     data-download-url="{% url 'download_incident_report_pdf' 0 %}"
                     data-bs-toggle="modal"
                     data-bs-target="#report_versions"
-                    title="Report versions">
+                    title="{% translate 'Version control' %}">
                     <i class="bi bi-clock-history"></i>
                 </button>
                 {% endif %}
@@ -82,9 +82,11 @@
 {% endblock %}
 
 {% block content_table_significative_impact %}
-{% if incident.is_significative_impact %}
-<span class="bi bi-check-lg d-flex align-items-center justify-content-center"></span>
-{% endif %}
+    <div class="form-check d-flex align-items-center justify-content-center">
+        <input class="form-check-input large-checkbox no-opacity" type="checkbox"
+            {% if incident.is_significative_impact %}checked{% endif %} 
+            disabled>
+    </div>
 {% endblock %}
 
 {% block content_table_actions %}

@@ -24,8 +24,9 @@
   
       <!-- Navigation Menu -->
       <div class="collapse navbar-collapse" id="navbarNav">
-        {% if user.is_authenticated %}
+        
         <ul class="navbar-nav ms-auto">
+          {% if user.is_authenticated %}
           {% if is_regulator == True %}
             {% include "regulator/menu.html" %}
           {% endif %}
@@ -34,7 +35,7 @@
           {% endif %}
           {% if is_staff %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'admin:index' %}">{% translate "Administration" %}</a>
+                <a class="nav-link" href="{% url 'admin:index' %}">{% translate "Settings" %}</a>
             </li>
           {% endif %}
           <li class="nav-item dropdown">
@@ -51,11 +52,11 @@
               <li><a class="dropdown-item" href="{% url 'logout' %}">{% trans 'Log out' %}</a></li>
             </ul>
           </li>
+          {% endif %}
           <li class="nav-item">
             {% include "home/language_selector.html" %}  
           </li>
         </ul>
-        {% endif %}
       </div>
     </div>
   </nav>

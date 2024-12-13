@@ -13,7 +13,7 @@
         </tr>
         <tr>
             <th class="thead-light">
-                {% translate "Status" %}
+                {% translate "Report status" %}
             </th>
             <td>
                 {{ incident.get_incident_status_display }}               
@@ -21,7 +21,7 @@
         </tr>
         <tr>
             <th class="thead-light">
-                {% translate "Regulation" %}
+                {% translate "Legal basis" %}
             </th>
             <td>{{ incident.sector_regulation.regulation }}</td>
         </tr>
@@ -34,7 +34,7 @@
 
         <tr>
             <th class="thead-light">
-                {% translate "Affected sectors" %}
+                {% translate "Impacted sectors" %}
             </th>
             <td>
                 {% for sector_name, subsectors in sectors.items %}
@@ -64,7 +64,7 @@
         {% if incident.complaint_reference %}
         <tr>
             <th class="thead-light">
-                {% translate "Police report reference" %}
+                {% translate "Criminal complaint file number" %}
             </th>
             <td>
                 {{ incident.complaint_reference }}               
