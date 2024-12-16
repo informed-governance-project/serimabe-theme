@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-16 11:01+0100\n"
-"PO-Revision-Date: 2024-12-16 11:02+0100\n"
+"PO-Revision-Date: 2024-12-16 13:19+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -292,7 +292,7 @@ msgstr "Meine Vorfälle"
 #: theme/templates/registration/signup.html:47
 #: theme/templates/regulator/menu.html:4
 msgid "Incident Notification"
-msgstr ""
+msgstr "Benachrichtigung über einen Sicherheitsvorfall"
 
 #: theme/templates/parts/footer.html:20
 msgid "Privacy policy"
