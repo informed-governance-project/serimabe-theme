@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="{% static 'css/incidents.css' %}" />
 {% endblock %}{% block content %}
 {% block content_title %}
-<h3>{% translate "Reported incidents" %}</h3>
+<h3>{% translate "Overview of reported incidents" %}</h3>
 {% endblock %}
 {% settings_value "TIME_ZONE" as time_zone %}
 <div class="d-flex {% if is_regulator and not is_regulator_incidents or is_observer %}justify-content-end{% else %}justify-content-between{% endif %}">
@@ -73,7 +73,7 @@
 <table id="incidents-table" class="table align-middle table-sm small">
     <thead>
         <tr>
-            <th class="text-start">{% translate "Incident creation date" %}</th>
+            <th class="text-start">{% translate "Incident notification creation date" %}</th>
             <th>{% translate "Reference" %}</th>
             <th>
                 {% if is_observer %}
