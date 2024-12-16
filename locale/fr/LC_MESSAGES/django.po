@@ -1,10 +1,10 @@
-# This file was generated from traductions FE import.xlsx
+# This file was generated from frontend.xlsx
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-10 16:26+0100\n"
-"PO-Revision-Date: 2024-12-10 16:24+0100\n"
+"POT-Creation-Date: 2024-12-16 11:01+0100\n"
+"PO-Revision-Date: 2024-12-16 11:03+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -81,23 +81,23 @@ msgstr "Optionnel"
 
 #: theme/templates/cookiebanner/bootstrap5.html:27
 msgid "Details"
-msgstr ""
+msgstr "Détails"
 
 #: theme/templates/cookiebanner/bootstrap5.html:35
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: theme/templates/cookiebanner/bootstrap5.html:36
 msgid "Content"
-msgstr ""
+msgstr "Contenu"
 
 #: theme/templates/cookiebanner/bootstrap5.html:37
 msgid "Maximum duration"
-msgstr ""
+msgstr "Durée maximale"
 
 #: theme/templates/cookiebanner/bootstrap5.html:60
-msgid "Do not display anymore"
-msgstr ""
+msgid "Accept"
+msgstr "Accepter"
 
 #: theme/templates/edit_incident_timeline.html:8
 msgid "Edit timeline"
@@ -114,8 +114,8 @@ msgid "Incidents"
 msgstr "Incidents"
 
 #: theme/templates/incidents_base.html:24
-msgid "Reported incidents"
-msgstr "Incidents signalés"
+msgid "Overview of reported incidents"
+msgstr "Vue d'ensemble des incidents signalés"
 
 #: theme/templates/incidents_base.html:31
 msgid "Notify an incident"
@@ -129,82 +129,85 @@ msgstr "Filtre"
 msgid "Active"
 msgstr "Actif"
 
-#: theme/templates/incidents_base.html:67
+#: theme/templates/incidents_base.html:65
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: theme/templates/incidents_base.html:69
+#: theme/templates/incidents_base.html:67
 msgid "Search"
 msgstr "Rechercher"
 
-#: theme/templates/incidents_base.html:78
-msgid "Incident creation date"
-msgstr ""
+#: theme/templates/incidents_base.html:76
+#: theme/templates/regulator/incident_edit.html:35
+#: theme/templates/report/timeline.html:11
+msgid "Incident notification creation date"
+msgstr "Date de création de la notification d’incident"
 
-#: theme/templates/incidents_base.html:79 theme/templates/report/cover.html:25
+#: theme/templates/incidents_base.html:77 theme/templates/report/cover.html:25
 #: theme/templates/report/details.html:10
 msgid "Reference"
 msgstr "Référence"
 
-#: theme/templates/incidents_base.html:82
-#: theme/templates/incidents_base.html:91
+#: theme/templates/incidents_base.html:80
+#: theme/templates/incidents_base.html:89
 #: theme/templates/report/details.html:30
 msgid "Regulator"
 msgstr "Régulateur"
 
-#: theme/templates/incidents_base.html:84
+#: theme/templates/incidents_base.html:82
 #: theme/templates/report/details.html:24
 msgid "Legal basis"
 msgstr "Base légale"
 
-#: theme/templates/incidents_base.html:89
+#: theme/templates/incidents_base.html:87
 msgid "Operator"
 msgstr "Opérateur"
 
-#: theme/templates/incidents_base.html:94
+#: theme/templates/incidents_base.html:92
 msgid "Sectors"
 msgstr "Secteurs"
 
-#: theme/templates/incidents_base.html:95
+#: theme/templates/incidents_base.html:93
 msgid "Subsectors"
 msgstr "Sous-secteurs"
 
-#: theme/templates/incidents_base.html:99
+#: theme/templates/incidents_base.html:97 theme/templates/report/cover.html:11
+#: theme/templates/report/header.html:5
 msgid "Report"
 msgstr "Rapport"
 
-#: theme/templates/incidents_base.html:100 theme/templates/report/cover.html:37
+#: theme/templates/incidents_base.html:98 theme/templates/report/cover.html:37
 #: theme/templates/report/details.html:16
 msgid "Report status"
 msgstr "Statut du rapport"
 
-#: theme/templates/incidents_base.html:104
+#: theme/templates/incidents_base.html:102
 msgid "Incident status"
 msgstr "Statut de l'incident"
 
-#: theme/templates/incidents_base.html:105
+#: theme/templates/incidents_base.html:103
 #: theme/templates/report/details.html:54
 msgid "Significant impact"
 msgstr "Impact significatif"
 
-#: theme/templates/incidents_base.html:106
+#: theme/templates/incidents_base.html:104
 msgid "Actions"
 msgstr "Actions"
 
-#: theme/templates/incidents_base.html:179
+#: theme/templates/incidents_base.html:177
 #: theme/templates/modals/report_versions.html:8
 #: theme/templates/observer/incidents.html:35
 #: theme/templates/operator/incidents.html:48
 msgid "Version control"
 msgstr "Gestion de versions"
 
-#: theme/templates/incidents_base.html:247
+#: theme/templates/incidents_base.html:245
 msgid "No incident"
 msgstr "Aucun incident"
 
 #: theme/templates/modals/accept_terms.html:7
 msgid "Accept terms"
-msgstr ""
+msgstr "Accepter les conditions d’utilisation"
 
 #: theme/templates/modals/accept_terms.html:16
 #: theme/templates/modals/accept_terms.html:18
@@ -216,7 +219,7 @@ msgstr "Conditions d'utilisation"
 
 #: theme/templates/modals/accept_terms.html:38
 msgid "Continue"
-msgstr ""
+msgstr "Continuer"
 
 #: theme/templates/modals/access_log.html:18
 msgid "Access log"
@@ -246,17 +249,17 @@ msgstr "Aucun élément"
 
 #: theme/templates/modals/contacts_incident.html:8
 msgid "Contacts"
-msgstr ""
+msgstr "Contacts"
 
 #: theme/templates/modals/contacts_incident.html:17
 #: theme/templates/regulator/incident_edit.html:56
 #: theme/templates/report/contacts.html:17
-msgid "Person in charge"
-msgstr "Personne en charge"
+msgid "Incident notification manager"
+msgstr "Responsable de la notification d’incident"
 
 #: theme/templates/modals/contacts_incident.html:19
-msgid "Person in charge and technical contact"
-msgstr ""
+msgid "Incident notification manager and technical contact"
+msgstr "Responsable de la notification d’incident et contact technique"
 
 #: theme/templates/modals/delete_incident.html:8
 msgid "Delete incident"
@@ -281,14 +284,14 @@ msgstr "Commentaire"
 #: theme/templates/operator/incidents.html:13
 #: theme/templates/regulator/menu.html:9
 msgid "My incidents"
-msgstr ""
+msgstr "Mes incidents"
 
 #: theme/templates/operator/menu.html:3
 #: theme/templates/registration/login.html:59
 #: theme/templates/registration/signup.html:47
 #: theme/templates/regulator/menu.html:4
 msgid "Incident Notification"
-msgstr "Notification d'incident"
+msgstr ""
 
 #: theme/templates/parts/footer.html:20
 msgid "Privacy policy"
@@ -300,7 +303,7 @@ msgstr "À propos"
 
 #: theme/templates/parts/footer.html:22
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #: theme/templates/parts/header.html:38
 msgid "Settings"
@@ -528,10 +531,6 @@ msgstr "Modifier les données de l'incident"
 msgid "Incident details"
 msgstr "Détails de l'incident"
 
-#: theme/templates/regulator/incident_edit.html:35
-msgid "Incident notification creation date"
-msgstr "Date de création de la notification d’incident"
-
 #: theme/templates/regulator/incident_edit.html:39
 msgid "Final notification datetime"
 msgstr "Date de notification finale"
@@ -580,8 +579,8 @@ msgid "Impacted services"
 msgstr "Services impactés"
 
 #: theme/templates/regulator/menu.html:7
-msgid "Dashboard"
-msgstr "Tableau de bord"
+msgid "All incidents"
+msgstr "Tous les incidents"
 
 #: theme/templates/report/contacts.html:2
 msgid "Contact details"
@@ -589,15 +588,11 @@ msgstr "Informations du contact"
 
 #: theme/templates/report/contacts.html:7
 msgid "Role"
-msgstr ""
-
-#: theme/templates/report/cover.html:11 theme/templates/report/header.html:5
-msgid "Incident notification report"
-msgstr ""
+msgstr "Rôle"
 
 #: theme/templates/report/cover.html:31
-msgid "Date of notification"
-msgstr ""
+msgid "Incident notification date"
+msgstr "Date de la notification incident"
 
 #: theme/templates/report/details.html:37
 msgid "Impacted sectors"
@@ -605,19 +600,19 @@ msgstr "Secteurs impactés"
 
 #: theme/templates/report/footer.html:5
 msgid "Confidential"
-msgstr ""
+msgstr "Confidentiel"
 
 #: theme/templates/report/reports.html:3
 msgid "Reports"
-msgstr ""
+msgstr "Rapports"
 
 #: theme/templates/report/reports.html:33
 msgid "Impacts"
 msgstr "Impacts"
 
 #: theme/templates/report/reports.html:49
-msgid "No report was submitted"
-msgstr ""
+msgid "No incident reports have been submitted."
+msgstr "Aucun rapport d'incident n'a été soumis."
 
 #: theme/templates/report/template.html:8
 #: theme/templates/report/template.html:9
@@ -625,29 +620,25 @@ msgid "Incident report"
 msgstr "Rapport d'incident"
 
 #: theme/templates/report/timeline.html:2
-msgid "Incident Timeline"
-msgstr ""
+msgid "Incident timeline"
+msgstr "Chronologie de l’incident"
 
 #: theme/templates/report/timeline.html:7
 msgid "Time zone"
-msgstr ""
-
-#: theme/templates/report/timeline.html:11
-msgid "Creation date"
-msgstr ""
+msgstr "Fuseau horaire"
 
 #: theme/templates/report/timeline.html:15
-msgid "Detection date"
-msgstr ""
+msgid "Incident detection date"
+msgstr "Date de détection de l’incident"
 
 #: theme/templates/report/timeline.html:19
-msgid "Starting date"
-msgstr ""
+msgid "Incident start date"
+msgstr "Date de début de l’incident"
 
 #: theme/templates/report/timeline.html:26
 msgid "Report Timeline"
-msgstr ""
+msgstr "Chronologie des rapports"
 
 #: theme/templates/report/toc.html:3
 msgid "Table of contents"
-msgstr ""
+msgstr "Sommaire"
