@@ -33,7 +33,7 @@
             {% csrf_token %}
             <p>{% trans "As a last resort, you can use a backup token:" %}</p>
             <p>
-                {% bootstrap_button name="wizard_goto_step" button_type="submit" button_class="btn-secondary btn-sm" value="backup" content=_("Use Backup Token") %}
+                {% bootstrap_button name="wizard_goto_step" button_type="submit" button_class="btn-secondary btn-sm" value="backup" content=_("Use backup token") %}
             </p>
         </form>
     </div>
@@ -42,10 +42,10 @@
     {% if wizard.steps.current == 'auth' %}
     <p class="small mb-2 pb-lg-2">
         <a class="text-muted" href="{% url 'password_reset' %}">
-            {% translate "Have you forgotten your password or username?" %}
+            {% translate "Have you forgotten your password?" %}
         </a>
     </p>
-    <p>{% translate "Do you not have an account and need to report an incident?" %}</p>
+    <p>{% translate "No Account? Create one!" %}</p>
     <p>
         <a href="{% url 'registration' %}" class="link-info">
             {% translate "Register" %}

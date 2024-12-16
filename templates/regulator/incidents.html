@@ -1,5 +1,6 @@
 {% extends 'incidents_base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block bootstrap5_extra_script %}
 {{ block.super }}
@@ -21,7 +22,7 @@
     }'
     data-bs-toggle="modal"
     data-bs-target="#contacts_incident"
-    title="Contacts">
+    title="{% translate 'Contacts' %}">
     <i class="bi bi-person-vcard h4"></i>
 </button>
 {% endblock %}

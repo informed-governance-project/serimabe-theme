@@ -45,7 +45,7 @@
                     data-download-url="{% url 'download_incident_report_pdf' 0 %}"
                     data-bs-toggle="modal"
                     data-bs-target="#report_versions"
-                    title="Report versions">
+                    title="{% translate 'Version control' %}">
                     <i class="bi bi-clock-history"></i>
                 </button>
                 {% endif %}
@@ -55,7 +55,7 @@
                     data-workflow-comment="{{ filtered_workflows.comment }}"
                     data-bs-toggle="modal"
                     data-bs-target="#workflow_comment"
-                    title="Comment">
+                    title="{% translate 'Comment' %}">
                     <i class="bi bi-chat-left-text-fill"></i>
                 </button>
                 {% endif %}
@@ -97,7 +97,7 @@
     data-delete-url="{% url 'delete_incident' 0 %}"
     data-bs-toggle="modal"
     data-bs-target="#delete_incident"
-    title="Delete">
+    title="{% translate 'Delete' %}">
     <i class="bi bi-file-earmark-x h4"></i>
 </button>
 {% endif %}

@@ -32,13 +32,13 @@
                 data-download-url="{% url 'download_incident_report_pdf' 0 %}"
                 data-bs-toggle="modal"
                 data-bs-target="#report_versions"
-                title="Report versions">
+                title="{% translate 'Version control' %}">
                 <i class="bi bi-clock-history"></i>
             </button>
             {% endif %}
             {% if filtered_workflows %}
             <a class="btn text-secondary p-0 {% if not incident_workflows %}ps-1{% endif %} border-0" href="{% url 'download_incident_report_pdf' filtered_workflows.instance.id %}"
-                title="Download">
+                title="{% translate 'Download' %}">
                 <i class="bi bi-filetype-pdf"></i>
             </a>
             {% endif %}
@@ -83,7 +83,7 @@
     }'
     data-bs-toggle="modal"
     data-bs-target="#contacts_incident"
-    title="Contacts">
+    title="{% translate 'Contacts' %}">
     <i class="bi bi-person-vcard h4"></i>
 </button>
 {% endblock %}

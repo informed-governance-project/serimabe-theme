@@ -21,14 +21,14 @@
 <link rel="stylesheet" href="{% static 'css/incidents.css' %}" />
 {% endblock %}{% block content %}
 {% block content_title %}
-<h3>{% translate "Reported incidents" %}</h3>
+<h3>{% translate "Overview of reported incidents" %}</h3>
 {% endblock %}
 {% settings_value "TIME_ZONE" as time_zone %}
 <div class="d-flex {% if is_regulator and not is_regulator_incidents or is_observer %}justify-content-end{% else %}justify-content-between{% endif %}">
     {% if not is_regulator and not is_observer or is_regulator_incidents %}
     <div>
         <a role="button" class="btn btn-primary btn-sm" href="{% url 'declaration' %}">
-            {% translate "Report an incident" %}
+            {% translate "Notify an incident" %}
         </a>
     </div>
     {% endif %}
@@ -37,7 +37,7 @@
         {% translate "Filter" %}
         {% if is_filtered %}
         <span>
-            ({% translate "Applied" %})
+            ({% translate "Active" %})
         </span>
         {% endif %}
         <i class="bi bi-funnel-fill"></i>
@@ -47,18 +47,16 @@
     <div id="collapseFilters" class="collapse">
         <form method="get">
             <div class="row">
-                <div class="col-6">
+                <div class="col-3">
                     {% bootstrap_field filter.form.incident_id show_label=True %}
                 </div>
-                <div class="col-6">
+                <div class="col-3">
                     {% bootstrap_field filter.form.incident_status show_label=True %}
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
+                <div class="col-3">
                     {% bootstrap_field filter.form.is_significative_impact show_label=True %}
                 </div>
-                <div class="col-6">
+                <div class="col-3">
                     {% bootstrap_field filter.form.affected_sectors show_label=True wrapper_class="affected-sector-filter" %}
                 </div>
             </div>
@@ -75,13 +73,13 @@
 <table id="incidents-table" class="table align-middle table-sm small">
     <thead>
         <tr>
-            <th class="text-start">{% translate "Incident creation date" %}</th>
+            <th class="text-start">{% translate "Incident notification creation date" %}</th>
             <th>{% translate "Reference" %}</th>
             <th>
                 {% if is_observer %}
                 {% translate "Regulator" %}
                 {% else %}
-                {% translate "Regulation" %}
+                {% translate "Legal basis" %}
                 {% endif %}
             </th>
             <th>
@@ -93,11 +91,11 @@
             </th>
             <th>{% translate "Sectors" %}</th>
             <th>{% translate "Subsectors" %}</th>
-            <th>
+            <th class="p-0">
                 <table class="table table-borderless table-sm m-0">
                     <tr>
-                        <td>{% translate "Report" %}</td>
-                        <td>{% translate "Status" %}</td>
+                        <td class="col-6">{% translate "Report" %}</td>
+                        <td class="col-6">{% translate "Report status" %}</td>
                     </tr>
                 </table>
             </th>
@@ -152,7 +150,7 @@
                     {% endfor %}
                 </ul>
             </td>
-            <td class="table-group-divider"> <!-- Report name and status -->
+            <td class="table-group-divider p-0"> <!-- Report name and status -->
                 {% block content_table_report %}
                 <table class="table table-borderless table-sm m-0">
                     {% for report in incident.get_all_workflows %}
@@ -170,14 +168,14 @@
                                 data-incident-ref="{{ incident.incident_id}}"
                                 data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
                                 data-download-url="{% url 'download_incident_report_pdf' 0 %}" data-bs-toggle="modal"
-                                data-bs-target="#report_versions" title="Report versions">
+                                data-bs-target="#report_versions" title="{% translate 'Version control' %}">
                                 <i class="bi bi-clock-history"></i>
                             </button>
                             {% endif %}
                             {% if filtered_workflows %}
                             <a class="btn text-secondary p-0 {% if not incident_workflows %}ps-1{% endif %} border-0"
                                 href="{% url 'download_incident_report_pdf' filtered_workflows.instance.id %}"
-                                title="Download">
+                                title="{% translate 'Download' %}">
                                 <i class="bi bi-filetype-pdf"></i>
                             </a>
                             {% endif %}
@@ -222,11 +220,11 @@
                 <div class="col d-flex align-items-center">
                     {% block content_table_actions %}
                     <button class="btn text-secondary access_log p-0" data-incident-id="{{ incident.id }}"
-                        title="Access Log">
+                        title="{% translate 'Access log' %}">
                         <i class="bi bi-file-earmark-person h4"></i>
                     </button>
                     <a class="btn text-secondary p-0 border-0" href="{% url 'download_incident_pdf' incident.id %}"
-                        title="Download">
+                        title="{% translate 'Download' %}">
                         <i class="bi bi-filetype-pdf h4"></i>
                     </a>
                     {% endblock %}

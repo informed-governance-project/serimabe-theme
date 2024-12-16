@@ -8,7 +8,7 @@
 
     </div>
 
-    <h1 class="mt-5 mb-2 text-center fw-bold">{% translate "Incident notification report" %}
+    <h1 class="mt-5 mb-2 text-center fw-bold">{% translate "Report" %}
         {% if report_name %}
             <br>{{report_name}}
         {% endif %}
@@ -16,7 +16,7 @@
     <div class="mt-5 p-4 pb-2 border border-secondary border-1 rounded">
         <p>
             <span class="fw-bold">
-                {% translate "Company name" %}:
+                {% translate "Name of the Operator" %}:
             </span>
             {{ incident.company_name }}
         </p>
@@ -28,13 +28,13 @@
         </p>
         <p>
             <span class="fw-bold">
-                {% translate "Date of notification" %}:
+                {% translate "Incident notification date" %}:
             </span>
             {{ incident.incident_notification_date|date:"d M Y, H:i" }}
         </p>
         <p>
             <span class="fw-bold">
-                {% translate "Status" %}:
+                {% translate "Report status" %}:
             </span>
             {{ incident.get_incident_status_display }}   
         </p>
