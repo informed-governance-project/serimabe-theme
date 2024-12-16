@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-16 11:01+0100\n"
+"POT-Creation-Date: 2024-12-16 13:32+0100\n"
 "PO-Revision-Date: 2024-12-16 13:19+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -199,6 +199,17 @@ msgstr "Acties"
 msgid "Version control"
 msgstr ""
 
+#: theme/templates/incidents_base.html:184
+#: theme/templates/incidents_base.html:233
+#: theme/templates/observer/incidents.html:41
+msgid "Download"
+msgstr ""
+
+#: theme/templates/incidents_base.html:229
+#: theme/templates/modals/access_log.html:18
+msgid "Access log"
+msgstr ""
+
 #: theme/templates/incidents_base.html:245
 msgid "No incident"
 msgstr "Geen incident"
@@ -217,10 +228,6 @@ msgstr "Dienstvoorwaarden"
 
 #: theme/templates/modals/accept_terms.html:38
 msgid "Continue"
-msgstr ""
-
-#: theme/templates/modals/access_log.html:18
-msgid "Access log"
 msgstr ""
 
 #: theme/templates/modals/access_log.html:28
@@ -246,6 +253,8 @@ msgid "No entries"
 msgstr ""
 
 #: theme/templates/modals/contacts_incident.html:8
+#: theme/templates/observer/incidents.html:86
+#: theme/templates/regulator/incidents.html:25
 msgid "Contacts"
 msgstr ""
 
@@ -272,10 +281,12 @@ msgid "Cancel"
 msgstr ""
 
 #: theme/templates/modals/delete_incident.html:23
+#: theme/templates/operator/incidents.html:100
 msgid "Delete"
 msgstr ""
 
 #: theme/templates/modals/workflow_comment.html:8
+#: theme/templates/operator/incidents.html:58
 msgid "Comment"
 msgstr "Opmerking"
 
