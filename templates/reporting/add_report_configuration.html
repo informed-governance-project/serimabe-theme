@@ -10,7 +10,18 @@
     <form action="" method="POST">
         {% csrf_token %}
         {% bootstrap_form_errors form %}
-        {% bootstrap_form form %}
+        {% bootstrap_form form exclude="so_excluded" %}
+
+        <div class="mb-3">
+            <label for="id_so_excluded" class="form-label">{{ form.fields.so_excluded.label }}</label>
+            <select name="so_excluded" id="id_so_excluded" class="selectpicker w-100" multiple data-selected-text-format="count > 3" data-live-search="true">
+                {% for objective in form.fields.so_excluded.queryset %}
+                    <option value="{{ objective.pk }}" {% if objective in form.instance.so_excluded.all %} selected {% endif %}>
+                        {{ objective }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">
             {% translate "Save" %}
         </button>
@@ -18,6 +29,6 @@
             {% translate "Cancel" %}
         </a>
     </form>
-    
+   
 {% endblock %}
 
