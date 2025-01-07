@@ -93,9 +93,10 @@ $(document).ready(function () {
 
     generateButton.on('click', function () {
         if (companyTableForm.length) {
+            paginationParams = table.page.info();           
             table.page.len(-1).draw();
             companyTableForm[0].submit();
-            table.page.len(10).draw();
+            table.page.len(paginationParams.length).draw();
         }
     });
 });
