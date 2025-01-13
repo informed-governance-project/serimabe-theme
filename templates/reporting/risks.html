@@ -1,5 +1,5 @@
 {% load i18n %}
-{% load custom_filters %}
+{% load reporting_filters %}
 
 
 <h2 id="risks" class="{{ title_class }}">
@@ -38,64 +38,73 @@
     </div>
     <table class="{{ table_class }}" style="font-size: 10px;">
         <thead class="thead-light">
+            {% widthratio 3 1 nb_years as colspan_value %}
             <tr>
                 <th class="text-center align-middle" rowspan="3">{% translate "ID" %}</th>
                 <th class="text-center align-middle" rowspan="3">{% translate "Asset" %}</th>
-                <th class="text-center align-middle" colspan="6">{% translate "Impact" %}</th>
+                <th class="text-center align-middle" colspan="{{ colspan_value }}">{% translate "Impact" %}</th>
                 <th class="text-center align-middle" rowspan="3">{% translate "Threat" %}</th>
-                <th class="text-center align-middle" colspan="2">{% translate "Probability" %}</th>
+                <th class="text-center align-middle" colspan="{{ nb_years }}">{% translate "Probability" %}</th>
                 <th class="text-center align-middle" rowspan="3">{% translate "Vulnerability" %}</th>
-                <th class="text-center align-middle" colspan="2">{% translate "Qualification" %}</th>
-                <th class="text-center align-middle" colspan="6">{% translate "Current Risk" %}</th>
+                <th class="text-center align-middle" colspan="{{ nb_years }}">{% translate "Qualification" %}</th>
+                <th class="text-center align-middle" colspan="{{ colspan_value }}">{% translate "Current Risk" %}</th>
             </tr>
             <tr>
-                <th class="text-center align-middle" colspan="3">{% translate "2023" %}</th>
-                <th class="text-center align-middle" colspan="3">{% translate "2024" %}</th>
-                <th class="text-center align-middle" rowspan="2">{% translate "2023" %}</th>
-                <th class="text-center align-middle" rowspan="2">{% translate "2024" %}</th>
-                <th class="text-center align-middle" rowspan="2">{% translate "2023" %}</th>
-                <th class="text-center align-middle" rowspan="2">{% translate "2024" %}</th>
-                <th class="text-center align-middle" colspan="3">{% translate "2023" %}</th>
-                <th class="text-center align-middle" colspan="3">{% translate "2024" %}</th>
+                {% for year in risk_data.years %}
+                    <th class="text-center align-middle" colspan="3">{{ year }}</th>
+                {% endfor %}
+                {% for year in risk_data.years %}
+                    <th class="text-center align-middle" rowspan="2">{{ year }}</th>
+                {% endfor %}
+                {% for year in risk_data.years %}
+                <th class="text-center align-middle" rowspan="2">{{ year }}</th>
+                {% endfor %}
+                {% for year in risk_data.years %}
+                    <th class="text-center align-middle" colspan="3">{{ year }}</th>
+                {% endfor %}
             </tr>
             <tr>
-                <th class="text-center">{% translate "C" %}</th>
-                <th class="text-center">{% translate "I" %}</th>
-                <th class="text-center">{% translate "A" %}</th>
-                <th class="text-center">{% translate "C" %}</th>
-                <th class="text-center">{% translate "I" %}</th>
-                <th class="text-center">{% translate "A" %}</th>
-                <th class="text-center">{% translate "C" %}</th>
-                <th class="text-center">{% translate "I" %}</th>
-                <th class="text-center">{% translate "A" %}</th>
-                <th class="text-center">{% translate "C" %}</th>
-                <th class="text-center">{% translate "I" %}</th>
-                <th class="text-center">{% translate "A" %}</th>
+                {% for year in risk_data.years %}
+                    <th class="text-center">{% translate "C" %}</th>
+                    <th class="text-center">{% translate "I" %}</th>
+                    <th class="text-center">{% translate "A" %}</th>
+                    <th class="text-center">{% translate "C" %}</th>
+                    <th class="text-center">{% translate "I" %}</th>
+                    <th class="text-center">{% translate "A" %}</th>
+                {% endfor %}
             </tr>   
         </thead>
         <tbody>
-            {% for risk in '12345'|make_list %}
+            {% for risk in risk_data.data_risks_top_ranking %}
             <tr>
-                <td class="align-middle">Ra{{ risk }}</td>
-                <td>{% lorem 3 w random %}</td>
-                <td class="text-center align-middle">{{ "01234"|make_list|random }}</td>
-                <td class="text-center align-middle">{{ "01234"|make_list|random }}</td>
-                <td class="text-center align-middle">{{ "01234"|make_list|random }}</td>
-                <td class="text-center align-middle">{{ "01234"|make_list|random }}</td>
-                <td class="text-center align-middle">{{ "01234"|make_list|random }}</td>
-                <td class="text-center align-middle">{{ "01234"|make_list|random }}</td>
-                <td>{% lorem 5 w random %}</td>
-                <td class="text-center align-middle">{{ "0123"|make_list|random }}</td>
-                <td class="text-center align-middle">{{ "0123"|make_list|random }}</td>
-                <td>{% lorem 10 w random %}</td>
-                <td class="text-center align-middle">{{ "0123"|make_list|random }}</td>
-                <td class="text-center align-middle">{{ "0123"|make_list|random }}</td>
-                <td class="text-center align-middle">{{ "01234"|make_list|random }}</td>
-                <td class="text-center align-middle">{{ "01234"|make_list|random }}</td>
-                <td class="text-center align-middle">{{ "01234"|make_list|random }}</td>
-                <td class="text-center align-middle">{{ "01234"|make_list|random }}</td>
-                <td class="text-center align-middle">{{ "01234"|make_list|random }}</td>
-                <td class="text-center align-middle">{{ "01234"|make_list|random }}</td>
+                <td class="align-middle">R{{ risk.id }}</td>
+                <td>{{ risk.asset }}</td>
+                {% for year in risk_data.years %}
+                    {% for criteria in "cia"|make_list %}
+                    <td class="text-center align-middle">
+                        {{ risk.impacts|get_item:year|get_item:criteria|default_if_none:"-" }} 
+                    </td>
+                    {% endfor %}
+                {% endfor %}
+                <td>{{ risk.threat }}</td>
+                {% for year in risk_data.years %}
+                    <td class="text-center align-middle">
+                        {{ risk.threat_values|get_item:year|default_if_none:"-" }} 
+                    </td>
+                {% endfor %}
+                <td>{{ risk.vulnerability }}</td>
+                {% for year in risk_data.years %}
+                    <td class="text-center align-middle">
+                        {{ risk.vulnerability_values|get_item:year|default_if_none:"-" }} 
+                    </td>
+                {% endfor %}
+                {% for year in risk_data.years %}
+                    {% for criteria in "cia"|make_list %}
+                    <td class="text-center align-middle">
+                        {{ risk.risks_values|get_item:year|get_item:criteria|default_if_none:"-" }} 
+                    </td>
+                    {% endfor %}
+                {% endfor %}
             </tr>
             {% endfor %}
         </tbody>
@@ -119,15 +128,19 @@
         </tr>   
     </thead>
     <tbody>
-        {% for risk in '12345'|make_list %}
+        {% for risk in risk_data.data_risks_top_ranking %}
         <tr>
-            <td class="align-middle">Ra{{ risk }}</td>
-            <td>{% lorem 3 w random %}</td>
-            <td>{% lorem 5 w random %}</td>
-            <td>{% lorem 10 w random %}</td>
-            <td class="text-center align-middle">{{ "01234"|make_list|random }}</td>
-            <td>{% lorem 1 w random %}</td>
-            <td class="text-center align-middle">{{ "01234"|make_list|random }}</td>
+            <td class="align-middle">R{{ risk.id }}</td>
+            <td>{{ risk.asset }}</td>
+            <td>{{ risk.threat }}</td>
+            <td>{{ risk.vulnerability }}</td>
+            <td class="text-center align-middle">
+                {{ risk.max_risk|floatformat }}
+            </td>
+            <td>{{ risk.treatment }}</td>
+            <td class="text-center align-middle">
+                {{ risk.residual_risk_level_value|floatformat }}
+            </td>
         </tr>
         {% endfor %}
     </tbody>
@@ -154,14 +167,85 @@
         </tr>   
     </thead>
     <tbody>
-        {% for service in '12345'|make_list %}
+        {% for service, stats in risk_data.service_stats.items %}
             {% with color_service=service_color_palette|index:forloop.counter0|safe %}
-            {% for year in years reversed %}
+            {% for year in risk_data.years reversed %}
             <tr>
-                <th class="align-middle" style="color: {{ color_service }};">Service {{ service }} ({{ year }})</th>
-                {% for n in '0123456789'|make_list %}
-                <td class="text-center align-middle" style="color: {{ color_service }};">xxx/yyy</td>
-                {% endfor %}
+                {% with stats_by_year=stats|get_item:year %}
+                {% with total_risks=stats_by_year.total_risks|floatformat %}
+                <th class="align-middle" style="color: {{ color_service }};">{{ service.name }} ({{ year }})</th>
+                <td class="text-center align-middle" style="color: {{ color_service }};">
+                    {% if total_risks %}
+                        {{ stats_by_year.total_treated_risks|floatformat }} / {{ total_risks }}
+                    {% else %}
+                    -                      
+                    {% endif %}
+                </td>
+                <td class="text-center align-middle" style="color: {{ color_service }};">
+                    {% if total_risks %}
+                    {{ stats_by_year.total_untreated_risks|floatformat }} / {{ total_risks }}
+                    {% else %}
+                    -                      
+                    {% endif %}
+                </td>
+                <td class="text-center align-middle" style="color: {{ color_service }};">
+                    {% if total_risks %}
+                    {{stats_by_year.avg_current_risks|floatformat:"2" }}
+                    {% else %}
+                    -                      
+                    {% endif %}
+                </td>
+                <td class="text-center align-middle" style="color: {{ color_service }};">
+                    {% if total_risks %}
+                    {{stats_by_year.total_high_risks_treated }}
+                    {% else %}
+                    -                      
+                    {% endif %}
+                </td>
+                <td class="text-center align-middle" style="color: {{ color_service }};">
+                    {% if total_risks %}
+                    {{stats_by_year.avg_high_risks_treated|floatformat:"2" }}                    
+                    {% else %}
+                    -                      
+                    {% endif %}
+                </td>
+                <td class="text-center align-middle" style="color: {{ color_service }};">
+                    {% if total_risks %}
+                    {{stats_by_year.avg_residual_risks|floatformat:"2" }}
+                    {% else %}
+                    -                      
+                    {% endif %}
+                </td>
+                <td class="text-center align-middle" style="color: {{ color_service }};">
+                    {% if total_risks %}
+                    {{ stats_by_year.total_reduced_risks|floatformat }} / {{ total_risks }}
+                    {% else %}
+                    -                      
+                    {% endif %}
+                </td>
+                <td class="text-center align-middle" style="color: {{ color_service }};">
+                    {% if total_risks %}
+                    {{ stats_by_year.total_denied_risks|floatformat }} / {{ total_risks }}
+                    {% else %}
+                    -                      
+                    {% endif %}
+                </td>
+                <td class="text-center align-middle" style="color: {{ color_service }};">
+                    {% if total_risks %}
+                    {{ stats_by_year.total_accepted_risks|floatformat }} / {{ total_risks }}
+                    {% else %}
+                    -                      
+                    {% endif %}
+                </td>
+                <td class="text-center align-middle" style="color: {{ color_service }};">
+                    {% if total_risks %}
+                    {{ stats_by_year.total_shared_risks|floatformat }} / {{ total_risks }}
+                    {% else %}
+                    -                      
+                    {% endif %}
+                </td>
+                {% endwith %}
+                {% endwith %}
             </tr>
             {% endfor %}
             {% endwith %}
@@ -172,13 +256,13 @@
     <h3 id="risks_7" class="{{ title_class }}">
         {% translate "Most important threats" %}
     </h3>
-    {% for service in '12345'|make_list %}
+    {% for service, rankings in risk_data.top_ranking_risks_items.items %}
     {% with color_service=service_color_palette|index:forloop.counter0|safe %}
     <table class="{{ table_class }}">
         <thead class="thead-light">
             <tr>
                 <th rowspan="2"></th>
-                <th class="text-center align-middle" colspan="3" style="color: {{ color_service }};">Service {{ service }}</th>
+                <th class="text-center align-middle" colspan="3" style="color: {{ color_service }};">{{ service.name }}</th>
             </tr>
             <tr>
                 <th class="text-center align-middle">{% translate "Threat ranking based on risk level" %}</th>
@@ -187,14 +271,18 @@
             </tr>   
         </thead>
         <tbody>
-            {%for item in '123'|make_list %}
+            {%for ranking in rankings %}
             <tr>
-                <th class="align-middle">#{{ item }}</th>
-                {% for n in '012'|make_list %}
+                <th class="align-middle">#{{ forloop.counter }}</th>
                 <td style="color: {{ color_service }};">
-                    {% lorem 5 w random %}
+                    {{ ranking.by_max_risk.threat.name}}
                 </td>
-                {% endfor %}
+                <td style="color: {{ color_service }};">
+                    {{ ranking.by_residual_risk.threat.name}}
+                </td>
+                <td style="color: {{ color_service }};">
+                    {{ ranking.by_threat.threat.name}}
+                </td>      
             </tr>   
             {% endfor %}        
         </tbody>
