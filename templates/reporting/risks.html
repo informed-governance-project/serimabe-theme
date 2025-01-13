@@ -320,13 +320,13 @@
     <h3 id="risks_8" class="{{ title_class }}">
         {% translate "Most targeted assets" %}
     </h3>
-    {% for service in '12345'|make_list %}
+    {% for service, rankings in risk_data.top_ranking_risks_items.items %}
     {% with color_service=service_color_palette|index:forloop.counter0|safe %}
     <table class="{{ table_class }}">
         <thead class="thead-light">
             <tr>
                 <th rowspan="2"></th>
-                <th class="text-center align-middle" colspan="3" style="color: {{ color_service }};">Service {{ service }}</th>
+                <th class="text-center align-middle" colspan="3" style="color: {{ color_service }};">{{ service.name }}</th>
             </tr>
             <tr>
                 <th class="text-center align-middle">{% translate "Most targeted asset based on risk level" %}</th>
@@ -335,14 +335,18 @@
             </tr>   
         </thead>
         <tbody>
-            {%for item in '123'|make_list %}
+            {%for ranking in rankings %}
             <tr>
-                <th class="align-middle">#{{ item }}</th>
-                {% for n in '012'|make_list %}
+                <th class="align-middle">#{{ forloop.counter }}</th>
                 <td style="color: {{ color_service }};">
-                    {% lorem 3 w random %}
+                    {{ ranking.by_max_risk.asset.name}}
                 </td>
-                {% endfor %}
+                <td style="color: {{ color_service }};">
+                    {{ ranking.by_residual_risk.asset.name}}
+                </td>
+                <td style="color: {{ color_service }};">
+                    {{ ranking.by_asset.asset.name}}
+                </td> 
             </tr>   
             {% endfor %}        
         </tbody>
@@ -380,13 +384,13 @@
     <h3 id="risks_9" class="{{ title_class }}">
         {% translate "Most important vulnerabilities" %}
     </h3>
-    {% for service in '12345'|make_list %}
+    {% for service, rankings in risk_data.top_ranking_risks_items.items %}
     {% with color_service=service_color_palette|index:forloop.counter0|safe %}
     <table class="{{ table_class }}">
         <thead class="thead-light">
             <tr>
                 <th rowspan="2"></th>
-                <th class="text-center align-middle" colspan="3" style="color: {{ color_service }};">Service {{ service }}</th>
+                <th class="text-center align-middle" colspan="3" style="color: {{ color_service }};">{{ service.name }}</th>
             </tr>
             <tr>
                 <th class="text-center align-middle">{% translate "Most important vulnerability based on risk level" %}</th>
@@ -395,16 +399,20 @@
             </tr>   
         </thead>
         <tbody>
-            {%for item in '123'|make_list %}
+            {%for ranking in rankings %}
             <tr>
-                <th class="align-middle">#{{ item }}</th>
-                {% for n in '012'|make_list %}
+                <th class="align-middle">#{{ forloop.counter }}</th>
                 <td style="color: {{ color_service }};">
-                    {% lorem 10 w random %}
+                    {{ ranking.by_max_risk.vulnerability.name}}
                 </td>
-                {% endfor %}
+                <td style="color: {{ color_service }};">
+                    {{ ranking.by_residual_risk.vulnerability.name}}
+                </td>
+                <td style="color: {{ color_service }};">
+                    {{ ranking.by_asset.vulnerability.name}}
+                </td> 
             </tr>   
-            {% endfor %}        
+            {% endfor %}       
         </tbody>
     </table>
     {% endwith %}
