@@ -409,6 +409,42 @@
     <h3 id="risks_10" class="{{ title_class }}">
         {% translate "Most used recommendations" %}
     </h3>
+    <table class="{{ table_class }} smallest-font-size">
+        <thead class="thead-light">
+            <tr>
+                <th></th>
+                <th class="col-4 text-center align-middle">
+                    {% translate "Code" %}
+                </th>
+                <th class="col-4 text-center align-middle">
+                    {% translate "Description" %}
+                </th>
+                <th class="col-4 text-center align-middle">
+                    {% translate "Main vulnerabilities reduced" %}
+                </th>
+            </tr>   
+        </thead>
+        <tbody>
+            {% for recommendation in risk_data.most_recommendations_used %}
+            <tr>
+                <th class="align-middle">#{{ forloop.counter }}</th>
+                <td class="col-4 lh-sm">
+                    {{ recommendation.code }}
+                </td>
+                <td class="col-4 lh-sm">
+                    {{ recommendation.description}}
+                </td>
+                <td class="col-4 lh-sm">
+                    <ul class="list-unstyled">
+                        {% for risk in recommendation.riskdata_set.all %}
+                            <li>{{ risk.vulnerability.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </td> 
+            </tr>
+            {% endfor %} 
+        </tbody>
+    </table>
 </div>
 <div>
     <h3 id="risks_11" class="{{ title_class }}">
