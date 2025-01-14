@@ -144,3 +144,7 @@ h4:before {
 .table-group-divider {
     border-top: 1.2px solid var(--bs-secondary-color) !important;
 }
+
+.smallest-font-size {
+    font-size: 8px !important;
+}
