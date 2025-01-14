@@ -272,13 +272,13 @@
                 </th>
             </tr>
             <tr>
-                <th class="text-center align-middle">
+                <th class="col-4 text-center align-middle">
                     {% translate "Threat ranking based on risk level" %}
                 </th>
-                <th class="text-center align-middle">
+                <th class="col-4 text-center align-middle">
                     {% translate "Threat ranking based on residual risk level" %}
                 </th>
-                <th class="text-center align-middle">
+                <th class="col-4 text-center align-middle">
                     {% translate "Threat ranking based on threat probability" %}
                 </th>
             </tr>   
@@ -287,13 +287,13 @@
             {%for ranking in rankings %}
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
-                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.threat_by_max_risk.threat.name}}
                 </td>
-                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.threat_by_residual_risk.threat.name}}
                 </td>
-                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.by_threat.threat.name}}
                 </td>      
             </tr>   
@@ -323,13 +323,13 @@
                 </th>
             </tr>
             <tr>
-                <th class="text-center align-middle">
+                <th class="col-4 text-center align-middle">
                     {% translate "Most targeted asset based on risk level" %}
                 </th>
-                <th class="text-center align-middle">
+                <th class="col-4 text-center align-middle">
                     {% translate "Most targeted asset based on remaining risk level" %}
                 </th>
-                <th class="text-center align-middle">
+                <th class="col-4 text-center align-middle">
                     {% translate "Most targeted asset based on asset impact" %}
                 </th>
             </tr>   
@@ -338,13 +338,13 @@
             {%for ranking in rankings %}
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
-                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.asset_by_max_risk.asset.name}}
                 </td>
-                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.asset_by_residual_risk.asset.name}}
                 </td>
-                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.by_asset.asset.name}}
                 </td> 
             </tr>   
@@ -374,13 +374,13 @@
                 </th>
             </tr>
             <tr>
-                <th class="text-center align-middle">
+                <th class="col-4 text-center align-middle">
                     {% translate "Most important vulnerability based on risk level" %}
                 </th>
-                <th class="text-center align-middle">
+                <th class="col-4 text-center align-middle">
                     {% translate "Most important vulnerability based on remaining risk level" %}
                 </th>
-                <th class="text-center align-middle">
+                <th class="col-4 text-center align-middle">
                     {% translate "Most important vulnerability based on vulnerability qualification" %}
                 </th>
             </tr>   
@@ -389,13 +389,13 @@
             {%for ranking in rankings %}
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
-                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.vulnerability_by_max_risk.vulnerability.name}}
                 </td>
-                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.vulnerability_by_residual_risk.vulnerability.name}}
                 </td>
-                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.by_vulnerability.vulnerability.name}}
                 </td> 
             </tr>   
