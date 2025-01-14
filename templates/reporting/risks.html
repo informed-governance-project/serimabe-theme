@@ -36,7 +36,7 @@
     <div class="{{ chart_class }}">
         <img src="data:image/png;base64,{{ charts.risks_4 }}" class="img-fluid" />
     </div>
-    <table class="{{ table_class }}" style="font-size: 10px;">
+    <table class="{{ table_class }} smallest-font-size">
         <thead class="thead-light">
             {% widthratio 3 1 nb_years as colspan_value %}
             <tr>
@@ -78,7 +78,7 @@
             {% for risk in risk_data.data_risks_top_ranking %}
             <tr>
                 <td class="align-middle">R{{ risk.id }}</td>
-                <td>{{ risk.asset }}</td>
+                <td class="lh-sm">{{ risk.asset }}</td>
                 {% for year in risk_data.years %}
                     {% for criteria in "cia"|make_list %}
                     <td class="text-center align-middle">
@@ -86,13 +86,13 @@
                     </td>
                     {% endfor %}
                 {% endfor %}
-                <td>{{ risk.threat }}</td>
+                <td class="lh-sm">{{ risk.threat }}</td>
                 {% for year in risk_data.years %}
                     <td class="text-center align-middle">
                         {{ risk.threat_values|get_item:year|default_if_none:"-" }} 
                     </td>
                 {% endfor %}
-                <td>{{ risk.vulnerability }}</td>
+                <td class="lh-sm">{{ risk.vulnerability }}</td>
                 {% for year in risk_data.years %}
                     <td class="text-center align-middle">
                         {{ risk.vulnerability_values|get_item:year|default_if_none:"-" }} 
@@ -115,7 +115,7 @@
         {% translate "Treatment of the highest risks" %}
     </h3>
 </div>
-<table class="{{ table_class }}" style="font-size: 10px;">
+<table class="{{ table_class }} smallest-font-size">
     <thead class="thead-light">
         <tr>
             <th class="text-center align-middle">{% translate "ID" %}</th>
@@ -131,9 +131,9 @@
         {% for risk in risk_data.data_risks_top_ranking %}
         <tr>
             <td class="align-middle">R{{ risk.id }}</td>
-            <td>{{ risk.asset }}</td>
-            <td>{{ risk.threat }}</td>
-            <td>{{ risk.vulnerability }}</td>
+            <td class="lh-sm">{{ risk.asset }}</td>
+            <td class="lh-sm">{{ risk.threat }}</td>
+            <td class="lh-sm">{{ risk.vulnerability }}</td>
             <td class="text-center align-middle">
                 {{ risk.max_risk|floatformat }}
             </td>
@@ -150,7 +150,7 @@
         {% translate "Risk summary table" %}
     </h3>
 </div>
-<table class="{{ table_class }}" style="font-size: 8px;">
+<table class="{{ table_class }} smallest-font-size">
     <thead class="thead-light">
         <tr>
             <th></th>
@@ -258,29 +258,42 @@
     </h3>
     {% for service, rankings in risk_data.top_ranking_risks_items.items %}
     {% with color_service=service_color_palette|index:forloop.counter0|safe %}
-    <table class="{{ table_class }}">
+    <table class="{{ table_class }} smallest-font-size">
         <thead class="thead-light">
             <tr>
                 <th rowspan="2"></th>
-                <th class="text-center align-middle" colspan="3" style="color: {{ color_service }};">{{ service.name }}</th>
+                <th class="text-center align-middle" colspan="3" 
+                    style="color: {% if not forloop.last %}{{ color_service }};{% endif %}">
+                    {% if forloop.last %}
+                    {{ service }}
+                    {% else %}
+                    {{ service.name }}
+                    {% endif %}
+                </th>
             </tr>
             <tr>
-                <th class="text-center align-middle">{% translate "Threat ranking based on risk level" %}</th>
-                <th class="text-center align-middle">{% translate "Threat ranking based on residual risk level" %}</th>
-                <th class="text-center align-middle">{% translate "Threat ranking based on threat probability" %}</th>
+                <th class="text-center align-middle">
+                    {% translate "Threat ranking based on risk level" %}
+                </th>
+                <th class="text-center align-middle">
+                    {% translate "Threat ranking based on residual risk level" %}
+                </th>
+                <th class="text-center align-middle">
+                    {% translate "Threat ranking based on threat probability" %}
+                </th>
             </tr>   
         </thead>
         <tbody>
             {%for ranking in rankings %}
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
-                <td style="color: {{ color_service }};">
-                    {{ ranking.by_max_risk.threat.name}}
+                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                    {{ ranking.threat_by_max_risk.threat.name}}
                 </td>
-                <td style="color: {{ color_service }};">
-                    {{ ranking.by_residual_risk.threat.name}}
+                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                    {{ ranking.threat_by_residual_risk.threat.name}}
                 </td>
-                <td style="color: {{ color_service }};">
+                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.by_threat.threat.name}}
                 </td>      
             </tr>   
@@ -289,32 +302,6 @@
     </table>
     {% endwith %}
     {% endfor %}
-
-    <table class="{{ table_class }}">
-        <thead class="thead-light">
-            <tr>
-                <th rowspan="2"></th>
-                <th class="text-center align-middle" colspan="3">All Services</th>
-            </tr>
-            <tr>
-                <th class="text-center align-middle">{% translate "Threat ranking based on risk level" %}</th>
-                <th class="text-center align-middle">{% translate "Threat ranking based on residual risk level" %}</th>
-                <th class="text-center align-middle">{% translate "Threat ranking based on threat probability" %}</th>
-            </tr>   
-        </thead>
-        <tbody>
-            {%for item in '123'|make_list %}
-            <tr>
-                <th class="align-middle">#{{ item }}</th>
-                {% for n in '012'|make_list %}
-                <td>
-                    {% lorem 5 w random %}
-                </td>
-                {% endfor %}
-            </tr>   
-            {% endfor %}        
-        </tbody>
-    </table>
 </div>
 <div>
     <h3 id="risks_8" class="{{ title_class }}">
@@ -322,29 +309,42 @@
     </h3>
     {% for service, rankings in risk_data.top_ranking_risks_items.items %}
     {% with color_service=service_color_palette|index:forloop.counter0|safe %}
-    <table class="{{ table_class }}">
+    <table class="{{ table_class }} smallest-font-size">
         <thead class="thead-light">
             <tr>
                 <th rowspan="2"></th>
-                <th class="text-center align-middle" colspan="3" style="color: {{ color_service }};">{{ service.name }}</th>
+                <th class="text-center align-middle" colspan="3" 
+                    style="color: {% if not forloop.last %}{{ color_service }};{% endif %}">
+                    {% if forloop.last %}
+                    {{ service }}
+                    {% else %}
+                    {{ service.name }}
+                    {% endif %}
+                </th>
             </tr>
             <tr>
-                <th class="text-center align-middle">{% translate "Most targeted asset based on risk level" %}</th>
-                <th class="text-center align-middle">{% translate "Most targeted asset based on remaining risk level" %}</th>
-                <th class="text-center align-middle">{% translate "Most targeted asset based on asset impact" %}</th>
+                <th class="text-center align-middle">
+                    {% translate "Most targeted asset based on risk level" %}
+                </th>
+                <th class="text-center align-middle">
+                    {% translate "Most targeted asset based on remaining risk level" %}
+                </th>
+                <th class="text-center align-middle">
+                    {% translate "Most targeted asset based on asset impact" %}
+                </th>
             </tr>   
         </thead>
         <tbody>
             {%for ranking in rankings %}
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
-                <td style="color: {{ color_service }};">
-                    {{ ranking.by_max_risk.asset.name}}
+                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                    {{ ranking.asset_by_max_risk.asset.name}}
                 </td>
-                <td style="color: {{ color_service }};">
-                    {{ ranking.by_residual_risk.asset.name}}
+                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                    {{ ranking.asset_by_residual_risk.asset.name}}
                 </td>
-                <td style="color: {{ color_service }};">
+                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.by_asset.asset.name}}
                 </td> 
             </tr>   
@@ -353,32 +353,6 @@
     </table>
     {% endwith %}
     {% endfor %}
-
-    <table class="{{ table_class }}">
-        <thead class="thead-light">
-            <tr>
-                <th rowspan="2"></th>
-                <th class="text-center align-middle" colspan="3">All Services</th>
-            </tr>
-            <tr>
-                <th class="text-center align-middle">{% translate "Most targeted asset based on risk level" %}</th>
-                <th class="text-center align-middle">{% translate "Most targeted asset based on remaining risk level" %}</th>
-                <th class="text-center align-middle">{% translate "Most targeted asset based on asset impact" %}</th>
-            </tr>   
-        </thead>
-        <tbody>
-            {%for item in '123'|make_list %}
-            <tr>
-                <th class="align-middle">#{{ item }}</th>
-                {% for n in '012'|make_list %}
-                <td>
-                    {% lorem 3 w random %}
-                </td>
-                {% endfor %}
-            </tr>   
-            {% endfor %}        
-        </tbody>
-    </table>
 </div>
 <div>
     <h3 id="risks_9" class="{{ title_class }}">
@@ -386,30 +360,43 @@
     </h3>
     {% for service, rankings in risk_data.top_ranking_risks_items.items %}
     {% with color_service=service_color_palette|index:forloop.counter0|safe %}
-    <table class="{{ table_class }}">
+    <table class="{{ table_class }} smallest-font-size">
         <thead class="thead-light">
             <tr>
                 <th rowspan="2"></th>
-                <th class="text-center align-middle" colspan="3" style="color: {{ color_service }};">{{ service.name }}</th>
+                <th class="text-center align-middle" colspan="3" 
+                    style="color: {% if not forloop.last %}{{ color_service }};{% endif %}">
+                    {% if forloop.last %}
+                    {{ service }}
+                    {% else %}
+                    {{ service.name }}
+                    {% endif %}
+                </th>
             </tr>
             <tr>
-                <th class="text-center align-middle">{% translate "Most important vulnerability based on risk level" %}</th>
-                <th class="text-center align-middle">{% translate "Most important vulnerability based on remaining risk level" %}</th>
-                <th class="text-center align-middle">{% translate "Most important vulnerability based on vulnerability qualification" %}</th>
+                <th class="text-center align-middle">
+                    {% translate "Most important vulnerability based on risk level" %}
+                </th>
+                <th class="text-center align-middle">
+                    {% translate "Most important vulnerability based on remaining risk level" %}
+                </th>
+                <th class="text-center align-middle">
+                    {% translate "Most important vulnerability based on vulnerability qualification" %}
+                </th>
             </tr>   
         </thead>
         <tbody>
             {%for ranking in rankings %}
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
-                <td style="color: {{ color_service }};">
-                    {{ ranking.by_max_risk.vulnerability.name}}
+                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                    {{ ranking.vulnerability_by_max_risk.vulnerability.name}}
                 </td>
-                <td style="color: {{ color_service }};">
-                    {{ ranking.by_residual_risk.vulnerability.name}}
+                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                    {{ ranking.vulnerability_by_residual_risk.vulnerability.name}}
                 </td>
-                <td style="color: {{ color_service }};">
-                    {{ ranking.by_asset.vulnerability.name}}
+                <td class="lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                    {{ ranking.by_vulnerability.vulnerability.name}}
                 </td> 
             </tr>   
             {% endfor %}       
@@ -417,31 +404,6 @@
     </table>
     {% endwith %}
     {% endfor %}
-    <table class="{{ table_class }}">
-        <thead class="thead-light">
-            <tr>
-                <th rowspan="2"></th>
-                <th class="text-center align-middle" colspan="3">All Services</th>
-            </tr>
-            <tr>
-                <th class="text-center align-middle">{% translate "Most important vulnerability based on risk level" %}</th>
-                <th class="text-center align-middle">{% translate "Most important vulnerability based on remaining risk level" %}</th>
-                <th class="text-center align-middle">{% translate "Most important vulnerability based on vulnerability qualification" %}</th>
-            </tr>   
-        </thead>
-        <tbody>
-            {%for item in '123'|make_list %}
-            <tr>
-                <th class="align-middle">#{{ item }}</th>
-                {% for n in '012'|make_list %}
-                <td>
-                    {% lorem 10 w random %}
-                </td>
-                {% endfor %}
-            </tr>   
-            {% endfor %}        
-        </tbody>
-    </table>
 </div>
 <div>
     <h3 id="risks_10" class="{{ title_class }}">
