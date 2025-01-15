@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    const checkboxes = $(".form-check-input:not(#select_all_companies)");
+    const checkboxes = $(".company-select-checkbox");
     const generateButton = $("#generateButton");
     const checkboxesDisabled = checkboxes.filter(':disabled');
     const checkAllInput = $("#select_all_companies");
@@ -57,6 +57,8 @@ $(document).ready(function () {
     displayPagination(table);
 
 
+
+  
     function updateCheckAll() {
         checkAllInput.prop('checked', checkboxes.not(":disabled").length === checkboxes.not(":disabled").filter(":checked").length);
     }
@@ -90,6 +92,10 @@ $(document).ready(function () {
     if (checkboxesDisabled.length === checkboxes.length) {
         checkAllInput.prop('disabled', true);
     }
+
+    updateCheckAll();
+    console.log(checkboxes);
+    
 
     generateButton.on('click', function () {
         if (companyTableForm.length) {

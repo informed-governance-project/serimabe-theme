@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    const checkboxes = $(".form-check-input:not(#select_all_recommendations)");
+    const checkboxes = $(".recommendation-select-checkbox");
     const addSelectedButton = $("#addSelectedButton");
     const checkboxesDisabled = checkboxes.filter(':disabled');
     const checkAllInput = $("#select_all_recommendations");
