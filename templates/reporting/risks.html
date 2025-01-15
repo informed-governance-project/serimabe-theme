@@ -461,7 +461,7 @@
                 <th class="col-1 text-center align-middle" rowspan="2">
                     {% translate "Status" %}
                 </th>
-                <th class="col-6 text-center align-middle" colspan="3">
+                <th class="col-6 text-center align-middle" colspan="{{ nb_years }}">
                     {% translate "Due date" %}
                 </th>
             </tr>
@@ -480,7 +480,11 @@
                     <td class="col-3 align-middle">
                         {{ recommendation.description }}
                     </td>
-                    <td class="col-1 text-center align-middle">
+                    <td class="col-1 text-center align-middle 
+                        {% if recommendation.status == _('Closed') %}table-success
+                        {% elif recommendation.status == _('Posponed') %}table-warning
+                        {% elif recommendation.status == _('To check') %}table-danger
+                        {% endif %}">
                         {{ recommendation.status }}
                     </td>
                     {% for year in risk_data.years %}   
