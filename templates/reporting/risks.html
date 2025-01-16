@@ -81,28 +81,52 @@
                     <td class="lh-sm">{{ risk.asset }}</td>
                     {% for year in risk_data.years %}
                         {% for criteria in "cia"|make_list %}
-                        <td class="text-center align-middle">
-                            {{ risk.impacts|get_item:year|get_item:criteria|default_if_none:"-" }} 
-                        </td>
+                            {% with impact=risk.impacts|get_item:year|get_item:criteria  %}
+                                {% if impact %}
+                                <td class="text-center align-middle {% if impact.changed %}table-primary{% endif %}">
+                                    {{ impact.value }}
+                                </td>
+                                {% else %}
+                                <td class="text-center align-middle">-</td>
+                                {% endif %}
+                            {% endwith %}
                         {% endfor %}
                     {% endfor %}
                     <td class="lh-sm">{{ risk.threat }}</td>
                     {% for year in risk_data.years %}
-                        <td class="text-center align-middle">
-                            {{ risk.threat_values|get_item:year|default_if_none:"-" }} 
-                        </td>
+                        {% with threat=risk.threat_values|get_item:year  %}
+                            {% if threat %}
+                            <td class="text-center align-middle {% if threat.changed %}table-primary{% endif %}">
+                            {{ threat.value }}
+                           </td>
+                            {% else %}
+                            <td class="text-center align-middle">-</td>
+                            {% endif %}
+                        {% endwith %}
                     {% endfor %}
                     <td class="lh-sm">{{ risk.vulnerability }}</td>
                     {% for year in risk_data.years %}
-                        <td class="text-center align-middle">
-                            {{ risk.vulnerability_values|get_item:year|default_if_none:"-" }} 
-                        </td>
+                        {% with vulnerability=risk.vulnerability_values|get_item:year  %}
+                            {% if vulnerability %}
+                            <td class="text-center align-middle {% if vulnerability.changed %}table-primary{% endif %}">
+                                {{ vulnerability.value }}
+                            </td>
+                            {% else %}
+                            <td class="text-center align-middle">-</td>
+                            {% endif %}
+                        {% endwith %}
                     {% endfor %}
                     {% for year in risk_data.years %}
                         {% for criteria in "cia"|make_list %}
-                        <td class="text-center align-middle">
-                            {{ risk.risks_values|get_item:year|get_item:criteria|default_if_none:"-" }} 
-                        </td>
+                            {% with risk=risk.risks_values|get_item:year|get_item:criteria  %}
+                                {% if risk %}
+                                <td class="text-center align-middle {% if risk.changed %}table-warning{% endif %}">
+                                    {{ risk.value }}
+                                </td>
+                                {% else %}
+                                <td class="text-center align-middle">-</td>
+                                {% endif %}
+                            {% endwith %}
                         {% endfor %}
                     {% endfor %}
                 </tr>
