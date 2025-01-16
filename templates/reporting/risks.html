@@ -35,85 +35,87 @@
     <div class="{{ chart_class }}">
         <img src="data:image/svg;base64,{{ charts.risks_4 }}" class="img-fluid" />
     </div>
-    <table class="{{ table_class }} smallest-font-size">
-        <thead class="thead-light">
-            {% widthratio 3 1 nb_years as colspan_value %}
-            <tr>
-                <th class="text-center align-middle" rowspan="3">{% translate "ID" %}</th>
-                <th class="text-center align-middle" rowspan="3">{% translate "Asset" %}</th>
-                <th class="text-center align-middle" colspan="{{ colspan_value }}">{% translate "Impact" %}</th>
-                <th class="text-center align-middle" rowspan="3">{% translate "Threat" %}</th>
-                <th class="text-center align-middle" colspan="{{ nb_years }}">{% translate "Probability" %}</th>
-                <th class="text-center align-middle" rowspan="3">{% translate "Vulnerability" %}</th>
-                <th class="text-center align-middle" colspan="{{ nb_years }}">{% translate "Qualification" %}</th>
-                <th class="text-center align-middle" colspan="{{ colspan_value }}">{% translate "Current Risk" %}</th>
-            </tr>
-            <tr>
-                {% for year in risk_data.years %}
-                    <th class="text-center align-middle" colspan="3">{{ year }}</th>
-                {% endfor %}
-                {% for year in risk_data.years %}
+    <div class="page-landscape page-break">
+        <table class="{{ table_class }}">
+            <thead class="thead-light">
+                {% widthratio 3 1 nb_years as colspan_value %}
+                <tr>
+                    <th class="text-center align-middle" rowspan="3">{% translate "ID" %}</th>
+                    <th class="text-center align-middle" rowspan="3">{% translate "Asset" %}</th>
+                    <th class="text-center align-middle" colspan="{{ colspan_value }}">{% translate "Impact" %}</th>
+                    <th class="text-center align-middle" rowspan="3">{% translate "Threat" %}</th>
+                    <th class="text-center align-middle" colspan="{{ nb_years }}">{% translate "Probability" %}</th>
+                    <th class="text-center align-middle" rowspan="3">{% translate "Vulnerability" %}</th>
+                    <th class="text-center align-middle" colspan="{{ nb_years }}">{% translate "Qualification" %}</th>
+                    <th class="text-center align-middle" colspan="{{ colspan_value }}">{% translate "Current Risk" %}</th>
+                </tr>
+                <tr>
+                    {% for year in risk_data.years %}
+                        <th class="text-center align-middle" colspan="3">{{ year }}</th>
+                    {% endfor %}
+                    {% for year in risk_data.years %}
+                        <th class="text-center align-middle" rowspan="2">{{ year }}</th>
+                    {% endfor %}
+                    {% for year in risk_data.years %}
                     <th class="text-center align-middle" rowspan="2">{{ year }}</th>
-                {% endfor %}
-                {% for year in risk_data.years %}
-                <th class="text-center align-middle" rowspan="2">{{ year }}</th>
-                {% endfor %}
-                {% for year in risk_data.years %}
-                    <th class="text-center align-middle" colspan="3">{{ year }}</th>
-                {% endfor %}
-            </tr>
-            <tr>
-                {% for year in risk_data.years %}
-                    <th class="text-center">{% translate "C" %}</th>
-                    <th class="text-center">{% translate "I" %}</th>
-                    <th class="text-center">{% translate "A" %}</th>
-                    <th class="text-center">{% translate "C" %}</th>
-                    <th class="text-center">{% translate "I" %}</th>
-                    <th class="text-center">{% translate "A" %}</th>
-                {% endfor %}
-            </tr>   
-        </thead>
-        <tbody>
-            {% for risk in risk_data.data_risks_top_ranking %}
-            <tr>
-                <td class="align-middle">R{{ risk.id }}</td>
-                <td class="lh-sm">{{ risk.asset }}</td>
-                {% for year in risk_data.years %}
-                    {% for criteria in "cia"|make_list %}
-                    <td class="text-center align-middle">
-                        {{ risk.impacts|get_item:year|get_item:criteria|default_if_none:"-" }} 
-                    </td>
                     {% endfor %}
-                {% endfor %}
-                <td class="lh-sm">{{ risk.threat }}</td>
-                {% for year in risk_data.years %}
-                    <td class="text-center align-middle">
-                        {{ risk.threat_values|get_item:year|default_if_none:"-" }} 
-                    </td>
-                {% endfor %}
-                <td class="lh-sm">{{ risk.vulnerability }}</td>
-                {% for year in risk_data.years %}
-                    <td class="text-center align-middle">
-                        {{ risk.vulnerability_values|get_item:year|default_if_none:"-" }} 
-                    </td>
-                {% endfor %}
-                {% for year in risk_data.years %}
-                    {% for criteria in "cia"|make_list %}
-                    <td class="text-center align-middle">
-                        {{ risk.risks_values|get_item:year|get_item:criteria|default_if_none:"-" }} 
-                    </td>
+                    {% for year in risk_data.years %}
+                        <th class="text-center align-middle" colspan="3">{{ year }}</th>
                     {% endfor %}
+                </tr>
+                <tr>
+                    {% for year in risk_data.years %}
+                        <th class="text-center">{% translate "C" %}</th>
+                        <th class="text-center">{% translate "I" %}</th>
+                        <th class="text-center">{% translate "A" %}</th>
+                        <th class="text-center">{% translate "C" %}</th>
+                        <th class="text-center">{% translate "I" %}</th>
+                        <th class="text-center">{% translate "A" %}</th>
+                    {% endfor %}
+                </tr>   
+            </thead>
+            <tbody>
+                {% for risk in risk_data.data_risks_top_ranking %}
+                <tr>
+                    <td class="align-middle">R{{ risk.id }}</td>
+                    <td class="lh-sm">{{ risk.asset }}</td>
+                    {% for year in risk_data.years %}
+                        {% for criteria in "cia"|make_list %}
+                        <td class="text-center align-middle">
+                            {{ risk.impacts|get_item:year|get_item:criteria|default_if_none:"-" }} 
+                        </td>
+                        {% endfor %}
+                    {% endfor %}
+                    <td class="lh-sm">{{ risk.threat }}</td>
+                    {% for year in risk_data.years %}
+                        <td class="text-center align-middle">
+                            {{ risk.threat_values|get_item:year|default_if_none:"-" }} 
+                        </td>
+                    {% endfor %}
+                    <td class="lh-sm">{{ risk.vulnerability }}</td>
+                    {% for year in risk_data.years %}
+                        <td class="text-center align-middle">
+                            {{ risk.vulnerability_values|get_item:year|default_if_none:"-" }} 
+                        </td>
+                    {% endfor %}
+                    {% for year in risk_data.years %}
+                        {% for criteria in "cia"|make_list %}
+                        <td class="text-center align-middle">
+                            {{ risk.risks_values|get_item:year|get_item:criteria|default_if_none:"-" }} 
+                        </td>
+                        {% endfor %}
+                    {% endfor %}
+                </tr>
                 {% endfor %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
-<div>
+<div class="page-landscape page-break">
     <h3 id="risks_5" class="{{ title_class }}">
         {% translate "Treatment of the highest risks" %}
     </h3>
-    <table class="{{ table_class }} smallest-font-size">
+    <table class="{{ table_class }}">
         <thead class="thead-light">
             <tr>
                 <th class="text-center align-middle">{% translate "ID" %}</th>
@@ -144,11 +146,11 @@
         </tbody>
     </table>
 </div>
-<div>
+<div class="page-landscape page-break">
     <h3 id="risks_6" class="{{ title_class }}">
         {% translate "Risk summary table" %}
     </h3>
-    <table class="{{ table_class }} smallest-font-size">
+    <table class="{{ table_class }}">
         <thead class="thead-light">
             <tr>
                 <th></th>
@@ -251,13 +253,13 @@
         </tbody>
     </table>
 </div>
-<div>
+<div class="page-break">
     <h3 id="risks_7" class="{{ title_class }}">
         {% translate "Most important threats" %}
     </h3>
     {% for service, rankings in risk_data.top_ranking_risks_items.items %}
     {% with color_service=service_color_palette|index:forloop.counter0|safe %}
-    <table class="{{ table_class }} smallest-font-size">
+    <table class="{{ table_class }}">
         <thead class="thead-light">
             <tr>
                 <th rowspan="2"></th>
@@ -308,7 +310,7 @@
     </h3>
     {% for service, rankings in risk_data.top_ranking_risks_items.items %}
     {% with color_service=service_color_palette|index:forloop.counter0|safe %}
-    <table class="{{ table_class }} smallest-font-size">
+    <table class="{{ table_class }}">
         <thead class="thead-light">
             <tr>
                 <th rowspan="2"></th>
@@ -359,7 +361,7 @@
     </h3>
     {% for service, rankings in risk_data.top_ranking_risks_items.items %}
     {% with color_service=service_color_palette|index:forloop.counter0|safe %}
-    <table class="{{ table_class }} smallest-font-size">
+    <table class="{{ table_class }}">
         <thead class="thead-light">
             <tr>
                 <th rowspan="2"></th>
@@ -408,7 +410,7 @@
     <h3 id="risks_10" class="{{ title_class }}">
         {% translate "Most used recommendations" %}
     </h3>
-    <table class="{{ table_class }} smallest-font-size">
+    <table class="{{ table_class }}">
         <thead class="thead-light">
             <tr>
                 <th></th>
@@ -445,17 +447,17 @@
         </tbody>
     </table>
 </div>
-<div>
+<div class="page-landscape page-break">
     <h3 id="risks_11" class="{{ title_class }}">
         {% translate "List of recommendations" %}
     </h3>
-    <table class="{{ table_class }} smallest-font-size">
+    <table class="{{ table_class }}">
         <thead class="thead-light">
             <tr>
                 <th class="col-1 text-center align-middle" rowspan="2">
                     {% translate "Code" %}
                 </th>
-                <th class="col-3 text-center align-middle" rowspan="2">
+                <th class="col-4 text-center align-middle" rowspan="2">
                     {% translate "Description" %}
                 </th>
                 <th class="col-1 text-center align-middle" rowspan="2">
@@ -474,10 +476,10 @@
         <tbody>
             {% for uuid, recommendation in risk_data.recommendations_evolution.items %}
                 <tr>
-                    <td class="col-1 align-middle">
+                    <td class="col-1 lh-sm align-middle">
                         {{ recommendation.code }}
                     </td>
-                    <td class="col-3 align-middle">
+                    <td class="col-4 lh-sm align-middle">
                         {{ recommendation.description }}
                     </td>
                     <td class="col-1 text-center align-middle 
