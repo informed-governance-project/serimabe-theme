@@ -112,9 +112,6 @@
                 {% for year in so_data.years %}
                 <th class="col-1 text-center lh-sm">{{ year }}</th>
                 {% endfor %}
-                {% if so_data.years|length > 1 %}
-                <th class="col-1 text-center lh-sm">{% translate "Evolution" %}</th>
-                {% endif %}
                 <th class="col-1 text-center lh-sm">
                     {% translate "Sector average" %} {{ year }}
                 </th>
@@ -124,19 +121,10 @@
             {% for domains, years in so_data.company_so_by_domain.items %}
             <tr>
                 <td class="lh-sm">{{ domains }}</td>
-                {% for year, value in years.items %}
-                {% if not forloop.last %}
-                <td class="text-center">
+                {% for value in years.values %}
+                <td class="text-center" {% if forloop.last %}style="background-color: {{ value.score|get_color }};"{% endif %}>
                     {{ value.score|floatformat:"1" }}
-                </td>
-                {% else %}
-                <td class="text-center" style="background-color: {{ value.score|get_color }};">
-                    {{ value.score|floatformat:"1" }}
-                </td>
-                {% if so_data.years|length > 1 %}
-                <td class="text-center">
-                    {% for year, value in years.items %}
-                    {% if not forloop.first %}
+                    {% if so_data.years|length > 1 and not forloop.first %}
                         {% if value.evolution == True %}
                         <i class="bi bi-arrow-up-right"></i>
                         {% elif value.evolution == False  %}
@@ -145,13 +133,12 @@
                             <i class="bi bi-arrow-right"></i>                        
                         {% endif %}
                     {% endif %}
-                    {% endfor %}
                 </td>
+                {% if forloop.last %}
+                    <td class="text-center">
+                        {{ value.sector_avg|floatformat:"1" }}
+                    </td>
                 {% endif %}
-                <td class="text-center">
-                    {{ value.sector_avg|floatformat:"1" }}
-                </td>
-                {% endif %} 
                 {% endfor %}
             </tr>
             {% endfor %}
@@ -171,9 +158,6 @@
                 {% for year in so_data.years %}
                 <th class="col-1 text-center">{{ year }}</th>
                 {% endfor %}
-                {% if so_data.years|length > 1 %}
-                <th class="col-1 text-center">{% translate "Evolution" %}</th>
-                {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -181,31 +165,19 @@
                 <tr>
                     <td class="lh-sm">{{ security_objectives.unique_code }}</td>
                     <td class="lh-sm">{{ security_objectives.objective }}</td>
-                    {% for year, value in years.items %}
-                    {% if not forloop.last %}
-                    <td class="text-center">
+                    {% for value in years.values %}
+                    <td class="text-center" {% if forloop.last %}style="background-color: {{ value.score|get_color }};"{% endif %}>
                         {{ value.score }}
-                    </td>
-                    {% else %}
-                    <td class="text-center" style="background-color: {{ value.score|get_color }};">
-                        {{ value.score }}
-                    </td>                    
-                        {% if so_data.years|length > 1 %}
-                            <td class="text-center">
-                                {% for year, value in years.items %}
-                                {% if not forloop.first %}
-                                    {% if value.evolution == True %}
-                                    <i class="bi bi-arrow-up-right"></i>
-                                    {% elif value.evolution == False  %}
-                                    <i class="bi bi-arrow-down-right"></i>
-                                    {% else %}
-                                        <i class="bi bi-arrow-right"></i>                        
-                                    {% endif %}
-                                {% endif %}
-                                {% endfor %}
-                            </td>
+                        {% if so_data.years|length > 1 and not forloop.first %}
+                            {% if value.evolution == True %}
+                            <i class="bi bi-arrow-up-right"></i>
+                            {% elif value.evolution == False  %}
+                            <i class="bi bi-arrow-down-right"></i>
+                            {% else %}
+                                <i class="bi bi-arrow-right"></i>                        
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
+                    </td>                  
                     {% endfor %}
                 </tr>
             {% endfor %}
@@ -228,9 +200,6 @@
                     {{ year }}
                 </th>
                 {% endfor %}
-                {% if so_data.years|length > 1 %}
-                <th class="col-1 text-center">{% translate "Evolution" %}</th>
-                {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -239,31 +208,19 @@
             <tr>
                 <td class="lh-sm">{{ security_objectives.unique_code }}</td>
                 <td class="lh-sm">{{ security_objectives.objective }}</td>
-                {% for year, value in years.items %}
-                {% if not forloop.last %}
-                <td class="text-center">
+                {% for value in years.values %}
+                <td class="text-center" {% if forloop.last %}style="background-color: {{ value.score|get_color }};"{% endif %}>
                     {{ value.score }}
-                </td>
-                {% else %}
-                <td class="text-center" style="background-color: {{ value.score|get_color }};">
-                    {{ value.score }}
-                </td>                    
-                    {% if so_data.years|length > 1 %}
-                        <td class="text-center">
-                            {% for year, value in years.items %}
-                            {% if not forloop.first %}
-                                {% if value.evolution == True %}
-                                <i class="bi bi-arrow-up-right"></i>
-                                {% elif value.evolution == False  %}
-                                <i class="bi bi-arrow-down-right"></i>
-                                {% else %}
-                                    <i class="bi bi-arrow-right"></i>                        
-                                {% endif %}
-                            {% endif %}
-                            {% endfor %}
-                        </td>
+                    {% if so_data.years|length > 1 and not forloop.first %}
+                        {% if value.evolution == True %}
+                        <i class="bi bi-arrow-up-right"></i>
+                        {% elif value.evolution == False  %}
+                        <i class="bi bi-arrow-down-right"></i>
+                        {% else %}
+                            <i class="bi bi-arrow-right"></i>                        
+                        {% endif %}
                     {% endif %}
-                {% endif %}
+                </td>                  
                 {% endfor %}
             </tr>
             {% endif %}
