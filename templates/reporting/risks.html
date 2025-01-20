@@ -14,7 +14,7 @@
 </div>
 <div>
     <h3 id="risks_2" class="{{ title_class }}">
-        {% translate "High-risk rate (>threshold)" %}
+        {% translate "High-risk rate" %} ( > {{ risk_data.threshold_for_high_risk }} )
     </h3>
     <div class="{{ chart_class }}">
         <img src="data:image/svg;base64,{{ charts.risks_2 }}" class="img-fluid" />
@@ -37,6 +37,17 @@
     </div>
     <div class="page-landscape page-break">
         <table class="{{ table_class }}">
+            <caption class="fst-italic pb-0 small">
+                {% translate "C = Confidentiality" %}, {% translate "I = Integrity" %}, {% translate "A = Availability" %}
+            </caption>
+            <caption class="fst-italic pb-0 small">
+                <input type="checkbox" class="form-check-input px-2 bg-td-primary d-inline">
+                <span class="d-inline">{% translate "Changes in values affecting the calculation of actual risk" %}</span>    
+            </caption>
+            <caption class="fst-italic pb-0 small">
+                <input type="checkbox" class="form-check-input px-2 bg-td-warning d-inline">
+                <span class="d-inline">{% translate "Changes in calculated maximum risk" %}</span>
+            </caption>
             <thead class="thead-light">
                 {% widthratio 3 1 nb_years as colspan_value %}
                 <tr>
@@ -83,8 +94,8 @@
                         {% for criteria in "cia"|make_list %}
                             {% with impact=risk.impacts|get_item:year|get_item:criteria  %}
                                 {% if impact %}
-                                <td class="text-center align-middle {% if impact.changed %}table-primary{% endif %}">
-                                    {{ impact.value }}
+                                <td class="text-center align-middle {% if impact.changed %}bg-td-primary{% endif %}">
+                                    {{ impact.value|default_if_none:"-" }}
                                 </td>
                                 {% else %}
                                 <td class="text-center align-middle">-</td>
@@ -96,8 +107,8 @@
                     {% for year in risk_data.years %}
                         {% with threat=risk.threat_values|get_item:year  %}
                             {% if threat %}
-                            <td class="text-center align-middle {% if threat.changed %}table-primary{% endif %}">
-                            {{ threat.value }}
+                            <td class="text-center align-middle {% if threat.changed %}bg-td-primary{% endif %}">
+                            {{ threat.value|default_if_none:"-" }}
                            </td>
                             {% else %}
                             <td class="text-center align-middle">-</td>
@@ -108,8 +119,8 @@
                     {% for year in risk_data.years %}
                         {% with vulnerability=risk.vulnerability_values|get_item:year  %}
                             {% if vulnerability %}
-                            <td class="text-center align-middle {% if vulnerability.changed %}table-primary{% endif %}">
-                                {{ vulnerability.value }}
+                            <td class="text-center align-middle {% if vulnerability.changed %}bg-td-primary{% endif %}">
+                                {{ vulnerability.value|default_if_none:"-" }}
                             </td>
                             {% else %}
                             <td class="text-center align-middle">-</td>
@@ -120,8 +131,8 @@
                         {% for criteria in "cia"|make_list %}
                             {% with risk=risk.risks_values|get_item:year|get_item:criteria  %}
                                 {% if risk %}
-                                <td class="text-center align-middle {% if risk.changed %}table-warning{% endif %}">
-                                    {{ risk.value }}
+                                <td class="text-center align-middle {% if risk.changed %}bg-td-warning{% endif %}">
+                                    {{ risk.value|default_if_none:"-" }}
                                 </td>
                                 {% else %}
                                 <td class="text-center align-middle">-</td>
