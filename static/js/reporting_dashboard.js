@@ -55,9 +55,15 @@ $(document).ready(function () {
     });
 
     displayPagination(table);
-
-
-
+    
+    $(document).on("click", '.reporting_access_log', function () {
+        var $popup = $("#reporting_access_log");
+        var popup_url = `access_log/${$(this).data("company-id")}/${$(this).data("sector-id")}/${$(this).data("year")}`;
+        
+        $(".modal-dialog", $popup).load(popup_url, function () {
+          $popup.modal("show");
+        });
+    });
   
     function updateCheckAll() {
         checkAllInput.prop('checked', checkboxes.not(":disabled").length === checkboxes.not(":disabled").filter(":checked").length);
@@ -94,7 +100,6 @@ $(document).ready(function () {
     }
 
     updateCheckAll();
-    console.log(checkboxes);
     
 
     generateButton.on('click', function () {

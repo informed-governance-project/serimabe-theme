@@ -121,10 +121,23 @@
                         href="{% url 'report_recommendations' form.instance.id form.initial.sector.id form.year.value %}">
                         <i class="bi bi-list-stars"></i>
                     </a>
+                    <button class="btn border-0 px-2 text-primary reporting_access_log" 
+                        data-company-id="{{ form.instance.id }}"
+                        data-sector-id="{{ form.initial.sector.id }}"
+                        data-year="{{ form.year.value }}"
+                        title="Access Log"
+                        type="button">
+                        <i class="bi bi-file-earmark-person"></i>
+                    </button>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </form>
+
+<div class="modal fade" id="reporting_access_log" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="reporting_access_log_label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"></div>
+</div>
 {% endblock %}
