@@ -50,7 +50,7 @@
                 </div>
                 <table class="{{ table_class }}">
                     <tbody>
-                        {% for security_objective in security_objectives|slice:":5" %}
+                        {% for security_objective in security_objectives %}
                         <tr>
                             <th class="col-2 thead-light text-center">
                                 # {{ forloop.counter }}
@@ -80,7 +80,7 @@
             </div>
             <table class="{{ table_class }}">
                 <tbody>
-                    {% for security_objective in security_objectives|slice:":5" %}
+                    {% for security_objective in security_objectives %}
                     <tr>
                         <th class="col-2 thead-light text-center">
                             # {{ forloop.counter }}
@@ -203,8 +203,8 @@
             </tr>
         </thead>
         <tbody>
-            {% for security_objectives, years in so_data.company_so_by_priority.items %}    
-            {% if forloop.counter <= 5 %} 
+            {% for security_objectives, years in so_data.company_so_by_priority.items %}
+            {% if forloop.counter <= top_ranking %} 
             <tr>
                 <td class="lh-sm">{{ security_objectives.unique_code }}</td>
                 <td class="lh-sm">{{ security_objectives.objective }}</td>
@@ -220,7 +220,7 @@
                             <i class="bi bi-arrow-right"></i>                        
                         {% endif %}
                     {% endif %}
-                </td>                  
+                </td>
                 {% endfor %}
             </tr>
             {% endif %}
