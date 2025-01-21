@@ -89,7 +89,7 @@
                 {% for risk in risk_data.data_risks_top_ranking %}
                 <tr>
                     <td class="align-middle">R{{ risk.id }}</td>
-                    <td class="lh-sm">{{ risk.asset }}</td>
+                    <td class="lh-sm">{{ risk.service }} > {{ risk.asset }}</td>
                     {% for year in risk_data.years %}
                         {% for criteria in "cia"|make_list %}
                             {% with impact=risk.impacts|get_item:year|get_item:criteria  %}
@@ -166,7 +166,7 @@
             {% for risk in risk_data.data_risks_top_ranking %}
             <tr>
                 <td class="align-middle">R{{ risk.id }}</td>
-                <td class="lh-sm">{{ risk.asset }}</td>
+                <td class="lh-sm">{{ risk.service }}] > {{ risk.asset }}</td>
                 <td class="lh-sm">{{ risk.threat }}</td>
                 <td class="lh-sm">{{ risk.vulnerability }}</td>
                 <td class="text-center align-middle">
