@@ -12,59 +12,59 @@ $(document).ready(function () {
         searching: false,
         order: [[2, 'asc']],
         columnDefs: [
-            {   
+            {
                 targets: 0,
                 orderable: false,
             },
-            {   
+            {
                 targets: 1,
-                orderable: false, 
-                type: 'string-utf8' 
+                orderable: false,
+                type: 'string-utf8'
             },
-            {   
+            {
                 targets: 2,
-                orderable: true, 
-                type: 'string-utf8' 
+                orderable: true,
+                type: 'string-utf8'
             },
-            {   
+            {
                 targets: 3,
-                orderable: true, 
-                type: 'string-utf8' 
+                orderable: true,
+                type: 'string-utf8'
             },
-            {   
+            {
                 targets: 4,
-                orderable: true, 
-                type: 'html' 
+                orderable: true,
+                type: 'html'
             },
-            {   
+            {
                 targets: 5,
-                orderable: true, 
-                type: 'html' 
+                orderable: true,
+                type: 'html'
             },
-            {   
+            {
                 targets: 6,
-                orderable: true, 
-                type: 'num' 
+                orderable: true,
+                type: 'num'
             },
-            {   
+            {
                 targets: 7,
-                orderable: false, 
-                type: 'html' 
+                orderable: false,
+                type: 'html'
             },
         ],
     });
 
     displayPagination(table);
-    
+
     $(document).on("click", '.reporting_access_log', function () {
         var $popup = $("#reporting_access_log");
         var popup_url = `access_log/${$(this).data("company-id")}/${$(this).data("sector-id")}/${$(this).data("year")}`;
-        
+
         $(".modal-dialog", $popup).load(popup_url, function () {
-          $popup.modal("show");
+            $popup.modal("show");
         });
     });
-  
+
     function updateCheckAll() {
         checkAllInput.prop('checked', checkboxes.not(":disabled").length === checkboxes.not(":disabled").filter(":checked").length);
     }
@@ -100,15 +100,49 @@ $(document).ready(function () {
     }
 
     updateCheckAll();
-    
+
 
     generateButton.on('click', function () {
         if (companyTableForm.length) {
-            paginationParams = table.page.info();           
+            paginationParams = table.page.info();
             table.page.len(-1).draw();
-            companyTableForm[0].submit();
+            const csrftoken = getCookie('csrftoken');
+            let formdata = companyTableForm.serialize();
             table.page.len(paginationParams.length).draw();
-            check_task_status();
+            load_spinner();
+
+            fetch("/reporting/", {
+                method: "POST",
+                headers: {
+                    "X-CSRFToken": csrftoken,
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: formdata,
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const contentDisposition = response.headers.get("Content-Disposition");
+                    let filename = "report.pdf"; // default filename
+                    if (contentDisposition && contentDisposition.includes("filename=")) {
+                        filename = contentDisposition.split("filename=")[1].replace(/"/g, "");
+                    }
+
+                    return response.blob().then(blob => ({ blob, filename }));
+                })
+                .then(({ blob, filename }) => {
+                    const link = document.createElement("a");
+                    link.href = URL.createObjectURL(blob);
+                    link.download = filename;
+                    link.click();
+
+                    stop_spinner()
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+
         }
     });
 });
