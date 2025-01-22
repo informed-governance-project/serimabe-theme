@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data" onsubmit="load_spinner()">
         {% csrf_token %}
         {% bootstrap_form form %}
         {% bootstrap_button button_type="submit" content="Submit"|translate %}

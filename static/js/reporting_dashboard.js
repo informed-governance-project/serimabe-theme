@@ -108,6 +108,7 @@ $(document).ready(function () {
             table.page.len(-1).draw();
             companyTableForm[0].submit();
             table.page.len(paginationParams.length).draw();
+            check_task_status();
         }
     });
 });
