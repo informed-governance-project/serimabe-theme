@@ -1,19 +1,3 @@
-function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
-
 function onChangeIncident(value, id) {
     const csrftoken = getCookie('csrftoken');
     let formdata = $(value).serialize();
@@ -60,8 +44,8 @@ function onChangeWorkflowStatus(value, id, workflow_id) {
             let newClass = getReviewStatusClass(newReviewStatus);
             lastClass = $tdElement.attr('class').split(' ').pop();
             $tdElement
-            .removeClass(lastClass)
-            .addClass(newClass);
+                .removeClass(lastClass)
+                .addClass(newClass);
         },
         error: function (error) {
             console.log(error);
