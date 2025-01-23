@@ -208,7 +208,7 @@
                 <tr>
                     {% with stats_by_year=stats|get_item:year %}
                     {% with total_risks=stats_by_year.total_risks|floatformat %}
-                    <th class="align-middle" style="color: {{ color_service }};">{{ service.name }} ({{ year }})</th>
+                    <th class="align-middle" style="color: {{ color_service }};">{{ service }} ({{ year }})</th>
                     <td class="text-center align-middle" style="color: {{ color_service }};">
                         {% if total_risks %}
                             {{ stats_by_year.total_treated_risks|floatformat }} / {{ total_risks }}
@@ -300,11 +300,7 @@
                 <th rowspan="2"></th>
                 <th class="text-center align-middle" colspan="3" 
                     style="color: {% if not forloop.last %}{{ color_service }};{% endif %}">
-                    {% if forloop.last %}
                     {{ service }}
-                    {% else %}
-                    {{ service.name }}
-                    {% endif %}
                 </th>
             </tr>
             <tr>
@@ -324,13 +320,13 @@
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
                 <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
-                    {{ ranking.threat_by_max_risk.threat.name}}
+                    {{ ranking.threat_by_max_risk.threat}}
                 </td>
                 <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
-                    {{ ranking.threat_by_residual_risk.threat.name}}
+                    {{ ranking.threat_by_residual_risk.threat}}
                 </td>
                 <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
-                    {{ ranking.by_threat.threat.name}}
+                    {{ ranking.by_threat.threat}}
                 </td>      
             </tr>   
             {% endfor %}        
@@ -351,11 +347,7 @@
                 <th rowspan="2"></th>
                 <th class="text-center align-middle" colspan="3" 
                     style="color: {% if not forloop.last %}{{ color_service }};{% endif %}">
-                    {% if forloop.last %}
                     {{ service }}
-                    {% else %}
-                    {{ service.name }}
-                    {% endif %}
                 </th>
             </tr>
             <tr>
@@ -375,13 +367,13 @@
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
                 <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
-                    {{ ranking.asset_by_max_risk.asset.name}}
+                    {{ ranking.asset_by_max_risk.asset}}
                 </td>
                 <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
-                    {{ ranking.asset_by_residual_risk.asset.name}}
+                    {{ ranking.asset_by_residual_risk.asset}}
                 </td>
                 <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
-                    {{ ranking.by_asset.asset.name}}
+                    {{ ranking.by_asset.asset}}
                 </td> 
             </tr>   
             {% endfor %}        
@@ -402,11 +394,7 @@
                 <th rowspan="2"></th>
                 <th class="text-center align-middle" colspan="3" 
                     style="color: {% if not forloop.last %}{{ color_service }};{% endif %}">
-                    {% if forloop.last %}
                     {{ service }}
-                    {% else %}
-                    {{ service.name }}
-                    {% endif %}
                 </th>
             </tr>
             <tr>
@@ -426,13 +414,13 @@
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
                 <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
-                    {{ ranking.vulnerability_by_max_risk.vulnerability.name}}
+                    {{ ranking.vulnerability_by_max_risk.vulnerability}}
                 </td>
                 <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
-                    {{ ranking.vulnerability_by_residual_risk.vulnerability.name}}
+                    {{ ranking.vulnerability_by_residual_risk.vulnerability}}
                 </td>
                 <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
-                    {{ ranking.by_vulnerability.vulnerability.name}}
+                    {{ ranking.by_vulnerability.vulnerability}}
                 </td> 
             </tr>   
             {% endfor %}       
@@ -473,7 +461,7 @@
                 <td class="col-4 lh-sm">
                     <ul class="list-unstyled">
                         {% for risk in recommendation.riskdata_set.all %}
-                            <li>{{ risk.vulnerability.name }}</li>
+                            <li>{{ risk.vulnerability }}</li>
                         {% endfor %}
                     </ul>
                 </td> 
