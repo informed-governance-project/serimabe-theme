@@ -121,7 +121,16 @@ $(document).ready(function () {
             })
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
+                        stop_spinner();
+                        return response.json().then(data => {
+                            if (data.messages) {
+                                const messagesContainer = $("#messages-container");
+                                if (messagesContainer.length) {
+                                    messagesContainer.html(data.messages);
+                                }
+                                throw new Error(response.statusText);
+                            }
+                        });
                     }
                     const contentDisposition = response.headers.get("Content-Disposition");
                     let filename = "report.pdf"; // default filename
@@ -136,10 +145,10 @@ $(document).ready(function () {
                     link.href = URL.createObjectURL(blob);
                     link.download = filename;
                     link.click();
-
                     stop_spinner()
                 })
                 .catch(error => {
+                    stop_spinner()
                     console.error("Error:", error);
                 });
 
