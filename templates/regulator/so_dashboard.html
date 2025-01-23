@@ -46,9 +46,9 @@
     data-bs-toggle="modal" data-bs-target="#review_comment_so_declaration"  title="Review comment">
     <i class="bi bi-envelope-plus"></i>
 </button>
-<a class="btn border-0 px-2 text-primary" href="{% url 'download_so_declaration_pdf' standard.id %}" title="Download">
+<button class="btn border-0 px-2 text-primary download-link" data-standard-answer-id="{{ standard.id }}" title="Download">
     <i class="bi bi-filetype-pdf"></i>
-</a>
+</button>
 <button class="btn border-0 px-2 text-primary so_access_log" data-standard-answer-id="{{ standard.id }}" title="Access Log">
     <i class="bi bi-file-earmark-person"></i>
 </button>
