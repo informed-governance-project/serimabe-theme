@@ -14,4 +14,9 @@
             {{ report_recommendation.description }}
         </li>
     {% endfor %}
+    {% if company_reporting.comment %}
+        <li>
+            {{ company_reporting.comment }}
+        </li>
+    {% endif %}
 </ul>
