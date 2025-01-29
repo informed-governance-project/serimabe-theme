@@ -65,6 +65,15 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on("click", '.review_comment_report', function () {
+        var $popup = $("#review_comment_report");
+        var popup_url = `review_comment_report/${$(this).data("company-id")}/${$(this).data("sector-id")}/${$(this).data("year")}`;
+
+        $(".modal-dialog", $popup).load(popup_url, function () {
+            $popup.modal("show");
+        });
+    });
+
     function updateCheckAll() {
         checkAllInput.prop('checked', checkboxes.not(":disabled").length === checkboxes.not(":disabled").filter(":checked").length);
     }
