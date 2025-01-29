@@ -1,0 +1,157 @@
+{% extends 'home/base.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% load reporting_filters %}
+{% load static %}
+
+
+{% block bootstrap5_extra_script %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/reporting_dashboard.css' %}" />
+<script type="text/javascript" src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
+<script type="text/javascript"src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
+<script src='{% static "js/reporting_dashboard.js" %}'></script>
+{% endblock %}
+
+{% block bootstrap5_title %}
+{% translate "Reporting" %}
+{% endblock %}
+
+{% block content %}
+
+<h3>{% translate "Report generation" %}</h3>
+<div class="d-flex">
+    <div class="me-auto">
+        <button id="generateButton" class="btn btn-primary btn-sm">
+            {% translate "Generate report(s)" %}
+        </button>
+    </div>
+    <button class="btn btn-primary btn-sm ms-auto" type="button" data-bs-toggle="collapse"
+        data-bs-target="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters">
+        {% translate "Filter" %}
+        {% if is_filtered %}
+        <span>
+            ({% translate "Applied" %})
+        </span>
+        {% endif %}
+        <i class="bi bi-funnel-fill"></i>
+    </button>
+</div>
+<div class="my-2">
+    <div id="collapseFilters" class="collapse">
+        <form method="GET">
+            <div class="d-flex justify-content-end">
+                <div class="col-3">
+                    {% bootstrap_field filter.form.year %}
+                </div>
+                <div class="col-3">
+                    {% bootstrap_field filter.form.name %}
+                </div>
+                <div class="col-3">
+                    {% bootstrap_field filter.form.sectors wrapper_class="sector-filter" %}
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-danger btn-sm" type="submit" name="reset" value="true">
+                    {% translate "Reset" %}
+                </button>
+                <input class="btn btn-primary btn-sm ms-2" type="submit" value='{{_("Search")}}' />
+            </div>
+        </form>
+    </div>
+</div>
+<form id="companyTableForm" method="POST" action="">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    <table id="reporting-table" class="table align-middle table-sm small">
+        <thead>
+            <tr>
+                <th class="d-flex align-items-center justify-content-center">
+                    <input id="select_all_companies" class="form-check-input large-checkbox" type="checkbox">
+                </th>
+                <th class="col-auto">{% translate "Year" %}</th>
+                <th class="col-auto">{% translate "Operator" %}</th>
+                <th class="col-auto">{% translate "Sectors" %}</th>
+                <th class="col-auto">{% translate "Security objectives" %}</th>
+                <th class="col-auto">{% translate "Risk analysis" %}</th>
+                <th class="col-auto">{% translate "Number of recommendations" %}</th>
+                <th class="col-auto">{% translate "Actions" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for form in formset %}
+            <tr>
+                {% bootstrap_field form.id %}
+                {% bootstrap_field form.name %}
+                {% bootstrap_field form.sector %}
+                <td class="col-1 table-group-divider">
+                    {% bootstrap_field form.selected show_label=False field_class="large-checkbox" wrapper_class="d-flex align-items-center justify-content-center" %}
+                </td>
+                <td class="col-auto table-group-divider">
+                    {{ form.year.value }}
+                </td>
+                <td class="col-auto table-group-divider">
+                    {{ form.name.value }}
+                </td>
+                <td class="col-auto table-group-divider">
+                    {{ form.initial.sector }}
+                </td>
+                <td class="col-auto table-group-divider">
+                    {% security_objective_exists form.instance form.year.value form.initial.sector as exists %}
+                    <div class="form-check d-flex align-items-center justify-content-center boolean-checkbox">
+                        <input class="form-check-input large-checkbox no-opacity" type="checkbox"
+                            {% if exists %}checked{% endif %} 
+                            disabled>
+                    </div>
+                </td>
+                <td class="col-auto table-group-divider">
+                    {% risk_analysis_exists form.instance form.year.value form.initial.sector as exists %}
+                    <div class="form-check d-flex align-items-center justify-content-center boolean-checkbox">
+                        <input class="form-check-input large-checkbox no-opacity" type="checkbox"
+                            {% if exists %}checked{% endif %} 
+                            disabled>
+                    </div>
+                </td>
+                <td class="col-auto table-group-divider">
+                    {% get_report_recommandations form.instance form.year.value form.initial.sector as report_recommendations %}
+                    {{ report_recommendations|length }}
+                </td>
+                <td class="col-auto table-group-divider">
+                    <a class="btn border-0 px-2 text-primary" 
+                        title="{% translate 'Recommendations' %}"  
+                        href="{% url 'report_recommendations' form.instance.id form.initial.sector.id form.year.value %}">
+                        <i class="bi bi-list-stars"></i>
+                    </a>
+                    <button class="btn border-0 px-2 text-primary review_comment_report" 
+                        data-company-id="{{ form.instance.id }}"
+                        data-sector-id="{{ form.initial.sector.id }}"
+                        data-year="{{ form.year.value }}"
+                        title="Review comment"
+                        type="button">
+                        <i class="bi bi-envelope-plus"></i>
+                    </button>
+                    <button class="btn border-0 px-2 text-primary reporting_access_log" 
+                        data-company-id="{{ form.instance.id }}"
+                        data-sector-id="{{ form.initial.sector.id }}"
+                        data-year="{{ form.year.value }}"
+                        title="Access Log"
+                        type="button">
+                        <i class="bi bi-file-earmark-person"></i>
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+
+<div class="modal fade" id="review_comment_report" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="review_comment_report_label" aria-hidden="false">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"></div>
+</div>
+<div class="modal fade" id="reporting_access_log" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="reporting_access_log_label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"></div>
+</div>
+{% endblock %}

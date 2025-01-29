@@ -1,0 +1,8 @@
+.loading-spinner {
+    z-index: 1100;
+}
+
+.loading-spinner .spinner-border {
+    width: 4rem;
+    height: 4rem;
+}

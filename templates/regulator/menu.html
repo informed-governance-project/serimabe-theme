@@ -9,4 +9,30 @@
         <li><a class="dropdown-item" href="{% url 'regulator_incidents' %}">{% translate "My incidents" %}</a></li>
     </ul>
   </li>
+  {% if "securityobjectives" in app_module_available and "securityobjectives" in user_module_permissions %}
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {% translate "Security Objectives" %}
+    </a>
+    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="{% url 'securityobjectives' %}">{% translate "Dashboard" %}</a></li>
+        <li><hr class="dropdown-divider"></li>  
+        <li><a class="btn dropdown-item import_so_declaration" data-bs-toggle="modal" data-bs-target="#import_so_declaration">{% translate "Import" %}</a></li>
+    </ul>
+  </li>
+  {% endif %}
+  {% if "reporting" in app_module_available and "reporting" in user_module_permissions %}
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {% translate "Reporting" %}
+    </a>
+    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="{% url 'reporting' %}">{% translate "Dashboard" %}</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="{% url 'report_configuration' %}">{% translate "Configuration" %}</a></li>
+        <li><a class="dropdown-item" href="{% url 'import_risk_analysis' %}">{% translate "Import risk analysis" %}</a></li>
+    </ul>
+  </li>
+  {% endif %}
+  
 

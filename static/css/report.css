@@ -144,3 +144,13 @@ h4:before {
 .table-group-divider {
     border-top: 1.2px solid var(--bs-secondary-color) !important;
 }
+
+.bg-td-primary {
+    background-color: var(--bs-primary-bg-subtle) !important;
+}
+
+.bg-td-warning {
+    background-color: var(--bs-warning-bg-subtle) !important;
+}
+
+

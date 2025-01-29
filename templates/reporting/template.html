@@ -1,0 +1,29 @@
+{% load i18n %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE|default:'en_us' }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="title" content="{% translate 'Annual report' %}_{{ year }}_{{ company.name }}" />
+        <title>{% translate 'Annual report' %}_{{ year }}_{{ company.name }}</title>
+        <link rel="stylesheet" href="file:{{ static_dir }}/npm_components/bootstrap-icons/font/bootstrap-icons.css">
+    </head>
+    <body>
+        {% with title_class="fw-bold text-danger" table_class="table table-sm table-bordered small" chart_class="py-3" %}
+        <div id="page">
+            {% include 'reporting/header.html' %}
+            {% include 'reporting/footer.html' %}
+            {% include 'reporting/cover.html' %}
+            {% include 'reporting/toc.html' %}
+            <div id="content">
+                {% include 'reporting/security_mesures.html' %}
+                <div class="page-break"></div>
+                {% include 'reporting/risks.html' %}
+                <div class="page-break"></div>
+                {% include 'reporting/observations.html' %}
+            </div>
+        </div>
+        {% endwith %}
+    </body>
+</html>
