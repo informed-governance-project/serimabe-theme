@@ -122,5 +122,5 @@ $(document).ready(function () {
 
 function displayPagination(table) {
     let rowCount = table.data().length;
-    if (rowCount <= 10) $('.table_controls').addClass("d-none");
-  }
+    if (rowCount <= 10) $('#incidents-table').siblings('.table_controls').addClass("d-none");
+}
