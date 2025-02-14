@@ -73,15 +73,8 @@
 <table id="incidents-table" class="table align-middle table-sm small">
     <thead>
         <tr>
-            <th class="text-start">{% translate "Incident notification creation date" %}</th>
+            <th class="text-start">{% translate "Creation date" %}</th>
             <th>{% translate "Reference" %}</th>
-            <th>
-                {% if is_observer %}
-                {% translate "Regulator" %}
-                {% else %}
-                {% translate "Legal basis" %}
-                {% endif %}
-            </th>
             <th>
                 {% if is_regulator and not is_regulator_incidents or is_observer %}
                 {% translate "Operator" %}
@@ -89,8 +82,14 @@
                 {% translate "Regulator" %}
                 {% endif %}
             </th>
+            <th>
+                {% if is_observer %}
+                {% translate "Regulator" %}
+                {% else %}
+                {% translate "Regulation" %}
+                {% endif %}
+            </th>
             <th>{% translate "Sectors" %}</th>
-            <th>{% translate "Subsectors" %}</th>
             <th class="p-0">
                 <table class="table table-borderless table-sm m-0">
                     <tr>
@@ -109,7 +108,9 @@
         {% timezone time_zone %}
         <tr>
             <td class="table-group-divider text-start"> <!-- NoIncident notification date -->
-                {{incident.incident_notification_date|date:"d M Y, H:i" }}
+                {{incident.incident_notification_date|date:"d/m/y"}}<br/>
+                <i class="bi bi-clock"></i>
+                {{incident.incident_notification_date|date:"H:i"}}
             </td>
             <td class="table-group-divider"> <!-- Reference -->
                 {% block content_table_incident_id %}
@@ -118,11 +119,6 @@
                 {% bootstrap_field field show_label=False wrapper_class="m-0" %}
                 {% endif %}
                 {% endfor %}
-                {% endblock %}
-            </td>
-            <td class="table-group-divider"> <!-- Regulation or Regulator(observer case) -->
-                {% block content_table_regulation_or_regulator %}
-                {{ incident.sector_regulation.regulation }}
                 {% endblock %}
             </td>
             <td class="table-group-divider"> <!-- Regulator / Operator -->
@@ -134,27 +130,22 @@
                 {% endif %}
                 {% endblock %}
             </td>
-            <td class="table-group-divider"> <!-- Sectors -->
-                <ul class="m-0 p-0">
-                    {% for sector in incident.affected_sectors.all %}
-                    {% if sector.parent is None %}
-                    {{ sector.get_safe_translation }}
-                    {% else %}
-                    {{ sector.parent.get_safe_translation }}
-                    {% endif %}
-                    <br />
-                    {% endfor %}
-                </ul>
+            <td class="table-group-divider"> <!-- Regulation or Regulator(observer case) -->
+                {% block content_table_regulation_or_regulator %}
+                {{ incident.sector_regulation.regulation }}
+                {% endblock %}
             </td>
-            <td class="table-group-divider"> <!-- Subsectors -->
-                <ul class="m-0 p-0">
-                    {% for sector in incident.affected_sectors.all %}
-                    {% if sector.parent is not None %}
-                    {{ sector.get_safe_translation }}
-                    {% endif %}
-                    <br />
+            <td class="table-group-divider incident-list-sectors"> <!-- Sectors -->
+                {% for root_sector in incident.get_incident_root_sector %}
+                    <ul>
+                    {{ root_sector.get_safe_translation }}
+                    </ul>
+                    {% for sector in root_sector.children.all %}
+                        {% if sector in incident.affected_sectors.all %}
+                            <li>{{ sector.get_safe_translation }}</li>
+                        {% endif %}
                     {% endfor %}
-                </ul>
+                {% endfor %}
             </td>
             <td class="table-group-divider p-0"> <!-- Report name and status -->
                 {% block content_table_report %}

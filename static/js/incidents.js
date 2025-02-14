@@ -17,16 +17,16 @@ $(document).ready(function () {
                 type: 'string',
             },
             {
-                targets: 6,
+                targets: 5,
                 orderable: false,
             },
             {
-                targets: 8,
+                targets: 7,
                 orderable: true,
                 type: 'html',
             },
             {
-                targets: 9,
+                targets: 8,
                 orderable: false,
             },
         ]

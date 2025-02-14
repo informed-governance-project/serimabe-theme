@@ -93,3 +93,17 @@
 .legend-passed { color: green; }
 
 .legend-failed { color: red; }
+
+.incident-list-sectors {
+    list-style-type: none;
+}
+
+.incident-list-sectors ul {
+    font-weight: bolder;
+    padding: 0px;
+    margin: 0px;
+}
+
+.incident-list-sectors li:before {
+    content : "\2022  ";
+}
