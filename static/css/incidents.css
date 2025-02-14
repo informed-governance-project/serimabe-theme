@@ -38,3 +38,58 @@
 .no-opacity {
     opacity: 1 !important;
 }
+
+.legend {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #000;
+    padding: 30px;
+    border-radius: 8px;
+    width: fit-content;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width:100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.legend-title {
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    background: white;
+    padding: 0 5px;
+    font-weight: bold;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    justify-content: center;
+}
+
+.legend-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-impact { background-color: red; }
+
+.legend-ongoing { background-color: green; }
+
+.legend-closed { background-color: gray; border: 1px solid #777; }
+
+.legend-unsubmitted { background-color: lightgray; }
+
+.legend-under-review { color: blue; }
+
+.legend-submission-overdue { color: darkorange; }
+
+.legend-passed { color: green; }
+
+.legend-failed { color: red; }
