@@ -1,0 +1,6 @@
+.create-account:hover {
+    color: #ed2939 !important;
+    text-decoration: underline #e91426 !important;
+    text-underline-offset: 6px !important;
+    text-decoration-thickness: 3px !important;
+}

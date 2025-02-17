@@ -1,9 +1,16 @@
-.language_selector>.btn.show,
+#language_selector>.btn.show,
 .btn.active,
 .btn:first-child:active {
     border-color: transparent;
+    box-shadow: none !important;
 }
 
 .language_selector_form {
     display: contents;
+}
+
+#language_selector:hover,
+#language_selector:focus {
+    box-shadow: none !important;
+    border: none !important;
 }
