@@ -4,3 +4,7 @@
     text-underline-offset: 6px !important;
     text-decoration-thickness: 3px !important;
 }
+
+.report-incident-button:hover {
+    background-color: black !important;
+}

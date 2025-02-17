@@ -4,66 +4,80 @@
 {% load i18n %}
 
 {% block login_content %}
-{% if wizard.steps.current == 'auth' %}
-<h5 class="my-3 py-3">{% trans "Enter your credentials." %}</h5>
-
-{% elif wizard.steps.current == 'backup' %}
-<p class="my-3 py-3 text-start text-wrap">
-    {% blocktrans trimmed %}In the event of losing access to your account, you can use this form to regain access to
-    your account with the help of one of the recovery codes (backup tokens) for Two-Factor Authentication (2FA). These
-    recovery codes were generated for you when setting up 2FA, and you were asked to keep them in a secure location.
-    {% endblocktrans %}
-</p>
-{% endif %}
-<div class="mb-md-4 mt-md-4 pb-2">
-    <form method="post">
-        {% csrf_token %}
-        {{ wizard.management_form }}
-        {% bootstrap_form_errors wizard.form %}
-        {% for field in wizard.form %}
-        {% bootstrap_field field show_label=False %}
-        {% endfor %}
-        {% bootstrap_button button_type="submit" button_class="btn-danger" content=_("Log in") %}
-    </form>
-    {% block 'backup_tokens' %}
-    {% if backup_tokens %}
-    <hr>
-    <div class="backup_tokens_form">
-        <form action="" method="post">
-            {% csrf_token %}
-            <p>{% trans "As a last resort, you can use a backup token:" %}</p>
-            <p>
-                {% bootstrap_button name="wizard_goto_step" button_type="submit" button_class="btn-secondary btn-sm" value="backup" content=_("Use backup token") %}
-            </p>
-        </form>
-    </div>
-    {% endif %}
-    {% endblock %}
+<div id="notify-options">
+    <h2 class="card-title fw-bolder lh-1 col-7">
+        {% translate "Notifying an incident" %}
+    </h2>
+    <div class="separator"></div>
+    <p class="card-text">
+        {% translate "A tool that lets you quickly notify an incident." %}
+    </p>
+    <button id="with-account" type="button" class="d-block btn btn-danger w-100 mb-3 report-incident-button">
+        {% translate "Report an incident <strong>with</strong> an account" %}
+    </button>
+    <a type="button" 
+        class="d-block btn btn-danger w-100 mb-2 report-incident-button"
+        href="{% url 'registration' %}">
+        {% translate "Report an incident <strong>without</strong> an account" %}
+    </a>
+</div>
+<div id="login-content" class="d-none">
     {% if wizard.steps.current == 'auth' %}
-    <p class="small mb-2 pb-lg-2">
-        <a class="text-muted" href="{% url 'password_reset' %}">
-            {% translate "Have you forgotten your password?" %}
-        </a>
-    </p>
-    <p>{% translate "No Account? Create one!" %}</p>
-    <p>
-        <a href="{% url 'registration' %}" class="link-info">
-            {% translate "Register" %}
-        </a>
+    <h2 class="card-title fw-bolder lh-1">
+        {% translate "Sign in" %}
+    </h2>
+    <div class="separator"></div>
+
+    {% elif wizard.steps.current == 'backup' %}
+    <p class="my-3 py-3 text-start text-wrap">
+        {% blocktrans trimmed %}In the event of losing access to your account, you can use this form to regain access to
+        your account with the help of one of the recovery codes (backup tokens) for Two-Factor Authentication (2FA). These
+        recovery codes were generated for you when setting up 2FA, and you were asked to keep them in a secure location.
+        {% endblocktrans %}
     </p>
     {% endif %}
+    <div class="my-4">
+        <form method="post" class="mb-3">
+            {% csrf_token %}
+            {{ wizard.management_form }}
+            {% bootstrap_form_errors wizard.form %}
+            {% for field in wizard.form %}
+            {% bootstrap_field field show_label=False %}
+            {% endfor %}
+            {% bootstrap_button button_type="submit" button_class="btn-danger" content=_("Connection") %}
+        </form>
+        {% block 'backup_tokens' %}
+        {% if backup_tokens %}
+        <hr>
+        <div class="backup_tokens_form">
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>{% trans "As a last resort, you can use a backup token:" %}</p>
+                <p>
+                    {% bootstrap_button name="wizard_goto_step" button_type="submit" button_class="btn-secondary btn-sm" value="backup" content=_("Use backup token") %}
+                </p>
+            </form>
+        </div>
+        {% endif %}
+        {% endblock %}
+        {% if wizard.steps.current == 'auth' %}
+        <p class="small mb-4 pb-3 text-center">
+            <a class="text-muted" href="{% url 'password_reset' %}">
+                {% translate "Have you forgotten your password?" %}
+            </a>
+        </p>
+        <div class="d-flex justify-content-center">
+            <div class="separator"></div>
+        </div>
+        <fieldset class="border rounded-3 p-3 mt-4 text-center">
+            <legend class="small float-none w-auto px-3 ">
+                {% translate "I want to create an account" %}    
+            </legend>
+            <a id="registration_button" role="button" class="btn btn-dark mb-3" href="{% url 'registration' %}" >
+                {% translate "Create account" %}
+            </a>
+         </fieldset>
+        {% endif %}
+    </div>
 </div>
 {% endblock login_content %}
-{% block helper_login_content %}
-<h2 class="card-title">
-    {% translate "Incident Notification" %}
-</h2>
-<br><br>
-<p class="card-text">
-    {% translate "If you would like to notify an incident to your competent authority, please login or create an account." %}
-</p>
-<br><br>
-<a role="button" class="btn btn-light btn-lg" href="{% url 'registration' %}" id="registration_button">
-    {% translate "Create account" %}
-</a>
-{% endblock helper_login_content %}

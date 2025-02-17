@@ -9,7 +9,14 @@
 {{ block.super }}
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+    <script src='{% static "js/home.js" %}'></script>
 {% endblock %}
+
+{% block bootstrap5_extra_script %}
+{{ block.super }}
+    <script src='{% static "js/home.js" %}'></script>
+{% endblock %}
+
 {% block bootstrap5_title %}
 {% block title %}{% translate "Log in" %}{% endblock %}
 {% endblock %}
@@ -24,10 +31,10 @@
                 </a>
             </div>
             <div class="col-auto d-flex justify-content-between">
-                    <button type="button" class="btn btn-outline-dark">
-                        {% translate "Log in" %}
-                    </button>
-                    <a role="button" class="btn btn-link text-decoration-none text-dark fw-bold px-4 create-account" href="{% url 'registration' %}" id="registration_button">
+                    <a id="login_button" role="button" class="btn btn-outline-dark">
+                        {% translate "Connection" %}
+                    </a>
+                    <a id="registration_button" role="button" class="btn btn-link text-decoration-none text-dark fw-bold px-4 create-account" href="{% url 'registration' %}" >
                         {% translate "Create account" %}
                     </a>
                     {% include "home/language_selector.html" %}
@@ -41,24 +48,13 @@
 <div class="background">
     <div class="container py-5 h-100 d-flex align-items-center justify-content-center" data-bs-theme="light">
         {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
-        <div class="row-10"></div>
-        <div class="card-group">
-            <div class="card shadow px-3 py-3 mb-5 rounded-1">
-                <div class="card-body text-center">
-                    <img src="{% static 'images/regulator_logo.png' %}" alt="Logo" class="logo">
-                    {% block login_content %}
-                    {% endblock login_content %}
-                </div>
-            </div>
-            <div class="card login-helper-text login-helper-bg px-3 py-3 mb-5 rounded-1">
-                <div class="card-body text-center">
-                    {% block helper_login_content %}
-                    {% endblock helper_login_content %}
-                </div>
+        <div class="card shadow px-3 py-3 mb-5 rounded-1 col-5">
+            <div class="card-body">      
+                {% block login_content %}
+                {% endblock login_content %}
             </div>
         </div>
     </div>
-</div>
 </div>
 {% endblock %}
 
