@@ -19,3 +19,38 @@ $primary: #dc3545;
 
 // Then add additional custom code here
 
+a.changelink {
+    padding-left: 16px;
+    background: url(../admin/img/icon-changelink.svg) 0 1px no-repeat;
+    float: left;
+    margin-right: 12px
+}
+
+.required-field > label::after {
+    content: " * ";
+    color: var(--bs-danger);
+    font-weight: bold;
+    padding-right: 2px;
+}
+
+.disabled-link {
+    color: gray !important;
+    pointer-events: none;
+    cursor: default;
+}
+
+.large-checkbox {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.select-break-spaces {
+    white-space: break-spaces
+}
+
+.separator {
+    width: 80px;
+    height: 5px;
+    background-color: var(--bs-primary);
+    margin-bottom: 10px;
+}
