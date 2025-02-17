@@ -12,66 +12,92 @@
 
 {% block content %}
 
-<div class="card">
+<div class="card shadow rounded-3 mt-3">
   <form action="" method="post">
     {% csrf_token %}
-    <div class="card-header">
-      <ul class="nav nav-tabs card-header-tabs">
+    <div class="d-inline-flex border rounded-pill mx-4 translate-middle-y bg-light">
+      <ul class="nav nav-pills m-2">
         {% for step in wizard.steps.all %}
         <li class="nav-item">
           {% with step_name=steps|index:step %}
-            {% if step != wizard.steps.current %}
-            {% bootstrap_button name="wizard_goto_step" button_type="submit" button_class="btn-light" value=step content=step_name %}
-            {% else %}
-            {% bootstrap_button name="wizard_goto_step" button_type="submit" value=step content=step_name %}
-            {% endif %}
-            {% endwith %}
+          {% if step > wizard.steps.current %}
+          <div class="d-flex align-items-center text-secondary">
+            <div class="step-circle bg-transparent text-bold border border-secondary">
+              {{forloop.counter}}
+            </div>
+            <button type="submit" class="btn btn-link text-decoration-none fw-bold" name="wizard_goto_step"
+              value="{{step}}" disabled>
+              {{ step_name }}
+            </button>
+          </div>
+          {% elif step < wizard.steps.current %} 
+          <div class="d-flex align-items-center">
+            <div class="step-circle bg-dark text-white fw-bold">
+              {{forloop.counter}}
+            </div>
+            <button type="submit" class="btn btn-link text-decoration-none text-dark fw-bold" 
+              name="wizard_goto_step" value="{{step}}">
+              {{ step_name }}
+            </button>
+          </div>
+          {% else %}
+          <div class="d-flex align-items-center">
+            <div class="step-circle bg-primary text-white fw-bold">
+              {{forloop.counter}}
+            </div>
+            <button type="submit" class="btn btn-link text-decoration-none fw-bold" 
+              name="wizard_goto_step" value="{{step}}">
+              {{ step_name }}
+            </button>
+          </div>
+          {% endif %}
+          {% endwith %}
         </li>
         {% endfor %}
       </ul>
     </div>
-    <div class="card-body">
-        {{ wizard.management_form }}
-        {% if wizard.form.forms %}
-          {{ wizard.form.management_form }}
-          {% for form in wizard.form.forms %}
-            {% bootstrap_form_errors form %}
-            {% bootstrap_form form %}
-          {% endfor %}
-        {% else %}
-          {% with form_class_name=wizard.form|get_class_name %}
-          {% if form_class_name == 'ContactForm' %}
-            {% include "contact_form.html" %}
-          {% elif form_class_name == 'ImpactForm' %}
-            {% include "impact_form.html" %}
-          {% else %}
-            {{ wizard.form.media }}
-            <div class="col-md-6">
-              {% bootstrap_form wizard.form %}
-            </div>
-          {% endif %}
-          {% endwith %}
-        {% endif %}
-        {% if wizard.steps.last == wizard.steps.current %}
-          {% if not view.read_only %}
-            {% bootstrap_button button_type="submit" content="Notify"|translate %}
-          {% endif %}
-        {% else %}
-          {% bootstrap_button button_type="submit" content="Next"|translate  %}
-        {% endif %}
+    <div class="card-body pt-0">
+      {{ wizard.management_form }}
+      {% if wizard.form.forms %}
+      {{ wizard.form.management_form }}
+      {% for form in wizard.form.forms %}
+      {% bootstrap_form_errors form %}
+      {% bootstrap_form form %}
+      {% endfor %}
+      {% else %}
+      {% with form_class_name=wizard.form|get_class_name %}
+      {% if form_class_name == 'ContactForm' %}
+      {% include "contact_form.html" %}
+      {% elif form_class_name == 'ImpactForm' %}
+      {% include "impact_form.html" %}
+      {% else %}
+      {{ wizard.form.media }}
+      <div class="col-md-6">
+        {% bootstrap_form wizard.form %}
+      </div>
+      {% endif %}
+      {% endwith %}
+      {% endif %}
+      {% if wizard.steps.last == wizard.steps.current %}
+      {% if not view.read_only %}
+      {% bootstrap_button button_type="submit" content="Notify"|translate %}
+      {% endif %}
+      {% else %}
+      {% bootstrap_button button_type="submit" content="Next"|translate %}
+      {% endif %}
     </div>
   </form>
 </div>
 <br />
 {% if is_regulator_incident %}
-<a href="{% url 'regulator_incidents' %}">
+  <a href="{% url 'regulator_incidents' %}">
 {% else %}
-<a href="{% url 'incidents' %}">
+  <a href="{% url 'incidents' %}">
 {% endif %}
-  {% if action == 'Create' %}
-      {% bootstrap_button button_type="" content="Cancel"|translate button_class="btn-danger" %}
-  {% else %}
-      {% bootstrap_button button_type="" content="Close"|translate button_class="btn-danger" %}
-  {% endif %}
-</a>
+{% if action == 'Create' %}
+  {% bootstrap_button button_type="" content="Cancel"|translate button_class="btn-danger" %}
+{% else %}
+  {% bootstrap_button button_type="" content="Close"|translate button_class="btn-danger" %}
+{% endif %}
+  </a>
 {% endblock %}

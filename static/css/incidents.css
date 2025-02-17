@@ -107,3 +107,12 @@
 .incident-list-sectors li:before {
     content : "\2022  ";
 }
+
+.step-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
