@@ -12,7 +12,7 @@ a.changelink {
 
 .required-field > label::after {
     content: " * ";
-    color: red;
+    color: var(--bs-danger);
     font-weight: bold;
     padding-right: 2px;
 }
@@ -35,11 +35,6 @@ a.changelink {
 .separator {
     width: 80px;
     height: 5px;
-    background-color: #e91426;
+    background-color: var(--bs-primary);
     margin-bottom: 10px;
-}
-
-.custom-checkbox:checked {
-    background-color: #e91426 ;
-    border-color: #e91426;
 }

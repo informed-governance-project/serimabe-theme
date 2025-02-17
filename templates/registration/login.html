@@ -12,11 +12,11 @@
     <p class="card-text">
         {% translate "A tool that lets you quickly notify an incident." %}
     </p>
-    <button id="with-account" type="button" class="d-block btn btn-danger w-100 mb-3 report-incident-button">
+    <button id="with-account" type="button" class="d-block btn btn-primary w-100 mb-3 report-incident-button">
         {% translate "Report an incident <strong>with</strong> an account" %}
     </button>
     <a type="button" 
-        class="d-block btn btn-danger w-100 mb-2 report-incident-button"
+        class="d-block btn btn-primary w-100 mb-2 report-incident-button"
         href="{% url 'registration' %}">
         {% translate "Report an incident <strong>without</strong> an account" %}
     </a>
@@ -44,7 +44,7 @@
             {% for field in wizard.form %}
             {% bootstrap_field field show_label=False %}
             {% endfor %}
-            {% bootstrap_button button_type="submit" button_class="btn-danger" content=_("Connection") %}
+            {% bootstrap_button button_type="submit" button_class="btn-primary" content=_("Connection") %}
         </form>
         {% block 'backup_tokens' %}
         {% if backup_tokens %}

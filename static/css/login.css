@@ -10,12 +10,12 @@
 }
 
 .create-account:hover {
-    color: #ed2939 !important;
-    text-decoration: underline #e91426 !important;
+    color: var(--bs-primary) !important;
+    text-decoration: underline var(--bs-primary) !important;
     text-underline-offset: 6px !important;
     text-decoration-thickness: 3px !important;
 }
 
 .report-incident-button:hover {
-    background-color: black !important;
+    background-color: var(--bs-dark) !important;
 }
