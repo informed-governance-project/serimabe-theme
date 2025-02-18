@@ -73,8 +73,8 @@
 <table id="incidents-table" class="table align-middle table-sm small">
     <thead>
         <tr>
+            <th>{% translate "Status" %}</th>
             <th class="text-start">{% translate "Creation date" %}</th>
-            <th>{% translate "Reference" %}</th>
             <th>
                 {% if is_regulator and not is_regulator_incidents or is_observer %}
                 {% translate "Operator" %}
@@ -89,16 +89,15 @@
                 {% translate "Regulation" %}
                 {% endif %}
             </th>
+            <th>{% translate "Reference" %}</th>
             <th>{% translate "Sectors" %}</th>
             <th class="p-0">
                 <table class="table table-borderless table-sm m-0">
                     <tr>
                         <td class="col-6">{% translate "Report" %}</td>
-                        <td class="col-6">{% translate "Report status" %}</td>
                     </tr>
                 </table>
             </th>
-            <th>{% translate "Incident status" %}</th>
             <th>{% translate "Significant impact" %}</th>
             <th>{% translate "Actions" %}</th>
         </tr>
@@ -107,19 +106,19 @@
         {% for incident in incidents %}
         {% timezone time_zone %}
         <tr>
+            <td class="table-group-divider"> <!-- Incident status  -->
+                {% block content_table_incident_status %}
+                {% for field in incident.formsStatus %}
+                {% if field.name == "incident_status" %}
+                {% bootstrap_field field show_label=False wrapper_class="m-0"%}
+                {% endif %}
+                {% endfor %}
+                {% endblock %}
+            </td>
             <td class="table-group-divider text-start"> <!-- NoIncident notification date -->
                 {{incident.incident_notification_date|date:"d/m/y"}}<br/>
                 <i class="bi bi-clock"></i>
                 {{incident.incident_notification_date|date:"H:i"}}
-            </td>
-            <td class="table-group-divider"> <!-- Reference -->
-                {% block content_table_incident_id %}
-                {% for field in incident.formsStatus %}
-                {% if field.name == "incident_id" %}
-                {% bootstrap_field field show_label=False wrapper_class="m-0" %}
-                {% endif %}
-                {% endfor %}
-                {% endblock %}
             </td>
             <td class="table-group-divider"> <!-- Regulator / Operator -->
                 {% block content_table_entity %}
@@ -133,6 +132,15 @@
             <td class="table-group-divider"> <!-- Regulation or Regulator(observer case) -->
                 {% block content_table_regulation_or_regulator %}
                 {{ incident.sector_regulation.regulation }}
+                {% endblock %}
+            </td>
+            <td class="table-group-divider"> <!-- Reference -->
+                {% block content_table_incident_id %}
+                {% for field in incident.formsStatus %}
+                {% if field.name == "incident_id" %}
+                {% bootstrap_field field show_label=False wrapper_class="m-0" %}
+                {% endif %}
+                {% endfor %}
                 {% endblock %}
             </td>
             <td class="table-group-divider incident-list-sectors"> <!-- Sectors -->
@@ -178,30 +186,10 @@
                             {% endif %}
                             {% endwith %}
                         </td>
-                        {% if filtered_workflows %}
-                        <td id="workflow_review_status_{{filtered_workflows.instance.id}}"
-                            class="col-6 {% status_class filtered_workflows.initial.review_status %}">
-                            {% bootstrap_field filtered_workflows.review_status show_label=False wrapper_class="m-0" %}
-                        </td>
-                        {% else %}
-                        <td id="workflow_review_status_{{filtered_workflows.instance.id}}"
-                            class="col-6 {% status_class_without_incident_workflow report incident %}">
-                            {% is_deadline_exceeded report incident %}
-                        </td>
-                        {% endif %}
                     </tr>
                     {% endwith %}
                     {% endfor %}
                 </table>
-                {% endblock %}
-            </td>
-            <td class="table-group-divider"> <!-- Incident status  -->
-                {% block content_table_incident_status %}
-                {% for field in incident.formsStatus %}
-                {% if field.name == "incident_status" %}
-                {% bootstrap_field field show_label=False wrapper_class="m-0"%}
-                {% endif %}
-                {% endfor %}
                 {% endblock %}
             </td>
             <td class="table-group-divider"> <!-- Significative impact -->

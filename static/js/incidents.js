@@ -9,21 +9,21 @@ $(document).ready(function () {
             {
                 targets: 0,
                 orderable: true,
-                type: 'date',
+                type: 'html',
             },
             {
                 targets: 1,
                 orderable: true,
+                type: 'date',
+            },
+            {
+                targets: 4,
+                orderable: true,
                 type: 'string',
             },
             {
-                targets: 5,
+                targets: 6,
                 orderable: false,
-            },
-            {
-                targets: 7,
-                orderable: true,
-                type: 'html',
             },
             {
                 targets: 8,
