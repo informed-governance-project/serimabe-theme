@@ -3,14 +3,16 @@
 
 // Include any default variable overrides here (though functions won't be available)
 
-// ILR Color
+// ILR Colors
 
 $primary: #dc3545;
+$secondary: #212529; 
 
 // IBPT Colors
 
-// $primary: #2e2f7f; 
-// $primary: #34a9e1
+// $primary: #34a9e1;
+// $secondary: #2e2f7f; 
+
 
 // Importing bootstrap
 @import "../../../node_modules/bootstrap/scss/bootstrap";
@@ -53,4 +55,12 @@ a.changelink {
     height: 5px;
     background-color: var(--bs-primary);
     margin-bottom: 10px;
+}
+
+.force_disabled {
+    color: var(--bs-gray) !important;
+    pointer-events: none !important;
+    background-color: transparent !important;
+    border-color: var(--bs-gray) !important;
+    opacity: 0.65 !important;
 }
