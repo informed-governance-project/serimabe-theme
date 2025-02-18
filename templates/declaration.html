@@ -91,7 +91,7 @@
         {% endif %}
         {% endwith %}
       {% endif %}
-      <div class="d-flex mx-4 notifcation-buttons">
+      <div class="d-flex mx-4 notification-buttons">
         <div class="flex-grow-1">
           <a role="button" class="btn btn-secondary" 
             href="{% if is_regulator_incident %}{% url 'regulator_incidents' %}{% else %}{% url 'incidents' %}{% endif %}" >
@@ -100,6 +100,7 @@
             {% else %}
               {% translate "Close" %}
             {% endif %}
+            <i class="bi bi-x-lg"></i>
           </a>
         </div>
         <div>

@@ -113,7 +113,7 @@
     justify-content: center;
 }
 
-.notifcation-buttons {
+.notification-buttons {
     transform: translateY(50%);
 }
 /* used in the incident list to manage the color of the link */
