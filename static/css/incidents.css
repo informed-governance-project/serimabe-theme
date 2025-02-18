@@ -116,3 +116,14 @@
     align-items: center;
     justify-content: center;
 }
+
+/* used in the incident list to manage the color of the link */
+.report-under-review { color: blue; }
+
+.report-pass { color: green; }
+
+.report-fail { color: red; }
+
+.report-overdue {  color: darkorange;}
+
+.report-unsubmitted {  color: lightgrey;}

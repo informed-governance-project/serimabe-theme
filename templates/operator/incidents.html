@@ -31,7 +31,7 @@
     <tr>
         <td class="col-6">
             <div class="col">
-                <a class="{% if workflow_disabled %}disabled-link text-decoration-none{% endif %}"
+                <a class="{% if workflow_disabled %}disabled-link text-decoration-none{% else %}{% status_class filtered_workflows.review_status %} {% endif %}"
                     href="{% if filtered_workflows %}{% url 'edit_workflow' %}{% else %}{% url 'create_workflow' %}{% endif %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}">
                     {{ report }}
                 </a>
@@ -61,15 +61,6 @@
                 {% endif %}
             </div>
         </td>
-        {% if filtered_workflows.get_review_status_display %}
-        <td class="col-7 {% status_class filtered_workflows.review_status %}">
-            {{ filtered_workflows.get_review_status_display }}
-        </td>
-        {% else %}
-        <td class="col-7 {% status_class_without_incident_workflow report incident %}">
-            {% is_deadline_exceeded report incident %}
-        </td>
-        {% endif %}
     </tr>
     {% endwith %}
     {% endfor %}
