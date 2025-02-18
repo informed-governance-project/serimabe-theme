@@ -1,8 +1,9 @@
-{% extends 'home/base.html' %}
+ {% extends 'home/base.html' %}
 {% block bootstrap5_title %}{{ action }} an incident{% endblock %}
 {% load django_bootstrap5 %}
 {% load custom_filters %}
 {% load static %}
+{% load i18n %}
 
 {% block bootstrap5_extra_script %}
 {{ block.super }}
@@ -22,8 +23,8 @@
           {% with step_name=steps|index:step %}
           {% if step > wizard.steps.current %}
           <div class="d-flex align-items-center text-secondary">
-            <div class="step-circle bg-transparent text-bold border border-secondary">
-              {{forloop.counter}}
+            <div class="step-circle bg-transparent text-bold border border-secondary force_disabled">
+              {{ forloop.counter }}
             </div>
             <button type="submit" class="btn btn-link text-decoration-none fw-bold" name="wizard_goto_step"
               value="{{step}}" disabled>
@@ -32,10 +33,10 @@
           </div>
           {% elif step < wizard.steps.current %} 
           <div class="d-flex align-items-center">
-            <div class="step-circle bg-dark text-white fw-bold">
-              {{forloop.counter}}
+            <div class="step-circle bg-secondary text-white fw-bold">
+              {{ forloop.counter }}
             </div>
-            <button type="submit" class="btn btn-link text-decoration-none text-dark fw-bold" 
+            <button type="submit" class="btn btn-link text-decoration-none text-secondary fw-bold" 
               name="wizard_goto_step" value="{{step}}">
               {{ step_name }}
             </button>
@@ -56,7 +57,7 @@
         {% endfor %}
       </ul>
     </div>
-    <div class="card-body pt-0">
+    <div class="card-body py-0 px-4">
       {{ wizard.management_form }}
       {% if wizard.form.forms %}
       {{ wizard.form.management_form }}
@@ -78,26 +79,43 @@
       {% endif %}
       {% endwith %}
       {% endif %}
-      {% if wizard.steps.last == wizard.steps.current %}
-      {% if not view.read_only %}
-      {% bootstrap_button button_type="submit" content="Notify"|translate %}
-      {% endif %}
-      {% else %}
-      {% bootstrap_button button_type="submit" content="Next"|translate %}
-      {% endif %}
+      <div class="d-flex mx-4 notifcation-buttons">
+        <div class="flex-grow-1">
+          <a role="button" class="btn btn-secondary" 
+            href="{% if is_regulator_incident %}{% url 'regulator_incidents' %}{% else %}{% url 'incidents' %}{% endif %}" >
+            {% if action == 'Create' %}
+              {% translate "Cancel" %}
+            {% else %}
+              {% translate "Close" %}
+            {% endif %}
+          </a>
+        </div>
+        <div>
+          {% if wizard.steps.first != wizard.steps.current %}
+            <button class="btn btn-primary ms-3" 
+              name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">
+              <i class="bi bi-chevron-left"></i>
+              {% translate "Previous" %}
+            </button>
+          {% endif %}
+          {% if wizard.steps.last == wizard.steps.current %}
+            {% if not view.read_only %}
+              <button class="btn btn-secondary ms-3" 
+                name="wizard_goto_step" type="submit" value="{{ wizard.steps.next }}">
+                {% translate "Notify" %} 
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            {% endif %}
+          {% else %}
+            <button class="btn btn-primary ms-3" 
+              name="wizard_goto_step" type="submit" value="{{ wizard.steps.next }}">
+              {% translate "Next" %} 
+              <i class="bi bi-chevron-right"></i>
+            </button>
+          {% endif %}
+        </div>
+      </div>
     </div>
   </form>
 </div>
-<br />
-{% if is_regulator_incident %}
-  <a href="{% url 'regulator_incidents' %}">
-{% else %}
-  <a href="{% url 'incidents' %}">
-{% endif %}
-{% if action == 'Create' %}
-  {% bootstrap_button button_type="" content="Cancel"|translate button_class="btn-danger" %}
-{% else %}
-  {% bootstrap_button button_type="" content="Close"|translate button_class="btn-danger" %}
-{% endif %}
-  </a>
 {% endblock %}
