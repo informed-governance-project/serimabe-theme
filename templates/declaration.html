@@ -12,8 +12,9 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="card shadow rounded-3 mt-3">
+<h3>{% translate "Report an incident" %}</h3>
+<div class="hr-separator"></div>
+<div class="card shadow rounded-3 my-5">
   <form action="" method="post">
     {% csrf_token %}
     <div class="d-inline-flex border rounded-pill mx-4 translate-middle-y bg-light">
@@ -60,24 +61,35 @@
     <div class="card-body py-0 px-4">
       {{ wizard.management_form }}
       {% if wizard.form.forms %}
-      {{ wizard.form.management_form }}
-      {% for form in wizard.form.forms %}
-      {% bootstrap_form_errors form %}
-      {% bootstrap_form form %}
-      {% endfor %}
+        {{ wizard.form.management_form }}
+        {% for form in wizard.form.forms %}
+          {% bootstrap_form_errors form %}
+          {% bootstrap_form form %}
+        {% endfor %}
       {% else %}
-      {% with form_class_name=wizard.form|get_class_name %}
-      {% if form_class_name == 'ContactForm' %}
-      {% include "contact_form.html" %}
-      {% elif form_class_name == 'ImpactForm' %}
-      {% include "impact_form.html" %}
-      {% else %}
-      {{ wizard.form.media }}
-      <div class="col-md-6">
-        {% bootstrap_form wizard.form %}
-      </div>
-      {% endif %}
-      {% endwith %}
+        {% with form_class_name=wizard.form|get_class_name %}
+        {{ wizard.form.media }}
+        {% bootstrap_form_errors wizard.form %}
+        {% if form_class_name == 'ContactForm' %}
+          {% include "contact_form.html" %}
+        {% elif form_class_name == 'ImpactForm' %}
+          {% include "impact_form.html" %}
+        {% elif form_class_name == 'SectorForm' %}
+          {% include "sector_form.html" %}
+        {% elif form_class_name == 'DetectionDateForm' %}
+          {% include "detection_date_form.html" %}
+        {% else %}
+          {% for field in wizard.form %}
+            <div class="d-flex align-items-center {% if field.field.required %}required-field{% endif %}">
+              {% bootstrap_label field.label label_class="fw-bold me-2" %}
+              <hr class="flex-grow-1 border-secondary no-opacity">
+            </div>
+            <div class="pt-4">
+              {% bootstrap_field field show_label=False %}
+            </div>
+          {% endfor %}
+        {% endif %}
+        {% endwith %}
       {% endif %}
       <div class="d-flex mx-4 notifcation-buttons">
         <div class="flex-grow-1">
