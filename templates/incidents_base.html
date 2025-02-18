@@ -162,6 +162,7 @@
                     {% with filtered_workflows=incident|filter_workflows_forms:report %}
                     <tr>
                         <td class="col-6">
+                            <i class="logo-{% if not filtered_workflows %}{% status_class_without_incident_workflow report incident %}{% else %}{% status_class filtered_workflows.instance.review_status %} {% endif %}"></i>
                             <a class="{% if not filtered_workflows %}{% status_class_without_incident_workflow report incident %}{% else %}{% status_class filtered_workflows.instance.review_status %} {% endif %}"
                                 href="{% if filtered_workflows %}{% url 'edit_workflow' %}?incident_workflow_id={{ filtered_workflows.instance.id }}{% endif %}">
                                 {{ report }}
@@ -227,7 +228,7 @@
     <div class="legend-item"><span class="legend-icon legend-impact"></span> {% translate "Impact" %} </div>
     <div class="legend-item"><span class="legend-icon legend-ongoing"></span> {% translate "On going" %}</div>
     <div class="legend-item"><span class="legend-icon legend-closed"></span> {% translate "Closed" %}</div>
-    <div class="legend-item"><span class="legend-icon legend-unsubmitted"></span> {% translate "Unsubmitted" %}</div>
+    <div class="legend-item"></span><i class="bi bi-arrow-clockwise"></i> {% translate "Unsubmitted" %}</div>
     <div class="legend-item legend-under-review">⏳ {% translate "Under review" %}</div>
     <div class="legend-item legend-submission-overdue">⚠ {% translate "Submission overdue" %}</div>
     <div class="legend-item legend-passed">✔ {% translate "Passed" %}</div>
