@@ -116,3 +116,49 @@
 .notifcation-buttons {
     transform: translateY(50%);
 }
+/* used in the incident list to manage the color of the link */
+.report-under-review { color: blue; }
+
+.report-pass { color: green; }
+
+.report-fail { color: red; }
+
+.report-overdue {  color: darkorange;}
+
+.report-unsubmitted {  color: lightgrey;}
+
+[class^="logo-report"]{
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-block;
+    background-size: cover;
+    justify-content: flex-end;
+    font-family: "bootstrap-icons";
+    font-style: normal; 
+ }
+
+.logo-report-under-review::after {
+    /* background-image: url('/static/images/ilr_logo.png');  */
+    content: "\F421";
+    color: blue;
+}
+
+.logo-report-pass::after {
+    content: "\F272";
+    color: green;
+}
+
+.logo-report-fail::after {
+    content: "\F659";
+    color: red;
+}
+
+.logo-report-overdue::after {
+    content: "\F33B";
+    color: darkorange;
+}
+
+.logo-report-unsubmitted::after {
+    content: "\F116";
+    color: lightgrey;
+}
