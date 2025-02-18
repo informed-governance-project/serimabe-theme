@@ -117,6 +117,9 @@
     justify-content: center;
 }
 
+.notifcation-buttons {
+    transform: translateY(50%);
+}
 /* used in the incident list to manage the color of the link */
 .report-under-review { color: blue; }
 

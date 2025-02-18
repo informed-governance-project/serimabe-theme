@@ -17,5 +17,7 @@
 }
 
 .report-incident-button:hover {
-    background-color: var(--bs-dark) !important;
+    background-color: var(--bs-secondary) !important;
+    border-color: var(--bs-secondary) !important;
+    color: var(--bs-light) !important;
 }
