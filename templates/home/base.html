@@ -28,7 +28,7 @@
 
 {% block bootstrap5_content %}
     {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
-    <div class="container-fluid px-4 pt-2 pb-5">
+    <div class="container-fluid px-4 pb-2">
         {% block cookiebanner %}
             {% if cookiebanner %}
                 {% cookiebanner_modal 'bootstrap5' %}

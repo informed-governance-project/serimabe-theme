@@ -35,10 +35,6 @@
     border-color: var(--bs-secondary) !important;
 }
 
-.no-opacity {
-    opacity: 1 !important;
-}
-
 .legend {
     display: flex;
     align-items: center;
