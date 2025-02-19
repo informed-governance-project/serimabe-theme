@@ -92,14 +92,7 @@
             </th>
             <th>{% translate "Reference" %}</th>
             <th>{% translate "Sectors" %}</th>
-            <th class="p-0">
-                <table class="table table-borderless table-sm m-0">
-                    <tr>
-                        <td class="col-6">{% translate "Report" %}</td>
-                    </tr>
-                </table>
-            </th>
-            <th>{% translate "Significant impact" %}</th>
+            <th>{% translate "Report" %}</th>
             <th>{% translate "Actions" %}</th>
         </tr>
     </thead>
@@ -108,13 +101,26 @@
         {% timezone time_zone %}
         <tr>
             <td class="table-group-divider py-3"> <!-- Incident status  -->
-                {% block content_table_incident_status %}
-                {% for field in incident.formsStatus %}
-                {% if field.name == "incident_status" %}
-                {% bootstrap_field field show_label=False wrapper_class="m-0"%}
-                {% endif %}
-                {% endfor %}
-                {% endblock %}
+                <div class="col d-flex align-items-center justify-content-center">
+                    {% block content_table_significative_impact %}
+                        {% for field in incident.formsStatus %}
+                            {% if field.name == "is_significative_impact" %}
+                                {% bootstrap_field field show_label=False wrapper_class="m-0" field_class="is_significative_impact_checkbox" %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endblock %}
+                    {% block content_table_incident_status %}
+                        {% for field in incident.formsStatus %}
+                        {% if field.name == "incident_status" %}
+                                <input type="checkbox" name="incident_status" 
+                                    class="form-check-input status_checkbox large-checkbox m-0" 
+                                    onchange="onChangeIncident(this, {{ incident.id }})" 
+                                    id="id_incident_status"
+                                    {% if field.initial == "GOING" %}checked{% endif %}>
+                        {% endif %}
+                        {% endfor %}
+                    {% endblock %}
+                </div>
             </td>
             <td class="table-group-divider py-3 text-start"> <!-- NoIncident notification date -->
                 {{incident.incident_notification_date|date:"d/m/y"}}<br/>
@@ -190,15 +196,6 @@
                     </ul>
                     {% endwith %}
                     {% endfor %}
-                {% endblock %}
-            </td>
-            <td class="table-group-divider py-3"> <!-- Significative impact -->
-                {% block content_table_significative_impact %}
-                {% for field in incident.formsStatus %}
-                {% if field.name == "is_significative_impact" %}
-                {% bootstrap_field field show_label=False wrapper_class="d-flex align-items-center justify-content-center" %}
-                {% endif %}
-                {% endfor %}
                 {% endblock %}
             </td>
             <td class="table-group-divider py-3"> <!-- Actions -->

@@ -18,6 +18,12 @@ function onChangeIncident(value, id) {
     const csrftoken = getCookie('csrftoken');
     let formdata = $(value).serialize();
 
+    if ($(value).attr('name') == 'incident_status'){
+        let status = "CLOSE"
+        if ($(value).is(':checked')) status = "GOING"
+        formdata=`incident_status=${status}`
+    }   
+
     $.ajax({
         type: "POST",
         url: "incident/" + id,

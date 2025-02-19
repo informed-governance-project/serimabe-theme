@@ -72,17 +72,12 @@
     {% elif incident.incident_status == 'CLOSE' %}
     <i class="logo-report-closed logo-status"></i>
     {% endif %}
-    {% if incident.is_significative_impact %}
-    <i class="logo-report-impact logo-status"></i>
-    {% endif %}
 {% endblock %}
 
 {% block content_table_significative_impact %}
-    <div class="form-check d-flex align-items-center justify-content-center">
-        <input class="form-check-input large-checkbox no-opacity" type="checkbox"
-            {% if incident.is_significative_impact %}checked{% endif %} 
-            disabled>
-    </div>
+    {% if incident.is_significative_impact %}
+    <i class="logo-report-impact logo-status"></i>
+    {% endif %}
 {% endblock %}
 
 {% block content_table_actions %}

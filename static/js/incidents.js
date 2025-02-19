@@ -4,11 +4,11 @@ $(document).ready(function () {
         autoWidth: false,
         paging: true,
         searching: false,
-        order: [[0, 'desc']],
+        order: [[1, 'desc']],
         columnDefs: [
             {
                 targets: 0,
-                orderable: true,
+                orderable: false,
                 type: 'html',
             },
             {
@@ -26,7 +26,7 @@ $(document).ready(function () {
                 orderable: false,
             },
             {
-                targets: 8,
+                targets: 7,
                 orderable: false,
             },
         ]
