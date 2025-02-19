@@ -30,8 +30,8 @@
     {% is_workflow_disabled incident.get_all_workflows completed_workflows report as workflow_disabled %}
     <ul class="list-unstyled mb-1">
         <li>
-            <i class="logo-{% if workflow_disabled %}disabled-link text-decoration-none{% else %}{% status_class filtered_workflows.review_status %} {% endif %} align-middle"></i>
-            <a class="{% if workflow_disabled %}disabled-link text-decoration-none{% else %}{% status_class filtered_workflows.review_status %} {% endif %}"
+            <i class="logo-{% if not filtered_workflows %}{% status_class_without_incident_workflow report incident %}{% else %}{% status_class filtered_workflows.review_status %} {% endif %} align-middle"></i>
+            <a class="{% if not filtered_workflows %}{% status_class_without_incident_workflow report incident %}{% else %}{% status_class filtered_workflows.review_status %} {% endif %}"
                 href="{% if filtered_workflows %}{% url 'edit_workflow' %}{% else %}{% url 'create_workflow' %}{% endif %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}">
                 {{ report }}
             </a>
