@@ -70,7 +70,14 @@
 {% endblock %}
 
 {% block content_table_incident_status %}
-    {{ incident.get_incident_status_display }}
+    {% if incident.incident_status == 'GOING' %}
+    <i class="logo-report-ongoing logo-status"></i> 
+    {% elif incident.incident_status == 'CLOSE' %}
+    <i class="logo-report-closed logo-status"></i>
+    {% endif %}
+    {% if incident.is_significative_impact %}
+    <i class="logo-report-impact logo-status"></i>
+    {% endif %}
 {% endblock %}
 
 {% block content_table_significative_impact %}
