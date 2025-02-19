@@ -7,6 +7,9 @@
     background-color: #eaebeb;
     height: 95vh;
     width: 100vw;
+    background-image: url('/static/images/bg-serima.svg') !important;
+    background-repeat: no-repeat;
+    background-position: 50%;
 }
 
 .create-account:hover {
