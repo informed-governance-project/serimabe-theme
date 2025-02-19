@@ -13,6 +13,11 @@ $secondary: #212529;
 // $primary: #34a9e1;
 // $secondary: #2e2f7f; 
 
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
 
 // Importing bootstrap
 @import "../../../node_modules/bootstrap/scss/bootstrap";
