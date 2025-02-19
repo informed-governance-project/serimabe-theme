@@ -163,7 +163,7 @@
                     {% with filtered_workflows=incident|filter_workflows_forms:report %}
                     <tr>
                         <td class="col-6">
-                            <i class="logo-{% if not filtered_workflows %}{% status_class_without_incident_workflow report incident %}{% else %}{% status_class filtered_workflows.instance.review_status %} {% endif %}"></i>
+                            <i class="logo-{% if not filtered_workflows %}{% status_class_without_incident_workflow report incident %}{% else %}{% status_class filtered_workflows.instance.review_status %}{% endif %} align-middle"></i>
                             <a class="{% if not filtered_workflows %}{% status_class_without_incident_workflow report incident %}{% else %}{% status_class filtered_workflows.instance.review_status %} {% endif %}"
                                 href="{% if filtered_workflows %}{% url 'edit_workflow' %}?incident_workflow_id={{ filtered_workflows.instance.id }}{% endif %}">
                                 {{ report }}
