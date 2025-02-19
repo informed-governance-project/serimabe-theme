@@ -44,7 +44,7 @@
             {% for field in wizard.form %}
             {% bootstrap_field field show_label=False %}
             {% endfor %}
-            {% bootstrap_button button_type="submit" button_class="btn-primary" content=_("Connection") %}
+            {% bootstrap_button button_type="submit" button_class="btn-primary submit_login" content=_("Connection") %}
         </form>
         {% block 'backup_tokens' %}
         {% if backup_tokens %}
@@ -54,7 +54,7 @@
                 {% csrf_token %}
                 <p>{% trans "As a last resort, you can use a backup token:" %}</p>
                 <p>
-                    {% bootstrap_button name="wizard_goto_step" button_type="submit" button_class="btn-secondary btn-sm" value="backup" content=_("Use backup token") %}
+                    {% bootstrap_button name="wizard_goto_step" button_type="submit" button_class="btn-secondary btn-sm submit_login" value="backup" content=_("Use backup token") %}
                 </p>
             </form>
         </div>

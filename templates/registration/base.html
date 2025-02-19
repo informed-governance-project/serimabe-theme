@@ -8,7 +8,6 @@
 {% block bootstrap5_extra_head %}
 {{ block.super }}
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
-    <script src='{% static "js/home.js" %}'></script>
 {% endblock %}
 
 {% block bootstrap5_extra_script %}
@@ -45,7 +44,7 @@
 
 {% block bootstrap5_content %}
 <div class="background">
-    <div class="container py-5 h-100 d-flex align-items-center justify-content-center" data-bs-theme="light">
+    <div class="container py-5 h-100 d-flex flex-column align-items-center justify-content-center" data-bs-theme="light">
         {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
         <div class="card shadow px-3 py-3 mb-5 rounded-1 col-5">
             <div class="card-body">      
