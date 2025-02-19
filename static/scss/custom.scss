@@ -21,6 +21,11 @@ $secondary: #212529;
 
 // Then add additional custom code here
 
+html, body {
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+}
+
 a.changelink {
     padding-left: 16px;
     background: url(../admin/img/icon-changelink.svg) 0 1px no-repeat;

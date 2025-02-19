@@ -11844,6 +11844,16 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+html, body {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+}
+
+button {
+  font-family: "Gotham";
+  font-weight: 500;
+}
+
 a.changelink {
   padding-left: 16px;
   background: url(../admin/img/icon-changelink.svg) 0 1px no-repeat;
