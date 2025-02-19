@@ -21,7 +21,8 @@
 <link rel="stylesheet" href="{% static 'css/incidents.css' %}" />
 {% endblock %}{% block content %}
 {% block content_title %}
-<h3>{% translate "Overview of reported incidents" %}</h3>
+<h3 class="fw-bolder">{% translate "Overview of reported incidents" %}</h3>
+<div class="hr-separator"></div>
 {% endblock %}
 {% settings_value "TIME_ZONE" as time_zone %}
 <div class="d-flex {% if is_regulator and not is_regulator_incidents or is_observer %}justify-content-end{% else %}justify-content-between{% endif %}">
