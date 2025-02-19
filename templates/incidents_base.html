@@ -107,7 +107,7 @@
         {% for incident in incidents %}
         {% timezone time_zone %}
         <tr>
-            <td class="table-group-divider"> <!-- Incident status  -->
+            <td class="table-group-divider py-3"> <!-- Incident status  -->
                 {% block content_table_incident_status %}
                 {% for field in incident.formsStatus %}
                 {% if field.name == "incident_status" %}
@@ -116,12 +116,12 @@
                 {% endfor %}
                 {% endblock %}
             </td>
-            <td class="table-group-divider text-start"> <!-- NoIncident notification date -->
+            <td class="table-group-divider py-3 text-start"> <!-- NoIncident notification date -->
                 {{incident.incident_notification_date|date:"d/m/y"}}<br/>
                 <i class="bi bi-clock"></i>
                 {{incident.incident_notification_date|date:"H:i"}}
             </td>
-            <td class="table-group-divider"> <!-- Regulator / Operator -->
+            <td class="table-group-divider py-3"> <!-- Regulator / Operator -->
                 {% block content_table_entity %}
                 {% if incident.company %}
                 {{ incident.company.identifier }}
@@ -130,12 +130,12 @@
                 {% endif %}
                 {% endblock %}
             </td>
-            <td class="table-group-divider"> <!-- Regulation or Regulator(observer case) -->
+            <td class="table-group-divider py-3"> <!-- Regulation or Regulator(observer case) -->
                 {% block content_table_regulation_or_regulator %}
                 {{ incident.sector_regulation.regulation }}
                 {% endblock %}
             </td>
-            <td class="table-group-divider"> <!-- Reference -->
+            <td class="table-group-divider py-3"> <!-- Reference -->
                 {% block content_table_incident_id %}
                 {% for field in incident.formsStatus %}
                 {% if field.name == "incident_id" %}
@@ -144,7 +144,7 @@
                 {% endfor %}
                 {% endblock %}
             </td>
-            <td class="table-group-divider incident-list-sectors"> <!-- Sectors -->
+            <td class="table-group-divider py-3 incident-list-sectors"> <!-- Sectors -->
                 {% for root_sector in incident.get_incident_root_sector %}
                     <ul>
                     {{ root_sector.get_safe_translation }}
@@ -156,13 +156,12 @@
                     {% endfor %}
                 {% endfor %}
             </td>
-            <td class="table-group-divider p-0"> <!-- Report name and status -->
+            <td class="table-group-divider py-3"> <!-- Report name and status -->
                 {% block content_table_report %}
-                <table class="table table-borderless table-sm m-0">
                     {% for report in incident.get_all_workflows %}
                     {% with filtered_workflows=incident|filter_workflows_forms:report %}
-                    <tr>
-                        <td class="col-6">
+                    <ul class="list-unstyled mb-1">
+                        <li>
                             <i class="logo-{% if not filtered_workflows %}{% status_class_without_incident_workflow report incident %}{% else %}{% status_class filtered_workflows.instance.review_status %}{% endif %} align-middle"></i>
                             <a class="{% if not filtered_workflows %}{% status_class_without_incident_workflow report incident %}{% else %}{% status_class filtered_workflows.instance.review_status %} {% endif %}"
                                 href="{% if filtered_workflows %}{% url 'edit_workflow' %}?incident_workflow_id={{ filtered_workflows.instance.id }}{% endif %}">
@@ -187,14 +186,13 @@
                             </a>
                             {% endif %}
                             {% endwith %}
-                        </td>
-                    </tr>
+                        </li>
+                    </ul>
                     {% endwith %}
                     {% endfor %}
-                </table>
                 {% endblock %}
             </td>
-            <td class="table-group-divider"> <!-- Significative impact -->
+            <td class="table-group-divider py-3"> <!-- Significative impact -->
                 {% block content_table_significative_impact %}
                 {% for field in incident.formsStatus %}
                 {% if field.name == "is_significative_impact" %}
@@ -203,7 +201,7 @@
                 {% endfor %}
                 {% endblock %}
             </td>
-            <td class="table-group-divider"> <!-- Actions -->
+            <td class="table-group-divider py-3"> <!-- Actions -->
                 <div class="col d-flex align-items-center">
                     {% block content_table_actions %}
                     <button class="btn text-secondary access_log p-0" data-incident-id="{{ incident.id }}"

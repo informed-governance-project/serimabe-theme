@@ -24,50 +24,46 @@
 {% endblock %}
 
 {% block content_table_report %}
-<table class="table table-borderless table-sm m-0">
     {% with completed_workflows=incident.get_workflows_completed %}
     {% for report in incident.get_all_workflows %}
     {% with filtered_workflows=completed_workflows|filter_workflows:report.id %}
     {% is_workflow_disabled incident.get_all_workflows completed_workflows report as workflow_disabled %}
-    <tr>
-        <td class="col-6">
-            <div class="col">
-                <i class="logo-{% if workflow_disabled %}disabled-link text-decoration-none{% else %}{% status_class filtered_workflows.review_status %} {% endif %} align-middle"></i>
-                <a class="{% if workflow_disabled %}disabled-link text-decoration-none{% else %}{% status_class filtered_workflows.review_status %} {% endif %}"
-                    href="{% if filtered_workflows %}{% url 'edit_workflow' %}{% else %}{% url 'create_workflow' %}{% endif %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}">
-                    {{ report }}
-                </a>
-                {% with incident_workflows=incident|get_incident_workflow_by_workflow:report %}
-                {% if incident_workflows %}
-                <button class="btn text-secondary p-0 ps-1 report_versions"
-                    data-workflows="{{ incident_workflows }}"
-                    data-report="{{ report }}"
-                    data-incident-ref="{{ incident.incident_id}}"
-                    data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
-                    data-download-url="{% url 'download_incident_report_pdf' 0 %}"
-                    data-bs-toggle="modal"
-                    data-bs-target="#report_versions"
-                    title="{% translate 'Version control' %}">
-                    <i class="bi bi-clock-history"></i>
-                </button>
-                {% endif %}
-                {% endwith %}
-                {% if filtered_workflows.comment %}
-                <button class="btn text-warning workflow_comment p-0"
-                    data-workflow-comment="{{ filtered_workflows.comment }}"
-                    data-bs-toggle="modal"
-                    data-bs-target="#workflow_comment"
-                    title="{% translate 'Comment' %}">
-                    <i class="bi bi-chat-left-text-fill"></i>
-                </button>
-                {% endif %}
-            </div>
-        </td>
-    </tr>
+    <ul class="list-unstyled mb-1">
+        <li>
+            <i class="logo-{% if workflow_disabled %}disabled-link text-decoration-none{% else %}{% status_class filtered_workflows.review_status %} {% endif %} align-middle"></i>
+            <a class="{% if workflow_disabled %}disabled-link text-decoration-none{% else %}{% status_class filtered_workflows.review_status %} {% endif %}"
+                href="{% if filtered_workflows %}{% url 'edit_workflow' %}{% else %}{% url 'create_workflow' %}{% endif %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}">
+                {{ report }}
+            </a>
+            {% with incident_workflows=incident|get_incident_workflow_by_workflow:report %}
+            {% if incident_workflows %}
+            <button class="btn text-secondary p-0 ps-1 report_versions"
+                data-workflows="{{ incident_workflows }}"
+                data-report="{{ report }}"
+                data-incident-ref="{{ incident.incident_id}}"
+                data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
+                data-download-url="{% url 'download_incident_report_pdf' 0 %}"
+                data-bs-toggle="modal"
+                data-bs-target="#report_versions"
+                title="{% translate 'Version control' %}">
+                <i class="bi bi-clock-history"></i>
+            </button>
+            {% endif %}
+            {% endwith %}
+            {% if filtered_workflows.comment %}
+            <button class="btn text-warning workflow_comment p-0"
+                data-workflow-comment="{{ filtered_workflows.comment }}"
+                data-bs-toggle="modal"
+                data-bs-target="#workflow_comment"
+                title="{% translate 'Comment' %}">
+                <i class="bi bi-chat-left-text-fill"></i>
+            </button>
+            {% endif %}
+        </li>
+    </ul>
     {% endwith %}
     {% endfor %}
     {% endwith %}
-</table>
 {% endblock %}
 
 {% block content_table_incident_status %}
