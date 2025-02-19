@@ -207,11 +207,11 @@
                     {% block content_table_actions %}
                     <button class="btn text-secondary access_log p-0" data-incident-id="{{ incident.id }}"
                         title="{% translate 'Access log' %}">
-                        <i class="bi bi-file-earmark-person h4"></i>
+                        <i class="logo-report-log  h4"></i>
                     </button>
                     <a class="btn text-secondary p-0 border-0" href="{% url 'download_incident_pdf' incident.id %}"
                         title="{% translate 'Download' %}">
-                        <i class="bi bi-filetype-pdf h4"></i>
+                        <i class="logo-report-pdf h4"></i>
                     </a>
                     {% endblock %}
                 </div>
@@ -225,14 +225,14 @@
 
 <div class="legend">
     <span class="legend-title">{% translate "Legend" %}</span>
-    <div class="legend-item"><span class="legend-icon legend-impact"></span> {% translate "Impact" %} </div>
-    <div class="legend-item"><span class="legend-icon legend-ongoing"></span> {% translate "On going" %}</div>
-    <div class="legend-item"><span class="legend-icon legend-closed"></span> {% translate "Closed" %}</div>
-    <div class="legend-item"></span><i class="bi bi-arrow-clockwise"></i> {% translate "Unsubmitted" %}</div>
-    <div class="legend-item legend-under-review">⏳ {% translate "Under review" %}</div>
-    <div class="legend-item legend-submission-overdue">⚠ {% translate "Submission overdue" %}</div>
-    <div class="legend-item legend-passed">✔ {% translate "Passed" %}</div>
-    <div class="legend-item legend-failed">✖ {% translate "Failed" %}</div>
+    <div class="legend-item legend-impact"><i class="logo-report-impact"></i> {% translate "Impact" %} </div>
+    <div class="legend-item legend-ongoing"><i class="logo-report-ongoing"></i> {% translate "On going" %}</div>
+    <div class="legend-item legend-closed"><i class="logo-report-closed"></i> {% translate "Closed" %}</div>
+    <div class="legend-item legend-unsubmitted"><i class="logo-report-unsubmitted"></i> {% translate "Unsubmitted" %}</div>
+    <div class="legend-item legend-under-review"><i class="logo-report-under-review"></i> {% translate "Under review" %}</div>
+    <div class="legend-item legend-submission-overdue"><i class="logo-report-overdue"></i> {% translate "Submission overdue" %}</div>
+    <div class="legend-item legend-passed"><i class="logo-report-pass"></i> {% translate "Passed" %}</div>
+    <div class="legend-item legend-failed"><i class="logo-report-fail"></i> {% translate "Failed" %}</div>
 </div> 
 
 {% else %}

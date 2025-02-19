@@ -74,21 +74,21 @@
     display: inline-block;
 }
 
-.legend-impact { background-color: red; }
+.legend-impact { color: #e40521;}
 
-.legend-ongoing { background-color: green; }
+.legend-ongoing { color: green; }
 
-.legend-closed { background-color: gray; border: 1px solid #777; }
+.legend-closed { color: #666666; }
 
-.legend-unsubmitted { background-color: lightgray; }
+.legend-unsubmitted { color: #727272; }
 
-.legend-under-review { color: blue; }
+.legend-under-review { color: #2673e5; }
 
-.legend-submission-overdue { color: darkorange; }
+.legend-submission-overdue { color: #a76806; }
 
-.legend-passed { color: green; }
+.legend-passed { color: #008800; }
 
-.legend-failed { color: red; }
+.legend-failed { color: #e40521; }
 
 .incident-list-sectors {
     list-style-type: none;
@@ -117,48 +117,72 @@
     transform: translateY(50%);
 }
 /* used in the incident list to manage the color of the link */
-.report-under-review { color: blue; }
+.report-under-review { color: #2673e5; }
 
-.report-pass { color: green; }
+.report-pass { color: #008800; }
 
-.report-fail { color: red; }
+.report-fail { color: #e40521; }
 
-.report-overdue {  color: darkorange;}
+.report-overdue {  color: #a76806;}
 
-.report-unsubmitted {  color: lightgrey;}
+.report-unsubmitted {  color: #727272;}
 
 [class^="logo-report"]{
-    width: 1.5em;
-    height: 1.5em;
+    width: 1em;
+    height: 1em;
     display: inline-block;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     justify-content: flex-end;
     font-family: "bootstrap-icons";
     font-style: normal; 
  }
 
-.logo-report-under-review::after {
-    /* background-image: url('/static/images/ilr_logo.png');  */
-    content: "\F421";
-    color: blue;
+.logo-report-under-review {
+    background-image: url('/static/images/icons/ico-under_review.svg'); 
 }
 
-.logo-report-pass::after {
-    content: "\F272";
-    color: green;
+.logo-report-pass {
+    background-image: url('/static/images/icons/ico-passed.svg'); 
 }
 
-.logo-report-fail::after {
-    content: "\F659";
-    color: red;
+.logo-report-fail{
+    background-image: url('/static/images/icons/ico-failed.svg'); 
 }
 
-.logo-report-overdue::after {
-    content: "\F33B";
-    color: darkorange;
+.logo-report-overdue {
+    background-image: url('/static/images/icons/ico-submission_overdue.svg'); 
 }
 
-.logo-report-unsubmitted::after {
-    content: "\F116";
-    color: lightgrey;
+.logo-report-unsubmitted {
+    background-image: url('/static/images/icons/ico-unsubmitted.svg'); 
+}
+
+.logo-report-impact {
+    background-image: url('/static/images/icons/ico-impact.svg'); 
+}
+
+.logo-report-ongoing {
+    background-image: url('/static/images/icons/ico-on_going.svg'); 
+}
+
+.logo-report-closed {
+    background-image: url('/static/images/icons/ico-closed.svg'); 
+}
+
+/* Action logo  */
+.logo-report-pdf {
+    background-image: url('/static/images/icons/ico-pdf.svg'); 
+}
+
+.logo-report-log {
+    background-image: url('/static/images/icons/ico-log.svg'); 
+}
+
+.logo-report-user {
+    background-image: url('/static/images/icons/ico-user.svg'); 
+}
+
+.logo-report-trash {
+    background-image: url('/static/images/icons/ico-trash.svg'); 
 }
