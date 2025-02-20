@@ -33,16 +33,22 @@
         </a>
     </div>
     {% endif %}
-    <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilters"
-        aria-expanded="false" aria-controls="collapseFilters">
-        {% translate "Filter" %}
-        {% if is_filtered %}
-        <span>
-            ({% translate "Active" %})
-        </span>
-        {% endif %}
-        <i class="bi bi-funnel-fill"></i>
-    </button>
+    <div>
+        <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilters"
+            aria-expanded="false" aria-controls="collapseFilters">
+            {% translate "Filter" %}
+            {% if is_filtered %}
+            <span>
+                ({% translate "Active" %})
+            </span>
+            {% endif %}
+            <i class="bi bi-funnel-fill"></i>
+        </button>
+        <button class="btn" data-bs-toggle="collapse" data-bs-target="#collapseLegend"
+            aria-expanded="false" aria-controls="collapseLegend">
+            <img src="{% static 'images/icons/ico-legend.svg' %}" alt="legend">
+        </button>
+    </div>
 </div>
 <div class="my-2">
     <div id="collapseFilters" class="collapse">
@@ -70,6 +76,50 @@
         </form>
     </div>
 </div>
+
+<!-- Legend -->
+<div class="my-2">
+    <div id="collapseLegend" class="collapse">
+        <div class="legend">
+            <span class="legend-title">
+                {% translate "Legend" %}
+            </span>
+            <div class="legend-item legend-impact">
+                <i class="logo-report-impact"></i> 
+                {% translate "Impact" %}
+            </div>
+            <div class="legend-item legend-ongoing">
+                <i class="logo-report-ongoing"></i>
+                {% translate "On going" %}
+            </div>
+            <div class="legend-item legend-closed">
+                <i class="logo-report-closed"></i>
+                {% translate "Closed" %}
+            </div>
+            <div class="legend-item legend-unsubmitted">
+                <i class="logo-report-unsubmitted"></i> 
+                {% translate "Unsubmitted" %}
+            </div>
+            <div class="legend-item legend-under-review">
+                <i class="logo-report-under-review"></i>
+                {% translate "Under review" %}
+            </div>
+            <div class="legend-item legend-submission-overdue">
+                <i class="logo-report-overdue"></i> 
+                {% translate "Submission overdue" %}
+            </div>
+            <div class="legend-item legend-passed">
+                <i class="logo-report-pass"></i> 
+                {% translate "Passed" %}
+            </div>
+            <div class="legend-item legend-failed">
+                <i class="logo-report-fail"></i>
+                {% translate "Failed" %}
+            </div>
+        </div> 
+    </div>
+</div>
+
 {% if filter.qs %}
 <table id="incidents-table" class="table align-middle table-sm small">
     <thead>
@@ -217,45 +267,7 @@
         {% endfor %}
     </tbody>
 </table>
-<!-- Legend -->
 
-<div class="legend">
-    <span class="legend-title">
-        {% translate "Legend" %}
-    </span>
-    <div class="legend-item legend-impact">
-        <i class="logo-report-impact"></i> 
-        {% translate "Impact" %}
-    </div>
-    <div class="legend-item legend-ongoing">
-        <i class="logo-report-ongoing"></i>
-        {% translate "On going" %}
-    </div>
-    <div class="legend-item legend-closed">
-        <i class="logo-report-closed"></i>
-        {% translate "Closed" %}
-    </div>
-    <div class="legend-item legend-unsubmitted">
-        <i class="logo-report-unsubmitted"></i> 
-        {% translate "Unsubmitted" %}
-    </div>
-    <div class="legend-item legend-under-review">
-        <i class="logo-report-under-review"></i>
-        {% translate "Under review" %}
-    </div>
-    <div class="legend-item legend-submission-overdue">
-        <i class="logo-report-overdue"></i> 
-        {% translate "Submission overdue" %}
-    </div>
-    <div class="legend-item legend-passed">
-        <i class="logo-report-pass"></i> 
-        {% translate "Passed" %}
-    </div>
-    <div class="legend-item legend-failed">
-        <i class="logo-report-fail"></i>
-        {% translate "Failed" %}
-    </div>
-</div> 
 
 {% else %}
 <p>{% translate "No incident" %}</p>
