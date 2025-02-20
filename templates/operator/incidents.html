@@ -83,7 +83,7 @@
 {% block content_table_actions %}
 {{ block.super }}
 {% if incident.workflows.count == 0 %}
-<button class="btn text-danger p-0 border-0 delete_incident"
+<button class="btn text-primary p-0 border-0 delete_incident"
     data-incident-id="{{ incident.id }}"
     data-delete-url="{% url 'delete_incident' 0 %}"
     data-bs-toggle="modal"
