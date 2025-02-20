@@ -1,16 +1,5 @@
-#language_selector>.btn.show,
-.btn.active,
-.btn:first-child:active {
-    border-color: transparent;
-    box-shadow: none !important;
-}
-
-.language_selector_form {
-    display: contents;
-}
-
-#language_selector:hover,
-#language_selector:focus {
+#set_language_form .dropdown-toggle:focus {
+    outline: none !important;
     box-shadow: none !important;
     border: none !important;
 }
