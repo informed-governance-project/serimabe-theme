@@ -118,6 +118,10 @@ $(document).ready(function () {
         $('#technical-email').text(contacts.technical_email);
         $('#technical-telephone').text(contacts.technical_telephone);
     });
+
+    $("#openFilter").click(function () {
+        $("#filterModal").modal("show");
+    });
 });
 
 function displayPagination(table) {

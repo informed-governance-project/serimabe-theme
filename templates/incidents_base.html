@@ -34,8 +34,7 @@
     </div>
     {% endif %}
     <div>
-        <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilters"
-            aria-expanded="false" aria-controls="collapseFilters">
+        <button id="openFilter" class="btn btn-primary btn-sm" type="button">
             {% translate "Filter" %}
             {% if is_filtered %}
             <span>
@@ -48,32 +47,6 @@
             aria-expanded="false" aria-controls="collapseLegend">
             <img src="{% static 'images/icons/ico-legend.svg' %}" alt="legend">
         </button>
-    </div>
-</div>
-<div class="my-2">
-    <div id="collapseFilters" class="collapse">
-        <form method="get">
-            <div class="row">
-                <div class="col-3">
-                    {% bootstrap_field filter.form.incident_id show_label=True %}
-                </div>
-                <div class="col-3">
-                    {% bootstrap_field filter.form.incident_status show_label=True %}
-                </div>
-                <div class="col-3">
-                    {% bootstrap_field filter.form.is_significative_impact show_label=True %}
-                </div>
-                <div class="col-3">
-                    {% bootstrap_field filter.form.affected_sectors show_label=True wrapper_class="affected-sector-filter" %}
-                </div>
-            </div>
-            <div class="d-flex justify-content-end">
-                <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true">
-                    {% translate "Reset" %}
-                </button>
-                <input class="btn btn-primary btn-sm ms-2" type="submit" value='{{_("Search")}}' />
-            </div>
-        </form>
     </div>
 </div>
 
@@ -285,6 +258,33 @@
     aria-labelledby="report_versions_label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         {% include "modals/report_versions.html" %}
+    </div>
+</div>
+
+<div class="modal fade right-modal pt-5 pe-5" id="filterModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fw-bold">{% translate "Filter" %}</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="get">
+                <div class="modal-body small">
+                    {% bootstrap_field filter.form.incident_id label_class="fw-bold" wrapper_class="mb-3" %}
+                    {% bootstrap_field filter.form.incident_status label_class="fw-bold" wrapper_class="mb-3" %}
+                    {% bootstrap_field filter.form.is_significative_impact label_class="fw-bold" wrapper_class="mb-3"%}
+                    {% bootstrap_field filter.form.affected_sectors label_class="fw-bold" wrapper_class="affected-sector-filter mb-3" %}
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal">
+                        {% translate "Reset" %}
+                    </button>
+                    <button class="btn btn-primary btn-sm" type="submit">
+                        {% translate "Search" %}
+                    </button>    
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}
