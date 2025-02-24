@@ -21,9 +21,11 @@
         "technical_telephone": "{{ incident.technical_telephone }}"
     }'
     data-bs-toggle="modal"
-    data-bs-target="#contacts_incident"
-    title="{% translate 'Contacts' %}">
-    <i class="logo-report-user h4"></i>
+    data-bs-target="#contacts_incident">
+    <i class="logo-report-user h4"        
+        data-bs-placement="top" data-bs-toggle="tooltip"
+        title="{% translate 'Contacts' %}">
+    </i>
 </button>
 {% endblock %}
 

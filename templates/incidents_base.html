@@ -19,7 +19,9 @@
 <script src="/static/npm_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src='{% static "js/incidents.js" %}'></script>
 <link rel="stylesheet" href="{% static 'css/incidents.css' %}" />
-{% endblock %}{% block content %}
+{% endblock %}
+
+{% block content %}
 {% block content_title %}
 <h3 class="fw-bolder">{% translate "Overview of reported incidents" %}</h3>
 <div class="hr-separator"></div>
@@ -34,7 +36,8 @@
     </div>
     {% endif %}
     <div>
-        <button id="openFilter" class="btn btn-primary btn-sm" type="button">
+        <button id="openFilter" class="btn btn-primary btn-sm" type="button"
+            data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Filter by status, sector, etc' %}">
             {% translate "Filter" %}
             {% if is_filtered %}
             <span>
@@ -45,7 +48,8 @@
         </button>
         <button class="btn" data-bs-toggle="collapse" data-bs-target="#collapseLegend"
             aria-expanded="false" aria-controls="collapseLegend">
-            <img src="{% static 'images/icons/ico-legend.svg' %}" alt="legend">
+            <img src="{% static 'images/icons/ico-legend.svg' %}" alt="legend" 
+            data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Icon Guide' %}">
         </button>
     </div>
 </div>
@@ -128,7 +132,14 @@
                     {% block content_table_significative_impact %}
                         {% for field in incident.formsStatus %}
                             {% if field.name == "is_significative_impact" %}
-                                {% bootstrap_field field show_label=False wrapper_class="m-0" field_class="is_significative_impact_checkbox" %}
+                                <div data-bs-placement="top" data-bs-toggle="tooltip"
+                                    {% if field.initial == True %} 
+                                    title="{% translate 'Incident with significant impact' %}"
+                                    {% else %}
+                                    title="{% translate 'No significant impact' %}"
+                                    {% endif %}>
+                                    {% bootstrap_field field show_label=False wrapper_class="m-0" field_class="is_significative_impact_checkbox" %}
+                                </div>
                             {% endif %}
                         {% endfor %}
                     {% endblock %}
@@ -139,16 +150,26 @@
                                     class="form-check-input status_checkbox large-checkbox m-0" 
                                     onchange="onChangeIncident(this, {{ incident.id }})" 
                                     id="id_incident_status"
-                                    {% if field.initial == "GOING" %}checked{% endif %}>
+                                    data-bs-placement="top" data-bs-toggle="tooltip" 
+                                    {% if field.initial == "GOING" %}checked 
+                                    title="{% translate 'The incident is still ongoing' %}"
+                                    {% else %}
+                                    title="{% translate 'The incident is over' %}"
+                                    {% endif %}
+                                    data-bs-placement="top" data-bs-toggle="tooltip">
                         {% endif %}
                         {% endfor %}
                     {% endblock %}
                 </div>
             </td>
             <td class="table-group-divider py-3 text-start"> <!-- NoIncident notification date -->
-                {{incident.incident_notification_date|date:"d/m/y"}}<br/>
-                <i class="bi bi-clock"></i>
-                {{incident.incident_notification_date|date:"H:i"}}
+                <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip"
+                    title="{% translate 'Incident notification submission date' %}">
+                    {{incident.incident_notification_date|date:"d/m/y"}}<br/>
+                    <i class="bi bi-clock"></i>
+                    {{incident.incident_notification_date|date:"H:i"}}
+                </div>
+
             </td>
             <td class="table-group-divider py-3"> <!-- Regulator / Operator -->
                 {% block content_table_entity %}
@@ -173,16 +194,18 @@
                 {% endfor %}
                 {% endblock %}
             </td>
-            <td class="table-group-divider py-3 incident-list-sectors"> <!-- Sectors -->
+            <td class="table-group-divider py-3 px-2 incident-list-sectors"> <!-- Sectors -->
                 {% for root_sector in incident.get_incident_root_sector %}
-                    <ul>
-                    {{ root_sector.get_safe_translation }}
-                    </ul>
+                    <span class="fw-bolder">
+                        {{ root_sector.get_safe_translation }}
+                    </span>
+                    <ul class="list-unstyled">                           
                     {% for sector in root_sector.children.all %}
                         {% if sector in incident.affected_sectors.all %}
                             <li>{{ sector.get_safe_translation }}</li>
                         {% endif %}
                     {% endfor %}
+                    </ul>
                 {% endfor %}
             </td>
             <td class="table-group-divider py-3"> <!-- Report name and status -->
@@ -190,32 +213,40 @@
                     {% for report in incident.get_all_workflows %}
                     {% with filtered_workflows=incident|filter_workflows_forms:report %}
                     <ul class="list-unstyled mb-1">
+                        {% with report_class=filtered_workflows.instance.review_status|default:report|get_report_class:incident %}
                         <li>
-                            <i class="logo-{% if not filtered_workflows %}{% status_class_without_incident_workflow report incident %}{% else %}{% status_class filtered_workflows.instance.review_status %}{% endif %} align-middle"></i>
-                            <a class="{% if not filtered_workflows %}{% status_class_without_incident_workflow report incident %}{% else %}{% status_class filtered_workflows.instance.review_status %} {% endif %}"
-                                href="{% if filtered_workflows %}{% url 'edit_workflow' %}?incident_workflow_id={{ filtered_workflows.instance.id }}{% endif %}">
-                                {{ report }}
-                            </a>
+                            <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip" title="{% get_report_tooltip report_class %}">
+                                <i class="logo-{{ report_class }} align-middle"></i>
+                                <a class="{{ report_class }} {% if not filtered_workflows %}text-decoration-none{% endif %}"
+                                    {% if filtered_workflows %}href="{% url 'edit_workflow' %}?incident_workflow_id={{ filtered_workflows.instance.id }}"{% endif %}>
+                                    {{ report }}
+                                </a>
+                            </div>
                             {% with incident_workflows=incident|get_incident_workflow_by_workflow:report %}
-                            {% if incident_workflows %}
-                            <button class="btn text-secondary p-0 ps-1 report_versions"
-                                data-workflows="{{ incident_workflows }}" data-report="{{ report }}"
-                                data-incident-ref="{{ incident.incident_id}}"
-                                data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
-                                data-download-url="{% url 'download_incident_report_pdf' 0 %}" data-bs-toggle="modal"
-                                data-bs-target="#report_versions" title="{% translate 'Version control' %}">
-                                <i class="bi bi-clock-history"></i>
-                            </button>
-                            {% endif %}
-                            {% if filtered_workflows %}
-                            <a class="btn text-secondary p-0 {% if not incident_workflows %}ps-1{% endif %} border-0"
-                                href="{% url 'download_incident_report_pdf' filtered_workflows.instance.id %}"
-                                title="{% translate 'Download' %}">
-                                <i class="bi bi-filetype-pdf"></i>
-                            </a>
-                            {% endif %}
+                            <div class="d-inline-flex">
+                                {% if incident_workflows %}
+                                <button class="btn text-secondary p-0 ps-1 border-0 d-inline-flex align-items-center report_versions"
+                                    data-workflows="{{ incident_workflows }}" data-report="{{ report }}"
+                                    data-incident-ref="{{ incident.incident_id}}"
+                                    data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
+                                    data-download-url="{% url 'download_incident_report_pdf' 0 %}" data-bs-toggle="modal"
+                                    data-bs-target="#report_versions">
+                                    <i class="bi bi-clock-history align-self-center"
+                                        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Version control' %}">
+                                    </i>
+                                </button>
+                                {% endif %}
+                                {% if filtered_workflows %}
+                                <a class="btn text-secondary p-0 ps-1 border-0 d-inline-flex align-items-center"
+                                    href="{% url 'download_incident_report_pdf' filtered_workflows.instance.id %}"
+                                    data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download PDF report' %}">
+                                    <i class="logo-report-pdf align-self-center"></i>
+                                </a>
+                                {% endif %}                     
+                            </div>
                             {% endwith %}
                         </li>
+                        {% endwith %}
                     </ul>
                     {% endwith %}
                     {% endfor %}
@@ -225,11 +256,11 @@
                 <div class="col d-flex align-items-center">
                     {% block content_table_actions %}
                     <button class="btn text-secondary access_log p-0" data-incident-id="{{ incident.id }}"
-                        title="{% translate 'Access log' %}">
+                        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Activity Log' %}">
                         <i class="logo-report-log  h4"></i>
                     </button>
                     <a class="btn text-secondary p-0 border-0" href="{% url 'download_incident_pdf' incident.id %}"
-                        title="{% translate 'Download' %}">
+                        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download PDF report' %}">
                         <i class="logo-report-pdf h4"></i>
                     </a>
                     {% endblock %}
@@ -249,44 +280,44 @@
 <!-- Modal dialogs -->
 
 {% block content_modals %}
-<div class="modal fade" id="access_log" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="access_log_label" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"></div>
-</div>
-
-<div class="modal fade modal-sm" id="report_versions" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="report_versions_label" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        {% include "modals/report_versions.html" %}
+    <div class="modal fade" id="access_log" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="access_log_label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"></div>
     </div>
-</div>
 
-<div class="modal fade right-modal pt-5 pe-5" id="filterModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title fw-bold">{% translate "Filter" %}</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form method="get">
-                <div class="modal-body small">
-                    {% bootstrap_field filter.form.incident_id label_class="fw-bold" wrapper_class="mb-3" %}
-                    {% bootstrap_field filter.form.incident_status label_class="fw-bold" wrapper_class="mb-3" %}
-                    {% bootstrap_field filter.form.is_significative_impact label_class="fw-bold" wrapper_class="mb-3"%}
-                    {% bootstrap_field filter.form.affected_sectors label_class="fw-bold" wrapper_class="affected-sector-filter mb-3" %}
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal">
-                        {% translate "Reset" %}
-                    </button>
-                    <button class="btn btn-primary btn-sm" type="submit">
-                        {% translate "Search" %}
-                    </button>    
-                </div>
-            </form>
+    <div class="modal fade modal-sm" id="report_versions" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="report_versions_label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            {% include "modals/report_versions.html" %}
         </div>
     </div>
-</div>
+
+    <div class="modal fade right-modal pt-5 pe-5" id="filterModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title fw-bold">{% translate "Filter" %}</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="get">
+                    <div class="modal-body small">
+                        {% bootstrap_field filter.form.incident_id label_class="fw-bold" wrapper_class="mb-3" %}
+                        {% bootstrap_field filter.form.incident_status label_class="fw-bold" wrapper_class="mb-3" %}
+                        {% bootstrap_field filter.form.is_significative_impact label_class="fw-bold" wrapper_class="mb-3"%}
+                        {% bootstrap_field filter.form.affected_sectors label_class="fw-bold" wrapper_class="affected-sector-filter mb-3" %}
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal">
+                            {% translate "Reset" %}
+                        </button>
+                        <button class="btn btn-primary btn-sm" type="submit">
+                            {% translate "Search" %}
+                        </button>    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% endblock %}
