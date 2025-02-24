@@ -78,12 +78,16 @@ $(document).ready(function () {
                 <tr>
                     <td>${formattedDateTime}</td>
                     <td>
-                        <a class="btn text-primary p-0 border-0" href="${reviewUrl}" title="Review">
-                            <i class="bi bi-binoculars"></i>
-                        </a>
-                        <a class="btn text-secondary p-0 border-0" href="${downloadUrl}" title="Download">
-                            <i class="bi bi-filetype-pdf"></i>
-                        </a>
+                        <div class="d-inline-flex">
+                            <a class="btn text-primary p-0 ps-1 border-0 d-inline-flex align-items-center" href="${reviewUrl}" title="Review">
+                                <i class="bi bi-binoculars align-self-center"></i>
+                            </a>
+                            <a class="btn text-secondary p-0 ps-1 border-0 d-inline-flex align-items-center" href="${downloadUrl}" 
+                                data-bs-placement="top" data-bs-toggle="tooltip" title="Download PDF report">
+                                <i class="logo-report-pdf align-self-center"></i>
+                            </a>
+                        </div>
+
                     </td>
                 </tr>
             `;
