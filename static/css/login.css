@@ -3,7 +3,7 @@
     background-color: #eaebeb;
     height: 95vh;
     width: 100vw;
-    background-image: url('/static/images/bg-serima.svg') !important;
+    background-image: url('/static/images/bg_login.svg') !important;
     background-repeat: no-repeat;
     background-position: center center;
 }
