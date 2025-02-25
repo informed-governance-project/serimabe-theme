@@ -21,10 +21,10 @@
         {% bootstrap_field form.email show_label=False %}
         {% bootstrap_field form.password1 show_help=False show_label=False%}
         {% bootstrap_field form.password2 show_help=False show_label=False %}
-        <div>
+        <div class="d-inline-flex">
             <input class="form-check-input custom-checkbox" type="checkbox" id="{{ form.accept_terms.id_for_label }}"
                 name="{{ form.accept_terms.name }}">
-            <label class="form-check-label" for="{{ form.accept_terms.id_for_label }}">
+            <label class="form-check-label ps-2" for="{{ form.accept_terms.id_for_label }}">
                 {{ form.accept_terms.label|safe }}
                 <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
                     class="text-decoration-none text-decoration-underline text-dark"

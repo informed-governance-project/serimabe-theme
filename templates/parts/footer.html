@@ -7,7 +7,7 @@
 {% endblock %}
 
 <footer class="footer mt-auto bg-secondary">
-  <div class="container">
+  <div class="container-fluid px-5">
     <div class="logo-container text-center">
       <img src="{% static 'images/logo.png' %}" alt="Logo" class="translate-middle-y">
     </div>
@@ -16,7 +16,7 @@
         <ul class="nav">
           <li class="nav-item">
             <a href="/" class="nav-link px-2 text-white">
-              {% translate "Legal basis" %}
+              {% translate "Legal bases" %}
             </a>
           </li>
           <div class="p-2"> | </div>
@@ -24,7 +24,7 @@
             <a href="{% if regulator.tos_url %}{{ regulator.tos_url }}{% else %}{% url 'terms' %}{% endif %}"
               target="{% if regulator.tos_url %}_blank{% endif %}" rel="noopener noreferrer"
               class="nav-link px-2 text-white">
-              {% translate "Terms of Service" %}
+              {% translate "Terms of service" %}
             </a>
           </li>
         </ul>
@@ -45,13 +45,13 @@
             <a href="{% if regulator.privacy_policy_url %}{{ regulator.privacy_policy_url }}{% else %}{% url 'privacy' %}{% endif %}"
               target="{% if regulator.privacy_policy_url %}_blank{% endif %}" rel="noopener noreferrer"
               class="nav-link px-2 text-white">
-              {% translate "Privacy policy" %}
+              {% translate "Cookie policy" %}
             </a>
           </li>
           <div class="p-2"> | </div>
           <li class="nav-item">
             <a href="/" class="nav-link px-2 text-white">
-              {% translate "Accessibility Statement" %}
+              {% translate "Accessibility statement" %}
             </a>
           </li>
         </ul>
