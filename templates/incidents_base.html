@@ -132,7 +132,7 @@
                     {% block content_table_significative_impact %}
                         {% for field in incident.formsStatus %}
                             {% if field.name == "is_significative_impact" %}
-                                <div data-bs-placement="top" data-bs-toggle="tooltip"
+                                <div id="impact_status_{{ incident.id }}" data-bs-placement="top" data-bs-toggle="tooltip"
                                     {% if field.initial == True %} 
                                     title="{% translate 'Incident with significant impact' %}"
                                     {% else %}
@@ -149,7 +149,7 @@
                                 <input type="checkbox" name="incident_status" 
                                     class="form-check-input status_checkbox large-checkbox m-0" 
                                     onchange="onChangeIncident(this, {{ incident.id }})" 
-                                    id="id_incident_status"
+                                    id="incident_status_{{ incident.id }}"
                                     data-bs-placement="top" data-bs-toggle="tooltip" 
                                     {% if field.initial == "GOING" %}checked 
                                     title="{% translate 'The incident is still ongoing' %}"

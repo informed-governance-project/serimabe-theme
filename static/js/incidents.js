@@ -73,17 +73,20 @@ $(document).ready(function () {
                 minute: '2-digit'
             });
             let formattedDateTime = formattedDate + ', ' + formattedTime;
+            let tooltip_download = gettext("Download PDF report");
+            let tooltip_review = gettext("Review");
 
             let row = `
                 <tr>
                     <td>${formattedDateTime}</td>
                     <td>
                         <div class="d-inline-flex">
-                            <a class="btn text-primary p-0 ps-1 border-0 d-inline-flex align-items-center" href="${reviewUrl}" title="Review">
+                            <a class="btn text-primary p-0 ps-1 border-0 d-inline-flex align-items-center" href="${reviewUrl}"
+                                data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_review}">
                                 <i class="bi bi-binoculars align-self-center"></i>
                             </a>
                             <a class="btn text-secondary p-0 ps-1 border-0 d-inline-flex align-items-center" href="${downloadUrl}" 
-                                data-bs-placement="top" data-bs-toggle="tooltip" title="Download PDF report">
+                                data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_download}">
                                 <i class="logo-report-pdf align-self-center"></i>
                             </a>
                         </div>
@@ -93,6 +96,7 @@ $(document).ready(function () {
             `;
             $modalWorkflowRows.append(row);
         });
+        $modalWorkflowRows.find('[data-bs-toggle="tooltip"]').tooltip();
     });
 
     $(document).on("click", '.delete_incident', function () {
