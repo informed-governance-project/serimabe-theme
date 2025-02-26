@@ -71,13 +71,13 @@
         {{ wizard.form.media }}
         {% bootstrap_form_errors wizard.form %}
         {% if form_class_name == 'ContactForm' %}
-          {% include "contact_form.html" %}
+          {% include "incidents/contact_form.html" %}
         {% elif form_class_name == 'ImpactForm' %}
-          {% include "impact_form.html" %}
+          {% include "incidents/impact_form.html" %}
         {% elif form_class_name == 'SectorForm' %}
-          {% include "sector_form.html" %}
+          {% include "incidents/sector_form.html" %}
         {% elif form_class_name == 'DetectionDateForm' %}
-          {% include "detection_date_form.html" %}
+          {% include "incidents/detection_date_form.html" %}
         {% else %}
           {% for field in wizard.form %}
             <div class="d-flex align-items-center {% if field.field.required %}required-field{% endif %}">
