@@ -1,18 +1,22 @@
-.logo {
-    width: 50%;
-}
-
 .background {
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-color: #eaebeb;
     height: 95vh;
     width: 100vw;
+    background-image: url('/static/images/bg_login.svg') !important;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
-.login-helper-text {
-    color:white;
+.create-account:hover {
+    color: var(--bs-primary) !important;
+    text-decoration: underline var(--bs-primary) !important;
+    text-underline-offset: 6px !important;
+    text-decoration-thickness: 3px !important;
 }
 
-.login-helper-bg {
-    background-color:#ed2939;
+.report-incident-button:hover {
+    background-color: var(--bs-secondary) !important;
+    border-color: var(--bs-secondary) !important;
+    color: var(--bs-light) !important;
 }

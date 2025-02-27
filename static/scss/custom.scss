@@ -3,6 +3,22 @@
 
 // Include any default variable overrides here (though functions won't be available)
 
+// ILR Colors
+
+$primary: #e40521;
+$secondary: #212529; 
+
+// IBPT Colors
+
+// $primary: #34a9e1;
+// $secondary: #2e2f7f; 
+
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+
 // Importing bootstrap
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 
@@ -10,3 +26,55 @@
 
 // Then add additional custom code here
 
+html, body {
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+}
+
+a.changelink {
+    padding-left: 16px;
+    background: url(../admin/img/icon-changelink.svg) 0 1px no-repeat;
+    float: left;
+    margin-right: 12px
+}
+
+.required-field > label::after {
+    content: " * ";
+    color: var(--bs-danger);
+    font-weight: bold;
+    padding-right: 2px;
+}
+
+.disabled-link {
+    color: gray !important;
+    pointer-events: none;
+    cursor: default;
+}
+
+.large-checkbox {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.select-break-spaces {
+    white-space: break-spaces
+}
+
+.hr-separator {
+    width: 80px;
+    height: 5px;
+    background-color: var(--bs-primary);
+    margin-bottom: 10px;
+}
+
+.force_disabled {
+    color: var(--bs-gray) !important;
+    pointer-events: none !important;
+    background-color: transparent !important;
+    border-color: var(--bs-gray) !important;
+    opacity: 0.65 !important;
+}
+
+.no-opacity {
+    opacity: 1 !important;
+}
