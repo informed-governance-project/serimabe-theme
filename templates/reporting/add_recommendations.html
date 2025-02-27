@@ -17,14 +17,15 @@
 {% endblock %}
 
 {% block content %}
-<h3>{% translate "Add recommendations" %}</h3>
+<h3 class="fw-bolder">{% translate "Add recommendations" %}</h3>
+<div class="hr-separator"></div>
 <h5 class="text-muted">{{ year }} {{ company }} [{{ sector }}]</h5>
 <div class="d-flex">
     <div class="me-auto">
         <button id="addSelectedButton" class="btn btn-primary btn-sm">
             {% translate "Add selected recommendation(s)" %}
         </button>
-        <a class="btn btn-danger btn-sm" href="{% url 'report_recommendations' company.id sector.id year %}">
+        <a class="btn btn-secondary btn-sm" href="{% url 'report_recommendations' company.id sector.id year %}">
             {% translate "Cancel" %}
             </a>
     </div>
