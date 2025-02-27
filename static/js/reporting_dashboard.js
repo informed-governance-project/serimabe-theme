@@ -74,6 +74,10 @@ $(document).ready(function () {
         });
     });
 
+    $("#openFilter").on("click", function () {
+        $("#filterModal").modal("show");
+    })
+
     function updateCheckAll() {
         checkAllInput.prop('checked', checkboxes.not(":disabled").length === checkboxes.not(":disabled").filter(":checked").length);
     }
