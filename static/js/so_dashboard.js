@@ -143,9 +143,13 @@ $(document).ready(function () {
         console.error("Error:", error);
       });
   });
+
+  $("#openFilter").on("click", function () {
+    $("#filterModal").modal("show");
+  })
 })
 
 function displayPagination(table) {
   let rowCount = table.data().length;
-  if (rowCount <= 10) $('.table_controls').addClass("d-none");
+  if (rowCount <= 10) $('#securityobjectives-table').siblings('.table_controls').addClass("d-none");
 }

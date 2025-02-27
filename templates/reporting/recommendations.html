@@ -17,7 +17,8 @@
 {% endblock %}
 
 {% block content %}
-<h3>{% translate "Recommendations" %}</h3>
+<h3 class="fw-bolder">{% translate "Recommendations" %}</h3>
+<div class="hr-separator"></div>
 <h5 class="text-muted">{{ year }} {{ company }} [{{ sector }}] </h5>
 <div class="d-flex">
     <div class="me-auto">
@@ -49,7 +50,7 @@
                 {{ recommendation.description }}
             </td>
             <td class="col-1 table-group-divider">
-                <button class="btn border-0 px-2 delete_report_recommendation text-danger"
+                <button class="btn border-0 px-2 delete_report_recommendation text-secondary"
                     data-bs-toggle="modal"
                     data-bs-target="#delete_report_recommendation"
                     data-delete-url="{% url 'delete_report_recommendations' company.id sector.id year recommendation.id %}"

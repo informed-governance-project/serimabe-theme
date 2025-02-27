@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-25 10:27+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: theme/static/js/incidents.js:76
+msgid "Download PDF report"
+msgstr "PDF-Bericht herunterladen"
+
+#: theme/static/js/incidents.js:77
+msgid "Review"
+msgstr "Überprüfung"
+
+#: theme/static/js/incidents_regulator.js:43
+msgid "The incident is over"
+msgstr "Der Vorfall ist beendet"
+
+#: theme/static/js/incidents_regulator.js:44
+msgid "The incident is still ongoing"
+msgstr "Der Vorfall dauert noch an"
+
+#: theme/static/js/incidents_regulator.js:47
+msgid "Incident with significant impact"
+msgstr "Vorfall mit erheblichen Auswirkungen"
+
+#: theme/static/js/incidents_regulator.js:48
+msgid "No significant impact"
+msgstr "Keine erheblichen Auswirkungen"

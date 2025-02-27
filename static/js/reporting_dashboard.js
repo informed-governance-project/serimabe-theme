@@ -74,6 +74,10 @@ $(document).ready(function () {
         });
     });
 
+    $("#openFilter").on("click", function () {
+        $("#filterModal").modal("show");
+    })
+
     function updateCheckAll() {
         checkAllInput.prop('checked', checkboxes.not(":disabled").length === checkboxes.not(":disabled").filter(":checked").length);
     }
@@ -84,7 +88,7 @@ $(document).ready(function () {
 
     function displayPagination(table) {
         let rowCount = table.data().length;
-        if (rowCount <= 10) $('.table_controls').addClass("d-none");
+        if (rowCount <= 10) $('#reporting-table').siblings('.table_controls').addClass("d-none");
     }
 
     checkboxes.on("change", function () {

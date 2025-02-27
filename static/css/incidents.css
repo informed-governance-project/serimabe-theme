@@ -35,6 +35,186 @@
     border-color: var(--bs-secondary) !important;
 }
 
-.no-opacity {
-    opacity: 1 !important;
+.legend {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #000;
+    padding: 30px;
+    border-radius: 8px;
+    width: fit-content;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width:100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.legend-title {
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    background: white;
+    padding: 0 5px;
+    font-weight: bold;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    justify-content: center;
+}
+
+.legend-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-impact { color: #e40521;}
+
+.legend-ongoing { color: green; }
+
+.legend-closed { color: #666666; }
+
+.legend-unsubmitted { color: #727272; }
+
+.legend-under-review { color: #2673e5; }
+
+.legend-submission-overdue { color: #a76806; }
+
+.legend-passed { color: #008800; }
+
+.legend-failed { color: #e40521; }
+
+.incident-list-sectors li:before {
+    content : "\2022  ";
+}
+
+.step-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-buttons {
+    transform: translateY(50%);
+}
+/* used in the incident list to manage the color of the link */
+.report-under-review { color: #2673e5; }
+
+.report-pass { color: #008800; }
+
+.report-fail { color: #e40521; }
+
+.report-overdue {  color: #a76806;}
+
+.report-unsubmitted {  color: #727272;}
+
+[class^="logo-report"]{
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    justify-content: flex-end;
+    font-family: "bootstrap-icons";
+    font-style: normal; 
+ }
+
+.logo-report-under-review {
+    background-image: url('/static/images/icons/ico-under_review.svg'); 
+}
+
+.logo-report-pass {
+    background-image: url('/static/images/icons/ico-passed.svg'); 
+}
+
+.logo-report-fail{
+    background-image: url('/static/images/icons/ico-failed.svg'); 
+}
+
+.logo-report-overdue {
+    background-image: url('/static/images/icons/ico-submission_overdue.svg'); 
+}
+
+.logo-report-unsubmitted {
+    background-image: url('/static/images/icons/ico-unsubmitted.svg'); 
+}
+
+.logo-report-impact {
+    background-image: url('/static/images/icons/ico-impact.svg'); 
+}
+
+.logo-report-ongoing {
+    background-image: url('/static/images/icons/ico-on_going.svg'); 
+}
+
+.logo-report-closed {
+    background-image: url('/static/images/icons/ico-closed.svg'); 
+}
+
+/* Action logo  */
+.logo-report-pdf {
+    background-image: url('/static/images/icons/ico-pdf.svg'); 
+}
+
+.logo-report-log {
+    background-image: url('/static/images/icons/ico-log.svg'); 
+}
+
+.logo-report-user {
+    background-image: url('/static/images/icons/ico-user.svg'); 
+}
+
+.logo-report-trash {
+    background-image: url('/static/images/icons/ico-trash.svg'); 
+}
+
+.logo-legend {
+    background-image: url('/static/images/icons/ico-legend.svg'); 
+}
+
+/* Status logo */
+.logo-status {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.status_checkbox {
+    cursor:pointer !important;
+    border: none !important;
+    background-color: transparent !important;
+    background-image: url('/static/images/icons/ico-closed.svg') !important;
+}
+.status_checkbox:checked {
+    background-image: url('/static/images/icons/ico-on_going.svg') !important;
+}
+
+.status_checkbox:focus {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.is_significative_impact_checkbox {
+    cursor:pointer !important;
+    border: none !important;
+    background-color: transparent !important;
+    background-image: url('/static/images/icons/ico-impact-disabled.svg') !important;
+
+}
+
+.is_significative_impact_checkbox:checked {
+    background-image: url('/static/images/icons/ico-impact.svg') !important;
+}
+
+.is_significative_impact_checkbox:focus {
+    border: none !important;
+    box-shadow: none !important;
 }

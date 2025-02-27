@@ -4,15 +4,20 @@ $(document).ready(function () {
         autoWidth: false,
         paging: true,
         searching: false,
-        order: [[0, 'desc']],
+        order: [[1, 'desc']],
         columnDefs: [
             {
                 targets: 0,
+                orderable: false,
+                type: 'html',
+            },
+            {
+                targets: 1,
                 orderable: true,
                 type: 'date',
             },
             {
-                targets: 1,
+                targets: 4,
                 orderable: true,
                 type: 'string',
             },
@@ -21,12 +26,7 @@ $(document).ready(function () {
                 orderable: false,
             },
             {
-                targets: 8,
-                orderable: true,
-                type: 'html',
-            },
-            {
-                targets: 9,
+                targets: 7,
                 orderable: false,
             },
         ]
@@ -73,22 +73,30 @@ $(document).ready(function () {
                 minute: '2-digit'
             });
             let formattedDateTime = formattedDate + ', ' + formattedTime;
+            let tooltip_download = gettext("Download PDF report");
+            let tooltip_review = gettext("Review");
 
             let row = `
                 <tr>
                     <td>${formattedDateTime}</td>
                     <td>
-                        <a class="btn text-primary p-0 border-0" href="${reviewUrl}" title="Review">
-                            <i class="bi bi-binoculars"></i>
-                        </a>
-                        <a class="btn text-secondary p-0 border-0" href="${downloadUrl}" title="Download">
-                            <i class="bi bi-filetype-pdf"></i>
-                        </a>
+                        <div class="d-inline-flex">
+                            <a class="btn text-primary p-0 ps-1 border-0 d-inline-flex align-items-center" href="${reviewUrl}"
+                                data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_review}">
+                                <i class="bi bi-binoculars align-self-center"></i>
+                            </a>
+                            <a class="btn text-secondary p-0 ps-1 border-0 d-inline-flex align-items-center" href="${downloadUrl}" 
+                                data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_download}">
+                                <i class="logo-report-pdf align-self-center"></i>
+                            </a>
+                        </div>
+
                     </td>
                 </tr>
             `;
             $modalWorkflowRows.append(row);
         });
+        $modalWorkflowRows.find('[data-bs-toggle="tooltip"]').tooltip();
     });
 
     $(document).on("click", '.delete_incident', function () {
@@ -118,9 +126,13 @@ $(document).ready(function () {
         $('#technical-email').text(contacts.technical_email);
         $('#technical-telephone').text(contacts.technical_telephone);
     });
+
+    $("#openFilter").click(function () {
+        $("#filterModal").modal("show");
+    });
 });
 
 function displayPagination(table) {
     let rowCount = table.data().length;
-    if (rowCount <= 10) $('.table_controls').addClass("d-none");
-  }
+    if (rowCount <= 10) $('#incidents-table').siblings('.table_controls').addClass("d-none");
+}
