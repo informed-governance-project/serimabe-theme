@@ -20,23 +20,23 @@
 {% settings_value "TIME_ZONE" as time_zone %}
 
 {% block content_title %}
-<h3>{% translate "Security objectives" %}</h3>
+<h3 class="fw-bolder">{% translate "Security objectives" %}</h3>
+<div class="hr-separator"></div>
 {% endblock %}
 
 <div class="d-flex">
     {% block content_new_declaration %}{% endblock %}
-    <button class="btn btn-primary btn-sm ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilters"
-        aria-expanded="false" aria-controls="collapseFilters">
+    <button id="openFilter" class="btn btn-primary btn-sm ms-auto" type="button"
+        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Filter by status, sector, etc' %}">
         {% translate "Filter" %}
         {% if is_filtered %}
         <span>
-            ({% translate "Applied" %})
+            ({% translate "Active" %})
         </span>
         {% endif %}
         <i class="bi bi-funnel-fill"></i>
     </button>
 </div>
-{% block content_filter %}{% endblock %}
 
 {% if filter.qs %}
 <table id="securityobjectives-table" class="table align-middle table-sm small">
@@ -122,5 +122,34 @@
 <div class="modal fade" id="so_access_log" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="so_access_log_label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"></div>
+</div>
+
+<div class="modal fade right-modal pt-5 pe-5" id="filterModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fw-bold">{% translate "Filter" %}</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="get">
+                <div class="modal-body small">
+                    {% bootstrap_field filter.form.standard label_class="fw-bold" wrapper_class="mb-3" %}
+                    {% bootstrap_field filter.form.year_of_submission label_class="fw-bold" wrapper_class="mb-3" %}
+                    {% bootstrap_field filter.form.sectors label_class="fw-bold" wrapper_class="sector-filter mb-3" %}
+                    {% bootstrap_field filter.form.status label_class="fw-bold" wrapper_class="mb-3"%}
+                    {% block content_filter %}
+                    {% endblock %}
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal">
+                        {% translate "Reset" %}
+                    </button>
+                    <button class="btn btn-primary btn-sm" type="submit">
+                        {% translate "Search" %}
+                    </button>    
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}

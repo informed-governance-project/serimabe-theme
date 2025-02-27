@@ -143,6 +143,10 @@ $(document).ready(function () {
         console.error("Error:", error);
       });
   });
+
+  $("#openFilter").on("click", function () {
+    $("#filterModal").modal("show");
+  })
 })
 
 function displayPagination(table) {
