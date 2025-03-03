@@ -11901,4 +11901,16 @@ a.changelink {
   opacity: 1 !important;
 }
 
+.right-modal {
+  top: 0;
+  left: 100%;
+  width: 400px;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.right-modal.show {
+  transform: translateX(-100%);
+}
+
 /*# sourceMappingURL=custom.css.map */
