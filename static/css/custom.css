@@ -11917,4 +11917,32 @@ a.changelink {
   content: "• ";
 }
 
+/* Custom icons  */
+[class^=custom-icon] {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  justify-content: flex-end;
+  font-family: "bootstrap-icons";
+  font-style: normal;
+}
+
+.custom-icon-pdf {
+  background-image: url("/static/images/icons/ico-pdf.svg");
+}
+
+.custom-icon-log {
+  background-image: url("/static/images/icons/ico-log.svg");
+}
+
+.custom-icon-user {
+  background-image: url("/static/images/icons/ico-user.svg");
+}
+
+.custom-icon-trash {
+  background-image: url("/static/images/icons/ico-trash.svg");
+}
+
 /*# sourceMappingURL=custom.css.map */
