@@ -82,7 +82,7 @@ $(document).ready(function () {
                     <td>${formattedDateTime}</td>
                     <td>
                         <div class="d-inline-flex">
-                            <a class="btn text-primary p-0 ps-1 border-0 d-inline-flex align-items-center" href="${reviewUrl}"
+                            <a class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center" href="${reviewUrl}"
                                 data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_review}">
                                 <i class="bi bi-binoculars align-self-center"></i>
                             </a>

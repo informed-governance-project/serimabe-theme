@@ -92,3 +92,7 @@ a.changelink {
 .right-modal.show {
     transform: translateX(-100%);
 }
+
+.list-sectors li:before {
+    content : "\2022  ";
+}
