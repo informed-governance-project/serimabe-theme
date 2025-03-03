@@ -63,8 +63,16 @@
         {% for standard in standard_answers %}
         {% timezone time_zone %}
         <tr>
-            <td class="col-1 table-group-divider text-start">{{standard.last_update|date:"d M Y, H:i" }}</td>
-            <td class="col-1 table-group-divider text-start">{{standard.submit_date|date:"d M Y, H:i" }}</td>
+            <td class="col-1 table-group-divider text-start">
+                {{ standard.last_update|date:"d/m/y" }}<br/>
+                <i class="bi bi-clock"></i>
+                {{ standard.last_update|date:"H:i" }}
+            </td>
+            <td class="col-1 table-group-divider text-start">
+                {{ standard.submit_date|date:"d/m/y" }}<br/>
+                <i class="bi bi-clock"></i>
+                {{ standard.submit_date|date:"H:i" }}
+            </td>
             <td class="col-1 table-group-divider">{{standard.standard.label}}</td>
             <td class="col-1 table-group-divider">
                 {% if not is_regulator %}
