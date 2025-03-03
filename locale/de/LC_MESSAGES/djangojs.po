@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-03 12:00+0100\n"
+"POT-Creation-Date: 2025-03-03 12:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,18 +34,18 @@ msgstr "PDF-Bericht herunterladen"
 msgid "Review"
 msgstr "Überprüfung"
 
-#: theme/static/js/incidents_regulator.js:43
+#: theme/static/js/incidents_regulator.js:27
 msgid "The incident is over"
 msgstr "Der Vorfall ist beendet"
 
-#: theme/static/js/incidents_regulator.js:44
+#: theme/static/js/incidents_regulator.js:28
 msgid "The incident is still ongoing"
 msgstr "Der Vorfall dauert noch an"
 
-#: theme/static/js/incidents_regulator.js:47
+#: theme/static/js/incidents_regulator.js:31
 msgid "Incident with significant impact"
 msgstr "Vorfall mit erheblichen Auswirkungen"
 
-#: theme/static/js/incidents_regulator.js:48
+#: theme/static/js/incidents_regulator.js:32
 msgid "No significant impact"
 msgstr "Keine erheblichen Auswirkungen"

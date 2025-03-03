@@ -52,7 +52,7 @@
                 </th>
                 <th class="col-auto">{% translate "Year" %}</th>
                 <th class="col-auto">{% translate "Operator" %}</th>
-                <th class="col-auto">{% translate "Sectors" %}</th>
+                <th class="col-auto">{% translate "Sector" %}</th>
                 <th class="col-auto">{% translate "Security objectives" %}</th>
                 <th class="col-auto">{% translate "Risk analysis" %}</th>
                 <th class="col-auto">{% translate "Number of recommendations" %}</th>
@@ -74,8 +74,13 @@
                 <td class="col-auto table-group-divider">
                     {{ form.name.value }}
                 </td>
-                <td class="col-auto table-group-divider">
-                    {{ form.initial.sector }}
+                <td class="col-auto table-group-divider list-sectors">
+                    <span class="fw-bolder">
+                        {{ form.initial.sector.parent.get_safe_translation }}
+                    </span>
+                    <ul class="list-unstyled">                           
+                        <li>{{ form.initial.sector.get_safe_translation }}</li>
+                    </ul>
                 </td>
                 <td class="col-auto table-group-divider">
                     {% security_objective_exists form.instance form.year.value form.initial.sector as exists %}
@@ -98,12 +103,12 @@
                     {{ report_recommendations|length }}
                 </td>
                 <td class="col-auto table-group-divider">
-                    <a class="btn border-0 px-2 text-primary" 
+                    <a class="btn border-0 px-2 text-dark" 
                         title="{% translate 'Recommendations' %}"  
                         href="{% url 'report_recommendations' form.instance.id form.initial.sector.id form.year.value %}">
                         <i class="bi bi-list-stars"></i>
                     </a>
-                    <button class="btn border-0 px-2 text-primary review_comment_report" 
+                    <button class="btn border-0 px-2 text-dark review_comment_report" 
                         data-company-id="{{ form.instance.id }}"
                         data-sector-id="{{ form.initial.sector.id }}"
                         data-year="{{ form.year.value }}"
@@ -111,7 +116,7 @@
                         type="button">
                         <i class="bi bi-envelope-plus"></i>
                     </button>
-                    <button class="btn border-0 px-2 text-primary reporting_access_log" 
+                    <button class="btn border-0 px-2 text-dark reporting_access_log" 
                         data-company-id="{{ form.instance.id }}"
                         data-sector-id="{{ form.initial.sector.id }}"
                         data-year="{{ form.year.value }}"
