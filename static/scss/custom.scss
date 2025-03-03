@@ -90,6 +90,10 @@ a.changelink {
     content : "\2022  ";
 }
 
+.list-sectors ul:last-child {
+    margin-bottom: 0;
+}   
+
 /* Custom icons  */
 
 [class^="custom-icon"]{
