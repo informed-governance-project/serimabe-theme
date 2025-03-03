@@ -11922,6 +11922,7 @@ a.changelink {
   width: 1em;
   height: 1em;
   display: inline-block;
+  vertical-align: middle;
   background-size: contain;
   background-repeat: no-repeat;
   justify-content: flex-end;

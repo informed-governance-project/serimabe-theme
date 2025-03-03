@@ -66,7 +66,7 @@
             </div>
             {% with incident_workflows=incident|get_incident_workflow_by_workflow:report %}
             {% if incident_workflows %}
-            <button class="btn text-secondary p-0 ps-1 report_versions"
+            <button class="btn text-dark p-0 ps-1 report_versions"
                 data-workflows="{{ incident_workflows }}"
                 data-report="{{ report }}"
                 data-incident-ref="{{ incident.incident_id}}"
