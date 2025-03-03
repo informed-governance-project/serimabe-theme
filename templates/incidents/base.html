@@ -225,7 +225,7 @@
                             {% with incident_workflows=incident|get_incident_workflow_by_workflow:report %}
                             <div class="d-inline-flex">
                                 {% if incident_workflows %}
-                                <button class="btn text-secondary p-0 ps-1 border-0 d-inline-flex align-items-center report_versions"
+                                <button class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center report_versions"
                                     data-workflows="{{ incident_workflows }}" data-report="{{ report }}"
                                     data-incident-ref="{{ incident.incident_id}}"
                                     data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
@@ -237,7 +237,7 @@
                                 </button>
                                 {% endif %}
                                 {% if filtered_workflows %}
-                                <a class="btn text-secondary p-0 ps-1 border-0 d-inline-flex align-items-center"
+                                <a class="btn p-0 ps-1 border-0 d-inline-flex align-items-center"
                                     href="{% url 'download_incident_report_pdf' filtered_workflows.instance.id %}"
                                     data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download PDF report' %}">
                                     <i class="custom-icon-pdf align-self-center"></i>
@@ -255,11 +255,11 @@
             <td class="table-group-divider py-3"> <!-- Actions -->
                 <div class="col d-flex align-items-center">
                     {% block content_table_actions %}
-                    <button class="btn text-secondary access_log p-0" data-incident-id="{{ incident.id }}"
+                    <button class="btn access_log p-0" data-incident-id="{{ incident.id }}"
                         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Activity Log' %}">
                         <i class="custom-icon-log  h4"></i>
                     </button>
-                    <a class="btn text-secondary p-0 border-0" href="{% url 'download_incident_pdf' incident.id %}"
+                    <a class="btn p-0 border-0" href="{% url 'download_incident_pdf' incident.id %}"
                         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download PDF report' %}">
                         <i class="custom-icon-pdf h4"></i>
                     </a>
