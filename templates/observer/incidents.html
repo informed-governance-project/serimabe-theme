@@ -68,7 +68,7 @@
                 <a class="btn text-secondary p-0 ps-1 border-0 d-inline-flex align-items-center"
                     href="{% url 'download_incident_report_pdf' filtered_workflows.instance.id %}"
                     data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download PDF report' %}">
-                    <i class="logo-report-pdf align-self-center"></i>
+                    <i class="custom-icon-pdf align-self-center"></i>
                 </a>
                 {% endif %}
             </div>
@@ -95,7 +95,7 @@
     }'
     data-bs-toggle="modal"
     data-bs-target="#contacts_incident">
-    <i class="logo-report-user h4"        
+    <i class="custom-icon-user h4"        
         data-bs-placement="top" data-bs-toggle="tooltip"
         title="{% translate 'Contacts' %}">
     </i>
