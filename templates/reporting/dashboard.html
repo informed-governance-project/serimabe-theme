@@ -103,12 +103,12 @@
                     {{ report_recommendations|length }}
                 </td>
                 <td class="col-auto table-group-divider">
-                    <a class="btn border-0 px-2 text-primary" 
+                    <a class="btn border-0 px-2 text-dark" 
                         title="{% translate 'Recommendations' %}"  
                         href="{% url 'report_recommendations' form.instance.id form.initial.sector.id form.year.value %}">
                         <i class="bi bi-list-stars"></i>
                     </a>
-                    <button class="btn border-0 px-2 text-primary review_comment_report" 
+                    <button class="btn border-0 px-2 text-dark review_comment_report" 
                         data-company-id="{{ form.instance.id }}"
                         data-sector-id="{{ form.initial.sector.id }}"
                         data-year="{{ form.year.value }}"
@@ -116,7 +116,7 @@
                         type="button">
                         <i class="bi bi-envelope-plus"></i>
                     </button>
-                    <button class="btn border-0 px-2 text-primary reporting_access_log" 
+                    <button class="btn border-0 px-2 text-dark reporting_access_log" 
                         data-company-id="{{ form.instance.id }}"
                         data-sector-id="{{ form.initial.sector.id }}"
                         data-year="{{ form.year.value }}"

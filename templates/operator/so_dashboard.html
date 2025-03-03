@@ -16,7 +16,7 @@
 {% endblock %}
 
 {% block content_table_actions %}
-<a class="btn border-0 px-2 text-primary" 
+<a class="btn border-0 px-2 text-dark" 
     href="{% url 'so_declaration' %}?id={{ standard.id }}"
     title="{% if standard.status == 'UNDE' %}Edit{% else %}Review{% endif %}">
     {% if standard.status == 'UNDE' %}
@@ -25,26 +25,26 @@
     <i class="bi bi-eye-fill"></i>
     {% endif %}
 </a>
-<button class="btn border-0 px-2 text-primary review_comment_so_declaration {% if standard.review_comment or standard.deadline %}text-warning{% else %}text-secondary disabled{% endif %}" 
+<button class="btn border-0 px-2 text-dark review_comment_so_declaration {% if standard.review_comment or standard.deadline %}text-warning{% else %}text-dark disabled{% endif %}" 
     data-standard-answer-id="{{ standard.id }}"
     data-bs-toggle="modal" data-bs-target="#review_comment_so_declaration"  title="Review comment">
     <i class="bi bi-envelope-fill"></i>
 </button>
-<a class="btn border-0 px-2 text-primary " href="{% url 'download_so_declaration_pdf' standard.id %}" title="Download">
+<a class="btn border-0 px-2 text-dark " href="{% url 'download_so_declaration_pdf' standard.id %}" title="Download">
     <i class="bi bi-filetype-pdf"></i>
 </a>
-<button class="btn border-0 px-2 text-primary copy_so_declaration" data-standard-answer-id="{{ standard.id }}"
+<button class="btn border-0 px-2 text-dark copy_so_declaration" data-standard-answer-id="{{ standard.id }}"
     data-bs-toggle="modal" data-bs-target="#copy_so_declaration" title="Copy">
     <i class="bi bi-copy"></i>
 </button>
-<a class="btn border-0 px-2 {% if standard.answered_percentage < 100 or not standard.status == 'UNDE' %}text-secondary disabled{% else %}text-success{% endif %}"
+<a class="btn border-0 px-2 {% if standard.answered_percentage < 100 or not standard.status == 'UNDE' %}text-dark disabled{% else %}text-success{% endif %}"
     href="{% url 'submit_so_declaration' standard.id  %}" title="Submit" aria-disabled="true">
     <i class="bi bi-file-earmark-arrow-up-fill"></i>
 </a>
-<button class="btn border-0 px-2 text-primary so_access_log" data-standard-answer-id="{{ standard.id }}" title="Access Log">
+<button class="btn border-0 px-2 text-dark so_access_log" data-standard-answer-id="{{ standard.id }}" title="Access Log">
     <i class="bi bi-file-earmark-person"></i>
 </button>
-<button class="btn border-0 px-2 delete_so_declaration {% if not standard.status == 'UNDE' %}text-secondary{% else %}text-primary{% endif %}"
+<button class="btn border-0 px-2 delete_so_declaration text-dark"
     data-standard-answer-id="{{ standard.id }}"
     data-delete-url="{% url 'delete_so_declaration' 0 %}"
     data-bs-toggle="modal"
