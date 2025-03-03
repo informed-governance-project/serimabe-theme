@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-25 10:27+0100\n"
+"POT-Creation-Date: 2025-03-03 12:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: theme/static/js/incidents.js:76
+
+#: theme/static/js/base.js:6
+msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+msgstr "_START_ bis _END_ von _TOTAL_ Einträgen"
+
+#: theme/static/js/base.js:7
+msgid "_MENU_ entries per page"
+msgstr "_MENU_ Zeilen anzeigen"
+
+#: theme/static/js/incidents.js:77
 msgid "Download PDF report"
 msgstr "PDF-Bericht herunterladen"
 
-#: theme/static/js/incidents.js:77
+#: theme/static/js/incidents.js:78
 msgid "Review"
 msgstr "Überprüfung"
 

@@ -2,6 +2,11 @@ document.querySelectorAll('.is-valid').forEach(function (element) {
     element.classList.remove('is-valid');
 });
 
+var datatableTranslations = {
+  info: gettext("Showing _START_ to _END_ of _TOTAL_ entries"),
+  lengthMenu: gettext("_MENU_ entries per page"),
+};
+
 
 // initialize all tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
