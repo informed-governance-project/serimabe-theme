@@ -30,8 +30,13 @@
     <tbody>
         {% for configuration in report_configurations %}
         <tr>
-            <td>
-                {{ configuration.sector }}
+            <td class="list-sectors">
+                <span class="fw-bolder">
+                    {{ configuration.sector.parent.get_safe_translation }}
+                </span>
+                <ul class="list-unstyled">                           
+                    <li>{{ configuration.sector.get_safe_translation }}</li>
+                </ul>
             </td>
             <td>
                 {{ configuration.number_of_year }}
