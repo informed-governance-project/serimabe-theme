@@ -80,4 +80,8 @@ $(document).ready(function () {
             table.page.len(paginationParams.length).draw();
         }
     });
+    
+    $("#openFilter").on("click", function () {
+        $("#filterModal").modal("show");
+    })
 });

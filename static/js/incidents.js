@@ -128,9 +128,9 @@ $(document).ready(function () {
         $('#technical-telephone').text(contacts.technical_telephone);
     });
 
-    $("#openFilter").click(function () {
+    $("#openFilter").on("click", function () {
         $("#filterModal").modal("show");
-    });
+    })
 });
 
 function displayPagination(table) {
