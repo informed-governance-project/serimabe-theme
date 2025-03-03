@@ -90,10 +90,6 @@
 
 .legend-failed { color: #e40521; }
 
-.incident-list-sectors li:before {
-    content : "\2022  ";
-}
-
 .step-circle {
     width: 35px;
     height: 35px;
