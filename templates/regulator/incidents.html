@@ -9,7 +9,7 @@
 
 {% block content_table_actions %}
 {{ block.super }}
-<button class="btn text-secondary p-0 border-0 contacts_incident"
+<button class="btn p-0 border-0 contacts_incident"
     data-contacts='{
         "contact_name": "{{ incident.contact_firstname }} {{ incident.contact_lastname }}",
         "contact_jobtitle": "{{ incident.contact_title }}",
@@ -22,7 +22,7 @@
     }'
     data-bs-toggle="modal"
     data-bs-target="#contacts_incident">
-    <i class="logo-report-user h4"        
+    <i class="custom-icon-user h4"        
         data-bs-placement="top" data-bs-toggle="tooltip"
         title="{% translate 'Contacts' %}">
     </i>

@@ -86,9 +86,9 @@ $(document).ready(function () {
                                 data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_review}">
                                 <i class="bi bi-binoculars align-self-center"></i>
                             </a>
-                            <a class="btn text-secondary p-0 ps-1 border-0 d-inline-flex align-items-center" href="${downloadUrl}" 
+                            <a class="btn p-0 ps-1 border-0 d-inline-flex align-items-center" href="${downloadUrl}" 
                                 data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_download}">
-                                <i class="logo-report-pdf align-self-center"></i>
+                                <i class="custom-icon-pdf align-self-center"></i>
                             </a>
                         </div>
 
