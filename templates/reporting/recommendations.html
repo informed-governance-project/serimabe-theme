@@ -50,12 +50,12 @@
                 {{ recommendation.description }}
             </td>
             <td class="col-1 table-group-divider">
-                <button class="btn border-0 px-2 delete_report_recommendation text-secondary"
+                <button class="btn border-0 px-2 delete_report_recommendation"
                     data-bs-toggle="modal"
                     data-bs-target="#delete_report_recommendation"
                     data-delete-url="{% url 'delete_report_recommendations' company.id sector.id year recommendation.id %}"
                     title="{% translate 'Delete' %}">
-                    <i class="bi bi-trash3-fill"></i>
+                    <i class="custom-icon-trash"></i>
                 </button>
             </td>
         </tr>
