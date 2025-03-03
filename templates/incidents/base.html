@@ -194,7 +194,7 @@
                 {% endfor %}
                 {% endblock %}
             </td>
-            <td class="table-group-divider py-3 px-2 incident-list-sectors"> <!-- Sectors -->
+            <td class="table-group-divider py-3 px-2 list-sectors"> <!-- Sectors -->
                 {% for root_sector in incident.get_incident_root_sector %}
                     <span class="fw-bolder">
                         {{ root_sector.get_safe_translation }}

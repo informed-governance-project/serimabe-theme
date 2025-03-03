@@ -11913,4 +11913,8 @@ a.changelink {
   transform: translateX(-100%);
 }
 
+.list-sectors li:before {
+  content: "• ";
+}
+
 /*# sourceMappingURL=custom.css.map */
