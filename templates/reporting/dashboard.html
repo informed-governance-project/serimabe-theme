@@ -65,16 +65,16 @@
                 {% bootstrap_field form.id %}
                 {% bootstrap_field form.name %}
                 {% bootstrap_field form.sector %}
-                <td class="col-1 table-group-divider">
+                <td class="col-1 table-group-divider py-3">
                     {% bootstrap_field form.selected show_label=False field_class="large-checkbox" wrapper_class="d-flex align-items-center justify-content-center" %}
                 </td>
-                <td class="col-auto table-group-divider">
+                <td class="col-auto table-group-divider py-3">
                     {{ form.year.value }}
                 </td>
-                <td class="col-auto table-group-divider">
+                <td class="col-auto table-group-divider py-3">
                     {{ form.name.value }}
                 </td>
-                <td class="col-auto table-group-divider list-sectors">
+                <td class="col-auto table-group-divider py-3 list-sectors">
                     <span class="fw-bolder">
                         {{ form.initial.sector.parent.get_safe_translation }}
                     </span>
@@ -82,7 +82,7 @@
                         <li>{{ form.initial.sector.get_safe_translation }}</li>
                     </ul>
                 </td>
-                <td class="col-auto table-group-divider">
+                <td class="col-auto table-group-divider py-3">
                     {% security_objective_exists form.instance form.year.value form.initial.sector as exists %}
                     <div class="form-check d-flex align-items-center justify-content-center boolean-checkbox">
                         <input class="form-check-input large-checkbox no-opacity" type="checkbox"
@@ -90,7 +90,7 @@
                             disabled>
                     </div>
                 </td>
-                <td class="col-auto table-group-divider">
+                <td class="col-auto table-group-divider py-3">
                     {% risk_analysis_exists form.instance form.year.value form.initial.sector as exists %}
                     <div class="form-check d-flex align-items-center justify-content-center boolean-checkbox">
                         <input class="form-check-input large-checkbox no-opacity" type="checkbox"
@@ -98,11 +98,11 @@
                             disabled>
                     </div>
                 </td>
-                <td class="col-auto table-group-divider">
+                <td class="col-auto table-group-divider py-3">
                     {% get_report_recommandations form.instance form.year.value form.initial.sector as report_recommendations %}
                     {{ report_recommendations|length }}
                 </td>
-                <td class="col-auto table-group-divider">
+                <td class="col-auto table-group-divider py-3">
                     <a class="btn border-0 px-2 text-dark" 
                         title="{% translate 'Recommendations' %}"  
                         href="{% url 'report_recommendations' form.instance.id form.initial.sector.id form.year.value %}">

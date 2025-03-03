@@ -63,25 +63,25 @@
         {% for standard in standard_answers %}
         {% timezone time_zone %}
         <tr>
-            <td class="col-1 table-group-divider text-start">
+            <td class="col-1 table-group-divider py-3 text-start">
                 {{ standard.last_update|date:"d/m/y" }}<br/>
                 <i class="bi bi-clock"></i>
                 {{ standard.last_update|date:"H:i" }}
             </td>
-            <td class="col-1 table-group-divider text-start">
+            <td class="col-1 table-group-divider py-3 text-start">
                 {{ standard.submit_date|date:"d/m/y" }}<br/>
                 <i class="bi bi-clock"></i>
                 {{ standard.submit_date|date:"H:i" }}
             </td>
-            <td class="col-1 table-group-divider">{{standard.standard.label}}</td>
-            <td class="col-1 table-group-divider">
+            <td class="col-1 table-group-divider py-3">{{standard.standard.label}}</td>
+            <td class="col-1 table-group-divider py-3">
                 {% if not is_regulator %}
                 {{ standard.creator_name }}
                 {% else %}
                 {{ standard.creator_company_name }}
                 {% endif %}
             </td>
-            <td class="col-2 table-group-divider">
+            <td class="col-2 table-group-divider py-3">
                 <ul class="m-0 p-0 list-sectors">
                     {% for root_sector in standard.get_root_sectors %}
                         <span class="fw-bolder">
@@ -97,8 +97,8 @@
                     {% endfor %}
                 </ul>
             </td>
-            <td class="col-1 table-group-divider text-start">{{standard.year_of_submission}}</td>
-            <td class="col-2 table-group-divider">
+            <td class="col-1 table-group-divider py-3 text-start">{{standard.year_of_submission}}</td>
+            <td class="col-2 table-group-divider py-3">
                 <div class="progress w-75">
                     {% with progress_value=standard.answered_percentage|default:0|floatformat:'0' %}
                     <div class="progress-bar progress-bar-striped {% if progress_value == '100' %}bg-success{% elif progress_value != '100' and progress_value > '40' %}bg-warning{% else %}bg-danger{% endif %}"
@@ -113,10 +113,10 @@
                     {% endwith %}
                 </div>
             </td>
-            <td class="col-1 table-group-divider status_column {% status_class standard.status  %}">
+            <td class="col-1 table-group-divider py-3 status_column {% status_class standard.status  %}">
                     {{standard.get_status_display}}
             </td>
-            <td class="col-1 table-group-divider">
+            <td class="col-1 table-group-divider py-3">
                 <div class="d-flex align-items-center">
                     {% block content_table_actions %}{% endblock %}                    
                 </div>

@@ -43,13 +43,13 @@
     <tbody>
         {% for recommendation in recommendations %}
         <tr>
-            <td class="col-3 table-group-divider">
+            <td class="col-3 table-group-divider py-3">
                 {{ recommendation.code }}
             </td>
-            <td class="col-8 table-group-divider">
+            <td class="col-8 table-group-divider py-3">
                 {{ recommendation.description }}
             </td>
-            <td class="col-1 table-group-divider">
+            <td class="col-1 table-group-divider py-3">
                 <button class="btn border-0 px-2 delete_report_recommendation"
                     data-bs-toggle="modal"
                     data-bs-target="#delete_report_recommendation"
