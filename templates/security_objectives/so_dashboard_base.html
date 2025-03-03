@@ -74,10 +74,18 @@
                 {% endif %}
             </td>
             <td class="col-2 table-group-divider">
-                <ul class="m-0 p-0">
-                    {% for sector in standard.sectors.all %}
-                    {{ sector }}
-                    <br />
+                <ul class="m-0 p-0 list-sectors">
+                    {% for root_sector in standard.get_root_sectors %}
+                        <span class="fw-bolder">
+                            {{ root_sector.get_safe_translation }}
+                        </span>
+                        <ul class="list-unstyled">                           
+                        {% for sector in root_sector.children.all %}
+                            {% if sector in standard.sectors.all %}
+                                <li>{{ sector.get_safe_translation }}</li>
+                            {% endif %}
+                        {% endfor %}
+                        </ul>
                     {% endfor %}
                 </ul>
             </td>
