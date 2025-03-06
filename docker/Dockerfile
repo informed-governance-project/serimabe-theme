@@ -6,7 +6,7 @@ WORKDIR /app/theme
 
 # COPY ./ /app/theme
 
-RUN git clone --depth=1 --single-branch --branch ${THEME_VERSION} https://github.com/informed-governance-project/default-theme.git .
+RUN git clone --depth=1 --single-branch --branch ${THEME_VERSION} https://github.com/informed-governance-project/serimabe-theme.git .
 
 RUN chown -R 33:33 /app/theme
 
