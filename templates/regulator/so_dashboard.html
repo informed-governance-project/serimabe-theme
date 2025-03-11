@@ -15,14 +15,14 @@
     {% if standard.status == 'UNDE' %}aria-disabled="true" disabled{% endif %}>
     <i class="bi bi-pencil-fill"></i>
 </a>
-<button class="btn border-0 px-2 text-dark review_comment_so_declaration" data-standard-answer-id="{{ standard.id }}"
+<button class="btn border-0 px-0 text-dark review_comment_so_declaration" data-standard-answer-id="{{ standard.id }}"
     data-bs-toggle="modal" data-bs-target="#review_comment_so_declaration"  title="Review comment">
-    <i class="bi bi-envelope-plus"></i>
+    <i class="bi bi-envelope-plus h4"></i>
 </button>
-<button class="btn border-0 px-2 download-link" data-standard-answer-id="{{ standard.id }}" title="Download">
-    <i class="custom-icon-pdf"></i>
+<button class="btn border-0 px-0 download-link" data-standard-answer-id="{{ standard.id }}" title="Download">
+    <i class="custom-icon-pdf h4"></i>
 </button>
-<button class="btn border-0 px-2 so_access_log" data-standard-answer-id="{{ standard.id }}" title="Access Log">
-    <i class="custom-icon-log"></i>
+<button class="btn border-0 p-0 so_access_log" data-standard-answer-id="{{ standard.id }}" title="Access Log">
+    <i class="custom-icon-log h4"></i>
 </button>
 {% endblock %}

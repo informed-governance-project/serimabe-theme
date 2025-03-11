@@ -11932,6 +11932,7 @@ a.changelink {
   justify-content: flex-end;
   font-family: "bootstrap-icons";
   font-style: normal;
+  margin: 0;
 }
 
 .custom-icon-pdf {
