@@ -11917,6 +11917,10 @@ a.changelink {
   content: "• ";
 }
 
+.list-sectors ul:last-child {
+  margin-bottom: 0;
+}
+
 /* Custom icons  */
 [class^=custom-icon] {
   width: 1em;
