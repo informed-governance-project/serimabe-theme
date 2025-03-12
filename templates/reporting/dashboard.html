@@ -103,27 +103,32 @@
                     {{ report_recommendations|length }}
                 </td>
                 <td class="col-auto table-group-divider py-3">
-                    <a class="btn border-0 px-2 text-dark" 
-                        title="{% translate 'Recommendations' %}"  
-                        href="{% url 'report_recommendations' form.instance.id form.initial.sector.id form.year.value %}">
-                        <i class="bi bi-list-stars"></i>
-                    </a>
-                    <button class="btn border-0 px-2 text-dark review_comment_report" 
-                        data-company-id="{{ form.instance.id }}"
-                        data-sector-id="{{ form.initial.sector.id }}"
-                        data-year="{{ form.year.value }}"
-                        title="Review comment"
-                        type="button">
-                        <i class="bi bi-envelope-plus"></i>
-                    </button>
-                    <button class="btn border-0 px-2 text-dark reporting_access_log" 
-                        data-company-id="{{ form.instance.id }}"
-                        data-sector-id="{{ form.initial.sector.id }}"
-                        data-year="{{ form.year.value }}"
-                        title="Access Log"
-                        type="button">
-                        <i class="custom-icon-log"></i>
-                    </button>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a class="btn border-0 p-0 text-dark" 
+                            href="{% url 'report_recommendations' form.instance.id form.initial.sector.id form.year.value %}">
+                            <i class="bi bi-list-stars h4"
+                                data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Recommendations' %}">
+                            </i>
+                        </a>
+                        <button class="btn border-0 p-0 text-dark review_comment_report" 
+                            data-company-id="{{ form.instance.id }}"
+                            data-sector-id="{{ form.initial.sector.id }}"
+                            data-year="{{ form.year.value }}"
+                            type="button">
+                            <i class="bi bi-envelope-plus h4"         
+                                data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Review comment' %}">
+                            </i>
+                        </button>
+                        <button class="btn border-0 p-0 text-dark reporting_access_log" 
+                            data-company-id="{{ form.instance.id }}"
+                            data-sector-id="{{ form.initial.sector.id }}"
+                            data-year="{{ form.year.value }}"
+                            type="button">
+                            <i class="custom-icon-log h4"         
+                                data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Access Log' %}">
+                            </i>
+                        </button>
+                    </div>
                 </td>
             </tr>
             {% endfor %}
