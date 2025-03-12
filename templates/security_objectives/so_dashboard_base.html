@@ -64,14 +64,18 @@
         {% timezone time_zone %}
         <tr>
             <td class="col-1 table-group-divider py-3 text-start">
+                {% if standard.last_update %}
                 {{ standard.last_update|date:"d/m/y" }}<br/>
                 <i class="bi bi-clock"></i>
-                {{ standard.last_update|date:"H:i" }}
+                {{ standard.last_update|date:"H:i" }}                  
+                {% endif %}
             </td>
             <td class="col-1 table-group-divider py-3 text-start">
+                {% if standard.submit_date %}
                 {{ standard.submit_date|date:"d/m/y" }}<br/>
                 <i class="bi bi-clock"></i>
-                {{ standard.submit_date|date:"H:i" }}
+                {{ standard.submit_date|date:"H:i" }}                 
+                {% endif %}
             </td>
             <td class="col-1 table-group-divider py-3">{{standard.standard.label}}</td>
             <td class="col-1 table-group-divider py-3">
@@ -117,7 +121,7 @@
                     {{standard.get_status_display}}
             </td>
             <td class="col-1 table-group-divider py-3">
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center justify-content-between">
                     {% block content_table_actions %}{% endblock %}                    
                 </div>
             </td>

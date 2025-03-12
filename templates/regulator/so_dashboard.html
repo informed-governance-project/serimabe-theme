@@ -9,20 +9,27 @@
 
 
 {% block content_table_actions %}
-<a class="btn border-0 px-2 text-dark {% if standard.status == 'UNDE' %}disabled{% endif %}" 
+<a class="btn border-0 p-0 text-dark {% if standard.status == 'UNDE' %}disabled{% endif %}" 
     href="{% url 'so_declaration' %}?id={{ standard.id }}"
-    title="Review"
     {% if standard.status == 'UNDE' %}aria-disabled="true" disabled{% endif %}>
-    <i class="bi bi-pencil-fill"></i>
+    <i class="bi bi-pencil-fill"
+        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Review' %}">
+    </i>
 </a>
-<button class="btn border-0 px-2 text-dark review_comment_so_declaration" data-standard-answer-id="{{ standard.id }}"
-    data-bs-toggle="modal" data-bs-target="#review_comment_so_declaration"  title="Review comment">
-    <i class="bi bi-envelope-plus"></i>
+<button class="btn border-0 p-0 text-dark review_comment_so_declaration" data-standard-answer-id="{{ standard.id }}"
+    data-bs-toggle="modal" data-bs-target="#review_comment_so_declaration">
+    <i class="bi bi-envelope-plus h4"
+        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Review comment' %}">
+    </i>
 </button>
-<button class="btn border-0 px-2 download-link" data-standard-answer-id="{{ standard.id }}" title="Download">
-    <i class="custom-icon-pdf"></i>
+<button class="btn border-0 p-0 download-link" data-standard-answer-id="{{ standard.id }}">
+    <i class="custom-icon-pdf h4"
+        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download' %}">
+    </i>
 </button>
-<button class="btn border-0 px-2 so_access_log" data-standard-answer-id="{{ standard.id }}" title="Access Log">
-    <i class="custom-icon-log"></i>
+<button class="btn border-0 p-0 so_access_log" data-standard-answer-id="{{ standard.id }}">
+    <i class="custom-icon-log h4"
+        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Access Log' %}">
+    </i>
 </button>
 {% endblock %}
