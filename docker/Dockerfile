@@ -1,19 +1,18 @@
-FROM alpine:latest
-ARG THEME_VERSION=latest
+FROM alpine AS build
+FROM scratch
 
-RUN apk add --no-cache git
+ARG THEME_VERSION=latest
+ENV THEME_VERSION=${THEME_VERSION}
+
 WORKDIR /app/theme
 
-# COPY ./ /app/theme
+COPY --from=build /lib/ld-musl-* /lib/
+COPY --from=build /bin/busybox /bin/sleep
 
-RUN git clone --depth=1 --single-branch --branch ${THEME_VERSION} https://github.com/informed-governance-project/serimabe-theme.git .
-
-RUN chown -R 33:33 /app/theme
-
-RUN rm -rf .git .gitignore docker/
+COPY --chown=33 ./ /app/theme
 
 USER 33
 
-CMD ["tail", "-f", "/dev/null"]
+CMD ["sleep", "infinite"]
 
 
