@@ -19,6 +19,7 @@
 <script src="/static/npm_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src='{% static "js/incidents.js" %}'></script>
 <link rel="stylesheet" href="{% static 'css/incidents.css' %}" />
+<script type="module" src='{% static "js/shepherd_incident.js" %}'></script>
 {% endblock %}
 
 {% block content %}
@@ -30,7 +31,7 @@
 <div class="d-flex {% if is_regulator and not is_regulator_incidents or is_observer %}justify-content-end{% else %}justify-content-between{% endif %}">
     {% if not is_regulator and not is_observer or is_regulator_incidents %}
     <div>
-        <a role="button" class="btn btn-primary btn-sm" href="{% url 'declaration' %}">
+        <a id="notifyIncidentBtn" role="button" class="btn btn-primary btn-sm" href="{% url 'declaration' %}">
             {% translate "Notify an incident" %}
         </a>
     </div>
@@ -51,6 +52,10 @@
             <img src="{% static 'images/icons/ico-legend.svg' %}" alt="legend" 
             data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Icon Guide' %}">
         </button>
+        <a id="help_button" class="btn px-0"
+            data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Help' %}">
+            <i class="bi bi-question-circle h4"></i>
+        </a>
     </div>
 </div>
 
