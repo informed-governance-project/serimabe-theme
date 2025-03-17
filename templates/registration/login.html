@@ -13,12 +13,12 @@
         {% translate "A tool that lets you quickly notify an incident." %}
     </p>
     <button id="with-account" type="button" class="d-block btn btn-primary w-100 mb-3 report-incident-button">
-        {% translate "Report an incident <strong>with</strong> an account" %}
+        {% translate "Report an incident <strong>with</strong> account" %}
     </button>
     <a type="button" 
         class="d-block btn btn-primary w-100 mb-2 report-incident-button"
         href="{% url 'registration' %}">
-        {% translate "Report an incident <strong>without</strong> an account" %}
+        {% translate "Report an incident <strong>without</strong> account" %}
     </a>
 </div>
 <div id="login-content" class="d-none">
@@ -71,7 +71,7 @@
         </div>
         <fieldset class="border rounded-3 p-3 mt-4 text-center">
             <legend class="small float-none w-auto px-3 ">
-                {% translate "I want to create an account" %}    
+                {% translate "Create an account" %}    
             </legend>
             <a id="registration_button" role="button" class="btn btn-secondary mb-3" href="{% url 'registration' %}" >
                 {% translate "Create account" %}
