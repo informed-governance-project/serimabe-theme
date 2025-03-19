@@ -1,3 +1,6 @@
-.regulator_logo {
-    width: 80px;
+.logo-container {
+    height: 30px;
+}
+.logo-container > img {
+    width: 60px;
 }

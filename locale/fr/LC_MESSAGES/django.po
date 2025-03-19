@@ -1,10 +1,10 @@
-# This file was generated from frontend.xlsx
+# This file was generated from translations_v0.1_FE_refactoring.xlsx
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-16 13:32+0100\n"
-"PO-Revision-Date: 2024-12-16 13:33+0100\n"
+"POT-Creation-Date: 2025-03-17 15:22+0100\n"
+"PO-Revision-Date: 2025-03-17 15:31+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -14,84 +14,56 @@ msgstr ""
 "Generated-By: xls-to-po 1.0\n"
 "X-Generator: Poedit 3.5\n"
 
-#: theme/templates/contact_form.html:6
-#: theme/templates/regulator/incident_edit.html:31
-#: theme/templates/report/cover.html:19
-msgid "Name of the Operator"
-msgstr "Nom de l’opérateur"
+#: theme/templates/account/edit.html:6 theme/templates/parts/header.html:45
+msgid "Account"
+msgstr "Compte"
 
-#: theme/templates/contact_form.html:7
-#: theme/templates/cookiebanner/bootstrap5.html:34
-msgid "Name"
-msgstr "Nom"
+#: theme/templates/account/edit.html:8
+msgid "Account management"
+msgstr "Gestion du compte"
 
-#: theme/templates/contact_form.html:12
-msgid "Incident Notification Manager"
-msgstr "Responsable de la notification incident"
+#: theme/templates/admin/base_site.html:8
+msgid "Django admin area"
+msgstr "Administration de Django"
 
-#: theme/templates/contact_form.html:15 theme/templates/contact_form.html:44
-#: theme/templates/regulator/incident_edit.html:62
-#: theme/templates/regulator/incident_edit.html:80
-#: theme/templates/report/contacts.html:9
-msgid "First name"
-msgstr "Prénom"
+#: theme/templates/admin/base_site.html:14
+msgid "Account security"
+msgstr "Sécurité du compte"
 
-#: theme/templates/contact_form.html:18 theme/templates/contact_form.html:47
-#: theme/templates/regulator/incident_edit.html:65
-#: theme/templates/regulator/incident_edit.html:83
-#: theme/templates/report/contacts.html:10
-msgid "Last name"
-msgstr "Nom"
+#: theme/templates/admin/base_site.html:17
+msgid "Password change"
+msgstr "Changement du mot de passe"
 
-#: theme/templates/contact_form.html:22 theme/templates/contact_form.html:51
-msgid "Job title"
-msgstr "Intitulé du poste"
+#: theme/templates/admin/base_site.html:21
+msgid "Return to user interface"
+msgstr "Retour à l'interface utilisateur"
 
-#: theme/templates/contact_form.html:26 theme/templates/contact_form.html:55
-#: theme/templates/regulator/incident_edit.html:67
-#: theme/templates/regulator/incident_edit.html:86
-#: theme/templates/report/contacts.html:11
-msgid "Email"
-msgstr "Courriel"
-
-#: theme/templates/contact_form.html:29 theme/templates/contact_form.html:58
-msgid "Telephone"
-msgstr "Téléphone"
-
-#: theme/templates/contact_form.html:36
-#: theme/templates/modals/contacts_incident.html:39
-#: theme/templates/regulator/incident_edit.html:74
-#: theme/templates/report/contacts.html:25
-msgid "Technical contact"
-msgstr "Contact technique"
-
-#: theme/templates/contact_form.html:38
-msgid "Is the incident notification manager also the technical contact?"
-msgstr ""
-"Le responsable de la notification d'incident est-il également le contact "
-"technique ?"
-
-#: theme/templates/contact_form.html:66
-msgid "References"
-msgstr "Références"
-
-#: theme/templates/contact_form.html:67
-msgid "Optional"
-msgstr "Optionnel"
+#: theme/templates/admin/base_site.html:25 theme/templates/parts/header.html:51
+msgid "Log out"
+msgstr "Déconnexion"
 
 #: theme/templates/cookiebanner/bootstrap5.html:27
 msgid "Details"
 msgstr "Détails"
 
+#: theme/templates/cookiebanner/bootstrap5.html:34
+#: theme/templates/home/privacy_policy.html:89
+#: theme/templates/incidents/contact_form.html:7
+msgid "Name"
+msgstr "Nom"
+
 #: theme/templates/cookiebanner/bootstrap5.html:35
+#: theme/templates/home/privacy_policy.html:90
 msgid "Description"
 msgstr "Description"
 
 #: theme/templates/cookiebanner/bootstrap5.html:36
+#: theme/templates/home/privacy_policy.html:91
 msgid "Content"
 msgstr "Contenu"
 
 #: theme/templates/cookiebanner/bootstrap5.html:37
+#: theme/templates/home/privacy_policy.html:92
 msgid "Maximum duration"
 msgstr "Durée maximale"
 
@@ -99,122 +71,256 @@ msgstr "Durée maximale"
 msgid "Accept"
 msgstr "Accepter"
 
-#: theme/templates/edit_incident_timeline.html:8
-msgid "Edit timeline"
-msgstr "Modifier la chronologie"
+#: theme/templates/home/contact.html:9
+msgid ""
+"Dear entity, should you require any assistance, please do not hesitate to "
+"contact us at "
+msgstr ""
+"Chère entité, si vous avez besoin d'aide, n'hésitez pas de nous contacter à "
+"l'adresse suivante "
 
-#: theme/templates/edit_incident_timeline.html:23
-#: theme/templates/registration/select_company.html:15
-#: theme/templates/regulator/incident_edit.html:23
-msgid "Save"
-msgstr "Sauvegarder"
-
-#: theme/templates/incidents_base.html:9
+#: theme/templates/incidents/base.html:9 theme/templates/operator/menu.html:3
+#: theme/templates/regulator/menu.html:4
 msgid "Incidents"
 msgstr "Incidents"
 
-#: theme/templates/incidents_base.html:24
+#: theme/templates/incidents/base.html:26
 msgid "Overview of reported incidents"
 msgstr "Vue d'ensemble des incidents signalés"
 
-#: theme/templates/incidents_base.html:31
+#: theme/templates/incidents/base.html:34
 msgid "Notify an incident"
 msgstr "Notifier un incident"
 
-#: theme/templates/incidents_base.html:37
+#: theme/templates/incidents/base.html:40
+msgid "Filter by status, sector, etc"
+msgstr "Filtrer par statut, secteur, etc"
+
+#: theme/templates/incidents/base.html:41
+#: theme/templates/incidents/base.html:299
 msgid "Filter"
 msgstr "Filtre"
 
-#: theme/templates/incidents_base.html:40
+#: theme/templates/incidents/base.html:44
 msgid "Active"
 msgstr "Actif"
 
-#: theme/templates/incidents_base.html:65
-msgid "Reset"
-msgstr "Réinitialiser"
+#: theme/templates/incidents/base.html:52
+msgid "Icon Guide"
+msgstr "Guide des icônes"
 
-#: theme/templates/incidents_base.html:67
-msgid "Search"
-msgstr "Rechercher"
+#: theme/templates/incidents/base.html:62
+msgid "Legend"
+msgstr "Légende"
 
-#: theme/templates/incidents_base.html:76
-#: theme/templates/regulator/incident_edit.html:35
-#: theme/templates/report/timeline.html:11
-msgid "Incident notification creation date"
-msgstr "Date de création de la notification d’incident"
+#: theme/templates/incidents/base.html:66
+msgid "Impact"
+msgstr "Impact"
 
-#: theme/templates/incidents_base.html:77 theme/templates/report/cover.html:25
-#: theme/templates/report/details.html:10
-msgid "Reference"
-msgstr "Référence"
+#: theme/templates/incidents/base.html:70
+msgid "On going"
+msgstr "En cours"
 
-#: theme/templates/incidents_base.html:80
-#: theme/templates/incidents_base.html:89
+#: theme/templates/incidents/base.html:74
+msgid "Closed"
+msgstr "Clôturé"
+
+#: theme/templates/incidents/base.html:78
+msgid "Unsubmitted"
+msgstr "Non remis"
+
+#: theme/templates/incidents/base.html:82
+msgid "Under review"
+msgstr "En cours de revue"
+
+#: theme/templates/incidents/base.html:86
+msgid "Submission overdue"
+msgstr "Délai de soumission dépassé"
+
+#: theme/templates/incidents/base.html:90
+msgid "Passed"
+msgstr "Réussi"
+
+#: theme/templates/incidents/base.html:94
+msgid "Failed"
+msgstr "Échoué"
+
+#: theme/templates/incidents/base.html:104
+msgid "Status"
+msgstr "Statut"
+
+#: theme/templates/incidents/base.html:105
+msgid "Creation date"
+msgstr "Date de création"
+
+#: theme/templates/incidents/base.html:108
+msgid "Operator"
+msgstr "Opérateur"
+
+#: theme/templates/incidents/base.html:110
+#: theme/templates/incidents/base.html:115
 #: theme/templates/report/details.html:30
 msgid "Regulator"
 msgstr "Régulateur"
 
-#: theme/templates/incidents_base.html:82
-#: theme/templates/report/details.html:24
-msgid "Legal basis"
-msgstr "Base légale"
+#: theme/templates/incidents/base.html:117
+msgid "Regulation"
+msgstr "Régulation"
 
-#: theme/templates/incidents_base.html:87
-msgid "Operator"
-msgstr "Opérateur"
+#: theme/templates/incidents/base.html:120 theme/templates/report/cover.html:25
+#: theme/templates/report/details.html:10
+msgid "Reference"
+msgstr "Référence"
 
-#: theme/templates/incidents_base.html:92
+#: theme/templates/incidents/base.html:121
 msgid "Sectors"
 msgstr "Secteurs"
 
-#: theme/templates/incidents_base.html:93
-msgid "Subsectors"
-msgstr "Sous-secteurs"
-
-#: theme/templates/incidents_base.html:97 theme/templates/report/cover.html:11
+#: theme/templates/incidents/base.html:122 theme/templates/report/cover.html:11
 #: theme/templates/report/header.html:5
 msgid "Report"
 msgstr "Rapport"
 
-#: theme/templates/incidents_base.html:98 theme/templates/report/cover.html:37
-#: theme/templates/report/details.html:16
-msgid "Report status"
-msgstr "Statut du rapport"
-
-#: theme/templates/incidents_base.html:102
-msgid "Incident status"
-msgstr "Statut de l'incident"
-
-#: theme/templates/incidents_base.html:103
-#: theme/templates/report/details.html:54
-msgid "Significant impact"
-msgstr "Impact significatif"
-
-#: theme/templates/incidents_base.html:104
+#: theme/templates/incidents/base.html:123
 msgid "Actions"
 msgstr "Actions"
 
-#: theme/templates/incidents_base.html:177
+#: theme/templates/incidents/base.html:137
+#: theme/templates/observer/incidents.html:25
+#: theme/templates/operator/incidents.html:36
+msgid "Incident with significant impact"
+msgstr "Incident ayant un impact significatif"
+
+#: theme/templates/incidents/base.html:139
+msgid "No significant impact"
+msgstr "Pas d'impact significatif"
+
+#: theme/templates/incidents/base.html:155
+#: theme/templates/observer/incidents.html:11
+#: theme/templates/operator/incidents.html:22
+msgid "The incident is still ongoing"
+msgstr "L'incident est toujours en cours"
+
+#: theme/templates/incidents/base.html:157
+#: theme/templates/observer/incidents.html:16
+#: theme/templates/operator/incidents.html:27
+msgid "The incident is over"
+msgstr "L'incident est clos"
+
+#: theme/templates/incidents/base.html:167
+msgid "Incident notification submission date"
+msgstr "Date de soumission de la notification de l'incident"
+
+#: theme/templates/incidents/base.html:235
 #: theme/templates/modals/report_versions.html:8
-#: theme/templates/observer/incidents.html:35
-#: theme/templates/operator/incidents.html:48
+#: theme/templates/observer/incidents.html:63
+#: theme/templates/operator/incidents.html:79
 msgid "Version control"
 msgstr "Gestion de versions"
 
-#: theme/templates/incidents_base.html:184
-#: theme/templates/incidents_base.html:233
-#: theme/templates/observer/incidents.html:41
-msgid "Download"
-msgstr "Télécharger"
+#: theme/templates/incidents/base.html:242
+#: theme/templates/incidents/base.html:263
+#: theme/templates/observer/incidents.html:70
+msgid "Download PDF report"
+msgstr "Télécharger le rapport PDF"
 
-#: theme/templates/incidents_base.html:229
-#: theme/templates/modals/access_log.html:18
-msgid "Access log"
-msgstr "Journal d'accès"
+#: theme/templates/incidents/base.html:259
+msgid "Activity Log"
+msgstr "Historique des activités"
 
-#: theme/templates/incidents_base.html:245
+#: theme/templates/incidents/base.html:277
 msgid "No incident"
 msgstr "Aucun incident"
+
+#: theme/templates/incidents/base.html:311
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: theme/templates/incidents/base.html:314
+msgid "Search"
+msgstr "Rechercher"
+
+#: theme/templates/incidents/contact_form.html:6
+#: theme/templates/report/cover.html:19
+msgid "Name of the Operator"
+msgstr "Nom de l’opérateur"
+
+#: theme/templates/incidents/contact_form.html:12
+msgid "Incident Notification Manager"
+msgstr "Responsable de la notification incident"
+
+#: theme/templates/incidents/contact_form.html:15
+#: theme/templates/incidents/contact_form.html:47
+msgid "Job title"
+msgstr "Intitulé du poste"
+
+#: theme/templates/incidents/contact_form.html:20
+#: theme/templates/incidents/contact_form.html:52
+#: theme/templates/report/contacts.html:9
+msgid "First name"
+msgstr "Prénom"
+
+#: theme/templates/incidents/contact_form.html:23
+#: theme/templates/incidents/contact_form.html:55
+#: theme/templates/report/contacts.html:10
+msgid "Last name"
+msgstr "Nom"
+
+#: theme/templates/incidents/contact_form.html:29
+#: theme/templates/incidents/contact_form.html:60
+#: theme/templates/report/contacts.html:11
+msgid "Email"
+msgstr "Courriel"
+
+#: theme/templates/incidents/contact_form.html:32
+#: theme/templates/incidents/contact_form.html:63
+msgid "Telephone"
+msgstr "Téléphone"
+
+#: theme/templates/incidents/contact_form.html:39
+#: theme/templates/modals/contacts_incident.html:39
+#: theme/templates/report/contacts.html:25
+msgid "Technical contact"
+msgstr "Contact technique"
+
+#: theme/templates/incidents/contact_form.html:41
+msgid "Is the incident notification manager also the technical contact?"
+msgstr ""
+"Le responsable de la notification d'incident est-il également le contact "
+"technique ?"
+
+#: theme/templates/incidents/contact_form.html:71
+msgid "References"
+msgstr "Références"
+
+#: theme/templates/incidents/contact_form.html:72
+msgid "Optional"
+msgstr "Optionnel"
+
+#: theme/templates/incidents/declaration.html:15
+msgid "Report an incident"
+msgstr "Signaler un incident"
+
+#: theme/templates/incidents/declaration.html:99
+#: theme/templates/modals/delete_incident.html:20
+msgid "Cancel"
+msgstr "Annuler"
+
+#: theme/templates/incidents/declaration.html:101
+msgid "Close"
+msgstr "Fermer"
+
+#: theme/templates/incidents/declaration.html:111
+msgid "Previous"
+msgstr "Précédent"
+
+#: theme/templates/incidents/declaration.html:118
+msgid "Notify"
+msgstr "Notifier"
+
+#: theme/templates/incidents/declaration.html:125
+msgid "Next"
+msgstr "Suivant"
 
 #: theme/templates/modals/accept_terms.html:7
 msgid "Accept terms"
@@ -223,14 +329,17 @@ msgstr "Accepter les conditions d’utilisation"
 #: theme/templates/modals/accept_terms.html:16
 #: theme/templates/modals/accept_terms.html:18
 #: theme/templates/modals/accept_terms.html:32
-#: theme/templates/parts/footer.html:16
-#: theme/templates/registration/signup.html:34
+#: theme/templates/registration/signup.html:33
 msgid "Terms of Service"
-msgstr "Conditions d'utilisation"
+msgstr "Conditions générales d'utilisation"
 
 #: theme/templates/modals/accept_terms.html:38
 msgid "Continue"
 msgstr "Continuer"
+
+#: theme/templates/modals/access_log.html:18
+msgid "Access log"
+msgstr "Journal d'accès"
 
 #: theme/templates/modals/access_log.html:28
 #: theme/templates/modals/report_versions.html:19
@@ -255,13 +364,12 @@ msgid "No entries"
 msgstr "Aucun élément"
 
 #: theme/templates/modals/contacts_incident.html:8
-#: theme/templates/observer/incidents.html:86
-#: theme/templates/regulator/incidents.html:25
+#: theme/templates/observer/incidents.html:100
+#: theme/templates/regulator/incidents.html:27
 msgid "Contacts"
 msgstr "Contacts"
 
 #: theme/templates/modals/contacts_incident.html:17
-#: theme/templates/regulator/incident_edit.html:56
 #: theme/templates/report/contacts.html:17
 msgid "Incident notification manager"
 msgstr "Responsable de la notification d’incident"
@@ -278,17 +386,13 @@ msgstr "Supprimer l'incident"
 msgid "Are you sure that you want to delete the incident?"
 msgstr "Êtes-vous sûr de vouloir supprimer l'incident ?"
 
-#: theme/templates/modals/delete_incident.html:20
-msgid "Cancel"
-msgstr "Annuler"
-
 #: theme/templates/modals/delete_incident.html:23
-#: theme/templates/operator/incidents.html:100
+#: theme/templates/operator/incidents.html:113
 msgid "Delete"
 msgstr "Supprimer"
 
 #: theme/templates/modals/workflow_comment.html:8
-#: theme/templates/operator/incidents.html:58
+#: theme/templates/operator/incidents.html:91
 msgid "Comment"
 msgstr "Commentaire"
 
@@ -297,54 +401,108 @@ msgstr "Commentaire"
 msgid "My incidents"
 msgstr "Mes incidents"
 
-#: theme/templates/operator/menu.html:3
-#: theme/templates/registration/login.html:59
-#: theme/templates/registration/signup.html:47
-#: theme/templates/regulator/menu.html:4
-msgid "Incident Notification"
-msgstr "Notification d'incident"
+#: theme/templates/parts/404.html:3
+msgid "404 Page Not Found"
+msgstr "404 Page non trouvée"
 
-#: theme/templates/parts/footer.html:20
-msgid "Privacy policy"
-msgstr "Politique de confidentialité"
+#: theme/templates/parts/404.html:10
+msgid "Page Not Found"
+msgstr "Page non trouvée"
 
-#: theme/templates/parts/footer.html:21
-msgid "About"
-msgstr "À propos"
+#: theme/templates/parts/404.html:13
+msgid "Unfortunately, this page does not exist."
+msgstr "La page n'existe pas."
 
-#: theme/templates/parts/footer.html:22
-msgid "Contact"
-msgstr "Contact"
+#: theme/templates/parts/500.html:3
+msgid "500 Server Error"
+msgstr "500 Erreur de serveur"
 
-#: theme/templates/parts/header.html:38
+#: theme/templates/parts/500.html:10
+msgid "Server Error"
+msgstr "Erreur de serveur"
+
+#: theme/templates/parts/500.html:13
+msgid "We apologize for the inconvenience. An error occurred."
+msgstr "Nous nous excusons pour ce désagrément. Une erreur s'est produite."
+
+#: theme/templates/parts/500.html:14
+msgid "Please try again later."
+msgstr "Veuillez réessayer plus tard."
+
+#: theme/templates/parts/footer.html:19
+msgid "Legal notice"
+msgstr "Bases légales"
+
+#: theme/templates/parts/footer.html:27
+msgid "Terms of service"
+msgstr "Conditions générales d'utilisation"
+
+#: theme/templates/parts/footer.html:35
+msgid "A service proposed by"
+msgstr "Un service proposé par"
+
+#: theme/templates/parts/footer.html:48
+msgid "Cookie policy"
+msgstr "Politique de cookies"
+
+#: theme/templates/parts/footer.html:54
+msgid "Accessibility statement"
+msgstr "Déclaration d'accessibilité"
+
+#: theme/templates/parts/header.html:37
 msgid "Settings"
 msgstr "Paramètres"
 
 #: theme/templates/parts/header.html:46
-msgid "Account"
-msgstr "Compte"
-
-#: theme/templates/parts/header.html:47
 msgid "Security"
 msgstr "Sécurité"
 
-#: theme/templates/parts/header.html:48
+#: theme/templates/parts/header.html:47
 msgid "Password"
 msgstr "Mot de passe"
 
-#: theme/templates/parts/header.html:50
+#: theme/templates/parts/header.html:49
 msgid "Light theme"
 msgstr "Thème clair"
 
-#: theme/templates/parts/header.html:52
-msgid "Log out"
-msgstr "Déconnexion"
+#: theme/templates/registration/base.html:20
+#: theme/templates/registration/password_reset_complete.html:15
+msgid "Log in"
+msgstr "S’identifier"
 
-#: theme/templates/registration/login.html:8
-msgid "Enter your credentials."
-msgstr "Entrez vos données d'identification."
+#: theme/templates/registration/base.html:34
+#: theme/templates/registration/login.html:47
+msgid "Connection"
+msgstr "Connexion"
 
-#: theme/templates/registration/login.html:12
+#: theme/templates/registration/base.html:37
+#: theme/templates/registration/login.html:77
+#: theme/templates/registration/signup.html:12
+#: theme/templates/registration/signup.html:38
+msgid "Create account"
+msgstr "Créer un compte"
+
+#: theme/templates/registration/login.html:9
+msgid "Notifying an incident"
+msgstr "Notifier un incident"
+
+#: theme/templates/registration/login.html:13
+msgid "A tool that lets you quickly notify an incident."
+msgstr "Outil vous permettant de notifier rapidement un incident."
+
+#: theme/templates/registration/login.html:16
+msgid "Report an incident <strong>with</strong> account"
+msgstr "Signaler un incident <strong>avec</strong> compte"
+
+#: theme/templates/registration/login.html:21
+msgid "Report an incident <strong>without</strong> account"
+msgstr "Signaler un incident <strong>sans</strong> compte"
+
+#: theme/templates/registration/login.html:27
+msgid "Sign in"
+msgstr "Se connecter"
+
+#: theme/templates/registration/login.html:33
 msgid ""
 "In the event of losing access to your account, you can use this form to "
 "regain access to your account with the help of one of the recovery codes "
@@ -358,46 +516,21 @@ msgstr ""
 "(2FA). Ces codes de récupération ont été générés pour vous lors de la "
 "configuration de la 2FA et vous avez été invité à les conserver en lieu sûr."
 
-#: theme/templates/registration/login.html:26
-#: theme/templates/registration/password_reset_complete.html:15
-#: theme/templates/registration/signup.html:55
-msgid "Log in"
-msgstr "S’identifier"
-
-#: theme/templates/registration/login.html:34
+#: theme/templates/registration/login.html:55
 msgid "As a last resort, you can use a backup token:"
 msgstr "En dernier recours, vous pouvez utiliser un jeton de secours :"
 
-#: theme/templates/registration/login.html:36
+#: theme/templates/registration/login.html:57
 msgid "Use backup token"
 msgstr "Utiliser le jeton de secours"
 
-#: theme/templates/registration/login.html:45
+#: theme/templates/registration/login.html:66
 #: theme/templates/registration/password_reset_form.html:11
 msgid "Have you forgotten your password?"
 msgstr "Avez-vous oublié votre mot de passe ?"
 
-#: theme/templates/registration/login.html:48
-msgid "No Account? Create one!"
-msgstr "Pas de compte ? Créez-en un !"
-
-#: theme/templates/registration/login.html:51
-#: theme/templates/registration/signup.html:7
-msgid "Register"
-msgstr "S'enregistrer"
-
-#: theme/templates/registration/login.html:63
-#: theme/templates/registration/signup.html:51
-msgid ""
-"If you would like to notify an incident to your competent authority, please "
-"login or create an account."
-msgstr ""
-"Si vous souhaitez notifier un incident à votre autorité compétente, veuillez-"
-"vous connecter ou créer un compte."
-
-#: theme/templates/registration/login.html:67
-#: theme/templates/registration/signup.html:39
-msgid "Create account"
+#: theme/templates/registration/login.html:74
+msgid "Create an account"
 msgstr "Créer un compte utilisateur"
 
 #: theme/templates/registration/password_change_done.html:7
@@ -479,7 +612,7 @@ msgid ""
 "Please make sure it is the email address you have registered with."
 msgstr ""
 "Si vous ne recevez pas le courriel, veuillez vérifier votre dossier de "
-"courrier indésirable. Assurez-vous qu'il s'agit bien de l'adresse "
+"courrier indésirable. Assurez-vous qu'il s'agisse bien de l'adresse "
 "électronique avec laquelle vous vous êtes enregistré."
 
 #: theme/templates/registration/password_reset_email.html:2
@@ -533,61 +666,13 @@ msgstr ""
 "Votre compte est lié à plusieurs entreprises. Sélectionnez-en une pour "
 "continuer."
 
-#: theme/templates/regulator/incident_edit.html:9
-msgid "Edit incident data"
-msgstr "Modifier les données de l'incident"
+#: theme/templates/registration/select_company.html:15
+msgid "Save"
+msgstr "Sauvegarder"
 
-#: theme/templates/regulator/incident_edit.html:29
-#: theme/templates/report/details.html:3
-msgid "Incident details"
-msgstr "Détails de l'incident"
-
-#: theme/templates/regulator/incident_edit.html:39
-msgid "Final notification datetime"
-msgstr "Date de notification finale"
-
-#: theme/templates/regulator/incident_edit.html:43
-msgid "Incident ID"
-msgstr "Identifiant de l'incident"
-
-#: theme/templates/regulator/incident_edit.html:47
-#: theme/templates/report/details.html:67
-msgid "Criminal complaint file number"
-msgstr "Numéro de dossier de la plainte"
-
-#: theme/templates/regulator/incident_edit.html:51
-msgid "Is impact significant?"
-msgstr "L'impact est-il significatif ?"
-
-#: theme/templates/regulator/incident_edit.html:52
-#: theme/templates/report/details.html:58
-msgid "Yes"
-msgstr "Oui"
-
-#: theme/templates/regulator/incident_edit.html:52
-#: theme/templates/report/details.html:60
-msgid "No"
-msgstr "Non"
-
-#: theme/templates/regulator/incident_edit.html:59
-#: theme/templates/regulator/incident_edit.html:77
-#: theme/templates/report/contacts.html:8
-msgid "Title"
-msgstr "Titre"
-
-#: theme/templates/regulator/incident_edit.html:70
-#: theme/templates/regulator/incident_edit.html:89
-#: theme/templates/report/contacts.html:12
-msgid "Phone number"
-msgstr "Numéro de téléphone"
-
-#: theme/templates/regulator/incident_edit.html:93
-msgid "Legal bases"
-msgstr "Bases légales"
-
-#: theme/templates/regulator/incident_edit.html:101
-msgid "Impacted services"
-msgstr "Services impactés"
+#: theme/templates/registration/signup.html:7
+msgid "Register"
+msgstr "S'enregistrer"
 
 #: theme/templates/regulator/menu.html:7
 msgid "All incidents"
@@ -601,13 +686,49 @@ msgstr "Informations du contact"
 msgid "Role"
 msgstr "Rôle"
 
+#: theme/templates/report/contacts.html:8
+msgid "Title"
+msgstr "Titre"
+
+#: theme/templates/report/contacts.html:12
+msgid "Phone number"
+msgstr "Numéro de téléphone"
+
 #: theme/templates/report/cover.html:31
 msgid "Incident notification date"
 msgstr "Date de la notification incident"
 
+#: theme/templates/report/cover.html:37 theme/templates/report/details.html:16
+msgid "Report status"
+msgstr "Statut du rapport"
+
+#: theme/templates/report/details.html:3
+msgid "Incident details"
+msgstr "Détails de l'incident"
+
+#: theme/templates/report/details.html:24
+msgid "Legal basis"
+msgstr "Base légale"
+
 #: theme/templates/report/details.html:37
 msgid "Impacted sectors"
 msgstr "Secteurs impactés"
+
+#: theme/templates/report/details.html:54
+msgid "Significant impact"
+msgstr "Impact significatif"
+
+#: theme/templates/report/details.html:58
+msgid "Yes"
+msgstr "Oui"
+
+#: theme/templates/report/details.html:60
+msgid "No"
+msgstr "Non"
+
+#: theme/templates/report/details.html:67
+msgid "Criminal complaint file number"
+msgstr "Numéro de dossier de la plainte"
 
 #: theme/templates/report/footer.html:5
 msgid "Confidential"
@@ -638,6 +759,10 @@ msgstr "Chronologie de l’incident"
 msgid "Time zone"
 msgstr "Fuseau horaire"
 
+#: theme/templates/report/timeline.html:11
+msgid "Incident notification creation date"
+msgstr "Date de création de la notification d’incident"
+
 #: theme/templates/report/timeline.html:15
 msgid "Incident detection date"
 msgstr "Date de détection de l’incident"
@@ -653,3 +778,37 @@ msgstr "Chronologie des rapports"
 #: theme/templates/report/toc.html:3
 msgid "Table of contents"
 msgstr "Sommaire"
+
+#: theme/templates/two_factor/core/setup_complete.html:7
+msgid "Enable Two-Factor Authentication"
+msgstr "Activer l'authentification à deux facteurs"
+
+#: theme/templates/two_factor/core/setup_complete.html:12
+msgid ""
+"Congratulations, you have successfully activated two-factor authentication."
+msgstr ""
+"Félicitations, vous avez activé avec succès l'authentification à deux "
+"facteurs."
+
+#: theme/templates/two_factor/core/setup_complete.html:20
+msgid "Two-Factor Authentication has been set. Please log in again."
+msgstr ""
+"L'authentification à deux facteurs a été définie. Veuillez-vous connecter à "
+"nouveau."
+
+#: theme/templates/two_factor/core/setup_complete.html:25
+msgid ""
+"However, there may be instances where you do not have access to your main "
+"token. To enable account recovery, add a phone number."
+msgstr ""
+"Cependant, il peut arriver que vous n'ayez pas accès à votre token "
+"principal. Pour permettre la récupération du compte, ajoutez un numéro de "
+"téléphone."
+
+#: theme/templates/two_factor/core/setup_complete.html:32
+msgid "Back to Account security"
+msgstr "Retour à Sécurité du compte"
+
+#: theme/templates/two_factor/core/setup_complete.html:36
+msgid "Add Phone Number"
+msgstr "Ajouter un numéro de téléphone"

@@ -1,30 +1,61 @@
 {% load django_bootstrap5 %}
 {% load static %}
-{% load i18n %} 
+{% load i18n %}
 
 {% block bootstrap5_extra_head %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}" />
 {% endblock %}
 
-<footer class="footer mt-auto bg-dark">
-    <div class="container">
-    <ul class="nav justify-content-center border-bottom">
-      <li class="nav-item"><a href="/" class="nav-link px-2 text-white">Home</a></li>
-      <li class="nav-item"><a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
-                                class="nav-link px-2 text-white"
-                                target="{% if regulator.tos_url %} _blank {% endif %}"
-                                rel="noopener noreferrer">{% translate "Terms of Service" %}</a></li>
-      <li class="nav-item"><a href="{% if regulator.privacy_policy_url %} {{ regulator.privacy_policy_url }} {% else %} {% url 'privacy' %} {% endif %}"
-                                class="nav-link px-2 text-white"
-                                target="{% if regulator.privacy_policy_url %} _blank {% endif %}"
-                                rel="noopener noreferrer">{% translate "Privacy policy" %}</a></li>
-      <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-white">{% translate "About" %}</a></li>
-      <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link px-2 text-white">{% translate "Contact" %}</a></li>
-    </ul>
-    <p class="text-center text-white">
-      <small><b>A project from the <a href="https://www.lhc.lu" target="_blank" rel="noopener noreferrer">Luxembourg House of Cybersecurity</a>.</b></small>
-      <small>Operated by <a href="{{ regulator.website }}" target="_blank" rel="noopener noreferrer">{{ regulator.name }}</span>.</a></small>
-      <small>Version: <a href="{{ version_url }}" target="_blank" rel="noopener noreferrer">{{ app_version }}</a></small>
-    </p>
-</div>
+<footer class="footer mt-auto bg-secondary">
+  <div class="container-fluid px-5">
+    <div class="logo-container text-center">
+      <img src="{% static 'images/regulator_logo.svg' %}" alt="Logo" class="translate-middle-y">
+    </div>
+    <div class="row align-items-center text-white pb-2 small">
+      <div class="col-4 d-flex justify-content-start">
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="/" class="nav-link px-2 text-white">
+              {% translate "Legal notice" %}
+            </a>
+          </li>
+          <div class="p-2"> | </div>
+          <li class="nav-item">
+            <a href="{% if regulator.tos_url %}{{ regulator.tos_url }}{% else %}{% url 'terms' %}{% endif %}"
+              target="{% if regulator.tos_url %}_blank{% endif %}" rel="noopener noreferrer"
+              class="nav-link px-2 text-white">
+              {% translate "Terms of service" %}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-4 d-flex justify-content-center">
+        <div class="nav">
+          <li class="nav-item d-inline">
+            <span>{% translate "A service proposed by" %}</span>
+            <a href="{{ regulator.website }}" target="_blank" rel="noopener noreferrer">
+              {{ regulator.name }}
+            </a>
+          </li>
+        </div>
+      </div>
+      <div class="col-4 d-flex justify-content-end">
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="{% if regulator.privacy_policy_url %}{{ regulator.privacy_policy_url }}{% else %}{% url 'privacy' %}{% endif %}"
+              target="{% if regulator.privacy_policy_url %}_blank{% endif %}" rel="noopener noreferrer"
+              class="nav-link px-2 text-white">
+              {% translate "Cookie policy" %}
+            </a>
+          </li>
+          <div class="p-2"> | </div>
+          <li class="nav-item">
+            <a href="/" class="nav-link px-2 text-white">
+              {% translate "Accessibility statement" %}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </footer>
