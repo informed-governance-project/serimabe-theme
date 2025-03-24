@@ -84,6 +84,8 @@
 
 .legend-under-review { color: #2673e5; }
 
+.legend-late-under-review { color: #3438a3; }
+
 .legend-submission-overdue { color: #a76806; }
 
 .legend-passed { color: #008800; }
@@ -104,6 +106,8 @@
 }
 /* used in the incident list to manage the color of the link */
 .report-under-review { color: #2673e5; }
+
+.report-late-under-review { color: #3438a3; }
 
 .report-pass { color: #008800; }
 
@@ -126,6 +130,10 @@
 
 .logo-report-under-review {
     background-image: url('/static/images/icons/ico-under_review.svg'); 
+}
+
+.logo-report-late-under-review {
+    background-image: url('/static/images/icons/ico-late_under_review.svg'); 
 }
 
 .logo-report-pass {
