@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-17 15:22+0100\n"
+"POT-Creation-Date: 2025-03-25 13:06+0100\n"
 "PO-Revision-Date: 2025-02-25 12:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -41,6 +41,10 @@ msgstr "Terug naar gebruikersinterface"
 #: theme/templates/admin/base_site.html:25 theme/templates/parts/header.html:51
 msgid "Log out"
 msgstr "Uitloggen"
+
+#: theme/templates/admin/reset_accepted_terms.html:8
+msgid "Reset accepted terms"
+msgstr ""
 
 #: theme/templates/cookiebanner/bootstrap5.html:27
 msgid "Details"
@@ -95,7 +99,7 @@ msgid "Filter by status, sector, etc"
 msgstr ""
 
 #: theme/templates/incidents/base.html:41
-#: theme/templates/incidents/base.html:299
+#: theme/templates/incidents/base.html:303
 msgid "Filter"
 msgstr ""
 
@@ -132,109 +136,113 @@ msgid "Under review"
 msgstr "Voorgelegd maar onderzoek nog niet afgerond"
 
 #: theme/templates/incidents/base.html:86
+msgid "Late submission"
+msgstr ""
+
+#: theme/templates/incidents/base.html:90
 msgid "Submission overdue"
 msgstr "Niet voorgelegd en deadline verstreken"
 
-#: theme/templates/incidents/base.html:90
+#: theme/templates/incidents/base.html:94
 msgid "Passed"
 msgstr "Na onderzoek aanvaard"
 
-#: theme/templates/incidents/base.html:94
+#: theme/templates/incidents/base.html:98
 msgid "Failed"
 msgstr "Na onderzoek geweigerd"
 
-#: theme/templates/incidents/base.html:104
+#: theme/templates/incidents/base.html:108
 msgid "Status"
 msgstr ""
 
-#: theme/templates/incidents/base.html:105
+#: theme/templates/incidents/base.html:109
 msgid "Creation date"
 msgstr ""
 
-#: theme/templates/incidents/base.html:108
+#: theme/templates/incidents/base.html:112
 msgid "Operator"
 msgstr "Operator"
 
-#: theme/templates/incidents/base.html:110
-#: theme/templates/incidents/base.html:115
+#: theme/templates/incidents/base.html:114
+#: theme/templates/incidents/base.html:119
 #: theme/templates/report/details.html:30
 msgid "Regulator"
 msgstr "Bevoegde autoriteit"
 
-#: theme/templates/incidents/base.html:117
+#: theme/templates/incidents/base.html:121
 msgid "Regulation"
 msgstr ""
 
-#: theme/templates/incidents/base.html:120 theme/templates/report/cover.html:25
+#: theme/templates/incidents/base.html:124 theme/templates/report/cover.html:25
 #: theme/templates/report/details.html:10
 msgid "Reference"
 msgstr "Verwijzing"
 
-#: theme/templates/incidents/base.html:121
+#: theme/templates/incidents/base.html:125
 msgid "Sectors"
 msgstr "Sectoren"
 
-#: theme/templates/incidents/base.html:122 theme/templates/report/cover.html:11
+#: theme/templates/incidents/base.html:126 theme/templates/report/cover.html:11
 #: theme/templates/report/header.html:5
 msgid "Report"
 msgstr "Rapport"
 
-#: theme/templates/incidents/base.html:123
+#: theme/templates/incidents/base.html:127
 msgid "Actions"
 msgstr "Acties"
 
-#: theme/templates/incidents/base.html:137
+#: theme/templates/incidents/base.html:141
 #: theme/templates/observer/incidents.html:25
 #: theme/templates/operator/incidents.html:36
 msgid "Incident with significant impact"
 msgstr ""
 
-#: theme/templates/incidents/base.html:139
+#: theme/templates/incidents/base.html:143
 msgid "No significant impact"
 msgstr ""
 
-#: theme/templates/incidents/base.html:155
+#: theme/templates/incidents/base.html:159
 #: theme/templates/observer/incidents.html:11
 #: theme/templates/operator/incidents.html:22
 msgid "The incident is still ongoing"
 msgstr ""
 
-#: theme/templates/incidents/base.html:157
+#: theme/templates/incidents/base.html:161
 #: theme/templates/observer/incidents.html:16
 #: theme/templates/operator/incidents.html:27
 msgid "The incident is over"
 msgstr ""
 
-#: theme/templates/incidents/base.html:167
+#: theme/templates/incidents/base.html:171
 msgid "Incident notification submission date"
 msgstr ""
 
-#: theme/templates/incidents/base.html:235
+#: theme/templates/incidents/base.html:239
 #: theme/templates/modals/report_versions.html:8
 #: theme/templates/observer/incidents.html:63
 #: theme/templates/operator/incidents.html:79
 msgid "Version control"
 msgstr ""
 
-#: theme/templates/incidents/base.html:242
-#: theme/templates/incidents/base.html:263
+#: theme/templates/incidents/base.html:246
+#: theme/templates/incidents/base.html:267
 #: theme/templates/observer/incidents.html:70
 msgid "Download PDF report"
 msgstr ""
 
-#: theme/templates/incidents/base.html:259
+#: theme/templates/incidents/base.html:263
 msgid "Activity Log"
 msgstr ""
 
-#: theme/templates/incidents/base.html:277
+#: theme/templates/incidents/base.html:281
 msgid "No incident"
 msgstr "Geen incident"
 
-#: theme/templates/incidents/base.html:311
+#: theme/templates/incidents/base.html:315
 msgid "Reset"
 msgstr ""
 
-#: theme/templates/incidents/base.html:314
+#: theme/templates/incidents/base.html:318
 msgid "Search"
 msgstr "Zoeken"
 
