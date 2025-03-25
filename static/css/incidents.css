@@ -84,7 +84,7 @@
 
 .legend-under-review { color: #2673e5; }
 
-.legend-late-under-review { color: #3438a3; }
+.legend-late-under-review { color: #5B1B8F; }
 
 .legend-submission-overdue { color: #a76806; }
 
@@ -107,7 +107,7 @@
 /* used in the incident list to manage the color of the link */
 .report-under-review { color: #2673e5; }
 
-.report-late-under-review { color: #3438a3; }
+.report-late-under-review { color: #5B1B8F; }
 
 .report-pass { color: #008800; }
 
