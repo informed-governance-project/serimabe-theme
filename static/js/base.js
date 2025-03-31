@@ -2,6 +2,19 @@ document.querySelectorAll('.is-valid').forEach(function (element) {
     element.classList.remove('is-valid');
 });
 
+// Catch session expiration and redirect to login page 
+$(document).ajaxError(function (event, xhr) {
+  if (xhr.status === 401) {
+    try {
+      let response = JSON.parse(xhr.responseText);
+      window.location.href = response.login_url || "/";
+    } catch (e) {
+      window.location.href = "/";
+    }
+    return;
+  }
+});
+
 var datatableTranslations = {
   info: gettext("Showing _START_ to _END_ of _TOTAL_ entries"),
   lengthMenu: gettext("_MENU_ entries per page"),
