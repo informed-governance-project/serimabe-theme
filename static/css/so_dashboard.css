@@ -19,6 +19,10 @@
     background-color: #84df90 !important;
 }
 
+.sent-success {
+    background-color: #00b718 !important;
+}
+
 .table-info {
     background-color: #99dde9 !important; 
 }
@@ -29,6 +33,10 @@
 
 .table-danger {
     background-color: #f5c6cb !important; 
+}
+
+.sent-fail {
+    background-color: #e51429 !important;
 }
 
 .table-dark {
