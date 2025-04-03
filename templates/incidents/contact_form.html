@@ -17,19 +17,19 @@
         </div>
         <div class="row">
             <div class="col-6">
-                {% bootstrap_field wizard.form.contact_firstname show_label=False placeholder=_("First name *") %}
+                {% bootstrap_field wizard.form.contact_firstname show_label=False placeholder=_("First name")|add:" *" %}
             </div>
             <div class="col-6">
-                {% bootstrap_field wizard.form.contact_lastname show_label=False placeholder=_("Last name *") %}
+                {% bootstrap_field wizard.form.contact_lastname show_label=False placeholder=_("Last name")|add:" *" %}
             </div>
         </div>
 
         <div class="row">
             <div class="col-6">
-                {% bootstrap_field wizard.form.contact_email show_label=False placeholder=_("Email *") %}
+                {% bootstrap_field wizard.form.contact_email show_label=False placeholder=_("Email")|add:" *" %}
             </div>
             <div class="col-6">
-                {% bootstrap_field wizard.form.contact_telephone show_label=False placeholder=_("Telephone *") %}
+                {% bootstrap_field wizard.form.contact_telephone show_label=False placeholder=_("Telephone")|add:" *" %}
             </div>
         </div>
     </div>
@@ -49,18 +49,18 @@
         </div>
         <div class="row">
             <div class="col-6">
-                {% bootstrap_field wizard.form.technical_firstname show_label=False placeholder=_("First name *") %}
+                {% bootstrap_field wizard.form.technical_firstname show_label=False placeholder=_("First name")|add:" *" %}
             </div>
             <div class="col-6">
-                {% bootstrap_field wizard.form.technical_lastname show_label=False placeholder=_("Last name *") %}
+                {% bootstrap_field wizard.form.technical_lastname show_label=False placeholder=_("Last name")|add:" *" %}
             </div>
         </div>
         <div class="row">
             <div class="col-6">
-                {% bootstrap_field wizard.form.technical_email show_label=False placeholder=_("Email *") %}
+                {% bootstrap_field wizard.form.technical_email show_label=False placeholder=_("Email")|add:" *" %}
             </div>
             <div class="col-6">
-                {% bootstrap_field wizard.form.technical_telephone show_label=False placeholder=_("Telephone *") %}
+                {% bootstrap_field wizard.form.technical_telephone show_label=False placeholder=_("Telephone")|add:" *" %}
             </div>
         </div>
     </div>
