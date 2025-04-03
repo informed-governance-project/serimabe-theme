@@ -1,8 +1,18 @@
 {% load i18n %}
 
-<div id="footer" class="doc-references">
-    <div class="d-flex justify-content-between">
-        <div>{% translate "Confidential" %}</div>
-        <div class="page-number"></div>
+<div id="footer">
+    <div class="d-flex justify-content-between small">
+        <div class="d-flex d-inline-flex align-items-center justify-content-center rounded bg-dark text-light">
+            <div class="d-flex d-inline-flex">
+                <span></span>
+                <div class="rounded-circle bg-danger tlp-circle ms-1"> </div>
+                <div class="rounded-circle bg-white tlp-circle ms-1"> </div>
+                <div class="rounded-circle bg-white tlp-circle ms-1"> </div>
+            </div>
+            <div class="border-start border-light border-2 text-danger mx-1">
+                <span class="ms-1 fw-bold">{% translate "TLP:RED" %}</span>
+            </div>
+        </div>
+        <div class="page-number fs-6"></div>
     </div>
 </div>
