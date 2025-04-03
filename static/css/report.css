@@ -1,3 +1,7 @@
+body {
+    font-family: Montserrat, sans-serif;
+}
+
 @page {
     size: A4;
     /* Change from the default size of A4 */
@@ -17,6 +21,10 @@
 }
 
 @page: first {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
     @top-left {
         content: none;
     }
@@ -48,24 +56,16 @@
     page: page-landscape;
 }
 
-.doc-references {
-    text-align: center;
-    font-size: 10px;
-    width: 100%;
-}
-
 #header {
     position: running(header);
     margin-bottom: -50px;
     padding-bottom: 5px;
-    border-bottom: 1px solid #404040;
 }
 
 #footer {
     position: running(footer);
     margin-top: -50px;
     padding-top: 5px;
-    border-top: 1px solid #404040;
 }
 
 .page-number:before {
@@ -143,4 +143,15 @@ h4:before {
 
 .table-group-divider {
     border-top: 1.2px solid var(--bs-secondary-color) !important;
+}
+
+.cover-logo {
+    width: 350px;
+    height: auto;
+}
+
+.tlp-circle {
+    width: 15px;
+    height: 15px;
+    transform: translateY(2px);
 }

@@ -1,38 +1,44 @@
 {% load i18n %}
+<style>
+    @page:first {
+        background-image: url("file:{{ static_theme_dir }}/images/bg_login.svg") !important;
+    }
+</style>
 
-<div class="my-6">
-    <div class="d-flex justify-content-center">
-        <img class="text-center"
-        src="file:{{ static_theme_dir }}/images/logo.svg" 
-        alt="Logo">
-
-    </div>
-
-    <h1 class="mt-5 mb-2 text-center fw-bold">{% translate "Report" %}
+<div class="d-flex justify-content-center w-100">
+    <img class="text-center img-fluid cover-logo"
+    src="file:{{ static_theme_dir }}/images/logo.svg">
+</div>
+<div class="position-absolute top-50 ms-5 ps-2">
+    <h1 class="fw-bold text-primary text-uppercase">{% translate "Report" %}
         {% if report_name %}
             <br>{{report_name}}
         {% endif %}
     </h1>
-    <div class="mt-5 p-4 pb-2 border border-secondary border-1 rounded">
-        <p>
+    <div class="hr-separator"></div>
+    <div>
+        <p class="m-0">
             <span class="fw-bold">
                 {% translate "Name of the Operator" %}:
             </span>
             {{ incident.company_name }}
         </p>
-        <p>
+        <p class="m-0">
             <span class="fw-bold">
                 {% translate "Reference" %}:
             </span>
             {{ incident.incident_id }}
         </p>
-        <p>
+        <p class="m-0">
             <span class="fw-bold">
                 {% translate "Incident notification date" %}:
             </span>
-            {{ incident.incident_notification_date|date:"d M Y, H:i" }}
+            <span class="text-primary">
+                {{ incident.incident_notification_date|date:"d M Y, H:i" }}
+            </span>
+            
         </p>
-        <p>
+        <p class="m-0">
             <span class="fw-bold">
                 {% translate "Report status" %}:
             </span>
