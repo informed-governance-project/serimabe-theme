@@ -2,14 +2,14 @@
 {% load i18n %}
 
 <div class="row">
-    <div class="col-12">
-        <h6>{{ _('Name of the Operator')}}</h6>
+    <div class="col-12 required-field">
+        <label class="h6">{{ _('Name of the Operator')}}</label>
         {% bootstrap_field wizard.form.company_name show_label=False placeholder=_("Name") %}
     </div>
 </div>
 <div class="row">
-    <div class="col-12">
-        <h6>{{ _('Incident Notification Manager')}}</h6>
+    <div class="col-12 required-field">
+        <label class="h6">{{ _('Incident Notification Manager')}}</label>
         <div class="row">
             <div class="col-6">
                 {% bootstrap_field wizard.form.contact_title show_label=False placeholder=_("Job title") %}
@@ -17,26 +17,26 @@
         </div>
         <div class="row">
             <div class="col-6">
-                {% bootstrap_field wizard.form.contact_firstname show_label=False placeholder=_("First name") %}
+                {% bootstrap_field wizard.form.contact_firstname show_label=False placeholder=_("First name *") %}
             </div>
             <div class="col-6">
-                {% bootstrap_field wizard.form.contact_lastname show_label=False placeholder=_("Last name") %}
+                {% bootstrap_field wizard.form.contact_lastname show_label=False placeholder=_("Last name *") %}
             </div>
         </div>
 
         <div class="row">
             <div class="col-6">
-                {% bootstrap_field wizard.form.contact_email show_label=False placeholder=_("Email") %}
+                {% bootstrap_field wizard.form.contact_email show_label=False placeholder=_("Email *") %}
             </div>
             <div class="col-6">
-                {% bootstrap_field wizard.form.contact_telephone show_label=False placeholder=_("Telephone") %}
+                {% bootstrap_field wizard.form.contact_telephone show_label=False placeholder=_("Telephone *") %}
             </div>
         </div>
     </div>
 </div>
 <div class="row">
-    <div class="col-12">
-        <h6>{{ _('Technical contact')}}</h6>
+    <div class="col-12 required-field">
+        <label class="h6">{{ _('Technical contact')}}</label>
         <div class="d-flex d-inline form-check form-switch ps-0">
                 {% translate "Is the incident notification manager also the technical contact?" as translated_label %}
                 {% bootstrap_label translated_label label_class="pe-4" %}
@@ -49,18 +49,18 @@
         </div>
         <div class="row">
             <div class="col-6">
-                {% bootstrap_field wizard.form.technical_firstname show_label=False placeholder=_("First name") %}
+                {% bootstrap_field wizard.form.technical_firstname show_label=False placeholder=_("First name *") %}
             </div>
             <div class="col-6">
-                {% bootstrap_field wizard.form.technical_lastname show_label=False placeholder=_("Last name") %}
+                {% bootstrap_field wizard.form.technical_lastname show_label=False placeholder=_("Last name *") %}
             </div>
         </div>
         <div class="row">
             <div class="col-6">
-                {% bootstrap_field wizard.form.technical_email show_label=False placeholder=_("Email") %}
+                {% bootstrap_field wizard.form.technical_email show_label=False placeholder=_("Email *") %}
             </div>
             <div class="col-6">
-                {% bootstrap_field wizard.form.technical_telephone show_label=False placeholder=_("Telephone") %}
+                {% bootstrap_field wizard.form.technical_telephone show_label=False placeholder=_("Telephone *") %}
             </div>
         </div>
     </div>
