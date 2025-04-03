@@ -25,7 +25,9 @@
             <thead class="table-light">
                 <tr>
                     <th class="text-start">{% translate "Date" %}</th>
+                    {% if is_regulator %}
                     <th>{% translate "Entity" %}</th>
+                    {% endif %}
                     <th>{% translate "User" %}</th>
                     <th>{% translate "Role" %}</th>
                     <th>{% translate "Action" %}</th>
@@ -38,9 +40,11 @@
                     <td class="text-start">
                         {{record.timestamp|date:"d M Y, H:i" }}
                     </td>
+                    {% if is_regulator %}
                     <td>
                         {{record.entity_name}}
                     </td>
+                    {% endif %}
                     <td>
                         {% if record.user %}
                         {{record.user.get_full_name }}
