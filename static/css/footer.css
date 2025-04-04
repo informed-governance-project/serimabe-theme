@@ -8,3 +8,9 @@
     color: white;
     font-weight: bold;
 }
+.prefooter-logo-container {
+    height: 45px;
+}
+.prefooter-logo-container > img {
+    width: 150px;
+}
