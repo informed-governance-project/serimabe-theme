@@ -1,18 +1,32 @@
 {% extends 'home/base.html' %}
 {% load i18n %}
-{% block bootstrap5_title %}About{% endblock %}
+{% load django_bootstrap5 %}
+{% block bootstrap5_title %}Contact{% endblock %}
 {% block content %}
 <div class="container text-justify">
-    <div class="card">
-        <div class="card-body">
-            <h2>Contact</h2>
-            {% translate "Dear entity, should you require any assistance, please do not hesitate to contact us at " %}{{ regulator.contact_email }}
-            <ul class="list-group">
-                <li class="list-group-item">Regulator: {{ regulator.name }}</li>
-                <li class="list-group-item">Regulator website: <a href="{{ regulator.website }}" target="_blank" rel="noopener noreferrer">{{ regulator.website }}</a></li>
-            <ul>
+    <form id="contact_form" action="{% url 'contact' %}" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-12">
+                <label class="h6">{{ _('Contact')}}</label>
+                <div class="row">
+                    <div class="col-6 required-field">
+                        {% bootstrap_field form.name show_label=False placeholder=_("Name") %}
+                    </div>
+                </div>
+                    <div class="col-6 required-field">
+                        {% bootstrap_field form.email show_label=False placeholder=_("email") %}
+                    </div>
+                    <div class="col-6 required-field">
+                        {% bootstrap_field form.message show_label=False placeholder=_("Message") %}
+                    </div>
+                    <div class="col-6 required-field">
+                        {% bootstrap_field form.captcha show_label=False placeholder=_("Captcha") %}
+                    </div>
+            </div>
         </div>
-    </div>
+        <button type="submit" lass="btn btn-primary ms-3" >{% translate "Send" %} </button>
+    </form>
     <br />
 </div>
 {% endblock %}
