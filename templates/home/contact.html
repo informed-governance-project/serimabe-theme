@@ -4,29 +4,61 @@
 {% block bootstrap5_title %}Contact{% endblock %}
 {% block content %}
 <div class="container text-justify">
-    <form id="contact_form" action="{% url 'contact' %}" method="post">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-12">
-                <label class="h6">{{ _('Contact')}}</label>
+    <div class="row">
+        <div class="col-8">
+            <h3 class="fw-bolder">{% translate "Contact form" %}</h3>
+            <div class="hr-separator"></div>
+            <form id="contact_form" action="{% url 'contact' %}" method="post">
+                {% csrf_token %}
                 <div class="row">
-                    <div class="col-6 required-field">
-                        {% bootstrap_field form.name show_label=False placeholder=_("Name") %}
+                    <div class="col-4 required-field">
+                        {% bootstrap_field form.lastname show_label=False placeholder=_("Name") %}
+                    </div>
+                    <div class="col-4 required-field">
+                        {% bootstrap_field form.firstname show_label=False placeholder=_("Firstname") %}
                     </div>
                 </div>
-                    <div class="col-6 required-field">
-                        {% bootstrap_field form.email show_label=False placeholder=_("email") %}
+                <div class="row">
+                    <div class="col-4 required-field">
+                        {% bootstrap_field form.email show_label=False placeholder=_("Email") %}
                     </div>
-                    <div class="col-6 required-field">
-                        {% bootstrap_field form.message show_label=False placeholder=_("Message") %}
+                    <div class="col-4 required-field">
+                        {% bootstrap_field form.phone show_label=False placeholder=_("Phone") %}
                     </div>
-                    <div class="col-6 required-field">
-                        {% bootstrap_field form.captcha show_label=False placeholder=_("Captcha") %}
+                </div>
+                <div class="col-8 required-field">
+                    {% bootstrap_field form.message show_label=False placeholder=_("Message") %}
+                </div>
+                <div class="col-8 required-field">
+                    {% bootstrap_field form.captcha show_label=False placeholder=_("Captcha") %}
+                    <div class="d-flex d-inline form-check form-switch ps-0">
+                        {% translate "I agree that my personal data may be used for communication purposes." as translated_label %}
+                        {% bootstrap_label translated_label label_class="pe-4" %}
+                        {% bootstrap_field form.terms_accepted show_label=False%}
                     </div>
-            </div>
+                </div>
+                <button type="submit" class="btn btn-primary ms-3" >{% translate "Send" %} </button>
+            </form>
         </div>
-        <button type="submit" lass="btn btn-primary ms-3" >{% translate "Send" %} </button>
-    </form>
+        <div class="col">
+            <h3 class="fw-bolder">{% translate "Address" %}</h3>
+            <div class="hr-separator"></div><br>
+            <h6 class="fw-bolder">{{regulator.name}}</h6>
+            <p>
+                {{regulator.street}}<br>{{regulator.zip_code}} {{regulator.city}} 
+            </p>
+            <h6 class="fw-bolder">{% translate "Postal address" %}</h6>
+            <p>
+                {{regulator.mail_zip_code}}<br>{{regulator.mail_city}}
+            </p>
+            <br>
+            <p>
+                {% translate "Tel.:" %} {{regulator.phone}}<br>
+                {% translate "Email:" %} {{regulator.contact_email}}
+            </p>
+        </div>
+
+    </div>
     <br />
 </div>
 {% endblock %}
