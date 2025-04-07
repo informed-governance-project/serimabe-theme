@@ -1,0 +1,29 @@
+#terms ol {
+    counter-reset: item;
+    list-style-type: decimal;
+    margin-left: 14px;
+}
+
+#terms li {
+    display: block;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+
+#terms li:before {
+    counter-increment: item;
+    content: counters(item, ".") ".";
+    position: absolute;
+    left: -3.0em;
+}
+
+.terms-subtitle {
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding: 10px 0 10px 0;
+}
+
+.terms-subtitle:before {
+    left: -1.8em !important;
+}
