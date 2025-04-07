@@ -1,64 +1,82 @@
 {% extends 'home/base.html' %}
 {% load i18n %}
 {% load django_bootstrap5 %}
-{% block bootstrap5_title %}Contact{% endblock %}
+{% block bootstrap5_title %}
+{% translate "Contact form" %}
+{% endblock %}
 {% block content %}
-<div class="container text-justify">
-    <div class="row">
-        <div class="col-8">
-            <h3 class="fw-bolder">{% translate "Contact form" %}</h3>
-            <div class="hr-separator"></div>
-            <form id="contact_form" action="{% url 'contact' %}" method="post">
-                {% csrf_token %}
-                <div class="row">
-                    <div class="col-4 required-field">
-                        {% bootstrap_field form.lastname show_label=False placeholder=_("Name") %}
-                    </div>
-                    <div class="col-4 required-field">
-                        {% bootstrap_field form.firstname show_label=False placeholder=_("Firstname") %}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-4 required-field">
-                        {% bootstrap_field form.email show_label=False placeholder=_("Email") %}
-                    </div>
-                    <div class="col-4 required-field">
-                        {% bootstrap_field form.phone show_label=False placeholder=_("Phone") %}
-                    </div>
-                </div>
-                <div class="col-8 required-field">
-                    {% bootstrap_field form.message show_label=False placeholder=_("Message") %}
-                </div>
-                <div class="col-8 required-field">
-                    {% bootstrap_field form.captcha show_label=False placeholder=_("Captcha") %}
-                    <div class="d-flex d-inline form-check form-switch ps-0">
-                        {% translate "I agree that my personal data may be used for communication purposes." as translated_label %}
-                        {% bootstrap_label translated_label label_class="pe-4" %}
-                        {% bootstrap_field form.terms_accepted show_label=False%}
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary ms-3" >{% translate "Send" %} </button>
-            </form>
-        </div>
-        <div class="col">
-            <h3 class="fw-bolder">{% translate "Address" %}</h3>
-            <div class="hr-separator"></div><br>
-            <h6 class="fw-bolder">{{regulator.name}}</h6>
+<div class="container-flex text-justify pb-5">
+  <div class="row">
+    <div class="col-8 px-3">
+      <h3 class="fw-bolder">
+        {% translate "Contact form" %}
+      </h3>
+      <div class="hr-separator"></div>
+      <div class="pt-5">
+        <form id="contact_form" action="{% url 'contact' %}" method="post"
+          class="card bg-light border-0 shadow rounded">
+          {% csrf_token %}
+          <div class="card-body p-5 pb-2">
             <p>
-                {{regulator.street}}<br>{{regulator.zip_code}} {{regulator.city}} 
+              {% translate "Fields marked with an asterisk (*) are mandatory." %}
             </p>
-            <h6 class="fw-bolder">{% translate "Postal address" %}</h6>
-            <p>
-                {{regulator.mail_zip_code}}<br>{{regulator.mail_city}}
-            </p>
-            <br>
-            <p>
-                {% translate "Tel.:" %} {{regulator.phone}}<br>
-                {% translate "Email:" %} {{regulator.contact_email}}
-            </p>
-        </div>
-
+            <div class="row">
+              <div class="col">
+                {% bootstrap_field form.lastname show_label=False placeholder=_("Name")|add:" *" %}
+              </div>
+              <div class="col">
+                {% bootstrap_field form.firstname show_label=False placeholder=_("Firstname")|add:" *" %}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                {% bootstrap_field form.email show_label=False placeholder=_("Email")|add:" *" %}
+              </div>
+              <div class="col">
+                {% bootstrap_field form.phone show_label=False placeholder=_("Phone") %}
+              </div>
+            </div>
+            <div class="col">
+              {% bootstrap_field form.message show_label=False placeholder=_("Message")|add:" *" %}
+            </div>
+            <div class="col">
+              {% bootstrap_field form.captcha show_label=False placeholder=_("Captcha")|add:" *" wrapper_class="mb-3 d-flex" %}
+            </div>
+            <div class="col d-flex d-inline form-check ps-0">
+              {% translate "I agree that my personal data may be used for communication purposes." as translated_label %}
+              {% bootstrap_field form.terms_accepted show_label=False%}
+              {% bootstrap_label translated_label label_class="pe-4" %}
+            </div>
+          </div>
+          <div class="flex-grow-1 px-5" style="transform: translateY(50%);">
+            <button type="submit" class="btn btn-primary ms-3">
+              {% translate "Send" %}
+              <i class="bi bi-chevron-right"></i>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-    <br />
+    <div class="col-4 px-5">
+      <h3 class="fw-bolder">
+        {% translate "Address" %}
+      </h3>
+      <div class="hr-separator"></div>
+      <div class="pt-5">
+        <h6 class="fw-bolder">{{regulator.name}}</h6>
+        <p>
+          {{regulator.street}}<br>{{regulator.zip_code}} {{regulator.city}}
+        </p>
+        <h6 class="fw-bolder">{% translate "Postal address" %}</h6>
+        <p>
+          {{regulator.mail_zip_code}} {{regulator.mail_city}}
+        </p>
+        <ul class="list-unstyled">
+          <li>{% translate "Tel.:" %} {{regulator.phone}}</li>
+          <li>{% translate "Email:" %} {{regulator.contact_email}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
