@@ -4,3 +4,13 @@
 .logo-container > img {
     width: 60px;
 }
+.footer-link {
+    color: white;
+    font-weight: bold;
+}
+.prefooter-logo-container {
+    height: 45px;
+}
+.prefooter-logo-container > img {
+    width: 150px;
+}
