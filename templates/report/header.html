@@ -2,15 +2,14 @@
 
 <div id="header" class="doc-references">
     <div class="d-flex justify-content-between">
-        <div class="d-inline-flex small">
-            <img class="text-center"
-            src="file:{{ static_theme_dir }}/images/only_logo.svg"
-            style="width: 30px;">
-            <span class="text-primary fw-bold fs-6 ps-2">|</span>
-            <div class="text-primary fw-bold text-uppercase fs-6 ps-2"">{% translate "Report" %}</div>
-            <div class="text-primary fs-6 ps-2"">{% now "d M Y" %}</div>
+        <div class="d-inline-flex">
+            <img src="file:{{ static_theme_dir }}/images/only_logo.svg"
+            style="width: 18px;">
+            <span class="text-primary fw-bold ps-2">|</span>
+            <div class="text-primary fw-bold text-uppercase ps-2">{% translate "Report" %}</div>
+            <div class="text-primary ps-2">{% now "d M Y" %}</div>
         </div>
-        <div class="h6">
+        <div>
             <span class="fw-bold">
                 {% translate "Ref" %}:
             </span>

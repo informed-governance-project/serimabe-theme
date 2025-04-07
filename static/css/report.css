@@ -60,12 +60,14 @@ body {
     position: running(header);
     margin-bottom: -50px;
     padding-bottom: 5px;
+    font-size: 14px !important;
 }
 
 #footer {
     position: running(footer);
     margin-top: -50px;
     padding-top: 5px;
+    font-size: 14px !important;
 }
 
 .page-number:before {
