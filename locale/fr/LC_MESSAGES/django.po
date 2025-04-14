@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-07 15:22+0200\n"
+"POT-Creation-Date: 2025-04-14 09:52+0200\n"
 "PO-Revision-Date: 2025-04-07 15:55+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -132,19 +132,19 @@ msgstr "Tél.:"
 msgid "Email:"
 msgstr "Email:"
 
-#: theme/templates/home/terms.html:7 theme/templates/home/terms.html:18
+#: theme/templates/home/terms.html:7
 msgid "Terms of use"
 msgstr "Conditions générales d'utilisation"
 
-#: theme/templates/home/terms.html:19
+#: theme/templates/home/terms.html:18
 msgid "Terms of use of the SERIMA platform"
 msgstr "Conditions d’utilisation de la plateforme SERIMA"
 
-#: theme/templates/home/terms.html:19 theme/templates/parts/footer.html:16
+#: theme/templates/home/terms.html:18 theme/templates/parts/footer.html:16
 msgid "Version"
 msgstr "Version"
 
-#: theme/templates/home/terms.html:25
+#: theme/templates/home/terms.html:24
 msgid ""
 "Attention: These Terms of Use have been translated from their original "
 "French version for information purposes only. Only the French version is "
@@ -154,18 +154,18 @@ msgstr ""
 "French version for information purposes only. Only the French version is "
 "legally binding."
 
-#: theme/templates/home/terms.html:36
+#: theme/templates/home/terms.html:35
 msgid "Definitions"
 msgstr "Définitions"
 
-#: theme/templates/home/terms.html:40
+#: theme/templates/home/terms.html:39
 msgid ""
 "\"Terms of Use\": means these Terms of Use relating to the use of SERIMA."
 msgstr ""
 "« Conditions d’utilisation » : signifie les présentes conditions "
 "d’utilisation relatives à l’utilisation de SERIMA."
 
-#: theme/templates/home/terms.html:45
+#: theme/templates/home/terms.html:44
 msgid ""
 "\"SERIMA\": SERIMA is an IT platform designed to integrate different "
 "Modules, with the aim of ultimately forming a cybersecurity platform, "
@@ -182,7 +182,7 @@ msgstr ""
 "Observateurs. Cette plateforme configurable est multi-régulateur et multi-"
 "régulation."
 
-#: theme/templates/home/terms.html:54
+#: theme/templates/home/terms.html:53
 msgid ""
 "\"SERIMA Instance\": an area of the SERIMA platform reserved and dedicated "
 "to an Operator, a Regulator or an Observer."
@@ -190,7 +190,7 @@ msgstr ""
 "« Instance SERIMA » : espace de la plateforme SERIMA réservé et dédié à un "
 "Opérateur, un Régulateur ou un Observateur."
 
-#: theme/templates/home/terms.html:60
+#: theme/templates/home/terms.html:59
 msgid ""
 "\"Platform Administrator\": natural or legal person responsible for "
 "configuring the Rules of Law, the Types of Operator and the Modules "
@@ -202,7 +202,7 @@ msgstr ""
 "d’opérateurs et les Modules disponibles sur la plateforme, ainsi que les "
 "Régulateurs et les Observateurs utilisant cette plateforme."
 
-#: theme/templates/home/terms.html:67
+#: theme/templates/home/terms.html:66
 msgid ""
 "\"Rule of Law\" means any legal text assigning to Regulators and Observers "
 "their duties or defining those duties, including NIS 1, the 2021 Law, NIS 2, "
@@ -212,7 +212,7 @@ msgstr ""
 "Observateurs leurs missions ou définissant ces missions, notamment la NIS 1, "
 "la Loi de 2021, la NIS 2, la CER et le RGPD."
 
-#: theme/templates/home/terms.html:74
+#: theme/templates/home/terms.html:73
 msgid ""
 "\"NIS 1\": means Directive (EU) 2016/1148 of the European Parliament and of "
 "the Council of 6 July 2016 on measures intended to ensure a common high "
@@ -236,7 +236,7 @@ msgstr ""
 "la loi du 23 juillet 2016 portant création d’un Haut-Commissariat à la "
 "Protection nationale."
 
-#: theme/templates/home/terms.html:87
+#: theme/templates/home/terms.html:86
 msgid ""
 "\"2021 Law\" means the Law of 17 December 2021 transposing Directive (EU) "
 "2018/1972 of the European Parliament and of the Council of 11 December 2018 "
@@ -253,7 +253,7 @@ msgstr ""
 "la loi modifiée du 22 juin 1963 fixant le régime des traitements des "
 "fonctionnaires de l’État."
 
-#: theme/templates/home/terms.html:97
+#: theme/templates/home/terms.html:96
 msgid ""
 "\"NIS 2\": means Directive (EU) 2022/2555 of the European Parliament and of "
 "the Council of 14 December 2022 on measures to ensure a common high level of "
@@ -268,7 +268,7 @@ msgstr ""
 "la directive (UE) 2016/1148 (directive SRI 2), ainsi que sa loi de "
 "transposition en droit luxembourgeois."
 
-#: theme/templates/home/terms.html:106
+#: theme/templates/home/terms.html:105
 msgid ""
 "\"CER\": means Directive (EU) 2022/2557 of the European Parliament and of "
 "the Council of 14 December 2022 on the resilience of critical entities and "
@@ -280,7 +280,7 @@ msgstr ""
 "abrogeant la directive 2008/114/CE du Conseil, ainsi que sa loi de "
 "transposition en droit luxembourgeois."
 
-#: theme/templates/home/terms.html:113
+#: theme/templates/home/terms.html:112
 msgid ""
 "\"GDPR\": means Regulation (EU) 2016/679 of the European Parliament and of "
 "the Council of 27 April 2016 on the protection of natural persons with "
@@ -293,7 +293,7 @@ msgstr ""
 "circulation de ces données, et abrogeant la directive 95/46/CE (règlement "
 "général sur la protection des données)."
 
-#: theme/templates/home/terms.html:120
+#: theme/templates/home/terms.html:119
 msgid ""
 "\"Personal data\" means any information relating to an identified or "
 "identifiable natural person."
@@ -301,7 +301,7 @@ msgstr ""
 "« Donnée à caractère personnel » : signifie toute information se rapportant "
 "à une personne physique identifiée ou identifiable."
 
-#: theme/templates/home/terms.html:125
+#: theme/templates/home/terms.html:124
 msgid ""
 "\"Processing of personal data\" means any operation or set of operations "
 "which is performed upon personal data or sets of personal data, whether or "
@@ -312,7 +312,7 @@ msgstr ""
 "automatisés et appliquées à des données ou des ensembles de données à "
 "caractère personnel."
 
-#: theme/templates/home/terms.html:131
+#: theme/templates/home/terms.html:130
 msgid ""
 "\"Controller of personal data\": means the natural or legal person who, "
 "alone or jointly with others, determines the purposes and means of the "
@@ -323,7 +323,7 @@ msgstr ""
 "détermine les finalités et les moyens du traitement, c’est-à-dire l’objectif "
 "et la façon de le réaliser."
 
-#: theme/templates/home/terms.html:137
+#: theme/templates/home/terms.html:136
 msgid ""
 "\"Type of Operator\": any characteristic enabling certain Operators to be "
 "grouped into categories. For example: Public Operator or Private Operator."
@@ -332,12 +332,12 @@ msgstr ""
 "certains Opérateurs en catégories. Par exemple : Opérateur public ou "
 "Opérateur privé."
 
-#: theme/templates/home/terms.html:143
+#: theme/templates/home/terms.html:142
 msgid ""
 "\"Module\": any application that is available and can be activated on SERIMA."
 msgstr "« Module » : toute application disponible et activable sur SERIMA."
 
-#: theme/templates/home/terms.html:148
+#: theme/templates/home/terms.html:147
 msgid ""
 "\"User\": any natural person who has access to SERIMA and uses it on behalf "
 "of an Operator, a Regulator or an Observer."
@@ -346,7 +346,7 @@ msgstr ""
 "fait usage au nom et pour le compte soit d’un Opérateur, soit d’un "
 "Régulateur, soit d’un Observateur."
 
-#: theme/templates/home/terms.html:154
+#: theme/templates/home/terms.html:153
 msgid ""
 "\"Regulator\": a public body designated as responsible for supervision under "
 "one or more Rules of Law, in particular the ILR, the CSSF, the CNPD and the "
@@ -356,26 +356,26 @@ msgstr ""
 "supervision dans le cadre d’une ou de plusieurs Règles de droit, notamment "
 "l’ILR, la CSSF, la CNPD et le HCPN."
 
-#: theme/templates/home/terms.html:160
+#: theme/templates/home/terms.html:159
 msgid "\"ILR\" : means the Institut Luxembourgeois de Régulation."
 msgstr "« ILR » : signifie l’Institut Luxembourgeois de Régulation."
 
-#: theme/templates/home/terms.html:165
+#: theme/templates/home/terms.html:164
 msgid "\"CSSF\": means the Commission de Surveillance du Secteur Financier."
 msgstr ""
 "« CSSF » : signifie la Commission de Surveillance du Secteur Financier."
 
-#: theme/templates/home/terms.html:170
+#: theme/templates/home/terms.html:169
 msgid "\"HCPN\": means the Haut-Commissariat à la protection nationale."
 msgstr "« HCPN » : signifie le Haut-Commissariat à la protection nationale."
 
-#: theme/templates/home/terms.html:175
+#: theme/templates/home/terms.html:174
 msgid ""
 "\"CNPD\": means the Commission nationale pour la protection des données."
 msgstr ""
 "« CNPD » : signifie la Commission nationale pour la protection des données."
 
-#: theme/templates/home/terms.html:180
+#: theme/templates/home/terms.html:179
 msgid ""
 "\"Regulator Administrator\": any natural person belonging to a Regulator "
 "whose main responsibilities are to manage the Users belonging to that "
@@ -390,7 +390,7 @@ msgstr ""
 "ailleurs une vue globale sur les informations et documents appartenant ou "
 "transmis à ce Régulateur."
 
-#: theme/templates/home/terms.html:188
+#: theme/templates/home/terms.html:187
 msgid ""
 "\"Regulator User\": any natural person belonging to a Regulator and whose "
 "main responsibilities are to manage the Operators under the supervision of "
@@ -402,7 +402,7 @@ msgstr ""
 "Opérateurs sous la supervision du Régulateur et les documents ou "
 "informations lui soumises par les Opérateurs."
 
-#: theme/templates/home/terms.html:195
+#: theme/templates/home/terms.html:194
 msgid ""
 "\"Operator\": any natural or legal person under the supervision of a "
 "Regulator."
@@ -410,7 +410,7 @@ msgstr ""
 "« Opérateur » : toute personne physique ou morale tombant sous la "
 "supervision d’un Régulateur."
 
-#: theme/templates/home/terms.html:200
+#: theme/templates/home/terms.html:199
 msgid ""
 "\"Operator Administrator\": any natural person belonging to an Operator "
 "whose main responsibilities are to manage Users belonging to this Operator. "
@@ -425,7 +425,7 @@ msgstr ""
 "Il est créé, soit par l’Opérateur administrateur principal, soit par un "
 "autre Opérateur administrateur."
 
-#: theme/templates/home/terms.html:208
+#: theme/templates/home/terms.html:207
 msgid ""
 "\"Main Operator Administrator \": the first Operator Administrator of an "
 "Operator. It is created by the Regulator."
@@ -433,7 +433,7 @@ msgstr ""
 "« Opérateur administrateur principal » : le premier Opérateur administrateur "
 "d’un Opérateur. Il est créé par le Régulateur."
 
-#: theme/templates/home/terms.html:214
+#: theme/templates/home/terms.html:213
 msgid ""
 "\"Operator User\": any natural person belonging to an Operator whose main "
 "responsibilities are to produce and manage the information and documents to "
@@ -443,7 +443,7 @@ msgstr ""
 "Opérateur et ayant comme responsabilités principales de produire et gérer "
 "les informations et documents à transmettre au Régulateur."
 
-#: theme/templates/home/terms.html:220
+#: theme/templates/home/terms.html:219
 msgid ""
 "\"Observer\": any natural or legal person to whom information may be "
 "transmitted for the performance of its duties, in accordance with a Rule of "
@@ -461,12 +461,12 @@ msgstr ""
 "informatique « CIRCL » et « GOVCERT.LU », ainsi que le point de contact "
 "unique de la NIS 2 du Grand-Duché de Luxembourg."
 
-#: theme/templates/home/terms.html:230
+#: theme/templates/home/terms.html:229
 msgid "Scope, purpose and changes to the Terms of Use"
 msgstr ""
 "Champ d’application, objet et modifications des Conditions d’utilisation"
 
-#: theme/templates/home/terms.html:234
+#: theme/templates/home/terms.html:233
 msgid ""
 "ILR and the other Regulators provide Operators with a platform called "
 "SERIMA, which enables Operators to submit various documents and information "
@@ -487,7 +487,7 @@ msgstr ""
 "Régulateur concerné peut en faire la revue et échanger avec les Opérateurs "
 "sous sa supervision."
 
-#: theme/templates/home/terms.html:248
+#: theme/templates/home/terms.html:247
 msgid ""
 "When SERIMA is used for the first time, all Operators, Regulators, Observers "
 "and Users are deemed to have read the Terms of Use and to have accepted them "
@@ -498,7 +498,7 @@ msgstr ""
 "des Conditions d’utilisation et les avoir acceptées dans leur intégralité et "
 "sans réserve."
 
-#: theme/templates/home/terms.html:254
+#: theme/templates/home/terms.html:253
 msgid ""
 "ILR reserves the right to modify the Terms of Use at any time. ILR will "
 "inform Users of any changes to the Terms of Use."
@@ -507,11 +507,11 @@ msgstr ""
 "moment. L’ILR informera les Utilisateurs de tout changement des Conditions "
 "d’utilisation."
 
-#: theme/templates/home/terms.html:262
+#: theme/templates/home/terms.html:261
 msgid "Description of SERIMA"
 msgstr "Description de SERIMA"
 
-#: theme/templates/home/terms.html:266
+#: theme/templates/home/terms.html:265
 msgid ""
 "SERIMA allows the User, subject to technical constraints, the rights granted "
 "and without prejudice to future developments of SERIMA, to have access to "
@@ -521,15 +521,15 @@ msgstr ""
 "droits accordés et sans préjudice d’évolution future de SERIMA, d’avoir "
 "accès aux Modules suivants:"
 
-#: theme/templates/home/terms.html:274
+#: theme/templates/home/terms.html:273
 msgid "incident notification and follow-up of incident notifications ;"
 msgstr "la notification et le suivi des notifications d’incidents ;"
 
-#: theme/templates/home/terms.html:279
+#: theme/templates/home/terms.html:278
 msgid "carrying out, submitting and reviewing risk analyses;"
 msgstr "la réalisation, la soumission et la revue d’analyses de risques ;"
 
-#: theme/templates/home/terms.html:284
+#: theme/templates/home/terms.html:283
 msgid ""
 "carrying out, submitting and reviewing the self-assessment of safety "
 "objectives."
@@ -537,7 +537,7 @@ msgstr ""
 "la réalisation, la soumission et la revue de l’autoévaluation des objectifs "
 "de sécurité."
 
-#: theme/templates/home/terms.html:290
+#: theme/templates/home/terms.html:289
 msgid ""
 "SERIMA is a multi-regulator and multi-regulation platform, which means that "
 "the Operator will be able to make legal notifications to the various "
@@ -550,7 +550,7 @@ msgstr ""
 "remplissant ainsi ses obligations légales de notification qui lui sont "
 "imposées par le cadre légal applicable."
 
-#: theme/templates/home/terms.html:297
+#: theme/templates/home/terms.html:296
 msgid ""
 "The documents and information available on an Operator's SERIMA Instance "
 "belong to the Operator and the Operator assumes full responsibility for them."
@@ -558,7 +558,7 @@ msgstr ""
 "Les documents et informations disponibles sur l’Instance SERIMA d’un "
 "Opérateur lui appartiennent et il en assume l’entière responsabilité."
 
-#: theme/templates/home/terms.html:304
+#: theme/templates/home/terms.html:303
 msgid ""
 "Any Regulator has access to the list of Users of the platform and to the "
 "information or documents that an Operator has notified to it."
@@ -566,7 +566,7 @@ msgstr ""
 "Tout Régulateur a accès à la liste des Utilisateurs de la plateforme et aux "
 "informations ou documents qu’un Opérateur lui a notifiés."
 
-#: theme/templates/home/terms.html:310
+#: theme/templates/home/terms.html:309
 msgid ""
 "The Observer has access to incident notifications relating to Operators for "
 "which the Observer is responsible."
@@ -574,11 +574,11 @@ msgstr ""
 "L’Observateur a accès aux notifications d’incident relatives aux Opérateurs "
 "pour lesquels il est compétent."
 
-#: theme/templates/home/terms.html:316
+#: theme/templates/home/terms.html:315
 msgid "Access to SERIMA"
 msgstr "Accès à SERIMA"
 
-#: theme/templates/home/terms.html:320
+#: theme/templates/home/terms.html:319
 msgid ""
 "In order to access SERIMA and use the SERIMA platform, the User must have an "
 "Internet connection. All costs incurred for accessing SERIMA (e.g. computer "
@@ -589,7 +589,7 @@ msgstr ""
 "engendrés par l’accès à SERIMA (par exemple : matériel informatique, "
 "connexion Internet) sont à la charge de l’Utilisateur."
 
-#: theme/templates/home/terms.html:326
+#: theme/templates/home/terms.html:325
 msgid ""
 "Operators whose organisation does not yet have access to SERIMA should "
 "submit their access request to the relevant Regulator. For ILR, the e-mail "
@@ -601,7 +601,7 @@ msgstr ""
 "l’adresse électronique à utiliser est serima@ilr.lu, et les informations "
 "suivantes doivent être indiquées :"
 
-#: theme/templates/home/terms.html:335
+#: theme/templates/home/terms.html:334
 msgid ""
 "the reasons for the request, i.e. the legal framework to which the Operator "
 "is subject;"
@@ -609,11 +609,11 @@ msgstr ""
 "la motivation de sa demande, c’est-à-dire le cadre légal auquel il est "
 "soumis ;"
 
-#: theme/templates/home/terms.html:340
+#: theme/templates/home/terms.html:339
 msgid "the official name of the organisation;"
 msgstr "la désignation officielle de son organisation ;"
 
-#: theme/templates/home/terms.html:345
+#: theme/templates/home/terms.html:344
 msgid ""
 "the surname, first name and e-mail address of the person who is to become "
 "the Operator's main administrator of the Operator's SERIMA Instance."
@@ -621,7 +621,7 @@ msgstr ""
 "le nom, prénom, adresse électronique de la personne appelée à devenir "
 "l’Opérateur administrateur principal de l’Instance SERIMA de l’Opérateur."
 
-#: theme/templates/home/terms.html:353
+#: theme/templates/home/terms.html:352
 msgid ""
 "The competent Regulator may request any information necessary to identify "
 "the Operator, as well as the persons acting as Main Operator Administrator "
@@ -632,7 +632,7 @@ msgstr ""
 "qu’Opérateur administrateur principal ou ayant des droits sur la plateforme "
 "SERIMA."
 
-#: theme/templates/home/terms.html:359
+#: theme/templates/home/terms.html:358
 msgid ""
 "Access authorisation will be communicated by the relevant Regulator in "
 "writing."
@@ -640,7 +640,7 @@ msgstr ""
 "L’autorisation d’accès sera communiquée par le Régulateur compétent par "
 "écrit."
 
-#: theme/templates/home/terms.html:364
+#: theme/templates/home/terms.html:363
 msgid ""
 "The relevant Regulator may refuse access to SERIMA in the event of an "
 "incomplete application or failure to comply with requests for additional "
@@ -650,7 +650,7 @@ msgstr ""
 "incomplète ou non-respect des demandes d’informations supplémentaires ou "
 "pour toute autre raison basée sur une évaluation des risques de sécurité."
 
-#: theme/templates/home/terms.html:371
+#: theme/templates/home/terms.html:370
 msgid ""
 "When access is authorised, SERIMA allows the Operator to access the platform "
 "using their e-mail address, a password and a one-time code (OTP) (secure two-"
@@ -660,7 +660,7 @@ msgstr ""
 "plateforme avec son adresse électronique, un mot de passe et un code à usage "
 "unique (OTP) (authentification sécurisée à double facteurs)."
 
-#: theme/templates/home/terms.html:377
+#: theme/templates/home/terms.html:376
 msgid ""
 "SERIMA access information is strictly personal. The User shall under no "
 "circumstances pass on his/her access information to a third party and shall "
@@ -671,7 +671,7 @@ msgstr ""
 "tierce personne et informera le Régulateur compétent de toute utilisation ou "
 "suspicion d’utilisation non autorisée."
 
-#: theme/templates/home/terms.html:384
+#: theme/templates/home/terms.html:383
 msgid ""
 "The User shall immediately inform the relevant Regulator of any change in "
 "the information provided at the time of its initial request for access to "
@@ -681,7 +681,7 @@ msgstr ""
 "modification des informations fournies lors de sa demande initiale d’accès à "
 "SERIMA."
 
-#: theme/templates/home/terms.html:391
+#: theme/templates/home/terms.html:390
 msgid ""
 "The Regulators may not be held liable for damages of any nature whatsoever "
 "resulting from a breach by the User of the obligations resulting from the "
@@ -691,7 +691,7 @@ msgstr ""
 "nature qu’ils soient, résultant d’un manquement de l’Utilisateur aux "
 "obligations résultant des paragraphes précédents."
 
-#: theme/templates/home/terms.html:398
+#: theme/templates/home/terms.html:397
 msgid ""
 "The Main Operator Administrator is responsible for managing access for "
 "members of his organisation."
@@ -699,7 +699,7 @@ msgstr ""
 "L’Opérateur administrateur principal est responsable de la gestion des accès "
 "des membres de son organisation."
 
-#: theme/templates/home/terms.html:403
+#: theme/templates/home/terms.html:402
 msgid ""
 "The Regulator Administrator is responsible for managing access for members "
 "of his organisation."
@@ -707,7 +707,7 @@ msgstr ""
 "Le Régulateur administrateur est responsable de la gestion des accès des "
 "membres de son organisation."
 
-#: theme/templates/home/terms.html:408
+#: theme/templates/home/terms.html:407
 msgid ""
 "The competent Regulator reserves the right to suspend or even withdraw "
 "access to SERIMA, without prior notice or compensation of any kind, from any "
@@ -721,11 +721,11 @@ msgstr ""
 "illicite ou mettant en danger la sécurité des informations. La suppression "
 "de l’accès peut entraîner la suppression des données de l’Instance SERIMA."
 
-#: theme/templates/home/terms.html:419
+#: theme/templates/home/terms.html:418
 msgid "Using SERIMA"
 msgstr "Utilisation de SERIMA"
 
-#: theme/templates/home/terms.html:423
+#: theme/templates/home/terms.html:422
 msgid ""
 "The User uses SERIMA at his or her own risk and under his or her sole "
 "responsibility. In particular, they must protect themselves against the "
@@ -737,7 +737,7 @@ msgstr ""
 "piraterie informatique en adoptant une configuration informatique adaptée et "
 "sécurisée et un comportement diligent."
 
-#: theme/templates/home/terms.html:430
+#: theme/templates/home/terms.html:429
 msgid ""
 "No information classified under Luxembourg law or any other law shall be "
 "entered or transmitted on SERIMA."
@@ -745,7 +745,7 @@ msgstr ""
 "Aucune information classifiée selon le droit luxembourgeois ou tout autre "
 "droit ne devra être renseignée ou transmise sur SERIMA."
 
-#: theme/templates/home/terms.html:435
+#: theme/templates/home/terms.html:434
 msgid ""
 "The Operators shall be solely responsible for the data they enter on SERIMA "
 "and shall ensure that such data complies with the legislation in force. "
@@ -771,7 +771,7 @@ msgstr ""
 "électronique générique peut être utilisée en lieu et place d’une adresse "
 "électronique nominative."
 
-#: theme/templates/home/terms.html:447
+#: theme/templates/home/terms.html:446
 msgid ""
 "Risk analyses notified to the Regulators are kept for 10 years and are then "
 "permanently deleted. Incident notifications notified to the Regulators are "
@@ -783,7 +783,7 @@ msgstr ""
 "aux Régulateurs sont accessibles aux Régulateurs et Observateurs concernés, "
 "conservées pendant 10 ans, puis supprimées définitivement."
 
-#: theme/templates/home/terms.html:455
+#: theme/templates/home/terms.html:454
 msgid ""
 "SERIMA may contain links to external sites. The Regulators do not "
 "systematically check the content of these external sites. They cannot "
@@ -796,7 +796,7 @@ msgstr ""
 "sites Internet et ce, que ce soit au niveau de leur légalité ou de "
 "l'exactitude des informations y renseignés."
 
-#: theme/templates/home/terms.html:463
+#: theme/templates/home/terms.html:462
 msgid ""
 "SERIMA uses client cookies, which are small text files necessary for its "
 "proper functioning (for example: one for the theme: light/dark (kept for the "
@@ -831,11 +831,11 @@ msgstr ""
 "l'Utilisateur de régler le navigateur de manière que les cookies de SERIMA "
 "soient acceptés."
 
-#: theme/templates/home/terms.html:478
+#: theme/templates/home/terms.html:477
 msgid "Rights, obligations and responsibilities of the User"
 msgstr "Droits, obligations et responsabilités de l’Utilisateur"
 
-#: theme/templates/home/terms.html:482
+#: theme/templates/home/terms.html:481
 msgid ""
 "The User undertakes to use SERIMA in accordance with the Terms of Use and "
 "the legal framework in force."
@@ -843,15 +843,15 @@ msgstr ""
 "L’Utilisateur s’engage à utiliser SERIMA conformément aux Conditions "
 "d’utilisation et au cadre légal en vigueur."
 
-#: theme/templates/home/terms.html:488
+#: theme/templates/home/terms.html:487
 msgid "Rights, obligations and responsibilities of Regulators"
 msgstr "Droits, obligations et responsabilités des Régulateurs"
 
-#: theme/templates/home/terms.html:492
+#: theme/templates/home/terms.html:491
 msgid "Each Regulator is responsible for the Operators under his supervision."
 msgstr "Chaque Régulateur est responsable des Opérateurs sous sa supervision."
 
-#: theme/templates/home/terms.html:497
+#: theme/templates/home/terms.html:496
 msgid ""
 "Each Regulator is aware that SERIMA is a multi-operator platform. Therefore, "
 "each Regulator has access to the list of Operators using SERIMA, so that "
@@ -867,11 +867,11 @@ msgstr ""
 "les Opérateurs et les données disponibles sur la plateforme avec précaution, "
 "pour ne pas entrainer de conséquences négatives pour tout autre Régulateur."
 
-#: theme/templates/home/terms.html:507
+#: theme/templates/home/terms.html:506
 msgid "Rights, obligations and responsibilities of the ILR"
 msgstr "Droits, obligations et responsabilités de l’ILR"
 
-#: theme/templates/home/terms.html:511
+#: theme/templates/home/terms.html:510
 msgid ""
 "The ILR shall use its best efforts to ensure maximum availability of SERIMA. "
 "However, the permanent availability of SERIMA cannot be guaranteed and ILR "
@@ -883,7 +883,7 @@ msgstr ""
 "responsabilité de l’ILR ne saurait être retenue en cas d’indisponibilité "
 "momentanée ou totale de SERIMA."
 
-#: theme/templates/home/terms.html:519
+#: theme/templates/home/terms.html:518
 msgid ""
 "In particular, availability may be partially or totally affected in the "
 "event of force majeure or the occurrence of an event beyond ILR's control, "
@@ -893,15 +893,15 @@ msgstr ""
 "cas de force majeure ou de survenance d'un évènement hors contrôle de l’ILR "
 "ou en raison d’interventions du fait :"
 
-#: theme/templates/home/terms.html:527
+#: theme/templates/home/terms.html:526
 msgid "maintenance operations ;"
 msgstr "d’opérations de maintenance ;"
 
-#: theme/templates/home/terms.html:532
+#: theme/templates/home/terms.html:531
 msgid "updates ;"
 msgstr "de mises à jour ;"
 
-#: theme/templates/home/terms.html:537
+#: theme/templates/home/terms.html:536
 msgid ""
 "technical improvements or changes to the content and/or presentation of "
 "SERIMA ;"
@@ -909,15 +909,15 @@ msgstr ""
 "d’améliorations techniques ou pour faire évoluer le contenu et/ou la "
 "présentation de SERIMA ;"
 
-#: theme/templates/home/terms.html:542
+#: theme/templates/home/terms.html:541
 msgid "interventions for safety reasons;"
 msgstr "de raisons de sécurité ;"
 
-#: theme/templates/home/terms.html:547
+#: theme/templates/home/terms.html:546
 msgid "any other reason that the ILR deems necessary."
 msgstr "de tout autre motif que l’ILR juge nécessaire."
 
-#: theme/templates/home/terms.html:553
+#: theme/templates/home/terms.html:552
 msgid ""
 "In the event of SERIMA being unavailable or of any malfunction, the User may "
 "contact ILR via the dedicated e-mail addresses : <a href=\"mailto:"
@@ -932,7 +932,7 @@ msgstr ""
 "Module de notification d’incidents et <a href=\"mailto:serima@ilr."
 "lu\">serima@ilr.lu</a> pour tout autre Module."
 
-#: theme/templates/home/terms.html:561
+#: theme/templates/home/terms.html:560
 msgid ""
 "The ILR expressly reserves the right to modify, supplement or even delete "
 "parts of SERIMA without prior notice or justification, if it considers this "
@@ -947,11 +947,11 @@ msgstr ""
 "SERIMA de façon temporaire ou définitive (par exemple en cas de modification "
 "législative)."
 
-#: theme/templates/home/terms.html:568
+#: theme/templates/home/terms.html:567
 msgid "The ILR will do its utmost to ensure the security of the IT system."
 msgstr "L’ILR assurera au mieux la sécurité du système informatique."
 
-#: theme/templates/home/terms.html:573
+#: theme/templates/home/terms.html:572
 msgid ""
 "The ILR shall not be liable for any material and/or immaterial damage "
 "resulting from the use of SERIMA, from the use or non-use of information "
@@ -972,7 +972,7 @@ msgstr ""
 "modification de la loi modifiée du 22 juin 1963 fixant le régime des "
 "traitements des fonctionnaires de l’État qui dispose expressément que:"
 
-#: theme/templates/home/terms.html:582
+#: theme/templates/home/terms.html:581
 msgid ""
 "In order for the Institute to be held liable for individual damage suffered "
 "by supervised operators or professionals, their clients or third parties, it "
@@ -987,11 +987,11 @@ msgstr ""
 "l’application des moyens mis en œuvre pour l’accomplissement de la mission "
 "de service public de l’Institut."
 
-#: theme/templates/home/terms.html:591
+#: theme/templates/home/terms.html:590
 msgid "Intellectual property"
 msgstr "Propriété intellectuelle"
 
-#: theme/templates/home/terms.html:595
+#: theme/templates/home/terms.html:594
 msgid ""
 "All content and all elements included on SERIMA, including, but not limited "
 "to, the Regulators' trademarks and logos, graphic illustrations or texts, "
@@ -1009,19 +1009,19 @@ msgstr ""
 "utilisation requiert l’autorisation préalable du titulaire de droits (par "
 "exemple : ILR, Régulateur concerné, auteur)."
 
-#: theme/templates/home/terms.html:606
+#: theme/templates/home/terms.html:605
 msgid "SERIMA's source code is shared under the"
 msgstr "Le code source de SERIMA est partagé sous la licence libre"
 
-#: theme/templates/home/terms.html:613
+#: theme/templates/home/terms.html:612
 msgid "The use of SERIMA is free of charge."
 msgstr "L’utilisation de SERIMA est gratuite."
 
-#: theme/templates/home/terms.html:619
+#: theme/templates/home/terms.html:618
 msgid "Protection of personal data"
 msgstr "Protection des données personnelles"
 
-#: theme/templates/home/terms.html:623
+#: theme/templates/home/terms.html:622
 msgid ""
 "Each Regulator is the Controller of personal data for the personal data it "
 "processes."
@@ -1029,7 +1029,7 @@ msgstr ""
 "Chaque Régulateur est le Responsable de traitement de données à caractère "
 "personnel des traitements effectués par lui."
 
-#: theme/templates/home/terms.html:628
+#: theme/templates/home/terms.html:627
 msgid ""
 "When using SERIMA, personal data is processed. Specifically, this concerns "
 "the following data: User contact information (for example: identifier, "
@@ -1047,7 +1047,7 @@ msgstr ""
 "informatique), données liées aux fichiers de journalisation comme décrit "
 "dans le paragraphe 10.5. ci-dessous."
 
-#: theme/templates/home/terms.html:638
+#: theme/templates/home/terms.html:637
 msgid ""
 "Personal data is processed in accordance with the GDPR. The User's data is "
 "recorded and processed by the Regulator concerned solely for the purposes of "
@@ -1067,7 +1067,7 @@ msgstr ""
 "risques et des déclarations relatives à leurs mesures de sécurité mises en "
 "place."
 
-#: theme/templates/home/terms.html:649
+#: theme/templates/home/terms.html:648
 msgid ""
 "The provision of SERIMA contributes to the fulfilment of the legal missions "
 "conferred on Regulators and Observers under the Rules of Law."
@@ -1076,7 +1076,7 @@ msgstr ""
 "légales conférées aux Régulateurs et aux Observateurs selon les Règles de "
 "droit."
 
-#: theme/templates/home/terms.html:655
+#: theme/templates/home/terms.html:654
 msgid ""
 "The User consents to data relating to his/her activity on SERIMA (log files) "
 "(for example: identifier, surname, first name, functionality used, date and "
@@ -1091,7 +1091,7 @@ msgstr ""
 "des traitements de données à caractère personnel respectif ou aux autorités "
 "judiciaires dans les cas limitatifs suivants :"
 
-#: theme/templates/home/terms.html:665
+#: theme/templates/home/terms.html:664
 msgid ""
 "to resolve security incidents relating to SERIMA, in the legitimate interest "
 "of guaranteeing the security of SERIMA;"
@@ -1099,7 +1099,7 @@ msgstr ""
 "de résolution d’incident de sécurité lié à SERIMA et ceci dans l’intérêt "
 "légitime de garantir la sécurité de SERIMA ;"
 
-#: theme/templates/home/terms.html:671
+#: theme/templates/home/terms.html:670
 msgid ""
 "the establishment, exercise or defence of a legal right, in the context of "
 "judicial, administrative or extrajudicial proceedings."
@@ -1107,7 +1107,7 @@ msgstr ""
 "de la constatation, de l'exercice ou de la défense d'un droit en justice, "
 "dans le cadre d'une procédure judiciaire, administrative ou extrajudiciaire."
 
-#: theme/templates/home/terms.html:678
+#: theme/templates/home/terms.html:677
 msgid ""
 "By providing personal data under its sole responsibility, the Operator "
 "declares and guarantees that it has obtained and will obtain all legally "
@@ -1120,7 +1120,7 @@ msgstr ""
 "personnes concernées par l'utilisation, le traitement et le transfert des "
 "données à caractère personnel."
 
-#: theme/templates/home/terms.html:686
+#: theme/templates/home/terms.html:685
 msgid ""
 "Technical and organisational measures have been put in place to ensure a "
 "high level of data security on SERIMA. These security measures are tested "
@@ -1130,7 +1130,7 @@ msgstr ""
 "d’assurer un niveau élevé de sécurité des données sur SERIMA. Ces mesures de "
 "sécurité sont testées et mises à jour régulièrement."
 
-#: theme/templates/home/terms.html:693
+#: theme/templates/home/terms.html:692
 msgid ""
 "The personal data required to create a SERIMA account is kept for as long as "
 "the account exists. It is permanently deleted when the account in question "
@@ -1141,7 +1141,7 @@ msgstr ""
 "Elles sont définitivement supprimées lorsque le compte en question est "
 "supprimé."
 
-#: theme/templates/home/terms.html:699
+#: theme/templates/home/terms.html:698
 msgid ""
 "Data subjects may assert their rights by contacting the <a href=\"https://"
 "www.ilr.lu/informations-legales/protection-des-donnees/\" target=\"_blank\" "
@@ -1160,11 +1160,11 @@ msgstr ""
 "peuvent introduire une réclamation auprès de la CNPD, via le formulaire "
 "disponible sur son site."
 
-#: theme/templates/home/terms.html:710
+#: theme/templates/home/terms.html:709
 msgid "Transfer of rights"
 msgstr "Cession de droits"
 
-#: theme/templates/home/terms.html:714
+#: theme/templates/home/terms.html:713
 msgid ""
 "The Operator and the User may not assign all or part of their rights and "
 "obligations arising from or in connection with the Terms of Use to third "
@@ -1176,11 +1176,11 @@ msgstr ""
 "d’utilisation à des tierces personnes ou substituer une personne à son "
 "exécution sans l’accord écrit de l’ILR."
 
-#: theme/templates/home/terms.html:723
+#: theme/templates/home/terms.html:722
 msgid "Miscellaneous"
 msgstr "Divers"
 
-#: theme/templates/home/terms.html:727
+#: theme/templates/home/terms.html:726
 msgid ""
 "If, by virtue of a legal provision of public order or mandatory law, one of "
 "the clauses of these Terms of Use is found to be null and/or void and/or "
@@ -1194,7 +1194,7 @@ msgstr ""
 "opposabilité n’affecte pas les autres clauses des présentes Conditions "
 "d’Utilisation qui resteront d’application."
 
-#: theme/templates/home/terms.html:735
+#: theme/templates/home/terms.html:734
 msgid ""
 "For any comments, questions or complaints relating to SERIMA, the User may "
 "contact the ILR via the following e-mail address: <a href=\"mailto:"
@@ -1204,15 +1204,15 @@ msgstr ""
 "l’Utilisateur peut contacter l’ILR par le biais de l’adresse électronique "
 "suivante : <a href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a>."
 
-#: theme/templates/home/terms.html:741
+#: theme/templates/home/terms.html:740
 msgid "Only the French version of the Terms of Use is binding."
 msgstr "Uniquement la version française des Conditions d’utilisation fait foi."
 
-#: theme/templates/home/terms.html:747
+#: theme/templates/home/terms.html:746
 msgid "Applicable law and competent courts"
 msgstr "Droit applicable et juridictions compétentes"
 
-#: theme/templates/home/terms.html:751
+#: theme/templates/home/terms.html:750
 msgid ""
 "The Terms of Use shall be governed by and construed in accordance with the "
 "laws of the Grand Duchy of Luxembourg. Any dispute relating to the Terms of "
@@ -1226,7 +1226,7 @@ msgstr ""
 "liés à la propriété intellectuelle et aux droits d’auteur et droits voisins, "
 "est régis par le droit luxembourgeois."
 
-#: theme/templates/home/terms.html:758
+#: theme/templates/home/terms.html:757
 msgid ""
 "The parties shall endeavour to resolve amicably any claim or dispute which "
 "may arise between them in connection with the Terms of Use and SERIMA."
@@ -1235,7 +1235,7 @@ msgstr ""
 "qui pourrait s’élever entre elles en relation avec les Conditions "
 "d’utilisation et SERIMA."
 
-#: theme/templates/home/terms.html:765
+#: theme/templates/home/terms.html:764
 msgid ""
 "The courts and tribunals of Luxembourg City in the Grand Duchy of Luxembourg "
 "shall have exclusive jurisdiction to hear any dispute concerning or in "
