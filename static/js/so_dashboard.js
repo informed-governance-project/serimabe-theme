@@ -9,10 +9,12 @@ $(document).ready(function () {
     columnDefs: [
       {
         targets: 0,
+        orderable: true,
         type: 'date',
       },
       {
         targets: 1,
+        orderable: true,
         type: 'date',
       },
       {
