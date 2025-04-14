@@ -86,6 +86,13 @@
                 {% endif %}
             </td>
             <td class="col-2 table-group-divider py-3">
+                {% for root_sector in standard.get_no_childrens_sectors %}
+                    <ul class="m-0 p-0 list-sectors">
+                        <span class="fw-bolder">
+                            {{ root_sector.get_safe_translation }}
+                        </span>
+                    </ul>
+                {% endfor %}
                 <ul class="m-0 p-0 list-sectors">
                     {% for root_sector in standard.get_root_sectors %}
                         <span class="fw-bolder">
