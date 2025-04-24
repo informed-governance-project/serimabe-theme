@@ -1,9 +1,10 @@
 {% load i18n %}
-<h2 id="incident_details" class="fw-bold">
+<h2 id="incident_details" class="fw-bold text-primary">
     {% translate "Incident details" %}
 </h2>
+<div class="hr-separator"></div>
 
-<table class="table table-bordered">
+<table class="table table-borderless">
     <tbody>
         <tr>
             <th class="thead-light">
@@ -50,7 +51,9 @@
             </td>
         </tr>
         <tr>
-            <th class="thead-light">
+            <th class="thead-light d-inline-flex">
+                <img class="img-fluid pe-1"
+                src="file:{{ static_theme_dir }}/images/icons/ico-impact.svg">
                 {% translate "Significant impact" %}
             </th>
             <td>

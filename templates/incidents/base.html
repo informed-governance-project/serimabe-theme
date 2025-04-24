@@ -62,39 +62,39 @@
                 {% translate "Legend" %}
             </span>
             <div class="legend-item legend-impact">
-                <i class="logo-report-impact"></i> 
+                <i class="logo-report-impact m-0 h5"></i>
                 {% translate "Impact" %}
             </div>
             <div class="legend-item legend-ongoing">
-                <i class="logo-report-ongoing"></i>
+                <i class="logo-report-ongoing m-0 h5"></i>
                 {% translate "On going" %}
             </div>
             <div class="legend-item legend-closed">
-                <i class="logo-report-closed"></i>
+                <i class="logo-report-closed m-0 h5"></i>
                 {% translate "Closed" %}
             </div>
             <div class="legend-item legend-unsubmitted">
-                <i class="logo-report-unsubmitted"></i> 
+                <i class="logo-report-unsubmitted m-0 h5"></i>
                 {% translate "Unsubmitted" %}
             </div>
             <div class="legend-item legend-under-review">
-                <i class="logo-report-under-review"></i>
+                <i class="logo-report-under-review m-0 h5"></i>
                 {% translate "Under review" %}
             </div>
             <div class="legend-item legend-late-under-review">
-                <i class="logo-report-late-under-review"></i>
-                {% translate "Late submission under review" %}
+                <i class="logo-report-late-under-review m-0 pe-3 h5"></i>
+                {% translate "Late submission" %}
             </div>
             <div class="legend-item legend-submission-overdue">
-                <i class="logo-report-overdue"></i> 
+                <i class="logo-report-overdue m-0 pe-3 h5"></i>
                 {% translate "Submission overdue" %}
             </div>
             <div class="legend-item legend-passed">
-                <i class="logo-report-pass"></i> 
+                <i class="logo-report-pass m-0 h5"></i>
                 {% translate "Passed" %}
             </div>
             <div class="legend-item legend-failed">
-                <i class="logo-report-fail"></i>
+                <i class="logo-report-fail m-0 h5"></i>
                 {% translate "Failed" %}
             </div>
         </div> 
@@ -199,6 +199,13 @@
                 {% endblock %}
             </td>
             <td class="table-group-divider py-3 px-2 list-sectors"> <!-- Sectors -->
+                {% for root_sector in incident.get_no_childrens_sectors %}
+                    <ul class="list-unstyled">
+                        <span class="fw-bolder">
+                            {{ root_sector.get_safe_translation }}
+                        </span>
+                    </ul>
+                {% endfor %}
                 {% for root_sector in incident.get_incident_root_sector %}
                     <span class="fw-bolder">
                         {{ root_sector.get_safe_translation }}

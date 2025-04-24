@@ -1,7 +1,10 @@
 {% load i18n %}
-<h2 id="incident_timeline" class="fw-bold">{% translate "Incident timeline" %}</h2>
+<h2 id="incident_timeline" class="fw-bold text-primary">
+    {% translate "Incident timeline" %}
+</h2>
+<div class="hr-separator"></div>
 
-<table class="table table-sm table-bordered">
+<table class="table table-borderless">
     <tbody>
         <tr>
             <th>{% translate "Time zone" %}</th>
@@ -23,9 +26,12 @@
 </table>
 
 {% if report_list %}
-<h2 id="incident_timeline" class="fw-bold">{% translate "Report Timeline" %}</h2>
+<h2 id="report_timeline" class="fw-bold text-primary">
+    {% translate "Report Timeline" %}
+</h2>
+<div class="hr-separator"></div>
 
-<table class="table table-sm table-bordered">
+<table class="table table-borderless">
     <tbody>
         {% for report in report_list %}
         <tr>
@@ -36,3 +42,4 @@
     </tbody>
 </table>
 {% endif %}
+<p class="page-break"></p>

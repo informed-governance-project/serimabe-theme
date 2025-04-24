@@ -1,10 +1,10 @@
-# This file was generated from translations_v0.1_FE_refactoring.xlsx
+# This file was generated from frontend.xlsx
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-17 15:22+0100\n"
-"PO-Revision-Date: 2025-03-17 15:29+0100\n"
+"POT-Creation-Date: 2025-04-14 09:52+0200\n"
+"PO-Revision-Date: 2025-04-15 14:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: xls-to-po 1.0\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #: theme/templates/account/edit.html:6 theme/templates/parts/header.html:45
 msgid "Account"
@@ -42,11 +42,16 @@ msgstr "Zurück zur Benutzeroberfläche"
 msgid "Log out"
 msgstr "Abmelden"
 
+#: theme/templates/admin/reset_accepted_terms.html:8
+msgid "Reset accepted terms"
+msgstr "Akzeptierte Nutzungsbedingungen zurücksetzen"
+
 #: theme/templates/cookiebanner/bootstrap5.html:27
 msgid "Details"
 msgstr "Details"
 
 #: theme/templates/cookiebanner/bootstrap5.html:34
+#: theme/templates/home/contact.html:25
 #: theme/templates/home/privacy_policy.html:89
 #: theme/templates/incidents/contact_form.html:7
 msgid "Name"
@@ -71,13 +76,826 @@ msgstr "Maximale Dauer"
 msgid "Accept"
 msgstr "Akzeptieren"
 
-#: theme/templates/home/contact.html:9
-msgid ""
-"Dear entity, should you require any assistance, please do not hesitate to "
-"contact us at "
+#: theme/templates/home/contact.html:5 theme/templates/home/contact.html:12
+msgid "Contact form"
+msgstr "Kontakt-Formular"
+
+#: theme/templates/home/contact.html:21
+msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr ""
-"Sehr geehrte Entität, sollten Sie Hilfe benötigen, zögern Sie bitte nicht, "
-"uns zu kontaktieren "
+"Die mit einem Sternchen (*) gekennzeichneten Felder sind Pflichtfelder."
+
+#: theme/templates/home/contact.html:28
+msgid "Firstname"
+msgstr "Vorname"
+
+#: theme/templates/home/contact.html:33
+#: theme/templates/incidents/contact_form.html:29
+#: theme/templates/incidents/contact_form.html:60
+msgid "Email"
+msgstr "E-Mail"
+
+#: theme/templates/home/contact.html:36
+msgid "Phone"
+msgstr "Telefon"
+
+#: theme/templates/home/contact.html:40
+msgid "Message"
+msgstr "Nachricht"
+
+#: theme/templates/home/contact.html:43
+msgid "Captcha"
+msgstr "Captcha"
+
+#: theme/templates/home/contact.html:46
+msgid "I agree that my personal data may be used for communication purposes."
+msgstr ""
+"Ich bin damit einverstanden, dass meine personenbezogenen Daten zu "
+"Kommunikationszwecken verwendet werden können."
+
+#: theme/templates/home/contact.html:53
+msgid "Send"
+msgstr "Senden"
+
+#: theme/templates/home/contact.html:62
+msgid "Address"
+msgstr "Adresse"
+
+#: theme/templates/home/contact.html:70
+msgid "Postal address"
+msgstr "Postanschrift"
+
+#: theme/templates/home/contact.html:75
+msgid "Tel.:"
+msgstr "Tel.:"
+
+#: theme/templates/home/contact.html:76
+msgid "Email:"
+msgstr "E-Mail:"
+
+#: theme/templates/home/terms.html:7
+msgid "Terms of use"
+msgstr ""
+
+#: theme/templates/home/terms.html:18
+msgid "Terms of use of the SERIMA platform"
+msgstr ""
+
+#: theme/templates/home/terms.html:18 theme/templates/parts/footer.html:16
+msgid "Version"
+msgstr "Version"
+
+#: theme/templates/home/terms.html:24
+msgid ""
+"Attention: These Terms of Use have been translated from their original "
+"French version for information purposes only. Only the French version is "
+"legally binding."
+msgstr ""
+
+#: theme/templates/home/terms.html:35
+msgid "Definitions"
+msgstr ""
+
+#: theme/templates/home/terms.html:39
+msgid ""
+"\"Terms of Use\": means these Terms of Use relating to the use of SERIMA."
+msgstr ""
+
+#: theme/templates/home/terms.html:44
+msgid ""
+"\"SERIMA\": SERIMA is an IT platform designed to integrate different "
+"Modules, with the aim of ultimately forming a cybersecurity platform, "
+"covering the needs of Operators (in particular to carry out and notify their "
+"risk analyses and incident notifications) as well as the needs of Regulators "
+"and Observers. This configurable platform is multi-regulator and multi-"
+"regulation."
+msgstr ""
+
+#: theme/templates/home/terms.html:53
+msgid ""
+"\"SERIMA Instance\": an area of the SERIMA platform reserved and dedicated "
+"to an Operator, a Regulator or an Observer."
+msgstr ""
+
+#: theme/templates/home/terms.html:59
+msgid ""
+"\"Platform Administrator\": natural or legal person responsible for "
+"configuring the Rules of Law, the Types of Operator and the Modules "
+"available on the platform, as well as the Regulators and Observers using "
+"this platform."
+msgstr ""
+
+#: theme/templates/home/terms.html:66
+msgid ""
+"\"Rule of Law\" means any legal text assigning to Regulators and Observers "
+"their duties or defining those duties, including NIS 1, the 2021 Law, NIS 2, "
+"the CER and the GDPR."
+msgstr ""
+
+#: theme/templates/home/terms.html:73
+msgid ""
+"\"NIS 1\": means Directive (EU) 2016/1148 of the European Parliament and of "
+"the Council of 6 July 2016 on measures intended to ensure a common high "
+"level of security of networks and information systems in the European Union, "
+"as well as the Law of 28 May 2019 transposing Directive (EU) 2016/1148 of "
+"the European Parliament and of the Council of 6 July 2016 on measures "
+"intended to ensure a common high level of security of networks and "
+"information systems in the European Union and amending 1° the amended Act of "
+"20 April 2009 creating the State Information Technology Centre and 2° the "
+"Act of 23 July 2016 creating a High Commission for National Protection."
+msgstr ""
+
+#: theme/templates/home/terms.html:86
+msgid ""
+"\"2021 Law\" means the Law of 17 December 2021 transposing Directive (EU) "
+"2018/1972 of the European Parliament and of the Council of 11 December 2018 "
+"establishing the European Electronic Communications Code and amending the "
+"amended Law of 30 May 2005 on: 1) the organisation of the Institut "
+"Luxembourgeois de Régulation; 2) amending the amended law of 22 June 1963 "
+"fixing the salary system for State employees."
+msgstr ""
+
+#: theme/templates/home/terms.html:96
+msgid ""
+"\"NIS 2\": means Directive (EU) 2022/2555 of the European Parliament and of "
+"the Council of 14 December 2022 on measures to ensure a common high level of "
+"cyber security throughout the Union, amending Regulation (EU) No 910/2014 "
+"and Directive (EU) 2018/1972, and repealing Directive (EU) 2016/1148 (NIS 2 "
+"Directive), as well as its transposition law into Luxembourg law."
+msgstr ""
+
+#: theme/templates/home/terms.html:105
+msgid ""
+"\"CER\": means Directive (EU) 2022/2557 of the European Parliament and of "
+"the Council of 14 December 2022 on the resilience of critical entities and "
+"repealing Council Directive 2008/114/EC, as well as its transposition into "
+"Luxembourg law."
+msgstr ""
+
+#: theme/templates/home/terms.html:112
+msgid ""
+"\"GDPR\": means Regulation (EU) 2016/679 of the European Parliament and of "
+"the Council of 27 April 2016 on the protection of natural persons with "
+"regard to the processing of personal data and on the free movement of such "
+"data, and repealing Directive 95/46/EC (General Data Protection Regulation)."
+msgstr ""
+
+#: theme/templates/home/terms.html:119
+msgid ""
+"\"Personal data\" means any information relating to an identified or "
+"identifiable natural person."
+msgstr ""
+
+#: theme/templates/home/terms.html:124
+msgid ""
+"\"Processing of personal data\" means any operation or set of operations "
+"which is performed upon personal data or sets of personal data, whether or "
+"not by automatic means."
+msgstr ""
+
+#: theme/templates/home/terms.html:130
+msgid ""
+"\"Controller of personal data\": means the natural or legal person who, "
+"alone or jointly with others, determines the purposes and means of the "
+"processing, i.e. the objective and the way in which it is to be achieved."
+msgstr ""
+
+#: theme/templates/home/terms.html:136
+msgid ""
+"\"Type of Operator\": any characteristic enabling certain Operators to be "
+"grouped into categories. For example: Public Operator or Private Operator."
+msgstr ""
+
+#: theme/templates/home/terms.html:142
+msgid ""
+"\"Module\": any application that is available and can be activated on SERIMA."
+msgstr ""
+
+#: theme/templates/home/terms.html:147
+msgid ""
+"\"User\": any natural person who has access to SERIMA and uses it on behalf "
+"of an Operator, a Regulator or an Observer."
+msgstr ""
+
+#: theme/templates/home/terms.html:153
+msgid ""
+"\"Regulator\": a public body designated as responsible for supervision under "
+"one or more Rules of Law, in particular the ILR, the CSSF, the CNPD and the "
+"HCPN."
+msgstr ""
+
+#: theme/templates/home/terms.html:159
+msgid "\"ILR\" : means the Institut Luxembourgeois de Régulation."
+msgstr ""
+
+#: theme/templates/home/terms.html:164
+msgid "\"CSSF\": means the Commission de Surveillance du Secteur Financier."
+msgstr ""
+
+#: theme/templates/home/terms.html:169
+msgid "\"HCPN\": means the Haut-Commissariat à la protection nationale."
+msgstr ""
+
+#: theme/templates/home/terms.html:174
+msgid ""
+"\"CNPD\": means the Commission nationale pour la protection des données."
+msgstr ""
+
+#: theme/templates/home/terms.html:179
+msgid ""
+"\"Regulator Administrator\": any natural person belonging to a Regulator "
+"whose main responsibilities are to manage the Users belonging to that "
+"Regulator, and also to make the necessary configurations in relation to the "
+"Rules of Law. They also have an overall view of the information and "
+"documents belonging to or transmitted to this Controller."
+msgstr ""
+
+#: theme/templates/home/terms.html:187
+msgid ""
+"\"Regulator User\": any natural person belonging to a Regulator and whose "
+"main responsibilities are to manage the Operators under the supervision of "
+"the Regulator and the documents or information submitted to it by the "
+"Operators."
+msgstr ""
+
+#: theme/templates/home/terms.html:194
+msgid ""
+"\"Operator\": any natural or legal person under the supervision of a "
+"Regulator."
+msgstr ""
+
+#: theme/templates/home/terms.html:199
+msgid ""
+"\"Operator Administrator\": any natural person belonging to an Operator "
+"whose main responsibilities are to manage Users belonging to this Operator. "
+"He also has a global view of the information and documents belonging to or "
+"transmitted to this Operator. It is created either by the main Administrator "
+"Operator or by another Administrator Operator."
+msgstr ""
+
+#: theme/templates/home/terms.html:207
+msgid ""
+"\"Main Operator Administrator \": the first Operator Administrator of an "
+"Operator. It is created by the Regulator."
+msgstr ""
+
+#: theme/templates/home/terms.html:213
+msgid ""
+"\"Operator User\": any natural person belonging to an Operator whose main "
+"responsibilities are to produce and manage the information and documents to "
+"be sent to the Regulator."
+msgstr ""
+
+#: theme/templates/home/terms.html:219
+msgid ""
+"\"Observer\": any natural or legal person to whom information may be "
+"transmitted for the performance of its duties, in accordance with a Rule of "
+"Law, according to a logic implemented by the Regulator and taking account in "
+"particular of Types of Operator. The following in particular are considered "
+"to be Observers: the \"CIRCL\" and \"GOVCERT.LU\" computer security incident "
+"response centres, as well as the Grand Duchy of Luxembourg's NIS 2 single "
+"point of contact."
+msgstr ""
+
+#: theme/templates/home/terms.html:229
+msgid "Scope, purpose and changes to the Terms of Use"
+msgstr ""
+
+#: theme/templates/home/terms.html:233
+msgid ""
+"ILR and the other Regulators provide Operators with a platform called "
+"SERIMA, which enables Operators to submit various documents and information "
+"to the Regulators, such as incident notifications, risk analyses and "
+"declarations relating to the safety measures they have put in place. The "
+"Regulator concerned can review these documents and contact the Operators "
+"under his supervision. When SERIMA is used for the first time, all "
+"Operators, Regulators, Observers and Users are deemed to have read the Terms "
+"of Use and to have accepted them in full and without reservation. ILR "
+"reserves the right to modify the Terms of Use at any time. ILR will inform "
+"Users of any changes to the Terms of Use."
+msgstr ""
+
+#: theme/templates/home/terms.html:247
+msgid ""
+"When SERIMA is used for the first time, all Operators, Regulators, Observers "
+"and Users are deemed to have read the Terms of Use and to have accepted them "
+"in full and without reservation."
+msgstr ""
+
+#: theme/templates/home/terms.html:253
+msgid ""
+"ILR reserves the right to modify the Terms of Use at any time. ILR will "
+"inform Users of any changes to the Terms of Use."
+msgstr ""
+
+#: theme/templates/home/terms.html:261
+msgid "Description of SERIMA"
+msgstr ""
+
+#: theme/templates/home/terms.html:265
+msgid ""
+"SERIMA allows the User, subject to technical constraints, the rights granted "
+"and without prejudice to future developments of SERIMA, to have access to "
+"the following Modules:"
+msgstr ""
+
+#: theme/templates/home/terms.html:273
+msgid "incident notification and follow-up of incident notifications ;"
+msgstr ""
+
+#: theme/templates/home/terms.html:278
+msgid "carrying out, submitting and reviewing risk analyses;"
+msgstr ""
+
+#: theme/templates/home/terms.html:283
+msgid ""
+"carrying out, submitting and reviewing the self-assessment of safety "
+"objectives."
+msgstr ""
+
+#: theme/templates/home/terms.html:289
+msgid ""
+"SERIMA is a multi-regulator and multi-regulation platform, which means that "
+"the Operator will be able to make legal notifications to the various "
+"Regulators separately or in parallel, thereby fulfilling its legal "
+"notification obligations imposed by the applicable legal framework."
+msgstr ""
+
+#: theme/templates/home/terms.html:296
+msgid ""
+"The documents and information available on an Operator's SERIMA Instance "
+"belong to the Operator and the Operator assumes full responsibility for them."
+msgstr ""
+
+#: theme/templates/home/terms.html:303
+msgid ""
+"Any Regulator has access to the list of Users of the platform and to the "
+"information or documents that an Operator has notified to it."
+msgstr ""
+
+#: theme/templates/home/terms.html:309
+msgid ""
+"The Observer has access to incident notifications relating to Operators for "
+"which the Observer is responsible."
+msgstr ""
+
+#: theme/templates/home/terms.html:315
+msgid "Access to SERIMA"
+msgstr ""
+
+#: theme/templates/home/terms.html:319
+msgid ""
+"In order to access SERIMA and use the SERIMA platform, the User must have an "
+"Internet connection. All costs incurred for accessing SERIMA (e.g. computer "
+"hardware, Internet connection) shall be borne by the User."
+msgstr ""
+
+#: theme/templates/home/terms.html:325
+msgid ""
+"Operators whose organisation does not yet have access to SERIMA should "
+"submit their access request to the relevant Regulator. For ILR, the e-mail "
+"address to be used is serima@ilr.lu, and the following information must be "
+"provided:"
+msgstr ""
+
+#: theme/templates/home/terms.html:334
+msgid ""
+"the reasons for the request, i.e. the legal framework to which the Operator "
+"is subject;"
+msgstr ""
+
+#: theme/templates/home/terms.html:339
+msgid "the official name of the organisation;"
+msgstr ""
+
+#: theme/templates/home/terms.html:344
+msgid ""
+"the surname, first name and e-mail address of the person who is to become "
+"the Operator's main administrator of the Operator's SERIMA Instance."
+msgstr ""
+
+#: theme/templates/home/terms.html:352
+msgid ""
+"The competent Regulator may request any information necessary to identify "
+"the Operator, as well as the persons acting as Main Operator Administrator "
+"or having rights on the SERIMA platform."
+msgstr ""
+
+#: theme/templates/home/terms.html:358
+msgid ""
+"Access authorisation will be communicated by the relevant Regulator in "
+"writing."
+msgstr ""
+
+#: theme/templates/home/terms.html:363
+msgid ""
+"The relevant Regulator may refuse access to SERIMA in the event of an "
+"incomplete application or failure to comply with requests for additional "
+"information, or for any other reason based on an assessment of safety risks."
+msgstr ""
+
+#: theme/templates/home/terms.html:370
+msgid ""
+"When access is authorised, SERIMA allows the Operator to access the platform "
+"using their e-mail address, a password and a one-time code (OTP) (secure two-"
+"factor authentication)."
+msgstr ""
+
+#: theme/templates/home/terms.html:376
+msgid ""
+"SERIMA access information is strictly personal. The User shall under no "
+"circumstances pass on his/her access information to a third party and shall "
+"inform the competent Regulator of any use or suspicion of unauthorised use."
+msgstr ""
+
+#: theme/templates/home/terms.html:383
+msgid ""
+"The User shall immediately inform the relevant Regulator of any change in "
+"the information provided at the time of its initial request for access to "
+"SERIMA."
+msgstr ""
+
+#: theme/templates/home/terms.html:390
+msgid ""
+"The Regulators may not be held liable for damages of any nature whatsoever "
+"resulting from a breach by the User of the obligations resulting from the "
+"preceding paragraphs."
+msgstr ""
+
+#: theme/templates/home/terms.html:397
+msgid ""
+"The Main Operator Administrator is responsible for managing access for "
+"members of his organisation."
+msgstr ""
+
+#: theme/templates/home/terms.html:402
+msgid ""
+"The Regulator Administrator is responsible for managing access for members "
+"of his organisation."
+msgstr ""
+
+#: theme/templates/home/terms.html:407
+msgid ""
+"The competent Regulator reserves the right to suspend or even withdraw "
+"access to SERIMA, without prior notice or compensation of any kind, from any "
+"Operator for whom it considers that the use of SERIMA is abusive, unlawful "
+"or endangers the security of the information. The removal of access may "
+"result in the deletion of data from the SERIMA Instance."
+msgstr ""
+
+#: theme/templates/home/terms.html:418
+msgid "Using SERIMA"
+msgstr ""
+
+#: theme/templates/home/terms.html:422
+msgid ""
+"The User uses SERIMA at his or her own risk and under his or her sole "
+"responsibility. In particular, they must protect themselves against the "
+"effects of computer piracy by adopting a suitable and secure computer "
+"configuration and diligent behaviour."
+msgstr ""
+
+#: theme/templates/home/terms.html:429
+msgid ""
+"No information classified under Luxembourg law or any other law shall be "
+"entered or transmitted on SERIMA."
+msgstr ""
+
+#: theme/templates/home/terms.html:434
+msgid ""
+"The Operators shall be solely responsible for the data they enter on SERIMA "
+"and shall ensure that such data complies with the legislation in force. "
+"Personal data may only be entered on SERIMA if the persons concerned by the "
+"processing have given their consent or if a legal provision so permits. "
+"Thus, personal data stored, transmitted or processed on SERIMA must be "
+"reduced to the strict minimum necessary: apart from data linked to the user "
+"account, it is preferable to designate a person by his/her role in the "
+"organisation rather than by his/her first and last name. When an e-mail "
+"address must be specified, and apart from user account data, a generic e-"
+"mail address may be used instead of a named e-mail address."
+msgstr ""
+
+#: theme/templates/home/terms.html:446
+msgid ""
+"Risk analyses notified to the Regulators are kept for 10 years and are then "
+"permanently deleted. Incident notifications notified to the Regulators are "
+"accessible for the Regulators and Observers concerned and kept for 10 years "
+"after which they are then permanently deleted."
+msgstr ""
+
+#: theme/templates/home/terms.html:454
+msgid ""
+"SERIMA may contain links to external sites. The Regulators do not "
+"systematically check the content of these external sites. They cannot "
+"therefore be held responsible for the content of these websites, either in "
+"terms of their legality or the accuracy of the information contained therein."
+msgstr ""
+
+#: theme/templates/home/terms.html:462
+msgid ""
+"SERIMA uses client cookies, which are small text files necessary for its "
+"proper functioning (for example: one for the theme: light/dark (kept for the "
+"duration of the session), one which records the session (persistent), one "
+"which records the language (kept for the duration of the session) and one "
+"for the CSRF token (persistent), etc.). They are deposited by SERIMA in a "
+"directory provided for this purpose on the User's computer or laptop. "
+"Session cookies are deleted from the User's computer or laptop when the "
+"session is closed. However, persistent cookies remain on the User's computer "
+"or laptop after the session has ended. The User may, at any time, set his/"
+"her browser options so that cookies are not accepted and stored. They may "
+"also delete stored cookies at any time via their browser. However, the use "
+"of certain SERIMA functions may be limited or deactivated if the User "
+"refuses SERIMA's cookies. The User is therefore advised to set the browser "
+"to accept SERIMA's cookies."
+msgstr ""
+
+#: theme/templates/home/terms.html:477
+msgid "Rights, obligations and responsibilities of the User"
+msgstr ""
+
+#: theme/templates/home/terms.html:481
+msgid ""
+"The User undertakes to use SERIMA in accordance with the Terms of Use and "
+"the legal framework in force."
+msgstr ""
+
+#: theme/templates/home/terms.html:487
+msgid "Rights, obligations and responsibilities of Regulators"
+msgstr ""
+
+#: theme/templates/home/terms.html:491
+msgid "Each Regulator is responsible for the Operators under his supervision."
+msgstr ""
+
+#: theme/templates/home/terms.html:496
+msgid ""
+"Each Regulator is aware that SERIMA is a multi-operator platform. Therefore, "
+"each Regulator has access to the list of Operators using SERIMA, so that "
+"Regulators do not have to configurate the same Operator several times. Each "
+"Regulator undertakes to manage the Operators and the data available on the "
+"platform with care, so as not to have negative consequences for any other "
+"Regulator."
+msgstr ""
+
+#: theme/templates/home/terms.html:506
+msgid "Rights, obligations and responsibilities of the ILR"
+msgstr ""
+
+#: theme/templates/home/terms.html:510
+msgid ""
+"The ILR shall use its best efforts to ensure maximum availability of SERIMA. "
+"However, the permanent availability of SERIMA cannot be guaranteed and ILR "
+"shall not be held liable in the event of the temporary or total "
+"unavailability of SERIMA."
+msgstr ""
+
+#: theme/templates/home/terms.html:518
+msgid ""
+"In particular, availability may be partially or totally affected in the "
+"event of force majeure or the occurrence of an event beyond ILR's control, "
+"or due to :"
+msgstr ""
+
+#: theme/templates/home/terms.html:526
+msgid "maintenance operations ;"
+msgstr ""
+
+#: theme/templates/home/terms.html:531
+msgid "updates ;"
+msgstr ""
+
+#: theme/templates/home/terms.html:536
+msgid ""
+"technical improvements or changes to the content and/or presentation of "
+"SERIMA ;"
+msgstr ""
+
+#: theme/templates/home/terms.html:541
+msgid "interventions for safety reasons;"
+msgstr ""
+
+#: theme/templates/home/terms.html:546
+msgid "any other reason that the ILR deems necessary."
+msgstr ""
+
+#: theme/templates/home/terms.html:552
+msgid ""
+"In the event of SERIMA being unavailable or of any malfunction, the User may "
+"contact ILR via the dedicated e-mail addresses : <a href=\"mailto:"
+"incident_notification@ilr.lu\">incident_notification@ilr.lu</a> for any item "
+"relating to the Incident Notification Module and <a href=\"mailto:serima@ilr."
+"lu\">serima@ilr.lu</a> for any other Module."
+msgstr ""
+
+#: theme/templates/home/terms.html:560
+msgid ""
+"The ILR expressly reserves the right to modify, supplement or even delete "
+"parts of SERIMA without prior notice or justification, if it considers this "
+"necessary in order to ensure the optimal functioning of SERIMA, or to cease "
+"publication of SERIMA temporarily or permanently (e.g. in the event of a "
+"change in legislation)."
+msgstr ""
+
+#: theme/templates/home/terms.html:567
+msgid "The ILR will do its utmost to ensure the security of the IT system."
+msgstr ""
+
+#: theme/templates/home/terms.html:572
+msgid ""
+"The ILR shall not be liable for any material and/or immaterial damage "
+"resulting from the use of SERIMA, from the use or non-use of information "
+"provided by SERIMA, or from any false or incomplete information resulting "
+"therefrom. In any event, the ILR's liability shall be limited to gross "
+"negligence, in accordance with Article 3(3) of the amended law of 30 May "
+"2005 on the organisation of the Institut Luxembourgeois de Régulation and "
+"amendment of the amended law of 22 June 1963 on the salaries of civil "
+"servants, which expressly provides that:"
+msgstr ""
+
+#: theme/templates/home/terms.html:581
+msgid ""
+"In order for the Institute to be held liable for individual damage suffered "
+"by supervised operators or professionals, their clients or third parties, it "
+"must be proven that the damage was caused by gross negligence in the choice "
+"and application of the means used to fulfil the Institute's public service "
+"mission."
+msgstr ""
+
+#: theme/templates/home/terms.html:590
+msgid "Intellectual property"
+msgstr ""
+
+#: theme/templates/home/terms.html:594
+msgid ""
+"All content and all elements included on SERIMA, including, but not limited "
+"to, the Regulators' trademarks and logos, graphic illustrations or texts, "
+"may be protected by one or more Intellectual Property rights (trademark, "
+"design or model, copyright, neighbouring rights, etc.). Any reproduction, "
+"communication to the public or any other use requires the prior "
+"authorisation of the rights holder (for example: ILR, the concerned "
+"Regulator, the author)."
+msgstr ""
+
+#: theme/templates/home/terms.html:605
+msgid "SERIMA's source code is shared under the"
+msgstr ""
+
+#: theme/templates/home/terms.html:612
+msgid "The use of SERIMA is free of charge."
+msgstr ""
+
+#: theme/templates/home/terms.html:618
+msgid "Protection of personal data"
+msgstr ""
+
+#: theme/templates/home/terms.html:622
+msgid ""
+"Each Regulator is the Controller of personal data for the personal data it "
+"processes."
+msgstr ""
+
+#: theme/templates/home/terms.html:627
+msgid ""
+"When using SERIMA, personal data is processed. Specifically, this concerns "
+"the following data: User contact information (for example: identifier, "
+"surname, first name), contact information relating to certain roles within "
+"an Operator (for example: information relating to the identity of the "
+"members of the management body, the CISO, the person responsible for IT "
+"security), data linked to log files as described in paragraph 10.5. below."
+msgstr ""
+
+#: theme/templates/home/terms.html:637
+msgid ""
+"Personal data is processed in accordance with the GDPR. The User's data is "
+"recorded and processed by the Regulator concerned solely for the purposes of "
+"managing the procedures concerned: the data is processed as part of the "
+"provision by the Regulators of SERIMA enabling Operators to fulfil their "
+"legal notification obligations, and to make and send to the Regulators "
+"incident notifications, risk analyses and declarations relating to the "
+"security measures they have put in place."
+msgstr ""
+
+#: theme/templates/home/terms.html:648
+msgid ""
+"The provision of SERIMA contributes to the fulfilment of the legal missions "
+"conferred on Regulators and Observers under the Rules of Law."
+msgstr ""
+
+#: theme/templates/home/terms.html:654
+msgid ""
+"The User consents to data relating to his/her activity on SERIMA (log files) "
+"(for example: identifier, surname, first name, functionality used, date and "
+"time, parameters) being audited for the sole purpose of making such data "
+"available to the respective Controller of personal data or to the judicial "
+"authorities in the following limited cases:"
+msgstr ""
+
+#: theme/templates/home/terms.html:664
+msgid ""
+"to resolve security incidents relating to SERIMA, in the legitimate interest "
+"of guaranteeing the security of SERIMA;"
+msgstr ""
+
+#: theme/templates/home/terms.html:670
+msgid ""
+"the establishment, exercise or defence of a legal right, in the context of "
+"judicial, administrative or extrajudicial proceedings."
+msgstr ""
+
+#: theme/templates/home/terms.html:677
+msgid ""
+"By providing personal data under its sole responsibility, the Operator "
+"declares and guarantees that it has obtained and will obtain all legally "
+"required consents and authorisations from all persons concerned by the use, "
+"processing and transfer of personal data."
+msgstr ""
+
+#: theme/templates/home/terms.html:685
+msgid ""
+"Technical and organisational measures have been put in place to ensure a "
+"high level of data security on SERIMA. These security measures are tested "
+"and updated regularly."
+msgstr ""
+
+#: theme/templates/home/terms.html:692
+msgid ""
+"The personal data required to create a SERIMA account is kept for as long as "
+"the account exists. It is permanently deleted when the account in question "
+"is deleted."
+msgstr ""
+
+#: theme/templates/home/terms.html:698
+msgid ""
+"Data subjects may assert their rights by contacting the <a href=\"https://"
+"www.ilr.lu/informations-legales/protection-des-donnees/\" target=\"_blank\" "
+"rel=\"noopener noreferrer\">ILR's Data Protection Officer</a>. Individuals "
+"who believe that the data processing carried out via SERIMA constitutes a "
+"breach of the GDPR or that the response to their request for information is "
+"unsatisfactory may lodge a complaint with the CNPD using the form available "
+"on its website."
+msgstr ""
+
+#: theme/templates/home/terms.html:709
+msgid "Transfer of rights"
+msgstr ""
+
+#: theme/templates/home/terms.html:713
+msgid ""
+"The Operator and the User may not assign all or part of their rights and "
+"obligations arising from or in connection with the Terms of Use to third "
+"parties or substitute a person for its performance without the written "
+"agreement of the ILR."
+msgstr ""
+
+#: theme/templates/home/terms.html:722
+msgid "Miscellaneous"
+msgstr ""
+
+#: theme/templates/home/terms.html:726
+msgid ""
+"If, by virtue of a legal provision of public order or mandatory law, one of "
+"the clauses of these Terms of Use is found to be null and/or void and/or "
+"unenforceable against the Operator or the User, this nullity or "
+"unenforceability shall not affect the other clauses of these Terms of Use, "
+"which shall remain in force"
+msgstr ""
+
+#: theme/templates/home/terms.html:734
+msgid ""
+"For any comments, questions or complaints relating to SERIMA, the User may "
+"contact the ILR via the following e-mail address: <a href=\"mailto:"
+"serima@ilr.lu\">serima@ilr.lu</a>."
+msgstr ""
+
+#: theme/templates/home/terms.html:740
+msgid "Only the French version of the Terms of Use is binding."
+msgstr ""
+
+#: theme/templates/home/terms.html:746
+msgid "Applicable law and competent courts"
+msgstr ""
+
+#: theme/templates/home/terms.html:750
+msgid ""
+"The Terms of Use shall be governed by and construed in accordance with the "
+"laws of the Grand Duchy of Luxembourg. Any dispute relating to the Terms of "
+"Use, as well as to the use of SERIMA, including disputes relating to "
+"intellectual property and copyright and related rights, shall be governed by "
+"Luxembourg law."
+msgstr ""
+
+#: theme/templates/home/terms.html:757
+msgid ""
+"The parties shall endeavour to resolve amicably any claim or dispute which "
+"may arise between them in connection with the Terms of Use and SERIMA."
+msgstr ""
+
+#: theme/templates/home/terms.html:764
+msgid ""
+"The courts and tribunals of Luxembourg City in the Grand Duchy of Luxembourg "
+"shall have exclusive jurisdiction to hear any dispute concerning or in "
+"connection with the Terms of Use and with SERIMA."
+msgstr ""
 
 #: theme/templates/incidents/base.html:9 theme/templates/operator/menu.html:3
 #: theme/templates/regulator/menu.html:4
@@ -97,7 +915,7 @@ msgid "Filter by status, sector, etc"
 msgstr "Nach Status, Sektor usw. Filtern"
 
 #: theme/templates/incidents/base.html:41
-#: theme/templates/incidents/base.html:299
+#: theme/templates/incidents/base.html:303
 msgid "Filter"
 msgstr "Filter"
 
@@ -134,114 +952,118 @@ msgid "Under review"
 msgstr "Wird geprüft"
 
 #: theme/templates/incidents/base.html:86
+msgid "Late submission"
+msgstr "Verspätete Einreichung"
+
+#: theme/templates/incidents/base.html:90
 msgid "Submission overdue"
 msgstr "Bericht-Einreichung überfällig"
 
-#: theme/templates/incidents/base.html:90
+#: theme/templates/incidents/base.html:94
 msgid "Passed"
 msgstr "Bestanden"
 
-#: theme/templates/incidents/base.html:94
+#: theme/templates/incidents/base.html:98
 msgid "Failed"
 msgstr "Nicht bestanden"
 
-#: theme/templates/incidents/base.html:104
+#: theme/templates/incidents/base.html:108
 msgid "Status"
 msgstr "Status"
 
-#: theme/templates/incidents/base.html:105
+#: theme/templates/incidents/base.html:109
 msgid "Creation date"
 msgstr "Erstelldatum"
 
-#: theme/templates/incidents/base.html:108
+#: theme/templates/incidents/base.html:112
 msgid "Operator"
 msgstr "Betreiber"
 
-#: theme/templates/incidents/base.html:110
-#: theme/templates/incidents/base.html:115
-#: theme/templates/report/details.html:30
+#: theme/templates/incidents/base.html:114
+#: theme/templates/incidents/base.html:119
+#: theme/templates/report/details.html:31
 msgid "Regulator"
 msgstr "Regulierungsbehörde"
 
-#: theme/templates/incidents/base.html:117
+#: theme/templates/incidents/base.html:121
 msgid "Regulation"
 msgstr "Verordnung"
 
-#: theme/templates/incidents/base.html:120 theme/templates/report/cover.html:25
-#: theme/templates/report/details.html:10
+#: theme/templates/incidents/base.html:124 theme/templates/report/cover.html:28
+#: theme/templates/report/details.html:11
 msgid "Reference"
 msgstr "Referenz"
 
-#: theme/templates/incidents/base.html:121
+#: theme/templates/incidents/base.html:125
 msgid "Sectors"
 msgstr "Sektoren"
 
-#: theme/templates/incidents/base.html:122 theme/templates/report/cover.html:11
-#: theme/templates/report/header.html:5
+#: theme/templates/incidents/base.html:126 theme/templates/report/cover.html:13
+#: theme/templates/report/header.html:9
 msgid "Report"
 msgstr "Bericht"
 
-#: theme/templates/incidents/base.html:123
+#: theme/templates/incidents/base.html:127
 msgid "Actions"
 msgstr "Aktionen"
 
-#: theme/templates/incidents/base.html:137
+#: theme/templates/incidents/base.html:141
 #: theme/templates/observer/incidents.html:25
 #: theme/templates/operator/incidents.html:36
 msgid "Incident with significant impact"
 msgstr "Vorfall mit erheblichen Auswirkungen"
 
-#: theme/templates/incidents/base.html:139
+#: theme/templates/incidents/base.html:143
 msgid "No significant impact"
 msgstr "Keine erheblichen Auswirkungen"
 
-#: theme/templates/incidents/base.html:155
+#: theme/templates/incidents/base.html:159
 #: theme/templates/observer/incidents.html:11
 #: theme/templates/operator/incidents.html:22
 msgid "The incident is still ongoing"
 msgstr "Der Vorfall dauert noch an"
 
-#: theme/templates/incidents/base.html:157
+#: theme/templates/incidents/base.html:161
 #: theme/templates/observer/incidents.html:16
 #: theme/templates/operator/incidents.html:27
 msgid "The incident is over"
 msgstr "Der Vorfall ist beendet"
 
-#: theme/templates/incidents/base.html:167
+#: theme/templates/incidents/base.html:171
 msgid "Incident notification submission date"
 msgstr "Datum der Meldung des Vorfalls"
 
-#: theme/templates/incidents/base.html:235
+#: theme/templates/incidents/base.html:239
 #: theme/templates/modals/report_versions.html:8
 #: theme/templates/observer/incidents.html:63
 #: theme/templates/operator/incidents.html:79
 msgid "Version control"
 msgstr "Versionsverwaltung"
 
-#: theme/templates/incidents/base.html:242
-#: theme/templates/incidents/base.html:263
+#: theme/templates/incidents/base.html:246
+#: theme/templates/incidents/base.html:267
 #: theme/templates/observer/incidents.html:70
 msgid "Download PDF report"
 msgstr "PDF-Bericht herunterladen"
 
-#: theme/templates/incidents/base.html:259
+#: theme/templates/incidents/base.html:263
 msgid "Activity Log"
 msgstr "Aktivitäts-Log"
 
-#: theme/templates/incidents/base.html:277
+#: theme/templates/incidents/base.html:281
 msgid "No incident"
 msgstr "Kein Vorfall"
 
-#: theme/templates/incidents/base.html:311
+#: theme/templates/incidents/base.html:315
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: theme/templates/incidents/base.html:314
+#: theme/templates/incidents/base.html:318
 msgid "Search"
 msgstr "Suchen"
 
 #: theme/templates/incidents/contact_form.html:6
-#: theme/templates/report/cover.html:19
+#: theme/templates/report/cover.html:22
 msgid "Name of the Operator"
 msgstr "Name des Betreibers"
 
@@ -256,21 +1078,13 @@ msgstr "Stellenbezeichnung"
 
 #: theme/templates/incidents/contact_form.html:20
 #: theme/templates/incidents/contact_form.html:52
-#: theme/templates/report/contacts.html:9
 msgid "First name"
 msgstr "Vorname"
 
 #: theme/templates/incidents/contact_form.html:23
 #: theme/templates/incidents/contact_form.html:55
-#: theme/templates/report/contacts.html:10
 msgid "Last name"
 msgstr "Name"
-
-#: theme/templates/incidents/contact_form.html:29
-#: theme/templates/incidents/contact_form.html:60
-#: theme/templates/report/contacts.html:11
-msgid "Email"
-msgstr "E-Mail"
 
 #: theme/templates/incidents/contact_form.html:32
 #: theme/templates/incidents/contact_form.html:63
@@ -279,7 +1093,7 @@ msgstr "Telefon"
 
 #: theme/templates/incidents/contact_form.html:39
 #: theme/templates/modals/contacts_incident.html:39
-#: theme/templates/report/contacts.html:25
+#: theme/templates/report/contacts.html:58
 msgid "Technical contact"
 msgstr "Technischer Ansprechpartner"
 
@@ -346,20 +1160,30 @@ msgstr "Zugriffsprotokoll"
 msgid "Date"
 msgstr "Datum"
 
-#: theme/templates/modals/access_log.html:29
+#: theme/templates/modals/access_log.html:30
+msgid "Entity"
+msgstr "Entität"
+
+#: theme/templates/modals/access_log.html:32
 msgid "User"
 msgstr "Benutzer"
 
-#: theme/templates/modals/access_log.html:30
+#: theme/templates/modals/access_log.html:33
+#: theme/templates/report/contacts.html:16
+#: theme/templates/report/contacts.html:57
+msgid "Role"
+msgstr "Rolle"
+
+#: theme/templates/modals/access_log.html:34
 msgid "Document"
 msgstr "Dokument"
 
-#: theme/templates/modals/access_log.html:31
+#: theme/templates/modals/access_log.html:35
 #: theme/templates/modals/report_versions.html:20
 msgid "Action"
 msgstr "Aktion"
 
-#: theme/templates/modals/access_log.html:64
+#: theme/templates/modals/access_log.html:76
 msgid "No entries"
 msgstr "Keine Einträge"
 
@@ -432,23 +1256,15 @@ msgstr ""
 msgid "Please try again later."
 msgstr "Bitte versuchen Sie es später erneut."
 
-#: theme/templates/parts/footer.html:19
-msgid "Legal notice"
-msgstr "Rechtliche Hinweise"
-
-#: theme/templates/parts/footer.html:27
+#: theme/templates/parts/footer.html:31
 msgid "Terms of service"
 msgstr "Nutzungsbedingungen"
 
-#: theme/templates/parts/footer.html:35
+#: theme/templates/parts/footer.html:39
 msgid "A service proposed by"
 msgstr "Ein Dienst angeboten von"
 
-#: theme/templates/parts/footer.html:48
-msgid "Cookie policy"
-msgstr "Cookie Einstellungen"
-
-#: theme/templates/parts/footer.html:54
+#: theme/templates/parts/footer.html:50
 msgid "Accessibility statement"
 msgstr "Erklärung zur Barrierefreiheit"
 
@@ -467,6 +1283,10 @@ msgstr "Passwort"
 #: theme/templates/parts/header.html:49
 msgid "Light theme"
 msgstr "Helles Design"
+
+#: theme/templates/parts/header.html:57
+msgid "Contact"
+msgstr "Kontakt"
 
 #: theme/templates/registration/base.html:20
 #: theme/templates/registration/password_reset_complete.html:15
@@ -681,27 +1501,15 @@ msgstr "Registrieren"
 msgid "All incidents"
 msgstr "Alle Vorfälle"
 
-#: theme/templates/report/contacts.html:2
+#: theme/templates/report/contacts.html:3
 msgid "Contact details"
 msgstr "Informationen der Kontaktperson"
 
-#: theme/templates/report/contacts.html:7
-msgid "Role"
-msgstr "Rolle"
-
-#: theme/templates/report/contacts.html:8
-msgid "Title"
-msgstr "Titel"
-
-#: theme/templates/report/contacts.html:12
-msgid "Phone number"
-msgstr "Telefonnummer"
-
-#: theme/templates/report/cover.html:31
+#: theme/templates/report/cover.html:34
 msgid "Incident notification date"
 msgstr "Datum der Vorfallmeldung"
 
-#: theme/templates/report/cover.html:37 theme/templates/report/details.html:16
+#: theme/templates/report/cover.html:43 theme/templates/report/details.html:17
 msgid "Report status"
 msgstr "Berichtstatus"
 
@@ -709,43 +1517,47 @@ msgstr "Berichtstatus"
 msgid "Incident details"
 msgstr "Vorfalldetails"
 
-#: theme/templates/report/details.html:24
+#: theme/templates/report/details.html:25
 msgid "Legal basis"
 msgstr "Rechtsgrundlage"
 
-#: theme/templates/report/details.html:37
+#: theme/templates/report/details.html:38
 msgid "Impacted sectors"
 msgstr "Betroffene Sektoren"
 
-#: theme/templates/report/details.html:54
+#: theme/templates/report/details.html:57
 msgid "Significant impact"
 msgstr "Erhebliche Auswirkungen"
 
-#: theme/templates/report/details.html:58
+#: theme/templates/report/details.html:61
 msgid "Yes"
 msgstr "Ja"
 
-#: theme/templates/report/details.html:60
+#: theme/templates/report/details.html:63
 msgid "No"
 msgstr "Nein"
 
-#: theme/templates/report/details.html:67
+#: theme/templates/report/details.html:70
 msgid "Criminal complaint file number"
 msgstr "Aktenzeichen der Strafanzeige"
 
-#: theme/templates/report/footer.html:5
-msgid "Confidential"
-msgstr "Vertraulich"
+#: theme/templates/report/footer.html:13
+msgid "TLP:RED"
+msgstr "TLP:RED"
 
-#: theme/templates/report/reports.html:3
+#: theme/templates/report/header.html:14
+msgid "Ref"
+msgstr "Ref"
+
+#: theme/templates/report/reports.html:4
 msgid "Reports"
 msgstr "Berichte"
 
-#: theme/templates/report/reports.html:33
+#: theme/templates/report/reports.html:40
 msgid "Impacts"
 msgstr "Auswirkungen"
 
-#: theme/templates/report/reports.html:49
+#: theme/templates/report/reports.html:56
 msgid "No incident reports have been submitted."
 msgstr "Es wurden keine Vorfallberichte eingereicht."
 
@@ -754,27 +1566,27 @@ msgstr "Es wurden keine Vorfallberichte eingereicht."
 msgid "Incident report"
 msgstr "Vorfallbericht"
 
-#: theme/templates/report/timeline.html:2
+#: theme/templates/report/timeline.html:3
 msgid "Incident timeline"
 msgstr "Vorfallverlauf"
 
-#: theme/templates/report/timeline.html:7
+#: theme/templates/report/timeline.html:10
 msgid "Time zone"
 msgstr "Zeitzone"
 
-#: theme/templates/report/timeline.html:11
+#: theme/templates/report/timeline.html:14
 msgid "Incident notification creation date"
 msgstr "Erstelldatum der Vorfallmeldung"
 
-#: theme/templates/report/timeline.html:15
+#: theme/templates/report/timeline.html:18
 msgid "Incident detection date"
 msgstr "Datum der Vorfallentdeckung"
 
-#: theme/templates/report/timeline.html:19
+#: theme/templates/report/timeline.html:22
 msgid "Incident start date"
 msgstr "Datum des Vorfallbeginns"
 
-#: theme/templates/report/timeline.html:26
+#: theme/templates/report/timeline.html:30
 msgid "Report Timeline"
 msgstr "Chronologie der Berichte"
 

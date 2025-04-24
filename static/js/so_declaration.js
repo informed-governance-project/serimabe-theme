@@ -62,14 +62,18 @@ $(document).ready(function () {
   });
 
 
-  $security_objectives_carousel.on('slid.bs.carousel', function () {
+  $security_objectives_carousel.on('slid.bs.carousel', function (event) {
     adjustTextareaHeights();
     checkRequiredFields();
+    $("#security_objective_selector").find('button[data-bs-slide-to]').removeClass("focus-effect");
+    $active_button = $("#security_objective_selector").find(`[data-bs-slide-to="${event.to}"]`);
+    $active_button.addClass("focus-effect .btn:hover");
   });
 
   adjustTextareaHeights();
   checkImplementation();
   checkRequiredFields();
+  $("#security_objective_selector").find(`[data-bs-slide-to="0"]`).addClass("focus-effect");
 });
 
 
@@ -117,7 +121,6 @@ function update_so_declaration(form) {
             }
             if (data.objective_state) {
               so_id = data.objective_state.id;
-              console.log(so_id);
               $so_objective_button = $("#security_objective_selector").find(`#${so_id}`);
               $so_objective_button.removeClass("btn-success btn-warning btn-light");
               if (data.objective_state.is_completed) {
