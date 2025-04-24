@@ -5,7 +5,7 @@ $(document).ready(function () {
         autoWidth: false,
         paging: true,
         searching: false,
-        order: [[1, 'asc']],
+        order: [[0, 'desc']],
         columnDefs: [
             {   
                 targets: 0,
