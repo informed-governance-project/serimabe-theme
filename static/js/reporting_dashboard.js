@@ -133,28 +133,27 @@ $(document).ready(function () {
                 },
                 body: formdata,
             })
-                .then(response => {
-                    if (!response.ok) {
-                        stop_spinner();
-                    
-                        return response.json().then(data => {
-                            if (data.messages) {
-                                const messagesContainer = $("#messages-container");
-                                console.log(messagesContainer);
-                                if (messagesContainer.length) {
-                                    messagesContainer.html(data.messages);
-                                }
-                                throw new Error(response.statusText);
+            .then(response => {
+                if (!response.ok) {
+                    stop_spinner();
+        
+                    return response.json().then(data => {
+                        if (data.messages) {
+                            const messagesContainer = $("#messages-container");
+                            if (messagesContainer.length) {
+                                messagesContainer.html(data.messages);
                             }
-                        });
-                    }
-                    stop_spinner()
-                    return response
-                })
-                .catch(error => {
-                    stop_spinner()
-                    console.error("Error:", error);
-                });
+                            throw new Error(response.statusText);
+                        }
+                    });
+                }
+                stop_spinner()
+                return response
+            })
+            .catch(error => {
+                stop_spinner()
+                console.error("Error:", error);
+            });
 
         }
     });
