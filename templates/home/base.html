@@ -28,7 +28,9 @@
 {% endblock %}
 
 {% block bootstrap5_content %}
-    {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+    <div id="messages-container">
+        {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+    </div>
     <div class="container-fluid px-4 pb-5">
         {% block cookiebanner %}
             {% if cookiebanner %}

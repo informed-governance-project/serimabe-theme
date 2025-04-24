@@ -136,9 +136,11 @@ $(document).ready(function () {
                 .then(response => {
                     if (!response.ok) {
                         stop_spinner();
+                    
                         return response.json().then(data => {
                             if (data.messages) {
                                 const messagesContainer = $("#messages-container");
+                                console.log(messagesContainer);
                                 if (messagesContainer.length) {
                                     messagesContainer.html(data.messages);
                                 }
@@ -146,20 +148,8 @@ $(document).ready(function () {
                             }
                         });
                     }
-                    const contentDisposition = response.headers.get("Content-Disposition");
-                    let filename = "report.pdf"; // default filename
-                    if (contentDisposition && contentDisposition.includes("filename=")) {
-                        filename = contentDisposition.split("filename=")[1].replace(/"/g, "");
-                    }
-
-                    return response.blob().then(blob => ({ blob, filename }));
-                })
-                .then(({ blob, filename }) => {
-                    const link = document.createElement("a");
-                    link.href = URL.createObjectURL(blob);
-                    link.download = filename;
-                    link.click();
                     stop_spinner()
+                    return response
                 })
                 .catch(error => {
                     stop_spinner()
