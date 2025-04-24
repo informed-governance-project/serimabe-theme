@@ -148,7 +148,14 @@ $(document).ready(function () {
                     });
                 }
                 stop_spinner()
-                return response
+                return response.json().then(data => {
+                    if (data.messages) {
+                        const messagesContainer = $("#messages-container");
+                        if (messagesContainer.length) {
+                            messagesContainer.html(data.messages);
+                        }
+                    }
+                });
             })
             .catch(error => {
                 stop_spinner()
