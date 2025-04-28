@@ -1,3 +1,9 @@
+$.fn.dataTable.ext.order['dom-checkbox'] = function (settings, col) {
+    return this.api().column(col, { order: 'index' }).nodes().map(function (td, i) {
+        return $('input[type="checkbox"]', td).prop('checked') ? 1 : 0;
+    });
+};
+
 $(document).ready(function () {
     const checkboxes = $(".company-select-checkbox");
     const generateButton = $("#generateButton");
@@ -35,11 +41,13 @@ $(document).ready(function () {
             {
                 targets: 4,
                 orderable: true,
+                orderDataType: 'dom-checkbox',
                 type: 'html'
             },
             {
                 targets: 5,
                 orderable: true,
+                orderDataType: 'dom-checkbox',
                 type: 'html'
             },
             {
