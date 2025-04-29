@@ -31,7 +31,7 @@
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="{% url 'download_center' %}">{% translate "Download Center" %}</a></li>
         <li><a class="dropdown-item" href="{% url 'report_configuration' %}">{% translate "Configuration" %}</a></li>
-        <li><a class="dropdown-item" href="{% url 'import_risk_analysis' %}">{% translate "Import risk analysis" %}</a></li>
+        <li><a class="btn dropdown-item import_risk_analysis" data-bs-toggle="modal" data-bs-target="#import_risk_analysis">{% translate "Import risk analysis" %}</a></li>
     </ul>
   </li>
   {% endif %}
