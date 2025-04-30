@@ -35,25 +35,30 @@
 <table id="reporting-recommendations-table" class="table align-middle table-sm small">
     <thead>
         <tr>
+            <th class="col-1 text-start">{% translate "Order" %}</th>
             <th class="col-3">{% translate "Name" %}</th>
-            <th class="col-8">{% translate "Description" %}</th>
+            <th class="col-7">{% translate "Description" %}</th>
             <th class="col-1">{% translate "Actions" %}</th>
         </tr>
     </thead>
     <tbody>
+        {% csrf_token %}
         {% for recommendation in recommendations %}
         <tr>
-            <td class="col-3 table-group-divider py-3">
-                {{ recommendation.code }}
+            <td class="col-1 table-group-divider py-3 text-start">
+                {% bootstrap_field recommendation.order show_label=False %}
             </td>
-            <td class="col-8 table-group-divider py-3">
-                {{ recommendation.description|linebreaksbr }}
+            <td class="col-3 table-group-divider py-3">
+                {{ recommendation.instance.observation_recommendation.code }}
+            </td>
+            <td class="col-7 table-group-divider py-3">
+                {{ recommendation.instance.observation_recommendation.description|linebreaksbr }}
             </td>
             <td class="col-1 table-group-divider py-3">
                 <button class="btn border-0 px-2 delete_report_recommendation"
                     data-bs-toggle="modal"
                     data-bs-target="#delete_report_recommendation"
-                    data-delete-url="{% url 'delete_report_recommendations' company.id sector.id year recommendation.id %}"
+                    data-delete-url="{% url 'delete_report_recommendations' company.id sector.id year recommendation.instance.observation_recommendation.id %}"
                     title="{% translate 'Delete' %}">
                     <i class="custom-icon-trash"></i>
                 </button>

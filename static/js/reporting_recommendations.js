@@ -10,6 +10,11 @@ $(document).ready(function () {
             {
                 targets: 0,
                 orderable: true,
+                type: 'num'
+            },
+            {
+                targets: 0,
+                orderable: true,
                 type: 'string-utf8'
             },
             {
@@ -40,3 +45,24 @@ $(document).ready(function () {
       });
 
 });
+
+function onChangeRecommendation(value, id) {
+    const csrftoken = getCookie('csrftoken');
+    let formdata = $(value).serialize();
+
+    $.ajax({
+        type: "POST",
+        url: "/reporting/recommendations/update/" + id,
+        data: formdata,
+        headers: {
+            "X-CSRFToken": csrftoken
+        },
+        traditional: true,
+        success: function () {  
+            window.location.reload();
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
