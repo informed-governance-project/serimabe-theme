@@ -32,4 +32,24 @@
         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Access Log' %}">
     </i>
 </button>
+<button class="btn border-0 p-0 delete_so_declaration"
+    data-standard-answer-id="{{ standard.id }}"
+    data-delete-url="{% url 'delete_so_declaration' 0 %}"
+    data-bs-toggle="modal"
+    data-bs-target="#delete_so_declaration">
+    <i class="custom-icon-trash h4"        
+        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Delete' %}">
+    </i>
+</button>
+{% endblock %}
+
+
+{% block content_modals %}
+{{ block.super }}
+<div class="modal fade" id="delete_so_declaration" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="delete_so_declaration_label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        {% include "modals/delete_so_declaration.html" %}
+    </div>
+</div>
 {% endblock %}
