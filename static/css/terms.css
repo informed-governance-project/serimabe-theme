@@ -1,29 +1,37 @@
 #terms ol {
     counter-reset: item;
-    list-style-type: decimal;
-    margin-left: 14px;
+    list-style-type: none;
+    margin-left: 1rem;
 }
 
 #terms li {
+    counter-increment: item;
     display: block;
     position: relative;
-    padding-bottom: 8px;
+    padding-bottom: 0.5rem;
+    font-weight: normal;
+    font-size: 1rem;
 }
 
 
-#terms li:before {
-    counter-increment: item;
+#terms li::before {
     content: counters(item, ".") ".";
     position: absolute;
-    left: -3.0em;
+    left: -3em;
+    font-weight: normal;
 }
 
-.terms-subtitle {
-    font-weight: bold;
-    font-size: 1.25rem;
-    padding: 10px 0 10px 0;
+li.terms-subtitle {
+    padding-left: 0 px !important;
+    font-weight: bold !important;
+    font-size: 1.25rem !important;
 }
 
-.terms-subtitle:before {
+li.terms-subtitle::before {
+    font-weight: bold !important;
     left: -1.8em !important;
 }
+li.terms-subtitle > ol {
+    padding-top: 10px;
+}
+
