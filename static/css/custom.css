@@ -11950,4 +11950,15 @@ a.changelink {
   background-image: url("/static/images/icons/ico-trash.svg");
 }
 
+.captcha-refresh i {
+  font-size: 24px;
+  color: #333;
+  transition: transform 0.2s ease;
+}
+
+.captcha-refresh:hover i {
+  transform: rotate(90deg);
+  color: #007bff;
+}
+
 /*# sourceMappingURL=custom.css.map */
