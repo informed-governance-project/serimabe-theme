@@ -8,6 +8,10 @@
     <h1 id="site-name">{{ site_header|default:_('Django admin area') }}</h1>
 
 {% endblock %}
+{% block extrahead %}
+    {{ block.super }}
+    <script src="{% static 'js/admin-fix.js' %}"></script>
+{% endblock %}
 {% block nav-global %}
     <div class="header-links">
         <a href="{% url 'two_factor:profile' %}">
