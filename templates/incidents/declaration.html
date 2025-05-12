@@ -85,7 +85,7 @@
           {% for field in wizard.form %}
             <div class="d-flex align-items-center {% if field.field.required %}required-field{% endif %}">
               {% bootstrap_label field.label label_class="fw-bold me-2" %}
-              <hr class="flex-grow-1 border-secondary no-opacity">
+              <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
             </div>
             <div class="pt-4">
               {% bootstrap_field field show_label=False %}
