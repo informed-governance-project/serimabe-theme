@@ -69,14 +69,14 @@
         <div class="d-flex justify-content-center">
             <div class="hr-separator"></div>
         </div>
-        <fieldset class="border rounded-3 p-3 mt-4 text-center">
-            <legend class="small float-none w-auto px-3 ">
-                {% translate "Create an account" %}    
-            </legend>
-            <a id="registration_button" role="button" class="btn btn-secondary mb-3" href="{% url 'registration' %}" >
+        <div class="position-relative border rounded-3 p-3 mt-4 text-center">
+            <p class="small bg-body position-absolute top-0 start-0 translate-middle-y ms-3 px-3">
+                {% translate "Create an account" %}
+            </p>
+            <a id="registration_button" role="button" class="btn btn-secondary my-3" href="{% url 'registration' %}">
                 {% translate "Create account" %}
             </a>
-         </fieldset>
+        </div>
         {% endif %}
     </div>
 </div>
