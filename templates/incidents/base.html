@@ -221,11 +221,11 @@
             </td>
             <td class="table-group-divider py-3"> <!-- Report name and status -->
                 {% block content_table_report %}
+                    <ul class="list-unstyled mb-0">
                     {% for report in incident.get_all_workflows %}
                     {% with filtered_workflows=incident|filter_workflows_forms:report %}
-                    <ul class="list-unstyled mb-1">
                         {% with report_class=filtered_workflows.instance.review_status|default:report|get_report_class:incident %}
-                        <li>
+                        <li class="mb-1">
                             <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip" title="{% get_report_tooltip report_class %}">
                                 <i class="logo-{{ report_class }} align-middle"></i>
                                 <a class="{{ report_class }} {% if not filtered_workflows %}text-decoration-none{% endif %}"
@@ -258,9 +258,9 @@
                             {% endwith %}
                         </li>
                         {% endwith %}
-                    </ul>
                     {% endwith %}
                     {% endfor %}
+                    </ul>
                 {% endblock %}
             </td>
             <td class="table-group-divider py-3"> <!-- Actions -->

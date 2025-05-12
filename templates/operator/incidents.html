@@ -48,12 +48,12 @@
 
 {% block content_table_report %}
     {% with completed_workflows=incident.get_workflows_completed %}
+    <ul class="list-unstyled mb-0">
     {% for report in incident.get_all_workflows %}
     {% with filtered_workflows=completed_workflows|filter_workflows:report.id %}
     {% is_workflow_disabled incident.get_all_workflows completed_workflows report as workflow_disabled %}
-    <ul class="list-unstyled mb-1">
-        {% with report_class=filtered_workflows.instance.review_status|default:report|get_report_class:incident %}
-        <li>
+    {% with report_class=filtered_workflows.instance.review_status|default:report|get_report_class:incident %}
+        <li class="mb-1">
             <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip" title="{% get_report_tooltip report_class %}">
                 <i class="logo-{{ report_class }} align-middle"></i>
                 <a class="{{ report_class }} {% if workflow_disabled %}text-decoration-none{% endif %}"
@@ -94,9 +94,9 @@
             {% endif %}
         </li>
         {% endwith %}
-    </ul>
     {% endwith %}
     {% endfor %}
+    </ul>
     {% endwith %}
 {% endblock %}
 
