@@ -3,13 +3,11 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 
-{% block bootstrap5_title %}
-{% trans "Register" %}
-{% endblock %}
-
 {% block login_content %}
 <h2 class="card-title fw-bolder lh-1">
+    {% block title %}
     {% translate "Create account" %}
+    {% endblock %}
 </h2>
 <div class="hr-separator"></div>
 <div class="my-4">

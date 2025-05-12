@@ -1,10 +1,9 @@
 {% extends 'home/base.html' %}
-{% block bootstrap5_title %}About{% endblock %}
 {% block content %}
 <div class="container text-justify">
     <div class="card">
         <div class="card-body">
-            <h2>About</h2>
+            <h2>{% block title %}{% translate "About" %}{% endblock %}</h2>
             <p>The Incident Notification Platform is developed and maintained by NC3-LU team in the framework of the Informed Governance Project.</p>
             <p>This software is under AGPLv3 license. You are welcome to copy, modify or
             redistribute the <a href="https://github.com/informed-governance-project/NISINP" target="_blank" rel="noopener noreferrer">source code</a>

@@ -2,21 +2,19 @@
 {% load i18n %}
 {% load static %}
 {% load django_bootstrap5 %}
-{% block bootstrap5_title %}
-{% translate "Contact form" %}
-{% endblock %}
+
 {% block bootstrap5_extra_script %}
 {{ block.super }}
 <script src='{% static "js/contact.js" %}'></script>
 <link rel="stylesheet" href="{% static 'css/contact.css' %}" />
 {% endblock %}
-{% block content %}
 
+{% block content %}
 <div class="container-flex text-justify pb-5">
   <div class="row">
     <div class="col-8 px-3">
       <h3 class="fw-bolder">
-        {% translate "Contact form" %}
+        {% block title %}{% translate "Contact form" %}{% endblock %}
       </h3>
       <div class="hr-separator"></div>
       <div class="pt-5">
