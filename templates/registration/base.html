@@ -21,8 +21,8 @@
 {% endblock %}
 
 {% block bootstrap5_before_content %}
-<div class="d-flex position-fixed top-0 w-100 py-3" data-bs-theme="light">
-    <div class="container-fluid px-5">
+<header role="banner" class="d-flex position-fixed top-0 w-100 py-3" data-bs-theme="light">
+    <nav role="navigation" class="container-fluid px-5" aria-label="{% translate 'Main menu' %}">
         <div class="row align-items-center">
             <div class="col-auto d-flex justify-content-start me-auto">
                 <a class="navbar-brand" href="{% url 'index' %}">
@@ -39,12 +39,12 @@
                     {% include "home/language_selector.html" %}
             </div>
         </div>
-    </div>
-</div>
+    </nav>
+</header>
 {% endblock %}
 
 {% block bootstrap5_content %}
-<div class="background">
+<main role="main" class="background">
     <div class="container py-5 h-100 d-flex flex-column align-items-center justify-content-center" data-bs-theme="light">
         {% include "parts/messages.html" %}
         <div class="card shadow px-3 py-3 mb-5 rounded-1 col-5">
@@ -54,7 +54,7 @@
             </div>
         </div>
     </div>
-</div>
+</main>
 {% endblock %}
 
 {% block bootstrap5_after_content %}
