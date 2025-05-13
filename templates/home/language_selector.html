@@ -17,7 +17,7 @@
     <form id="set_language_form" action="{% url 'set_language' %}" method="post">
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ request.get_full_path }}">
-        <select class="text-uppercase selectpicker" id="language_selector" name="language" data-style="text-uppercase bg-transparent border-0 language_selector" data-width="fit">
+        <select class="text-uppercase selectpicker" id="language_selector" name="language" data-style="nav-link text-uppercase btn btn-primary bg-body border-0 language_selector mx-1" data-width="fit">
             {% for language in languages %}
                 <option value="{{ language.code }}"{% if language.code == current_language %} selected{% endif %}>
                     {{ language.code }}
