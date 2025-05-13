@@ -28,8 +28,8 @@
 {% endblock %}
 
 {% block bootstrap5_content %}
-    {% include "parts/messages.html" %}
-    <div class="container-fluid px-4 pb-5">
+    <main role="main" class="container-fluid px-4 pb-5">
+        {% include "parts/messages.html" %}
         {% block cookiebanner %}
             {% if cookiebanner %}
                 {% cookiebanner_modal 'bootstrap5' %}
@@ -37,7 +37,7 @@
         {% endblock %}
         {% block content %}
         {% endblock %}
-    </div>
+    </main>
     {% block app_modals %}
     <div class="modal fade" id="create_so_declaration" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="create_so_declaration_label" aria-hidden="true">

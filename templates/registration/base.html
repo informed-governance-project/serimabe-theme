@@ -44,7 +44,7 @@
 {% endblock %}
 
 {% block bootstrap5_content %}
-<div class="background">
+<main role="main" class="background">
     <div class="container py-5 h-100 d-flex flex-column align-items-center justify-content-center" data-bs-theme="light">
         {% include "parts/messages.html" %}
         <div class="card shadow px-3 py-3 mb-5 rounded-1 col-5">
@@ -54,7 +54,7 @@
             </div>
         </div>
     </div>
-</div>
+</main>
 {% endblock %}
 
 {% block bootstrap5_after_content %}
