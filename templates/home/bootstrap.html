@@ -38,6 +38,9 @@
     </head>
 
     <body class="d-flex flex-column h-100">
+        <a class="visually-hidden-focusable bg-body d-inline text-center" href="#main_content">
+            {% translate "Skip to main content"%}
+        </a>
         {% block bootstrap5_before_content %}{% endblock %}
         {% block bootstrap5_content %}{% endblock %}
         {% block bootstrap5_after_content %}{% endblock %}
