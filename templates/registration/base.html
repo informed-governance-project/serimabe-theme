@@ -22,7 +22,7 @@
 
 {% block bootstrap5_before_content %}
 <header role="banner" class="d-flex position-fixed top-0 w-100 py-3" data-bs-theme="light">
-    <div class="container-fluid px-5">
+    <nav role="navigation" class="container-fluid px-5" aria-label="{% translate 'Main menu' %}">
         <div class="row align-items-center">
             <div class="col-auto d-flex justify-content-start me-auto">
                 <a class="navbar-brand" href="{% url 'index' %}">
@@ -39,7 +39,7 @@
                     {% include "home/language_selector.html" %}
             </div>
         </div>
-    </div>
+    </nav>
 </header>
 {% endblock %}
 
