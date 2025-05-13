@@ -11,14 +11,17 @@
 </h2>
 <div class="hr-separator"></div>
 <div class="my-4">
+    <p>
+        {% translate "Fields marked with an asterisk (*) are mandatory." %}
+    </p>
     <form action="" method="POST">
         {% csrf_token %}
         {% bootstrap_form_errors form %} 
-        {% bootstrap_field form.first_name show_label=False %}
-        {% bootstrap_field form.last_name show_label=False %}
-        {% bootstrap_field form.email show_label=False %}
-        {% bootstrap_field form.password1 show_help=False show_label=False%}
-        {% bootstrap_field form.password2 show_help=False show_label=False %}
+        {% bootstrap_field form.first_name show_label=False placeholder=_("First name") %}
+        {% bootstrap_field form.last_name show_label=False placeholder=_("Last name") %}
+        {% bootstrap_field form.email show_label=False placeholder=_("Email address")|add:" *" %}
+        {% bootstrap_field form.password1 show_help=False show_label=False placeholder=_("Password")|add:" *" %}
+        {% bootstrap_field form.password2 show_help=False show_label=False  placeholder=_("Password confirmation")|add:" *" %}
         <div class="d-inline-flex">
             <input class="form-check-input custom-checkbox" type="checkbox" id="{{ form.accept_terms.id_for_label }}"
                 name="{{ form.accept_terms.name }}">

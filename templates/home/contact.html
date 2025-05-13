@@ -18,13 +18,13 @@
       </h3>
       <div class="hr-separator"></div>
       <div class="pt-5">
+        <p>
+          {% translate "Fields marked with an asterisk (*) are mandatory." %}
+        </p>
         <form id="contact_form" action="{% url 'contact' %}" method="post"
           class="card bg-light border-0 shadow rounded">
           {% csrf_token %}
           <div class="card-body p-5 pb-2">
-            <p>
-              {% translate "Fields marked with an asterisk (*) are mandatory." %}
-            </p>
             <div class="row">
               <div class="col">
                 {% bootstrap_field form.lastname show_label=False placeholder=_("Name")|add:" *" %}
