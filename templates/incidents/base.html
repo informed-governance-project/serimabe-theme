@@ -44,7 +44,7 @@
                 ({% translate "Active" %})
             </span>
             {% endif %}
-            <i class="bi bi-funnel-fill"></i>
+            <i class="bi bi-funnel-fill" aria-hidden="true"></i>
         </button>
         <button class="btn" data-bs-toggle="collapse" data-bs-target="#collapseLegend"
             aria-expanded="false" aria-controls="collapseLegend">
@@ -62,39 +62,39 @@
                 {% translate "Legend" %}
             </span>
             <div class="legend-item legend-impact">
-                <i class="logo-report-impact m-0 h5"></i>
+                <i class="logo-report-impact m-0 h5" aria-hidden="true"></i>
                 {% translate "Impact" %}
             </div>
             <div class="legend-item legend-ongoing">
-                <i class="logo-report-ongoing m-0 h5"></i>
+                <i class="logo-report-ongoing m-0 h5" aria-hidden="true"></i>
                 {% translate "On going" %}
             </div>
             <div class="legend-item legend-closed">
-                <i class="logo-report-closed m-0 h5"></i>
+                <i class="logo-report-closed m-0 h5" aria-hidden="true"></i>
                 {% translate "Closed" %}
             </div>
             <div class="legend-item legend-unsubmitted">
-                <i class="logo-report-unsubmitted m-0 h5"></i>
+                <i class="logo-report-unsubmitted m-0 h5" aria-hidden="true"></i>
                 {% translate "Unsubmitted" %}
             </div>
             <div class="legend-item legend-under-review">
-                <i class="logo-report-under-review m-0 h5"></i>
+                <i class="logo-report-under-review m-0 h5" aria-hidden="true"></i>
                 {% translate "Under review" %}
             </div>
             <div class="legend-item legend-late-under-review">
-                <i class="logo-report-late-under-review m-0 pe-3 h5"></i>
+                <i class="logo-report-late-under-review m-0 pe-3 h5" aria-hidden="true"></i>
                 {% translate "Late submission" %}
             </div>
             <div class="legend-item legend-submission-overdue">
-                <i class="logo-report-overdue m-0 pe-3 h5"></i>
+                <i class="logo-report-overdue m-0 pe-3 h5" aria-hidden="true"></i>
                 {% translate "Submission overdue" %}
             </div>
             <div class="legend-item legend-passed">
-                <i class="logo-report-pass m-0 h5"></i>
+                <i class="logo-report-pass m-0 h5" aria-hidden="true"></i>
                 {% translate "Passed" %}
             </div>
             <div class="legend-item legend-failed">
-                <i class="logo-report-fail m-0 h5"></i>
+                <i class="logo-report-fail m-0 h5" aria-hidden="true"></i>
                 {% translate "Failed" %}
             </div>
         </div> 
@@ -170,7 +170,7 @@
                 <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip"
                     title="{% translate 'Incident notification submission date' %}">
                     {{incident.incident_notification_date|date:"d/m/y"}}<br/>
-                    <i class="bi bi-clock"></i>
+                    <i class="bi bi-clock" aria-hidden="true"></i>
                     {{incident.incident_notification_date|date:"H:i"}}
                 </div>
 
@@ -227,7 +227,7 @@
                         {% with report_class=filtered_workflows.instance.review_status|default:report|get_report_class:incident %}
                         <li class="mb-1">
                             <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip" title="{% get_report_tooltip report_class %}">
-                                <i class="logo-{{ report_class }} align-middle"></i>
+                                <i class="logo-{{ report_class }} align-middle" aria-hidden="true"></i>
                                 <a class="{{ report_class }} {% if not filtered_workflows %}text-decoration-none{% endif %}"
                                     {% if filtered_workflows %}href="{% url 'edit_workflow' %}?incident_workflow_id={{ filtered_workflows.instance.id }}"{% endif %}>
                                     {{ report }}
@@ -242,7 +242,7 @@
                                     data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
                                     data-download-url="{% url 'download_incident_report_pdf' 0 %}" data-bs-toggle="modal"
                                     data-bs-target="#report_versions">
-                                    <i class="bi bi-clock-history align-self-center"
+                                    <i class="bi bi-clock-history align-self-center" aria-hidden="true"
                                         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Version control' %}">
                                     </i>
                                 </button>
@@ -251,7 +251,7 @@
                                 <a class="btn p-0 ps-1 border-0 d-inline-flex align-items-center"
                                     href="{% url 'download_incident_report_pdf' filtered_workflows.instance.id %}"
                                     data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download PDF report' %}">
-                                    <i class="custom-icon-pdf align-self-center"></i>
+                                    <i class="custom-icon-pdf align-self-center" aria-hidden="true"></i>
                                 </a>
                                 {% endif %}                     
                             </div>
@@ -268,11 +268,11 @@
                     {% block content_table_actions %}
                     <button class="btn access_log p-0" data-incident-id="{{ incident.id }}"
                         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Activity Log' %}">
-                        <i class="custom-icon-log  h4"></i>
+                        <i class="custom-icon-log  h4" aria-hidden="true"></i>
                     </button>
                     <a class="btn p-0 border-0" href="{% url 'download_incident_pdf' incident.id %}"
                         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download PDF report' %}">
-                        <i class="custom-icon-pdf h4"></i>
+                        <i class="custom-icon-pdf h4" aria-hidden="true"></i>
                     </a>
                     {% endblock %}
                 </div>

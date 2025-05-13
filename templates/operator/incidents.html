@@ -19,12 +19,14 @@
     {% if incident.incident_status == 'GOING' %}
     <i class="logo-report-ongoing logo-status" 
         data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'The incident is still ongoing' %}">
+        title="{% translate 'The incident is still ongoing' %}"
+        aria-hidden="true">
     </i> 
     {% elif incident.incident_status == 'CLOSE' %}
     <i class="logo-report-closed logo-status"
         data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'The incident is over' %}">
+        title="{% translate 'The incident is over' %}"
+        aria-hidden="true">
     </i>
     {% endif %}
 {% endblock %}
@@ -33,7 +35,8 @@
     {% if incident.is_significative_impact %}
     <i class="logo-report-impact logo-status"
         data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'Incident with significant impact' %}">
+        title="{% translate 'Incident with significant impact' %}"
+        aria-hidden="true">
     </i>
     {% endif %}
 {% endblock %}
@@ -55,7 +58,7 @@
     {% with report_class=filtered_workflows.instance.review_status|default:report|get_report_class:incident %}
         <li class="mb-1">
             <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip" title="{% get_report_tooltip report_class %}">
-                <i class="logo-{{ report_class }} align-middle"></i>
+                <i class="logo-{{ report_class }} align-middle" aria-hidden="true"></i>
                 <a class="{{ report_class }} {% if workflow_disabled %}text-decoration-none{% endif %}"
                     {% if not workflow_disabled %}
                     href="{% if filtered_workflows %}{% url 'edit_workflow' %}{% else %}
@@ -76,7 +79,8 @@
                 data-bs-target="#report_versions">
                 <i class="bi bi-clock-history"
                     data-bs-placement="top" data-bs-toggle="tooltip"
-                    title="{% translate 'Version control' %}">
+                    title="{% translate 'Version control' %}"
+                    aria-hidden="true">
                 </i>
             </button>
             {% endif %}
@@ -88,7 +92,8 @@
                 data-bs-target="#workflow_comment">
                 <i class="bi bi-chat-left-text-fill"
                     data-bs-placement="top" data-bs-toggle="tooltip"
-                    title="{% translate 'Comment' %}">
+                    title="{% translate 'Comment' %}"
+                    aria-hidden="true">
                 </i>
             </button>
             {% endif %}
@@ -110,7 +115,8 @@
     data-bs-target="#delete_incident">
     <i class="custom-icon-trash h4"                    
         data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'Delete' %}">
+        title="{% translate 'Delete' %}"
+        aria-hidden="true">
     </i>
 </button>
 {% endif %}
