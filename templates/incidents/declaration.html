@@ -72,25 +72,13 @@
       {% if wizard.form.forms %}
         {{ wizard.form.management_form }}
         {% for form in wizard.form.forms %}
-          <div class="text-danger">
-            {% for field_name, field_errors in form.errors.items %}
-              {% for error in field_errors %}
-                  <p>{{ error }}</p>
-              {% endfor %}
-            {% endfor %}
-          </div>
+          {% bootstrap_form_errors wizard.form %}
           {% bootstrap_form form %}
         {% endfor %}
       {% else %}
         {% with form_class_name=wizard.form|get_class_name %}
         {{ wizard.form.media }}
-        <div class="text-danger">
-          {% for field_name, field_errors in form.errors.items %}
-            {% for error in field_errors %}
-                <p>{{ error }}</p>
-            {% endfor %}
-          {% endfor %}
-        </div>
+        {% bootstrap_form_errors form %}
         {% if form_class_name == 'ContactForm' %}
           {% include "incidents/contact_form.html" %}
         {% elif form_class_name == 'ImpactForm' %}
