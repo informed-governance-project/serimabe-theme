@@ -23,34 +23,24 @@
     </div>
     <div class="row align-items-center text-white pb-2 small">
       <div class="col-4 d-flex justify-content-start">
-        <ul class="nav">
-          <li class="nav-item">
-            <a href="{% if regulator.tos_url %}{{ regulator.tos_url }}{% else %}{% url 'terms' %}{% endif %}"
-              target="{% if regulator.tos_url %}_blank{% endif %}" rel="noopener noreferrer"
-              class="nav-link px-2 text-white">
-              {% translate "Terms of service" %}
-            </a>
-          </li>
-        </ul>
+        <a href="{% if regulator.tos_url %}{{ regulator.tos_url }}{% else %}{% url 'terms' %}{% endif %}"
+          target="{% if regulator.tos_url %}_blank{% endif %}" rel="noopener noreferrer"
+          class="nav-link px-2 text-white">
+          {% translate "Terms of service" %}
+        </a>
       </div>
       <div class="col-4 d-flex justify-content-center">
         <div class="nav">
-          <li class="nav-item d-inline">
-            <span>{% translate "A service proposed by" %}</span>
-            <a href="{{ regulator.website }}" target="_blank" rel="noopener noreferrer" class="footer-link">
-              {{ regulator.name }}
-            </a>
-          </li>
+          <span>{% translate "A service proposed by" %}&nbsp;</span>
+          <a href="{{ regulator.website }}" target="_blank" rel="noopener noreferrer" class="footer-link">
+            {{ regulator.name }}
+          </a>
         </div>
       </div>
       <div class="col-4 d-flex justify-content-end">
-        <ul class="nav">
-          <li class="nav-item">
-            <a href="{% static 'documents/2025-01-08_page-accessibilite-temporaire_SERIMA.pdf' %}" class="nav-link px-2 text-white" download>
-              {% translate "Accessibility statement" %}
-            </a>
-          </li>
-        </ul>
+        <a href="{% static 'documents/2025-01-08_page-accessibilite-temporaire_SERIMA.pdf' %}" class="nav-link px-2 text-white" download>
+          {% translate "Accessibility statement" %}
+        </a>
       </div>
     </div>
   </div>
