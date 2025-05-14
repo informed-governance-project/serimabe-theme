@@ -269,10 +269,12 @@
                     <button class="btn access_log p-0" data-incident-id="{{ incident.id }}"
                         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Activity Log' %}">
                         <i class="custom-icon-log  h4" aria-hidden="true"></i>
+                        <span class="visually-hidden">{% translate 'Activity Log' %}</span>
                     </button>
                     <a class="btn p-0 border-0" href="{% url 'download_incident_pdf' incident.id %}"
                         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download PDF report' %}">
                         <i class="custom-icon-pdf h4" aria-hidden="true"></i>
+                        <span class="visually-hidden">{% translate 'Download PDF report' %}</span>
                     </a>
                     {% endblock %}
                 </div>
