@@ -105,28 +105,29 @@
 
 {% if filter.qs %}
 <table id="incidents-table" class="table align-middle table-sm small">
+    <caption class="visually-hidden">{% translate "Incidents table" %}</caption>
     <thead>
         <tr>
-            <th>{% translate "Status" %}</th>
-            <th class="text-start">{% translate "Creation date" %}</th>
-            <th>
+            <th scope="col">{% translate "Status" %}</th>
+            <th scope="col" class="text-start">{% translate "Creation date" %}</th>
+            <th scope="col">
                 {% if is_regulator and not is_regulator_incidents or is_observer %}
                 {% translate "Operator" %}
                 {% else %}
                 {% translate "Regulator" %}
                 {% endif %}
             </th>
-            <th>
+            <th scope="col">
                 {% if is_observer %}
                 {% translate "Regulator" %}
                 {% else %}
                 {% translate "Regulation" %}
                 {% endif %}
             </th>
-            <th>{% translate "Reference" %}</th>
-            <th>{% translate "Sectors" %}</th>
-            <th>{% translate "Report" %}</th>
-            <th>{% translate "Actions" %}</th>
+            <th scope="col">{% translate "Reference" %}</th>
+            <th scope="col">{% translate "Sectors" %}</th>
+            <th scope="col">{% translate "Report" %}</th>
+            <th scope="col">{% translate "Actions" %}</th>
         </tr>
     </thead>
     <tbody>

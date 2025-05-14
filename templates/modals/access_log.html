@@ -23,16 +23,17 @@
         <h6>{{ incident.incident_id }}</h6>
         {% if log %}
         <table id="access-log-table" class="table table-sm small">
+            <caption class="visually-hidden">{% translate "Access log table" %}</caption>
             <thead class="table-light">
                 <tr>
-                    <th class="text-start">{% translate "Date" %}</th>
+                    <th scope="col" class="text-start">{% translate "Date" %}</th>
                     {% if is_regulator %}
-                    <th>{% translate "Entity" %}</th>
+                    <th scope="col">{% translate "Entity" %}</th>
                     {% endif %}
-                    <th>{% translate "User" %}</th>
-                    <th>{% translate "Role" %}</th>
-                    <th>{% translate "Document" %}</th>
-                    <th>{% translate "Action" %}</th>
+                    <th scope="col">{% translate "User" %}</th>
+                    <th scope="col">{% translate "Role" %}</th>
+                    <th scope="col">{% translate "Document" %}</th>
+                    <th scope="col">{% translate "Action" %}</th>
                 </tr>
             </thead>
             <tbody>

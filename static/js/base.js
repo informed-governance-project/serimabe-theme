@@ -18,6 +18,7 @@ $(document).ajaxError(function (event, xhr) {
 var datatableTranslations = {
   info: gettext("Showing _START_ to _END_ of _TOTAL_ entries"),
   lengthMenu: gettext("_MENU_ entries per page"),
+  aria: {orderable: gettext(": Activate to sort")},
 };
 
 
