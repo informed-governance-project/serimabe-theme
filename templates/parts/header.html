@@ -38,9 +38,9 @@
             </li>
           {% endif %}
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="nav-link dropdown-toggle" id="navbarDropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-person-circle" aria-hidden="true"></i> {{ request.user.get_full_name }}
-            </a>
+            </button>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="{% url 'edit_account' %}">{% translate 'Account' %}</a></li>
               <li><a class="dropdown-item" href="{% url 'two_factor:profile' %}">{% translate 'Security' %}</a></li>
