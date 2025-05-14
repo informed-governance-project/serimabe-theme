@@ -20,12 +20,14 @@
         <form id="cookiebannerForm">
           {% for cookiegroup in cb_settings.groups %}
           <p class="text-justify">{{ cookiegroup.description }} 
-            <a data-bs-toggle="collapse"
-              href="#cookiesDescription" 
-              role="button" aria-expanded="false" 
+            <button class="btn btn-link my-0 py-0"
+              data-bs-toggle="collapse"
+              data-bs-target="#cookiesDescription" 
+              aria-controls="cookiesDescription"
+              type="button" aria-expanded="false" 
               aria-controls="cookiesDescription">
               {% translate 'Details' %}
-            </a>
+            </button>
           </p>
           <div class="collapse" id="cookiesDescription">
             <table class="table table-sm">
