@@ -54,9 +54,12 @@ $(document).ready(function () {
         let $modalReportName = $('#modal-report-name');
         let $modalincidentRef = $('#modal-incident-ref');
         let $modalWorkflowRows = $('#modal-workflow-rows');
+        let $captionAccessibility = $('#caption-accessibility');
 
 
         $modalReportName.text(reportId);
+        let currentText = $captionAccessibility.text();
+        $captionAccessibility.text(currentText+ ' : ' + reportId);
         $modalincidentRef.text(incidentRef);
         $modalWorkflowRows.empty();
 
