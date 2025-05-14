@@ -30,7 +30,7 @@
 <div class="d-flex {% if is_regulator and not is_regulator_incidents or is_observer %}justify-content-end{% else %}justify-content-between{% endif %}">
     {% if not is_regulator and not is_observer or is_regulator_incidents %}
     <div>
-        <a role="button" class="btn btn-primary btn-sm" href="{% url 'declaration' %}">
+        <a class="btn btn-primary btn-sm" href="{% url 'declaration' %}">
             {% translate "Notify an incident" %}
         </a>
     </div>
