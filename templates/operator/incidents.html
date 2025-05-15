@@ -22,12 +22,14 @@
         title="{% translate 'The incident is still ongoing' %}"
         aria-hidden="true">
     </i> 
+    <span class="visually-hidden">{% translate 'The incident is still ongoing' %}</span>
     {% elif incident.incident_status == 'CLOSE' %}
     <i class="logo-report-closed logo-status"
         data-bs-placement="top" data-bs-toggle="tooltip"
         title="{% translate 'The incident is over' %}"
         aria-hidden="true">
     </i>
+    <span class="visually-hidden">{% translate 'The incident is over' %}</span>
     {% endif %}
 {% endblock %}
 
@@ -38,6 +40,7 @@
         title="{% translate 'Incident with significant impact' %}"
         aria-hidden="true">
     </i>
+    <span class="visually-hidden">{% translate 'Incident with significant impact' %}</span>
     {% endif %}
 {% endblock %}
 

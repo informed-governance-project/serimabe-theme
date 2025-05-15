@@ -48,10 +48,10 @@
 }
 
 .legend-title {
+    background-color: var(--bs-body-bg);
     position: absolute;
     top: -10px;
     left: 15px;
-    background: white;
     padding: 0 5px;
     font-weight: bold;
 }
@@ -115,6 +115,7 @@
 .report-unsubmitted {  color: #727272;}
 
 [class^="logo-report"]{
+    background-color: var(--bs-body-bg);
     width: 1em;
     height: 1em;
     display: inline-block;
