@@ -13804,5 +13804,10 @@ a.changelink {
   background-image: url("/static/images/icons/ico-trash.svg");
 }
 
+.btn-close-white {
+    filter: invert(1);
+    opacity: 1;
+}
+
 
 /*# sourceMappingURL=custom.css.map */
