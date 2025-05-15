@@ -10,32 +10,38 @@
     {% endblock %}
 </h2>
 <div class="hr-separator"></div>
-<div class="my-4">
-    <p>
+<div class="my-1 my-xl-4">
+    <p class="mb-1 mb-xl-3">
         {% translate "Fields marked with an asterisk (*) are mandatory." %}
     </p>
     <form action="" method="POST">
         {% csrf_token %}
         {% bootstrap_form_errors form %} 
-        {% bootstrap_field form.first_name show_label=False placeholder=_("First name") %}
-        {% bootstrap_field form.last_name show_label=False placeholder=_("Last name") %}
-        {% bootstrap_field form.email show_label=False placeholder=_("Email address")|add:" *" %}
-        {% bootstrap_field form.password1 show_help=False show_label=False placeholder=_("Password")|add:" *" %}
-        {% bootstrap_field form.password2 show_help=False show_label=False  placeholder=_("Password confirmation")|add:" *" %}
-        <div class="d-inline-flex">
-            <input class="form-check-input custom-checkbox" type="checkbox" id="{{ form.accept_terms.id_for_label }}"
-                name="{{ form.accept_terms.name }}">
-            <label class="form-check-label ps-2" for="{{ form.accept_terms.id_for_label }}">
-                {{ form.accept_terms.label|safe }}
-                <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
-                    class="text-decoration-none text-decoration-underline text-dark"
-                    rel="noopener noreferrer" 
-                    target="_blank">
-                    {% translate "Terms of Service" %}
-                </a>
-            </label>
+        <div class="row row-cols-2 row-cols-xl-1">
+            <div class="col">
+                {% bootstrap_field form.first_name show_label=False placeholder=_("First name") wrapper_class="mb-1 mb-xl-3" %}
+                {% bootstrap_field form.last_name show_label=False placeholder=_("Last name") wrapper_class="mb-1 mb-xl-3" %}
+                {% bootstrap_field form.email show_label=False placeholder=_("Email address")|add:" *" wrapper_class="mb-1 mb-xl-3" %}
+            </div>
+            <div class="col">
+                {% bootstrap_field form.password1 show_help=False show_label=False placeholder=_("Password")|add:" *" wrapper_class="mb-1 mb-xl-3" %}
+                {% bootstrap_field form.password2 show_help=False show_label=False  placeholder=_("Password confirmation")|add:" *" wrapper_class="mb-1 mb-xl-3" %}
+                <div class="d-inline-flex">
+                    <input class="form-check-input custom-checkbox" type="checkbox" id="{{ form.accept_terms.id_for_label }}"
+                        name="{{ form.accept_terms.name }}">
+                    <label class="form-check-label ps-2" for="{{ form.accept_terms.id_for_label }}">
+                        {{ form.accept_terms.label|safe }}
+                        <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
+                            class="text-decoration-none text-decoration-underline text-dark"
+                            rel="noopener noreferrer" 
+                            target="_blank">
+                            {% translate "Terms of Service" %}
+                        </a>
+                    </label>
+                </div>
+            </div>
         </div>
-        <button class="btn btn-primary mt-3" type="submit">
+        <button class="btn btn-primary mt-1 mt-xl-3" type="submit">
             {% translate "Create account" %}
         </button>
     </form>

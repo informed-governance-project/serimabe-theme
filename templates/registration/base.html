@@ -45,10 +45,10 @@
 
 {% block bootstrap5_content %}
 <main role="main" id="main_content" class="background">
-    <div class="container py-5 h-100 d-flex flex-column align-items-center justify-content-center" data-bs-theme="light">
+    <div class="container-lg py-5 h-100 d-flex flex-column align-items-center justify-content-center" data-bs-theme="light">
         {% include "parts/messages.html" %}
-        <div class="card shadow px-3 py-3 mb-5 rounded-1 col-5">
-            <div class="card-body">      
+        <div class="card shadow p-0 p-xl-3 mb-0 mb-xl-5 rounded-1 col-12 col-xl-5">
+            <div class="card-body p-2 p-xl-3">      
                 {% block login_content %}
                 {% endblock login_content %}
             </div>
