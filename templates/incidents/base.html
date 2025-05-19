@@ -29,7 +29,7 @@
 {% settings_value "TIME_ZONE" as time_zone %}
 <div class="d-flex {% if is_regulator and not is_regulator_incidents or is_observer %}justify-content-end{% else %}justify-content-between{% endif %}">
     {% if not is_regulator and not is_observer or is_regulator_incidents %}
-    <div>
+    <div class="align-self-center">
         <a class="btn btn-primary btn-sm" href="{% url 'declaration' %}">
             {% translate "Notify an incident" %}
         </a>
