@@ -31,7 +31,13 @@ li.terms-subtitle::before {
     font-weight: bold !important;
     left: -1.8em !important;
 }
-li.terms-subtitle > ol {
+
+li.terms-subtitle>ol {
     padding-top: 10px;
 }
 
+@media (max-width: 768px) {
+    #terms ol {
+        padding-left: 0.5rem;
+    }
+}
