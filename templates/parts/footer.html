@@ -22,14 +22,14 @@
       <img src="{% static 'images/regulator_logo.svg' %}" alt="{{ regulator_name }}" class="translate-middle-y">
     </div>
     <div class="row align-items-center text-white pb-2 small row-cols-1 row-cols-xl-3">
-      <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-start">
+      <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-start my-2 my-lg-0">
         <a href="{% if regulator.tos_url %}{{ regulator.tos_url }}{% else %}{% url 'terms' %}{% endif %}"
           target="{% if regulator.tos_url %}_blank{% endif %}" rel="noopener noreferrer"
           class="text-decoration-none px-2 text-white">
           {% translate "Terms of service" %}
         </a>
       </div>
-      <div class="col-12 col-lg-4 d-flex justify-content-center">
+      <div class="col-12 col-lg-4 d-flex justify-content-center mb-2 mb-lg-0">
         <div class="text-center">
           <span>{% translate "A service proposed by" %}&nbsp;</span>
           <a href="{{ regulator.website }}" target="_blank" rel="noopener noreferrer" class="footer-link">
@@ -37,7 +37,7 @@
           </a>
         </div>
       </div>
-      <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end">
+      <div class="col-12 col-lg-4 d-flex justify-content-center justify-content-lg-end mb-2 mb-lg-0">
         <a href="{% static 'documents/2025-01-08_page-accessibilite-temporaire_SERIMA.pdf' %}" class="text-decoration-none px-2 text-white" download>
           {% translate "Accessibility statement" %}
         </a>
