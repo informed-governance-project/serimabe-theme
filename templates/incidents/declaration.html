@@ -30,7 +30,7 @@
   <form action="" method="post">
     {% csrf_token %}
     <nav role="navigation" 
-      class="d-inline-flex border rounded-pill mx-4 translate-middle-y bg-light" 
+      class="d-inline-flex border rounded-pill mx-2 mx-lg-4 translate-middle-y bg-light" 
       aria-label="{% translate 'Notification incident steps' %}">
       <ul class="nav nav-pills m-2">
         {% for step in wizard.steps.all %}
@@ -38,32 +38,32 @@
           {% with step_name=steps|index:step %}
           {% if step > wizard.steps.current %}
           <div class="text-secondary">
-            <button type="submit" class="d-flex align-items-center btn btn-link text-decoration-none" 
+            <button type="submit" class="d-flex align-items-center btn btn-link text-decoration-none px-1 px-lg-3" 
               name="wizard_goto_step" value="{{step}}" aria-current="step" disabled>
               <div class="step-circle bg-transparent border border-secondary force_disabled">
                 {{ forloop.counter }}
               </div>
-              <span class="ps-2">{{ step_name }}</span>
+              <span class="ps-2 d-none d-lg-block">{{ step_name }}</span>
             </button>
           </div>
           {% elif step < wizard.steps.current %} 
           <div>
-            <button type="submit" class="d-flex align-items-center btn btn-link text-decoration-none text-secondary"
+            <button type="submit" class="d-flex align-items-center btn btn-link text-decoration-none text-secondary px-1 px-lg-3"
               name="wizard_goto_step" value="{{step}}" aria-current="step" >
               <div class="step-circle bg-secondary text-white">
                 {{ forloop.counter }}
               </div>
-              <span class="ps-2">{{ step_name }}</span>
+              <span class="ps-2 d-none d-lg-block">{{ step_name }}</span>
             </button>
           </div>
           {% else %}
           <div>
-            <button type="submit" class="d-flex align-items-center btn btn-link text-decoration-none fw-bolder" 
+            <button type="submit" class="d-flex align-items-center btn btn-link text-decoration-none fw-bolder px-1 px-lg-3" 
               name="wizard_goto_step" value="{{step}}" aria-current="step">
               <div class="step-circle bg-primary text-white">
                 {{forloop.counter}}
               </div>
-              <span class="ps-2">{{ step_name }}</span>
+              <span class="ps-2 d-none d-lg-block">{{ step_name }}</span>
             </button>
           </div>
           {% endif %}
@@ -105,40 +105,41 @@
       {% endif %}
       {% endwith %}
       {% endif %}
-      <div class="d-flex mx-4 notification-buttons">
-        <div class="flex-grow-1">
-          <a role="button" class="btn btn-secondary"
-            href="{% if is_regulator_incident %}{% url 'regulator_incidents' %}{% else %}{% url 'incidents' %}{% endif %}">
-            {% if action == 'Create' %}
-            {% translate "Cancel" %}
-            {% else %}
-            {% translate "Close" %}
+      <div class="mx-0 mx-sm-4 notification-buttons">
+        <div class="row row-cols-1 row-cols-sm-2">
+          <div class="order-1 order-sm-0 col d-flex justify-content-center justify-content-sm-start pt-2 pt-sm-0">
+            <a role="button" class="btn btn-secondary d-inline-flex"
+              href="{% if is_regulator_incident %}{% url 'regulator_incidents' %}{% else %}{% url 'incidents' %}{% endif %}">
+              {% if action == 'Create' %}
+              {% translate "Cancel" %}
+              {% else %}
+              {% translate "Close" %}
+              {% endif %}
+              <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="order-0 order-sm-2 col d-flex justify-content-around justify-content-sm-end">
+            {% if wizard.steps.first != wizard.steps.current %}
+            <button class="btn btn-primary ms-0 ms-sm-3 d-inline-flex" name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}"
+              formnovalidate>
+              <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              {% translate "Previous" %}
+            </button>
             {% endif %}
-            <i class="bi bi-x-lg" aria-hidden="true"></i>
-          </a>
-        </div>
-        <div>
-          {% if wizard.steps.first != wizard.steps.current %}
-          <button class="btn btn-primary ms-3" name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}"
-            formnovalidate>
-            <i class="bi bi-chevron-left" aria-hidden="true"></i>
-            {% translate "Previous" %}
-          </button>
-          {% endif %}
-          {% if wizard.steps.last == wizard.steps.current %}
-          {% if not view.read_only %}
-          <button class="btn btn-secondary ms-3" name="wizard_goto_step" type="submit" value="{{ wizard.steps.next }}">
-            {% translate "Notify" %}
-            <i class="bi bi-chevron-right" aria-hidden="true"></i>
-          </button>
-          {% endif %}
-          {% else %}
-          <button class="btn btn-primary ms-3" name="wizard_goto_step" type="submit" value="{{ wizard.steps.next }}">
-            {% translate "Next" %}
-            <i class="bi bi-chevron-right" aria-hidden="true"></i>
-          </button>
-          {% endif %}
-        </div>
+            {% if wizard.steps.last == wizard.steps.current %}
+            {% if not view.read_only %}
+            <button class="btn btn-secondary ms-0 ms-sm-3 d-inline-flex" name="wizard_goto_step" type="submit" value="{{ wizard.steps.next }}">
+              {% translate "Notify" %}
+              <i class="bi bi-chevron-right" aria-hidden="true"></i>
+            </button>
+            {% endif %}
+            {% else %}
+            <button class="btn btn-primary ms-0 ms-sm-3 d-inline-flex" name="wizard_goto_step" type="submit" value="{{ wizard.steps.next }}">
+              {% translate "Next" %}
+              <i class="bi bi-chevron-right" aria-hidden="true"></i>
+            </button>
+            {% endif %}
+          </div>
       </div>
     </div>
   </form>

@@ -34,8 +34,8 @@
         {% endblocktrans %}
     </p>
     {% endif %}
-    <div class="my-2 my-xl-4">
-        <div class="row row-cols-2 row-cols-xl-1">
+    <div class="my-4">
+        <div class="row row-cols-1 row-cols-xl-1">
             <div class="col">        
                 <form method="post" class="mb-3">
                     {% csrf_token %}
@@ -75,7 +75,7 @@
                     <p class="small bg-body position-absolute top-0 start-0 translate-middle-y ms-3 px-3">
                         {% translate "Create an account" %}
                     </p>
-                    <a id="registration_button" role="button" class="btn btn-secondary my-1 my-lg-3" href="{% url 'registration' %}">
+                    <a id="registration_button" role="button" class="btn btn-secondary my-3" href="{% url 'registration' %}">
                         {% translate "Create account" %}
                     </a>
                 </div>
