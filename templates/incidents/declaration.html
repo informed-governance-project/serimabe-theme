@@ -73,6 +73,15 @@
       </ul>
     </nav>
     <div class="card-body py-0 px-4">
+      {% for step in wizard.steps.all %}
+      {% with step_name=steps|index:step %}
+      {% if step == wizard.steps.current %}
+      <h4 class="fw-bolder text-center text-primary text-decoration-underline d-block d-lg-none pb-3">
+        {{step_name}}
+      </h4>
+      {% endif %}
+      {% endwith %}
+      {% endfor %}
       {{ wizard.management_form }}
       {% if wizard.form.forms %}
       {{ wizard.form.management_form }}
