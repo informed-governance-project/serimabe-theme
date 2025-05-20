@@ -34,10 +34,16 @@
 <div class="row">
     <div class="col-12 required-field">
         <label class="h6">{{ _('Technical contact')}}</label>
-        <div class="d-flex d-inline form-check form-switch ps-0">
-                {% translate "Is the incident notification manager also the technical contact?" as translated_label %}
-                {% bootstrap_label translated_label label_class="pe-4" %}
-                {% bootstrap_field wizard.form.is_technical_the_same show_label=False%}
+		<div class="d-flex d-inline form-check form-switch ps-0 mb-3">
+            {% with id_label=wizard.form.is_technical_the_same.id_for_label  %}          
+            {% translate "Is the incident notification manager also the technical contact?" as translated_label %}
+            {% bootstrap_label translated_label label_class="form-check-label pe-4" label_for=id_label %}
+            <input class="form-check-input required checkbox ms-1" name="0-is_technical_the_same" type="checkbox" id="{{ id_label }}"
+            {% for name, value in wizard.form.is_technical_the_same.field.widget.attrs.items %}
+            {{ name }}="{{ value }}"     
+            {% endfor %}
+            {% if wizard.form.cleaned_data.is_technical_the_same %} checked {% endif %}>
+            {% endwith %}
         </div>
         <div class="row row-cols-1 row-cols-lg-2">
             <div class="col">
