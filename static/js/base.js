@@ -49,4 +49,7 @@ $(document).ready(function () {
 
   // Accesibility hack to be compliant with RGAA 11.2
   $('[data-bs-toggle="tooltip"]').filter('input, textarea, i').removeAttr('aria-label');
+
+  // Accesibility hack to be compliant with RGAA 10.8
+  $('label.visually-hidden').remove();
 })

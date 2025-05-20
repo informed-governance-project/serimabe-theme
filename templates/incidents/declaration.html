@@ -104,7 +104,7 @@
       {% else %}
       {% for field in wizard.form %}
       <div class="d-flex align-items-center {% if field.field.required %}required-field{% endif %}">
-        {% bootstrap_label field.label label_class="fw-bold me-2" %}
+        {% bootstrap_label field.label label_class="fw-bold me-2" label_for=field.id_for_label %}
         <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
       </div>
       <div class="pt-4">

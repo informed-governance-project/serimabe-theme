@@ -10,7 +10,7 @@
 <div class="row row-cols-1 row-cols-lg-2 pt-4">
     {% for field in wizard.form %}
         <div class="col {% if field.field.required %}required-field{% endif %}">
-            {% bootstrap_label field.label label_class="fw-bold me-2" %}
+            {% bootstrap_label field.label label_class="fw-bold me-2" label_for=field.id_for_label %}
             {% bootstrap_field field show_label=False %}
         </div>
     {% endfor %}

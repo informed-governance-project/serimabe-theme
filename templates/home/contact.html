@@ -57,7 +57,7 @@
             <div class="col d-flex d-inline form-check ps-0">
               {% translate "I agree that my personal data may be used for communication purposes." as translated_label %}
               {% bootstrap_field form.terms_accepted show_label=False%}
-              {% bootstrap_label translated_label label_class="pe-4" %}
+              {% bootstrap_label translated_label label_class="pe-4" label_for=form.terms_accepted.id_for_label %}
             </div>
           </div>
           <div class="flex-grow-1 px-5" style="transform: translateY(50%);">
