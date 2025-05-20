@@ -46,4 +46,8 @@ $(document).ready(function () {
         $popup.modal("show");
     });
   });
+
+  // Accesibility hack to be compliant with RGAA 11.2
+  $('input[data-bs-toggle="tooltip"]').removeAttr('aria-label');
+
 })
