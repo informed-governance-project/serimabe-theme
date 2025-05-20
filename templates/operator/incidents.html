@@ -85,6 +85,9 @@
                     title="{% translate 'Version control' %}"
                     aria-hidden="true">
                 </i>
+                <span class="visually-hidden">
+                    {% translate 'Version control' %}
+                </span>
             </button>
             {% endif %}
             {% endwith %}
@@ -124,6 +127,9 @@
         title="{% translate 'Delete' %}"
         aria-hidden="true">
     </i>
+    <span class="visually-hidden">
+        {% translate 'Delete' %}
+    </span>
 </button>
 {% endif %}
 {% endblock %}
