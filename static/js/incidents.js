@@ -1,11 +1,10 @@
 $(document).ready(function () {
-    let table = $('#incidents-table').DataTable({
-        dom: 'rt<"table_controls mt-3 bottom d-flex justify-content-between lh-1 small"lip><"clear">',
-        language: datatableTranslations,
+    $('#incidents-table').DataTable({
         autoWidth: false,
-        paging: true,
+        paging: false,
         searching: false,
-        order: [[1, 'desc']],
+        info: false,
+        order: [],
         columnDefs: [
             {
                 targets: 0,
@@ -33,7 +32,6 @@ $(document).ready(function () {
         ]
     });
 
-    displayPagination(table);
 
     $(document).on("click", '.access_log', function () {
         var $popup = $("#access_log");
@@ -46,8 +44,8 @@ $(document).ready(function () {
 
     $(document).on("click", '.report_versions', function () {
         let $this = $(this);
-        let incidentRef = $this.data('report');
-        let reportId = $this.data('incident-ref');
+        let reportId = $this.data('report');
+        let incidentRef = $this.data('incident-ref');
         let workflows = $this.data('workflows');
         let reviewUrlBase = $this.data('review-url');
         let downloadUrlBase = $this.data('download-url');
@@ -135,8 +133,3 @@ $(document).ready(function () {
         $("#filterModal").modal("show");
     });
 });
-
-function displayPagination(table) {
-    let rowCount = table.data().length;
-    if (rowCount <= 10) $('.table_controls').addClass("d-none");
-  }

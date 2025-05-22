@@ -39,49 +39,9 @@
 {% endblock %}
 
 {% block content_table_report %}
-    <ul class="list-unstyled mb-0">
-    {% for report in incident.get_all_workflows %}
-    {% with filtered_workflows=incident|filter_workflows_forms:report %}
-        {% with report_class=filtered_workflows.instance.review_status|default:report|get_report_class:incident %}
-        <li class="mb-1">
-            <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip" title="{% get_report_tooltip report_class %}">
-                <i class="logo-{{ report_class }} align-middle" aria-hidden="true"></i>
-                <a class="{{ report_class }} {% if not filtered_workflows %}text-decoration-none{% endif %}"
-                    {% if filtered_workflows %}href="{% url 'review_workflow' %}?incident_workflow_id={{ filtered_workflows.instance.id }}"{% endif %}>
-                    {{ report }}
-                </a>
-            </div>
-            {% with incident_workflows=incident|get_incident_workflow_by_workflow:report %}
-            <div class="d-inline-flex">
-                {% if incident_workflows %}
-                <button class="btn text-dark p-0 ps-1 report_versions"
-                    data-workflows="{{ incident_workflows }}"
-                    data-report="{{ report }}"
-                    data-incident-ref="{{ incident.incident_id}}"
-                    data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
-                    data-download-url="{% url 'download_incident_report_pdf' 0 %}"
-                    data-bs-toggle="modal"
-                    data-bs-target="#report_versions">
-                    <i class="bi bi-clock-history align-self-center"
-                        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Version control' %}"
-                        aria-hidden="true">
-                    </i>
-                </button>
-                {% endif %}
-                {% if filtered_workflows %}
-                <a class="btn p-0 ps-1 border-0 d-inline-flex align-items-center"
-                    href="{% url 'download_incident_report_pdf' filtered_workflows.instance.id %}"
-                    data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download PDF report' %}">
-                    <i class="custom-icon-pdf align-self-center" aria-hidden="true"></i>
-                </a>
-                {% endif %}
-            </div>
-            {% endwith %}
-        </li>
-        {% endwith %}
+    {% with incident_view_action="review_workflow"  %}
+        {{ block.super }}
     {% endwith %}
-    {% endfor %}
-    </ul>
 {% endblock %}
 
 {% block content_table_actions %}
