@@ -27,7 +27,7 @@
   {% translate "Fields marked with an asterisk (*) are mandatory." %}
 </p>
 <div class="card shadow rounded-3 my-5">
-  <form action="" method="post">
+  <form method="post">
     {% csrf_token %}
     <nav role="navigation" 
       class="d-inline-flex border rounded-pill mx-2 mx-lg-4 translate-middle-y bg-light" 
@@ -39,11 +39,11 @@
           {% if step > wizard.steps.current %}
           <div class="text-secondary">
             <button type="submit" class="d-flex align-items-center btn btn-link text-decoration-none px-1 px-lg-3" 
-              name="wizard_goto_step" value="{{step}}" aria-current="step" disabled>
-              <div class="step-circle bg-transparent border border-secondary force_disabled">
+              name="wizard_goto_step" value="{{step}}" aria-current="step" {% if action == 'Create' %}disabled{% endif %}>
+              <div class="step-circle {% if action == 'Create' %}bg-transparent border border-secondary force_disabled{% else %}bg-secondary text-white{% endif %}">
                 {{ forloop.counter }}
               </div>
-              <span class="ps-2 d-none d-lg-block">{{ step_name }}</span>
+              <span class="ps-2 d-none d-lg-block {%  if not action == 'Create' %}text-secondary{% endif %}">{{ step_name }}</span>
             </button>
           </div>
           {% elif step < wizard.steps.current %} 
