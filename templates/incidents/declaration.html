@@ -118,7 +118,8 @@
         <div class="row row-cols-1 row-cols-sm-2">
           <div class="order-1 order-sm-0 col d-flex justify-content-center justify-content-sm-start pt-2 pt-sm-0">
             <a role="button" class="btn btn-secondary d-inline-flex"
-              href="{% if is_regulator_incident %}{% url 'regulator_incidents' %}{% else %}{% url 'incidents' %}{% endif %}">
+              href="{% if is_regulator_incident %}{% url 'regulator_incidents' %}{% else %}{% url 'incidents' %}{% endif %}"
+              onclick="load_spinner()">
               {% if action == 'Create' %}
               {% translate "Cancel" %}
               {% else %}
@@ -137,7 +138,8 @@
             {% endif %}
             {% if wizard.steps.last == wizard.steps.current %}
             {% if not view.read_only %}
-            <button class="btn btn-secondary ms-0 ms-sm-3 d-inline-flex" name="wizard_goto_step" type="submit" value="{{ wizard.steps.next }}">
+            <button class="btn btn-secondary ms-0 ms-sm-3 d-inline-flex" name="wizard_goto_step" 
+              type="submit" value="{{ wizard.steps.next }}" onclick="load_spinner()">
               {% translate "Notify" %}
               <i class="bi bi-chevron-right" aria-hidden="true"></i>
             </button>

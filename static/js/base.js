@@ -57,3 +57,13 @@ $(document).ready(function () {
   // Accesibility hack to be compliant with RGAA 10.8
   $('label.visually-hidden').remove();
 })
+
+window.load_spinner = function(){
+  console.log("Loading spinner");
+  
+  $('#loading-spinner').removeClass('d-none').fadeIn();
+}
+
+window.stop_spinner = function() {
+  $('#loading-spinner').fadeOut().addClass('d-none');
+}

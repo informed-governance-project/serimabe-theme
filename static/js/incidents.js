@@ -5,6 +5,9 @@ $(document).ready(function () {
         searching: false,
         info: false,
         order: [],
+        initComplete: function () {
+           stop_spinner();
+        },
         columnDefs: [
             {
                 targets: 0,
@@ -129,7 +132,7 @@ $(document).ready(function () {
         $('#technical-telephone').text(contacts.technical_telephone);
     });
 
-    $("#openFilter").click(function () {
+    $("#openFilter").click(function () {        
         $("#filterModal").modal("show");
-    });
+    });   
 });
