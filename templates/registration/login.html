@@ -15,9 +15,7 @@
     <button id="with-account" type="button" class="d-block btn btn-primary w-100 mb-3 report-incident-button">
         {% translate "Report an incident <strong>with</strong> account" %}
     </button>
-    <a type="button" 
-        class="d-block btn btn-primary w-100 mb-2 report-incident-button"
-        href="{% url 'registration' %}">
+    <a class="d-block btn btn-primary w-100 mb-2 report-incident-button" href="{% url 'registration' %}">
         {% translate "Report an incident <strong>without</strong> account" %}
     </a>
 </div>
@@ -37,47 +35,53 @@
     </p>
     {% endif %}
     <div class="my-4">
-        <form method="post" class="mb-3">
-            {% csrf_token %}
-            {{ wizard.management_form }}
-            {% bootstrap_form_errors wizard.form %}
-            {% for field in wizard.form %}
-            {% bootstrap_field field show_label=False %}
-            {% endfor %}
-            {% bootstrap_button button_type="submit" button_class="btn-primary submit_login" content=_("Connection") %}
-        </form>
-        {% block 'backup_tokens' %}
-        {% if backup_tokens %}
-        <hr>
-        <div class="backup_tokens_form">
-            <form action="" method="post">
-                {% csrf_token %}
-                <p>{% trans "As a last resort, you can use a backup token:" %}</p>
-                <p>
-                    {% bootstrap_button name="wizard_goto_step" button_type="submit" button_class="btn-secondary btn-sm submit_login" value="backup" content=_("Use backup token") %}
+        <div class="row row-cols-1 row-cols-xl-1">
+            <div class="col">        
+                <form method="post" class="mb-3">
+                    {% csrf_token %}
+                    {{ wizard.management_form }}
+                    {% bootstrap_form_errors wizard.form %}
+                    {% for field in wizard.form %}
+                    {% bootstrap_field field show_label=False %}
+                    {% endfor %}
+                    {% bootstrap_button button_type="submit" button_class="btn-primary submit_login" content=_("Connection") %}
+                </form>
+                {% block 'backup_tokens' %}
+                {% if backup_tokens %}
+                <hr>
+                <div class="backup_tokens_form">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <p>{% trans "As a last resort, you can use a backup token:" %}</p>
+                        <p>
+                            {% bootstrap_button name="wizard_goto_step" button_type="submit" button_class="btn-secondary btn-sm submit_login" value="backup" content=_("Use backup token") %}
+                        </p>
+                    </form>
+                </div>
+                {% endif %}
+                {% endblock %}
+            </div>
+            <div class="col">
+                {% if wizard.steps.current == 'auth' %}
+                <p class="small mb-4 pb-3 text-center">
+                    <a class="text-muted" href="{% url 'password_reset' %}">
+                        {% translate "Have you forgotten your password?" %}
+                    </a>
                 </p>
-            </form>
+                <div class="d-flex justify-content-center">
+                    <div class="hr-separator"></div>
+                </div>
+                <div class="position-relative border rounded-3 p-3 mt-4 text-center">
+                    <p class="small bg-body position-absolute top-0 start-0 translate-middle-y ms-3 px-3">
+                        {% translate "Create an account" %}
+                    </p>
+                    <a id="registration_button" role="button" class="btn btn-secondary my-3" href="{% url 'registration' %}">
+                        {% translate "Create account" %}
+                    </a>
+                </div>
+                {% endif %}
+            </div>
         </div>
-        {% endif %}
-        {% endblock %}
-        {% if wizard.steps.current == 'auth' %}
-        <p class="small mb-4 pb-3 text-center">
-            <a class="text-muted" href="{% url 'password_reset' %}">
-                {% translate "Have you forgotten your password?" %}
-            </a>
-        </p>
-        <div class="d-flex justify-content-center">
-            <div class="hr-separator"></div>
-        </div>
-        <fieldset class="border rounded-3 p-3 mt-4 text-center">
-            <legend class="small float-none w-auto px-3 ">
-                {% translate "Create an account" %}    
-            </legend>
-            <a id="registration_button" role="button" class="btn btn-secondary mb-3" href="{% url 'registration' %}" >
-                {% translate "Create account" %}
-            </a>
-         </fieldset>
-        {% endif %}
     </div>
 </div>
 {% endblock login_content %}
