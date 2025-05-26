@@ -14,6 +14,7 @@
             {% block bootstrap5_title %}
                 {% block title %}{% endblock %}
             {% endblock %}
+            | {{ site_name }}
         </title>
 
         <!-- Favicons -->
@@ -36,7 +37,10 @@
 
     </head>
 
-    <body class="d-flex flex-column h-100">
+    <body class="d-flex flex-column h-100 background">
+        <a class="visually-hidden-focusable bg-transparent d-inline text-center" href="#main_content">
+            {% translate "Skip to main content"%}
+        </a>
         {% block bootstrap5_before_content %}{% endblock %}
         {% block bootstrap5_content %}{% endblock %}
         {% block bootstrap5_after_content %}{% endblock %}

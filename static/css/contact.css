@@ -1,0 +1,7 @@
+.captcha-refresh>i {
+    font-size: 24px;
+}
+
+.captcha-refresh:hover>i {
+    color: var(--bs-primary) !important;
+}

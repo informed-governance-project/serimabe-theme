@@ -1,8 +1,7 @@
 {% extends 'home/base.html' %}
-{% block bootstrap5_title %}Privacy Policy{% endblock %}
 {% block content %}
 <div class="container text-justify">
-  <h1>Privacy policy</h1>
+  <h1>{% block title %}{% translate "Privacy Policy" %}{% endblock %}</h1>
   <p>We collect and process personal data in accordance with the applicable data protection legislations such as, but
     not imited to, Regulation (EU) 2016/679 on the protection of natural persons with regards to the processing of their
     personal data and the free movement of such data ("GDPR") and the national law adopting GDPR.

@@ -84,18 +84,46 @@
                 </td>
                 <td class="col-auto table-group-divider py-3">
                     {% security_objective_exists form.instance form.year.value form.initial.sector as exists %}
-                    <div class="form-check d-flex align-items-center justify-content-center boolean-checkbox">
-                        <input class="form-check-input large-checkbox no-opacity" type="checkbox"
-                            {% if exists %}checked{% endif %} 
-                            disabled>
+                    <div class="d-flex align-items-center justify-content-center">
+                        {% if not exists %}
+                            <a class="btn btn-sm import_so_declaration" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#import_so_declaration"
+                            data-year="{{ form.year.value }}"
+                            data-sector-id="{{ form.initial.sector.id }}"
+                            data-company-id="{{ form.instance.id }}">
+                        {% endif %}
+                            <div class="form-check boolean-checkbox">
+                                    <input class="form-check-input large-checkbox no-opacity" 
+                                        type="checkbox"
+                                        {% if exists %}checked{% endif %} 
+                                        disabled>
+                            </div>
+                        {% if not exists %}
+                            </a>
+                        {% endif %}
                     </div>
                 </td>
                 <td class="col-auto table-group-divider py-3">
                     {% risk_analysis_exists form.instance form.year.value form.initial.sector as exists %}
-                    <div class="form-check d-flex align-items-center justify-content-center boolean-checkbox">
-                        <input class="form-check-input large-checkbox no-opacity" type="checkbox"
-                            {% if exists %}checked{% endif %} 
-                            disabled>
+                    <div class="d-flex align-items-center justify-content-center">
+                        {% if not exists %}
+                            <a class="btn btn-sm import_risk_analysis" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#import_risk_analysis"
+                            data-year="{{ form.year.value }}"
+                            data-sector-id="{{ form.initial.sector.id }}"
+                            data-company-id="{{ form.instance.id }}">
+                        {% endif %}
+                            <div class="form-check boolean-checkbox">
+                                    <input class="form-check-input large-checkbox no-opacity" 
+                                        type="checkbox"
+                                        {% if exists %}checked{% endif %} 
+                                        disabled>
+                            </div>
+                        {% if not exists %}
+                            </a>
+                        {% endif %}
                     </div>
                 </td>
                 <td class="col-auto table-group-divider py-3">

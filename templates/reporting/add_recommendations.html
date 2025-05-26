@@ -92,7 +92,7 @@
                     {{ form.code.value }}
                 </td>
                 <td class="col-auto table-group-divider py-3">
-                    {{ form.description.value }}
+                    {{ form.description.value|linebreaksbr }}
                 </td>
                 <td class="col-auto table-group-divider py-3">
                     {% for sector in form.sectors %}

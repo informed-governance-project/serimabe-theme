@@ -11,12 +11,12 @@
 <ul>
     {% for report_recommendation in report_recommendations %}
         <li>
-            {{ report_recommendation.description }}
+            {{ report_recommendation.description|linebreaks }}
         </li>
     {% endfor %}
     {% if company_reporting.comment %}
         <li>
-            {{ company_reporting.comment }}
+            {{ company_reporting.comment|linebreaks }}
         </li>
     {% endif %}
 </ul>

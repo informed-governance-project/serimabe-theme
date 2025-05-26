@@ -3,15 +3,20 @@
 {% load i18n %}
 {% load custom_filters %}
 
-{% block bootstrap5_title %}{% translate "Account" %}{% endblock %}
 {% block content %}
-<h1>{% block title %}{% translate "Account management" %}{% endblock %}</h1>
+<h3 class="fw-bolder">
+    {% block title %}{% translate "Account management" %}{% endblock %}
+</h3>
+<div class="hr-separator"></div>
 <div class="col-md-6">
+    <p>
+        {% translate "Fields marked with an asterisk (*) are mandatory." %}
+    </p>
     <form method="post">
         {% csrf_token %}
         {% bootstrap_form_errors form %}
         {% bootstrap_form form %}
-        {% bootstrap_button button_type="submit" content="Save changes"|translate  %}
+        {% bootstrap_button button_type="submit" content=_("Save changes")  %}
     </form>
 </div>
 {% endblock %}
