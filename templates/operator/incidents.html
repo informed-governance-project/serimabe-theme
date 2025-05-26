@@ -19,13 +19,17 @@
     {% if incident.incident_status == 'GOING' %}
     <i class="logo-report-ongoing logo-status" 
         data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'The incident is still ongoing' %}">
+        title="{% translate 'The incident is still ongoing' %}"
+        aria-hidden="true">
     </i> 
+    <span class="visually-hidden">{% translate 'The incident is still ongoing' %}</span>
     {% elif incident.incident_status == 'CLOSE' %}
     <i class="logo-report-closed logo-status"
         data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'The incident is over' %}">
+        title="{% translate 'The incident is over' %}"
+        aria-hidden="true">
     </i>
+    <span class="visually-hidden">{% translate 'The incident is over' %}</span>
     {% endif %}
 {% endblock %}
 
@@ -33,8 +37,10 @@
     {% if incident.is_significative_impact %}
     <i class="logo-report-impact logo-status"
         data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'Incident with significant impact' %}">
+        title="{% translate 'Incident with significant impact' %}"
+        aria-hidden="true">
     </i>
+    <span class="visually-hidden">{% translate 'Incident with significant impact' %}</span>
     {% endif %}
 {% endblock %}
 
@@ -48,55 +54,60 @@
 
 {% block content_table_report %}
     {% with completed_workflows=incident.get_workflows_completed %}
-    {% for report in incident.get_all_workflows %}
-    {% with filtered_workflows=completed_workflows|filter_workflows:report.id %}
-    {% is_workflow_disabled incident.get_all_workflows completed_workflows report as workflow_disabled %}
-    <ul class="list-unstyled mb-1">
-        {% with report_class=filtered_workflows.instance.review_status|default:report|get_report_class:incident %}
-        <li>
-            <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip" title="{% get_report_tooltip report_class %}">
-                <i class="logo-{{ report_class }} align-middle"></i>
-                <a class="{{ report_class }} {% if workflow_disabled %}text-decoration-none{% endif %}"
-                    {% if not workflow_disabled %}
-                    href="{% if filtered_workflows %}{% url 'edit_workflow' %}{% else %}
+    <ul class="list-unstyled mb-0">
+    {% for report in incident.all_reports %}
+    {% with latest_incident_workflow=report.latest_incident_workflow %}
+        <li class="mb-1">
+            <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip"
+                title="{{ report.tooltip }}">
+                <i class="logo-{{ report.css_class }} align-middle" aria-hidden="true"></i>
+                <a class="{{ report.css_class }} {% if report.is_disabled %}text-decoration-none{% endif %}"
+                    {% if not report.is_disabled %}
+                    href="{% if latest_incident_workflow %}{% url 'edit_workflow' %}{% else %}
                     {% url 'create_workflow' %}{% endif %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}"
                     {% endif %}>
-                    {{ report }}
+                    {{ report.name }}
                 </a>
             </div>
-            {% with incident_workflows=incident|get_incident_workflow_by_workflow:report %}
+            {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
             {% if incident_workflows %}
-            <button class="btn text-dark p-0 ps-1 report_versions"
+            <button class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center report_versions"
                 data-workflows="{{ incident_workflows }}"
-                data-report="{{ report }}"
+                data-report="{{ report.name }}"
                 data-incident-ref="{{ incident.incident_id}}"
                 data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
                 data-download-url="{% url 'download_incident_report_pdf' 0 %}"
                 data-bs-toggle="modal"
                 data-bs-target="#report_versions">
-                <i class="bi bi-clock-history"
+                <i class="bi bi-clock-history align-self-center" aria-hidden="true"
                     data-bs-placement="top" data-bs-toggle="tooltip"
                     title="{% translate 'Version control' %}">
                 </i>
+                <span class="visually-hidden">
+                    {% translate 'Version control' %}
+                </span>
             </button>
             {% endif %}
             {% endwith %}
-            {% if filtered_workflows.comment %}
-            <button class="btn text-warning workflow_comment p-0"
-                data-workflow-comment="{{ filtered_workflows.comment }}"
+            {% if latest_incident_workflow.comment %}
+            <button class="btn text-secondary workflow_comment p-0"
+                data-workflow-comment="{{ latest_incident_workflow.comment }}"
                 data-bs-toggle="modal"
                 data-bs-target="#workflow_comment">
                 <i class="bi bi-chat-left-text-fill"
                     data-bs-placement="top" data-bs-toggle="tooltip"
-                    title="{% translate 'Comment' %}">
+                    title="{% translate 'Comment' %}"
+                    aria-hidden="true">
                 </i>
+                <span class="visually-hidden">
+                    {% translate 'Comment' %}
+                </span>
             </button>
             {% endif %}
         </li>
-        {% endwith %}
-    </ul>
     {% endwith %}
     {% endfor %}
+    </ul>
     {% endwith %}
 {% endblock %}
 
@@ -110,8 +121,12 @@
     data-bs-target="#delete_incident">
     <i class="custom-icon-trash h4"                    
         data-bs-placement="top" data-bs-toggle="tooltip"
-        title="{% translate 'Delete' %}">
+        title="{% translate 'Delete' %}"
+        aria-hidden="true">
     </i>
+    <span class="visually-hidden">
+        {% translate 'Delete' %}
+    </span>
 </button>
 {% endif %}
 {% endblock %}

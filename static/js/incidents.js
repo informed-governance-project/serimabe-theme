@@ -1,11 +1,13 @@
 $(document).ready(function () {
-    let table = $('#incidents-table').DataTable({
-        dom: 'rt<"table_controls mt-3 bottom d-flex justify-content-between lh-1 small"lip><"clear">',
-        language: datatableTranslations,
+    $('#incidents-table').DataTable({
         autoWidth: false,
-        paging: true,
+        paging: false,
         searching: false,
-        order: [[1, 'desc']],
+        info: false,
+        order: [],
+        initComplete: function () {
+           stop_spinner();
+        },
         columnDefs: [
             {
                 targets: 0,
@@ -33,7 +35,6 @@ $(document).ready(function () {
         ]
     });
 
-    displayPagination(table);
 
     $(document).on("click", '.access_log', function () {
         var $popup = $("#access_log");
@@ -46,17 +47,20 @@ $(document).ready(function () {
 
     $(document).on("click", '.report_versions', function () {
         let $this = $(this);
-        let incidentRef = $this.data('report');
-        let reportId = $this.data('incident-ref');
+        let reportId = $this.data('report');
+        let incidentRef = $this.data('incident-ref');
         let workflows = $this.data('workflows');
         let reviewUrlBase = $this.data('review-url');
         let downloadUrlBase = $this.data('download-url');
         let $modalReportName = $('#modal-report-name');
         let $modalincidentRef = $('#modal-incident-ref');
         let $modalWorkflowRows = $('#modal-workflow-rows');
+        let $captionAccessibility = $('#caption-accessibility');
 
 
         $modalReportName.text(reportId);
+        let currentText = $captionAccessibility.text();
+        $captionAccessibility.text(currentText+ ' : ' + reportId);
         $modalincidentRef.text(incidentRef);
         $modalWorkflowRows.empty();
 
@@ -84,11 +88,11 @@ $(document).ready(function () {
                         <div class="d-inline-flex">
                             <a class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center" href="${reviewUrl}"
                                 data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_review}">
-                                <i class="bi bi-binoculars align-self-center"></i>
+                                <i class="bi bi-binoculars align-self-center" aria-hidden="true"></i>
                             </a>
                             <a class="btn p-0 ps-1 border-0 d-inline-flex align-items-center" href="${downloadUrl}" 
                                 data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_download}">
-                                <i class="custom-icon-pdf align-self-center"></i>
+                                <i class="custom-icon-pdf align-self-center" aria-hidden="true"></i>
                             </a>
                         </div>
 
@@ -128,12 +132,8 @@ $(document).ready(function () {
         $('#technical-telephone').text(contacts.technical_telephone);
     });
 
-    $("#openFilter").on("click", function () {
+    $("#openFilter").click(function () {        
         $("#filterModal").modal("show");
     })
 });
 
-function displayPagination(table) {
-    let rowCount = table.data().length;
-    if (rowCount <= 10) $('#incidents-table').siblings('.table_controls').addClass("d-none");
-}

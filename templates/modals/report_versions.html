@@ -7,13 +7,14 @@
         <h4 class="modal-title" id="report_versions_label">
             {% translate "Version control" %}
         </h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                aria-label="{% translate 'Close' %}"></button>
     </div>
     <div class="modal-body">
-        <h5 id="modal-incident-ref"></h5>
-        <h6 id="modal-report-name"></h6>
+        <h5 id="modal-report-name"></h5>
+        <p id="modal-incident-ref"></p>
         <table class="table table-sm">
+            <caption class="visually-hidden" id="caption-accessibility">{% translate "Version control" %}</caption>
             <thead class="table-light">
                 <tr>
                     <th scope="col">{% translate "Date" %}</th>

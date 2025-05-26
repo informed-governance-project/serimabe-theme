@@ -3,36 +3,43 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 
-{% block bootstrap5_title %}
-{% trans "Register" %}
-{% endblock %}
-
 {% block login_content %}
 <h2 class="card-title fw-bolder lh-1">
+    {% block title %}
     {% translate "Create account" %}
+    {% endblock %}
 </h2>
 <div class="hr-separator"></div>
 <div class="my-4">
+    <p class="mb-3">
+        {% translate "Fields marked with an asterisk (*) are mandatory." %}
+    </p>
     <form action="" method="POST">
         {% csrf_token %}
         {% bootstrap_form_errors form %} 
-        {% bootstrap_field form.first_name show_label=False %}
-        {% bootstrap_field form.last_name show_label=False %}
-        {% bootstrap_field form.email show_label=False %}
-        {% bootstrap_field form.password1 show_help=False show_label=False%}
-        {% bootstrap_field form.password2 show_help=False show_label=False %}
-        <div class="d-inline-flex">
-            <input class="form-check-input custom-checkbox" type="checkbox" id="{{ form.accept_terms.id_for_label }}"
-                name="{{ form.accept_terms.name }}">
-            <label class="form-check-label ps-2" for="{{ form.accept_terms.id_for_label }}">
-                {{ form.accept_terms.label|safe }}
-                <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
-                    class="text-decoration-none text-decoration-underline text-dark"
-                    rel="noopener noreferrer" 
-                    target="_blank">
-                    {% translate "Terms of Service" %}
-                </a>
-            </label>
+        <div class="row row-cols-1 row-cols-xl-1">
+            <div class="col">
+                {% bootstrap_field form.first_name show_label=False placeholder=_("First name") %}
+                {% bootstrap_field form.last_name show_label=False placeholder=_("Last name")  %}
+                {% bootstrap_field form.email show_label=False placeholder=_("Email address")|add:" *" %}
+            </div>
+            <div class="col">
+                {% bootstrap_field form.password1 show_help=False show_label=False placeholder=_("Password")|add:" *" %}
+                {% bootstrap_field form.password2 show_help=False show_label=False  placeholder=_("Password confirmation")|add:" *" %}
+                <div class="d-inline-flex">
+                    <input class="form-check-input custom-checkbox" type="checkbox" id="{{ form.accept_terms.id_for_label }}"
+                        name="{{ form.accept_terms.name }}">
+                    <label class="form-check-label ps-2" for="{{ form.accept_terms.id_for_label }}">
+                        {{ form.accept_terms.label|safe }}
+                        <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
+                            class="text-decoration-none text-decoration-underline text-dark"
+                            rel="noopener noreferrer" 
+                            target="_blank">
+                            {% translate "Terms of Service" %}
+                        </a>
+                    </label>
+                </div>
+            </div>
         </div>
         <button class="btn btn-primary mt-3" type="submit">
             {% translate "Create account" %}

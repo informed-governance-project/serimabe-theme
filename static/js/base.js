@@ -18,6 +18,7 @@ $(document).ajaxError(function (event, xhr) {
 var datatableTranslations = {
   info: gettext("Showing _START_ to _END_ of _TOTAL_ entries"),
   lengthMenu: gettext("_MENU_ entries per page"),
+  aria: { orderable: gettext(": Activate to sort") },
 };
 
 
@@ -68,6 +69,16 @@ $(document).ready(function () {
       $popup.modal("show");
     });
   });
+
+  // Accesibility hack to be compliant with RGAA 11.2
+  $('[data-bs-toggle="tooltip"]').filter('input, textarea, i').removeAttr('aria-label');
+
+  $('input[placeholder]').each(function () {
+    $(this).attr('title', $(this).attr('placeholder'));
+  });
+
+  // Accesibility hack to be compliant with RGAA 10.8
+  $('label.visually-hidden').remove();
 })
 
 window.getCookie = function (name) {
