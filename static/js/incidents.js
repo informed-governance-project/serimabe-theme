@@ -134,5 +134,6 @@ $(document).ready(function () {
 
     $("#openFilter").click(function () {        
         $("#filterModal").modal("show");
-    });   
+    });
 });
+
