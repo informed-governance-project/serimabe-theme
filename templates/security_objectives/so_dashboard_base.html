@@ -5,7 +5,6 @@
 {% load SO_custom_filters %}
 {% load django_bootstrap5 %}
 
-{% block bootstrap5_title %}{% translate "Security objectives" %}{% endblock %}
 
 {% block bootstrap5_extra_script %}
 {{ block.super }}
@@ -20,7 +19,11 @@
 {% settings_value "TIME_ZONE" as time_zone %}
 
 {% block content_title %}
-<h3 class="fw-bolder">{% translate "Security objectives" %}</h3>
+<h3 class="fw-bolder">
+    {% block title %}
+    {% translate "Security objectives" %}
+    {% endblock %}
+</h3>
 <div class="hr-separator"></div>
 {% endblock %}
 
@@ -40,6 +43,7 @@
 
 {% if filter.qs %}
 <table id="securityobjectives-table" class="table align-middle table-sm small">
+    <caption class="visually-hidden">{% translate "Security objectives table" %}</caption>
     <thead>
         <tr>
             <th class="col-1 text-start">{% translate "Last update" %}</th>
@@ -157,7 +161,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title fw-bold">{% translate "Filter" %}</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
             </div>
             <form method="get">
                 <div class="modal-body small">

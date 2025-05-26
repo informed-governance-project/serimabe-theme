@@ -12,12 +12,12 @@
 <script src='{% static "js/reporting_recommendations.js" %}'></script>
 {% endblock %}
 
-{% block bootstrap5_title %}
-{% translate "Recommendations" %}
-{% endblock %}
-
 {% block content %}
-<h3 class="fw-bolder">{% translate "Recommendations" %}</h3>
+<h3 class="fw-bolder">
+    {% block title %}
+    {% translate "Recommendations" %}
+    {% endblock %}
+</h3>
 <div class="hr-separator"></div>
 <h5 class="text-muted">{{ year }} {{ company }} [{{ sector }}] </h5>
 <div class="d-flex">
@@ -33,6 +33,7 @@
     </div>
 </div>
 <table id="reporting-recommendations-table" class="table align-middle table-sm small">
+    <caption class="visually-hidden">{% translate "Recommendations table" %}</caption>
     <thead>
         <tr>
             <th class="col-1 text-start">{% translate "Order" %}</th>

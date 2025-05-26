@@ -29,6 +29,9 @@
     {% endif %}
   </div>
   <table class="table table-sm table-hover small">
+    <caption class="visually-hidden">
+      {% translate "table of" %} {{ security_objective.unique_code }}: {{ security_objective.objective }}
+    </caption>
     <thead>
       <tr>
         <th class="col-1 text-center align-middle">

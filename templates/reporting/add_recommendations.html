@@ -12,12 +12,12 @@
 <script src='{% static "js/add_reporting_recommendations.js" %}'></script>
 {% endblock %}
 
-{% block bootstrap5_title %}
-{% translate "Add recommendations" %}
-{% endblock %}
-
 {% block content %}
-<h3 class="fw-bolder">{% translate "Add recommendations" %}</h3>
+<h3 class="fw-bolder">
+    {% block title %}
+    {% translate "Add recommendations" %}
+    {% endblock %}
+</h3>
 <div class="hr-separator"></div>
 <h5 class="text-muted">{{ year }} {{ company }} [{{ sector }}]</h5>
 <div class="d-flex">
@@ -46,7 +46,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title fw-bold">{% translate "Filter" %}</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
             </div>
             <form method="get">
                 <div class="modal-body small">
@@ -71,6 +71,7 @@
     {% csrf_token %}
     {{ formset.management_form }}
     <table id="add-reporting-recommendations-table" class="table align-middle table-sm small">
+        <caption class="visually-hidden">{% translate "Recommendations table" %}</caption>
         <thead>
             <tr>
                 <th class="d-flex align-items-center justify-content-center">

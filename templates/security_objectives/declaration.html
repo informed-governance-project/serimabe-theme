@@ -45,6 +45,9 @@
             {% endif %}
           </div>
           <table class="table table-sm table-hover">
+            <caption class="visually-hidden">
+              {% translate "table of" %} {{ security_objective.unique_code }}: {{ security_objective.objective }}
+            </caption>
             <thead>
               <tr>
                 <th class="col-1 text-center align-middle">
@@ -123,14 +126,14 @@
   </div>
   <div class="card-footer p-3">
     <div class="d-flex justify-content-center">
-      <a class="carousel-control-prev position-relative" type="button" data-bs-target="#security_objectives_carousel"
+      <button class="carousel-control-prev position-relative" type="button" data-bs-target="#security_objectives_carousel"
         data-bs-slide="prev">
         <i class="carousel-control-prev-icon bi bi-caret-left-fill text-primary h1"></i>
-      </a>
-      <a class="carousel-control-next position-relative" type="button" data-bs-target="#security_objectives_carousel"
+      </button>
+      <button class="carousel-control-next position-relative" type="button" data-bs-target="#security_objectives_carousel"
         data-bs-slide="next">
         <i class="carousel-control-next-icon bi bi-caret-right-fill text-primary h1"></i>
-      </a>
+      </button>
     </div>
   </div>
 </div>

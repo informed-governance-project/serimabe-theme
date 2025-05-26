@@ -12,7 +12,7 @@
         <h4 class="modal-title" id="copy_so_declaration_label">
             {% translate "Copy security objectives declaration" %}
         </h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
     </div>
     <form action="{% url 'copy_so_declaration' standard_answer_id %}" method="post">
         {% csrf_token %}

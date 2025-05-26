@@ -11,7 +11,7 @@
             {% translate "Review comment" %}
 
         </h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
     </div>
     <form action="{% url 'review_comment_report' company.id sector.id year %}" method="post">
         {% csrf_token %}             

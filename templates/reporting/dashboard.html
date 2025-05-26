@@ -14,13 +14,12 @@
 <script src='{% static "js/reporting_dashboard.js" %}'></script>
 {% endblock %}
 
-{% block bootstrap5_title %}
-{% translate "Reporting" %}
-{% endblock %}
-
 {% block content %}
-
-<h3 class="fw-bolder">{% translate "Report generation" %}</h3>
+<h3 class="fw-bolder">
+    {% block title %}
+    {% translate "Report generation" %}    
+    {% endblock %}
+</h3>
 <div class="hr-separator"></div>
 
 <div class="d-flex">
@@ -45,6 +44,7 @@
     {% csrf_token %}
     {{ formset.management_form }}
     <table id="reporting-table" class="table align-middle table-sm small">
+            <caption class="visually-hidden">{% translate "Report generation table" %}</caption>
         <thead>
             <tr>
                 <th class="d-flex align-items-center justify-content-center">
@@ -177,7 +177,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title fw-bold">{% translate "Filter" %}</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
             </div>
             <form method="get">
                 <div class="modal-body small">

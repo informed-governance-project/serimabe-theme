@@ -2,12 +2,12 @@
 {% load i18n %}
 {% load django_bootstrap5 %}
 
-{% block bootstrap5_title %}
-{% translate "Report configuration" %}
-{% endblock %}
-
 {% block content %}
-<h3 class="fw-bolder">{% translate "Configuration by sector" %}</h3>
+<h3 class="fw-bolder">
+    {% block title %}
+    {% translate "Configuration by sector" %}
+    {% endblock %}
+</h3>
 <div class="hr-separator"></div>
 <div class="d-flex">
     <div class="ms-auto">
@@ -17,6 +17,9 @@
     </div>
 </div>
 <table class="table align-middle table-sm small">
+    <caption class="visually-hidden">
+      {% translate "Configuration by sector table" %}
+    </caption>
     <thead>
         <tr>
             <th class="col-auto">{% translate "Sector" %}</th>
