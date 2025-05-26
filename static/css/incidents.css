@@ -24,9 +24,9 @@
 }
 
 .affected-sector-filter button.dropdown-toggle:focus {
-    border-color: #86b7fe !important;
+    border-color:  var(--bs-primary) !important;
     outline: 0 !important;
-    box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25) !important;
+    box-shadow: 0 0 0 .25rem var(--bs-primary-border-subtle) !important;
 }
 
 .empty_field {
@@ -36,9 +36,6 @@
 }
 
 .legend {
-    display: flex;
-    align-items: center;
-    gap: 15px;
     border: 1px solid #000;
     padding: 30px;
     border-radius: 8px;
@@ -51,10 +48,10 @@
 }
 
 .legend-title {
+    background-color: var(--bs-body-bg);
     position: absolute;
     top: -10px;
     left: 15px;
-    background: white;
     padding: 0 5px;
     font-weight: bold;
 }
@@ -118,6 +115,7 @@
 .report-unsubmitted {  color: #727272;}
 
 [class^="logo-report"]{
+    background-color: var(--bs-body-bg);
     width: 1em;
     height: 1em;
     display: inline-block;

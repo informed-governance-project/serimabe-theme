@@ -7,58 +7,74 @@
 {% bootstrap_css %}
 {% block bootstrap5_extra_head %}
 {{ block.super }}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
-    <script src='{% static "npm_components/@popperjs/core/dist/umd/popper.min.js" %}'></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+<script src='{% static "npm_components/@popperjs/core/dist/umd/popper.min.js" %}'></script>
 {% endblock %}
 
 {% block bootstrap5_extra_script %}
 {{ block.super }}
-    <script src='{% static "js/login.js" %}'></script>
+<script src='{% static "js/login.js" %}'></script>
 {% endblock %}
 
-{% block bootstrap5_title %}
-{% block title %}{% translate "Log in" %}{% endblock %}
+{% block title %}
+{% translate "Sign in" %}
 {% endblock %}
 
 {% block bootstrap5_before_content %}
-<div class="d-flex position-fixed top-0 w-100 py-3" data-bs-theme="light">
-    <div class="container-fluid px-5">
-        <div class="row align-items-center">
-            <div class="col-auto d-flex justify-content-start me-auto">
-                <a class="navbar-brand" href="{% url 'index' %}">
-                    <img src="{% static 'images/logo.svg' %}" width="200px" alt="Logo" >
-                </a>
-            </div>
-            <div class="col-auto d-flex justify-content-between">
-                    <a id="login_button" role="button" class="btn btn-outline-secondary">
-                        {% translate "Connection" %}
-                    </a>
-                    <a id="registration_button" role="button" class="btn btn-link text-decoration-none text-secondary fw-bold px-4 create-account" href="{% url 'registration' %}" >
-                        {% translate "Create account" %}
-                    </a>
-                    {% include "home/language_selector.html" %}
+<header role="banner">
+    <nav role="navigation" class="navbar navbar-expand-md navbar-light" aria-label="{% translate 'Main menu' %}">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'images/logo.svg' %}" width="200px" alt="{{ site_name }}" class="d-inline-block align-text-top">
+            </a>
+
+            <!-- Responsive Menu Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a id="login_button" class="btn btn-outline-secondary">
+                            {% translate "Connection" %}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="registration_button"
+                            class="btn btn-link text-decoration-none text-secondary fw-bold create-account"
+                            href="{% url 'registration' %}">
+                            {% translate "Create account" %}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        {% include "home/language_selector.html" %}
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-</div>
+    </nav>
+</header>
 {% endblock %}
 
 {% block bootstrap5_content %}
-<div class="background">
-    <div class="container py-5 h-100 d-flex flex-column align-items-center justify-content-center" data-bs-theme="light">
-        {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
-        <div class="card shadow px-3 py-3 mb-5 rounded-1 col-5">
-            <div class="card-body">      
+<main role="main" id="main_content" class="flex-grow-1 d-flex align-items-center justify-content-center">
+    <div class="container-lg"
+        data-bs-theme="light">
+        {% include "parts/messages.html" %}
+        <div class="card shadow p-3 mb-5 rounded-1 col-12 col-xl-5 m-auto">
+            <div class="card-body p-3">
                 {% block login_content %}
                 {% endblock login_content %}
             </div>
         </div>
     </div>
-</div>
+</main>
 {% endblock %}
 
 {% block bootstrap5_after_content %}
-<div class="position-fixed bottom-0 w-100" data-bs-theme="light">
     {% include "parts/footer.html" %}
-</div>
 {% endblock %}
