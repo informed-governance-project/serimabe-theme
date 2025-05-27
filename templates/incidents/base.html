@@ -335,10 +335,10 @@
                         {% bootstrap_field filter.form.affected_sectors label_class="fw-bold" wrapper_class="affected-sector-filter mb-3" %}
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal">
+                        <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal" onclick="load_spinner()">
                             {% translate "Reset" %}
                         </button>
-                        <button class="btn btn-primary btn-sm" type="submit">
+                        <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
                             {% translate "Search" %}
                         </button>    
                     </div>
