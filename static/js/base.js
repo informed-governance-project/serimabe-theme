@@ -59,8 +59,6 @@ $(document).ready(function () {
 })
 
 window.load_spinner = function(){
-  console.log("Loading spinner");
-  
   $('#loading-spinner').removeClass('d-none').fadeIn();
 }
 
