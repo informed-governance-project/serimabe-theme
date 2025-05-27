@@ -1,6 +1,4 @@
-#set_language_form .dropdown-toggle:active {
-outline: none !important;
-box-shadow: none !important;
-border: none !important;
-}       
-  
+#set_language_form .dropdown-menu.fit-content {
+    width: auto !important;
+    min-width: unset;
+}
