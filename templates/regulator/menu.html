@@ -1,12 +1,22 @@
 {% load i18n %}
 <li class="nav-item dropdown">
-    <button class="nav-link dropdown-toggle" id="navbarDropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        {% translate "Incidents" %}
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="{% url 'incidents' %}">{% translate "All incidents" %}</a></li>
-        <li><hr class="dropdown-divider"></li>  
-        <li><a class="dropdown-item" href="{% url 'regulator_incidents' %}">{% translate "My incidents" %}</a></li>
-    </ul>
-  </li>
-
+	<button class="nav-link dropdown-toggle" id="navbarDropdown" type="button" data-bs-toggle="dropdown"
+		aria-expanded="false">
+		{% translate "Incidents" %}
+	</button>
+	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+		<li>
+			<a class="dropdown-item" href="{% url 'incidents' %}" onclick="load_spinner()">
+				{% translate "All incidents" %}
+			</a>
+		</li>
+		<li>
+			<hr class="dropdown-divider">
+		</li>
+		<li>
+			<a class="dropdown-item" href="{% url 'regulator_incidents' %}" onclick="load_spinner()">
+				{% translate "My incidents" %}
+			</a>
+		</li>
+	</ul>
+</li>
