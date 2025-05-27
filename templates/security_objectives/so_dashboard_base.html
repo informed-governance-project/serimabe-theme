@@ -141,6 +141,11 @@
         {% endfor %}
     </tbody>
 </table>
+
+{% with pagination_data=standard_answers %}
+    {% include "parts/pagination.html" %}
+{% endwith %}
+
 {% else %}
 <p>{% translate "No security objectives declaration" %}</p>
 {% endif %}
@@ -173,10 +178,10 @@
                     {% endblock %}
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal">
+                    <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal" onclick="load_spinner()">
                         {% translate "Reset" %}
                     </button>
-                    <button class="btn btn-primary btn-sm" type="submit">
+                    <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
                         {% translate "Search" %}
                     </button>    
                 </div>

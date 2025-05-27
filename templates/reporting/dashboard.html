@@ -133,7 +133,8 @@
                 <td class="col-auto table-group-divider py-3">
                     <div class="d-flex align-items-center justify-content-between">
                         <a class="btn border-0 p-0 text-dark" 
-                            href="{% url 'report_recommendations' form.instance.id form.initial.sector.id form.year.value %}">
+                            href="{% url 'report_recommendations' form.instance.id form.initial.sector.id form.year.value %}"
+                            onclick="load_spinner()">
                             <i class="bi bi-list-stars h4"
                                 data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Recommendations' %}">
                             </i>
@@ -186,10 +187,10 @@
                     {% bootstrap_field filter.form.sectors label_class="fw-bold" wrapper_class="sector-filter mb-3" %}
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal">
+                    <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal" onclick="load_spinner()">
                         {% translate "Reset" %}
                     </button>
-                    <button class="btn btn-primary btn-sm" type="submit">
+                    <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
                         {% translate "Search" %}
                     </button>    
                 </div>

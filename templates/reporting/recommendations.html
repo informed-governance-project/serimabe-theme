@@ -22,12 +22,14 @@
 <h5 class="text-muted">{{ year }} {{ company }} [{{ sector }}] </h5>
 <div class="d-flex">
     <div class="me-auto">
-        <a class="btn btn-primary btn-sm" href="{% url 'add_report_recommendations' company.id sector.id year %}">
+        <a class="btn btn-primary btn-sm" href="{% url 'add_report_recommendations' company.id sector.id year %}" 
+            onclick="load_spinner()">
             {% translate "Add recommendations" %}
         </a>
     </div>
     <div class="ms-auto">
-        <a class="btn btn-primary btn-sm" href="{% url 'reporting' %}">
+        <a class="btn btn-primary btn-sm" href="{% url 'reporting' %}" 
+            onclick="load_spinner()">
             {% translate "Back" %}
         </a> 
     </div>

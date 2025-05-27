@@ -16,7 +16,7 @@
 {% endblock %}
 
 {% block content_table_actions %}
-<a class="btn border-0 p-0 text-dark" href="{% url 'so_declaration' %}?id={{ standard.id }}">
+<a class="btn border-0 p-0 text-dark" href="{% url 'so_declaration' %}?id={{ standard.id }}" onclick="load_spinner()">
     {% if standard.status == 'UNDE' %}
     <i class="bi bi-pencil-fill h4"
         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Edit' %}">

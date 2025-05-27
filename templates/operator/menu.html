@@ -1,8 +1,11 @@
-{% load i18n %} 
+{% load i18n %}
 <li class="nav-item">
-    <a class="nav-link" href="{% url 'incidents' %}">{% translate "Incidents" %}</a>
+	<a class="nav-link" href="{% url 'incidents' %}">
+		{% translate "Incidents" %}
+	</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="{% url 'securityobjectives' %}">{% translate "Security Objectives" %}</a>
+	<a class="nav-link" href="{% url 'securityobjectives' %}" onclick="load_spinner()">
+		{% translate "Security Objectives" %}
+	</a>
 </li>
-

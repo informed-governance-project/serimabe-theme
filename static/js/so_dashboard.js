@@ -1,11 +1,11 @@
 $(document).ready(function () {
   let table = $('#securityobjectives-table').DataTable({
-    dom: 'rt<"table_controls mt-3 bottom d-flex justify-content-between lh-1 small"lip><"clear">',
     language: datatableTranslations,
     autoWidth: false,
-    paging: true,
+    paging: false,
     searching: false,
-    order: [[0, 'desc']],
+    info: false,
+    order: [],
     columnDefs: [
       {
         targets: 0,
