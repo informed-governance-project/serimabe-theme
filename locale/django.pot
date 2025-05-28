@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-26 10:15+0200\n"
+"POT-Creation-Date: 2025-05-28 08:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -145,6 +145,14 @@ msgstr ""
 
 #: theme/templates/home/contact.html:88
 msgid "Email:"
+msgstr ""
+
+#: theme/templates/home/language_selector.html:25
+msgid "Change the site language - currently in "
+msgstr ""
+
+#: theme/templates/home/language_selector.html:33
+msgid "English version"
 msgstr ""
 
 #: theme/templates/home/privacy_policy.html:4
@@ -915,8 +923,8 @@ msgid ""
 "connection with the Terms of Use and with SERIMA."
 msgstr ""
 
-#: theme/templates/incidents/base.html:9 theme/templates/operator/menu.html:3
-#: theme/templates/regulator/menu.html:4
+#: theme/templates/incidents/base.html:9 theme/templates/operator/menu.html:4
+#: theme/templates/regulator/menu.html:5
 msgid "Incidents"
 msgstr ""
 
@@ -1267,7 +1275,7 @@ msgid "Comment"
 msgstr ""
 
 #: theme/templates/operator/incidents.html:13
-#: theme/templates/regulator/menu.html:9
+#: theme/templates/regulator/menu.html:18
 msgid "My incidents"
 msgstr ""
 
@@ -1341,23 +1349,23 @@ msgstr ""
 msgid "Contact"
 msgstr ""
 
-#: theme/templates/parts/pagination.html:13
+#: theme/templates/parts/pagination.html:16
 msgid "entries per page"
 msgstr ""
 
-#: theme/templates/parts/pagination.html:23
+#: theme/templates/parts/pagination.html:26
 msgid "Showing"
 msgstr ""
 
-#: theme/templates/parts/pagination.html:25
+#: theme/templates/parts/pagination.html:28
 msgid "to"
 msgstr ""
 
-#: theme/templates/parts/pagination.html:26
+#: theme/templates/parts/pagination.html:29
 msgid "of"
 msgstr ""
 
-#: theme/templates/parts/pagination.html:28
+#: theme/templates/parts/pagination.html:31
 msgid "entries"
 msgstr ""
 
@@ -1541,7 +1549,7 @@ msgstr ""
 msgid "Password confirmation"
 msgstr ""
 
-#: theme/templates/regulator/menu.html:7
+#: theme/templates/regulator/menu.html:10
 msgid "All incidents"
 msgstr ""
 
