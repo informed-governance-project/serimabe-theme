@@ -1,13 +1,18 @@
 # This file was generated from serima_frontend_translations_v0.13.xlsx
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-26 10:15+0200\n"
-"PO-Revision-Date: 2025-05-26 10:06+0200\n"
+"POT-Creation-Date: 2025-05-28 08:53+0200\n"
+"PO-Revision-Date: 2025-05-28 09:12+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: nl\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: xls-to-po 1.0\n"
+"X-Generator: Poedit 3.6\n"
 
 #: theme/templates/account/edit.html:8
 msgid "Account management"
@@ -17,11 +22,11 @@ msgstr "Accountbeheer"
 #: theme/templates/incidents/declaration.html:27
 #: theme/templates/registration/signup.html:15
 msgid "Fields marked with an asterisk (*) are mandatory."
-msgstr ""
+msgstr "Velden met een sterretje (*) zijn verplicht."
 
 #: theme/templates/account/edit.html:19
 msgid "Save changes"
-msgstr ""
+msgstr "Wijzigingen opslaan"
 
 #: theme/templates/admin/base_site.html:8
 msgid "Django admin area"
@@ -53,7 +58,7 @@ msgstr "Details"
 
 #: theme/templates/cookiebanner/bootstrap5.html:34
 msgid "Cookies description"
-msgstr ""
+msgstr "Beschrijving van cookies"
 
 #: theme/templates/cookiebanner/bootstrap5.html:37
 #: theme/templates/home/contact.html:30
@@ -83,11 +88,11 @@ msgstr "Accepteren"
 
 #: theme/templates/home/bootstrap.html:42
 msgid "Skip to main content"
-msgstr ""
+msgstr "Overgaan naar de hoofdinhoud"
 
 #: theme/templates/home/contact.html:17
 msgid "Contact form"
-msgstr ""
+msgstr "Contactformulier"
 
 #: theme/templates/home/contact.html:33
 msgid "Firstname"
@@ -101,51 +106,61 @@ msgstr "E-mail"
 
 #: theme/templates/home/contact.html:41
 msgid "Phone"
-msgstr ""
+msgstr "Telefoon"
 
 #: theme/templates/home/contact.html:45
 msgid "Message"
-msgstr ""
+msgstr "Bericht"
 
 #: theme/templates/home/contact.html:49
 msgid "Captcha"
-msgstr ""
+msgstr "Captcha"
 
 #: theme/templates/home/contact.html:52
 msgid "Refresh"
-msgstr ""
+msgstr "Vernieuwen"
 
 #: theme/templates/home/contact.html:58
 msgid "I agree that my personal data may be used for communication purposes."
 msgstr ""
+"Ik accepteer dat mijn persoonlijke gegevens worden gebruikt voor "
+"communicatiedoeleinden."
 
 #: theme/templates/home/contact.html:65
 msgid "Send"
-msgstr ""
+msgstr "Verzenden"
 
 #: theme/templates/home/contact.html:74
 msgid "Address"
-msgstr ""
+msgstr "Adres"
 
 #: theme/templates/home/contact.html:82
 msgid "Postal address"
-msgstr ""
+msgstr "Postadres"
 
 #: theme/templates/home/contact.html:87
 msgid "Tel.:"
-msgstr ""
+msgstr "Tel.:"
 
 #: theme/templates/home/contact.html:88
 msgid "Email:"
 msgstr "E-mail:"
 
+#: theme/templates/home/language_selector.html:25
+msgid "Change the site language - currently in "
+msgstr "De taal van de site wijzigen - momenteel in "
+
+#: theme/templates/home/language_selector.html:33
+msgid "English version"
+msgstr "Nederlandse versie"
+
 #: theme/templates/home/privacy_policy.html:4
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Privacybeleid"
 
 #: theme/templates/home/terms.html:7
 msgid "Terms of use"
-msgstr ""
+msgstr "Algemene gebruiksvoorwaarden"
 
 #: theme/templates/home/terms.html:18
 msgid "Terms of use of the SERIMA platform"
@@ -691,10 +706,10 @@ msgstr ""
 #: theme/templates/home/terms.html:586
 msgid ""
 "In the event of SERIMA being unavailable or of any malfunction, the User may "
-"contact ILR via the dedicated e-mail addresses : <a href=\"mailto:"
-"incident_notification@ilr.lu\">incident_notification@ilr.lu</a> for any item "
-"relating to the Incident Notification Module and <a href=\"mailto:serima@ilr."
-"lu\">serima@ilr.lu</a> for any other Module."
+"contact ILR via the dedicated e-mail addresses : <a "
+"href=\"mailto:incident_notification@ilr.lu\">incident_notification@ilr.lu</"
+"a> for any item relating to the Incident Notification Module and <a "
+"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a> for any other Module."
 msgstr ""
 
 #: theme/templates/home/terms.html:595
@@ -873,8 +888,8 @@ msgstr ""
 #: theme/templates/home/terms.html:777
 msgid ""
 "For any comments, questions or complaints relating to SERIMA, the User may "
-"contact the ILR via the following e-mail address: <a href=\"mailto:"
-"serima@ilr.lu\">serima@ilr.lu</a>."
+"contact the ILR via the following e-mail address: <a "
+"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a>."
 msgstr ""
 
 #: theme/templates/home/terms.html:783
@@ -907,8 +922,8 @@ msgid ""
 "connection with the Terms of Use and with SERIMA."
 msgstr ""
 
-#: theme/templates/incidents/base.html:9 theme/templates/operator/menu.html:3
-#: theme/templates/regulator/menu.html:4
+#: theme/templates/incidents/base.html:9 theme/templates/operator/menu.html:4
+#: theme/templates/regulator/menu.html:5
 msgid "Incidents"
 msgstr "Incidenten"
 
@@ -1152,7 +1167,7 @@ msgstr "Een incident melden"
 
 #: theme/templates/incidents/declaration.html:34
 msgid "Notification incident steps"
-msgstr ""
+msgstr "Stappen incidentmelding"
 
 #: theme/templates/incidents/declaration.html:124
 #: theme/templates/modals/delete_incident.html:20
@@ -1198,7 +1213,7 @@ msgstr "Datum"
 
 #: theme/templates/modals/access_log.html:31
 msgid "Entity"
-msgstr ""
+msgstr "Entiteit"
 
 #: theme/templates/modals/access_log.html:33
 msgid "User"
@@ -1261,7 +1276,7 @@ msgid "Comment"
 msgstr "Commentaar"
 
 #: theme/templates/operator/incidents.html:13
-#: theme/templates/regulator/menu.html:9
+#: theme/templates/regulator/menu.html:18
 msgid "My incidents"
 msgstr "Mijn incidenten"
 
@@ -1335,23 +1350,23 @@ msgstr "Licht thema"
 msgid "Contact"
 msgstr "Contact"
 
-#: theme/templates/parts/pagination.html:13
+#: theme/templates/parts/pagination.html:16
 msgid "entries per page"
 msgstr "resultaten weergeven"
 
-#: theme/templates/parts/pagination.html:23
+#: theme/templates/parts/pagination.html:26
 msgid "Showing"
 msgstr "Tonen van"
 
-#: theme/templates/parts/pagination.html:25
+#: theme/templates/parts/pagination.html:28
 msgid "to"
 msgstr "tot"
 
-#: theme/templates/parts/pagination.html:26
+#: theme/templates/parts/pagination.html:29
 msgid "of"
-msgstr "van "
+msgstr "van"
 
-#: theme/templates/parts/pagination.html:28
+#: theme/templates/parts/pagination.html:31
 msgid "entries"
 msgstr "resultaten"
 
@@ -1430,7 +1445,7 @@ msgstr "Uw wachtwoord is gewijzigd."
 
 #: theme/templates/registration/password_change_form.html:16
 msgid "All Fields are mandatory."
-msgstr ""
+msgstr "Alle velden zijn verplicht."
 
 #: theme/templates/registration/password_change_form.html:18
 msgid "Please enter your old password. Then enter your new password twice."
@@ -1555,7 +1570,7 @@ msgstr "E-mailadres"
 msgid "Password confirmation"
 msgstr "Bevestiging wachtwoord"
 
-#: theme/templates/regulator/menu.html:7
+#: theme/templates/regulator/menu.html:10
 msgid "All incidents"
 msgstr "Alle incidenten"
 
