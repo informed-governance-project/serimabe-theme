@@ -1,13 +1,9 @@
-{% load django_bootstrap5 %}
 {% load i18n %}
 {% load static %}
 
 {% block bootstrap5_extra_script %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/language_selector.css' %}" />
     <script src='{% static "js/language-selector-admin.js" %}'></script>
 {% endblock %}
-
-{% bootstrap_javascript %}
 
 {% get_current_language as current_language %}
 {% get_available_languages as available_languages %}
