@@ -11960,4 +11960,9 @@ a.changelink {
   border-color: var(--bs-gray-600);
 }
 
+.dropdown-menu.fit-content {
+  width: auto !important;
+  min-width: unset;
+}
+
 /*# sourceMappingURL=custom.css.map */
