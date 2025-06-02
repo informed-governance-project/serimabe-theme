@@ -11966,4 +11966,8 @@ a.changelink {
   min-width: unset;
 }
 
+:root {
+  --bs-blue-100: rgb(206.6, 226, 254.6);
+}
+
 /*# sourceMappingURL=custom.css.map */

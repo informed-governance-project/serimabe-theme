@@ -147,15 +147,13 @@ h4:before {
     border-top: 1.2px solid var(--bs-secondary-color) !important;
 }
 
-.bg-td-primary {
-    background-color: var(--bs-primary-bg-subtle) !important;
+.bg-td-blue {
+    background-color: var(--bs-blue-100) !important;
 }
 
-.bg-td-warning {
+.bg-td-yellow {
     background-color: var(--bs-warning-bg-subtle) !important;
 }
-
-
 
 
 .cover-logo {
