@@ -12,27 +12,30 @@
 <script src='{% static "js/reporting_recommendations.js" %}'></script>
 {% endblock %}
 
-{% block bootstrap5_title %}
-{% translate "Recommendations" %}
-{% endblock %}
-
 {% block content %}
-<h3 class="fw-bolder">{% translate "Recommendations" %}</h3>
+<h3 class="fw-bolder">
+    {% block title %}
+    {% translate "Recommendations" %}
+    {% endblock %}
+</h3>
 <div class="hr-separator"></div>
 <h5 class="text-muted">{{ year }} {{ company }} [{{ sector }}] </h5>
 <div class="d-flex">
     <div class="me-auto">
-        <a class="btn btn-primary btn-sm" href="{% url 'add_report_recommendations' company.id sector.id year %}">
+        <a class="btn btn-primary btn-sm" href="{% url 'add_report_recommendations' company.id sector.id year %}" 
+            onclick="load_spinner()">
             {% translate "Add recommendations" %}
         </a>
     </div>
     <div class="ms-auto">
-        <a class="btn btn-primary btn-sm" href="{% url 'reporting' %}">
+        <a class="btn btn-primary btn-sm" href="{% url 'reporting' %}" 
+            onclick="load_spinner()">
             {% translate "Back" %}
         </a> 
     </div>
 </div>
 <table id="reporting-recommendations-table" class="table align-middle table-sm small">
+    <caption class="visually-hidden">{% translate "Recommendations table" %}</caption>
     <thead>
         <tr>
             <th class="col-1 text-start">{% translate "Order" %}</th>

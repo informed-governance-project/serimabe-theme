@@ -1,11 +1,10 @@
 $(document).ready(function () {
   let table = $('#securityobjectives-table').DataTable({
-    dom: 'rt<"table_controls mt-3 bottom d-flex justify-content-between lh-1 small"lip><"clear">',
-    language: datatableTranslations,
     autoWidth: false,
-    paging: true,
+    paging: false,
     searching: false,
-    order: [[0, 'desc']],
+    info: false,
+    order: [],
     columnDefs: [
       {
         targets: 0,
@@ -53,8 +52,6 @@ $(document).ready(function () {
       },
     ]
   });
-
-  displayPagination(table);
 
   $(document).on("click", ".delete_so_declaration", function () {
     let $this = $(this);
@@ -151,8 +148,3 @@ $(document).ready(function () {
     $("#filterModal").modal("show");
   })
 })
-
-function displayPagination(table) {
-  let rowCount = table.data().length;
-  if (rowCount <= 10) $('#securityobjectives-table').siblings('.table_controls').addClass("d-none");
-}

@@ -12,12 +12,11 @@ $(document).ready(function () {
     const companyTableForm = $("#companyTableForm");
 
     let table = $('#reporting-table').DataTable({
-        dom: 'rt<"table_controls mt-3 bottom d-flex justify-content-between lh-1 small"lip><"clear">',
-        language: datatableTranslations,
         autoWidth: false,
-        paging: true,
+        paging: false,
         searching: false,
-        order: [[2, 'asc']],
+        info: false,
+        order: [],
         columnDefs: [
             {
                 targets: 0,
@@ -63,8 +62,6 @@ $(document).ready(function () {
         ],
     });
 
-    displayPagination(table);
-
     $(document).on("click", '.reporting_access_log', function () {
         var $popup = $("#reporting_access_log");
         var popup_url = `access_log/${$(this).data("company-id")}/${$(this).data("sector-id")}/${$(this).data("year")}`;
@@ -93,11 +90,6 @@ $(document).ready(function () {
 
     function processCheckboxSelection(checkbox) {
         generateButton.prop("disabled", !checkboxes.is(":checked"));
-    }
-
-    function displayPagination(table) {
-        let rowCount = table.data().length;
-        if (rowCount <= 10) $('#reporting-table').siblings('.table_controls').addClass("d-none");
     }
 
     checkboxes.on("change", function () {

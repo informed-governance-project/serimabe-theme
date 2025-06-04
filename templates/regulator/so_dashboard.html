@@ -11,7 +11,8 @@
 {% block content_table_actions %}
 <a class="btn border-0 p-0 text-dark {% if standard.status == 'UNDE' %}disabled{% endif %}" 
     href="{% url 'so_declaration' %}?id={{ standard.id }}"
-    {% if standard.status == 'UNDE' %}aria-disabled="true" disabled{% endif %}>
+    {% if standard.status == 'UNDE' %}aria-disabled="true" disabled{% endif %}
+    onclick="load_spinner()">
     <i class="bi bi-pencil-fill"
         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Review' %}">
     </i>

@@ -12,22 +12,23 @@
 <script src='{% static "js/add_reporting_recommendations.js" %}'></script>
 {% endblock %}
 
-{% block bootstrap5_title %}
-{% translate "Add recommendations" %}
-{% endblock %}
-
 {% block content %}
-<h3 class="fw-bolder">{% translate "Add recommendations" %}</h3>
+<h3 class="fw-bolder">
+    {% block title %}
+    {% translate "Add recommendations" %}
+    {% endblock %}
+</h3>
 <div class="hr-separator"></div>
 <h5 class="text-muted">{{ year }} {{ company }} [{{ sector }}]</h5>
 <div class="d-flex">
     <div class="me-auto">
-        <button id="addSelectedButton" class="btn btn-primary btn-sm">
+        <button id="addSelectedButton" class="btn btn-primary btn-sm" onclick="load_spinner()">
             {% translate "Add selected recommendation(s)" %}
         </button>
-        <a class="btn btn-secondary btn-sm" href="{% url 'report_recommendations' company.id sector.id year %}">
+        <a class="btn btn-secondary btn-sm" href="{% url 'report_recommendations' company.id sector.id year %}"
+            onclick="load_spinner()">   
             {% translate "Cancel" %}
-            </a>
+        </a>
     </div>
     <button id="openFilter" class="btn btn-primary btn-sm ms-auto" type="button"
         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Filter' %}">
@@ -46,7 +47,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title fw-bold">{% translate "Filter" %}</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
             </div>
             <form method="get">
                 <div class="modal-body small">
@@ -55,10 +56,10 @@
                     {% bootstrap_field filter.form.sectors label_class="fw-bold" wrapper_class="affected-sector-filter mb-3" %}
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal">
+                    <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal" onclick="load_spinner()">
                         {% translate "Reset" %}
                     </button>
-                    <button class="btn btn-primary btn-sm" type="submit">
+                    <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
                         {% translate "Search" %}
                     </button>    
                 </div>
@@ -71,6 +72,7 @@
     {% csrf_token %}
     {{ formset.management_form }}
     <table id="add-reporting-recommendations-table" class="table align-middle table-sm small">
+        <caption class="visually-hidden">{% translate "Recommendations table" %}</caption>
         <thead>
             <tr>
                 <th class="d-flex align-items-center justify-content-center">

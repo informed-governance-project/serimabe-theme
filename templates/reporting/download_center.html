@@ -11,17 +11,16 @@
 <script src='{% static "js/download_center.js" %}'></script>
 {% endblock %}
 
-{% block bootstrap5_title %}
-{% translate "Download Center" %}
-{% endblock %}
-
 {% block content %}
 <h3 class="fw-bolder">
-  {% translate "Download Center" %}
+    {% block title %}
+    {% translate "Download center" %}
+    {% endblock %}
 </h3>
 <div class="hr-separator"></div>
 
 <table id="download-center-table" class="table align-middle table-sm small">
+  <caption class="visually-hidden">{% translate "Download center table" %}</caption>
   <thead>
     <tr>
       <th class="col-auto">{% translate "Generation date" %}</th>

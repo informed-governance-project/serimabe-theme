@@ -4,10 +4,10 @@
 
 {% block content_new_declaration %}
 <div class="me-auto">
-    <a role="button" class="btn btn-primary btn-sm create_so_declaration" data-bs-toggle="modal"
+    <button type="button" class="btn btn-primary btn-sm create_so_declaration" data-bs-toggle="modal"
         data-bs-target="#create_so_declaration">
         {% translate "New declaration" %}
-    </a>
+    </button>
 </div>
 {% endblock %}
 
@@ -16,7 +16,7 @@
 {% endblock %}
 
 {% block content_table_actions %}
-<a class="btn border-0 p-0 text-dark" href="{% url 'so_declaration' %}?id={{ standard.id }}">
+<a class="btn border-0 p-0 text-dark" href="{% url 'so_declaration' %}?id={{ standard.id }}" onclick="load_spinner()">
     {% if standard.status == 'UNDE' %}
     <i class="bi bi-pencil-fill h4"
         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Edit' %}">

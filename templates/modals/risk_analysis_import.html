@@ -13,7 +13,7 @@
         <h4 class="modal-title">
             {% translate "Import risk analysis" %}
         </h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
     </div>
     <form action="{% url 'import_risk_analysis' %}" method="post" enctype="multipart/form-data" onsubmit="load_spinner()">
         {% csrf_token %}

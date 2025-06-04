@@ -13,7 +13,7 @@
         <h4 class="modal-title" id="import_so_declaration_label">
             {% translate "Import security objective declaration" %}
         </h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
     </div>
     <form action="{% url 'import_so_declaration' %}" method="post" enctype="multipart/form-data" onsubmit="load_spinner()">
         {% csrf_token %}
