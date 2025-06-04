@@ -1,13 +1,18 @@
 # This file was generated from serima_frontend_translations_v0.13.xlsx
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-26 10:15+0200\n"
-"PO-Revision-Date: 2025-05-26 10:06+0200\n"
+"POT-Creation-Date: 2025-05-28 08:53+0200\n"
+"PO-Revision-Date: 2025-05-28 08:59+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: fr\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: xls-to-po 1.0\n"
+"X-Generator: Poedit 3.6\n"
 
 #: theme/templates/account/edit.html:8
 msgid "Account management"
@@ -140,6 +145,14 @@ msgstr "Tél.:"
 #: theme/templates/home/contact.html:88
 msgid "Email:"
 msgstr "Email:"
+
+#: theme/templates/home/language_selector.html:25
+msgid "Change the site language - currently in "
+msgstr "Changer la langue du site - actuellement en "
+
+#: theme/templates/home/language_selector.html:33
+msgid "English version"
+msgstr "Version française"
 
 #: theme/templates/home/privacy_policy.html:4
 msgid "Privacy Policy"
@@ -933,17 +946,17 @@ msgstr "de tout autre motif que l’ILR juge nécessaire."
 #: theme/templates/home/terms.html:586
 msgid ""
 "In the event of SERIMA being unavailable or of any malfunction, the User may "
-"contact ILR via the dedicated e-mail addresses : <a href=\"mailto:"
-"incident_notification@ilr.lu\">incident_notification@ilr.lu</a> for any item "
-"relating to the Incident Notification Module and <a href=\"mailto:serima@ilr."
-"lu\">serima@ilr.lu</a> for any other Module."
+"contact ILR via the dedicated e-mail addresses : <a "
+"href=\"mailto:incident_notification@ilr.lu\">incident_notification@ilr.lu</"
+"a> for any item relating to the Incident Notification Module and <a "
+"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a> for any other Module."
 msgstr ""
 "En cas d’indisponibilité de SERIMA ou de tout dysfonctionnement, "
 "l’Utilisateur peut s’adresser à l’ILR par le biais des adresses "
-"électroniques dédiées : <a href=\"mailto:incident_notification@ilr."
-"lu\">incident_notification@ilr.lu</a> pour tout élément en lien avec le "
-"Module de notification d’incidents et <a href=\"mailto:serima@ilr."
-"lu\">serima@ilr.lu</a> pour tout autre Module."
+"électroniques dédiées : <a "
+"href=\"mailto:incident_notification@ilr.lu\">incident_notification@ilr.lu</"
+"a> pour tout élément en lien avec le Module de notification d’incidents et "
+"<a href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a> pour tout autre Module."
 
 #: theme/templates/home/terms.html:595
 msgid ""
@@ -1210,8 +1223,8 @@ msgstr ""
 #: theme/templates/home/terms.html:777
 msgid ""
 "For any comments, questions or complaints relating to SERIMA, the User may "
-"contact the ILR via the following e-mail address: <a href=\"mailto:"
-"serima@ilr.lu\">serima@ilr.lu</a>."
+"contact the ILR via the following e-mail address: <a "
+"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a>."
 msgstr ""
 "Pour tout commentaire, toute question ou réclamation relatifs à SERIMA, "
 "l’Utilisateur peut contacter l’ILR par le biais de l’adresse électronique "
@@ -1258,8 +1271,8 @@ msgstr ""
 "exclusivement compétents pour connaître de tout litige concernant ou en lien "
 "avec les Conditions d’utilisation et avec SERIMA."
 
-#: theme/templates/incidents/base.html:9 theme/templates/operator/menu.html:3
-#: theme/templates/regulator/menu.html:4
+#: theme/templates/incidents/base.html:9 theme/templates/operator/menu.html:4
+#: theme/templates/regulator/menu.html:5
 msgid "Incidents"
 msgstr "Incidents"
 
@@ -1612,7 +1625,7 @@ msgid "Comment"
 msgstr "Commentaire"
 
 #: theme/templates/operator/incidents.html:13
-#: theme/templates/regulator/menu.html:9
+#: theme/templates/regulator/menu.html:18
 msgid "My incidents"
 msgstr "Mes incidents"
 
@@ -1686,23 +1699,23 @@ msgstr "Thème clair"
 msgid "Contact"
 msgstr "Contact"
 
-#: theme/templates/parts/pagination.html:13
+#: theme/templates/parts/pagination.html:16
 msgid "entries per page"
 msgstr "entrées par page"
 
-#: theme/templates/parts/pagination.html:23
+#: theme/templates/parts/pagination.html:26
 msgid "Showing"
 msgstr "Affichage de"
 
-#: theme/templates/parts/pagination.html:25
+#: theme/templates/parts/pagination.html:28
 msgid "to"
 msgstr "à"
 
-#: theme/templates/parts/pagination.html:26
+#: theme/templates/parts/pagination.html:29
 msgid "of"
 msgstr "sur"
 
-#: theme/templates/parts/pagination.html:28
+#: theme/templates/parts/pagination.html:31
 msgid "entries"
 msgstr "entrées"
 
@@ -1911,7 +1924,7 @@ msgstr "Adresse de courrier électronique"
 msgid "Password confirmation"
 msgstr "Confirmation du mot de passe"
 
-#: theme/templates/regulator/menu.html:7
+#: theme/templates/regulator/menu.html:10
 msgid "All incidents"
 msgstr "Tous les incidents"
 
