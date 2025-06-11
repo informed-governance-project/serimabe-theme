@@ -139,10 +139,13 @@ a.changelink {
     min-width: unset;
 }
 
+.alert-error {
+   @extend .alert-danger;
+}
 
 $blue-100: tint-color($blue, 80%);
 
-// Optionally: expose it as a CSS custom property
 :root {
   --bs-blue-100: #{$blue-100};
 }
+
