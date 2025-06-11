@@ -137,3 +137,7 @@ a.changelink {
     width: auto !important;
     min-width: unset;
 }
+
+.alert-error {
+   @extend .alert-danger;
+}
