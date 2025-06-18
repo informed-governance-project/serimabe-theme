@@ -1,9 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.datetimepicker-input:not([disabled])').forEach(function (el) {
-        const maxDateAttr = el.getAttribute('data-max-date');
+    document.querySelectorAll('.input-group[data-td-target-input="nearest"]').forEach(function (groupEl) {
+        const inputEl = groupEl.querySelector('.datetimepicker-input:not([disabled])');
+
+        const maxDateAttr = inputEl?.getAttribute('data-max-date');
         const maxDate = maxDateAttr ? new Date(maxDateAttr) : undefined;
 
-        new tempusDominus.TempusDominus(el, {
+        new tempusDominus.TempusDominus(groupEl, {
+            allowInputToggle:true,
+            promptTimeOnDateChange: true,
+            promptTimeOnDateChangeTransitionDelay: 50,
             localization: {
                 hourCycle: 'h23',
                 format: 'yyyy-MM-dd HH:mm',
@@ -27,7 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     today: 'bi bi-calendar-check',
                     clear: 'bi bi-trash',
                     close: 'bi bi-x-lg'
-                }
+                },
+                keyboardNavigation: true,
             }
         });
     });
