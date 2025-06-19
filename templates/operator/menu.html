@@ -1,5 +1,7 @@
 {% load i18n %} 
 <li class="nav-item">
-    <a class="nav-link" href="{% url 'incidents' %}">{% translate "Incidents" %}</a>
+    <a class="nav-link" href="{% url 'incidents' %}" onclick="load_spinner()">
+			{% translate "Incidents" %}
+		</a>
 </li>
 
