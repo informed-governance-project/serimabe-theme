@@ -6,13 +6,13 @@
 		<div class="dropdown">
 			<button class="btn btn-sm btn-outline-secondary dropdown-toggle me-2" type="button" id="perPageDropdown"
 				data-bs-toggle="dropdown" aria-expanded="false">
-				{{ request.GET.per_page|default:'10' }}
+				{{ pagination_data.paginator.per_page|default:'10' }}
 			</button>
 			<ul class="dropdown-menu fit-content" aria-labelledby="perPageDropdown">
 				{% with '10 25 50 100' as items_per_page_choices %}
 				{% for size in items_per_page_choices.split %}
 				<li>
-					<a class="dropdown-item {% if request.GET.per_page == size|stringformat:'s' %}active{% endif %}"
+					<a class="dropdown-item {% if pagination_data.paginator.per_page|stringformat:'s' == size %}active{% endif %}"
 						href="?{% if request.GET %}{{ request.GET.urlencode|add:'&'|cut:'per_page=' }}{% endif %}per_page={{ size }}"
 						onclick="load_spinner()">
 						{{ size }}
