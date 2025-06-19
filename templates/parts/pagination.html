@@ -13,7 +13,7 @@
 				{% for size in items_per_page_choices.split %}
 				<li>
 					<a class="dropdown-item {% if pagination_data.paginator.per_page|stringformat:'s' == size %}active{% endif %}"
-						href="?{% if request.GET %}{{ request.GET.urlencode|add:'&'|cut:'per_page=' }}{% endif %}per_page={{ size }}"
+						href="?{% for key, value in request.GET.items %}{% if key != 'per_page' %}{{ key }}={{ value|urlencode }}&{% endif %}{% endfor %}per_page={{ size }}"
 						onclick="load_spinner()">
 						{{ size }}
 					</a>
