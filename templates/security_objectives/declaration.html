@@ -35,14 +35,15 @@
               <h4 class="card-title">{{ security_objective.unique_code }}: {{ security_objective.objective }}</h4>
               <h5 class="card-subtitle mb-3 text-muted">{{ security_objective.description }}</h5>
             </div>
-            {% if is_regulator %}
             <div class="col-2">
-              {% bootstrap_field security_objective.status_form.status show_label=False wrapper_class="m-0" %}
-              <h5 class="card-subtitle text-center text-muted py-1 m-0">
-                {% translate "Score" %} : {{ security_objective.score|default:0|floatformat:"2" }}
-              </h5>
+              {% if is_regulator %}
+                {% bootstrap_field security_objective.status_form.status show_label=False wrapper_class="m-0" %}
+              {% endif %}
+              {% blocktranslate asvar score_translation %}Score{% endblocktranslate %}
+                <h5 id="so-score" data-label="{{ score_translation }}" class="card-subtitle text-center text-muted py-1 m-0">
+                  {{ score_translation }}  : {{ security_objective.score|default:0|floatformat:"2" }}
+                </h5>
             </div>
-            {% endif %}
           </div>
           <table class="table table-sm table-hover">
             <caption class="visually-hidden">
