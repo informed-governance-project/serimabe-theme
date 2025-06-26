@@ -131,6 +131,11 @@ function update_so_declaration(form) {
                 $so_objective_button.addClass("btn-light");
               }
             }
+            if (data.so_score) {
+              const $scoreElem = $('.carousel-item.active').find('#so-score');
+              const label = $scoreElem.data('label');
+              $scoreElem.text(`${label} : ${data.so_score}`);
+            }
           })
       })
       .catch((error) => {
