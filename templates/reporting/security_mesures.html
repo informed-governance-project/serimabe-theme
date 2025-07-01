@@ -27,7 +27,7 @@
             {% for i in so_data.max_of_company_count|range_list %}
             <tr>
                 {% for level, security_objectives in so_data.company_so_by_level.items %}
-                <td class="lh-sm">
+                <td class="lh-sm text-break">
                     {{ security_objectives|index:i|default_if_none:""}}                       
                 </td>
                 {% endfor %}
@@ -55,7 +55,7 @@
                             <th class="col-2 thead-light text-center">
                                 # {{ forloop.counter }}
                             </th>
-                            <td class="col-10 lh-sm">{{ security_objective }}</td>
+                            <td class="col-10 lh-sm text-break">{{ security_objective }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -85,7 +85,7 @@
                         <th class="col-2 thead-light text-center">
                             # {{ forloop.counter }}
                         </th>
-                        <td class="col-10 lh-sm">{{ security_objective }}</td>
+                        <td class="col-10 lh-sm text-break">{{ security_objective }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -120,7 +120,7 @@
         <tbody>
             {% for domains, years in so_data.company_so_by_domain.items %}
             <tr>
-                <td class="lh-sm">{{ domains }}</td>
+                <td class="lh-sm text-break">{{ domains }}</td>
                 {% for value in years.values %}
                 <td class="text-center" {% if forloop.last %}style="background-color: {{ value.score|get_color }};"{% endif %}>
                     {{ value.score|floatformat:"1" }}
@@ -163,8 +163,8 @@
         <tbody>
             {% for security_objectives, years in so_data.company_so_by_year.items %}               
                 <tr>
-                    <td class="lh-sm">{{ security_objectives.unique_code }}</td>
-                    <td class="lh-sm">{{ security_objectives.objective }}</td>
+                    <td class="lh-sm text-break">{{ security_objectives.unique_code }}</td>
+                    <td class="lh-sm text-break">{{ security_objectives.objective }}</td>
                     {% for value in years.values %}
                     <td class="text-center" {% if forloop.last %}style="background-color: {{ value.score|get_color }};"{% endif %}>
                         {{ value.score }}
@@ -206,8 +206,8 @@
             {% for security_objectives, years in so_data.company_so_by_priority.items %}
             {% if forloop.counter <= top_ranking %} 
             <tr>
-                <td class="lh-sm">{{ security_objectives.unique_code }}</td>
-                <td class="lh-sm">{{ security_objectives.objective }}</td>
+                <td class="lh-sm text-break">{{ security_objectives.unique_code }}</td>
+                <td class="lh-sm text-break">{{ security_objectives.objective }}</td>
                 {% for value in years.values %}
                 <td class="text-center" {% if forloop.last %}style="background-color: {{ value.score|get_color }};"{% endif %}>
                     {{ value.score }}

@@ -89,7 +89,7 @@
                 {% for risk in risk_data.data_risks_top_ranking %}
                 <tr>
                     <td class="align-middle">R{{ risk.id }}</td>
-                    <td class="lh-sm">{{ risk.service }} > {{ risk.asset }}</td>
+                    <td class="lh-sm text-break">{{ risk.service }} > {{ risk.asset }}</td>
                     {% for year in risk_data.years %}
                         {% for criteria in "cia"|make_list %}
                             {% with impact=risk.impacts|get_item:year|get_item:criteria  %}
@@ -103,7 +103,7 @@
                             {% endwith %}
                         {% endfor %}
                     {% endfor %}
-                    <td class="lh-sm">{{ risk.threat }}</td>
+                    <td class="lh-sm text-break">{{ risk.threat }}</td>
                     {% for year in risk_data.years %}
                         {% with threat=risk.threat_values|get_item:year  %}
                             {% if threat %}
@@ -115,7 +115,7 @@
                             {% endif %}
                         {% endwith %}
                     {% endfor %}
-                    <td class="lh-sm">{{ risk.vulnerability }}</td>
+                    <td class="lh-sm text-break">{{ risk.vulnerability }}</td>
                     {% for year in risk_data.years %}
                         {% with vulnerability=risk.vulnerability_values|get_item:year  %}
                             {% if vulnerability %}
@@ -166,9 +166,9 @@
             {% for risk in risk_data.data_risks_top_ranking %}
             <tr>
                 <td class="align-middle">R{{ risk.id }}</td>
-                <td class="lh-sm">{{ risk.service }} > {{ risk.asset }}</td>
-                <td class="lh-sm">{{ risk.threat }}</td>
-                <td class="lh-sm">{{ risk.vulnerability }}</td>
+                <td class="lh-sm text-break">{{ risk.service }} > {{ risk.asset }}</td>
+                <td class="lh-sm text-break">{{ risk.threat }}</td>
+                <td class="lh-sm text-break">{{ risk.vulnerability }}</td>
                 <td class="text-center align-middle">
                     {{ risk.max_risk|floatformat }}
                 </td>
@@ -319,13 +319,13 @@
             {%for ranking in rankings %}
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.threat_by_max_risk.threat}}
                 </td>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.threat_by_residual_risk.threat}}
                 </td>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.by_threat.threat}}
                 </td>      
             </tr>   
@@ -366,13 +366,13 @@
             {%for ranking in rankings %}
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.asset_by_max_risk.asset}}
                 </td>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.asset_by_residual_risk.asset}}
                 </td>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.by_asset.asset}}
                 </td> 
             </tr>   
@@ -413,13 +413,13 @@
             {%for ranking in rankings %}
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.vulnerability_by_max_risk.vulnerability}}
                 </td>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.vulnerability_by_residual_risk.vulnerability}}
                 </td>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.by_vulnerability.vulnerability}}
                 </td> 
             </tr>   
@@ -452,16 +452,16 @@
             {% for recommendation in risk_data.most_recommendations_used %}
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
-                <td class="col-4 lh-sm">
+                <td class="col-4 lh-sm text-break">
                     {{ recommendation.code }}
                 </td>
-                <td class="col-4 lh-sm">
+                <td class="col-4 lh-sm text-break">
                     {{ recommendation.description}}
                 </td>
                 <td class="col-4 lh-sm">
                     <ul class="list-unstyled">
                         {% for risk in recommendation.riskdata_set.all %}
-                            <li>{{ risk.vulnerability }}</li>
+                            <li class="text-break">{{ risk.vulnerability }}</li>
                         {% endfor %}
                     </ul>
                 </td> 
@@ -499,13 +499,13 @@
         <tbody>
             {% for uuid, recommendation in risk_data.recommendations_evolution.items %}
                 <tr>
-                    <td class="col-1 lh-sm align-middle">
+                    <td class="col-1 lh-sm align-middle text-break">
                         {{ recommendation.code }}
                     </td>
-                    <td class="col-4 lh-sm align-middle">
+                    <td class="col-4 lh-sm align-middle text-break">
                         {{ recommendation.description }}
                     </td>
-                    <td class="col-1 text-center align-middle 
+                    <td class="col-1 text-center align-middle
                         {% if recommendation.status == _('Closed') %}table-success
                         {% elif recommendation.status == _('Posponed') %}table-warning
                         {% elif recommendation.status == _('To check') %}table-danger
