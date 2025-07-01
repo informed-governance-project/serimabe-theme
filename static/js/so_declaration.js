@@ -15,10 +15,11 @@ $(document).ready(function () {
       const checkboxId = $(this).attr('id');
       const justificationId = checkboxId.replace('is_implemented', 'justification');
       const textarea = $('#' + justificationId).not(".not-required");
+      const placeholdertext = gettext("Justification required");
       if (textarea.length && $(this).is(':checked') && textarea.val().trim() === "") {
         textarea
           .addClass("border border-danger border-2")
-          .attr("placeholder", "Justification required");
+          .attr("placeholder", placeholdertext);
       } else {
         textarea
           .removeClass("border border-danger border-2")
@@ -27,16 +28,34 @@ $(document).ready(function () {
     });
   }
 
-  function checkRequiredFields() {  
+  function checkActions() {
+    const $activeSlide = $('.carousel-item.active');
+    const $checkboxes = $activeSlide.find(".form-check-input").not(".readonly_field")
+    const $actionstextarea = $activeSlide.find(".so_actions_form");
+    const $lastMaturityLevelMeasures = $activeSlide.find(".last_maturity_level_measure").length;
+    const $lastMaturityLevelMeasuresCheked = $activeSlide.find(".last_maturity_level_measure").filter(":checked").length
+    const allLastLevelMeasureschecked = $lastMaturityLevelMeasures > 0 && $lastMaturityLevelMeasuresCheked === $lastMaturityLevelMeasures;
+    const placeholdertext = gettext("Please list your planned actions and the associated planning");
+    if ($actionstextarea.val().trim() === "" && !allLastLevelMeasureschecked && $checkboxes.is(":checked")) {
+      $actionstextarea
+        .attr('placeholder', placeholdertext)
+        .addClass("border border-danger border-2")
+    } else {
+      $actionstextarea
+        .removeAttr('placeholder')
+        .removeClass("border border-danger border-2")
+    }
+  }
+
+  function checkRequiredFields() {
     const $activeSlide = $('.carousel-item.active');
     const $checkboxes_required = $activeSlide.find(".form-check-input").not(".not-required, .readonly_field")
-    const $textareas_required = $activeSlide.find(".form-control").not(".not-required, .readonly_field")
+    const $textareas_required = $activeSlide.find(".form-control").not(".not-required, .readonly_field, .so_actions_form")
     const $checkbox_no_required = $activeSlide.find(".form-check-input.not-required").not(".readonly_field")
     const $textarea_no_required = $activeSlide.find(".form-control.not-required").not(".readonly_field")
     const $anyRequiredChecked = $checkboxes_required.is(":checked");
     const $anyNonRequiredChecked = $checkbox_no_required.is(":checked");
-
-
+    
     if ($anyRequiredChecked) {
       $checkbox_no_required.prop("checked", false).prop("disabled", true);
       $textarea_no_required.prop("disabled", true);
@@ -55,16 +74,22 @@ $(document).ready(function () {
   $('.form-check-input').on('change', function () {
     checkImplementation();
     checkRequiredFields()
+    checkActions()
   });
 
   $('textarea[id*="-justification"]').not(".not-required").on('input', function () {
     checkImplementation();
   });
 
+  $('textarea[id*="-actions"]').on('input', function () {
+    checkActions();
+  });
+
 
   $security_objectives_carousel.on('slid.bs.carousel', function (event) {
     adjustTextareaHeights();
     checkRequiredFields();
+    checkActions();
     $("#security_objective_selector").find('button[data-bs-slide-to]').removeClass("focus-effect");
     $active_button = $("#security_objective_selector").find(`[data-bs-slide-to="${event.to}"]`);
     $active_button.addClass("focus-effect .btn:hover");
@@ -73,6 +98,7 @@ $(document).ready(function () {
   adjustTextareaHeights();
   checkImplementation();
   checkRequiredFields();
+  checkActions();
   $("#security_objective_selector").find(`[data-bs-slide-to="0"]`).addClass("focus-effect");
 });
 

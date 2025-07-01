@@ -8,25 +8,25 @@
       </h5>
       <h6 class="card-subtitle text-muted">{{ security_objective.description }}</h6>
     </div>
-    {% if is_regulator %}
     <div class="col-2 text-end">
-      {% if security_objective.status %}
-      <h5 class="fw-bold m-0 
-        {% if security_objective.status.status == 'PASS' %}text-success
-        {% elif security_objective.status.status == 'FAIL' %}text-danger
-        {% else %}text-dark{% endif %}">
-        [{{ security_objective.status.get_status_display }}]
-      </h5>
-      {% else %}
-      <h5 class="fw-bold m-0">
-        [{% translate "Not reviewed" %}]
-      </h5>
+      {% if is_regulator %}
+        {% if security_objective.status %}
+        <h5 class="fw-bold m-0 
+          {% if security_objective.status.status == 'PASS' %}text-success
+          {% elif security_objective.status.status == 'FAIL' %}text-danger
+          {% else %}text-dark{% endif %}">
+          [{{ security_objective.status.get_status_display }}]
+        </h5>
+        {% else %}
+        <h5 class="fw-bold m-0">
+          [{% translate "Not reviewed" %}]
+        </h5>
+        {% endif %}
       {% endif %}
       <h6 class="card-subtitle text-end text-muted m-0">
         {% translate "Score" %} : {{ security_objective.status.score|default:0|floatformat:"2" }}
       </h6>
     </div>
-    {% endif %}
   </div>
   <table class="table table-sm table-hover small">
     <caption class="visually-hidden">
@@ -37,10 +37,10 @@
         <th class="col-1 text-center align-middle">
           {% translate "Level" %}
         </th>
-        <th class="col-3 text-center align-middle">
+        <th class="col-2 text-center align-middle">
           {% translate "Security Measure" %}
         </th>
-        <th class="col-3 text-center align-middle">
+        <th class="col-2 text-center align-middle">
           {% translate "Evidence" %}
         </th>
         <th class="col-1 text-center align-middle">
@@ -54,6 +54,10 @@
           {% translate "Review Comment" %}
         </th>
         {% endif %}
+        <th
+          class="col-2 text-center align-middle">
+          {% translate "Planned actions" %}
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -65,10 +69,10 @@
           {{ maturity_level }}
         </th>
         {% endif %}
-        <td class="col-3 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
+        <td class="col-2 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
           {{ measure }}
         </td>
-        <td class="col-3 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
+        <td class="col-2 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
           {{ measure.evidence|linebreaksbr }}
         </td>
         <td class="col-1 align-middle {% if forloop.first %}table-group-divider{% endif %}">
@@ -80,9 +84,15 @@
           {{ measure.justification|default:""|linebreaksbr }}
         </td>
         {% if is_regulator or security_objective.declaration_status != "UNDE" %}
-        <td class="col-2 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
-          {{ measure.review_comment|default:""|linebreaksbr }}
-        </td>
+          <td class="col-2 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
+            {{ measure.review_comment|default:""|linebreaksbr }}
+          </td>
+        {% endif %}
+        {% if forloop.parentloop.first %}
+          {% translate "Please list your planned actions and the associated planning" as placeholder_translation %}
+          <td rowspan="{{security_objective.securitymeasure_set.all.count}}" class="col-2 table-group-divider border border-end-0">
+              {{ security_objective.status.actions|default:""|linebreaksbr }}
+          </td>
         {% endif %}
       </tr>
       {% empty %}
