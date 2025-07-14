@@ -81,12 +81,15 @@ $(document).ready(function () {
     $popup.find(".modal-dialog").empty();
     $(".modal-dialog", $popup).load(popup_url, function () {
       $popup.modal("show");
-      $("#id_deadline").datepicker({
-        showOptions: { direction: "up" },
-        minDate: new Date(),
-      });
+      groupEl = document.querySelector('.input-group[data-td-target-input="nearest"]')
+      const options = {
+        ...defaultTempusdOptions,
+        restrictions: {
+          minDate: new Date()
+        }
+      };
+      new tempusDominus.TempusDominus(groupEl, options);
     });
-
   });
 
   $(document).on("click", '.so_access_log', function () {
@@ -118,11 +121,11 @@ $(document).ready(function () {
               const messagesContainer = $("#messages-container");
               if (messagesContainer.length) {
                 messagesContainer.html(data.messages);
-              }              
+              }
               throw new Error(response.statusText);
             }
           });
-        }        
+        }
         const contentDisposition = response.headers.get("Content-Disposition");
         let filename = "report.pdf"; // default filename
         if (contentDisposition && contentDisposition.includes("filename=")) {
