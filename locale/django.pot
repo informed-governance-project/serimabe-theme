@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-10 16:30+0200\n"
+"POT-Creation-Date: 2025-07-14 12:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,28 +60,35 @@ msgid "Details"
 msgstr ""
 
 #: theme/templates/cookiebanner/bootstrap5.html:34
+#: theme/templates/home/privacy_policy.html:86
 msgid "Cookies description"
 msgstr ""
 
 #: theme/templates/cookiebanner/bootstrap5.html:37
 #: theme/templates/home/contact.html:30
-#: theme/templates/home/privacy_policy.html:88
+#: theme/templates/home/privacy_policy.html:89
 #: theme/templates/incidents/contact_form.html:7
+#: theme/templates/reporting/add_recommendations.html:81
+#: theme/templates/reporting/recommendations.html:42
 msgid "Name"
 msgstr ""
 
 #: theme/templates/cookiebanner/bootstrap5.html:38
-#: theme/templates/home/privacy_policy.html:89
+#: theme/templates/home/privacy_policy.html:90
+#: theme/templates/reporting/add_recommendations.html:82
+#: theme/templates/reporting/recommendations.html:43
+#: theme/templates/reporting/risks.html:444
+#: theme/templates/reporting/risks.html:484
 msgid "Description"
 msgstr ""
 
 #: theme/templates/cookiebanner/bootstrap5.html:39
-#: theme/templates/home/privacy_policy.html:90
+#: theme/templates/home/privacy_policy.html:91
 msgid "Content"
 msgstr ""
 
 #: theme/templates/cookiebanner/bootstrap5.html:40
-#: theme/templates/home/privacy_policy.html:91
+#: theme/templates/home/privacy_policy.html:92
 msgid "Maximum duration"
 msgstr ""
 
@@ -186,6 +193,8 @@ msgid "I agree that my personal data may be used for communication purposes."
 msgstr ""
 
 #: theme/templates/home/contact.html:65
+#: theme/templates/modals/review_comment_report.html:28
+#: theme/templates/modals/review_comment_so_declaration.html:32
 msgid "Send"
 msgstr ""
 
@@ -990,15 +999,26 @@ msgid "Notify an incident"
 msgstr ""
 
 #: theme/templates/incidents/base.html:41
+#: theme/templates/security_objectives/so_dashboard_base.html:33
 msgid "Filter by status, sector, etc"
 msgstr ""
 
 #: theme/templates/incidents/base.html:42
 #: theme/templates/incidents/base.html:327
+#: theme/templates/reporting/add_recommendations.html:34
+#: theme/templates/reporting/add_recommendations.html:35
+#: theme/templates/reporting/add_recommendations.html:49
+#: theme/templates/reporting/dashboard.html:33
+#: theme/templates/reporting/dashboard.html:182
+#: theme/templates/security_objectives/so_dashboard_base.html:34
+#: theme/templates/security_objectives/so_dashboard_base.html:168
 msgid "Filter"
 msgstr ""
 
 #: theme/templates/incidents/base.html:45
+#: theme/templates/reporting/add_recommendations.html:38
+#: theme/templates/reporting/dashboard.html:36
+#: theme/templates/security_objectives/so_dashboard_base.html:37
 msgid "Active"
 msgstr ""
 
@@ -1011,6 +1031,7 @@ msgid "Legend"
 msgstr ""
 
 #: theme/templates/incidents/base.html:68
+#: theme/templates/reporting/risks.html:56
 msgid "Impact"
 msgstr ""
 
@@ -1019,6 +1040,7 @@ msgid "On going"
 msgstr ""
 
 #: theme/templates/incidents/base.html:76
+#: theme/templates/reporting/risks.html:509
 msgid "Closed"
 msgstr ""
 
@@ -1051,6 +1073,9 @@ msgid "Incidents table"
 msgstr ""
 
 #: theme/templates/incidents/base.html:112
+#: theme/templates/reporting/risks.html:487
+#: theme/templates/security_objectives/report/cover.html:64
+#: theme/templates/security_objectives/so_dashboard_base.html:62
 msgid "Status"
 msgstr ""
 
@@ -1059,6 +1084,7 @@ msgid "Creation date"
 msgstr ""
 
 #: theme/templates/incidents/base.html:116
+#: theme/templates/reporting/dashboard.html:54
 msgid "Operator"
 msgstr ""
 
@@ -1078,6 +1104,9 @@ msgid "Reference"
 msgstr ""
 
 #: theme/templates/incidents/base.html:129
+#: theme/templates/reporting/add_recommendations.html:83
+#: theme/templates/security_objectives/report/cover.html:22
+#: theme/templates/security_objectives/so_dashboard_base.html:59
 msgid "Sectors"
 msgstr ""
 
@@ -1087,6 +1116,10 @@ msgid "Report"
 msgstr ""
 
 #: theme/templates/incidents/base.html:131
+#: theme/templates/reporting/dashboard.html:59
+#: theme/templates/reporting/recommendations.html:44
+#: theme/templates/reporting/report_configuration.html:30
+#: theme/templates/security_objectives/so_dashboard_base.html:63
 msgid "Actions"
 msgstr ""
 
@@ -1122,7 +1155,7 @@ msgstr ""
 #: theme/templates/incidents/base.html:256
 #: theme/templates/incidents/base.html:259
 #: theme/templates/modals/report_versions.html:8
-#: theme/templates/modals/report_versions.html:17
+#: theme/templates/modals/report_versions.html:16
 #: theme/templates/operator/incidents.html:84
 #: theme/templates/operator/incidents.html:87
 msgid "Version control"
@@ -1148,19 +1181,38 @@ msgstr ""
 #: theme/templates/modals/accept_terms.html:20
 #: theme/templates/modals/access_log.html:20
 #: theme/templates/modals/contacts_incident.html:10
-#: theme/templates/modals/delete_incident.html:11
-#: theme/templates/modals/report_versions.html:11
+#: theme/templates/modals/copy_so_declaration.html:15
+#: theme/templates/modals/create_so_declaration.html:15
+#: theme/templates/modals/delete_incident.html:10
+#: theme/templates/modals/delete_report_recommendation.html:10
+#: theme/templates/modals/delete_so_declaration.html:10
+#: theme/templates/modals/import_so_declaration.html:16
+#: theme/templates/modals/report_versions.html:10
+#: theme/templates/modals/reporting_access_log.html:20
+#: theme/templates/modals/review_comment_report.html:14
+#: theme/templates/modals/review_comment_so_declaration.html:13
+#: theme/templates/modals/risk_analysis_import.html:16
+#: theme/templates/modals/so_access_log.html:20
 #: theme/templates/modals/workflow_comment.html:10
 #: theme/templates/parts/messages.html:10
 #: theme/templates/parts/messages.html:12
+#: theme/templates/reporting/add_recommendations.html:50
+#: theme/templates/reporting/dashboard.html:183
+#: theme/templates/security_objectives/so_dashboard_base.html:169
 msgid "Close"
 msgstr ""
 
 #: theme/templates/incidents/base.html:339
+#: theme/templates/reporting/add_recommendations.html:60
+#: theme/templates/reporting/dashboard.html:193
+#: theme/templates/security_objectives/so_dashboard_base.html:182
 msgid "Reset"
 msgstr ""
 
 #: theme/templates/incidents/base.html:342
+#: theme/templates/reporting/add_recommendations.html:63
+#: theme/templates/reporting/dashboard.html:196
+#: theme/templates/security_objectives/so_dashboard_base.html:185
 msgid "Search"
 msgstr ""
 
@@ -1223,6 +1275,10 @@ msgstr ""
 
 #: theme/templates/incidents/declaration.html:124
 #: theme/templates/modals/delete_incident.html:20
+#: theme/templates/modals/delete_report_recommendation.html:19
+#: theme/templates/modals/delete_so_declaration.html:19
+#: theme/templates/reporting/add_recommendations.html:30
+#: theme/templates/reporting/add_report_configuration.html:29
 msgid "Cancel"
 msgstr ""
 
@@ -1251,27 +1307,37 @@ msgid "Continue"
 msgstr ""
 
 #: theme/templates/modals/access_log.html:18
+#: theme/templates/modals/reporting_access_log.html:18
+#: theme/templates/modals/so_access_log.html:18
 msgid "Access log"
 msgstr ""
 
 #: theme/templates/modals/access_log.html:26
+#: theme/templates/modals/reporting_access_log.html:25
+#: theme/templates/modals/so_access_log.html:25
 msgid "Access log table"
 msgstr ""
 
 #: theme/templates/modals/access_log.html:29
-#: theme/templates/modals/report_versions.html:20
+#: theme/templates/modals/report_versions.html:19
+#: theme/templates/modals/reporting_access_log.html:28
+#: theme/templates/modals/so_access_log.html:28
 msgid "Date"
 msgstr ""
 
 #: theme/templates/modals/access_log.html:31
+#: theme/templates/modals/so_access_log.html:29
 msgid "Entity"
 msgstr ""
 
 #: theme/templates/modals/access_log.html:33
+#: theme/templates/modals/reporting_access_log.html:29
+#: theme/templates/modals/so_access_log.html:30
 msgid "User"
 msgstr ""
 
 #: theme/templates/modals/access_log.html:34
+#: theme/templates/modals/so_access_log.html:31
 #: theme/templates/report/contacts.html:16
 #: theme/templates/report/contacts.html:57
 msgid "Role"
@@ -1282,11 +1348,15 @@ msgid "Document"
 msgstr ""
 
 #: theme/templates/modals/access_log.html:36
-#: theme/templates/modals/report_versions.html:21
+#: theme/templates/modals/report_versions.html:20
+#: theme/templates/modals/reporting_access_log.html:30
+#: theme/templates/modals/so_access_log.html:32
 msgid "Action"
 msgstr ""
 
 #: theme/templates/modals/access_log.html:77
+#: theme/templates/modals/reporting_access_log.html:55
+#: theme/templates/modals/so_access_log.html:63
 msgid "No entries"
 msgstr ""
 
@@ -1307,6 +1377,23 @@ msgstr ""
 msgid "Incident notification manager and technical contact"
 msgstr ""
 
+#: theme/templates/modals/copy_so_declaration.html:13
+msgid "Copy security objectives declaration"
+msgstr ""
+
+#: theme/templates/modals/copy_so_declaration.html:30
+#: theme/templates/operator/so_dashboard.html:45
+msgid "Copy"
+msgstr ""
+
+#: theme/templates/modals/create_so_declaration.html:13
+msgid "Create a security objective declaration"
+msgstr ""
+
+#: theme/templates/modals/create_so_declaration.html:31
+msgid "Create"
+msgstr ""
+
 #: theme/templates/modals/delete_incident.html:8
 msgid "Delete incident"
 msgstr ""
@@ -1316,9 +1403,58 @@ msgid "Are you sure that you want to delete the incident?"
 msgstr ""
 
 #: theme/templates/modals/delete_incident.html:23
+#: theme/templates/modals/delete_report_recommendation.html:22
+#: theme/templates/modals/delete_so_declaration.html:22
 #: theme/templates/operator/incidents.html:124
 #: theme/templates/operator/incidents.html:128
+#: theme/templates/operator/so_dashboard.html:66
+#: theme/templates/regulator/so_dashboard.html:42
+#: theme/templates/reporting/recommendations.html:65
 msgid "Delete"
+msgstr ""
+
+#: theme/templates/modals/delete_report_recommendation.html:8
+msgid "Delete report recommendation"
+msgstr ""
+
+#: theme/templates/modals/delete_report_recommendation.html:14
+msgid "Are you sure you want to delete the report recommendation"
+msgstr ""
+
+#: theme/templates/modals/delete_so_declaration.html:8
+msgid "Delete security objectives declaration"
+msgstr ""
+
+#: theme/templates/modals/delete_so_declaration.html:14
+msgid "Are you sure you want to delete the security objectives declaration?"
+msgstr ""
+
+#: theme/templates/modals/import_so_declaration.html:14
+msgid "Import security objective declaration"
+msgstr ""
+
+#: theme/templates/modals/import_so_declaration.html:34
+#: theme/templates/modals/risk_analysis_import.html:33
+#: theme/templates/regulator/menu.html:41
+msgid "Import"
+msgstr ""
+
+#: theme/templates/modals/review_comment_report.html:11
+#: theme/templates/operator/so_dashboard.html:34
+#: theme/templates/regulator/so_dashboard.html:23
+#: theme/templates/reporting/dashboard.html:148
+msgid "Review comment"
+msgstr ""
+
+#: theme/templates/modals/review_comment_so_declaration.html:11
+#: theme/templates/operator/so_dashboard.html:26
+#: theme/templates/regulator/so_dashboard.html:17
+msgid "Review"
+msgstr ""
+
+#: theme/templates/modals/risk_analysis_import.html:14
+#: theme/templates/regulator/menu.html:75
+msgid "Import risk analysis"
 msgstr ""
 
 #: theme/templates/modals/workflow_comment.html:8
@@ -1330,6 +1466,35 @@ msgstr ""
 #: theme/templates/operator/incidents.html:13
 #: theme/templates/regulator/menu.html:18
 msgid "My incidents"
+msgstr ""
+
+#: theme/templates/operator/menu.html:9 theme/templates/regulator/menu.html:27
+msgid "Security Objectives"
+msgstr ""
+
+#: theme/templates/operator/so_dashboard.html:9
+msgid "New declaration"
+msgstr ""
+
+#: theme/templates/operator/so_dashboard.html:22
+msgid "Edit"
+msgstr ""
+
+#: theme/templates/operator/so_dashboard.html:39
+#: theme/templates/regulator/so_dashboard.html:28
+#: theme/templates/reporting/download_center.html:28
+#: theme/templates/reporting/download_center.html:42
+msgid "Download"
+msgstr ""
+
+#: theme/templates/operator/so_dashboard.html:51
+msgid "Submit"
+msgstr ""
+
+#: theme/templates/operator/so_dashboard.html:56
+#: theme/templates/regulator/so_dashboard.html:33
+#: theme/templates/reporting/dashboard.html:157
+msgid "Access Log"
 msgstr ""
 
 #: theme/templates/parts/404.html:5
@@ -1591,6 +1756,7 @@ msgid "Your account is linked to multiple companies. Select one to proceed."
 msgstr ""
 
 #: theme/templates/registration/select_company.html:15
+#: theme/templates/reporting/add_report_configuration.html:26
 msgid "Save"
 msgstr ""
 
@@ -1604,6 +1770,23 @@ msgstr ""
 
 #: theme/templates/regulator/menu.html:10
 msgid "All incidents"
+msgstr ""
+
+#: theme/templates/regulator/menu.html:32
+#: theme/templates/regulator/menu.html:56
+msgid "Dashboard"
+msgstr ""
+
+#: theme/templates/regulator/menu.html:51
+msgid "Reporting"
+msgstr ""
+
+#: theme/templates/regulator/menu.html:64
+msgid "Download Center"
+msgstr ""
+
+#: theme/templates/regulator/menu.html:69
+msgid "Configuration"
 msgstr ""
 
 #: theme/templates/report/contacts.html:3
@@ -1695,8 +1878,537 @@ msgstr ""
 msgid "Report Timeline"
 msgstr ""
 
-#: theme/templates/report/toc.html:3
+#: theme/templates/report/toc.html:3 theme/templates/reporting/toc.html:4
+#: theme/templates/security_objectives/report/toc.html:3
 msgid "Table of contents"
+msgstr ""
+
+#: theme/templates/reporting/add_recommendations.html:18
+#: theme/templates/reporting/recommendations.html:27
+msgid "Add recommendations"
+msgstr ""
+
+#: theme/templates/reporting/add_recommendations.html:26
+msgid "Add selected recommendation(s)"
+msgstr ""
+
+#: theme/templates/reporting/add_recommendations.html:75
+#: theme/templates/reporting/recommendations.html:38
+msgid "Recommendations table"
+msgstr ""
+
+#: theme/templates/reporting/add_report_configuration.html:6
+#: theme/templates/reporting/report_configuration.html:15
+msgid "Add configuration"
+msgstr ""
+
+#: theme/templates/reporting/cover.html:12
+#: theme/templates/reporting/header.html:5
+#: theme/templates/reporting/template.html:8
+#: theme/templates/reporting/template.html:9
+msgid "Annual report"
+msgstr ""
+
+#: theme/templates/reporting/cover.html:20
+#: theme/templates/security_objectives/report/cover.html:15
+msgid "Company name"
+msgstr ""
+
+#: theme/templates/reporting/cover.html:26
+#: theme/templates/reporting/dashboard.html:55
+#: theme/templates/reporting/report_configuration.html:25
+msgid "Sector"
+msgstr ""
+
+#: theme/templates/reporting/dashboard.html:20
+#: theme/templates/reporting/report_generation.html:6
+msgid "Report generation"
+msgstr ""
+
+#: theme/templates/reporting/dashboard.html:28
+msgid "Generate report(s)"
+msgstr ""
+
+#: theme/templates/reporting/dashboard.html:32
+msgid "Filter by year, operator and sector"
+msgstr ""
+
+#: theme/templates/reporting/dashboard.html:47
+msgid "Report generation table"
+msgstr ""
+
+#: theme/templates/reporting/dashboard.html:53
+#: theme/templates/security_objectives/report/cover.html:40
+#: theme/templates/security_objectives/so_dashboard_base.html:60
+msgid "Year"
+msgstr ""
+
+#: theme/templates/reporting/dashboard.html:56
+#: theme/templates/security_objectives/so_dashboard_base.html:24
+msgid "Security objectives"
+msgstr ""
+
+#: theme/templates/reporting/dashboard.html:57
+msgid "Risk analysis"
+msgstr ""
+
+#: theme/templates/reporting/dashboard.html:58
+msgid "Number of recommendations"
+msgstr ""
+
+#: theme/templates/reporting/dashboard.html:139
+#: theme/templates/reporting/recommendations.html:18
+msgid "Recommendations"
+msgstr ""
+
+#: theme/templates/reporting/download_center.html:17
+msgid "Download center"
+msgstr ""
+
+#: theme/templates/reporting/download_center.html:23
+msgid "Download center table"
+msgstr ""
+
+#: theme/templates/reporting/download_center.html:26
+msgid "Generation date"
+msgstr ""
+
+#: theme/templates/reporting/download_center.html:27
+msgid "Filename"
+msgstr ""
+
+#: theme/templates/reporting/footer.html:5
+#: theme/templates/security_objectives/report/footer.html:5
+msgid "Confidential"
+msgstr ""
+
+#: theme/templates/reporting/observations.html:4
+msgid "Observations and recommendations (from the authority)"
+msgstr ""
+
+#: theme/templates/reporting/observations.html:7
+msgid ""
+"We would also like to draw your particular attention to the following points:"
+msgstr ""
+
+#: theme/templates/reporting/recommendations.html:33
+msgid "Back"
+msgstr ""
+
+#: theme/templates/reporting/recommendations.html:41
+msgid "Order"
+msgstr ""
+
+#: theme/templates/reporting/recommendations.html:77
+msgid "Copy from last year"
+msgstr ""
+
+#: theme/templates/reporting/report_configuration.html:8
+msgid "Configuration by sector"
+msgstr ""
+
+#: theme/templates/reporting/report_configuration.html:21
+msgid "Configuration by sector table"
+msgstr ""
+
+#: theme/templates/reporting/report_configuration.html:26
+msgid "Number of year to compare"
+msgstr ""
+
+#: theme/templates/reporting/report_configuration.html:27
+msgid "High risk rate threshold"
+msgstr ""
+
+#: theme/templates/reporting/report_configuration.html:28
+msgid "Ranking"
+msgstr ""
+
+#: theme/templates/reporting/report_configuration.html:29
+msgid "Number of security objectives excluded"
+msgstr ""
+
+#: theme/templates/reporting/report_generation.html:15
+msgid "Generate"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:5
+msgid "Risks"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:9
+msgid "Risk average level"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:17
+msgid "High-risk rate"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:25
+msgid "High risk average level"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:33
+msgid "Evolution of the highest risks"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:41
+msgid "C = Confidentiality"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:41
+msgid "I = Integrity"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:41
+msgid "A = Availability"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:45
+msgid "Changes in values affecting the calculation of actual risk"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:49
+msgid "Changes in calculated maximum risk"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:54
+#: theme/templates/reporting/risks.html:156
+msgid "ID"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:55
+#: theme/templates/reporting/risks.html:157
+msgid "Asset"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:57
+#: theme/templates/reporting/risks.html:158
+msgid "Threat"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:58
+msgid "Probability"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:59
+#: theme/templates/reporting/risks.html:159
+msgid "Vulnerability"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:60
+msgid "Qualification"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:61
+msgid "Current Risk"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:79
+#: theme/templates/reporting/risks.html:82
+msgid "C"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:80
+#: theme/templates/reporting/risks.html:83
+msgid "I"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:81
+#: theme/templates/reporting/risks.html:84
+msgid "A"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:151
+msgid "Treatment of the highest risks"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:160
+msgid "Max Current Risk"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:161
+msgid "Treatment"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:162
+msgid "Residual Risk"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:186
+msgid "Risk summary table"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:192
+msgid "Total amount of treated risks"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:193
+msgid "Total amount of not-treated risks"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:194
+msgid "Average value of treated current risks"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:195
+msgid "Total amount of high risks"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:196
+msgid "Average value of high risks"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:197
+msgid "Average value of residual risks"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:198
+msgid "Total amount of reduced risks"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:199
+msgid "Total amount of denied risks"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:200
+msgid "Total amount of accepted risk"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:201
+msgid "Total amount of shared risks"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:293
+msgid "Most important threats"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:308
+msgid "Threat ranking based on risk level"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:311
+msgid "Threat ranking based on residual risk level"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:314
+msgid "Threat ranking based on threat probability"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:340
+msgid "Most targeted assets"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:355
+msgid "Most targeted asset based on risk level"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:358
+msgid "Most targeted asset based on remaining risk level"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:361
+msgid "Most targeted asset based on asset impact"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:387
+msgid "Most important vulnerabilities"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:402
+msgid "Most important vulnerability based on risk level"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:405
+msgid "Most important vulnerability based on remaining risk level"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:408
+msgid "Most important vulnerability based on vulnerability qualification"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:434
+msgid "Most used recommendations"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:441
+#: theme/templates/reporting/risks.html:481
+msgid "Code"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:447
+msgid "Main vulnerabilities reduced"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:475
+msgid "List of recommendations"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:490
+msgid "Due date"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:510
+msgid "Posponed"
+msgstr ""
+
+#: theme/templates/reporting/risks.html:511
+msgid "To check"
+msgstr ""
+
+#: theme/templates/reporting/security_mesures.html:5
+msgid "Security Measures in place"
+msgstr ""
+
+#: theme/templates/reporting/security_mesures.html:9
+msgid "Sophistication level breakdown"
+msgstr ""
+
+#: theme/templates/reporting/security_mesures.html:17
+msgid "Security Objectives ranking by sophistication level"
+msgstr ""
+
+#: theme/templates/reporting/security_mesures.html:41
+msgid ""
+"Security Objectives with the highest sophistication level for the sector"
+msgstr ""
+
+#: theme/templates/reporting/security_mesures.html:71
+msgid "Security Objectives with the lowest sophistication level for the sector"
+msgstr ""
+
+#: theme/templates/reporting/security_mesures.html:100
+msgid "Evolution of the Security Objectives since the previous year"
+msgstr ""
+
+#: theme/templates/reporting/security_mesures.html:111
+msgid "Domain"
+msgstr ""
+
+#: theme/templates/reporting/security_mesures.html:116
+msgid "Sector average"
+msgstr ""
+
+#: theme/templates/reporting/security_mesures.html:156
+#: theme/templates/reporting/security_mesures.html:196
+msgid "Objective"
+msgstr ""
+
+#: theme/templates/reporting/security_mesures.html:157
+#: theme/templates/reporting/security_mesures.html:197
+msgid "Label"
+msgstr ""
+
+#: theme/templates/reporting/security_mesures.html:188
+msgid "Evolution of the weakest Security Objectives"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:42
+#: theme/templates/security_objectives/report/declaration.html:27
+msgid "Score"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:50
+#: theme/templates/security_objectives/report/declaration.html:33
+msgid "table of"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:55
+#: theme/templates/security_objectives/report/declaration.html:38
+msgid "Level"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:58
+#: theme/templates/security_objectives/report/declaration.html:41
+msgid "Security Measure"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:61
+#: theme/templates/security_objectives/report/declaration.html:44
+msgid "Evidence"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:64
+#: theme/templates/security_objectives/report/declaration.html:47
+msgid "Measure in place ?"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:68
+#: theme/templates/security_objectives/report/declaration.html:50
+msgid "Justification"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:72
+#: theme/templates/security_objectives/report/declaration.html:54
+msgid "Review Comment"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:77
+#: theme/templates/security_objectives/report/declaration.html:59
+msgid "Planned actions"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:127
+#: theme/templates/security_objectives/report/declaration.html:99
+msgid "No security measures data"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:134
+#: theme/templates/security_objectives/report/declaration.html:108
+msgid "No security objectives data"
+msgstr ""
+
+#: theme/templates/security_objectives/report/cover.html:11
+#: theme/templates/security_objectives/report/header.html:5
+msgid "Security objectives declaration"
+msgstr ""
+
+#: theme/templates/security_objectives/report/cover.html:34
+#: theme/templates/security_objectives/so_dashboard_base.html:51
+msgid "Standard"
+msgstr ""
+
+#: theme/templates/security_objectives/report/cover.html:46
+#: theme/templates/security_objectives/so_dashboard_base.html:49
+msgid "Last update"
+msgstr ""
+
+#: theme/templates/security_objectives/report/cover.html:52
+#: theme/templates/security_objectives/so_dashboard_base.html:50
+msgid "Submit date"
+msgstr ""
+
+#: theme/templates/security_objectives/report/cover.html:58
+#: theme/templates/security_objectives/so_dashboard_base.html:61
+msgid "Progress"
+msgstr ""
+
+#: theme/templates/security_objectives/report/declaration.html:22
+msgid "Not reviewed"
+msgstr ""
+
+#: theme/templates/security_objectives/report/declaration.html:92
+msgid "Please list your planned actions and the associated planning"
+msgstr ""
+
+#: theme/templates/security_objectives/report/template.html:8
+#: theme/templates/security_objectives/report/template.html:9
+msgid "Security objectives report"
+msgstr ""
+
+#: theme/templates/security_objectives/so_dashboard_base.html:46
+msgid "Security objectives table"
+msgstr ""
+
+#: theme/templates/security_objectives/so_dashboard_base.html:54
+msgid "Creator"
+msgstr ""
+
+#: theme/templates/security_objectives/so_dashboard_base.html:56
+msgid "Company"
+msgstr ""
+
+#: theme/templates/security_objectives/so_dashboard_base.html:150
+msgid "No security objectives declaration"
 msgstr ""
 
 #: theme/templates/two_factor/core/setup_complete.html:7
