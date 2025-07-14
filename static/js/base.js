@@ -21,6 +21,36 @@ var datatableTranslations = {
   aria: { orderable: gettext(": Activate to sort") },
 };
 
+// Default options for tempus dominus
+const defaultTempusdOptions = {
+  allowInputToggle: true,
+  promptTimeOnDateChange: true,
+  promptTimeOnDateChangeTransitionDelay: 50,
+  localization: {
+    hourCycle: 'h23',
+    format: 'yyyy-MM-dd HH:mm',
+  },
+  display: {
+    buttons: {
+      today: false,
+      clear: true,
+      close: true
+    },
+    icons: {
+      time: 'bi bi-clock',
+      date: 'bi bi-calendar',
+      up: 'bi bi-chevron-up',
+      down: 'bi bi-chevron-down',
+      previous: 'bi bi-chevron-left',
+      next: 'bi bi-chevron-right',
+      today: 'bi bi-calendar-check',
+      clear: 'bi bi-trash',
+      close: 'bi bi-x-lg'
+    },
+    keyboardNavigation: true,
+  }
+};
+
 
 // initialize all tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -65,3 +95,4 @@ window.load_spinner = function(){
 window.stop_spinner = function() {
   $('#loading-spinner').fadeOut().addClass('d-none');
 }
+
