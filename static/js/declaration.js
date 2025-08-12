@@ -8,20 +8,37 @@ $(document).ready(function () {
         }
     });
 
-    $('#wizard-next-btn').on('click', function (event) {
-        const form = $(this).closest('form')[0];
-        const lastStep = $(this).data('last-step');
-        const currentStep = $(this).data('current-step');
+$('#wizard-next-btn').on('click', function(event) {
+    const form = $(this).closest('form')[0];
+    const lastStep = $(this).data('last-step');
+    const currentStep = $(this).data('current-step');
 
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-        }
+    let firstInvalid = null;
+    let allValid = true;
 
-        if (lastStep === currentStep) {
-            load_spinner();
+    $(form).find(':input').removeClass('is-invalid');
+
+    for (const field of form.elements) {
+        if (field.willValidate && !field.checkValidity()) {
+            allValid = false;
+            $(field).addClass('is-invalid');
+
+            if (!firstInvalid) {
+                firstInvalid = field;
+            }
         }
-    });
+    }
+
+    if (!allValid) {
+        firstInvalid.focus();
+        firstInvalid.reportValidity();
+        return;
+    }
+
+    if (lastStep === currentStep) {
+        load_spinner();
+    }
+});
 
     let allTextarea = $('textarea');
 
