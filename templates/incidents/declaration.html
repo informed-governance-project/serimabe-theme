@@ -136,20 +136,23 @@
               {% translate "Previous" %}
             </button>
             {% endif %}
-            {% if wizard.steps.last == wizard.steps.current %}
-            {% if not view.read_only %}
-            <button class="btn btn-secondary ms-0 ms-sm-3 d-inline-flex" name="wizard_goto_step" 
-              type="submit" value="{{ wizard.steps.next }}" onclick="load_spinner()">
-              {% translate "Notify" %}
-              <i class="bi bi-chevron-right" aria-hidden="true"></i>
-            </button>
-            {% endif %}
-            {% else %}
-            <button class="btn btn-primary ms-0 ms-sm-3 d-inline-flex" name="wizard_goto_step" type="submit" value="{{ wizard.steps.next }}">
+            {% with last_step=wizard.steps.last current_step=wizard.steps.current class_name=view|get_class_name is_read_only=view.read_only %}
+            <button id="wizard-next-btn"
+              class="btn ms-0 ms-sm-3 d-inline-flex btn-primary
+              {% if last_step == current_step %}
+              {%if is_read_only %}d-none
+              {% elif class_name != 'FormWizardView' %}btn-secondary{% endif %}
+              {% endif %}"
+              name="wizard_goto_step" type="submit" value="{{ wizard.steps.next }}" data-last-step="{{ last_step }}"
+              data-current-step="{{ current_step }}">
+              {% if last_step == current_step and class_name != "FormWizardView" %}
+              {% translate "Submit" %}
+              {% else %}
               {% translate "Next" %}
+              {% endif %}
               <i class="bi bi-chevron-right" aria-hidden="true"></i>
             </button>
-            {% endif %}
+            {% endwith %}
           </div>
       </div>
     </div>
