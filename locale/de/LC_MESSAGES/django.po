@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 13:03+0200\n"
-"PO-Revision-Date: 2025-07-10 16:29+0200\n"
+"POT-Creation-Date: 2025-08-13 13:11+0200\n"
+"PO-Revision-Date: 2025-08-13 12:40+0200\n"
 "Language: de\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -85,11 +85,11 @@ msgstr "Akzeptieren"
 #: theme/templates/emails/suggestion_link_user_account.html:6
 #, python-format
 msgid "Dear %(operator_admin_name)s,"
-msgstr ""
+msgstr "Sehr geehrte(r) %(operator_admin_name)s,"
 
 #: theme/templates/emails/suggestion_link_user_account.html:10
 msgid "Dear Madam or Sir,"
-msgstr ""
+msgstr "Sehr geehrte Damen und Herren,"
 
 #: theme/templates/emails/suggestion_link_user_account.html:14
 #, python-format
@@ -97,12 +97,17 @@ msgid ""
 "We have noticed that the user account %(new_user_name)s (%(new_user_email)s) "
 "has been created on SERIMA and it may be part of your organization."
 msgstr ""
+"Wir haben festgestellt, dass das Benutzerkonto %(new_user_name)s "
+"(%(new_user_email)s) auf SERIMA erstellt wurde und möglicherweise Teil Ihrer "
+"Organisation ist."
 
 #: theme/templates/emails/suggestion_link_user_account.html:20
 #, python-format
 msgid ""
 "However, %(new_user_name)s is not yet linked to any organization on SERIMA."
 msgstr ""
+"Allerdings ist %(new_user_name)s noch nicht mit einer Organisation auf "
+"SERIMA verknüpft."
 
 #: theme/templates/emails/suggestion_link_user_account.html:25
 #, python-format
@@ -111,34 +116,41 @@ msgid ""
 "management, we (%(regulator)s) suggest linking %(new_user_name)s with your "
 "organization."
 msgstr ""
+"Im Rahmen unserer Bemühungen, die Datenqualität zu verbessern und das "
+"Kontomanagement zu optimieren, schlagen wir (%(regulator)s) vor, "
+"%(new_user_name)s mit Ihrer Organisation zu verknüpfen."
 
 #: theme/templates/emails/suggestion_link_user_account.html:31
 msgid ""
 "Please only accept this proposal after having verified the name and the e-"
 "mail address."
 msgstr ""
+"Bitte akzeptieren Sie diesen Vorschlag nur, nachdem Sie den Namen und die E-"
+"Mail-Adresse überprüft haben."
 
 #: theme/templates/emails/suggestion_link_user_account.html:36
 msgid "In case of any doubt, please reject this proposal."
-msgstr ""
+msgstr "Im Zweifelsfall lehnen Sie diesen Vorschlag bitte ab."
 
 #: theme/templates/emails/suggestion_link_user_account.html:41
 msgid ""
 "Please note: this is purely a suggestion and not an action you need to take "
 "unless you confirm it."
 msgstr ""
+"Bitte beachten Sie: Dies ist lediglich ein Vorschlag, und es ist keine "
+"Handlung erforderlich, es sei denn, Sie bestätigen diese."
 
 #: theme/templates/emails/suggestion_link_user_account.html:47
 msgid "Otherwise, feel free to disregard this message."
-msgstr ""
+msgstr "Andernfalls können Sie diese Nachricht gerne ignorieren."
 
 #: theme/templates/emails/suggestion_link_user_account.html:52
 msgid "Thank you."
-msgstr ""
+msgstr "Vielen Dank."
 
 #: theme/templates/emails/suggestion_link_user_account.html:55
 msgid "Best regards,"
-msgstr ""
+msgstr "Mit freundlichen Grüßen,"
 
 #: theme/templates/home/bootstrap.html:42
 msgid "Skip to main content"
@@ -982,14 +994,12 @@ msgstr "Übersicht der gemeldeten Vorfälle"
 
 #: theme/templates/incidents/base.html:35
 #: theme/templates/registration/login.html:9
-#| msgid "Incident notification date"
 msgid "Incident Notification"
-msgstr ""
+msgstr "Vorfallmeldung"
 
 #: theme/templates/incidents/base.html:41
-#| msgid "Filter by status, sector, etc"
 msgid "Filter by status, sector, etc."
-msgstr ""
+msgstr "Nach Status, Sektor usw. Filtern"
 
 #: theme/templates/incidents/base.html:42
 #: theme/templates/incidents/base.html:327
@@ -1042,7 +1052,7 @@ msgstr "Bestanden"
 
 #: theme/templates/incidents/base.html:100
 msgid "Revision required"
-msgstr ""
+msgstr "Überarbeitung erforderlich"
 
 #: theme/templates/incidents/base.html:109
 msgid "Incidents table"
@@ -1134,14 +1144,12 @@ msgstr "PDF-Bericht herunterladen"
 
 #: theme/templates/incidents/base.html:283
 #: theme/templates/incidents/base.html:285
-#| msgid "Access log"
 msgid "Access Log"
-msgstr ""
+msgstr "Zugriffsprotokoll"
 
 #: theme/templates/incidents/base.html:305
-#| msgid "No incident reports have been submitted."
 msgid "No incident reports have been submitted yet."
-msgstr ""
+msgstr "Es wurden noch keine Vorfallberichte eingereicht."
 
 #: theme/templates/incidents/base.html:328
 #: theme/templates/incidents/declaration.html:126
@@ -1234,7 +1242,7 @@ msgstr "Zurück"
 
 #: theme/templates/incidents/declaration.html:149
 msgid "Submit"
-msgstr ""
+msgstr "Einreichen"
 
 #: theme/templates/incidents/declaration.html:151
 msgid "Next"
@@ -1328,13 +1336,12 @@ msgstr "Löschen"
 #: theme/templates/operator/incidents.html:99
 #: theme/templates/operator/incidents.html:103
 msgid "Comment/Explanation"
-msgstr ""
+msgstr "Kommentar/Erklärung"
 
 #: theme/templates/operator/incidents.html:13
 #: theme/templates/regulator/menu.html:18
-#| msgid "Overview of reported incidents"
 msgid "My reported incidents"
-msgstr ""
+msgstr "Meine gemeldeten Vorfälle"
 
 #: theme/templates/parts/404.html:5
 msgid "404 Page Not Found"
@@ -1357,9 +1364,10 @@ msgid "Server Error"
 msgstr "Server Error"
 
 #: theme/templates/parts/500.html:17
-#| msgid "We apologize for the inconvenience. An error occurred."
 msgid "An error occurred. We apologize for the inconvenience."
 msgstr ""
+"Es ist ein Fehler aufgetreten. Wir entschuldigen uns für die "
+"Unannehmlichkeiten."
 
 #: theme/templates/parts/500.html:18
 msgid "Please try again later."
@@ -1371,7 +1379,7 @@ msgstr "Nutzungsbedingungen"
 
 #: theme/templates/parts/footer.html:34
 msgid "Provided by"
-msgstr ""
+msgstr "Bereitgestellt von"
 
 #: theme/templates/parts/footer.html:42
 msgid "Accessibility statement"
@@ -1435,7 +1443,7 @@ msgstr "Anmelden"
 #: theme/templates/registration/base.html:43
 #: theme/templates/registration/login.html:47
 msgid "Login"
-msgstr ""
+msgstr "Login"
 
 #: theme/templates/registration/base.html:50
 #: theme/templates/registration/login.html:79
@@ -1445,9 +1453,8 @@ msgid "Create account"
 msgstr "Benutzerkonto erstellen"
 
 #: theme/templates/registration/login.html:13
-#| msgid "Incident Notification Manager"
 msgid "Incident Reporting and Management Module"
-msgstr ""
+msgstr "Modul für die Meldung und Verwaltung von Vorfällen"
 
 #: theme/templates/registration/login.html:16
 msgid "Report an incident <strong>with</strong> account"
@@ -1630,9 +1637,8 @@ msgid "Password confirmation"
 msgstr "Passwort bestätigen"
 
 #: theme/templates/regulator/menu.html:10
-#| msgid "Under review"
 msgid "Overview"
-msgstr ""
+msgstr "Übersicht"
 
 #: theme/templates/report/contacts.html:3
 msgid "Contact details"

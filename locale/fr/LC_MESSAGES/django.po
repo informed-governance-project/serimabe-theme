@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 13:03+0200\n"
-"PO-Revision-Date: 2025-07-10 16:29+0200\n"
+"POT-Creation-Date: 2025-08-13 13:11+0200\n"
+"PO-Revision-Date: 2025-08-13 12:40+0200\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -84,11 +84,11 @@ msgstr "Accepter"
 #: theme/templates/emails/suggestion_link_user_account.html:6
 #, python-format
 msgid "Dear %(operator_admin_name)s,"
-msgstr ""
+msgstr "Madame, Monsieur %(operator_admin_name)s,"
 
 #: theme/templates/emails/suggestion_link_user_account.html:10
 msgid "Dear Madam or Sir,"
-msgstr ""
+msgstr "Madame, Monsieur,"
 
 #: theme/templates/emails/suggestion_link_user_account.html:14
 #, python-format
@@ -96,12 +96,17 @@ msgid ""
 "We have noticed that the user account %(new_user_name)s (%(new_user_email)s) "
 "has been created on SERIMA and it may be part of your organization."
 msgstr ""
+"Nous avons constaté que le compte utilisateur %(new_user_name)s "
+"(%(new_user_email)s) a été créé sur SERIMA et il pourrait faire partie de "
+"votre organisation."
 
 #: theme/templates/emails/suggestion_link_user_account.html:20
 #, python-format
 msgid ""
 "However, %(new_user_name)s is not yet linked to any organization on SERIMA."
 msgstr ""
+"Cependant, %(new_user_name)s n'est pas encore lié à une organisation sur "
+"SERIMA."
 
 #: theme/templates/emails/suggestion_link_user_account.html:25
 #, python-format
@@ -110,34 +115,41 @@ msgid ""
 "management, we (%(regulator)s) suggest linking %(new_user_name)s with your "
 "organization."
 msgstr ""
+"Dans le cadre de nos efforts pour améliorer la qualité des données et "
+"rationaliser la gestion des comptes, nous (%(regulator)s) suggérons de lier "
+"%(new_user_name)s à votre organisation."
 
 #: theme/templates/emails/suggestion_link_user_account.html:31
 msgid ""
 "Please only accept this proposal after having verified the name and the e-"
 "mail address."
 msgstr ""
+"Veuillez accepter cette proposition uniquement après avoir vérifié le nom et "
+"l'adresse e-mail."
 
 #: theme/templates/emails/suggestion_link_user_account.html:36
 msgid "In case of any doubt, please reject this proposal."
-msgstr ""
+msgstr "En cas de doute, veuillez rejeter cette proposition."
 
 #: theme/templates/emails/suggestion_link_user_account.html:41
 msgid ""
 "Please note: this is purely a suggestion and not an action you need to take "
 "unless you confirm it."
 msgstr ""
+"Veuillez noter que ceci est purement une suggestion et aucune action n'est "
+"requise à moins que vous ne la confirmiez."
 
 #: theme/templates/emails/suggestion_link_user_account.html:47
 msgid "Otherwise, feel free to disregard this message."
-msgstr ""
+msgstr "Sinon, n'hésitez pas à ignorer ce message."
 
 #: theme/templates/emails/suggestion_link_user_account.html:52
 msgid "Thank you."
-msgstr ""
+msgstr "Merci."
 
 #: theme/templates/emails/suggestion_link_user_account.html:55
 msgid "Best regards,"
-msgstr ""
+msgstr "Cordialement,"
 
 #: theme/templates/home/bootstrap.html:42
 msgid "Skip to main content"
@@ -193,11 +205,11 @@ msgstr "Adresse postale"
 
 #: theme/templates/home/contact.html:87
 msgid "Tel.:"
-msgstr "Tél.:"
+msgstr "Tél. :"
 
 #: theme/templates/home/contact.html:88
 msgid "Email:"
-msgstr "Email:"
+msgstr "Courriel :"
 
 #: theme/templates/home/language_selector.html:24
 msgid "Change the site language - currently in "
@@ -1041,7 +1053,7 @@ msgstr ""
 "négligence grave, conformément à l’article 3 (3) de la loi modifiée du 30 "
 "mai 2005 portant organisation de l’Institut Luxembourgeois de Régulation et "
 "modification de la loi modifiée du 22 juin 1963 fixant le régime des "
-"traitements des fonctionnaires de l’État qui dispose expressément que:"
+"traitements des fonctionnaires de l’État qui dispose expressément que :"
 
 #: theme/templates/home/terms.html:608
 msgid ""
@@ -1327,14 +1339,12 @@ msgstr "Vue d'ensemble des incidents signalés"
 
 #: theme/templates/incidents/base.html:35
 #: theme/templates/registration/login.html:9
-#| msgid "Incident notification date"
 msgid "Incident Notification"
-msgstr ""
+msgstr "Notification d’incidents"
 
 #: theme/templates/incidents/base.html:41
-#| msgid "Filter by status, sector, etc"
 msgid "Filter by status, sector, etc."
-msgstr ""
+msgstr "Filtrer par statut, secteur, etc."
 
 #: theme/templates/incidents/base.html:42
 #: theme/templates/incidents/base.html:327
@@ -1387,7 +1397,7 @@ msgstr "Réussi"
 
 #: theme/templates/incidents/base.html:100
 msgid "Revision required"
-msgstr ""
+msgstr "Améliorations requises"
 
 #: theme/templates/incidents/base.html:109
 msgid "Incidents table"
@@ -1479,14 +1489,12 @@ msgstr "Télécharger le rapport PDF"
 
 #: theme/templates/incidents/base.html:283
 #: theme/templates/incidents/base.html:285
-#| msgid "Access log"
 msgid "Access Log"
-msgstr ""
+msgstr "Journal des accès"
 
 #: theme/templates/incidents/base.html:305
-#| msgid "No incident reports have been submitted."
 msgid "No incident reports have been submitted yet."
-msgstr ""
+msgstr "Aucun rapport d'incident n'a encore été soumis."
 
 #: theme/templates/incidents/base.html:328
 #: theme/templates/incidents/declaration.html:126
@@ -1516,7 +1524,7 @@ msgstr "Nom de l’opérateur"
 
 #: theme/templates/incidents/contact_form.html:10
 msgid "Incident Notification Manager"
-msgstr "Responsable de la notification incident"
+msgstr "Responsable de la notification de l’incident"
 
 #: theme/templates/incidents/contact_form.html:13
 #: theme/templates/incidents/contact_form.html:44
@@ -1579,7 +1587,7 @@ msgstr "Précédent"
 
 #: theme/templates/incidents/declaration.html:149
 msgid "Submit"
-msgstr ""
+msgstr "Soumettre"
 
 #: theme/templates/incidents/declaration.html:151
 msgid "Next"
@@ -1672,13 +1680,12 @@ msgstr "Supprimer"
 #: theme/templates/operator/incidents.html:99
 #: theme/templates/operator/incidents.html:103
 msgid "Comment/Explanation"
-msgstr ""
+msgstr "Explication/Commentaire"
 
 #: theme/templates/operator/incidents.html:13
 #: theme/templates/regulator/menu.html:18
-#| msgid "Overview of reported incidents"
 msgid "My reported incidents"
-msgstr ""
+msgstr "Mes incidents signalés"
 
 #: theme/templates/parts/404.html:5
 msgid "404 Page Not Found"
@@ -1701,9 +1708,10 @@ msgid "Server Error"
 msgstr "Erreur de serveur"
 
 #: theme/templates/parts/500.html:17
-#| msgid "We apologize for the inconvenience. An error occurred."
 msgid "An error occurred. We apologize for the inconvenience."
 msgstr ""
+"Une erreur s'est produite. Nous vous présentons nos excuses pour ce "
+"désagrément."
 
 #: theme/templates/parts/500.html:18
 msgid "Please try again later."
@@ -1715,7 +1723,7 @@ msgstr "Conditions générales d'utilisation"
 
 #: theme/templates/parts/footer.html:34
 msgid "Provided by"
-msgstr ""
+msgstr "Fournit par"
 
 #: theme/templates/parts/footer.html:42
 msgid "Accessibility statement"
@@ -1753,7 +1761,7 @@ msgstr "Contact"
 
 #: theme/templates/parts/pagination.html:25
 msgid "entries per page"
-msgstr "entrées par page"
+msgstr "éléments par page"
 
 #: theme/templates/parts/pagination.html:35
 msgid "Showing"
@@ -1779,7 +1787,7 @@ msgstr "Se connecter"
 #: theme/templates/registration/base.html:43
 #: theme/templates/registration/login.html:47
 msgid "Login"
-msgstr ""
+msgstr "Connexion"
 
 #: theme/templates/registration/base.html:50
 #: theme/templates/registration/login.html:79
@@ -1789,9 +1797,8 @@ msgid "Create account"
 msgstr "Créer un compte"
 
 #: theme/templates/registration/login.html:13
-#| msgid "Incident Notification Manager"
 msgid "Incident Reporting and Management Module"
-msgstr ""
+msgstr "Module de notification et de gestion des incidents"
 
 #: theme/templates/registration/login.html:16
 msgid "Report an incident <strong>with</strong> account"
@@ -1879,7 +1886,7 @@ msgstr "Lien invalide"
 
 #: theme/templates/registration/password_reset_confirm.html:18
 msgid "Please enter your new password twice."
-msgstr "Entrez votre nouveau mot de passe deux fois."
+msgstr "Veuillez entrer votre nouveau mot de passe deux fois."
 
 #: theme/templates/registration/password_reset_confirm.html:30
 msgid ""
@@ -1934,7 +1941,7 @@ msgstr "Votre nom d'utilisateur :"
 
 #: theme/templates/registration/password_reset_email.html:10
 msgid "Thank you for visiting our website!"
-msgstr "Merci d’avoir visité notre site!"
+msgstr "Merci d’avoir visité notre site !"
 
 #: theme/templates/registration/password_reset_email.html:12
 #, python-format
@@ -1974,9 +1981,8 @@ msgid "Password confirmation"
 msgstr "Confirmation du mot de passe"
 
 #: theme/templates/regulator/menu.html:10
-#| msgid "Under review"
 msgid "Overview"
-msgstr ""
+msgstr "Aperçu"
 
 #: theme/templates/report/contacts.html:3
 msgid "Contact details"
@@ -2081,7 +2087,7 @@ msgstr ""
 #: theme/templates/two_factor/core/setup_complete.html:20
 msgid "Two-Factor Authentication has been set. Please log in again."
 msgstr ""
-"L'authentification à deux facteurs a été définie. Veuillez-vous connecter à "
+"L'authentification à deux facteurs est activée. Veuillez-vous connecter à "
 "nouveau."
 
 #: theme/templates/two_factor/core/setup_complete.html:25
@@ -2090,12 +2096,12 @@ msgid ""
 "token. To enable account recovery, add a phone number."
 msgstr ""
 "Cependant, il peut arriver que vous n'ayez pas accès à votre token "
-"principal. Pour permettre la récupération du compte, ajoutez un numéro de "
-"téléphone."
+"principal. Pour permettre la récupération du compte, veuillez ajouter un "
+"numéro de téléphone."
 
 #: theme/templates/two_factor/core/setup_complete.html:32
 msgid "Back to Account security"
-msgstr "Retour à Sécurité du compte"
+msgstr "Retour à la Sécurité du compte"
 
 #: theme/templates/two_factor/core/setup_complete.html:36
 msgid "Add Phone Number"

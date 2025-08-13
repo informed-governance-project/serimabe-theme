@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 13:03+0200\n"
-"PO-Revision-Date: 2025-07-10 16:29+0200\n"
+"POT-Creation-Date: 2025-08-13 13:11+0200\n"
+"PO-Revision-Date: 2025-08-13 12:40+0200\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -981,12 +981,10 @@ msgstr "Overzicht van de gemelde incidenten"
 
 #: theme/templates/incidents/base.html:35
 #: theme/templates/registration/login.html:9
-#| msgid "Incident notification date"
 msgid "Incident Notification"
 msgstr ""
 
 #: theme/templates/incidents/base.html:41
-#| msgid "Filter by status, sector, etc"
 msgid "Filter by status, sector, etc."
 msgstr ""
 
@@ -1133,12 +1131,10 @@ msgstr "Het PDF-verslag downloaden"
 
 #: theme/templates/incidents/base.html:283
 #: theme/templates/incidents/base.html:285
-#| msgid "Access log"
 msgid "Access Log"
 msgstr ""
 
 #: theme/templates/incidents/base.html:305
-#| msgid "No incident reports have been submitted."
 msgid "No incident reports have been submitted yet."
 msgstr ""
 
@@ -1330,7 +1326,6 @@ msgstr ""
 
 #: theme/templates/operator/incidents.html:13
 #: theme/templates/regulator/menu.html:18
-#| msgid "Overview of reported incidents"
 msgid "My reported incidents"
 msgstr ""
 
@@ -1355,7 +1350,6 @@ msgid "Server Error"
 msgstr "Serverfout"
 
 #: theme/templates/parts/500.html:17
-#| msgid "We apologize for the inconvenience. An error occurred."
 msgid "An error occurred. We apologize for the inconvenience."
 msgstr ""
 
@@ -1443,7 +1437,6 @@ msgid "Create account"
 msgstr "Een account aanmaken"
 
 #: theme/templates/registration/login.html:13
-#| msgid "Incident Notification Manager"
 msgid "Incident Reporting and Management Module"
 msgstr ""
 
@@ -1623,7 +1616,6 @@ msgid "Password confirmation"
 msgstr "Bevestiging wachtwoord"
 
 #: theme/templates/regulator/menu.html:10
-#| msgid "Under review"
 msgid "Overview"
 msgstr ""
 
