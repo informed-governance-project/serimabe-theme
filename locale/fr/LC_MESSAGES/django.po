@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 13:11+0200\n"
+"POT-Creation-Date: 2025-08-13 13:23+0200\n"
 "PO-Revision-Date: 2025-08-13 12:40+0200\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1489,6 +1489,7 @@ msgstr "Télécharger le rapport PDF"
 
 #: theme/templates/incidents/base.html:283
 #: theme/templates/incidents/base.html:285
+#: theme/templates/modals/access_log.html:18
 msgid "Access Log"
 msgstr "Journal des accès"
 
@@ -1604,10 +1605,6 @@ msgstr "Conditions générales d'utilisation"
 #: theme/templates/modals/accept_terms.html:38
 msgid "Continue"
 msgstr "Continuer"
-
-#: theme/templates/modals/access_log.html:18
-msgid "Access log"
-msgstr "Journal d'accès"
 
 #: theme/templates/modals/access_log.html:26
 msgid "Access log table"
