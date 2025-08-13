@@ -35,7 +35,7 @@ $(document).ready(function () {
     const $lastMaturityLevelMeasures = $activeSlide.find(".last_maturity_level_measure").length;
     const $lastMaturityLevelMeasuresCheked = $activeSlide.find(".last_maturity_level_measure").filter(":checked").length
     const allLastLevelMeasureschecked = $lastMaturityLevelMeasures > 0 && $lastMaturityLevelMeasuresCheked === $lastMaturityLevelMeasures;
-    const placeholdertext = gettext("Please list your planned actions and the associated planning");
+    const placeholdertext = gettext("Please list your current and planned measures, including a schedule with the individual stages.");
     if ($actionstextarea.val().trim() === "" && !allLastLevelMeasureschecked && $checkboxes.is(":checked")) {
       $actionstextarea
         .attr('placeholder', placeholdertext)

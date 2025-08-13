@@ -50,8 +50,8 @@
     <thead>
         <tr>
             <th class="col-1 text-start">{% translate "Last update" %}</th>
-            <th class="col-1 text-start">{% translate "Submit date" %}</th>
-            <th class="col-1">{% translate "Standard" %}</th>
+            <th class="col-1 text-start">{% translate "Submission date" %}</th>
+            <th class="col-1">{% translate "Evaluation Framework" %}</th>
             <th class="col-1">
                 {% if not is_regulator %}
                 {% translate "Creator" %}
@@ -150,7 +150,7 @@
 {% endwith %}
 
 {% else %}
-<p>{% translate "No security objectives declaration" %}</p>
+<p>{% translate "No security objectives statements have been submitted yet." %}</p>
 {% endif %}
 
 <!-- Modals -->
