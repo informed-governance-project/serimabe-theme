@@ -7,7 +7,7 @@
 	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 		<li>
 			<a class="dropdown-item" href="{% url 'incidents' %}" onclick="load_spinner()">
-				{% translate "All incidents" %}
+				{% translate "Overview" %}
 			</a>
 		</li>
 		<li aria-hidden="true">
@@ -15,7 +15,7 @@
 		</li>
 		<li>
 			<a class="dropdown-item" href="{% url 'regulator_incidents' %}" onclick="load_spinner()">
-				{% translate "My incidents" %}
+				{% translate "My reported incidents" %}
 			</a>
 		</li>
 	</ul>

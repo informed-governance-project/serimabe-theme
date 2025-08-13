@@ -27,7 +27,8 @@
         </div>
         {% if not messages and is_regulator %}
         <div class="modal-footer">
-            <button id="submit-btn" type="submit" class="btn btn-primary">
+            <button id="submit-btn" type="submit" class="btn btn-primary"
+            {% if form.initial.status == "DELIV" %}disabled{% endif %}>
                 {% translate "Send" %}
             </button>
         </div>

@@ -12,7 +12,10 @@
 <link rel="stylesheet" href="{% static 'css/so_dashboard.css' %}" />
 <script type="text/javascript" src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
 <script type="text/javascript"src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'npm_components/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css' %}">
+<script src="{% static 'npm_components/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js' %}"></script>
 <script src='{% static "js/so_dashboard.js" %}'></script>
+
 {% endblock %}
 
 {% block content %}
@@ -30,7 +33,7 @@
 <div class="d-flex">
     {% block content_new_declaration %}{% endblock %}
     <button id="openFilter" class="btn btn-primary btn-sm ms-auto" type="button"
-        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Filter by status, sector, etc' %}">
+        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Filter by status, sector, etc.' %}">
         {% translate "Filter" %}
         {% if is_filtered %}
         <span>
@@ -47,8 +50,8 @@
     <thead>
         <tr>
             <th class="col-1 text-start">{% translate "Last update" %}</th>
-            <th class="col-1 text-start">{% translate "Submit date" %}</th>
-            <th class="col-1">{% translate "Standard" %}</th>
+            <th class="col-1 text-start">{% translate "Submission date" %}</th>
+            <th class="col-1">{% translate "Evaluation Framework" %}</th>
             <th class="col-1">
                 {% if not is_regulator %}
                 {% translate "Creator" %}
@@ -147,7 +150,7 @@
 {% endwith %}
 
 {% else %}
-<p>{% translate "No security objectives declaration" %}</p>
+<p>{% translate "No security objectives statements have been submitted yet." %}</p>
 {% endif %}
 
 <!-- Modals -->

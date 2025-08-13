@@ -6,7 +6,7 @@
 </h2>
 <div>
     <h3 id="risks_1" class="{{ title_class }}">
-        {% translate "Risk average level" %}
+        {% translate "Average Risk Level" %}
     </h3>
     <div class="{{ chart_class }}">
         <img src="data:image/svg;base64,{{ charts.risks_1 }}" class="img-fluid" />
@@ -14,7 +14,7 @@
 </div>
 <div>
     <h3 id="risks_2" class="{{ title_class }}">
-        {% translate "High-risk rate" %} ( > {{ risk_data.threshold_for_high_risk }} )
+        {% translate "High-Risk Rate" %} ( > {{ risk_data.threshold_for_high_risk }} )
     </h3>
     <div class="{{ chart_class }}">
         <img src="data:image/svg;base64,{{ charts.risks_2 }}" class="img-fluid" />
@@ -22,7 +22,7 @@
 </div>
 <div>
     <h3 id="risks_3" class="{{ title_class }}">
-        {% translate "High risk average level" %}
+        {% translate "Average High-Risk Level" %}
     </h3>
     <div class="{{ chart_class }}">
         <img src="data:image/svg;base64,{{ charts.risks_3 }}" class="img-fluid" />
@@ -30,7 +30,7 @@
 </div>
 <div>
     <h3 id="risks_4" class="{{ title_class }}">
-        {% translate "Evolution of the highest risks" %}
+        {% translate "Evolution of the Highest Risks" %}
     </h3>
     <div class="{{ chart_class }}">
         <img src="data:image/svg;base64,{{ charts.risks_4 }}" class="img-fluid" />
@@ -42,11 +42,11 @@
             </caption>
             <caption class="fst-italic pb-0 small">
                 <input type="checkbox" class="form-check-input px-2 bg-td-blue d-inline">
-                <span class="d-inline ms-2">{% translate "Changes in values affecting the calculation of actual risk" %}</span>    
+                <span class="d-inline ms-2">{% translate "Value Changes Affecting Actual Risk Calculation" %}</span>    
             </caption>
             <caption class="fst-italic pb-0 small">
                 <input type="checkbox" class="form-check-input px-2 bg-td-yellow d-inline">
-                <span class="d-inline ms-2">{% translate "Changes in calculated maximum risk" %}</span>
+                <span class="d-inline ms-2">{% translate "Changes in Maximum Calculated Risk" %}</span>
             </caption>
             <thead class="thead-light">
                 {% widthratio 3 1 nb_years as colspan_value %}
@@ -57,7 +57,7 @@
                     <th class="text-center align-middle" rowspan="3">{% translate "Threat" %}</th>
                     <th class="text-center align-middle" colspan="{{ nb_years }}">{% translate "Probability" %}</th>
                     <th class="text-center align-middle" rowspan="3">{% translate "Vulnerability" %}</th>
-                    <th class="text-center align-middle" colspan="{{ nb_years }}">{% translate "Qualification" %}</th>
+                    <th class="text-center align-middle" colspan="{{ nb_years }}">{% translate "Vulnerability Qualification" %}</th>
                     <th class="text-center align-middle" colspan="{{ colspan_value }}">{% translate "Current Risk" %}</th>
                 </tr>
                 <tr>
@@ -89,7 +89,7 @@
                 {% for risk in risk_data.data_risks_top_ranking %}
                 <tr>
                     <td class="align-middle">R{{ risk.id }}</td>
-                    <td class="lh-sm">{{ risk.service }} > {{ risk.asset }}</td>
+                    <td class="lh-sm text-break">{{ risk.service }} > {{ risk.asset }}</td>
                     {% for year in risk_data.years %}
                         {% for criteria in "cia"|make_list %}
                             {% with impact=risk.impacts|get_item:year|get_item:criteria  %}
@@ -103,7 +103,7 @@
                             {% endwith %}
                         {% endfor %}
                     {% endfor %}
-                    <td class="lh-sm">{{ risk.threat }}</td>
+                    <td class="lh-sm text-break">{{ risk.threat }}</td>
                     {% for year in risk_data.years %}
                         {% with threat=risk.threat_values|get_item:year  %}
                             {% if threat %}
@@ -115,7 +115,7 @@
                             {% endif %}
                         {% endwith %}
                     {% endfor %}
-                    <td class="lh-sm">{{ risk.vulnerability }}</td>
+                    <td class="lh-sm text-break">{{ risk.vulnerability }}</td>
                     {% for year in risk_data.years %}
                         {% with vulnerability=risk.vulnerability_values|get_item:year  %}
                             {% if vulnerability %}
@@ -148,7 +148,7 @@
 </div>
 <div class="page-landscape page-break">
     <h3 id="risks_5" class="{{ title_class }}">
-        {% translate "Treatment of the highest risks" %}
+        {% translate "Treatment of the Highest Risks" %}
     </h3>
     <table class="{{ table_class }}">
         <thead class="thead-light">
@@ -166,9 +166,9 @@
             {% for risk in risk_data.data_risks_top_ranking %}
             <tr>
                 <td class="align-middle">R{{ risk.id }}</td>
-                <td class="lh-sm">{{ risk.service }} > {{ risk.asset }}</td>
-                <td class="lh-sm">{{ risk.threat }}</td>
-                <td class="lh-sm">{{ risk.vulnerability }}</td>
+                <td class="lh-sm text-break">{{ risk.service }} > {{ risk.asset }}</td>
+                <td class="lh-sm text-break">{{ risk.threat }}</td>
+                <td class="lh-sm text-break">{{ risk.vulnerability }}</td>
                 <td class="text-center align-middle">
                     {{ risk.max_risk|floatformat }}
                 </td>
@@ -183,22 +183,22 @@
 </div>
 <div class="page-landscape page-break">
     <h3 id="risks_6" class="{{ title_class }}">
-        {% translate "Risk summary table" %}
+        {% translate "Risk Summary Table" %}
     </h3>
     <table class="{{ table_class }}">
         <thead class="thead-light">
             <tr>
                 <th></th>
-                <th class="text-center align-middle">{% translate "Total amount of treated risks" %}</th>
-                <th class="text-center align-middle">{% translate "Total amount of not-treated risks" %}</th>
-                <th class="text-center align-middle">{% translate "Average value of treated current risks" %}</th>
-                <th class="text-center align-middle">{% translate "Total amount of high risks" %}</th>
-                <th class="text-center align-middle">{% translate "Average value of high risks" %}</th>
-                <th class="text-center align-middle">{% translate "Average value of residual risks" %}</th>
-                <th class="text-center align-middle">{% translate "Total amount of reduced risks" %}</th>
-                <th class="text-center align-middle">{% translate "Total amount of denied risks" %}</th>
-                <th class="text-center align-middle">{% translate "Total amount of accepted risk" %}</th>
-                <th class="text-center align-middle">{% translate "Total amount of shared risks" %}</th>
+                <th class="text-center align-middle">{% translate "Total Treated Risks" %}</th>
+                <th class="text-center align-middle">{% translate "Total Untreated Risks" %}</th>
+                <th class="text-center align-middle">{% translate "Average Treated Current Risks" %}</th>
+                <th class="text-center align-middle">{% translate "Total High Risks" %}</th>
+                <th class="text-center align-middle">{% translate "Average High Risks" %}</th>
+                <th class="text-center align-middle">{% translate "Average Residual Risks" %}</th>
+                <th class="text-center align-middle">{% translate "Total Reduced Risks" %}</th>
+                <th class="text-center align-middle">{% translate "Total Rejected Risks" %}</th>
+                <th class="text-center align-middle">{% translate "Total Accepted Risk" %}</th>
+                <th class="text-center align-middle">{% translate "Total Shared Risks" %}</th>
             </tr>   
         </thead>
         <tbody>
@@ -290,7 +290,7 @@
 </div>
 <div class="page-break">
     <h3 id="risks_7" class="{{ title_class }}">
-        {% translate "Most important threats" %}
+        {% translate "Most Important Threats" %}
     </h3>
     {% for service, rankings in risk_data.top_ranking_risks_items.items %}
     {% with color_service=service_color_palette|index:forloop.counter0|safe %}
@@ -305,13 +305,13 @@
             </tr>
             <tr>
                 <th class="col-4 text-center align-middle">
-                    {% translate "Threat ranking based on risk level" %}
+                    {% translate "Threat Ranking by Risk Level" %}
                 </th>
                 <th class="col-4 text-center align-middle">
-                    {% translate "Threat ranking based on residual risk level" %}
+                    {% translate "Threat Ranking by Residual Risk level" %}
                 </th>
                 <th class="col-4 text-center align-middle">
-                    {% translate "Threat ranking based on threat probability" %}
+                    {% translate "Threat Ranking by Threat Probability" %}
                 </th>
             </tr>   
         </thead>
@@ -319,13 +319,13 @@
             {%for ranking in rankings %}
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.threat_by_max_risk.threat}}
                 </td>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.threat_by_residual_risk.threat}}
                 </td>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.by_threat.threat}}
                 </td>      
             </tr>   
@@ -337,7 +337,7 @@
 </div>
 <div>
     <h3 id="risks_8" class="{{ title_class }}">
-        {% translate "Most targeted assets" %}
+        {% translate "Most Targeted Assets" %}
     </h3>
     {% for service, rankings in risk_data.top_ranking_risks_items.items %}
     {% with color_service=service_color_palette|index:forloop.counter0|safe %}
@@ -352,13 +352,13 @@
             </tr>
             <tr>
                 <th class="col-4 text-center align-middle">
-                    {% translate "Most targeted asset based on risk level" %}
+                    {% translate "Most Targeted Assets by Risk Level" %}
                 </th>
                 <th class="col-4 text-center align-middle">
-                    {% translate "Most targeted asset based on remaining risk level" %}
+                    {% translate "Most Targeted Assets by Residual Risk Level" %}
                 </th>
                 <th class="col-4 text-center align-middle">
-                    {% translate "Most targeted asset based on asset impact" %}
+                    {% translate "Most Targeted Assets by Asset Impact" %}
                 </th>
             </tr>   
         </thead>
@@ -366,13 +366,13 @@
             {%for ranking in rankings %}
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.asset_by_max_risk.asset}}
                 </td>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.asset_by_residual_risk.asset}}
                 </td>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.by_asset.asset}}
                 </td> 
             </tr>   
@@ -384,7 +384,7 @@
 </div>
 <div>
     <h3 id="risks_9" class="{{ title_class }}">
-        {% translate "Most important vulnerabilities" %}
+        {% translate "Most Important Vulnerabilities" %}
     </h3>
     {% for service, rankings in risk_data.top_ranking_risks_items.items %}
     {% with color_service=service_color_palette|index:forloop.counter0|safe %}
@@ -399,13 +399,13 @@
             </tr>
             <tr>
                 <th class="col-4 text-center align-middle">
-                    {% translate "Most important vulnerability based on risk level" %}
+                    {% translate "Most Important Vulnerabilities by Risk Level" %}
                 </th>
                 <th class="col-4 text-center align-middle">
-                    {% translate "Most important vulnerability based on remaining risk level" %}
+                    {% translate "Most Important Vulnerabilities by Residual Risk Level" %}
                 </th>
                 <th class="col-4 text-center align-middle">
-                    {% translate "Most important vulnerability based on vulnerability qualification" %}
+                    {% translate "Most Important Vulnerabilities by Vulnerability Qualification" %}
                 </th>
             </tr>   
         </thead>
@@ -413,13 +413,13 @@
             {%for ranking in rankings %}
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.vulnerability_by_max_risk.vulnerability}}
                 </td>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.vulnerability_by_residual_risk.vulnerability}}
                 </td>
-                <td class="col-4 lh-sm" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
+                <td class="col-4 lh-sm text-break" style="color: {% if not forloop.parentloop.last %}{{ color_service }};{% endif %}">
                     {{ ranking.by_vulnerability.vulnerability}}
                 </td> 
             </tr>   
@@ -431,7 +431,7 @@
 </div>
 <div>
     <h3 id="risks_10" class="{{ title_class }}">
-        {% translate "Most used recommendations" %}
+        {% translate "Most Used Recommendations" %}
     </h3>
     <table class="{{ table_class }}">
         <thead class="thead-light">
@@ -444,7 +444,7 @@
                     {% translate "Description" %}
                 </th>
                 <th class="col-4 text-center align-middle">
-                    {% translate "Main vulnerabilities reduced" %}
+                    {% translate "Main Vulnerabilities Mitigated" %}
                 </th>
             </tr>   
         </thead>
@@ -452,16 +452,16 @@
             {% for recommendation in risk_data.most_recommendations_used %}
             <tr>
                 <th class="align-middle">#{{ forloop.counter }}</th>
-                <td class="col-4 lh-sm">
+                <td class="col-4 lh-sm text-break">
                     {{ recommendation.code }}
                 </td>
-                <td class="col-4 lh-sm">
+                <td class="col-4 lh-sm text-break">
                     {{ recommendation.description}}
                 </td>
                 <td class="col-4 lh-sm">
                     <ul class="list-unstyled">
                         {% for risk in recommendation.riskdata_set.all %}
-                            <li>{{ risk.vulnerability }}</li>
+                            <li class="text-break">{{ risk.vulnerability }}</li>
                         {% endfor %}
                     </ul>
                 </td> 
@@ -472,7 +472,7 @@
 </div>
 <div class="page-landscape page-break">
     <h3 id="risks_11" class="{{ title_class }}">
-        {% translate "List of recommendations" %}
+        {% translate "List of Recommendations" %}
     </h3>
     <table class="{{ table_class }}">
         <thead class="thead-light">
@@ -487,7 +487,7 @@
                     {% translate "Status" %}
                 </th>
                 <th class="col-6 text-center align-middle" colspan="{{ nb_years }}">
-                    {% translate "Due date" %}
+                    {% translate "Deadline" %}
                 </th>
             </tr>
             <tr>
@@ -499,15 +499,15 @@
         <tbody>
             {% for uuid, recommendation in risk_data.recommendations_evolution.items %}
                 <tr>
-                    <td class="col-1 lh-sm align-middle">
+                    <td class="col-1 lh-sm align-middle text-break">
                         {{ recommendation.code }}
                     </td>
-                    <td class="col-4 lh-sm align-middle">
+                    <td class="col-4 lh-sm align-middle text-break">
                         {{ recommendation.description }}
                     </td>
-                    <td class="col-1 text-center align-middle 
+                    <td class="col-1 text-center align-middle
                         {% if recommendation.status == _('Closed') %}table-success
-                        {% elif recommendation.status == _('Posponed') %}table-warning
+                        {% elif recommendation.status == _('Postponed') %}table-warning
                         {% elif recommendation.status == _('To check') %}table-danger
                         {% endif %}">
                         {{ recommendation.status }}
