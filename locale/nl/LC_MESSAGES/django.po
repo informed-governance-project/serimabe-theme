@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 10:58+0200\n"
-"PO-Revision-Date: 2025-07-10 16:29+0200\n"
+"POT-Creation-Date: 2025-08-13 11:55+0200\n"
+"PO-Revision-Date: 2025-08-13 11:44+0200\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -990,12 +990,11 @@ msgstr "Overzicht van de gemelde incidenten"
 
 #: theme/templates/incidents/base.html:35
 #: theme/templates/registration/login.html:9
-#| msgid "Incident notification date"
 msgid "Incident Notification"
 msgstr ""
 
 #: theme/templates/incidents/base.html:41
-#| msgid "Filter by status, sector, etc"
+#: theme/templates/security_objectives/so_dashboard_base.html:36
 msgid "Filter by status, sector, etc."
 msgstr ""
 
@@ -1166,6 +1165,7 @@ msgstr "Het PDF-verslag downloaden"
 
 #: theme/templates/incidents/base.html:283
 #: theme/templates/incidents/base.html:285
+#: theme/templates/modals/so_access_log.html:18
 #: theme/templates/operator/so_dashboard.html:56
 #: theme/templates/regulator/so_dashboard.html:33
 #: theme/templates/reporting/dashboard.html:157
@@ -1173,7 +1173,6 @@ msgid "Access Log"
 msgstr ""
 
 #: theme/templates/incidents/base.html:305
-#| msgid "No incident reports have been submitted."
 msgid "No incident reports have been submitted yet."
 msgstr ""
 
@@ -1312,7 +1311,6 @@ msgstr "Verder"
 
 #: theme/templates/modals/access_log.html:18
 #: theme/templates/modals/reporting_access_log.html:18
-#: theme/templates/modals/so_access_log.html:18
 msgid "Access log"
 msgstr "Toegangslogboek"
 
@@ -1386,6 +1384,7 @@ msgid "Duplicate the selected security objectives statement to"
 msgstr ""
 
 #: theme/templates/modals/copy_so_declaration.html:30
+#: theme/templates/operator/so_dashboard.html:45
 msgid "Duplicate"
 msgstr ""
 
@@ -1421,7 +1420,6 @@ msgid "Confirm Deletion of Recommendation"
 msgstr ""
 
 #: theme/templates/modals/delete_report_recommendation.html:14
-#| msgid "Are you sure that you want to delete the incident?"
 msgid "Are you sure you want to delete this recommendation?"
 msgstr ""
 
@@ -1430,7 +1428,6 @@ msgid "Confirm Deletion of Security Objectives Statement"
 msgstr ""
 
 #: theme/templates/modals/delete_so_declaration.html:14
-#| msgid "Are you sure that you want to delete the incident?"
 msgid "Are you sure you want to delete the security objectives statement?"
 msgstr ""
 
@@ -1463,26 +1460,21 @@ msgid "Import risk analysis"
 msgstr ""
 
 #: theme/templates/modals/workflow_comment.html:8
+#: theme/templates/operator/incidents.html:99
+#: theme/templates/operator/incidents.html:103
 msgid "Comment/Explanation"
 msgstr ""
 
 #: theme/templates/operator/incidents.html:13
 #: theme/templates/regulator/menu.html:18
-#| msgid "Overview of reported incidents"
 msgid "My reported incidents"
 msgstr ""
-
-#: theme/templates/operator/incidents.html:99
-#: theme/templates/operator/incidents.html:103
-msgid "Comment"
-msgstr "Commentaar"
 
 #: theme/templates/operator/menu.html:9 theme/templates/regulator/menu.html:27
 msgid "Security Objectives"
 msgstr ""
 
 #: theme/templates/operator/so_dashboard.html:9
-#| msgid "Late submission"
 msgid "New submission"
 msgstr ""
 
@@ -1495,10 +1487,6 @@ msgstr ""
 #: theme/templates/reporting/download_center.html:28
 #: theme/templates/reporting/download_center.html:42
 msgid "Download"
-msgstr ""
-
-#: theme/templates/operator/so_dashboard.html:45
-msgid "Copy"
 msgstr ""
 
 #: theme/templates/parts/404.html:5
@@ -1522,7 +1510,6 @@ msgid "Server Error"
 msgstr "Serverfout"
 
 #: theme/templates/parts/500.html:17
-#| msgid "We apologize for the inconvenience. An error occurred."
 msgid "An error occurred. We apologize for the inconvenience."
 msgstr ""
 
@@ -1610,7 +1597,6 @@ msgid "Create account"
 msgstr "Een account aanmaken"
 
 #: theme/templates/registration/login.html:13
-#| msgid "Incident Notification Manager"
 msgid "Incident Reporting and Management Module"
 msgstr ""
 
@@ -1791,7 +1777,6 @@ msgid "Password confirmation"
 msgstr "Bevestiging wachtwoord"
 
 #: theme/templates/regulator/menu.html:10
-#| msgid "Under review"
 msgid "Overview"
 msgstr ""
 
@@ -1805,6 +1790,7 @@ msgid "Reporting"
 msgstr ""
 
 #: theme/templates/regulator/menu.html:64
+#: theme/templates/reporting/download_center.html:17
 msgid "Download Center"
 msgstr ""
 
@@ -1940,7 +1926,6 @@ msgid "Sector"
 msgstr ""
 
 #: theme/templates/reporting/dashboard.html:20
-#| msgid "Report status"
 msgid "Report Dashboard"
 msgstr ""
 
@@ -1978,10 +1963,6 @@ msgstr ""
 #: theme/templates/reporting/dashboard.html:139
 #: theme/templates/reporting/recommendations.html:18
 msgid "Recommendations"
-msgstr ""
-
-#: theme/templates/reporting/download_center.html:17
-msgid "Download center"
 msgstr ""
 
 #: theme/templates/reporting/download_center.html:23
@@ -2187,7 +2168,6 @@ msgid "Total Accepted Risk"
 msgstr ""
 
 #: theme/templates/reporting/risks.html:201
-#| msgid "Postal address"
 msgid "Total Shared Risks"
 msgstr ""
 
@@ -2340,11 +2320,13 @@ msgid "Compliance Criteria"
 msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:64
-msgid "Measure in place ?"
+#: theme/templates/security_objectives/report/declaration.html:47
+msgid "Measure implemented?"
 msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:68
-msgid "Justification"
+#: theme/templates/security_objectives/report/declaration.html:50
+msgid "Justification & Evidence"
 msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:72
@@ -2353,7 +2335,8 @@ msgid "Review Comment"
 msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:77
-msgid "Planned actions"
+#: theme/templates/security_objectives/report/declaration.html:59
+msgid "Planned Measures"
 msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:127
@@ -2367,7 +2350,8 @@ msgid "No security objectives data"
 msgstr ""
 
 #: theme/templates/security_objectives/report/cover.html:11
-msgid "Security objectives "
+#: theme/templates/security_objectives/report/header.html:5
+msgid "Security objectives statement"
 msgstr ""
 
 #: theme/templates/security_objectives/report/cover.html:34
@@ -2382,7 +2366,6 @@ msgstr ""
 
 #: theme/templates/security_objectives/report/cover.html:52
 #: theme/templates/security_objectives/so_dashboard_base.html:53
-#| msgid "Submission overdue"
 msgid "Submission date"
 msgstr ""
 
@@ -2395,36 +2378,16 @@ msgstr ""
 msgid "Not reviewed"
 msgstr ""
 
-#: theme/templates/security_objectives/report/declaration.html:47
-msgid "Measure implemented?"
-msgstr ""
-
-#: theme/templates/security_objectives/report/declaration.html:50
-msgid "Justification & Evidence"
-msgstr ""
-
-#: theme/templates/security_objectives/report/declaration.html:59
-msgid "Planned Measures"
-msgstr ""
-
 #: theme/templates/security_objectives/report/declaration.html:92
 msgid ""
 "Please list your current and planned measures, including a schedule with the "
 "individual stages."
 msgstr ""
 
-#: theme/templates/security_objectives/report/header.html:5
-msgid "Security objectives statement"
-msgstr ""
-
 #: theme/templates/security_objectives/report/template.html:8
 #: theme/templates/security_objectives/report/template.html:9
 msgid "Security objectives report"
 msgstr ""
-
-#: theme/templates/security_objectives/so_dashboard_base.html:36
-msgid "Filter by status, sector, etc"
-msgstr "Filteren op status, sector, enz."
 
 #: theme/templates/security_objectives/so_dashboard_base.html:49
 msgid "Security objectives table"
@@ -2439,7 +2402,6 @@ msgid "Company"
 msgstr ""
 
 #: theme/templates/security_objectives/so_dashboard_base.html:153
-#| msgid "No incident reports have been submitted."
 msgid "No security objectives statements have been submitted yet."
 msgstr ""
 

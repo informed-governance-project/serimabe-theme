@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 10:58+0200\n"
+"POT-Creation-Date: 2025-08-13 11:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1000,6 +1000,7 @@ msgid "Incident Notification"
 msgstr ""
 
 #: theme/templates/incidents/base.html:41
+#: theme/templates/security_objectives/so_dashboard_base.html:36
 msgid "Filter by status, sector, etc."
 msgstr ""
 
@@ -1170,6 +1171,7 @@ msgstr ""
 
 #: theme/templates/incidents/base.html:283
 #: theme/templates/incidents/base.html:285
+#: theme/templates/modals/so_access_log.html:18
 #: theme/templates/operator/so_dashboard.html:56
 #: theme/templates/regulator/so_dashboard.html:33
 #: theme/templates/reporting/dashboard.html:157
@@ -1313,7 +1315,6 @@ msgstr ""
 
 #: theme/templates/modals/access_log.html:18
 #: theme/templates/modals/reporting_access_log.html:18
-#: theme/templates/modals/so_access_log.html:18
 msgid "Access log"
 msgstr ""
 
@@ -1387,6 +1388,7 @@ msgid "Duplicate the selected security objectives statement to"
 msgstr ""
 
 #: theme/templates/modals/copy_so_declaration.html:30
+#: theme/templates/operator/so_dashboard.html:45
 msgid "Duplicate"
 msgstr ""
 
@@ -1462,17 +1464,14 @@ msgid "Import risk analysis"
 msgstr ""
 
 #: theme/templates/modals/workflow_comment.html:8
+#: theme/templates/operator/incidents.html:99
+#: theme/templates/operator/incidents.html:103
 msgid "Comment/Explanation"
 msgstr ""
 
 #: theme/templates/operator/incidents.html:13
 #: theme/templates/regulator/menu.html:18
 msgid "My reported incidents"
-msgstr ""
-
-#: theme/templates/operator/incidents.html:99
-#: theme/templates/operator/incidents.html:103
-msgid "Comment"
 msgstr ""
 
 #: theme/templates/operator/menu.html:9 theme/templates/regulator/menu.html:27
@@ -1492,10 +1491,6 @@ msgstr ""
 #: theme/templates/reporting/download_center.html:28
 #: theme/templates/reporting/download_center.html:42
 msgid "Download"
-msgstr ""
-
-#: theme/templates/operator/so_dashboard.html:45
-msgid "Copy"
 msgstr ""
 
 #: theme/templates/parts/404.html:5
@@ -1779,6 +1774,7 @@ msgid "Reporting"
 msgstr ""
 
 #: theme/templates/regulator/menu.html:64
+#: theme/templates/reporting/download_center.html:17
 msgid "Download Center"
 msgstr ""
 
@@ -1951,10 +1947,6 @@ msgstr ""
 #: theme/templates/reporting/dashboard.html:139
 #: theme/templates/reporting/recommendations.html:18
 msgid "Recommendations"
-msgstr ""
-
-#: theme/templates/reporting/download_center.html:17
-msgid "Download center"
 msgstr ""
 
 #: theme/templates/reporting/download_center.html:23
@@ -2312,11 +2304,13 @@ msgid "Compliance Criteria"
 msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:64
-msgid "Measure in place ?"
+#: theme/templates/security_objectives/report/declaration.html:47
+msgid "Measure implemented?"
 msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:68
-msgid "Justification"
+#: theme/templates/security_objectives/report/declaration.html:50
+msgid "Justification & Evidence"
 msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:72
@@ -2325,7 +2319,8 @@ msgid "Review Comment"
 msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:77
-msgid "Planned actions"
+#: theme/templates/security_objectives/report/declaration.html:59
+msgid "Planned Measures"
 msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:127
@@ -2339,7 +2334,8 @@ msgid "No security objectives data"
 msgstr ""
 
 #: theme/templates/security_objectives/report/cover.html:11
-msgid "Security objectives "
+#: theme/templates/security_objectives/report/header.html:5
+msgid "Security objectives statement"
 msgstr ""
 
 #: theme/templates/security_objectives/report/cover.html:34
@@ -2366,35 +2362,15 @@ msgstr ""
 msgid "Not reviewed"
 msgstr ""
 
-#: theme/templates/security_objectives/report/declaration.html:47
-msgid "Measure implemented?"
-msgstr ""
-
-#: theme/templates/security_objectives/report/declaration.html:50
-msgid "Justification & Evidence"
-msgstr ""
-
-#: theme/templates/security_objectives/report/declaration.html:59
-msgid "Planned Measures"
-msgstr ""
-
 #: theme/templates/security_objectives/report/declaration.html:92
 msgid ""
 "Please list your current and planned measures, including a schedule with the "
 "individual stages."
 msgstr ""
 
-#: theme/templates/security_objectives/report/header.html:5
-msgid "Security objectives statement"
-msgstr ""
-
 #: theme/templates/security_objectives/report/template.html:8
 #: theme/templates/security_objectives/report/template.html:9
 msgid "Security objectives report"
-msgstr ""
-
-#: theme/templates/security_objectives/so_dashboard_base.html:36
-msgid "Filter by status, sector, etc"
 msgstr ""
 
 #: theme/templates/security_objectives/so_dashboard_base.html:49
