@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-10 16:30+0200\n"
+"POT-Creation-Date: 2025-08-13 13:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,16 +89,16 @@ msgstr ""
 msgid "Accept"
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:5
+#: theme/templates/emails/suggestion_link_user_account.html:6
 #, python-format
 msgid "Dear %(operator_admin_name)s,"
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:9
-msgid "Dear entity,"
+#: theme/templates/emails/suggestion_link_user_account.html:10
+msgid "Dear Madam or Sir,"
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:13
+#: theme/templates/emails/suggestion_link_user_account.html:14
 #, python-format
 msgid ""
 "We have noticed that the user account %(new_user_name)s (%(new_user_email)s) "
@@ -111,39 +111,39 @@ msgid ""
 "However, %(new_user_name)s is not yet linked to any organization on SERIMA."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:26
+#: theme/templates/emails/suggestion_link_user_account.html:25
 #, python-format
 msgid ""
 "As part of our efforts to improve data quality and streamline account "
 "management, we (%(regulator)s) suggest linking %(new_user_name)s with your "
-"organization profile."
+"organization."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:32
+#: theme/templates/emails/suggestion_link_user_account.html:31
 msgid ""
 "Please only accept this proposal after having verified the name and the e-"
 "mail address."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:37
+#: theme/templates/emails/suggestion_link_user_account.html:36
 msgid "In case of any doubt, please reject this proposal."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:42
+#: theme/templates/emails/suggestion_link_user_account.html:41
 msgid ""
 "Please note: this is purely a suggestion and not an action you need to take "
 "unless you confirm it."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:48
+#: theme/templates/emails/suggestion_link_user_account.html:47
 msgid "Otherwise, feel free to disregard this message."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:54
+#: theme/templates/emails/suggestion_link_user_account.html:52
 msgid "Thank you."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:58
+#: theme/templates/emails/suggestion_link_user_account.html:55
 msgid "Best regards,"
 msgstr ""
 
@@ -986,11 +986,12 @@ msgid "Overview of reported incidents"
 msgstr ""
 
 #: theme/templates/incidents/base.html:35
-msgid "Notify an incident"
+#: theme/templates/registration/login.html:9
+msgid "Incident Notification"
 msgstr ""
 
 #: theme/templates/incidents/base.html:41
-msgid "Filter by status, sector, etc"
+msgid "Filter by status, sector, etc."
 msgstr ""
 
 #: theme/templates/incidents/base.html:42
@@ -1043,7 +1044,7 @@ msgid "Passed"
 msgstr ""
 
 #: theme/templates/incidents/base.html:100
-msgid "Failed"
+msgid "Revision required"
 msgstr ""
 
 #: theme/templates/incidents/base.html:109
@@ -1136,11 +1137,11 @@ msgstr ""
 
 #: theme/templates/incidents/base.html:283
 #: theme/templates/incidents/base.html:285
-msgid "Activity Log"
+msgid "Access Log"
 msgstr ""
 
 #: theme/templates/incidents/base.html:305
-msgid "No incident"
+msgid "No incident reports have been submitted yet."
 msgstr ""
 
 #: theme/templates/incidents/base.html:328
@@ -1230,11 +1231,11 @@ msgstr ""
 msgid "Previous"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:143
-msgid "Notify"
+#: theme/templates/incidents/declaration.html:149
+msgid "Submit"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:149
+#: theme/templates/incidents/declaration.html:151
 msgid "Next"
 msgstr ""
 
@@ -1324,12 +1325,12 @@ msgstr ""
 #: theme/templates/modals/workflow_comment.html:8
 #: theme/templates/operator/incidents.html:99
 #: theme/templates/operator/incidents.html:103
-msgid "Comment"
+msgid "Comment/Explanation"
 msgstr ""
 
 #: theme/templates/operator/incidents.html:13
 #: theme/templates/regulator/menu.html:18
-msgid "My incidents"
+msgid "My reported incidents"
 msgstr ""
 
 #: theme/templates/parts/404.html:5
@@ -1353,7 +1354,7 @@ msgid "Server Error"
 msgstr ""
 
 #: theme/templates/parts/500.html:17
-msgid "We apologize for the inconvenience. An error occurred."
+msgid "An error occurred. We apologize for the inconvenience."
 msgstr ""
 
 #: theme/templates/parts/500.html:18
@@ -1365,7 +1366,7 @@ msgid "Terms of service"
 msgstr ""
 
 #: theme/templates/parts/footer.html:34
-msgid "A service proposed by"
+msgid "Provided by"
 msgstr ""
 
 #: theme/templates/parts/footer.html:42
@@ -1429,7 +1430,7 @@ msgstr ""
 
 #: theme/templates/registration/base.html:43
 #: theme/templates/registration/login.html:47
-msgid "Connection"
+msgid "Login"
 msgstr ""
 
 #: theme/templates/registration/base.html:50
@@ -1439,12 +1440,8 @@ msgstr ""
 msgid "Create account"
 msgstr ""
 
-#: theme/templates/registration/login.html:9
-msgid "Notifying an incident"
-msgstr ""
-
 #: theme/templates/registration/login.html:13
-msgid "A tool that lets you quickly notify an incident."
+msgid "Incident Reporting and Management Module"
 msgstr ""
 
 #: theme/templates/registration/login.html:16
@@ -1603,7 +1600,7 @@ msgid "Password confirmation"
 msgstr ""
 
 #: theme/templates/regulator/menu.html:10
-msgid "All incidents"
+msgid "Overview"
 msgstr ""
 
 #: theme/templates/report/contacts.html:3
@@ -1644,10 +1641,6 @@ msgstr ""
 
 #: theme/templates/report/details.html:70
 msgid "Criminal complaint file number"
-msgstr ""
-
-#: theme/templates/report/footer.html:13
-msgid "TLP:RED"
 msgstr ""
 
 #: theme/templates/report/header.html:14

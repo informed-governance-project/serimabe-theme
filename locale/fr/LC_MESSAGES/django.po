@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-10 16:30+0200\n"
+"POT-Creation-Date: 2025-08-13 13:03+0200\n"
 "PO-Revision-Date: 2025-07-10 16:29+0200\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,16 +81,16 @@ msgstr "Durée maximale"
 msgid "Accept"
 msgstr "Accepter"
 
-#: theme/templates/emails/suggestion_link_user_account.html:5
+#: theme/templates/emails/suggestion_link_user_account.html:6
 #, python-format
 msgid "Dear %(operator_admin_name)s,"
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:9
-msgid "Dear entity,"
+#: theme/templates/emails/suggestion_link_user_account.html:10
+msgid "Dear Madam or Sir,"
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:13
+#: theme/templates/emails/suggestion_link_user_account.html:14
 #, python-format
 msgid ""
 "We have noticed that the user account %(new_user_name)s (%(new_user_email)s) "
@@ -103,39 +103,39 @@ msgid ""
 "However, %(new_user_name)s is not yet linked to any organization on SERIMA."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:26
+#: theme/templates/emails/suggestion_link_user_account.html:25
 #, python-format
 msgid ""
 "As part of our efforts to improve data quality and streamline account "
 "management, we (%(regulator)s) suggest linking %(new_user_name)s with your "
-"organization profile."
+"organization."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:32
+#: theme/templates/emails/suggestion_link_user_account.html:31
 msgid ""
 "Please only accept this proposal after having verified the name and the e-"
 "mail address."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:37
+#: theme/templates/emails/suggestion_link_user_account.html:36
 msgid "In case of any doubt, please reject this proposal."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:42
+#: theme/templates/emails/suggestion_link_user_account.html:41
 msgid ""
 "Please note: this is purely a suggestion and not an action you need to take "
 "unless you confirm it."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:48
+#: theme/templates/emails/suggestion_link_user_account.html:47
 msgid "Otherwise, feel free to disregard this message."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:54
+#: theme/templates/emails/suggestion_link_user_account.html:52
 msgid "Thank you."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:58
+#: theme/templates/emails/suggestion_link_user_account.html:55
 msgid "Best regards,"
 msgstr ""
 
@@ -1326,12 +1326,15 @@ msgid "Overview of reported incidents"
 msgstr "Vue d'ensemble des incidents signalés"
 
 #: theme/templates/incidents/base.html:35
-msgid "Notify an incident"
-msgstr "Notifier un incident"
+#: theme/templates/registration/login.html:9
+#| msgid "Incident notification date"
+msgid "Incident Notification"
+msgstr ""
 
 #: theme/templates/incidents/base.html:41
-msgid "Filter by status, sector, etc"
-msgstr "Filtrer par statut, secteur, etc"
+#| msgid "Filter by status, sector, etc"
+msgid "Filter by status, sector, etc."
+msgstr ""
 
 #: theme/templates/incidents/base.html:42
 #: theme/templates/incidents/base.html:327
@@ -1383,8 +1386,8 @@ msgid "Passed"
 msgstr "Réussi"
 
 #: theme/templates/incidents/base.html:100
-msgid "Failed"
-msgstr "Échoué"
+msgid "Revision required"
+msgstr ""
 
 #: theme/templates/incidents/base.html:109
 msgid "Incidents table"
@@ -1476,12 +1479,14 @@ msgstr "Télécharger le rapport PDF"
 
 #: theme/templates/incidents/base.html:283
 #: theme/templates/incidents/base.html:285
-msgid "Activity Log"
-msgstr "Historique des activités"
+#| msgid "Access log"
+msgid "Access Log"
+msgstr ""
 
 #: theme/templates/incidents/base.html:305
-msgid "No incident"
-msgstr "Aucun incident"
+#| msgid "No incident reports have been submitted."
+msgid "No incident reports have been submitted yet."
+msgstr ""
 
 #: theme/templates/incidents/base.html:328
 #: theme/templates/incidents/declaration.html:126
@@ -1572,11 +1577,11 @@ msgstr "Annuler"
 msgid "Previous"
 msgstr "Précédent"
 
-#: theme/templates/incidents/declaration.html:143
-msgid "Notify"
-msgstr "Notifier"
-
 #: theme/templates/incidents/declaration.html:149
+msgid "Submit"
+msgstr ""
+
+#: theme/templates/incidents/declaration.html:151
 msgid "Next"
 msgstr "Suivant"
 
@@ -1666,13 +1671,14 @@ msgstr "Supprimer"
 #: theme/templates/modals/workflow_comment.html:8
 #: theme/templates/operator/incidents.html:99
 #: theme/templates/operator/incidents.html:103
-msgid "Comment"
-msgstr "Commentaire"
+msgid "Comment/Explanation"
+msgstr ""
 
 #: theme/templates/operator/incidents.html:13
 #: theme/templates/regulator/menu.html:18
-msgid "My incidents"
-msgstr "Mes incidents"
+#| msgid "Overview of reported incidents"
+msgid "My reported incidents"
+msgstr ""
 
 #: theme/templates/parts/404.html:5
 msgid "404 Page Not Found"
@@ -1695,8 +1701,9 @@ msgid "Server Error"
 msgstr "Erreur de serveur"
 
 #: theme/templates/parts/500.html:17
-msgid "We apologize for the inconvenience. An error occurred."
-msgstr "Nous nous excusons pour ce désagrément. Une erreur s'est produite."
+#| msgid "We apologize for the inconvenience. An error occurred."
+msgid "An error occurred. We apologize for the inconvenience."
+msgstr ""
 
 #: theme/templates/parts/500.html:18
 msgid "Please try again later."
@@ -1707,8 +1714,8 @@ msgid "Terms of service"
 msgstr "Conditions générales d'utilisation"
 
 #: theme/templates/parts/footer.html:34
-msgid "A service proposed by"
-msgstr "Un service proposé par"
+msgid "Provided by"
+msgstr ""
 
 #: theme/templates/parts/footer.html:42
 msgid "Accessibility statement"
@@ -1771,8 +1778,8 @@ msgstr "Se connecter"
 
 #: theme/templates/registration/base.html:43
 #: theme/templates/registration/login.html:47
-msgid "Connection"
-msgstr "Connexion"
+msgid "Login"
+msgstr ""
 
 #: theme/templates/registration/base.html:50
 #: theme/templates/registration/login.html:79
@@ -1781,13 +1788,10 @@ msgstr "Connexion"
 msgid "Create account"
 msgstr "Créer un compte"
 
-#: theme/templates/registration/login.html:9
-msgid "Notifying an incident"
-msgstr "Notifier un incident"
-
 #: theme/templates/registration/login.html:13
-msgid "A tool that lets you quickly notify an incident."
-msgstr "Outil vous permettant de notifier rapidement un incident."
+#| msgid "Incident Notification Manager"
+msgid "Incident Reporting and Management Module"
+msgstr ""
 
 #: theme/templates/registration/login.html:16
 msgid "Report an incident <strong>with</strong> account"
@@ -1970,8 +1974,9 @@ msgid "Password confirmation"
 msgstr "Confirmation du mot de passe"
 
 #: theme/templates/regulator/menu.html:10
-msgid "All incidents"
-msgstr "Tous les incidents"
+#| msgid "Under review"
+msgid "Overview"
+msgstr ""
 
 #: theme/templates/report/contacts.html:3
 msgid "Contact details"
@@ -2012,10 +2017,6 @@ msgstr "Non"
 #: theme/templates/report/details.html:70
 msgid "Criminal complaint file number"
 msgstr "Numéro de dossier de la plainte"
-
-#: theme/templates/report/footer.html:13
-msgid "TLP:RED"
-msgstr "TLP:RED"
 
 #: theme/templates/report/header.html:14
 msgid "Ref"
