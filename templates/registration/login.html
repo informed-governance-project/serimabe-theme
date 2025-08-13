@@ -6,11 +6,11 @@
 {% block login_content %}
 <div id="notify-options">
     <h2 class="card-title fw-bolder lh-1 col-7">
-        {% translate "Notifying an incident" %}
+        {% translate "Incident Notification" %}
     </h2>
     <div class="hr-separator"></div>
     <p class="card-text">
-        {% translate "A tool that lets you quickly notify an incident." %}
+        {% translate "Incident Reporting and Management Module" %}
     </p>
     <button id="with-account" type="button" class="d-block btn btn-primary w-100 mb-3 report-incident-button">
         {% translate "Report an incident <strong>with</strong> account" %}
@@ -44,7 +44,7 @@
                     {% for field in wizard.form %}
                     {% bootstrap_field field show_label=False %}
                     {% endfor %}
-                    {% bootstrap_button button_type="submit" button_class="btn-primary submit_login" content=_("Connection") %}
+                    {% bootstrap_button button_type="submit" button_class="btn-primary submit_login" content=_("Login") %}
                 </form>
                 {% block 'backup_tokens' %}
                 {% if backup_tokens %}

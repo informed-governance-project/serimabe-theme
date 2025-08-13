@@ -32,13 +32,13 @@
     {% if not is_regulator and not is_observer or is_regulator_incidents %}
     <div class="align-self-center">
         <a class="btn btn-primary btn-sm" href="{% url 'declaration' %}">
-            {% translate "Notify an incident" %}
+            {% translate "Incident Notification" %}
         </a>
     </div>
     {% endif %}
     <div>
         <button id="openFilter" class="btn btn-primary btn-sm" type="button" data-bs-placement="top"
-            data-bs-toggle="tooltip" title="{% translate 'Filter by status, sector, etc' %}">
+            data-bs-toggle="tooltip" title="{% translate 'Filter by status, sector, etc.' %}">
             {% translate "Filter" %}
             {% if is_filtered %}
             <span>
@@ -97,7 +97,7 @@
                 </li>
                 <li class="legend-item legend-failed">
                     <i class="logo-report-fail m-0 h5" aria-hidden="true"></i>
-                    {% translate "Failed" %}
+                    {% translate "Revision required" %}
                 </li>
             </ul>
         </div>
@@ -280,9 +280,9 @@
                 <div class="col d-flex align-items-center">
                     {% block content_table_actions %}
                     <button class="btn access_log p-0" data-incident-id="{{ incident.id }}" data-bs-placement="top"
-                        data-bs-toggle="tooltip" title="{% translate 'Activity Log' %}">
+                        data-bs-toggle="tooltip" title="{% translate 'Access Log' %}">
                         <i class="custom-icon-log  h4" aria-hidden="true"></i>
-                        <span class="visually-hidden">{% translate 'Activity Log' %}</span>
+                        <span class="visually-hidden">{% translate 'Access Log' %}</span>
                     </button>
                     <a class="btn p-0 border-0" href="{% url 'download_incident_pdf' incident.id %}"
                         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download PDF report' %}">
@@ -302,7 +302,7 @@
 {% endwith %}
 
 {% else %}
-<p>{% translate "No incident" %}</p>
+<p>{% translate "No incident reports have been submitted yet." %}</p>
 {% endif %}
 
 <!-- Modal dialogs -->
