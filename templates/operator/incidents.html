@@ -10,7 +10,7 @@
 
 {% block content_title %}
 {% if is_regulator_incidents %}
-<h3 class="fw-bolder">{% translate "My incidents" %}</h3>
+<h3 class="fw-bolder">{% translate "My reported incidents" %}</h3>
 <div class="hr-separator"></div>
 {% endif %}
 {% endblock %}
@@ -96,11 +96,11 @@
                 data-bs-target="#workflow_comment">
                 <i class="bi bi-chat-left-text-fill"
                     data-bs-placement="top" data-bs-toggle="tooltip"
-                    title="{% translate 'Comment' %}"
+                    title="{% translate 'Comment/Explanation' %}"
                     aria-hidden="true">
                 </i>
                 <span class="visually-hidden">
-                    {% translate 'Comment' %}
+                    {% translate 'Comment/Explanation' %}
                 </span>
             </button>
             {% endif %}

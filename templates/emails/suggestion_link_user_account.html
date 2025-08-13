@@ -7,7 +7,7 @@
   Dear {{ operator_admin_name }},
   {% endblocktranslate %}
   {% else %}
-  {% translate "Dear entity," %}
+  {% translate "Dear Madam or Sir," %}
   {% endif %}
 </p>
 <p>
@@ -24,7 +24,7 @@
 <p>
   {% blocktranslate trimmed with regulator=regulator new_user_name=new_user_name %}
   As part of our efforts to improve data quality and streamline account management,
-  we ({{ regulator }}) suggest linking {{ new_user_name }} with your organization profile.
+  we ({{ regulator }}) suggest linking {{ new_user_name }} with your organization.
   {% endblocktranslate %}
 </p>
 <p>
