@@ -61,11 +61,11 @@
                   {% translate "Compliance Criteria" %}
                 </th>
                 <th class="col-1 text-center align-middle">
-                  {% translate "Measure in place ?" %}
+                  {% translate "Measure implemented?" %}
                 </th>
                 <th
                   class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}col-2{% else %}col-4{% endif %} text-center align-middle">
-                  {% translate "Justification" %}
+                  {% translate "Justification & Evidence" %}
                 </th>
                 {% if is_regulator or security_objective.declaration_status != "UNDE" %}
                 <th class="col-2 text-center align-middle">
@@ -74,7 +74,7 @@
                 {% endif %}
                 <th
                   class="col-2 text-center align-middle">
-                  {% translate "Planned actions" %}
+                  {% translate "Planned Measures" %}
                 </th>
               </tr>
             </thead>
