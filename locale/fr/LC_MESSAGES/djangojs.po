@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-26 10:32+0200\n"
+"POT-Creation-Date: 2025-08-13 12:46+0200\n"
 "PO-Revision-Date: 2025-05-26 10:40+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -54,3 +54,15 @@ msgstr "Incident ayant un impact significatif"
 #: theme/static/js/incidents_regulator.js:32
 msgid "No significant impact"
 msgstr "Pas d'impact significatif"
+
+#: theme/static/js/so_declaration.js:18
+msgid "Justification required"
+msgstr "Justification requise"
+
+#: theme/static/js/so_declaration.js:38
+msgid ""
+"Please list your current and planned measures, including a schedule with the "
+"individual stages."
+msgstr ""
+"Veuillez énumérer les mesures en cours et prévues, y compris un calendrier "
+"indiquant les différentes étapes."
