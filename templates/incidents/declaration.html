@@ -49,7 +49,7 @@
           {% elif step < wizard.steps.current %} 
           <div>
             <button type="submit" class="d-flex align-items-center btn btn-link text-decoration-none text-secondary px-1 px-lg-3"
-              name="wizard_goto_step" value="{{step}}" aria-current="step" >
+              name="wizard_goto_step" value="{{step}}" aria-current="step" formnovalidate>
               <div class="step-circle bg-secondary text-white">
                 {{ forloop.counter }}
               </div>
