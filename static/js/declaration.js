@@ -1,10 +1,25 @@
 $(document).ready(function () {
-    $('.selectpicker').selectpicker();
-
-    $(".incident_detection_date").parent().on("dp.change", function (e) {
-        if ($('.incident_starting_date').parent().data("DateTimePicker")) {
-            $('.incident_starting_date').parent().data("DateTimePicker").clear();
-            $('.incident_starting_date').parent().data("DateTimePicker").maxDate(e.date);
+    $("#id_0-incident_detection_date").on("change.td", function () {
+        const startingDateInputId = "id_0-incident_starting_date";
+        const resolutionDateInputId = "id_0-incident_resolution_date";
+        const detectionDate = new Date($(this).val());
+        if ($(`#${startingDateInputId}`)) {
+            let startingPicker = datePickers.find(p => p.optionsStore.input.id === startingDateInputId);           
+            if (startingPicker) {                
+                startingPicker.dates.clear();
+                startingPicker.updateOptions({
+                    restrictions: { maxDate: detectionDate }
+                });
+            };
+        }
+        if ($(`#${resolutionDateInputId}`)) {
+            const resolutionPicker = datePickers.find(p => p.optionsStore.input.id === resolutionDateInputId);
+            if (resolutionPicker) {
+                resolutionPicker.dates.clear();
+                resolutionPicker.updateOptions({
+                    restrictions: { minDate: detectionDate }
+                });
+            };
         }
     });
 

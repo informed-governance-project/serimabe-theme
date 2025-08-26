@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    datePickers = [];
     document.querySelectorAll('.input-group[data-td-target-input="nearest"]').forEach(function (groupEl) {
         const inputEl = groupEl.querySelector('.datetimepicker-input:not([disabled])');
 
@@ -13,6 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 minDate: minDate
             }
         };
-        new tempusDominus.TempusDominus(groupEl, options);
+        datePickers.push(new tempusDominus.TempusDominus(groupEl, options));
     });
 });
