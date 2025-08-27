@@ -1,9 +1,9 @@
-# This file was generated from serima_frontend_translations_latest.xlsx
+# This file was generated from /home/cases/serima/theme/locale/frontend_translations.xlsx
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 13:23+0200\n"
-"PO-Revision-Date: 2025-08-13 12:40+0200\n"
+"POT-Creation-Date: 2025-08-27 15:31+0200\n"
+"PO-Revision-Date: 2025-08-27 15:02+0200\n"
 "Language: de\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1012,7 +1012,7 @@ msgid "Filter by status, sector, etc."
 msgstr "Nach Status, Sektor usw. Filtern"
 
 #: theme/templates/incidents/base.html:42
-#: theme/templates/incidents/base.html:327
+#: theme/templates/incidents/base.html:339
 #: theme/templates/reporting/add_recommendations.html:34
 #: theme/templates/reporting/add_recommendations.html:35
 #: theme/templates/reporting/add_recommendations.html:49
@@ -1093,38 +1093,41 @@ msgid "Creation date"
 msgstr "Erstelldatum"
 
 #: theme/templates/incidents/base.html:116
-#: theme/templates/reporting/dashboard.html:54
-msgid "Operator"
-msgstr "Betreiber"
+msgid "Operator Acronym"
+msgstr ""
 
 #: theme/templates/incidents/base.html:118
-#: theme/templates/incidents/base.html:123
+#: theme/templates/incidents/base.html:126
 #: theme/templates/report/details.html:31
 msgid "Regulator"
 msgstr "Regulierungsbehörde"
 
-#: theme/templates/incidents/base.html:125
+#: theme/templates/incidents/base.html:122
+msgid "Operator Name"
+msgstr ""
+
+#: theme/templates/incidents/base.html:128
 msgid "Regulation"
 msgstr "Verordnung"
 
-#: theme/templates/incidents/base.html:128 theme/templates/report/cover.html:28
+#: theme/templates/incidents/base.html:131 theme/templates/report/cover.html:28
 #: theme/templates/report/details.html:11
 msgid "Reference"
 msgstr "Referenz"
 
-#: theme/templates/incidents/base.html:129
+#: theme/templates/incidents/base.html:132
 #: theme/templates/reporting/add_recommendations.html:83
 #: theme/templates/security_objectives/report/cover.html:22
 #: theme/templates/security_objectives/so_dashboard_base.html:62
 msgid "Sectors"
 msgstr "Sektoren"
 
-#: theme/templates/incidents/base.html:130 theme/templates/report/cover.html:13
+#: theme/templates/incidents/base.html:133 theme/templates/report/cover.html:13
 #: theme/templates/report/header.html:9
 msgid "Report"
 msgstr "Bericht"
 
-#: theme/templates/incidents/base.html:131
+#: theme/templates/incidents/base.html:134
 #: theme/templates/reporting/dashboard.html:59
 #: theme/templates/reporting/recommendations.html:44
 #: theme/templates/reporting/report_configuration.html:30
@@ -1132,37 +1135,37 @@ msgstr "Bericht"
 msgid "Actions"
 msgstr "Aktionen"
 
-#: theme/templates/incidents/base.html:145
+#: theme/templates/incidents/base.html:148
 #: theme/templates/observer/incidents.html:27
 #: theme/templates/operator/incidents.html:40
 #: theme/templates/operator/incidents.html:43
 msgid "Incident with significant impact"
 msgstr "Vorfall mit erheblichen Auswirkungen"
 
-#: theme/templates/incidents/base.html:147
+#: theme/templates/incidents/base.html:150
 msgid "No significant impact"
 msgstr "Keine erheblichen Auswirkungen"
 
-#: theme/templates/incidents/base.html:163
+#: theme/templates/incidents/base.html:166
 #: theme/templates/observer/incidents.html:11
 #: theme/templates/operator/incidents.html:22
 #: theme/templates/operator/incidents.html:25
 msgid "The incident is still ongoing"
 msgstr "Der Vorfall dauert noch an"
 
-#: theme/templates/incidents/base.html:165
+#: theme/templates/incidents/base.html:168
 #: theme/templates/observer/incidents.html:17
 #: theme/templates/operator/incidents.html:29
 #: theme/templates/operator/incidents.html:32
 msgid "The incident is over"
 msgstr "Der Vorfall ist beendet"
 
-#: theme/templates/incidents/base.html:175
+#: theme/templates/incidents/base.html:178
 msgid "Incident notification submission date"
 msgstr "Datum der Meldung des Vorfalls"
 
-#: theme/templates/incidents/base.html:256
-#: theme/templates/incidents/base.html:259
+#: theme/templates/incidents/base.html:268
+#: theme/templates/incidents/base.html:271
 #: theme/templates/modals/report_versions.html:8
 #: theme/templates/modals/report_versions.html:16
 #: theme/templates/operator/incidents.html:84
@@ -1170,24 +1173,29 @@ msgstr "Datum der Meldung des Vorfalls"
 msgid "Version control"
 msgstr "Versionsverwaltung"
 
-#: theme/templates/incidents/base.html:266
-#: theme/templates/incidents/base.html:288
-#: theme/templates/incidents/base.html:290
+#: theme/templates/incidents/base.html:278
+#: theme/templates/incidents/base.html:300
+#: theme/templates/incidents/base.html:302
 msgid "Download PDF report"
 msgstr "PDF-Bericht herunterladen"
 
-#: theme/templates/incidents/base.html:283
-#: theme/templates/incidents/base.html:285
+#: theme/templates/incidents/base.html:295
+#: theme/templates/incidents/base.html:297
 #: theme/templates/modals/access_log.html:18
+#: theme/templates/modals/reporting_access_log.html:18
+#: theme/templates/modals/so_access_log.html:18
+#: theme/templates/operator/so_dashboard.html:56
+#: theme/templates/regulator/so_dashboard.html:33
+#: theme/templates/reporting/dashboard.html:157
 msgid "Access Log"
 msgstr "Zugriffsprotokoll"
 
-#: theme/templates/incidents/base.html:305
+#: theme/templates/incidents/base.html:317
 msgid "No incident reports have been submitted yet."
 msgstr "Es wurden noch keine Vorfallberichte eingereicht."
 
-#: theme/templates/incidents/base.html:328
-#: theme/templates/incidents/declaration.html:126
+#: theme/templates/incidents/base.html:340
+#: theme/templates/incidents/declaration.html:133
 #: theme/templates/modals/accept_terms.html:20
 #: theme/templates/modals/access_log.html:20
 #: theme/templates/modals/contacts_incident.html:10
@@ -1212,14 +1220,14 @@ msgstr "Es wurden noch keine Vorfallberichte eingereicht."
 msgid "Close"
 msgstr "Schließen"
 
-#: theme/templates/incidents/base.html:339
+#: theme/templates/incidents/base.html:351
 #: theme/templates/reporting/add_recommendations.html:60
 #: theme/templates/reporting/dashboard.html:193
 #: theme/templates/security_objectives/so_dashboard_base.html:185
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: theme/templates/incidents/base.html:342
+#: theme/templates/incidents/base.html:354
 #: theme/templates/reporting/add_recommendations.html:63
 #: theme/templates/reporting/dashboard.html:196
 #: theme/templates/security_objectives/so_dashboard_base.html:188
@@ -1285,7 +1293,7 @@ msgstr "Einen Vorfall melden"
 msgid "Incident notification steps"
 msgstr "Schritte zur Meldung eines Vorfalls"
 
-#: theme/templates/incidents/declaration.html:124
+#: theme/templates/incidents/declaration.html:131
 #: theme/templates/modals/delete_incident.html:20
 #: theme/templates/modals/delete_report_recommendation.html:19
 #: theme/templates/modals/delete_so_declaration.html:19
@@ -1294,16 +1302,16 @@ msgstr "Schritte zur Meldung eines Vorfalls"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: theme/templates/incidents/declaration.html:136
+#: theme/templates/incidents/declaration.html:143
 msgid "Previous"
 msgstr "Zurück"
 
-#: theme/templates/incidents/declaration.html:149
+#: theme/templates/incidents/declaration.html:156
 #: theme/templates/operator/so_dashboard.html:51
 msgid "Submit"
 msgstr "Einreichen"
 
-#: theme/templates/incidents/declaration.html:151
+#: theme/templates/incidents/declaration.html:158
 msgid "Next"
 msgstr "Weiter"
 
@@ -1564,7 +1572,7 @@ msgstr "Passwort"
 msgid "Light theme"
 msgstr "Helles Design"
 
-#: theme/templates/parts/header.html:57
+#: theme/templates/parts/header.html:56
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -1893,7 +1901,11 @@ msgstr "Datum der Vorfallentdeckung"
 msgid "Incident start date"
 msgstr "Datum des Vorfallbeginns"
 
-#: theme/templates/report/timeline.html:30
+#: theme/templates/report/timeline.html:26
+msgid "Incident resolution date"
+msgstr ""
+
+#: theme/templates/report/timeline.html:34
 msgid "Report Timeline"
 msgstr "Chronologie der Berichte"
 
@@ -1960,6 +1972,10 @@ msgstr "Berichtsgenerierungstabelle"
 #: theme/templates/security_objectives/so_dashboard_base.html:63
 msgid "Year"
 msgstr "Jahr"
+
+#: theme/templates/reporting/dashboard.html:54
+msgid "Operator"
+msgstr "Betreiber"
 
 #: theme/templates/reporting/dashboard.html:56
 #: theme/templates/security_objectives/so_dashboard_base.html:27
@@ -2259,11 +2275,11 @@ msgstr "Frist"
 
 #: theme/templates/reporting/risks.html:510
 msgid "Postponed"
-msgstr ""
+msgstr "Aufgeschoben"
 
 #: theme/templates/reporting/risks.html:511
 msgid "To check"
-msgstr ""
+msgstr "Zu überprüfen"
 
 #: theme/templates/reporting/security_mesures.html:5
 msgid "Implemented Security Measures"
@@ -2319,7 +2335,7 @@ msgstr "Punktzahl"
 #: theme/templates/security_objectives/declaration.html:50
 #: theme/templates/security_objectives/report/declaration.html:33
 msgid "table of"
-msgstr ""
+msgstr "Tabelle von"
 
 #: theme/templates/security_objectives/declaration.html:55
 #: theme/templates/security_objectives/report/declaration.html:38
@@ -2349,7 +2365,7 @@ msgstr "Begründung & Nachweis"
 #: theme/templates/security_objectives/declaration.html:72
 #: theme/templates/security_objectives/report/declaration.html:54
 msgid "Review Comment"
-msgstr ""
+msgstr "Überprüfungskommentar"
 
 #: theme/templates/security_objectives/declaration.html:77
 #: theme/templates/security_objectives/report/declaration.html:59
@@ -2400,17 +2416,17 @@ msgid ""
 "Please list your current and planned measures, including a schedule with the "
 "individual stages."
 msgstr ""
-"Bitte listen Sie Ihre laufenden und geplanten Maßnahmen inklusive einem "
-"Zeitplan mit den einzelnen Etappen auf."
+"Bitte listen Sie Ihre laufenden und geplanten Maßnahmen inklusive eines "
+"Zeitplans mit den einzelnen Etappen auf."
 
 #: theme/templates/security_objectives/report/template.html:8
 #: theme/templates/security_objectives/report/template.html:9
 msgid "Security objectives report"
-msgstr ""
+msgstr "Sicherheitsziele Bericht"
 
 #: theme/templates/security_objectives/so_dashboard_base.html:49
 msgid "Security objectives table"
-msgstr ""
+msgstr "Sicherheitsziele Tabelle"
 
 #: theme/templates/security_objectives/so_dashboard_base.html:57
 msgid "Creator"
