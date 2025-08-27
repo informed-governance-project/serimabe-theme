@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 15:31+0200\n"
+"POT-Creation-Date: 2025-08-27 16:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -163,7 +163,10 @@ msgid "Contact form"
 msgstr ""
 
 #: theme/templates/home/contact.html:33
-msgid "Firstname"
+#: theme/templates/incidents/contact_form.html:18
+#: theme/templates/incidents/contact_form.html:49
+#: theme/templates/registration/signup.html:22
+msgid "First name"
 msgstr ""
 
 #: theme/templates/home/contact.html:38
@@ -1241,12 +1244,6 @@ msgstr ""
 msgid "Job title"
 msgstr ""
 
-#: theme/templates/incidents/contact_form.html:18
-#: theme/templates/incidents/contact_form.html:49
-#: theme/templates/registration/signup.html:22
-msgid "First name"
-msgstr ""
-
 #: theme/templates/incidents/contact_form.html:21
 #: theme/templates/incidents/contact_form.html:52
 #: theme/templates/registration/signup.html:23
@@ -2081,7 +2078,7 @@ msgid "Vulnerability"
 msgstr ""
 
 #: theme/templates/reporting/risks.html:60
-msgid "Vulnerability Qualification"
+msgid "Severity"
 msgstr ""
 
 #: theme/templates/reporting/risks.html:61
@@ -2333,12 +2330,12 @@ msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:127
 #: theme/templates/security_objectives/report/declaration.html:99
-msgid "No security measures data"
+msgid "No security measures data available."
 msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:134
 #: theme/templates/security_objectives/report/declaration.html:108
-msgid "No security objectives data"
+msgid "No security objectives data available."
 msgstr ""
 
 #: theme/templates/security_objectives/report/cover.html:11

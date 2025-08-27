@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-27 15:31+0200\n"
-"PO-Revision-Date: 2025-08-27 15:02+0200\n"
+"POT-Creation-Date: 2025-08-27 16:11+0200\n"
+"PO-Revision-Date: 2025-08-27 16:10+0200\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -167,7 +167,10 @@ msgid "Contact form"
 msgstr "Formulaire de contact"
 
 #: theme/templates/home/contact.html:33
-msgid "Firstname"
+#: theme/templates/incidents/contact_form.html:18
+#: theme/templates/incidents/contact_form.html:49
+#: theme/templates/registration/signup.html:22
+msgid "First name"
 msgstr "Prénom"
 
 #: theme/templates/home/contact.html:38
@@ -1593,12 +1596,6 @@ msgstr "Responsable de la notification de l’incident"
 msgid "Job title"
 msgstr "Intitulé du poste"
 
-#: theme/templates/incidents/contact_form.html:18
-#: theme/templates/incidents/contact_form.html:49
-#: theme/templates/registration/signup.html:22
-msgid "First name"
-msgstr "Prénom"
-
 #: theme/templates/incidents/contact_form.html:21
 #: theme/templates/incidents/contact_form.html:52
 #: theme/templates/registration/signup.html:23
@@ -2466,8 +2463,8 @@ msgid "Vulnerability"
 msgstr "Vulnérabilité"
 
 #: theme/templates/reporting/risks.html:60
-msgid "Vulnerability Qualification"
-msgstr ""
+msgid "Severity"
+msgstr "Gravité"
 
 #: theme/templates/reporting/risks.html:61
 msgid "Current Risk"
@@ -2721,13 +2718,13 @@ msgstr "Mesures prévues"
 
 #: theme/templates/security_objectives/declaration.html:127
 #: theme/templates/security_objectives/report/declaration.html:99
-msgid "No security measures data"
-msgstr ""
+msgid "No security measures data available."
+msgstr "Aucune donnée relative aux mesures de sécurité disponible."
 
 #: theme/templates/security_objectives/declaration.html:134
 #: theme/templates/security_objectives/report/declaration.html:108
-msgid "No security objectives data"
-msgstr ""
+msgid "No security objectives data available."
+msgstr "Aucune donnée relative aux objectifs de sécurité disponible."
 
 #: theme/templates/security_objectives/report/cover.html:11
 #: theme/templates/security_objectives/report/header.html:5
