@@ -91,7 +91,7 @@
             {% endwith %}
             {% if latest_incident_workflow.comment %}
             <button class="btn text-secondary workflow_comment p-0"
-                data-workflow-comment="{{ latest_incident_workflow.comment }}"
+                data-workflow-comment="{{ latest_incident_workflow.comment|linebreaksbr }}"
                 data-bs-toggle="modal"
                 data-bs-target="#workflow_comment">
                 <i class="bi bi-chat-left-text-fill"

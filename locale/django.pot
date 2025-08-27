@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 13:22+0200\n"
+"POT-Creation-Date: 2025-08-13 13:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1172,11 +1172,6 @@ msgstr ""
 #: theme/templates/incidents/base.html:283
 #: theme/templates/incidents/base.html:285
 #: theme/templates/modals/access_log.html:18
-#: theme/templates/modals/reporting_access_log.html:18
-#: theme/templates/modals/so_access_log.html:18
-#: theme/templates/operator/so_dashboard.html:56
-#: theme/templates/regulator/so_dashboard.html:33
-#: theme/templates/reporting/dashboard.html:157
 msgid "Access Log"
 msgstr ""
 

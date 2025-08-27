@@ -49,7 +49,7 @@
           {% elif step < wizard.steps.current %} 
           <div>
             <button type="submit" class="d-flex align-items-center btn btn-link text-decoration-none text-secondary px-1 px-lg-3"
-              name="wizard_goto_step" value="{{step}}" aria-current="step" >
+              name="wizard_goto_step" value="{{step}}" aria-current="step" formnovalidate>
               <div class="step-circle bg-secondary text-white">
                 {{ forloop.counter }}
               </div>
@@ -103,6 +103,12 @@
       {% include "incidents/detection_date_form.html" %}
       {% else %}
       {% for field in wizard.form %}
+      {% if "_freetext_answer" in field.id_for_label %}
+      <div>
+        {% bootstrap_label field.label label_class="form-check-label" label_for=field.id_for_label %}
+        {% bootstrap_field field  show_label=False%}
+      </div>
+      {% else %}
       <div class="d-flex align-items-center {% if field.field.required %}required-field{% endif %}">
         {% bootstrap_label field.label label_class="fw-bold me-2" label_for=field.id_for_label %}
         <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
@@ -110,6 +116,7 @@
       <div class="pt-4">
         {% bootstrap_field field show_label=False %}
       </div>
+      {% endif %}
       {% endfor %}
       {% endif %}
       {% endwith %}
