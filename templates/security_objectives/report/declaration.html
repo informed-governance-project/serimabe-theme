@@ -96,7 +96,7 @@
         {% endif %}
       </tr>
       {% empty %}
-      <h3>{% translate "No security measures data" %}</h3>
+      <h3>{% translate "No security measures data available." %}</h3>
       {% endfor %}
       {% endfor %}
     </tbody>
@@ -105,6 +105,6 @@
     <p class="page-break"></p>
   {% endif %}
   {% empty %}
-  <h3>{% translate "No security objectives data" %}</h3>
+  <h3>{% translate "No security objectives data available." %}</h3>
 </div>
 {% endfor %}
