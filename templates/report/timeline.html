@@ -22,6 +22,10 @@
             <th>{% translate "Incident start date" %}</th>
             <td>{{ incident.incident_starting_date|date:"d M Y, H:i" }}</td>
         </tr>
+        <tr>
+            <th>{% translate "Incident resolution date" %}</th>
+            <td>{{ incident.incident_resolution_date|date:"d M Y, H:i" }}</td>
+        </tr>
     </tbody>
 </table>
 

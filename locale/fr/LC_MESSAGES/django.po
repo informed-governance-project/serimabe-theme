@@ -1,4 +1,4 @@
-# This file was generated from serima_frontend_translations_latest.xlsx
+# This file was generated from /home/cases/serima/theme/locale/frontend_translations.xlsx
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
@@ -167,7 +167,10 @@ msgid "Contact form"
 msgstr "Formulaire de contact"
 
 #: theme/templates/home/contact.html:33
-msgid "Firstname"
+#: theme/templates/incidents/contact_form.html:18
+#: theme/templates/incidents/contact_form.html:49
+#: theme/templates/registration/signup.html:22
+msgid "First name"
 msgstr "Prénom"
 
 #: theme/templates/home/contact.html:38
@@ -1443,16 +1446,20 @@ msgid "Operator"
 msgstr "Opérateur"
 
 #: theme/templates/incidents/base.html:118
-#: theme/templates/incidents/base.html:123
+#: theme/templates/incidents/base.html:126
 #: theme/templates/report/details.html:31
 msgid "Regulator"
 msgstr "Régulateur"
 
-#: theme/templates/incidents/base.html:125
+#: theme/templates/incidents/base.html:122
+msgid "Operator Name"
+msgstr ""
+
+#: theme/templates/incidents/base.html:128
 msgid "Regulation"
 msgstr "Régulation"
 
-#: theme/templates/incidents/base.html:128 theme/templates/report/cover.html:28
+#: theme/templates/incidents/base.html:131 theme/templates/report/cover.html:28
 #: theme/templates/report/details.html:11
 msgid "Reference"
 msgstr "Référence"
@@ -1464,7 +1471,7 @@ msgstr "Référence"
 msgid "Sectors"
 msgstr "Secteurs"
 
-#: theme/templates/incidents/base.html:130 theme/templates/report/cover.html:13
+#: theme/templates/incidents/base.html:133 theme/templates/report/cover.html:13
 #: theme/templates/report/header.html:9
 msgid "Report"
 msgstr "Rapport"
@@ -1477,37 +1484,37 @@ msgstr "Rapport"
 msgid "Actions"
 msgstr "Actions"
 
-#: theme/templates/incidents/base.html:145
+#: theme/templates/incidents/base.html:148
 #: theme/templates/observer/incidents.html:27
 #: theme/templates/operator/incidents.html:40
 #: theme/templates/operator/incidents.html:43
 msgid "Incident with significant impact"
 msgstr "Incident ayant un impact significatif"
 
-#: theme/templates/incidents/base.html:147
+#: theme/templates/incidents/base.html:150
 msgid "No significant impact"
 msgstr "Pas d'impact significatif"
 
-#: theme/templates/incidents/base.html:163
+#: theme/templates/incidents/base.html:166
 #: theme/templates/observer/incidents.html:11
 #: theme/templates/operator/incidents.html:22
 #: theme/templates/operator/incidents.html:25
 msgid "The incident is still ongoing"
 msgstr "L'incident est toujours en cours"
 
-#: theme/templates/incidents/base.html:165
+#: theme/templates/incidents/base.html:168
 #: theme/templates/observer/incidents.html:17
 #: theme/templates/operator/incidents.html:29
 #: theme/templates/operator/incidents.html:32
 msgid "The incident is over"
 msgstr "L'incident est clos"
 
-#: theme/templates/incidents/base.html:175
+#: theme/templates/incidents/base.html:178
 msgid "Incident notification submission date"
 msgstr "Date de soumission de la notification de l'incident"
 
-#: theme/templates/incidents/base.html:256
-#: theme/templates/incidents/base.html:259
+#: theme/templates/incidents/base.html:268
+#: theme/templates/incidents/base.html:271
 #: theme/templates/modals/report_versions.html:8
 #: theme/templates/modals/report_versions.html:16
 #: theme/templates/operator/incidents.html:84
@@ -1515,9 +1522,9 @@ msgstr "Date de soumission de la notification de l'incident"
 msgid "Version control"
 msgstr "Gestion de versions"
 
-#: theme/templates/incidents/base.html:266
-#: theme/templates/incidents/base.html:288
-#: theme/templates/incidents/base.html:290
+#: theme/templates/incidents/base.html:278
+#: theme/templates/incidents/base.html:300
+#: theme/templates/incidents/base.html:302
 msgid "Download PDF report"
 msgstr "Télécharger le rapport PDF"
 
@@ -1532,12 +1539,12 @@ msgstr "Télécharger le rapport PDF"
 msgid "Access Log"
 msgstr "Journal des accès"
 
-#: theme/templates/incidents/base.html:305
+#: theme/templates/incidents/base.html:317
 msgid "No incident reports have been submitted yet."
 msgstr "Aucun rapport d'incident n'a encore été soumis."
 
-#: theme/templates/incidents/base.html:328
-#: theme/templates/incidents/declaration.html:126
+#: theme/templates/incidents/base.html:340
+#: theme/templates/incidents/declaration.html:133
 #: theme/templates/modals/accept_terms.html:20
 #: theme/templates/modals/access_log.html:20
 #: theme/templates/modals/contacts_incident.html:10
@@ -1590,12 +1597,6 @@ msgstr "Responsable de la notification de l’incident"
 msgid "Job title"
 msgstr "Intitulé du poste"
 
-#: theme/templates/incidents/contact_form.html:18
-#: theme/templates/incidents/contact_form.html:49
-#: theme/templates/registration/signup.html:22
-msgid "First name"
-msgstr "Prénom"
-
 #: theme/templates/incidents/contact_form.html:21
 #: theme/templates/incidents/contact_form.html:52
 #: theme/templates/registration/signup.html:23
@@ -1635,7 +1636,7 @@ msgstr "Signaler un incident"
 msgid "Incident notification steps"
 msgstr "Étapes de notification d'un incident"
 
-#: theme/templates/incidents/declaration.html:124
+#: theme/templates/incidents/declaration.html:131
 #: theme/templates/modals/delete_incident.html:20
 #: theme/templates/modals/delete_report_recommendation.html:19
 #: theme/templates/modals/delete_so_declaration.html:19
@@ -1644,7 +1645,7 @@ msgstr "Étapes de notification d'un incident"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: theme/templates/incidents/declaration.html:136
+#: theme/templates/incidents/declaration.html:143
 msgid "Previous"
 msgstr "Précédent"
 
@@ -1653,7 +1654,7 @@ msgstr "Précédent"
 msgid "Submit"
 msgstr "Soumettre"
 
-#: theme/templates/incidents/declaration.html:151
+#: theme/templates/incidents/declaration.html:158
 msgid "Next"
 msgstr "Suivant"
 
@@ -1914,7 +1915,7 @@ msgstr "Mot de passe"
 msgid "Light theme"
 msgstr "Thème clair"
 
-#: theme/templates/parts/header.html:57
+#: theme/templates/parts/header.html:56
 msgid "Contact"
 msgstr "Contact"
 
@@ -2243,7 +2244,11 @@ msgstr "Date de détection de l’incident"
 msgid "Incident start date"
 msgstr "Date de début de l’incident"
 
-#: theme/templates/report/timeline.html:30
+#: theme/templates/report/timeline.html:26
+msgid "Incident resolution date"
+msgstr ""
+
+#: theme/templates/report/timeline.html:34
 msgid "Report Timeline"
 msgstr "Chronologie des rapports"
 
