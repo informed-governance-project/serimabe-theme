@@ -242,11 +242,11 @@ msgstr "Allgemeine Nutzungsbedingungen"
 
 #: theme/templates/home/terms.html:18
 msgid "Terms of use of the SERIMA platform"
-msgstr ""
+msgstr "Nutzungsbedingungen der SERIMA Plattform"
 
 #: theme/templates/home/terms.html:18 theme/templates/parts/footer.html:16
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: theme/templates/home/terms.html:33
 msgid "Definitions"
