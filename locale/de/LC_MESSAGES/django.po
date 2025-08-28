@@ -1231,7 +1231,7 @@ msgstr "Schließen"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: theme/templates/incidents/base.html:342
+#: theme/templates/incidents/base.html:354
 #: theme/templates/reporting/add_recommendations.html:63
 #: theme/templates/reporting/dashboard.html:196
 #: theme/templates/security_objectives/so_dashboard_base.html:188
@@ -1971,6 +1971,10 @@ msgstr "Berichtsgenerierungstabelle"
 msgid "Year"
 msgstr "Jahr"
 
+#: theme/templates/reporting/dashboard.html:54
+msgid "Operator"
+msgstr "Betreiber"
+
 #: theme/templates/reporting/dashboard.html:56
 #: theme/templates/security_objectives/so_dashboard_base.html:27
 msgid "Security objectives"
@@ -2116,8 +2120,8 @@ msgid "Vulnerability"
 msgstr "Schwachstelle"
 
 #: theme/templates/reporting/risks.html:60
-msgid "Vulnerability Qualification"
-msgstr ""
+msgid "Severity"
+msgstr "Schweregrad"
 
 #: theme/templates/reporting/risks.html:61
 msgid "Current Risk"
@@ -2269,11 +2273,11 @@ msgstr "Frist"
 
 #: theme/templates/reporting/risks.html:510
 msgid "Postponed"
-msgstr ""
+msgstr "Aufgeschoben"
 
 #: theme/templates/reporting/risks.html:511
 msgid "To check"
-msgstr ""
+msgstr "Zu überprüfen"
 
 #: theme/templates/reporting/security_mesures.html:5
 msgid "Implemented Security Measures"
@@ -2329,7 +2333,7 @@ msgstr "Punktzahl"
 #: theme/templates/security_objectives/declaration.html:50
 #: theme/templates/security_objectives/report/declaration.html:33
 msgid "table of"
-msgstr ""
+msgstr "Tabelle von"
 
 #: theme/templates/security_objectives/declaration.html:55
 #: theme/templates/security_objectives/report/declaration.html:38
@@ -2359,7 +2363,7 @@ msgstr "Begründung & Nachweis"
 #: theme/templates/security_objectives/declaration.html:72
 #: theme/templates/security_objectives/report/declaration.html:54
 msgid "Review Comment"
-msgstr ""
+msgstr "Überprüfungskommentar"
 
 #: theme/templates/security_objectives/declaration.html:77
 #: theme/templates/security_objectives/report/declaration.html:59
@@ -2368,13 +2372,13 @@ msgstr "Geplante Maßnahmen"
 
 #: theme/templates/security_objectives/declaration.html:127
 #: theme/templates/security_objectives/report/declaration.html:99
-msgid "No security measures data"
-msgstr ""
+msgid "No security measures data available."
+msgstr "Keine Daten zu Sicherheitsmaßnahmen verfügbar."
 
 #: theme/templates/security_objectives/declaration.html:134
 #: theme/templates/security_objectives/report/declaration.html:108
-msgid "No security objectives data"
-msgstr ""
+msgid "No security objectives data available."
+msgstr "Keine Daten zu Sicherheitszielen verfügbar."
 
 #: theme/templates/security_objectives/report/cover.html:11
 #: theme/templates/security_objectives/report/header.html:5
@@ -2410,17 +2414,17 @@ msgid ""
 "Please list your current and planned measures, including a schedule with the "
 "individual stages."
 msgstr ""
-"Bitte listen Sie Ihre laufenden und geplanten Maßnahmen inklusive einem "
-"Zeitplan mit den einzelnen Etappen auf."
+"Bitte listen Sie Ihre laufenden und geplanten Maßnahmen inklusive eines "
+"Zeitplans mit den einzelnen Etappen auf."
 
 #: theme/templates/security_objectives/report/template.html:8
 #: theme/templates/security_objectives/report/template.html:9
 msgid "Security objectives report"
-msgstr ""
+msgstr "Sicherheitsziele Bericht"
 
 #: theme/templates/security_objectives/so_dashboard_base.html:49
 msgid "Security objectives table"
-msgstr ""
+msgstr "Sicherheitsziele Tabelle"
 
 #: theme/templates/security_objectives/so_dashboard_base.html:57
 msgid "Creator"

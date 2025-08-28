@@ -1224,7 +1224,7 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: theme/templates/incidents/base.html:342
+#: theme/templates/incidents/base.html:354
 #: theme/templates/reporting/add_recommendations.html:63
 #: theme/templates/reporting/dashboard.html:196
 #: theme/templates/security_objectives/so_dashboard_base.html:188
@@ -1933,6 +1933,10 @@ msgstr ""
 msgid "Year"
 msgstr ""
 
+#: theme/templates/reporting/dashboard.html:54
+msgid "Operator"
+msgstr ""
+
 #: theme/templates/reporting/dashboard.html:56
 #: theme/templates/security_objectives/so_dashboard_base.html:27
 msgid "Security objectives"
@@ -2075,7 +2079,7 @@ msgid "Vulnerability"
 msgstr ""
 
 #: theme/templates/reporting/risks.html:60
-msgid "Vulnerability Qualification"
+msgid "Severity"
 msgstr ""
 
 #: theme/templates/reporting/risks.html:61
@@ -2327,12 +2331,12 @@ msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:127
 #: theme/templates/security_objectives/report/declaration.html:99
-msgid "No security measures data"
+msgid "No security measures data available."
 msgstr ""
 
 #: theme/templates/security_objectives/declaration.html:134
 #: theme/templates/security_objectives/report/declaration.html:108
-msgid "No security objectives data"
+msgid "No security objectives data available."
 msgstr ""
 
 #: theme/templates/security_objectives/report/cover.html:11
