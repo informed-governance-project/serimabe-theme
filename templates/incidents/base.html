@@ -113,10 +113,13 @@
             <th scope="col" class="text-start">{% translate "Creation date" %}</th>
             <th scope="col">
                 {% if is_regulator and not is_regulator_incidents or is_observer %}
-                {% translate "Operator" %}
+                {% translate "Operator Acronym" %}
                 {% else %}
                 {% translate "Regulator" %}
                 {% endif %}
+            </th>
+            <th scope="col" class="{% if not is_regulator or is_regulator_incidents and not is_observer %}d-none{% endif %}">
+                {% translate "Operator Name" %}
             </th>
             <th scope="col">
                 {% if is_observer %}
@@ -179,14 +182,23 @@
                 </div>
 
             </td>
-            <td class="table-group-divider py-3"> <!-- Regulator / Operator -->
+            <td class="table-group-divider py-3"> <!-- Regulator / Operator Acronym -->
                 {% block content_table_entity %}
                 {% if incident.company %}
                 {{ incident.company.identifier }}
-                {% else %}
+                {% elif incident.regulator %}
                 {{ incident.regulator }}
                 {% endif %}
                 {% endblock %}
+            </td>
+            <td class="table-group-divider py-3 {% if not is_regulator or is_regulator_incidents and not is_observer %}d-none{% endif %}"> <!-- Regulator / Operator Name -->
+                {% if incident.company %}
+                {{ incident.company.name }}
+                {% elif incident.regulator %}
+                {{ incident.regulator.full_name }}
+                {% else %}
+                {{ incident.company_name }}
+                {% endif %}                
             </td>
             <td class="table-group-divider py-3"> <!-- Regulation or Regulator(observer case) -->
                 {% block content_table_regulation_or_regulator %}
