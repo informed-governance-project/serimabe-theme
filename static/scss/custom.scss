@@ -204,3 +204,16 @@ a.changelink {
     --bs-btn-hover-bg: var(--bs-secondary);
 }
 
+.btn-close-white {
+    @extend .btn-close-white;
+    border-radius: 50% !important;
+    border-width: 3px !important;
+    width: 0.5em !important;
+    height: 0.5em !important;
+    border: 2px solid var(--bs-dark) !important;
+    opacity: 1 !important;
+}
+
+.btn-close-white:hover {
+    opacity: 0.75 !important;
+}
