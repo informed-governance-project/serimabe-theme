@@ -79,55 +79,6 @@
     </div>
 </div>
 
-<!-- Legend -->
-<div class="my-2">
-    <div id="collapseLegend" class="collapse">
-        <div class="legend">
-            <span class="legend-title">
-                {% translate "Legend" %}
-            </span>
-            <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
-                <li class="legend-item legend-impact">
-                    <i class="logo-report-impact m-0 h5" aria-hidden="true"></i>
-                    {% translate "Impact" %}
-                </li>
-                <li class="legend-item legend-ongoing">
-                    <i class="logo-report-ongoing m-0 h5" aria-hidden="true"></i>
-                    {% translate "On going" %}
-                </li>
-                <li class="legend-item legend-closed">
-                    <i class="logo-report-closed m-0 h5" aria-hidden="true"></i>
-                    {% translate "Closed" %}
-                </li>
-                <li class="legend-item legend-unsubmitted">
-                    <i class="logo-report-unsubmitted m-0 h5" aria-hidden="true"></i>
-                    {% translate "Unsubmitted" %}
-                </li>
-                <li class="legend-item legend-under-review">
-                    <i class="logo-report-under-review m-0 h5" aria-hidden="true"></i>
-                    {% translate "Under review" %}
-                </li>
-                <li class="legend-item legend-late-under-review">
-                    <i class="logo-report-late-under-review m-0 pe-3 h5" aria-hidden="true"></i>
-                    {% translate "Late submission" %}
-                </li>
-                <li class="legend-item legend-submission-overdue">
-                    <i class="logo-report-overdue m-0 pe-3 h5" aria-hidden="true"></i>
-                    {% translate "Submission overdue" %}
-                </li>
-                <li class="legend-item legend-passed">
-                    <i class="logo-report-pass m-0 h5" aria-hidden="true"></i>
-                    {% translate "Passed" %}
-                </li>
-                <li class="legend-item legend-failed">
-                    <i class="logo-report-fail m-0 h5" aria-hidden="true"></i>
-                    {% translate "Revision required" %}
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
 {% if filter.qs %}
 <table id="incidents-table" class="table table-responsive align-middle table-sm small">
     <caption class="visually-hidden">{% translate "Incidents table" %}</caption>
@@ -328,6 +279,55 @@
         {% endfor %}
     </tbody>
 </table>
+
+<!-- Legend -->
+<div class="my-2">
+    <div id="collapseLegend" class="collapse">
+        <div class="legend">
+            <span class="legend-title">
+                {% translate "Legend" %}
+            </span>
+            <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
+                <li class="legend-item legend-impact">
+                    <i class="logo-report-impact m-0 h5" aria-hidden="true"></i>
+                    {% translate "Significant Impact" %}
+                </li>
+                <li class="legend-item legend-ongoing">
+                    <i class="logo-report-ongoing m-0 h5" aria-hidden="true"></i>
+                    {% translate "Ongoing" %}
+                </li>
+                <li class="legend-item legend-closed">
+                    <i class="logo-report-closed m-0 h5" aria-hidden="true"></i>
+                    {% translate "Closed" %}
+                </li>
+                <li class="legend-item legend-unsubmitted">
+                    <i class="logo-report-unsubmitted m-0 h5" aria-hidden="true"></i>
+                    {% translate "Unsubmitted" %}
+                </li>
+                <li class="legend-item legend-under-review">
+                    <i class="logo-report-under-review m-0 h5" aria-hidden="true"></i>
+                    {% translate "Under review" %}
+                </li>
+                <li class="legend-item legend-late-under-review">
+                    <i class="logo-report-late-under-review m-0 pe-3 h5" aria-hidden="true"></i>
+                    {% translate "Late submission" %}
+                </li>
+                <li class="legend-item legend-submission-overdue">
+                    <i class="logo-report-overdue m-0 pe-3 h5" aria-hidden="true"></i>
+                    {% translate "Submission overdue" %}
+                </li>
+                <li class="legend-item legend-passed">
+                    <i class="logo-report-pass m-0 h5" aria-hidden="true"></i>
+                    {% translate "Passed" %}
+                </li>
+                <li class="legend-item legend-failed">
+                    <i class="logo-report-fail m-0 h5" aria-hidden="true"></i>
+                    {% translate "Revision required" %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 {% with pagination_data=incidents %}
     {% include "parts/pagination.html" %}
 {% endwith %}
