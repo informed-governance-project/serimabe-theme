@@ -12435,10 +12435,27 @@ a.changelink {
   justify-content: flex-end;
   font-family: "bootstrap-icons";
   font-style: normal;
+  margin: 0;
 }
 
 .custom-icon-pdf {
   background-image: url("/static/images/icons/ico-pdf.svg");
+}
+
+.custom-icon-pdf-small {
+  background-image: url("/static/images/icons/ico-pdf-small.svg");
+}
+
+.custom-icon-versioning {
+  background-image: url("/static/images/icons/ico-versioning.svg");
+}
+
+.custom-icon-comments {
+  background-image: url("/static/images/icons/ico-comments.svg");
+}
+
+.custom-icon-view {
+  background-image: url("/static/images/icons/ico-view.svg");
 }
 
 .custom-icon-log {
@@ -12460,6 +12477,27 @@ a.changelink {
 .dropdown-menu.fit-content {
   width: auto !important;
   min-width: unset;
+}
+
+.btn-filter-gray {
+  --bs-btn-bg: var(--bs-gray-300);
+  --bs-btn-border-color: var(--bs-dark);
+  --bs-btn-border-radius: .5rem;
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: var(--bs-secondary);
+}
+
+.btn-close-white {
+  border-radius: 50% !important;
+  border-width: 3px !important;
+  width: 0.5em !important;
+  height: 0.5em !important;
+  border: 2px solid var(--bs-dark) !important;
+  opacity: 1 !important;
+}
+
+.btn-close-white:hover {
+  opacity: 0.75 !important;
 }
 
 /*# sourceMappingURL=custom.css.map */
