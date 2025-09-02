@@ -61,7 +61,7 @@
         <div class="hr-separator"></div>
     </div>
     <div>
-        <button id="openFilter" class="btn btn-primary btn-sm" type="button" data-bs-placement="top"
+        <button id="openFilter" class="btn btn-filter-gray btn-sm" type="button" data-bs-placement="top"
             data-bs-toggle="tooltip" title="{% translate 'Filter by status, sector, etc.' %}">
             {% translate "Filter" %}
             {% if is_filtered %}
@@ -69,7 +69,7 @@
                 ({% translate "Active" %})
             </span>
             {% endif %}
-            <i class="bi bi-funnel-fill" aria-hidden="true"></i>
+            <i class="bi bi-filter" aria-hidden="true"></i>
         </button>
         <button type="button" class="btn btn-primary bg-body border-0" data-bs-toggle="collapse"
             data-bs-target="#collapseLegend" aria-expanded="false" aria-controls="collapseLegend">

@@ -195,3 +195,12 @@ a.changelink {
 .alert-error {
    @extend .alert-danger;
 }
+
+.btn-filter-gray {
+    --bs-btn-bg: var(--bs-gray-300);
+    --bs-btn-border-color: var(--bs-dark);
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: var(--bs-secondary);
+}
+
