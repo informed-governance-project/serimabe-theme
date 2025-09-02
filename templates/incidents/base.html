@@ -265,7 +265,7 @@
                 <ul class="list-unstyled mb-0">
                     {% for report in incident.all_reports %}
                     {% with latest_incident_workflow=report.latest_incident_workflow %}
-                    <li class="mb-1">
+                    <li class="mb-1 d-flex justify-content-between align-items-center">
                         <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip"
                             title="{{ report.tooltip }}">
                             <i class="logo-{{ report.css_class }} align-middle" aria-hidden="true"></i>
@@ -277,19 +277,15 @@
                             </a>
                         </div>
                         {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
-                            <div class="d-inline-flex">
+                            <div class="d-inline-flex align-items-center">
                                 {% if incident_workflows %}
-                                <button class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center report_versions"
-                                    data-workflows="{{ incident_workflows }}" 
-                                    data-report="{{ report.name }}"
-                                    data-incident-ref="{{ incident.incident_id}}"
+                                <button class="btn text-dark p-0 ps-1 border-0 report_versions" data-workflows="{{ incident_workflows }}"
+                                    data-report="{{ report.name }}" data-incident-ref="{{ incident.incident_id}}"
                                     data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
-                                    data-download-url="{% url 'download_incident_report_pdf' 0 %}" 
-                                    data-bs-toggle="modal"
+                                    data-download-url="{% url 'download_incident_report_pdf' 0 %}" data-bs-toggle="modal"
                                     data-bs-target="#report_versions">
-                                    <i class="bi bi-clock-history align-self-center" aria-hidden="true"
-                                        data-bs-placement="top" data-bs-toggle="tooltip" 
-                                        title="{% translate 'Version control' %}">
+                                    <i class="custom-icon-versioning h4 align-self-center" aria-hidden="true" data-bs-placement="top"
+                                        data-bs-toggle="tooltip" title="{% translate 'Version control' %}">
                                     </i>
                                     <span class="visually-hidden">
                                         {% translate 'Version control' %}
@@ -297,12 +293,11 @@
                                 </button>
                                 {% endif %}
                                 {% if latest_incident_workflow %}
-                                <a class="btn p-0 ps-1 border-0 d-inline-flex align-items-center"
-                                    href="{% url 'download_incident_report_pdf' latest_incident_workflow.id %}"
+                                <a class="btn p-0 ps-1 border-0" href="{% url 'download_incident_report_pdf' latest_incident_workflow.id %}"
                                     data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download PDF report' %}">
-                                    <i class="custom-icon-pdf align-self-center" aria-hidden="true"></i>
+                                    <i class="custom-icon-pdf-small h4 align-self-center" aria-hidden="true"></i>
                                 </a>
-                                {% endif %}                     
+                                {% endif %}
                             </div>
                         {% endwith %}
                     </li>

@@ -148,10 +148,27 @@ a.changelink {
     justify-content: flex-end;
     font-family: "bootstrap-icons";
     font-style: normal; 
+    margin: 0;
  }
 
 .custom-icon-pdf {
     background-image: url('/static/images/icons/ico-pdf.svg'); 
+}
+
+.custom-icon-pdf-small {
+  background-image: url("/static/images/icons/ico-pdf-small.svg");
+}
+
+.custom-icon-versioning {
+  background-image: url("/static/images/icons/ico-versioning.svg");
+}
+
+.custom-icon-comments {
+  background-image: url("/static/images/icons/ico-comments.svg");
+}
+
+.custom-icon-view {
+  background-image: url("/static/images/icons/ico-view.svg");
 }
 
 .custom-icon-log {
