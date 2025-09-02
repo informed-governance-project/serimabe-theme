@@ -8,12 +8,6 @@
 <script src='{% static "js/incidents_operator.js" %}'></script>
 {% endblock %}
 
-{% block content_title %}
-{% if is_regulator_incidents %}
-<h3 class="fw-bolder">{% translate "My reported incidents" %}</h3>
-<div class="hr-separator"></div>
-{% endif %}
-{% endblock %}
 
 {% block content_table_incident_status %}
     {% if incident.incident_status == 'GOING' %}
