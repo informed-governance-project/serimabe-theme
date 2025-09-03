@@ -12351,7 +12351,8 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-html, body {
+html,
+body {
   font-family: "Montserrat", serif;
   font-optical-sizing: auto;
 }
@@ -12498,6 +12499,24 @@ a.changelink {
 
 .btn-close-white:hover {
   opacity: 0.75 !important;
+}
+
+table.dataTable thead > tr > th.dt-orderable-asc span.dt-column-order:before,
+table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-orderable-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order:before {
+  content: "❮" !important;
+  content: "❮"/"" !important;
+  rotate: 90deg !important;
+}
+
+table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order:after,
+table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
+  content: "❯" !important;
+  content: "❯"/"" !important;
+  rotate: 90deg !important;
 }
 
 /*# sourceMappingURL=custom.css.map */
