@@ -54,6 +54,15 @@
         <li class="mb-1 d-flex justify-content-between align-items-center">
             <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip"
                 title="{{ report.tooltip }}">
+                {% if not latest_incident_workflow and not report.is_disabled and forloop.first %}
+                <a class="btn btn-not-submitted btn-sm"
+                    href="{% url 'create_workflow' %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}">
+                    <i class="custom-icon-not-submitted align-middle" aria-hidden="true"></i>
+                    {{ report.name }}
+                    <br>
+                    {% translate "not submitted yet" %}
+                </a>
+                {% else %}
                 <i class="logo-{{ report.css_class }} align-middle" aria-hidden="true"></i>
                 <a class="{{ report.css_class }} {% if report.is_disabled %}text-decoration-none{% endif %}"
                     {% if not report.is_disabled %}
@@ -62,6 +71,7 @@
                     {% endif %}>
                     {{ report.name }}
                 </a>
+                {% endif %}
             </div>
             <div class="d-inline-flex align-items-center">
             {% if latest_incident_workflow.comment %}

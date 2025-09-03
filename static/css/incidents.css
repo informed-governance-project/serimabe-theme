@@ -235,3 +235,24 @@
 
 }
 
+.btn-not-submitted {
+    display: flex;
+    background-color: #A76906;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    outline: 1px solid #727272;
+    text-align: center;
+    line-height: 14px;
+    align-items: center;
+    text-align: left;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-not-submitted:hover {
+    transition: background-color 0.3s ease;
+    background-color: #8e5905;
+    outline: 1px solid #616161;
+}
