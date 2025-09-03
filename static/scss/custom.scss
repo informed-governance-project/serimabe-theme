@@ -6,7 +6,7 @@
 // ILR Colors
 
 $primary: #e40521;
-$secondary: #212529; 
+$secondary: #212529;
 
 // IBPT Colors
 
@@ -63,7 +63,8 @@ $utilities: map-merge($utilities,
 
 // Then add additional custom code here
 
-html, body {
+html,
+body {
     font-family: "Montserrat", serif;
     font-optical-sizing: auto;
 }
@@ -75,7 +76,7 @@ a.changelink {
     margin-right: 12px
 }
 
-.required-field > label::after {
+.required-field>label::after {
     content: " * ";
     color: var(--bs-danger);
     font-weight: bold;
@@ -118,8 +119,8 @@ a.changelink {
 
 .right-modal {
     top: 0;
-    left: 100%; 
-    width: 400px; 
+    left: 100%;
+    width: 400px;
     transform: translateX(100%);
     transition: transform 0.5s ease-in-out;
 }
@@ -129,16 +130,16 @@ a.changelink {
 }
 
 .list-sectors li:before {
-    content : "\2022  ";
+    content: "\2022  ";
 }
 
 .list-sectors ul:last-child {
     margin-bottom: 0;
-}   
+}
 
 /* Custom icons  */
 
-[class^="custom-icon"]{
+[class^="custom-icon"] {
     width: 1em;
     height: 1em;
     display: inline-block;
@@ -147,44 +148,44 @@ a.changelink {
     background-repeat: no-repeat;
     justify-content: flex-end;
     font-family: "bootstrap-icons";
-    font-style: normal; 
+    font-style: normal;
     margin: 0;
- }
+}
 
 .custom-icon-pdf {
-    background-image: url('/static/images/icons/ico-pdf.svg'); 
+    background-image: url('/static/images/icons/ico-pdf.svg');
 }
 
 .custom-icon-pdf-small {
-  background-image: url("/static/images/icons/ico-pdf-small.svg");
+    background-image: url("/static/images/icons/ico-pdf-small.svg");
 }
 
 .custom-icon-versioning {
-  background-image: url("/static/images/icons/ico-versioning.svg");
+    background-image: url("/static/images/icons/ico-versioning.svg");
 }
 
 .custom-icon-comments {
-  background-image: url("/static/images/icons/ico-comments.svg");
+    background-image: url("/static/images/icons/ico-comments.svg");
 }
 
 .custom-icon-view {
-  background-image: url("/static/images/icons/ico-view.svg");
+    background-image: url("/static/images/icons/ico-view.svg");
 }
 
 .custom-icon-log {
-    background-image: url('/static/images/icons/ico-log.svg'); 
+    background-image: url('/static/images/icons/ico-log.svg');
 }
 
 .custom-icon-user {
-    background-image: url('/static/images/icons/ico-user.svg'); 
+    background-image: url('/static/images/icons/ico-user.svg');
 }
 
 .custom-icon-trash {
-    background-image: url('/static/images/icons/ico-trash.svg'); 
+    background-image: url('/static/images/icons/ico-trash.svg');
 }
 
 .form-check-input {
-  border-color: var(--bs-gray-600);
+    border-color: var(--bs-gray-600);
 }
 
 .dropdown-menu.fit-content {
@@ -193,7 +194,7 @@ a.changelink {
 }
 
 .alert-error {
-   @extend .alert-danger;
+    @extend .alert-danger;
 }
 
 .btn-filter-gray {
@@ -216,4 +217,23 @@ a.changelink {
 
 .btn-close-white:hover {
     opacity: 0.75 !important;
+}
+
+table.dataTable thead>tr>th.dt-orderable-asc span.dt-column-order:before,
+table.dataTable thead>tr>th.dt-ordering-asc span.dt-column-order:before,
+table.dataTable thead>tr>td.dt-orderable-asc span.dt-column-order:before,
+table.dataTable thead>tr>td.dt-ordering-asc span.dt-column-order:before {
+    content: "❮" !important;
+    content: "❮" /"" !important;
+    rotate: 90deg !important;
+    
+}
+
+table.dataTable thead>tr>th.dt-orderable-desc span.dt-column-order:after,
+table.dataTable thead>tr>th.dt-ordering-desc span.dt-column-order:after,
+table.dataTable thead>tr>td.dt-orderable-desc span.dt-column-order:after,
+table.dataTable thead>tr>td.dt-ordering-desc span.dt-column-order:after {
+    content: "❯" !important;
+    content: "❯" /"" !important;
+    rotate: 90deg !important;
 }
