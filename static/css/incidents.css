@@ -257,3 +257,24 @@
     background-color: #8e5905;
     outline: 1px solid #616161;
 }
+
+.search_icon, .close_icon {
+    border-color: var(--bs-dark);
+    padding: 2px;
+    background-color: unset;
+}
+
+#clearSearch:focus {
+    box-shadow: none;
+}
+
+#search_bar_form input {
+    border-color: var(--bs-dark);
+    border-left: unset;
+    border-right: unset;
+}
+
+#search_bar_form input:focus {
+    border-color: var(--bs-dark);
+    box-shadow: none;
+}
