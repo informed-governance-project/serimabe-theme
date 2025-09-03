@@ -12471,7 +12471,11 @@ a.changelink {
   background-image: url("/static/images/icons/ico-trash.svg");
 }
 
-.form-check-input {
+.custom-icon-not-submitted {
+  background-image: url("/static/images/icons/ico-not-submitted.svg");
+}
+
+ico-not-submitted .form-check-input {
   border-color: var(--bs-gray-600);
 }
 
