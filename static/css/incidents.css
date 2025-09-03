@@ -1,5 +1,4 @@
 /* Redefine color of the incidents table */
-
 .table-danger {
     background-color: #ff4c4c !important;
 }
@@ -204,3 +203,35 @@
     border: none !important;
     box-shadow: none !important;
 }
+
+.impacts-accordion-button:focus {
+    box-shadow: none !important;
+}
+
+.impacts-accordion-button:not(.collapsed) {
+    background-color:var(--bs-primary) !important;
+}
+
+.impacts-accordion-button:is(.collapsed) {
+    color:var(--bs-secondary) !important;
+}
+
+.impacts-accordion-button::after {
+    border-radius: 50% !important;
+    width: 1.4em !important;
+    height: 1.4em !important;
+    background-size: 0.9em 0.9em !important;
+    background-position: center !important;
+}
+
+.impacts-accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23f8f9fa' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+    border: 1.5px solid var(--bs-light) !important; 
+}
+
+.impacts-accordion-button:is(.collapsed)::after {
+    border: 1.5px solid var(--bs-dark) !important; 
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23212529' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+
+}
+
