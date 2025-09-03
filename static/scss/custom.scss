@@ -224,7 +224,7 @@ table.dataTable thead>tr>th.dt-ordering-asc span.dt-column-order:before,
 table.dataTable thead>tr>td.dt-orderable-asc span.dt-column-order:before,
 table.dataTable thead>tr>td.dt-ordering-asc span.dt-column-order:before {
     content: "❮" !important;
-    content: "❮" /"" !important;
+    content: "❮"/"" !important;
     rotate: 90deg !important;
     
 }
@@ -234,6 +234,6 @@ table.dataTable thead>tr>th.dt-ordering-desc span.dt-column-order:after,
 table.dataTable thead>tr>td.dt-orderable-desc span.dt-column-order:after,
 table.dataTable thead>tr>td.dt-ordering-desc span.dt-column-order:after {
     content: "❯" !important;
-    content: "❯" /"" !important;
+    content: "❯"/"" !important;
     rotate: 90deg !important;
 }
