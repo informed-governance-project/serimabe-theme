@@ -37,7 +37,7 @@
         </a>
         {% endif %}
         {% if not is_regulator and not is_observer or is_regulator_incidents %}
-        <a class="btn btn-primary btn-sm" href="{% url 'declaration' %}">
+        <a class="btn btn-primary" href="{% url 'declaration' %}">
             {% translate "Notify an incident" %}
         </a>
         {% endif %}
