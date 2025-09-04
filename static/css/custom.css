@@ -11858,7 +11858,8 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-html, body {
+html,
+body {
   font-family: "Montserrat", serif;
   font-optical-sizing: auto;
 }
@@ -11949,6 +11950,22 @@ a.changelink {
   background-image: url("/static/images/icons/ico-pdf.svg");
 }
 
+.custom-icon-pdf-small {
+  background-image: url("/static/images/icons/ico-pdf-small.svg");
+}
+
+.custom-icon-versioning {
+  background-image: url("/static/images/icons/ico-versioning.svg");
+}
+
+.custom-icon-comments {
+  background-image: url("/static/images/icons/ico-comments.svg");
+}
+
+.custom-icon-view {
+  background-image: url("/static/images/icons/ico-view.svg");
+}
+
 .custom-icon-log {
   background-image: url("/static/images/icons/ico-log.svg");
 }
@@ -11961,6 +11978,14 @@ a.changelink {
   background-image: url("/static/images/icons/ico-trash.svg");
 }
 
+.custom-icon-not-submitted {
+  background-image: url("/static/images/icons/ico-not-submitted.svg");
+}
+
+.custom-icon-search {
+  background-image: url("/static/images/icons/ico-search.svg");
+}
+
 .form-check-input {
   border-color: var(--bs-gray-600);
 }
@@ -11970,8 +11995,43 @@ a.changelink {
   min-width: unset;
 }
 
-:root {
-  --bs-blue-100: rgb(206.6, 226, 254.6);
+.btn-filter-gray {
+  --bs-btn-bg: var(--bs-gray-300);
+  --bs-btn-border-color: var(--bs-dark);
+  --bs-btn-border-radius: .5rem;
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: var(--bs-secondary);
+}
+
+.btn-close-white {
+  border-radius: 50% !important;
+  border-width: 3px !important;
+  width: 0.5em !important;
+  height: 0.5em !important;
+  border: 2px solid var(--bs-dark) !important;
+  opacity: 1 !important;
+}
+
+.btn-close-white:hover {
+  opacity: 0.75 !important;
+}
+
+table.dataTable thead > tr > th.dt-orderable-asc span.dt-column-order:before,
+table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-orderable-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order:before {
+  content: "❮" !important;
+  content: "❮"/"" !important;
+  rotate: 90deg !important;
+}
+
+table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order:after,
+table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
+  content: "❯" !important;
+  content: "❯"/"" !important;
+  rotate: 90deg !important;
 }
 
 /*# sourceMappingURL=custom.css.map */
