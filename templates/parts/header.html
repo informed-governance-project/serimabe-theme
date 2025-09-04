@@ -1,65 +1,75 @@
 {% load django_bootstrap5 %}
 {% load static %}
-{% load i18n %} 
+{% load i18n %}
 
 {% block bootstrap5_extra_head %}
-    <script src='{% static "npm_components/@popperjs/core/dist/umd/popper.min.js" %}'></script>
-    <script src='{% static "npm_components/jquery/dist/jquery.min.js" %}'></script>
+<script src='{% static "npm_components/@popperjs/core/dist/umd/popper.min.js" %}'></script>
+<script src='{% static "npm_components/jquery/dist/jquery.min.js" %}'></script>
 {% endblock %}
 
 
+<nav role="navigation" class="navbar navbar-expand-md navbar-light pb-0" aria-label="{% translate 'Main menu' %}">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <img src="{% static 'images/logo.svg' %}" alt="{{ site_name }}" width="130px" class="d-inline-block align-text-top">
+    </a>
 
-<nav role="navigation" class="navbar navbar-expand-md navbar-light" aria-label="{% translate 'Main menu' %}">
-    <div class="container-fluid">
-      <!-- Logo -->
-      <a class="navbar-brand" href="{% url 'index' %}">
-        <img src="{% static 'images/logo.svg' %}" alt="{{ site_name }}" width="200px" class="d-inline-block align-text-top">
-      </a>
-  
-      <!-- Responsive Menu Button -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <!-- Navigation Menu -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        
-        <ul class="navbar-nav ms-auto">
-          {% if user.is_authenticated %}
+    <!-- Responsive Menu Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Menu -->
+    <div class="collapse navbar-collapse my-auto" id="navbarNav">
+      <div class="vr"></div>
+      <ul class="navbar-nav {% if user.is_authenticated %}me-auto{% else %}ms-auto{% endif %}">    
+        {% if user.is_authenticated %}
           {% if is_regulator == True %}
-            {% include "regulator/menu.html" %}
+          {% include "regulator/menu.html" %}
           {% endif %}
-          {% if is_regulator == False  %}
-            {% include "operator/menu.html" %}
+          {% if is_regulator == False %}
+          {% include "operator/menu.html" %}
           {% endif %}
-          {% if is_staff %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'admin:index' %}">{% translate "Settings" %}</a>
-            </li>
-          {% endif %}
-          <li class="nav-item dropdown">
-            <button class="nav-link dropdown-toggle" id="navbarDropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-person-circle" aria-hidden="true"></i> {{ request.user.get_full_name }}
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="{% url 'edit_account' %}">{% translate 'Account' %}</a></li>
-              <li><a class="dropdown-item" href="{% url 'two_factor:profile' %}">{% translate 'Security' %}</a></li>
-              <li><a class="dropdown-item" href="{% url 'password_change' %}">{% translate 'Password' %}</a></li>
-              <li aria-hidden="true"><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#" id="btnThemeSwitch">{% translate 'Light theme' %}</a></li>
-              <li aria-hidden="true"><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{% url 'logout' %}">{% translate 'Log out' %}</a></li>
-            </ul>
+          <div class="vr"></div>
+      </ul>
+      <ul class="navbar-nav gap-3">
+      {% if is_staff %}
+      <li class="d-inline-flex nav-item">
+        <img class="w-85" src="{% static 'images/icons/ico-setting.svg' %}" alt="Settings icon">
+        <a class="nav-link" href="{% url 'admin:index' %}">{% translate "Settings" %}</a>
+      </li>
+      {% endif %}
+      <li class="d-inline-flex nav-item dropdown">
+          <img class="w-85" src="{% static 'images/icons/ico-user.svg' %}" alt="User icon">
+          <button class="nav-link dropdown-toggle" id="navbarDropdown" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            {{ request.user.get_full_name }}
+          </button>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="{% url 'edit_account' %}">{% translate 'Account' %}</a></li>
+          <li><a class="dropdown-item" href="{% url 'two_factor:profile' %}">{% translate 'Security' %}</a></li>
+          <li><a class="dropdown-item" href="{% url 'password_change' %}">{% translate 'Password' %}</a></li>
+          <li aria-hidden="true">
+            <hr class="dropdown-divider">
           </li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">
-            <i class="bi bi-envelope" aria-hidden="true"></i>
-            {% translate 'Contact' %}</a></li>
-          <li class="nav-item align-self-center">
-          {% endif %}
-            {% include "home/language_selector.html" %}  
+          <li><a class="dropdown-item" href="#" id="btnThemeSwitch">{% translate 'Light theme' %}</a></li>
+          <li aria-hidden="true">
+            <hr class="dropdown-divider">
           </li>
+          <li><a class="dropdown-item" href="{% url 'logout' %}">{% translate 'Log out' %}</a></li>
         </ul>
-      </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">
+          <i class="bi bi-envelope" aria-hidden="true"></i>
+          {% translate 'Contact' %}</a>
+      </li>
+      {% endif %}
+      <li class="nav-item align-self-center">
+        {% include "home/language_selector.html" %}
+      </li>
+      </ul>
     </div>
-  </nav>
-  
+  </div>
+</nav>
