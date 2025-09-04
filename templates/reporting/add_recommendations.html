@@ -1,4 +1,4 @@
-{% extends 'home/base.html' %}
+{% extends 'reporting/base.html' %}
 {% load i18n %}
 {% load django_bootstrap5 %}
 {% load reporting_filters %}
@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block content %}
-<h3 class="fw-bolder">
+<h3 class="fw-bolder pt-4">
     {% block title %}
     {% translate "Add recommendation(s)" %}
     {% endblock %}
