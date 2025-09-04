@@ -8,12 +8,6 @@
 <script src='{% static "js/incidents_operator.js" %}'></script>
 {% endblock %}
 
-{% block content_title %}
-{% if is_regulator_incidents %}
-<h3 class="fw-bolder">{% translate "My reported incidents" %}</h3>
-<div class="hr-separator"></div>
-{% endif %}
-{% endblock %}
 
 {% block content_table_incident_status %}
     {% if incident.incident_status == 'GOING' %}
@@ -57,9 +51,18 @@
     <ul class="list-unstyled mb-0">
     {% for report in incident.all_reports %}
     {% with latest_incident_workflow=report.latest_incident_workflow %}
-        <li class="mb-1">
+        <li class="mb-1 d-flex justify-content-between align-items-center">
             <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip"
                 title="{{ report.tooltip }}">
+                {% if not latest_incident_workflow and not report.is_disabled and forloop.first %}
+                <a class="btn btn-not-submitted btn-sm"
+                    href="{% url 'create_workflow' %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}">
+                    <i class="custom-icon-not-submitted align-middle" aria-hidden="true"></i>
+                    {{ report.name }}
+                    <br>
+                    {% translate "not submitted yet" %}
+                </a>
+                {% else %}
                 <i class="logo-{{ report.css_class }} align-middle" aria-hidden="true"></i>
                 <a class="{{ report.css_class }} {% if report.is_disabled %}text-decoration-none{% endif %}"
                     {% if not report.is_disabled %}
@@ -68,33 +71,15 @@
                     {% endif %}>
                     {{ report.name }}
                 </a>
+                {% endif %}
             </div>
-            {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
-            {% if incident_workflows %}
-            <button class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center report_versions"
-                data-workflows="{{ incident_workflows }}"
-                data-report="{{ report.name }}"
-                data-incident-ref="{{ incident.incident_id}}"
-                data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
-                data-download-url="{% url 'download_incident_report_pdf' 0 %}"
-                data-bs-toggle="modal"
-                data-bs-target="#report_versions">
-                <i class="bi bi-clock-history align-self-center" aria-hidden="true"
-                    data-bs-placement="top" data-bs-toggle="tooltip"
-                    title="{% translate 'Version control' %}">
-                </i>
-                <span class="visually-hidden">
-                    {% translate 'Version control' %}
-                </span>
-            </button>
-            {% endif %}
-            {% endwith %}
+            <div class="d-inline-flex align-items-center">
             {% if latest_incident_workflow.comment %}
             <button class="btn text-secondary workflow_comment p-0"
                 data-workflow-comment="{{ latest_incident_workflow.comment|linebreaksbr }}"
                 data-bs-toggle="modal"
                 data-bs-target="#workflow_comment">
-                <i class="bi bi-chat-left-text-fill"
+                <i class="custom-icon-comments h4"
                     data-bs-placement="top" data-bs-toggle="tooltip"
                     title="{% translate 'Comment/Explanation' %}"
                     aria-hidden="true">
@@ -104,6 +89,27 @@
                 </span>
             </button>
             {% endif %}
+            {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
+            {% if incident_workflows %}
+            <button class="btn text-dark p-0 ps-1 border-0 report_versions"
+                data-workflows="{{ incident_workflows }}"
+                data-report="{{ report.name }}"
+                data-incident-ref="{{ incident.incident_id}}"
+                data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
+                data-download-url="{% url 'download_incident_report_pdf' 0 %}"
+                data-bs-toggle="modal"
+                data-bs-target="#report_versions">
+                <i class="custom-icon-versioning h4 align-self-center" aria-hidden="true"
+                    data-bs-placement="top" data-bs-toggle="tooltip"
+                    title="{% translate 'Version control' %}">
+                </i>
+                <span class="visually-hidden">
+                    {% translate 'Version control' %}
+                </span>
+            </button>
+            {% endif %}
+            {% endwith %}
+            </div>
         </li>
     {% endwith %}
     {% endfor %}

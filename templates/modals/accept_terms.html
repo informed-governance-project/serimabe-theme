@@ -11,7 +11,7 @@
 <div class="modal" id="termsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-primary text-white px-4 small">
                 {% if is_only_admin %} 
                     <h1>{% translate "Terms of Service" %}</h1>
                 {% else %}
@@ -20,7 +20,7 @@
                 <button type="button" class="btn-close {% if is_only_admin %}hidden{% endif %} btn-close-white" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
             </div>
             <form action="" method="post">
-                <div class="modal-body">
+                <div class="modal-body py-4 px-5">
                     {% csrf_token %}
                     <div class="form-check">
                         <input class="form-check-input {% if is_only_admin %}input{% endif %}" type="checkbox" id="{{ form.accept.id_for_label }}"
