@@ -6,7 +6,7 @@ $(document).ready(function () {
         info: false,
         order: [],
         initComplete: function () {
-           stop_spinner();
+            stop_spinner();
         },
         columnDefs: [
             {
@@ -60,7 +60,7 @@ $(document).ready(function () {
 
         $modalReportName.text(reportId);
         let currentText = $captionAccessibility.text();
-        $captionAccessibility.text(currentText+ ' : ' + reportId);
+        $captionAccessibility.text(currentText + ' : ' + reportId);
         $modalincidentRef.text(incidentRef);
         $modalWorkflowRows.empty();
 
@@ -68,34 +68,32 @@ $(document).ready(function () {
             let reviewUrl = reviewUrlBase + workflow.id;
             let downloadUrl = downloadUrlBase.replace('0', workflow.id);
             let date = new Date(workflow.timestamp);
-            let formattedDate = date.toLocaleDateString('en-GB', {
-                day: '2-digit',
-                month: 'short',
-                year: 'numeric'
-            });
+            let formattedDate = date.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit', });
             let formattedTime = date.toLocaleTimeString('en-GB', {
                 hour: '2-digit',
                 minute: '2-digit'
             });
-            let formattedDateTime = formattedDate + ', ' + formattedTime;
             let tooltip_download = gettext("Download PDF report");
             let tooltip_review = gettext("Review");
 
             let row = `
                 <tr>
-                    <td>${formattedDateTime}</td>
-                    <td>
+                    <td class="col-3 small">${formattedDate}</td>
+                    <td class="col-7 small">
+                        <i class="bi bi-clock small" aria-hidden="true"></i> 
+                        ${formattedTime}
+                    </td>
+                    <td class="col-2 text-center">
                         <div class="d-inline-flex">
                             <a class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center" href="${reviewUrl}"
                                 data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_review}">
-                                <i class="bi bi-binoculars align-self-center" aria-hidden="true"></i>
+                                <i class="custom-icon-view h4 align-self-center" aria-hidden="true"></i>
                             </a>
                             <a class="btn p-0 ps-1 border-0 d-inline-flex align-items-center" href="${downloadUrl}" 
                                 data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_download}">
-                                <i class="custom-icon-pdf align-self-center" aria-hidden="true"></i>
+                                <i class="custom-icon-pdf-small h4 align-self-center" aria-hidden="true"></i>
                             </a>
                         </div>
-
                     </td>
                 </tr>
             `;
@@ -132,8 +130,36 @@ $(document).ready(function () {
         $('#technical-telephone').text(contacts.technical_telephone);
     });
 
-    $("#openFilter").click(function () {        
+    $("#openFilter").on("click", function () {
         $("#filterModal").modal("show");
-    })
+    });
+
+
+    const $search_bar_form = $("#search_bar_form")
+    const $search_bar_input = $("#id_search")
+    const $clearSearchBtn = $("#clearSearch")
+
+    function toggleClearButton() {
+        if ($search_bar_input.val() !== "") {
+            $clearSearchBtn.removeClass("d-none");
+        } else {
+            $clearSearchBtn.addClass("d-none");
+        }
+    }
+
+    $(document).on("input", $search_bar_input, toggleClearButton)
+
+    $(document).on("click", "#clearSearch", function () {
+        $search_bar_input.val("");
+        toggleClearButton();
+        $search_bar_form.trigger("submit");
+    });
+
+    $(document).on("submit", $search_bar_form, function () {
+        load_spinner()
+    });
+
+    toggleClearButton();
+
 });
 

@@ -1,80 +1,27 @@
 {% load i18n %}
-<li class="nav-item dropdown">
-	<button class="nav-link dropdown-toggle" id="navbarDropdown" type="button" data-bs-toggle="dropdown"
+{% if user_modules|length > 1 %}
+<div class="dropdown">
+	<button id="module_selector" class="nav-link dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown"
 		aria-expanded="false">
-		{% translate "Incidents" %}
+		{{ current_module }}
 	</button>
-	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-		<li>
-			<a class="dropdown-item" href="{% url 'incidents' %}" onclick="load_spinner()">
-				{% translate "Overview" %}
+	<ul class="dropdown-menu fit-content" aria-labelledby="module_selector">
+		{% for module in user_modules %}
+		<li role="presentation">
+			<a class="dropdown-item {% if module.name == current_module %}active{% endif %}" href="{% url module.type %}"
+				type="button" onclick="load_spinner();">
+				{{ module.name }}
 			</a>
 		</li>
-		<li aria-hidden="true">
-			<hr class="dropdown-divider">
-		</li>
-		<li>
-			<a class="dropdown-item" href="{% url 'regulator_incidents' %}" onclick="load_spinner()">
-				{% translate "My reported incidents" %}
-			</a>
-		</li>
+		{% endfor %}
 	</ul>
-</li>
-{% if "securityobjectives" in app_module_available and "securityobjectives" in user_module_permissions %}
-<li class="nav-item dropdown">
-	<button class="nav-link dropdown-toggle" id="navbarDropdown" type="button" data-bs-toggle="dropdown"
-		aria-expanded="false">
-		{% translate "Security Objectives" %}
-	</button>
-	<ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-		<li>
-			<a class="dropdown-item" href="{% url 'securityobjectives' %}" onclick="load_spinner()">
-				{% translate "Dashboard" %}
-			</a>
-		</li>
-		<li aria-hidden="true">
-			<hr class="dropdown-divider">
-		</li>
-		<li>
-			<a class="dropdown-item import_so_declaration" href="#" data-bs-toggle="modal"
-				data-bs-target="#import_so_declaration">
-				{% translate "Import" %}
-			</a>
-		</li>
-	</ul>
-</li>
-{% endif %}
-{% if "reporting" in app_module_available and "reporting" in user_module_permissions %}
-<li class="nav-item dropdown">
-	<button class="nav-link dropdown-toggle" id="navbarDropdown" type="button" data-bs-toggle="dropdown"
-		aria-expanded="false">
-		{% translate "Reporting" %}
-	</button>
-	<ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-		<li>
-			<a class="dropdown-item" href="{% url 'reporting' %}" onclick="load_spinner()">
-				{% translate "Dashboard" %}
-			</a>
-		</li>
-		<li aria-hidden="true">
-			<hr class="dropdown-divider">
-		</li>
-		<li>
-			<a class="dropdown-item" href="{% url 'download_center' %}" onclick="load_spinner()">
-				{% translate "Download Center" %}
-			</a>
-		</li>
-		<li>
-			<a class="dropdown-item" href="{% url 'report_configuration' %}" onclick="load_spinner()">
-				{% translate "Configuration" %}
-			</a>
-		</li>
-		<li>
-			<a class="dropdown-item import_risk_analysis" href="#" data-bs-toggle="modal"
-				data-bs-target="#import_risk_analysis">
-				{% translate "Import risk analysis" %}
-			</a>
-		</li>
-	</ul>
+</div>
+{% else %}
+<li class="nav-item">
+	{% for module in user_modules %}
+	<a class="nav-link fw-bold" href="{% url module.type %}" onclick="load_spinner()">
+		{{ module.name }}
+	</a>
+	{% endfor %}
 </li>
 {% endif %}
