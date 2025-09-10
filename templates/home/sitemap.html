@@ -10,4 +10,23 @@
   </h3>
   <div class="hr-separator"></div>
 </div>
+<div class="row row-cols-1 row-cols-md-3 g-3 mt-3">
+  {% for module in modules %}
+  <div class="col">
+    <h5 class="fw-bolder">
+      {{ module.name }}
+    </h5>
+    <div class="hr-separator"></div>
+    <ul class="list-unstyled">
+      {% for page in module.pages %}
+      <li class="ps-3">
+        <a href="{{ page.url }}">
+          {{ page.name }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}
