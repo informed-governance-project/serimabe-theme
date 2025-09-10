@@ -150,4 +150,30 @@ $(document).ready(function () {
   $("#openFilter").on("click", function () {
     $("#filterModal").modal("show");
   })
+
+  const $search_bar_form = $("#search_bar_form")
+  const $search_bar_input = $("#id_search")
+  const $clearSearchBtn = $("#clearSearch")
+
+  function toggleClearButton() {
+    if ($search_bar_input.val() !== "") {
+      $clearSearchBtn.removeClass("d-none");
+    } else {
+      $clearSearchBtn.addClass("d-none");
+    }
+  }
+
+  $(document).on("input", $search_bar_input, toggleClearButton)
+
+  $(document).on("click", "#clearSearch", function () {
+    $search_bar_input.val("");
+    toggleClearButton();
+    $search_bar_form.trigger("submit");
+  });
+
+  $(document).on("submit", $search_bar_form, function () {
+    load_spinner()
+  });
+
+  toggleClearButton();
 })

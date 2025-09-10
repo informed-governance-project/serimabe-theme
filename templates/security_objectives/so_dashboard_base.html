@@ -27,16 +27,26 @@
         </h3>
         <div class="hr-separator"></div>
     </div>
-    <button id="openFilter" class="btn btn-primary btn-sm ms-auto" type="button" data-bs-placement="top"
-        data-bs-toggle="tooltip" title="{% translate 'Filter by status, sector, etc.' %}">
-        {% translate "Filter" %}
-        {% if is_filtered %}
-        <span>
-            ({% translate "Active" %})
-        </span>
-        {% endif %}
-        <i class="bi bi-funnel-fill"></i>
-    </button>
+    <div class="d-inline-flex gap-4">
+        <form id="search_bar_form" method="get">
+            {% bootstrap_field filter.form.search label_class="fw-bold" addon_before="<i class='custom-icon-search h4'></i>" addon_before_class="input-group-text search_icon" addon_after="<button id='clearSearch' type='button' class='btn-close d-none'></button>" addon_after_class="input-group-text close_icon" show_label=false wrapper_class="mb-0"%}
+        </form>
+        <button id="openFilter" class="btn btn-filter-gray btn-sm px-3" type="button" data-bs-placement="top"
+            data-bs-toggle="tooltip" title="{% translate 'Filter by status, sector, etc.' %}">
+            {% translate "Filter" %}
+            {% if is_filtered %}
+            <span>
+                ({% translate "Active" %})
+            </span>
+            {% endif %}
+            <i class="bi bi-filter" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="btn btn-primary bg-body border-0 p-0" data-bs-toggle="collapse"
+            data-bs-target="#collapseLegend" aria-expanded="false" aria-controls="collapseLegend">
+            <img src="{% static 'images/icons/ico-legend.svg' %}" alt="legend" data-bs-placement="top"
+                data-bs-toggle="tooltip" title="{% translate 'Icon Guide' %}">
+        </button>
+    </div>
 </div>
 
 {% if filter.qs %}
