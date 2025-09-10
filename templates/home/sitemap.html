@@ -1,0 +1,13 @@
+{% extends 'home/base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container-flex">
+  <h3 class="fw-bolder">
+    {% block title %}
+    {% translate "Sitemap" %}
+    {% endblock %}
+  </h3>
+  <div class="hr-separator"></div>
+</div>
+{% endblock %}
