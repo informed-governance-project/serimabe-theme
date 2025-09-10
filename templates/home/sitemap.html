@@ -11,14 +11,14 @@
   <div class="hr-separator"></div>
 </div>
 <div class="row row-cols-1 row-cols-md-3 g-3 mt-3">
-  {% for module in modules %}
+  {% for module, pages in modules.items %}
   <div class="col">
     <h5 class="fw-bolder">
-      {{ module.name }}
+      {{ module }}
     </h5>
     <div class="hr-separator"></div>
     <ul class="list-unstyled">
-      {% for page in module.pages %}
+      {% for page in pages %}
       <li class="ps-3">
         <a href="{{ page.url }}">
           {{ page.name }}
