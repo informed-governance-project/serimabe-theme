@@ -66,6 +66,33 @@
 </button>
 {% endblock %}
 
+{% block content_table_legend %}
+<li class="legend-item">
+    <div class="icon-container bg-passed rounded-circle d-flex justify-content-center align-items-center">
+        <i class="custom-icon-passed-white m-0 h5" aria-hidden="true"></i>
+    </div>
+    {% translate "Passed" %}
+</li>
+<li class="legend-item">
+    <div class="icon-container bg-under-review rounded-circle d-flex justify-content-center align-items-center">
+        <i class="custom-icon-under-review-white m-0 h5" aria-hidden="true"></i>
+    </div>
+    {% translate "Under review" %}
+</li>
+<li class="legend-item">
+    <div class="icon-container bg-failed rounded-circle d-flex justify-content-center align-items-center">
+        <i class="custom-icon-failed-white m-0 h5" aria-hidden="true"></i>
+    </div>
+    {% translate "Failed" %}
+</li>
+<li class="legend-item">
+    <div class="icon-container bg-unsubmitted rounded-circle d-flex justify-content-center align-items-center">
+        <i class="custom-icon-unsubmitted-white m-0 h5" aria-hidden="true"></i>
+    </div>
+    {% translate "Unsubmitted" %}
+</li>
+{% endblock %}
+
 <!-- Modals -->
 {% block content_modals %}
 {{ block.super }}

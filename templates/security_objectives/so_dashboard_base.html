@@ -150,6 +150,19 @@
     </tbody>
 </table>
 
+<!-- Legend -->
+<div class="my-2">
+    <div id="collapseLegend" class="collapse">
+        <div class="legend">
+            <span class="legend-title">
+                {% translate "Legend" %}
+            </span>
+            <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
+                {% block content_table_legend %}{% endblock %}  
+            </ul>
+        </div>
+    </div>
+</div>
 {% with pagination_data=standard_answers %}
     {% include "parts/pagination.html" %}
 {% endwith %}
