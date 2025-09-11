@@ -9,7 +9,7 @@ $(document).ready(function () {
       {
         targets: 0,
         orderable: true,
-        type: 'date',
+        type: 'string-utf8'
       },
       {
         targets: 1,
@@ -19,7 +19,7 @@ $(document).ready(function () {
       {
         targets: 2,
         orderable: true,
-        type: 'string-utf8'
+        type: 'date',
       },
       {
         targets: 3,
@@ -34,17 +34,17 @@ $(document).ready(function () {
       {
         targets: 5,
         orderable: true,
-        type: 'num'
+        type: 'string-utf8'
       },
       {
         targets: 6,
         orderable: true,
-        type: 'num',
+        type: 'num'
       },
       {
         targets: 7,
         orderable: true,
-        type: 'string-utf8'
+        type: 'num',
       },
       {
         targets: 8,
