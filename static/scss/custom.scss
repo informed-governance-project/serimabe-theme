@@ -12,12 +12,11 @@ $secondary: #212529;
 
 // $primary: #34a9e1;
 // $secondary: #2e2f7f; 
+
 @import "../../../node_modules/bootstrap/scss/functions";
 @import "../../../node_modules/bootstrap/scss/variables";
-@import "../../../node_modules/bootstrap/scss/_maps";
-@import "../../../node_modules/bootstrap/scss/utilities";
 
-// Dashboard Colors
+// Status Colors
 
 $passed: #008800;
 $failed: #e40521;
@@ -37,23 +36,16 @@ $custom-colors: (
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
-$utilities: map-merge(
-  $utilities,
-  (
-    "background-color": map-merge(
-      map-get($utilities, "background-color"),
-      ( values: $theme-colors )
-    ),
-    "color": map-merge(
-      map-get($utilities, "color"),
-      ( values: $theme-colors )
-    ),
-    "border-color": map-merge(
-      map-get($utilities, "border-color"),
-      ( values: $theme-colors )
-    )
-  )
-);
+$custom-colors-rgb: ();
+@each $name, $color in $custom-colors {
+  $custom-colors-rgb: map-merge(
+    $custom-colors-rgb,
+    ($name: to-rgb($color))
+  );
+}
+
+@import "../../../node_modules/bootstrap/scss/_maps";
+@import "../../../node_modules/bootstrap/scss/utilities";
 
 $utilities: map-merge($utilities, ("width": map-merge(map-get($utilities, "width"), (responsive: true))));
 
