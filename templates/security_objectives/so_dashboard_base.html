@@ -54,6 +54,7 @@
     <caption class="visually-hidden">{% translate "Security objectives table" %}</caption>
     <thead>
         <tr>
+            <th class="col-1">{% translate "Status" %}</th>
             <th class="col-1 text-start">{% translate "Last update" %}</th>
             <th class="col-1 text-start">{% translate "Submission date" %}</th>
             <th class="col-1">{% translate "Evaluation Framework" %}</th>
@@ -67,7 +68,6 @@
             <th class="col-2">{% translate "Sectors" %}</th>
             <th class="col-1 text-start">{% translate "Year" %}</th>
             <th class="col-2 text-start">{% translate "Progress" %}</th>
-            <th class="col-1">{% translate "Status" %}</th>
             <th class="col-1">{% translate "Actions" %}</th>
         </tr>
     </thead>
@@ -75,6 +75,11 @@
         {% for standard in standard_answers %}
         {% timezone time_zone %}
         <tr>
+            <td class="col-1 table-group-divider py-3">
+                <div class="{% status_class standard.status %} icon-container m-auto rounded-circle d-flex justify-content-center align-items-center">
+                    <i class="{% status_icon standard.status %} m-0 h5" aria-hidden="true"></i>
+                </div>
+            </td>
             <td class="col-1 table-group-divider py-3 text-start">
                 {% if standard.last_update %}
                 {{ standard.last_update|date:"d/m/y" }}<br/>
@@ -135,9 +140,6 @@
                     </div>
                     {% endwith %}
                 </div>
-            </td>
-            <td class="col-1 table-group-divider py-3 status_column {% status_class standard.status  %}">
-                    {{standard.get_status_display}}
             </td>
             <td class="col-1 table-group-divider py-3">
                 <div class="d-flex align-items-center justify-content-between">
