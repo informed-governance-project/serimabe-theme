@@ -2,13 +2,6 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 
-{% block content_new_declaration %}
-    <button type="button" class="btn btn-primary create_so_declaration" data-bs-toggle="modal"
-        data-bs-target="#create_so_declaration">
-        {% translate "New submission" %}
-</button>
-{% endblock %}
-
 {% block content_filter %}
     {% bootstrap_field filter.form.submitter_user label_class="fw-bold" wrapper_class="mb-3" %}
 {% endblock %}
