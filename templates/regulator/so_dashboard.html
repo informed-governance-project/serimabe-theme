@@ -44,6 +44,38 @@
 </button>
 {% endblock %}
 
+{% block content_table_legend %}
+<li class="legend-item">
+    <div class="icon-container border border-passed border-2 rounded-circle d-flex justify-content-center align-items-center">
+        <i class="custom-icon-passed m-0 h5" aria-hidden="true"></i>
+    </div>
+    {% translate "Passed" %}
+</li>
+<li class="legend-item">
+    <div class="icon-container bg-passed rounded-circle d-flex justify-content-center align-items-center">
+        <i class="custom-icon-passed-sent m-0 h5" aria-hidden="true"></i>
+    </div>
+    {% translate "Passed and sent" %}
+</li>
+<li class="legend-item">
+    <div class="icon-container bg-under-review rounded-circle d-flex justify-content-center align-items-center">
+        <i class="custom-icon-under-review-white m-0 h5" aria-hidden="true"></i>
+    </div>
+    {% translate "Under review" %}
+</li>
+<li class="legend-item">
+    <div class="icon-container border border-failed border-2 rounded-circle d-flex justify-content-center align-items-center">
+        <i class="custom-icon-failed m-0 h5" aria-hidden="true"></i>
+    </div>
+    {% translate "Revision required" %}
+</li>
+<li class="legend-item">
+    <div class="icon-container bg-failed rounded-circle d-flex justify-content-center align-items-center">
+        <i class="custom-icon-failed-sent m-0 h5" aria-hidden="true"></i>
+    </div>
+    {% translate "Revision required and sent" %}
+</li>
+{% endblock %}
 
 {% block content_modals %}
 {{ block.super }}

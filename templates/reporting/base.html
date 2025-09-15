@@ -1,0 +1,31 @@
+{% extends 'home/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block subheader %}
+<div class="container-fluid d-flex bg-light py-2 align-items-center mb-4">
+    <div class="hstack me-auto gap-2">
+        <img src="{% static 'images/icons/ico-reporting.svg' %}" alt="incident notification icon" style="width:30px">
+        <h3 class="fw-bolder mb-0">
+            {% translate "Reporting"|upper %}
+        </h3>
+    </div>
+    <div class="hstack gap-4 pe-2">
+        <a class="fw-bold" href="{% url 'reporting' %}" onclick="load_spinner()">
+            {% translate "Dashboard" %}
+        </a>
+        <a class="fw-bold" href="{% url 'download_center' %}">
+            {% translate "Download Center" %}
+        </a>
+        <a class="fw-bold" href="{% url 'report_configuration' %}">
+            {% translate "Configuration" %}
+        </a>
+        <a class="fw-bold import_risk_analysis"  href="#" data-bs-toggle="modal" data-bs-target="#import_risk_analysis">
+            {% translate "Import risk analysis" %}
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% endblock %}

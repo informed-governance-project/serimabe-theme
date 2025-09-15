@@ -10,8 +10,75 @@
 
 // IBPT Colors
 
-$primary: #34a9e1;
-$secondary: #2e2f7f; 
+// $primary: #34a9e1;
+// $secondary: #2e2f7f; 
+
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+
+// Status Colors
+
+$passed: #008800;
+$failed: #e40521;
+$under-review: #2673e5;
+$late-under-review: #5B1B8F;
+$unsubmitted:#727272;
+$overdue:#a76806;
+
+$custom-colors: (
+  "passed": $passed,
+  "failed": $failed,
+  "under-review": $under-review,
+  "late-under-review": $late-under-review,
+  "unsubmitted": $unsubmitted,
+  "overdue": $overdue
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+$custom-colors-rgb: ();
+@each $name, $color in $custom-colors {
+  $custom-colors-rgb: map-merge(
+    $custom-colors-rgb,
+    ($name: to-rgb($color))
+  );
+}
+
+@import "../../../node_modules/bootstrap/scss/_maps";
+@import "../../../node_modules/bootstrap/scss/utilities";
+
+$utilities: map-merge($utilities, ("width": map-merge(map-get($utilities, "width"), (responsive: true))));
+
+$utilities: map-merge($utilities,
+        ("width": map-merge(map-get($utilities, "width"),
+                (values: map-merge(map-get(map-get($utilities, "width"), "values"),
+                        (1: 1%,
+                            2: 2%,
+                            3: 3%,
+                            4: 4%,
+                            5: 5%,
+                            10: 10%,
+                            15: 15%,
+                            20: 20%,
+                            30: 30%,
+                            35: 35%,
+                            40: 40%,
+                            45: 45%,
+                            48: 48%,
+                            49: 49%,
+                            55: 55%,
+                            60: 60%,
+                            65: 65%,
+                            70: 70%,
+                            80: 80%,
+                            85: 85%,
+                            90: 90%,
+                            95: 95%,
+                        ),
+                    ),
+                ),
+            ),
+        ));
 
 @font-face {
     font-family: Montserrat;
@@ -109,6 +176,7 @@ a.changelink {
     vertical-align: middle;
     background-size: contain;
     background-repeat: no-repeat;
+    background-position: center;
     justify-content: flex-end;
     font-family: "bootstrap-icons";
     font-style: normal;
@@ -153,6 +221,38 @@ a.changelink {
 
 .custom-icon-search {
     background-image: url('/static/images/icons/ico-search.svg');
+}
+
+.custom-icon-passed {
+    background-image: url('/static/images/icons/ico-passed.svg');
+}
+
+.custom-icon-passed-sent {
+    background-image: url('/static/images/icons/ico-passed-sent.svg');
+}
+
+.custom-icon-passed-white {
+    background-image: url('/static/images/icons/ico-passed-white.svg');
+}
+
+.custom-icon-under-review-white {
+    background-image: url('/static/images/icons/ico-under-review-white.svg');
+}
+
+.custom-icon-unsubmitted-white {
+    background-image: url('/static/images/icons/ico-unsubmitted-white.svg');
+}
+
+.custom-icon-failed {
+    background-image: url('/static/images/icons/ico-failed.svg');
+}
+
+.custom-icon-failed-sent {
+    background-image: url('/static/images/icons/ico-failed-sent.svg');
+}
+
+.custom-icon-failed-white {
+    background-image: url('/static/images/icons/ico-failed-white.svg');
 }
 
 .form-check-input {
@@ -228,4 +328,40 @@ table.dataTable thead>tr>td.dt-ordering-desc span.dt-column-order:after {
 #search_bar_form input:focus {
     border-color: var(--bs-dark);
     box-shadow: none;
+}
+
+.legend {
+    border: 1px solid #000;
+    padding: 30px;
+    border-radius: 8px;
+    width: fit-content;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width:100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.legend-title {
+    background-color: var(--bs-body-bg);
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    padding: 0 5px;
+    font-weight: bold;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    justify-content: center;
+}
+
+.legend-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
 }

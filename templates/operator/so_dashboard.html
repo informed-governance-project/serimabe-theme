@@ -2,15 +2,6 @@
 {% load django_bootstrap5 %}
 {% load i18n %}
 
-{% block content_new_declaration %}
-<div class="me-auto">
-    <button type="button" class="btn btn-primary btn-sm create_so_declaration" data-bs-toggle="modal"
-        data-bs-target="#create_so_declaration">
-        {% translate "New submission" %}
-    </button>
-</div>
-{% endblock %}
-
 {% block content_filter %}
     {% bootstrap_field filter.form.submitter_user label_class="fw-bold" wrapper_class="mb-3" %}
 {% endblock %}
@@ -66,6 +57,33 @@
         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Delete' %}">
     </i>
 </button>
+{% endblock %}
+
+{% block content_table_legend %}
+<li class="legend-item">
+    <div class="icon-container bg-passed rounded-circle d-flex justify-content-center align-items-center">
+        <i class="custom-icon-passed-white m-0 h5" aria-hidden="true"></i>
+    </div>
+    {% translate "Passed" %}
+</li>
+<li class="legend-item">
+    <div class="icon-container bg-under-review rounded-circle d-flex justify-content-center align-items-center">
+        <i class="custom-icon-under-review-white m-0 h5" aria-hidden="true"></i>
+    </div>
+    {% translate "Under review" %}
+</li>
+<li class="legend-item">
+    <div class="icon-container bg-failed rounded-circle d-flex justify-content-center align-items-center">
+        <i class="custom-icon-failed-white m-0 h5" aria-hidden="true"></i>
+    </div>
+    {% translate "Revision required" %}
+</li>
+<li class="legend-item">
+    <div class="icon-container bg-unsubmitted rounded-circle d-flex justify-content-center align-items-center">
+        <i class="custom-icon-unsubmitted-white m-0 h5" aria-hidden="true"></i>
+    </div>
+    {% translate "Unsubmitted" %}
+</li>
 {% endblock %}
 
 <!-- Modals -->

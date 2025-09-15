@@ -1,10 +1,9 @@
-{% extends 'home/base.html' %}
+{% extends 'security_objectives/base.html' %}
 {% load i18n %}
 {% load tz %}
 {% load static %}
 {% load SO_custom_filters %}
 {% load django_bootstrap5 %}
-
 
 {% block bootstrap5_extra_script %}
 {{ block.super }}
@@ -15,33 +14,39 @@
 <link rel="stylesheet" href="{% static 'npm_components/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css' %}">
 <script src="{% static 'npm_components/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js' %}"></script>
 <script src='{% static "js/so_dashboard.js" %}'></script>
-
 {% endblock %}
 
 {% block content %}
 {% settings_value "TIME_ZONE" as time_zone %}
-
-{% block content_title %}
-<h3 class="fw-bolder">
-    {% block title %}
-    {% translate "Security objectives" %}
-    {% endblock %}
-</h3>
-<div class="hr-separator"></div>
-{% endblock %}
-
-<div class="d-flex">
-    {% block content_new_declaration %}{% endblock %}
-    <button id="openFilter" class="btn btn-primary btn-sm ms-auto" type="button"
-        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Filter by status, sector, etc.' %}">
-        {% translate "Filter" %}
-        {% if is_filtered %}
-        <span>
-            ({% translate "Active" %})
-        </span>
-        {% endif %}
-        <i class="bi bi-funnel-fill"></i>
-    </button>
+<div class="d-flex justify-content-between align-items-center">
+    <div>
+        <h3 class="fw-bolder">
+            {% block title %}
+            {% translate "Dashboard" %}
+            {% endblock %}
+        </h3>
+        <div class="hr-separator"></div>
+    </div>
+    <div class="d-inline-flex gap-4">
+        <form id="search_bar_form" method="get">
+            {% bootstrap_field filter.form.search label_class="fw-bold" addon_before="<i class='custom-icon-search h4'></i>" addon_before_class="input-group-text search_icon" addon_after="<button id='clearSearch' type='button' class='btn-close d-none'></button>" addon_after_class="input-group-text close_icon" show_label=false wrapper_class="mb-0"%}
+        </form>
+        <button id="openFilter" class="btn btn-filter-gray btn-sm px-3" type="button" data-bs-placement="top"
+            data-bs-toggle="tooltip" title="{% translate 'Filter by status, sector, etc.' %}">
+            {% translate "Filter" %}
+            {% if is_filtered %}
+            <span>
+                ({% translate "Active" %})
+            </span>
+            {% endif %}
+            <i class="bi bi-filter" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="btn btn-primary bg-body border-0 p-0" data-bs-toggle="collapse"
+            data-bs-target="#collapseLegend" aria-expanded="false" aria-controls="collapseLegend">
+            <img src="{% static 'images/icons/ico-legend.svg' %}" alt="legend" data-bs-placement="top"
+                data-bs-toggle="tooltip" title="{% translate 'Icon Guide' %}">
+        </button>
+    </div>
 </div>
 
 {% if filter.qs %}
@@ -49,6 +54,7 @@
     <caption class="visually-hidden">{% translate "Security objectives table" %}</caption>
     <thead>
         <tr>
+            <th class="col-1">{% translate "Status" %}</th>
             <th class="col-1 text-start">{% translate "Last update" %}</th>
             <th class="col-1 text-start">{% translate "Submission date" %}</th>
             <th class="col-1">{% translate "Evaluation Framework" %}</th>
@@ -62,7 +68,6 @@
             <th class="col-2">{% translate "Sectors" %}</th>
             <th class="col-1 text-start">{% translate "Year" %}</th>
             <th class="col-2 text-start">{% translate "Progress" %}</th>
-            <th class="col-1">{% translate "Status" %}</th>
             <th class="col-1">{% translate "Actions" %}</th>
         </tr>
     </thead>
@@ -70,6 +75,11 @@
         {% for standard in standard_answers %}
         {% timezone time_zone %}
         <tr>
+            <td class="col-1 table-group-divider py-3">
+                <div class="{% status_class standard.status %} icon-container m-auto rounded-circle d-flex justify-content-center align-items-center">
+                    <i class="{% status_icon standard.status %} m-0 h5" aria-hidden="true"></i>
+                </div>
+            </td>
             <td class="col-1 table-group-divider py-3 text-start">
                 {% if standard.last_update %}
                 {{ standard.last_update|date:"d/m/y" }}<br/>
@@ -117,22 +127,17 @@
             </td>
             <td class="col-1 table-group-divider py-3 text-start">{{standard.year_of_submission}}</td>
             <td class="col-2 table-group-divider py-3">
-                <div class="progress w-75">
-                    {% with progress_value=standard.answered_percentage|default:0|floatformat:'0' %}
-                    <div class="progress-bar progress-bar-striped {% if progress_value == '100' %}bg-success{% elif progress_value != '100' and progress_value > '40' %}bg-warning{% else %}bg-danger{% endif %}"
-                        role="progressbar" 
-                        style="width: {{ progress_value }}%"
-                        aria-valuenow="{{ progress_value }}" 
-                        aria-valuemin="0" aria-valuemax="100">
-                      <span class="small">
-                        {{ progress_value }}%
-                      </span>
+                {% with progress_value=standard.answered_percentage|default:0|floatformat:'0' %}
+                <div class="hstack gap-2">
+                    <span class="text-start w-15">{{ progress_value }}%</span>
+                    <div class="progress w-75">
+                        <div class="progress-bar {% if progress_value == '100' %}bg-passed{% elif progress_value != '100' and progress_value > '40' %}bg-warning{% else %}bg-failed{% endif %}"
+                            role="progressbar" style="width: {{ progress_value }}%" aria-valuenow="{{ progress_value }}"
+                            aria-valuemin="0" aria-valuemax="100">
+                        </div>
                     </div>
-                    {% endwith %}
                 </div>
-            </td>
-            <td class="col-1 table-group-divider py-3 status_column {% status_class standard.status  %}">
-                    {{standard.get_status_display}}
+                {% endwith %}
             </td>
             <td class="col-1 table-group-divider py-3">
                 <div class="d-flex align-items-center justify-content-between">
@@ -145,6 +150,19 @@
     </tbody>
 </table>
 
+<!-- Legend -->
+<div class="my-2">
+    <div id="collapseLegend" class="collapse">
+        <div class="legend">
+            <span class="legend-title">
+                {% translate "Legend" %}
+            </span>
+            <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
+                {% block content_table_legend %}{% endblock %}  
+            </ul>
+        </div>
+    </div>
+</div>
 {% with pagination_data=standard_answers %}
     {% include "parts/pagination.html" %}
 {% endwith %}

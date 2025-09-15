@@ -9,7 +9,7 @@ $(document).ready(function () {
       {
         targets: 0,
         orderable: true,
-        type: 'date',
+        type: 'string-utf8'
       },
       {
         targets: 1,
@@ -19,7 +19,7 @@ $(document).ready(function () {
       {
         targets: 2,
         orderable: true,
-        type: 'string-utf8'
+        type: 'date',
       },
       {
         targets: 3,
@@ -34,17 +34,17 @@ $(document).ready(function () {
       {
         targets: 5,
         orderable: true,
-        type: 'num'
+        type: 'string-utf8'
       },
       {
         targets: 6,
         orderable: true,
-        type: 'num',
+        type: 'num'
       },
       {
         targets: 7,
         orderable: true,
-        type: 'string-utf8'
+        type: 'num',
       },
       {
         targets: 8,
@@ -150,4 +150,30 @@ $(document).ready(function () {
   $("#openFilter").on("click", function () {
     $("#filterModal").modal("show");
   })
+
+  const $search_bar_form = $("#search_bar_form")
+  const $search_bar_input = $("#id_search")
+  const $clearSearchBtn = $("#clearSearch")
+
+  function toggleClearButton() {
+    if ($search_bar_input.val() !== "") {
+      $clearSearchBtn.removeClass("d-none");
+    } else {
+      $clearSearchBtn.addClass("d-none");
+    }
+  }
+
+  $(document).on("input", $search_bar_input, toggleClearButton)
+
+  $(document).on("click", "#clearSearch", function () {
+    $search_bar_input.val("");
+    toggleClearButton();
+    $search_bar_form.trigger("submit");
+  });
+
+  $(document).on("submit", $search_bar_form, function () {
+    load_spinner()
+  });
+
+  toggleClearButton();
 })

@@ -1,8 +1,9 @@
-{% extends 'home/base.html' %}
+{% extends 'security_objectives/base.html' %}
 {% block bootstrap5_title %}{{ action }} Security Objective{% endblock %}
 {% load django_bootstrap5 %}
 {% load static %}
 {% load i18n %}
+
 {% block bootstrap5_extra_script %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/so_declaration.css' %}" />
