@@ -12,38 +12,155 @@
 
 {% block content %}
 {% csrf_token %}
-<div class="card">
-  <div id="security_objective_selector" class="card-header small d-none d-xl-flex justify-content-between flex-wrap ">
-    {% for security_objective, maturity_levels in security_objectives.items %}
-    <button 
-      id="{{ security_objective.pk }}"
-      type="button"
-      class="btn btn-sm shadow-sm {% if security_objective.completion_state.is_completed %}btn-success{% elif security_objective.completion_state.is_partially %}btn-warning{% else %}btn-light{% endif %}"
-      data-bs-target="#security_objectives_carousel" 
-      data-bs-slide-to="{{ forloop.counter0 }}">
-      {{ forloop.counter }}
-    </button>
-    {% endfor %}
+<div class="card border border-0">
+  <div class="small card-header py-0 border border-0 bg-transparent">
+    <div class="row py-3 gap-2">
+      <div class="col-3">
+        <div class="row gap-1">
+          <span class="col fw-bold">{% translate "Submission date" %}</span>
+          <div class="col">
+            {% if standard_answer.submit_date %}
+            {{ standard_answer.submit_date|date:"d/m/y" }}
+            <i class="bi bi-clock px-1"></i>
+            {{ standard_answer.submit_date|date:"H:i" }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="row gap-1">
+          <span class="col fw-bold">{% translate "Last update" %}</span>
+          <div class="col">
+            {{ standard_answer.last_update|date:"d/m/y" }}
+            <i class="bi bi-clock px-1"></i>
+            {{ standard_answer.last_update|date:"H:i" }}
+          </div>
+        </div>
+      </div>
+      <div class="p-0 vr"></div>
+      <div class="col-4">
+        <div class="row gap-2">
+          <button class="col-1 btn p-0 border-0 contacts_incident" data-bs-toggle="modal"
+            data-bs-target="#contacts_incident">
+            <i class="custom-icon-user h3" data-bs-placement="top" data-bs-toggle="tooltip"
+              title="{% translate 'Contacts' %}">
+            </i>
+            <span class="visually-hidden">{% translate 'Contacts' %}</span>
+          </button>
+          <div class="col">
+            <div class="row">
+              <span class="col-5 fw-bold">{% translate "Company" %}</span>
+              <div class="col-7">{{ standard_answer.submitter_company }}</div>
+            </div>
+            <div class="row">
+              <span class="col-5 fw-bold">{% translate "Evaluation Framework" %}</span>
+              <div class="col-7">{{ standard_answer.standard }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-0 vr"></div>
+      <div class="col-1">
+        {% for root_sector in standard_answer.get_no_childrens_sectors %}
+        <ul class="m-0 p-0 list-sectors">
+          <span class="fw-bolder">
+            {{ root_sector.get_safe_translation }}
+          </span>
+        </ul>
+        {% endfor %}
+        <ul class="m-0 p-0 list-sectors">
+          {% for root_sector in standard_answer.get_root_sectors %}
+          <span class="fw-bolder">
+            {{ root_sector.get_safe_translation }}
+          </span>
+          <ul class="list-unstyled">
+            {% for sector in root_sector.children.all %}
+            {% if sector in standard_answer.sectors.all %}
+            <li>{{ sector.get_safe_translation }}</li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col">
+        <div class="row gap-2">
+          <div id="so_status_form" class="col-6">
+            {% for security_objective, maturity_levels in security_objectives.items %}
+            <div id="form_status_slide_{{ security_objective.id }}" class="d-none h-100">
+              {% if is_regulator %}
+              {% bootstrap_field security_objective.status_form.status show_label=False wrapper_class="m-0" %}
+              {% elif security_objective.status.status %}
+              <div class="border rounded border-2 d-flex align-items-center justify-content-center h-100
+                {% if security_objective.status.status == 'PASS' %}border-passed
+                {% elif security_objective.status.status == 'FAIL' %}border-failed
+                {% else %} border-dark
+                {% endif %}}">
+                <h4 class="m-0 fw-bold 
+                {% if security_objective.status.status == 'PASS' %}text-passed
+                {% elif security_objective.status.status == 'FAIL' %}text-failed
+                {% else %} text-dark
+                {% endif %}}">
+                  {{ security_objective.status.get_status_display}}
+                </h4>
+              </div>
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+          <button type="button" class="col btn btn-passed">
+            {% translate "Send" %}
+            <i class="bi bi-arrow-right"></i>
+          </button>
+          <a type="button" class="col btn btn-primary" href="{% url 'securityobjectives' %}" onclick="load_spinner()">
+            {% translate "Close" %}
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row border-top border-3 border-secondary bg-light">
+      <div id="security_objective_selector" class="col-11 d-none d-xl-flex justify-content-between flex-wrap px-4 py-3">
+        {% for security_objective, maturity_levels in security_objectives.items %}
+        <button id="{{ security_objective.pk }}" type="button" class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm 
+          {% if security_objective.completion_state.is_completed %}btn-passed
+          {% elif security_objective.completion_state.is_partially %}btn-warning
+          {% else %}btn-dark
+          {% endif %}" data-bs-target="#security_objectives_carousel" data-bs-slide-to="{{ forloop.counter0 }}">
+          {{ forloop.counter }}
+        </button>
+        {% endfor %}
+      </div>
+      <div class="p-0 bg-secondary vr"></div>
+      <div class="col m-auto">
+        <div class="row">
+          <button class="col carousel-control-prev position-relative" type="button"
+            data-bs-target="#security_objectives_carousel" data-bs-slide="prev">
+            <i class="carousel-control-prev-icon bi bi-arrow-left text-secondary h2"></i>
+          </button>
+          <button class="col carousel-control-next position-relative" type="button"
+            data-bs-target="#security_objectives_carousel" data-bs-slide="next">
+            <i class="carousel-control-next-icon bi bi-arrow-right text-secondary h2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="card-body">
     <div id="security_objectives_carousel" class="carousel slide" data-bs-touch="false" data-bs-interval="false"
       data-bs-wrap="false">
       <div class="carousel-inner">
         {% for security_objective, maturity_levels in security_objectives.items %}
-        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <div id="slide_{{ security_objective.id }}" class="carousel-item {% if forloop.first %}active{% endif %}">
           <div class="d-flex">
             <div class="me-auto">
-              <h4 class="card-title">{{ security_objective.unique_code }}: {{ security_objective.objective }}</h4>
-              <h5 class="card-subtitle mb-3 text-muted">{{ security_objective.description }}</h5>
+              <h4 class="card-title fw-bold">{{ security_objective.unique_code }}: {{ security_objective.objective }}
+              </h4>
+              <h6 class="card-subtitle mb-3 text-muted">{{ security_objective.description }}</h6>
             </div>
             <div class="col-2">
-              {% if is_regulator %}
-                {% bootstrap_field security_objective.status_form.status show_label=False wrapper_class="m-0" %}
-              {% endif %}
               {% blocktranslate asvar score_translation %}Score{% endblocktranslate %}
-                <h5 id="so-score" data-label="{{ score_translation }}" class="card-subtitle text-center text-muted py-1 m-0">
-                  {{ score_translation }}  : {{ security_objective.score|default:0|floatformat:"2" }}
-                </h5>
+              <h5 id="so-score" data-label="{{ score_translation }}"
+                class="card-subtitle text-center text-muted py-1 m-0">
+                {{ score_translation }} : {{ security_objective.status.score|default:0|floatformat:"2" }}
+              </h5>
             </div>
           </div>
           <table class="table table-sm table-hover">
@@ -73,8 +190,7 @@
                   {% translate "Review Comment" %}
                 </th>
                 {% endif %}
-                <th
-                  class="col-2 text-center align-middle">
+                <th class="col-2 text-center align-middle">
                   {% translate "Planned Measures" %}
                 </th>
               </tr>
@@ -120,7 +236,7 @@
                 {% endif %}
                 {% if forloop.parentloop.first %}
                 <td rowspan="{{ security_objective.securitymeasure_set.all.count }}" class="col-2 table-group-divider">
-                    {% bootstrap_field security_objective.status_form.actions show_label=False wrapper_class="m-0" %}
+                  {% bootstrap_field security_objective.status_form.actions show_label=False wrapper_class="m-0" %}
                 </td>
                 {% endif %}
               </tr>
@@ -135,18 +251,6 @@
         <h3>{% translate "No security objectives data available." %}</h3>
         {% endfor %}
       </div>
-    </div>
-  </div>
-  <div class="card-footer p-3">
-    <div class="d-flex justify-content-center">
-      <button class="carousel-control-prev position-relative" type="button" data-bs-target="#security_objectives_carousel"
-        data-bs-slide="prev">
-        <i class="carousel-control-prev-icon bi bi-caret-left-fill text-primary h1"></i>
-      </button>
-      <button class="carousel-control-next position-relative" type="button" data-bs-target="#security_objectives_carousel"
-        data-bs-slide="next">
-        <i class="carousel-control-next-icon bi bi-caret-right-fill text-primary h1"></i>
-      </button>
     </div>
   </div>
 </div>

@@ -10,6 +10,13 @@ $(document).ready(function () {
     });
   }
 
+  function showActiveSOStatusForm() {
+    let active_SO_Id = $('#security_objectives_carousel .carousel-item.active').attr('id')
+    let form_SO_StatusId = '#form_status_' + active_SO_Id;
+    $('#so_status_form > div').addClass('d-none');
+    $(form_SO_StatusId).removeClass('d-none');
+  }
+
   function checkImplementation() {
     $('.form-check-input').each(function () {
       const checkboxId = $(this).attr('id');
@@ -90,16 +97,18 @@ $(document).ready(function () {
     adjustTextareaHeights();
     checkRequiredFields();
     checkActions();
-    $("#security_objective_selector").find('button[data-bs-slide-to]').removeClass("focus-effect");
+    showActiveSOStatusForm();
+    $("#security_objective_selector").find('button[data-bs-slide-to]').removeClass("slide-active-container");
     $active_button = $("#security_objective_selector").find(`[data-bs-slide-to="${event.to}"]`);
-    $active_button.addClass("focus-effect .btn:hover");
+    $active_button.addClass("slide-active-container");
   });
 
   adjustTextareaHeights();
   checkImplementation();
   checkRequiredFields();
+  showActiveSOStatusForm();
   checkActions();
-  $("#security_objective_selector").find(`[data-bs-slide-to="0"]`).addClass("focus-effect");
+  $("#security_objective_selector").find(`[data-bs-slide-to="0"]`).addClass("slide-active-container");  
 });
 
 
@@ -126,35 +135,35 @@ function update_so_declaration(form) {
           .then(data => {
             if (data.success == "false") return
             if (data.data.status) {
+              let active_SO_Id = $('#security_objectives_carousel .carousel-item.active').attr('id')
+              let form_SO_StatusId = '#form_status_' + active_SO_Id; 
+              let $select_SO_form = $(form_SO_StatusId).find('.so_status_form')
               switch (data.data.status) {
                 case "PASS":
-                  $('.carousel-item.active')
-                    .find('.so_status_form')
+                  $select_SO_form
                     .removeClass("bg-danger")
-                    .addClass("text-white bg-success")
+                    .addClass("text-white bg-passed")
                   break;
                 case "FAIL":
-                  $('.carousel-item.active')
-                    .find('.so_status_form')
-                    .removeClass("bg-success")
+                  $select_SO_form
+                    .removeClass("bg-passed")
                     .addClass("text-white bg-danger")
                   break;
                 default:
-                  $('.carousel-item.active')
-                    .find('.so_status_form')
-                    .removeClass("text-white bg-success bg-danger")
+                  $select_SO_form
+                    .removeClass("text-white bg-passed bg-danger")
               }
             }
             if (data.objective_state) {
               so_id = data.objective_state.id;
               $so_objective_button = $("#security_objective_selector").find(`#${so_id}`);
-              $so_objective_button.removeClass("btn-success btn-warning btn-light");
+              $so_objective_button.removeClass("btn-passed btn-warning btn-dark");
               if (data.objective_state.is_completed) {
-                $so_objective_button.addClass("btn-success");
+                $so_objective_button.addClass("btn-passed");
               } else if (data.objective_state.is_partially) {
                 $so_objective_button.addClass("btn-warning");
               } else if (data.objective_state.is_not_started) {
-                $so_objective_button.addClass("btn-light");
+                $so_objective_button.addClass("btn-dark");
               }
             }
             if (data.so_score) {
