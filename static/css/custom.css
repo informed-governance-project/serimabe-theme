@@ -12034,4 +12034,25 @@ table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
   rotate: 90deg !important;
 }
 
+.search_icon, .close_icon {
+  border-color: var(--bs-dark);
+  padding: 2px;
+  background-color: unset;
+}
+
+#clearSearch:focus {
+  box-shadow: none;
+}
+
+#search_bar_form input {
+  border-color: var(--bs-dark);
+  border-left: unset;
+  border-right: unset;
+}
+
+#search_bar_form input:focus {
+  border-color: var(--bs-dark);
+  box-shadow: none;
+}
+
 /*# sourceMappingURL=custom.css.map */

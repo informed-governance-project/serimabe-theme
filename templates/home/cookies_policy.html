@@ -1,0 +1,42 @@
+{% extends 'home/base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container-flex">
+  <h3 class="fw-bolder">
+    {% block title %}
+    {% translate "Cookies Policy" %}
+    {% endblock %}
+  </h3>
+  <div class="hr-separator"></div>
+</div>
+{% for cookiegroup in cb_settings.groups %}
+<p>
+  {% blocktranslate trimmed %}
+  This website uses cookies and similar technologies essential for its operation. It does not process personal data.
+  {% endblocktranslate %}
+</p>
+<table class="table">
+  <caption class="visually-hidden"> {% translate "Cookies description" %} </caption>
+  <thead>
+    <tr>
+      <th scope="col">{% translate "Name" %}</th>
+      <th scope="col">{% translate "Description" %}</th>
+      <th scope="col">{% translate "Content" %}</th>
+      <th scope="col">{% translate "Maximum duration" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cookie in cookiegroup.cookies %}
+    <tr>
+      <td>{{ cookie.pattern }}</td>
+      <td>{{ cookie.description }}</td>
+      <td>{{ cookie.content }}</td>
+      <td>{{ cookie.max_age }}</td>
+      {% endfor %}
+    </tr>
+  </tbody>
+</table>
+{% endfor %}
+
+{% endblock %}
