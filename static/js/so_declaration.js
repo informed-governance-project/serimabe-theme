@@ -157,13 +157,13 @@ function update_so_declaration(form) {
             if (data.objective_state) {
               so_id = data.objective_state.id;
               $so_objective_button = $("#security_objective_selector").find(`#${so_id}`);
-              $so_objective_button.removeClass("btn-passed btn-warning btn-dark");
+              $so_objective_button.removeClass("btn-passed btn-warning btn-failed");
               if (data.objective_state.is_completed) {
                 $so_objective_button.addClass("btn-passed");
               } else if (data.objective_state.is_partially) {
                 $so_objective_button.addClass("btn-warning");
               } else if (data.objective_state.is_not_started) {
-                $so_objective_button.addClass("btn-dark");
+                $so_objective_button.addClass("btn-failed");
               }
             }
             if (data.so_score) {
