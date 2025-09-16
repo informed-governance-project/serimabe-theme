@@ -131,7 +131,7 @@
                 <div class="hstack gap-2">
                     <span class="text-start w-15">{{ progress_value }}%</span>
                     <div class="progress w-75">
-                        <div class="progress-bar {% if progress_value == '100' %}bg-passed{% elif progress_value != '100' and progress_value > '40' %}bg-warning{% else %}bg-failed{% endif %}"
+                        <div class="progress-bar {% if progress_value == 100 %}bg-passed{% elif progress_value != 100 and progress_value > 40 %}bg-warning{% else %}bg-failed{% endif %}"
                             role="progressbar" style="width: {{ progress_value }}%" aria-valuenow="{{ progress_value }}"
                             aria-valuemin="0" aria-valuemax="100">
                         </div>
