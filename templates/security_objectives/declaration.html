@@ -83,7 +83,7 @@
       </div>
       <div class="col">
         <div class="row gap-2">
-          <div id="so_status_form" class="col-6">
+          <div id="so_status_form" class="col-5">
             {% for security_objective, maturity_levels in security_objectives.items %}
             <div id="form_status_slide_{{ security_objective.id }}" class="d-none h-100">
               {% if is_regulator %}
@@ -107,7 +107,11 @@
             {% endfor %}
           </div>
           <button type="button" class="col btn btn-passed">
-            {% translate "Send" %}
+            {% if is_regulator %}
+              {% translate "Send" %}
+            {% else %}
+              {% translate "Submit" %}
+            {% endif %}
             <i class="bi bi-arrow-right"></i>
           </button>
           <a type="button" class="col btn btn-primary" href="{% url 'securityobjectives' %}" onclick="load_spinner()">
@@ -122,7 +126,7 @@
         <button id="{{ security_objective.pk }}" type="button" class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm 
           {% if security_objective.completion_state.is_completed %}btn-passed
           {% elif security_objective.completion_state.is_partially %}btn-warning
-          {% else %}btn-dark
+          {% else %}btn-failed
           {% endif %}" data-bs-target="#security_objectives_carousel" data-bs-slide-to="{{ forloop.counter0 }}">
           {{ forloop.counter }}
         </button>
