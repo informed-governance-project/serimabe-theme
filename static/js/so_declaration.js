@@ -165,6 +165,12 @@ function update_so_declaration(form) {
               } else if (data.objective_state.is_not_started) {
                 $so_objective_button.addClass("btn-failed");
               }
+
+            }
+            $so_submit_button = $("#so_submit_button");
+            $so_submit_button.prop("disabled", true);
+            if (data.ready_to_submit) {
+              $so_submit_button.prop("disabled", false);
             }
             if (data.so_score) {
               const $scoreElem = $('.carousel-item.active').find('#so-score');
