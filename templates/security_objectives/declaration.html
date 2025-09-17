@@ -88,7 +88,7 @@
             <div id="form_status_slide_{{ security_objective.id }}" class="d-none h-100">
               {% if is_regulator %}
               {% bootstrap_field security_objective.status_form.status show_label=False wrapper_class="m-0" %}
-              {% elif security_objective.status.status %}
+              {% elif standard_answer.status in ",PASS,PASSM,FAIL,FAILM," and security_objective.status.status %}
               <div class="border rounded border-2 d-flex align-items-center justify-content-center h-100
                 {% if security_objective.status.status == 'PASS' %}border-passed
                 {% elif security_objective.status.status == 'FAIL' %}border-failed
@@ -106,14 +106,17 @@
             </div>
             {% endfor %}
           </div>
-          <button type="button" class="col btn btn-passed">
-            {% if is_regulator %}
-              {% translate "Send" %}
-            {% else %}
-              {% translate "Submit" %}
-            {% endif %}
+          {% if is_regulator %}
+          <button id="so_submit_button" type="button" class="col btn btn-passed" {% if not standard_answer.ready_to_submit %}disabled{% endif %}>
+            {% translate "Send" %}
             <i class="bi bi-arrow-right"></i>
           </button>
+          {% elif standard_answer.status == "UNDE" %}
+          <button id="so_submit_button" type="button" class="col btn btn-passed" {% if not standard_answer.ready_to_submit %}disabled{% endif %}>
+            {% translate "Submit" %}
+            <i class="bi bi-arrow-right"></i>
+          </button>
+          {% endif %}
           <a type="button" class="col btn btn-primary" href="{% url 'securityobjectives' %}" onclick="load_spinner()">
             {% translate "Close" %}
           </a>
