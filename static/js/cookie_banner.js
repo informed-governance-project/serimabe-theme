@@ -2,7 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let keyValue = document.cookie.match('(^|;) ?cookiebanner=([^;]*)(;|$)');
     let cookiebannerCookie = keyValue ? decodeURIComponent(keyValue[2]) : null;
 
-    if (cookiebannerCookie) return;
+    if (cookiebannerCookie && !window.cookiebanner_version) return;
+    if (cookiebannerCookie && window.cookiebanner_version){
+        parsed_cookie = JSON.parse(cookiebannerCookie)
+        if (parsed_cookie.version && parsed_cookie.version == window.cookiebanner_version) return;
+        if (window.cookiebanner_version == 0) return;
+    }
 
     $('#cookiebannerModal').modal("show");
 
@@ -20,10 +25,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 .map((x) => x.id);
         }
 
+        let cookieData = {
+            accepted: true,
+            groups: enable_cookies,
+            version: window.cookiebanner_version ? window.cookiebanner_version : 0
+        };
+
+        let value = encodeURIComponent(JSON.stringify(cookieData));
+
         // set the temporal cookie.
         let max_age = (365 * 24 * 60 * 60);
         let secure = window.location.hostname === 'localhost' ? "" : "secure";
-        document.cookie = `cookiebanner=${encodeURIComponent(enable_cookies)}; path=/; max-age=${max_age}; ${secure}`;
+        document.cookie = `cookiebanner=${value}; path=/; max-age=${max_age}; ${secure}`;
         location.reload();
     })
 });
