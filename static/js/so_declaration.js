@@ -159,22 +159,21 @@ function update_so_declaration(form) {
               let form_SO_StatusId = '#form_status_' + active_SO_Id;
               let $select_SO_form = $(form_SO_StatusId).find('.so_status_form')
               $so_reg_objective_button.removeClass("btn-passed btn-warning btn-failed");
+              $select_SO_form.removeClass("text-white bg-passed bg-failed")
               switch (data.data.status) {
                 case "PASS":
                   $select_SO_form
-                    .removeClass("bg-danger")
                     .addClass("text-white bg-passed")
                   $so_reg_objective_button.addClass("btn-passed");
                   break;
                 case "FAIL":
                   $select_SO_form
-                    .removeClass("bg-passed")
-                    .addClass("text-white bg-danger")
+                    .addClass("text-white bg-failed")
                   $so_reg_objective_button.addClass("btn-failed");
                   break;
                 default:
                   $select_SO_form
-                    .removeClass("text-white bg-passed bg-danger")
+                    .addClass("text-dark")
                   $so_reg_objective_button.addClass("btn-warning");
               }
             }
