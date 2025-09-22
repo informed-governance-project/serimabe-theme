@@ -40,7 +40,7 @@
     </i>
     {% endif %}
 </a>
-<button class="btn border-0 p-0 text-dark review_comment_so_declaration {% if standard.review_comment or standard.deadline %}text-warning{% else %}text-dark disabled{% endif %}" 
+<button class="btn border-0 p-0 text-dark review_comment_so_declaration {% if standard.review_comment and standard.status in ',PASSM,FAILM,' %}text-warning{% else %}text-dark disabled{% endif %}" 
     data-standard-answer-id="{{ standard.id }}"
     data-bs-toggle="modal" data-bs-target="#review_comment_so_declaration">
     <i class="bi bi-envelope-fill h4"
