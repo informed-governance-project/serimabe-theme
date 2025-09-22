@@ -107,10 +107,14 @@
             {% endfor %}
           </div>
           {% if is_regulator and standard_answer.status in ",PASS,FAIL,DELIV," %}
-          <button id="so_send_button" type="button" class="col-auto btn btn-passed" {% if not standard_answer.ready_to_send %}disabled{% endif %}>
-            {% translate "Send" %}
-            <i class="bi bi-arrow-right"></i>
-          </button>
+            <button id="so_send_button" type="button" class="col-auto btn btn-passed review_comment_so_declaration"
+                {% if not standard_answer.ready_to_send %}disabled{% endif %}
+                data-standard-answer-id="{{ standard_answer.id }}"
+                data-bs-toggle="modal" 
+                data-bs-target="#review_comment_so_declaration">
+                {% translate "Send" %}
+                <i class="bi bi-arrow-right"></i>
+            </button>
           {% elif standard_answer.status == "UNDE" %}
           <button id="so_submit_button" type="button" class="col-auto btn btn-passed" {% if not standard_answer.ready_to_submit %}disabled{% endif %}>
             {% translate "Submit" %}

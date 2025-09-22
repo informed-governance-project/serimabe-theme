@@ -92,6 +92,24 @@ $(document).ready(function () {
     checkActions();
   });
 
+  $(document).on("click", ".review_comment_so_declaration", function () {
+    let $this = $(this);
+    let standardAnswerId = $this.data('standard-answer-id');
+    let $popup = $("#review_comment_so_declaration");
+    let popup_url = `/securityobjectives/review_comment/${standardAnswerId}`;
+    $popup.find(".modal-dialog").empty();
+    $(".modal-dialog", $popup).load(popup_url, function () {
+      $popup.modal("show");
+      groupEl = document.querySelector('.input-group[data-td-target-input="nearest"]')
+      const options = {
+        ...defaultTempusdOptions,
+        restrictions: {
+          minDate: new Date()
+        }
+      };
+      new tempusDominus.TempusDominus(groupEl, options);
+    });
+  });
 
   $security_objectives_carousel.on('slid.bs.carousel', function (event) {
     adjustTextareaHeights();
