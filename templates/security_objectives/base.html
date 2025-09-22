@@ -2,6 +2,12 @@
 {% load i18n %}
 {% load static %}
 
+{% block bootstrap5_extra_script %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'npm_components/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css' %}">
+<script src="{% static 'npm_components/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js' %}"></script>
+{% endblock %}
+
 {% block subheader %}
 <div class="container-fluid d-flex bg-light py-2 align-items-center mb-4">
     <div class="hstack me-auto gap-2">
