@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="p-0 vr"></div>
-      <div class="col-1">
+      <div class="col-auto">
         {% for root_sector in standard_answer.get_no_childrens_sectors %}
         <ul class="m-0 p-0 list-sectors">
           <span class="fw-bolder">
@@ -82,14 +82,14 @@
         </ul>
       </div>
       <div class="col">
-        <div class="row gap-2">
-          <div id="so_status_form" class="col-5">
+        <div class="row gap-2 d-flex justify-content-end">
+          <div id="so_status_form" class="col-auto">
             {% for security_objective, maturity_levels in security_objectives.items %}
             <div id="form_status_slide_{{ security_objective.id }}" class="d-none h-100">
-              {% if is_regulator %}
+              {% if is_regulator and standard_answer.status in ",PASS,FAIL,DELIV," %}
               {% bootstrap_field security_objective.status_form.status show_label=False wrapper_class="m-0" %}
               {% elif standard_answer.status in ",PASS,PASSM,FAIL,FAILM," and security_objective.status.status %}
-              <div class="border rounded border-2 d-flex align-items-center justify-content-center h-100
+              <div class="border rounded border-2 d-flex align-items-center justify-content-center h-100 px-3
                 {% if security_objective.status.status == 'PASS' %}border-passed
                 {% elif security_objective.status.status == 'FAIL' %}border-failed
                 {% else %} border-dark
@@ -106,18 +106,18 @@
             </div>
             {% endfor %}
           </div>
-          {% if is_regulator %}
-          <button id="so_submit_button" type="button" class="col btn btn-passed" {% if not standard_answer.ready_to_submit %}disabled{% endif %}>
+          {% if is_regulator and standard_answer.status in ",PASS,FAIL,DELIV," %}
+          <button id="so_send_button" type="button" class="col-auto btn btn-passed" {% if not standard_answer.ready_to_send %}disabled{% endif %}>
             {% translate "Send" %}
             <i class="bi bi-arrow-right"></i>
           </button>
           {% elif standard_answer.status == "UNDE" %}
-          <button id="so_submit_button" type="button" class="col btn btn-passed" {% if not standard_answer.ready_to_submit %}disabled{% endif %}>
+          <button id="so_submit_button" type="button" class="col-auto btn btn-passed" {% if not standard_answer.ready_to_submit %}disabled{% endif %}>
             {% translate "Submit" %}
             <i class="bi bi-arrow-right"></i>
           </button>
           {% endif %}
-          <a type="button" class="col btn btn-primary" href="{% url 'securityobjectives' %}" onclick="load_spinner()">
+          <a type="button" class="col-auto btn btn-primary" href="{% url 'securityobjectives' %}" onclick="load_spinner()">
             {% translate "Close" %}
           </a>
         </div>
@@ -126,13 +126,23 @@
     <div class="row border-top border-3 border-secondary bg-light">
       <div id="security_objective_selector" class="col-11 d-none d-xl-flex justify-content-between flex-wrap px-4 py-3">
         {% for security_objective, maturity_levels in security_objectives.items %}
-        <button id="{{ security_objective.pk }}" type="button" class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm 
+        {% if is_regulator %}
+        <button id="reg_{{ security_objective.pk }}" type="button" class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm 
+          {% if security_objective.status.status == 'PASS' %}btn-passed
+          {% elif security_objective.status.status == 'FAIL' %}btn-failed
+          {% else %}btn-warning
+          {% endif %}" data-bs-target="#security_objectives_carousel" data-bs-slide-to="{{ forloop.counter0 }}">
+          {{ forloop.counter }}
+        </button>
+        {% else %}
+        <button id="op_{{ security_objective.pk }}" type="button" class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm 
           {% if security_objective.completion_state.is_completed %}btn-passed
           {% elif security_objective.completion_state.is_partially %}btn-warning
           {% else %}btn-failed
           {% endif %}" data-bs-target="#security_objectives_carousel" data-bs-slide-to="{{ forloop.counter0 }}">
           {{ forloop.counter }}
         </button>
+        {% endif %}
         {% endfor %}
       </div>
       <div class="p-0 bg-secondary vr"></div>

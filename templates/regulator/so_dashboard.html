@@ -6,7 +6,29 @@
     {% bootstrap_field filter.form.submitter_company label_class="fw-bold" wrapper_class="mb-3" %}                    
 {% endblock %}
 
-
+{% block progress_bar %}
+{% with progress_value=standard.reviewed_percentage|default:0 %}
+<div class="hstack gap-2">
+    <span class="text-start w-15">{{ progress_value|floatformat:'0' }}%</span>
+    {% if progress_value == 100 and standard.status in ",PASS,FAIL,DELIV," %}
+    <button id="so_submit_button" type="button" class="rounded-pill btn btn-sm btn-passed w-75 review_comment_so_declaration"
+        data-standard-answer-id="{{ standard.id }}"
+        data-bs-toggle="modal" 
+        data-bs-target="#review_comment_so_declaration">
+        {% translate "Send" %}
+        <i class="bi bi-arrow-right"></i>
+    </button>
+    {% else %}
+    <div class="progress w-75">
+        <div class="progress-bar {% if progress_value == 100 %}bg-passed{% elif progress_value != 100 and progress_value > 40 %}bg-warning{% else %}bg-failed{% endif %}"
+            role="progressbar" style="width: {{ progress_value|floatformat:'0' }}%"
+            aria-valuenow="{{ progress_value|floatformat:'0' }}" aria-valuemin="0" aria-valuemax="100">
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endwith %}
+{% endblock %}
 
 {% block content_table_actions %}
 <a class="btn border-0 p-0 text-dark {% if standard.status == 'UNDE' %}disabled{% endif %}" 
