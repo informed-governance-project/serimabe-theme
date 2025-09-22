@@ -82,13 +82,14 @@ $(document).ready(function () {
     $(".modal-dialog", $popup).load(popup_url, function () {
       $popup.modal("show");
       groupEl = document.querySelector('.input-group[data-td-target-input="nearest"]')
+      
       const options = {
         ...defaultTempusdOptions,
         restrictions: {
           minDate: new Date()
         }
       };
-      new tempusDominus.TempusDominus(groupEl, options);
+      if (groupEl) new tempusDominus.TempusDominus(groupEl, options);
     });
   });
 
