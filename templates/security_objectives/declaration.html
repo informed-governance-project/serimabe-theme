@@ -197,14 +197,14 @@
                   {% translate "Security Measure" %}
                 </th>
                 <th class="col-2 text-center align-middle">
-                  {% translate "Compliance Criteria" %}
+                  {% translate "Evidence" %}
                 </th>
                 <th class="col-1 text-center align-middle">
                   {% translate "Measure implemented?" %}
                 </th>
                 <th
                   class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}col-2{% else %}col-4{% endif %} text-center align-middle">
-                  {% translate "Justification & Evidence" %}
+                  {% translate "Justification" %}
                 </th>
                 {% if is_regulator or security_objective.declaration_status != "UNDE" %}
                 <th class="col-2 text-center align-middle">
