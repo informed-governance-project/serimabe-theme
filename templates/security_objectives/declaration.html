@@ -170,18 +170,26 @@
       <div class="carousel-inner">
         {% for security_objective, maturity_levels in security_objectives.items %}
         <div id="slide_{{ security_objective.id }}" class="carousel-item {% if forloop.first %}active{% endif %}">
-          <div class="d-flex">
+          <div class="d-flex align-items-center">
             <div class="me-auto">
               <h4 class="card-title fw-bold">{{ security_objective.unique_code }}: {{ security_objective.objective }}
               </h4>
               <h6 class="card-subtitle mb-3 text-muted">{{ security_objective.description }}</h6>
             </div>
-            <div class="col-2">
+            <div class="col-auto">
               {% blocktranslate asvar score_translation %}Score{% endblocktranslate %}
-              <h5 id="so-score" data-label="{{ score_translation }}"
-                class="card-subtitle text-center text-muted py-1 m-0">
-                {{ score_translation }} : {{ security_objective.status.score|default:0|floatformat:"2" }}
-              </h5>
+              <div class="d-flex align-items-center justify-content-end">
+                <div id="score_container" class="position-relative">
+                  <img src="{% static 'images/icons/ico-score.png' %}" class="img-fluid" alt="Score ico">
+                  <div class="position-absolute top-50 translate-middle fw-bold text-dark start-40">
+                    <div class="small text-muted">
+                      <span id="so-score" class="h5 m-0 fw-bold">{{ security_objective.status.score|default:0|floatformat:1 }}</span>
+                      <span>/</span>
+                      <span>{{ last_maturity_level }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <table id="declaration_table" class="table table-borderless border-bottom border-2 border-dark">

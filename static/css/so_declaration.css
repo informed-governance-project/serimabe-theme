@@ -15,7 +15,7 @@
     background-color: #555;
 }
 
-#declaration_table > :not(caption) > * > *  {
+#declaration_table> :not(caption)>*>* {
     padding: 1rem
 }
 
@@ -28,7 +28,8 @@
     border-color: var(--bs-dark);
 }
 
-.form-check-input:checked, .form-check-input:focus{
+.form-check-input:checked,
+.form-check-input:focus {
     border-color: var(--bs-dark);
 }
 
@@ -74,6 +75,7 @@
         height: 60vh;
     }
 }
+
 .slide-selector-container {
     width: 30px;
     height: 30px;
@@ -84,4 +86,18 @@
     width: 35px;
     height: 35px;
     font-size: 1rem !important;
+}
+
+#score_container {
+    width: 110px;
+    height: 60px;
+}
+
+#score_container img {
+    width: 60px;
+    height: 60px;
+}
+
+.start-40 {
+    left: 40% !important
 }
