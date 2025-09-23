@@ -198,7 +198,7 @@
             </caption>
             <thead>
               <tr>
-                <th class="col-1 text-center align-middle">
+                <th class="col-auto text-center align-middle">
                   {% translate "Maturity Level" %}
                 </th>
                 <th class="col-2 text-center align-middle">
@@ -207,7 +207,7 @@
                 <th class="col-2 text-center align-middle">
                   {% translate "Evidence" %}
                 </th>
-                <th class="col-1 text-center align-middle">
+                <th class="col-auto text-center align-middle">
                   {% translate "Measure implemented?" %}
                 </th>
                 <th
@@ -229,7 +229,7 @@
               {% for measure in measures %}
               <tr>
                 {% if forloop.first %}
-                <th rowspan="{{ measures|length }}" class="col-1 h3 fw-bolder table-group-divider text-center lh-sm">
+                <th rowspan="{{ measures|length }}" class="col-auto h3 fw-bolder table-group-divider text-center lh-sm">
                   {{ maturity_level.level }}
                 </th>
                 {% endif %}
@@ -239,7 +239,7 @@
                 <td class="col-2 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
                   {{ measure.evidence|linebreaksbr }}
                 </td>
-                <td class="col-1 align-middle {% if forloop.first %}table-group-divider{% endif %}">
+                <td class="col-auto align-middle {% if forloop.first %}table-group-divider{% endif %}">
                   <div class="checkbox-is-measure d-flex justify-content-center">
                     {% if forloop.parentloop.first %}
                     {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0 form-switch" field_class="not-required" %}
