@@ -184,7 +184,7 @@
               </h5>
             </div>
           </div>
-          <table class="table table-sm table-hover">
+          <table id="declaration_table" class="table table-borderless">
             <caption class="visually-hidden">
               {% translate "table of" %} {{ security_objective.unique_code }}: {{ security_objective.objective }}
             </caption>
@@ -216,13 +216,13 @@
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="small">
               {% for maturity_level, measures in maturity_levels.items %}
               {% for measure in measures %}
               <tr>
                 {% if forloop.first %}
-                <th rowspan="{{ measures|length }}" class="col-1 table-group-divider text-center align-middle lh-sm">
-                  {{ maturity_level }}
+                <th rowspan="{{ measures|length }}" class="col-1 h3 fw-bolder table-group-divider text-center lh-sm">
+                  {{ maturity_level.level }}
                 </th>
                 {% endif %}
                 <td class="col-2 lh-sm {% if forloop.first %}table-group-divider{% endif %}">

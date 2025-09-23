@@ -15,6 +15,10 @@
     background-color: #555;
 }
 
+#declaration_table > :not(caption) > * > *  {
+    padding: 1rem
+}
+
 .fixed-height {
     height: 1px;
 }
