@@ -127,8 +127,16 @@ $(document).ready(function () {
   showActiveSOStatusForm();
   checkActions();
   $("#security_objective_selector").find(`[data-bs-slide-to="0"]`).addClass("slide-active-container");
-});
 
+  $(document).on("click", '.so_contacts', function () {
+    let $this = $(this);
+    const contacts = $this.data('contacts');
+    $('#contact-name').text(contacts.contact_name);
+    $('#contact-first-name').text(contacts.contact_first_name);
+    $('#contact-email').text(contacts.contact_email);
+    $('#contact-telephone').text(contacts.contact_telephone);
+  });
+});
 
 function update_so_declaration(form) {
   const csrftoken = $('input[name=csrfmiddlewaretoken]').val();

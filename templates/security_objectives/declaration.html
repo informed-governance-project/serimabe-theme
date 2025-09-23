@@ -38,12 +38,15 @@
       <div class="p-0 vr"></div>
       <div class="col-4">
         <div class="row gap-2">
-          <button class="col-1 btn p-0 border-0 contacts_incident" data-bs-toggle="modal"
-            data-bs-target="#contacts_incident">
-            <i class="custom-icon-user h3" data-bs-placement="top" data-bs-toggle="tooltip"
-              title="{% translate 'Contacts' %}">
-            </i>
-            <span class="visually-hidden">{% translate 'Contacts' %}</span>
+          <button class="col-1 btn p-0 border-0 so_contacts" data-bs-toggle="modal"
+            data-bs-target="#so_contacts"
+            data-contacts='{
+            "contact_name": "{{ standard_answer.submitter_user.last_name }}",
+            "contact_first_name": "{{ standard_answer.submitter_user.first_name }}",
+            "contact_email": "{{ standard_answer.submitter_user.email }}",
+            "contact_telephone": "{{ standard_answer.submitter_user.phone_number }}"}'>
+            <i class="custom-icon-profile h3"></i>
+            <span class="visually-hidden">{% translate 'Profile' %}</span>
           </button>
           <div class="col">
             <div class="row">
