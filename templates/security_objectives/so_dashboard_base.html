@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="{% static 'css/so_dashboard.css' %}" />
 <script type="text/javascript" src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
 <script type="text/javascript"src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
+<script src="//cdn.datatables.net/plug-ins/2.3.4/sorting/date-euro.js"></script>
 <script src='{% static "js/so_dashboard.js" %}'></script>
 {% endblock %}
 
@@ -53,8 +54,8 @@
     <thead>
         <tr>
             <th class="col-1">{% translate "Status" %}</th>
-            <th class="col-1 text-start">{% translate "Last update" %}</th>
-            <th class="col-1 text-start">{% translate "Submission date" %}</th>
+            <th class="col-1">{% translate "Last update" %}</th>
+            <th class="col-1">{% translate "Submission date" %}</th>
             <th class="col-1">{% translate "Evaluation Framework" %}</th>
             <th class="col-1">
                 {% if not is_regulator %}
@@ -64,8 +65,8 @@
                 {% endif %}
             </th>
             <th class="col-2">{% translate "Sectors" %}</th>
-            <th class="col-1 text-start">{% translate "Year" %}</th>
-            <th class="col-2 text-start">{% translate "Progress" %}</th>
+            <th class="col-1">{% translate "Year" %}</th>
+            <th class="col-2">{% translate "Progress" %}</th>
             <th class="col-1">{% translate "Actions" %}</th>
         </tr>
     </thead>
@@ -78,14 +79,14 @@
                     <i class="{% status_icon standard.status %} m-0 h5" aria-hidden="true"></i>
                 </div>
             </td>
-            <td class="col-1 table-group-divider py-3 text-start">
+            <td class="col-1 table-group-divider py-3" data-order="{{standard.last_update.timestamp}}">
                 {% if standard.last_update %}
                 {{ standard.last_update|date:"d/m/y" }}<br/>
                 <i class="bi bi-clock"></i>
                 {{ standard.last_update|date:"H:i" }}                  
                 {% endif %}
             </td>
-            <td class="col-1 table-group-divider py-3 text-start">
+            <td class="col-1 table-group-divider py-3" data-order="{{standard.submit_date.timestamp}}">
                 {% if standard.submit_date %}
                 {{ standard.submit_date|date:"d/m/y" }}<br/>
                 <i class="bi bi-clock"></i>
@@ -123,7 +124,7 @@
                     {% endfor %}
                 </ul>
             </td>
-            <td class="col-1 table-group-divider py-3 text-start">{{standard.year_of_submission}}</td>
+            <td class="col-1 table-group-divider py-3">{{standard.year_of_submission}}</td>
             <td class="col-2 table-group-divider py-3">
             {% block progress_bar %}{% endblock %}
             </td>

@@ -14,17 +14,17 @@ $(document).ready(function () {
       {
         targets: 1,
         orderable: true,
-        type: 'date',
+        type: 'string-utf8',
       },
       {
         targets: 2,
         orderable: true,
-        type: 'date',
+        type: 'string-utf8',
       },
       {
         targets: 3,
         orderable: true,
-        type: 'string-utf8'
+        type: 'string-utf8',
       },
       {
         targets: 4,
@@ -39,12 +39,12 @@ $(document).ready(function () {
       {
         targets: 6,
         orderable: true,
-        type: 'num'
+        type: 'string-utf8'
       },
       {
         targets: 7,
         orderable: true,
-        type: 'num',
+        type: 'string-utf8',
       },
       {
         targets: 8,
