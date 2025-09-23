@@ -184,7 +184,7 @@
               </h5>
             </div>
           </div>
-          <table id="declaration_table" class="table table-borderless">
+          <table id="declaration_table" class="table table-borderless border-bottom border-2 border-dark">
             <caption class="visually-hidden">
               {% translate "table of" %} {{ security_objective.unique_code }}: {{ security_objective.objective }}
             </caption>
@@ -267,6 +267,19 @@
               {% endfor %}
             </tbody>
           </table>
+          <div class="legend">
+            <span class="legend-title">
+              {% translate "Legend" %}
+            </span>
+            <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
+              {% for maturity_level in maturity_levels %}
+              <li class="legend-item d-flex align-items-center small">
+                <h3 class="m-0 pe-3 fw-bolder">{{ maturity_level.level }}</h3>
+                <span>{{ maturity_level }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
         {% empty %}
         <h3>{% translate "No security objectives data available." %}</h3>
