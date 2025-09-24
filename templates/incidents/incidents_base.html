@@ -60,7 +60,7 @@
     <thead>
         <tr>
             <th scope="col">{% translate "Status" %}</th>
-            <th scope="col" class="text-start">{% translate "Creation date" %}</th>
+            <th scope="col">{% translate "Creation date" %}</th>
             <th scope="col">
                 {% if is_regulator and not is_regulator_incidents or is_observer %}
                 {% translate "Operator Acronym" %}
@@ -123,7 +123,7 @@
                     {% endblock %}
                 </div>
             </td>
-            <td class="table-group-divider py-3 text-start"> <!-- NoIncident notification date -->
+            <td class="table-group-divider py-3" data-order="{{ incident.incident_notification_date.timestamp }}"> <!-- NoIncident notification date -->
                 <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip"
                     title="{% translate 'Incident notification submission date' %}">
                     {{incident.incident_notification_date|date:"d/m/y"}}<br />

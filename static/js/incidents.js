@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $('#incidents-table').DataTable({
         autoWidth: false,
+        stateSave: true,
         paging: false,
         searching: false,
         info: false,
@@ -11,25 +12,45 @@ $(document).ready(function () {
         columnDefs: [
             {
                 targets: 0,
-                orderable: false,
-                type: 'html',
+                orderable: true,
+                type: 'string-utf8'
             },
             {
                 targets: 1,
                 orderable: true,
-                type: 'date',
+                type: 'string-utf8'
+            },
+            {
+                targets: 2,
+                orderable: true,
+                type: 'string-utf8'
+            },
+            {
+                targets: 3,
+                orderable: true,
+                type: 'string-utf8'
             },
             {
                 targets: 4,
                 orderable: true,
-                type: 'string',
+                type: 'string-utf8'
+            },
+            {
+                targets: 5,
+                orderable: true,
+                type: 'string-utf8'
             },
             {
                 targets: 6,
-                orderable: false,
+                orderable: true,
+                type: 'string-utf8'
             },
             {
                 targets: 7,
+                orderable: false,
+            },
+            {
+                targets: 8,
                 orderable: false,
             },
         ]
