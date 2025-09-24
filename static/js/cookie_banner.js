@@ -4,9 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (cookiebannerCookie && !window.cookiebanner_version) return;
     if (cookiebannerCookie && window.cookiebanner_version){
-        parsed_cookie = JSON.parse(cookiebannerCookie)
-        if (parsed_cookie.version && parsed_cookie.version == window.cookiebanner_version) return;
         if (window.cookiebanner_version == 0) return;
+        if (typeof cookiebannerCookie =="string" && window.cookiebanner_version == 0) return
+        if (isJson(cookiebannerCookie)) {
+            parsed_cookie = JSON.parse(cookiebannerCookie)
+            if (parsed_cookie.version && parsed_cookie.version == window.cookiebanner_version) return;
+        }
     }
 
     $('#cookiebannerModal').modal("show");
@@ -40,3 +43,12 @@ document.addEventListener("DOMContentLoaded", function () {
         location.reload();
     })
 });
+
+function isJson(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
