@@ -6,6 +6,28 @@
     {% bootstrap_field filter.form.submitter_user label_class="fw-bold" wrapper_class="mb-3" %}
 {% endblock %}
 
+{% block progress_bar %}
+{% with progress_value=standard.answered_percentage|default:0 %}
+<div class="hstack gap-2">
+    <span class="text-start w-15">{{ progress_value|floatformat:'0' }}%</span>
+    {% if progress_value == 100 and standard.status == "UNDE" %}
+    <a id="so_submit_button" type="button" class="rounded-pill btn btn-sm btn-passed w-75"
+        href="{% url 'submit_so_declaration' standard.id  %}">
+        {% translate "Submit" %}
+        <i class="bi bi-arrow-right"></i>
+    </a>
+    {% else %}
+    <div class="progress w-75">
+        <div class="progress-bar {% if progress_value == 100 %}bg-passed{% elif progress_value != 100 and progress_value > 40 %}bg-warning{% else %}bg-failed{% endif %}"
+            role="progressbar" style="width: {{ progress_value|floatformat:'0' }}%"
+            aria-valuenow="{{ progress_value|floatformat:'0' }}" aria-valuemin="0" aria-valuemax="100">
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endwith %}
+{% endblock %}
+
 {% block content_table_actions %}
 <a class="btn border-0 p-0 text-dark" href="{% url 'so_declaration' %}?id={{ standard.id }}" onclick="load_spinner()">
     {% if standard.status == 'UNDE' %}
@@ -18,11 +40,23 @@
     </i>
     {% endif %}
 </a>
-<button class="btn border-0 p-0 text-dark review_comment_so_declaration {% if standard.review_comment or standard.deadline %}text-warning{% else %}text-dark disabled{% endif %}" 
+<button class="btn border-0 p-0 text-dark review_comment_so_declaration {% if standard.review_comment and standard.status in ',PASSM,FAILM,' %}text-warning{% else %}text-dark disabled{% endif %}" 
     data-standard-answer-id="{{ standard.id }}"
     data-bs-toggle="modal" data-bs-target="#review_comment_so_declaration">
     <i class="bi bi-envelope-fill h4"
         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Review comment' %}">
+    </i>
+</button>
+
+<button class="btn border-0 p-0 text-dark copy_so_declaration" data-standard-answer-id="{{ standard.id }}"
+    data-bs-toggle="modal" data-bs-target="#copy_so_declaration">
+    <i class="bi bi-copy h4"
+        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Duplicate' %}">
+    </i>
+</button>
+<button class="btn border-0 p-0 so_access_log" data-standard-answer-id="{{ standard.id }}">
+    <i class="custom-icon-log h4"        
+        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Access Log' %}">
     </i>
 </button>
 <a class="btn border-0 p-0" href="{% url 'download_so_declaration_pdf' standard.id %}">
@@ -30,23 +64,6 @@
         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download' %}">
     </i>
 </a>
-<button class="btn border-0 p-0 text-dark copy_so_declaration" data-standard-answer-id="{{ standard.id }}"
-    data-bs-toggle="modal" data-bs-target="#copy_so_declaration">
-    <i class="bi bi-copy h4"
-        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Duplicate' %}">
-    </i>
-</button>
-<a class="btn border-0 p-0 {% if standard.answered_percentage < 100 or not standard.status == 'UNDE' %}text-dark disabled{% else %}text-success{% endif %}"
-    href="{% url 'submit_so_declaration' standard.id  %}" aria-disabled="true">
-    <i class="bi bi-file-earmark-arrow-up-fill h4"
-        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Submit' %}">
-    </i>
-</a>
-<button class="btn border-0 p-0 so_access_log" data-standard-answer-id="{{ standard.id }}">
-    <i class="custom-icon-log h4"        
-        data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Access Log' %}">
-    </i>
-</button>
 <button class="btn border-0 p-0 delete_so_declaration"
     data-standard-answer-id="{{ standard.id }}"
     data-delete-url="{% url 'delete_so_declaration' 0 %}"

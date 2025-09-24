@@ -1,6 +1,7 @@
 $(document).ready(function () {
   let table = $('#securityobjectives-table').DataTable({
     autoWidth: false,
+    stateSave: true,
     paging: false,
     searching: false,
     info: false,
@@ -14,17 +15,17 @@ $(document).ready(function () {
       {
         targets: 1,
         orderable: true,
-        type: 'date',
+        type: 'string-utf8',
       },
       {
         targets: 2,
         orderable: true,
-        type: 'date',
+        type: 'string-utf8',
       },
       {
         targets: 3,
         orderable: true,
-        type: 'string-utf8'
+        type: 'string-utf8',
       },
       {
         targets: 4,
@@ -39,18 +40,31 @@ $(document).ready(function () {
       {
         targets: 6,
         orderable: true,
-        type: 'num'
+        type: 'string-utf8'
       },
       {
         targets: 7,
         orderable: true,
-        type: 'num',
+        type: 'string-utf8',
       },
       {
         targets: 8,
         orderable: false,
       },
     ]
+  });
+
+  $('.column-toggle').on('change', function () {
+    var colIdx = $(this).data('column');
+    table.column(colIdx).visible(this.checked);
+  });
+
+  $('#SOhideColumns').on('show.bs.modal', function () {
+    table.columns().every(function (idx) {
+      var col = table.column(idx);
+      var visible = col.visible();
+      $('.column-toggle[data-column="' + idx + '"]').prop('checked', visible);
+    });
   });
 
   $(document).on("click", ".delete_so_declaration", function () {
@@ -82,13 +96,14 @@ $(document).ready(function () {
     $(".modal-dialog", $popup).load(popup_url, function () {
       $popup.modal("show");
       groupEl = document.querySelector('.input-group[data-td-target-input="nearest"]')
+      
       const options = {
         ...defaultTempusdOptions,
         restrictions: {
           minDate: new Date()
         }
       };
-      new tempusDominus.TempusDominus(groupEl, options);
+      if (groupEl) new tempusDominus.TempusDominus(groupEl, options);
     });
   });
 

@@ -11,8 +11,7 @@
 <link rel="stylesheet" href="{% static 'css/so_dashboard.css' %}" />
 <script type="text/javascript" src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
 <script type="text/javascript"src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
-<link rel="stylesheet" href="{% static 'npm_components/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css' %}">
-<script src="{% static 'npm_components/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js' %}"></script>
+<script src="//cdn.datatables.net/plug-ins/2.3.4/sorting/date-euro.js"></script>
 <script src='{% static "js/so_dashboard.js" %}'></script>
 {% endblock %}
 
@@ -55,8 +54,8 @@
     <thead>
         <tr>
             <th class="col-1">{% translate "Status" %}</th>
-            <th class="col-1 text-start">{% translate "Last update" %}</th>
-            <th class="col-1 text-start">{% translate "Submission date" %}</th>
+            <th class="col-1">{% translate "Last update" %}</th>
+            <th class="col-1">{% translate "Submission date" %}</th>
             <th class="col-1">{% translate "Evaluation Framework" %}</th>
             <th class="col-1">
                 {% if not is_regulator %}
@@ -66,9 +65,16 @@
                 {% endif %}
             </th>
             <th class="col-2">{% translate "Sectors" %}</th>
-            <th class="col-1 text-start">{% translate "Year" %}</th>
-            <th class="col-2 text-start">{% translate "Progress" %}</th>
-            <th class="col-1">{% translate "Actions" %}</th>
+            <th class="col-1">{% translate "Year" %}</th>
+            <th class="col-2">{% translate "Progress" %}</th>
+            <th class="col-1">
+                <div class="d-flex align-items-end">
+                    <span>{% translate "Actions" %}</span>
+                    <button class="btn btn-sm btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#SOhideColumns">
+                        <i class="bi bi-gear h5 m-0"></i>
+                    </button>
+                </div>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -76,18 +82,18 @@
         {% timezone time_zone %}
         <tr>
             <td class="col-1 table-group-divider py-3">
-                <div class="{% status_class standard.status %} icon-container m-auto rounded-circle d-flex justify-content-center align-items-center">
+                <div class="d-none {% status_class standard.status %} icon-container m-auto rounded-circle justify-content-center align-items-center">
                     <i class="{% status_icon standard.status %} m-0 h5" aria-hidden="true"></i>
                 </div>
             </td>
-            <td class="col-1 table-group-divider py-3 text-start">
+            <td class="col-1 table-group-divider py-3" data-order="{{standard.last_update.timestamp}}">
                 {% if standard.last_update %}
                 {{ standard.last_update|date:"d/m/y" }}<br/>
                 <i class="bi bi-clock"></i>
                 {{ standard.last_update|date:"H:i" }}                  
                 {% endif %}
             </td>
-            <td class="col-1 table-group-divider py-3 text-start">
+            <td class="col-1 table-group-divider py-3" data-order="{{standard.submit_date.timestamp}}">
                 {% if standard.submit_date %}
                 {{ standard.submit_date|date:"d/m/y" }}<br/>
                 <i class="bi bi-clock"></i>
@@ -125,19 +131,9 @@
                     {% endfor %}
                 </ul>
             </td>
-            <td class="col-1 table-group-divider py-3 text-start">{{standard.year_of_submission}}</td>
+            <td class="col-1 table-group-divider py-3">{{standard.year_of_submission}}</td>
             <td class="col-2 table-group-divider py-3">
-                {% with progress_value=standard.answered_percentage|default:0|floatformat:'0' %}
-                <div class="hstack gap-2">
-                    <span class="text-start w-15">{{ progress_value }}%</span>
-                    <div class="progress w-75">
-                        <div class="progress-bar {% if progress_value == 100 %}bg-passed{% elif progress_value != 100 and progress_value > 40 %}bg-warning{% else %}bg-failed{% endif %}"
-                            role="progressbar" style="width: {{ progress_value }}%" aria-valuenow="{{ progress_value }}"
-                            aria-valuemin="0" aria-valuemax="100">
-                        </div>
-                    </div>
-                </div>
-                {% endwith %}
+            {% block progress_bar %}{% endblock %}
             </td>
             <td class="col-1 table-group-divider py-3">
                 <div class="d-flex align-items-center justify-content-between">
@@ -173,13 +169,16 @@
 
 <!-- Modals -->
 {% block content_modals %}
-<div class="modal fade" id="review_comment_so_declaration" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="review_comment_so_declaration_label" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered"></div>
-</div>
 <div class="modal fade" id="so_access_log" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="so_access_log_label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"></div>
+</div>
+
+<div class="modal fade" id="SOhideColumns" data-bs-backdrop="static" data-bs-keyboard="false"tabindex="-1" 
+    aria-labelledby="so_hide_columns_label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        {% include "modals/so_dashboard_hide_columns.html" %}
+    </div>
 </div>
 
 <div class="modal fade right-modal pt-5 pe-5" id="filterModal" tabindex="-1" aria-hidden="true">

@@ -38,12 +38,15 @@
       <div class="p-0 vr"></div>
       <div class="col-4">
         <div class="row gap-2">
-          <button class="col-1 btn p-0 border-0 contacts_incident" data-bs-toggle="modal"
-            data-bs-target="#contacts_incident">
-            <i class="custom-icon-user h3" data-bs-placement="top" data-bs-toggle="tooltip"
-              title="{% translate 'Contacts' %}">
-            </i>
-            <span class="visually-hidden">{% translate 'Contacts' %}</span>
+          <button class="col-1 btn p-0 border-0 so_contacts" data-bs-toggle="modal"
+            data-bs-target="#so_contacts"
+            data-contacts='{
+            "contact_name": "{{ standard_answer.submitter_user.last_name }}",
+            "contact_first_name": "{{ standard_answer.submitter_user.first_name }}",
+            "contact_email": "{{ standard_answer.submitter_user.email }}",
+            "contact_telephone": "{{ standard_answer.submitter_user.phone_number }}"}'>
+            <i class="custom-icon-profile h3"></i>
+            <span class="visually-hidden">{% translate 'Profile' %}</span>
           </button>
           <div class="col">
             <div class="row">
@@ -58,7 +61,7 @@
         </div>
       </div>
       <div class="p-0 vr"></div>
-      <div class="col-1">
+      <div class="col-auto">
         {% for root_sector in standard_answer.get_no_childrens_sectors %}
         <ul class="m-0 p-0 list-sectors">
           <span class="fw-bolder">
@@ -82,14 +85,14 @@
         </ul>
       </div>
       <div class="col">
-        <div class="row gap-2">
-          <div id="so_status_form" class="col-5">
+        <div class="row gap-2 d-flex justify-content-end">
+          <div id="so_status_form" class="col-auto">
             {% for security_objective, maturity_levels in security_objectives.items %}
             <div id="form_status_slide_{{ security_objective.id }}" class="d-none h-100">
-              {% if is_regulator %}
+              {% if is_regulator and standard_answer.status in ",PASS,FAIL,DELIV," %}
               {% bootstrap_field security_objective.status_form.status show_label=False wrapper_class="m-0" %}
-              {% elif security_objective.status.status %}
-              <div class="border rounded border-2 d-flex align-items-center justify-content-center h-100
+              {% elif standard_answer.status in ",PASS,PASSM,FAIL,FAILM," and security_objective.status.status %}
+              <div class="border rounded border-2 d-flex align-items-center justify-content-center h-100 px-3
                 {% if security_objective.status.status == 'PASS' %}border-passed
                 {% elif security_objective.status.status == 'FAIL' %}border-failed
                 {% else %} border-dark
@@ -106,15 +109,22 @@
             </div>
             {% endfor %}
           </div>
-          <button type="button" class="col btn btn-passed">
-            {% if is_regulator %}
-              {% translate "Send" %}
-            {% else %}
-              {% translate "Submit" %}
-            {% endif %}
+          {% if is_regulator and standard_answer.status in ",PASS,FAIL,DELIV," %}
+            <button id="so_send_button" type="button" class="col-auto btn btn-passed review_comment_so_declaration"
+                {% if not standard_answer.ready_to_send %}disabled{% endif %}
+                data-standard-answer-id="{{ standard_answer.id }}"
+                data-bs-toggle="modal" 
+                data-bs-target="#review_comment_so_declaration">
+                {% translate "Send" %}
+                <i class="bi bi-arrow-right"></i>
+            </button>
+          {% elif standard_answer.status == "UNDE" %}
+          <button id="so_submit_button" type="button" class="col-auto btn btn-passed" {% if not standard_answer.ready_to_submit %}disabled{% endif %}>
+            {% translate "Submit" %}
             <i class="bi bi-arrow-right"></i>
           </button>
-          <a type="button" class="col btn btn-primary" href="{% url 'securityobjectives' %}" onclick="load_spinner()">
+          {% endif %}
+          <a type="button" class="col-auto btn btn-primary" href="{% url 'securityobjectives' %}" onclick="load_spinner()">
             {% translate "Close" %}
           </a>
         </div>
@@ -123,13 +133,23 @@
     <div class="row border-top border-3 border-secondary bg-light">
       <div id="security_objective_selector" class="col-11 d-none d-xl-flex justify-content-between flex-wrap px-4 py-3">
         {% for security_objective, maturity_levels in security_objectives.items %}
-        <button id="{{ security_objective.pk }}" type="button" class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm 
+        {% if is_regulator %}
+        <button id="reg_{{ security_objective.pk }}" type="button" class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm 
+          {% if security_objective.status.status == 'PASS' %}btn-passed
+          {% elif security_objective.status.status == 'FAIL' %}btn-failed
+          {% else %}btn-warning
+          {% endif %}" data-bs-target="#security_objectives_carousel" data-bs-slide-to="{{ forloop.counter0 }}">
+          {{ forloop.counter }}
+        </button>
+        {% else %}
+        <button id="op_{{ security_objective.pk }}" type="button" class="btn btn-sm p-0 rounded-circle slide-selector-container text-white fw-bold small shadow-sm 
           {% if security_objective.completion_state.is_completed %}btn-passed
           {% elif security_objective.completion_state.is_partially %}btn-warning
           {% else %}btn-failed
           {% endif %}" data-bs-target="#security_objectives_carousel" data-bs-slide-to="{{ forloop.counter0 }}">
           {{ forloop.counter }}
         </button>
+        {% endif %}
         {% endfor %}
       </div>
       <div class="p-0 bg-secondary vr"></div>
@@ -153,41 +173,49 @@
       <div class="carousel-inner">
         {% for security_objective, maturity_levels in security_objectives.items %}
         <div id="slide_{{ security_objective.id }}" class="carousel-item {% if forloop.first %}active{% endif %}">
-          <div class="d-flex">
+          <div class="d-flex align-items-center">
             <div class="me-auto">
               <h4 class="card-title fw-bold">{{ security_objective.unique_code }}: {{ security_objective.objective }}
               </h4>
               <h6 class="card-subtitle mb-3 text-muted">{{ security_objective.description }}</h6>
             </div>
-            <div class="col-2">
+            <div class="col-auto">
               {% blocktranslate asvar score_translation %}Score{% endblocktranslate %}
-              <h5 id="so-score" data-label="{{ score_translation }}"
-                class="card-subtitle text-center text-muted py-1 m-0">
-                {{ score_translation }} : {{ security_objective.status.score|default:0|floatformat:"2" }}
-              </h5>
+              <div class="d-flex align-items-center justify-content-end">
+                <div id="score_container" class="position-relative">
+                  <img src="{% static 'images/icons/ico-score.png' %}" class="img-fluid" alt="Score ico">
+                  <div class="position-absolute top-50 translate-middle fw-bold text-dark start-40">
+                    <div class="small text-muted">
+                      <span id="so-score" class="h5 m-0 fw-bold">{{ security_objective.status.score|default:0|floatformat:1 }}</span>
+                      <span>/</span>
+                      <span>{{ last_maturity_level }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <table class="table table-sm table-hover">
+          <table id="declaration_table" class="table table-borderless border-bottom border-2 border-dark">
             <caption class="visually-hidden">
               {% translate "table of" %} {{ security_objective.unique_code }}: {{ security_objective.objective }}
             </caption>
             <thead>
               <tr>
-                <th class="col-1 text-center align-middle">
+                <th class="col-auto text-center align-middle">
                   {% translate "Maturity Level" %}
                 </th>
                 <th class="col-2 text-center align-middle">
                   {% translate "Security Measure" %}
                 </th>
                 <th class="col-2 text-center align-middle">
-                  {% translate "Compliance Criteria" %}
+                  {% translate "Evidence" %}
                 </th>
-                <th class="col-1 text-center align-middle">
+                <th class="col-auto text-center align-middle">
                   {% translate "Measure implemented?" %}
                 </th>
                 <th
                   class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}col-2{% else %}col-4{% endif %} text-center align-middle">
-                  {% translate "Justification & Evidence" %}
+                  {% translate "Justification" %}
                 </th>
                 {% if is_regulator or security_objective.declaration_status != "UNDE" %}
                 <th class="col-2 text-center align-middle">
@@ -199,13 +227,13 @@
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="small">
               {% for maturity_level, measures in maturity_levels.items %}
               {% for measure in measures %}
               <tr>
                 {% if forloop.first %}
-                <th rowspan="{{ measures|length }}" class="col-1 table-group-divider text-center align-middle lh-sm">
-                  {{ maturity_level }}
+                <th rowspan="{{ measures|length }}" class="col-auto h3 fw-bolder table-group-divider text-center lh-sm">
+                  {{ maturity_level.level }}
                 </th>
                 {% endif %}
                 <td class="col-2 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
@@ -214,14 +242,14 @@
                 <td class="col-2 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
                   {{ measure.evidence|linebreaksbr }}
                 </td>
-                <td class="col-1 align-middle {% if forloop.first %}table-group-divider{% endif %}">
+                <td class="col-auto align-middle {% if forloop.first %}table-group-divider{% endif %}">
                   <div class="checkbox-is-measure d-flex justify-content-center">
                     {% if forloop.parentloop.first %}
-                    {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0" field_class="not-required" %}
+                    {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0 form-switch" field_class="not-required" %}
                     {%elif forloop.parentloop.last %}
-                    {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0" field_class="last_maturity_level_measure"%}
+                    {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0 form-switch" field_class="last_maturity_level_measure" %}
                     {% else %}
-                    {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0" %}
+                    {% bootstrap_field measure.answer_form.is_implemented show_label=False wrapper_class="m-0 form-switch" %}
                     {% endif %}
                   </div>
                 </td>
@@ -250,6 +278,19 @@
               {% endfor %}
             </tbody>
           </table>
+          <div class="legend">
+            <span class="legend-title">
+              {% translate "Legend" %}
+            </span>
+            <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
+              {% for maturity_level in maturity_levels %}
+              <li class="legend-item d-flex align-items-center small">
+                <h3 class="m-0 pe-3 fw-bolder">{{ maturity_level.level }}</h3>
+                <span>{{ maturity_level }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
         {% empty %}
         <h3>{% translate "No security objectives data available." %}</h3>

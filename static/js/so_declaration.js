@@ -62,7 +62,7 @@ $(document).ready(function () {
     const $textarea_no_required = $activeSlide.find(".form-control.not-required").not(".readonly_field")
     const $anyRequiredChecked = $checkboxes_required.is(":checked");
     const $anyNonRequiredChecked = $checkbox_no_required.is(":checked");
-    
+
     if ($anyRequiredChecked) {
       $checkbox_no_required.prop("checked", false).prop("disabled", true);
       $textarea_no_required.prop("disabled", true);
@@ -92,6 +92,24 @@ $(document).ready(function () {
     checkActions();
   });
 
+  $(document).on("click", ".review_comment_so_declaration", function () {
+    let $this = $(this);
+    let standardAnswerId = $this.data('standard-answer-id');
+    let $popup = $("#review_comment_so_declaration");
+    let popup_url = `/securityobjectives/review_comment/${standardAnswerId}`;
+    $popup.find(".modal-dialog").empty();
+    $(".modal-dialog", $popup).load(popup_url, function () {
+      $popup.modal("show");
+      groupEl = document.querySelector('.input-group[data-td-target-input="nearest"]')
+      const options = {
+        ...defaultTempusdOptions,
+        restrictions: {
+          minDate: new Date()
+        }
+      };
+      new tempusDominus.TempusDominus(groupEl, options);
+    });
+  });
 
   $security_objectives_carousel.on('slid.bs.carousel', function (event) {
     adjustTextareaHeights();
@@ -108,9 +126,17 @@ $(document).ready(function () {
   checkRequiredFields();
   showActiveSOStatusForm();
   checkActions();
-  $("#security_objective_selector").find(`[data-bs-slide-to="0"]`).addClass("slide-active-container");  
-});
+  $("#security_objective_selector").find(`[data-bs-slide-to="0"]`).addClass("slide-active-container");
 
+  $(document).on("click", '.so_contacts', function () {
+    let $this = $(this);
+    const contacts = $this.data('contacts');
+    $('#contact-name').text(contacts.contact_name);
+    $('#contact-first-name').text(contacts.contact_first_name);
+    $('#contact-email').text(contacts.contact_email);
+    $('#contact-telephone').text(contacts.contact_telephone);
+  });
+});
 
 function update_so_declaration(form) {
   const csrftoken = $('input[name=csrfmiddlewaretoken]').val();
@@ -135,41 +161,56 @@ function update_so_declaration(form) {
           .then(data => {
             if (data.success == "false") return
             if (data.data.status) {
+              let so_id = data.id;
+              let $so_reg_objective_button = $("#security_objective_selector").find(`#reg_${so_id}`);
               let active_SO_Id = $('#security_objectives_carousel .carousel-item.active').attr('id')
-              let form_SO_StatusId = '#form_status_' + active_SO_Id; 
+              let form_SO_StatusId = '#form_status_' + active_SO_Id;
               let $select_SO_form = $(form_SO_StatusId).find('.so_status_form')
+              $so_reg_objective_button.removeClass("btn-passed btn-warning btn-failed");
+              $select_SO_form.removeClass("text-white bg-passed bg-failed")
               switch (data.data.status) {
                 case "PASS":
                   $select_SO_form
-                    .removeClass("bg-danger")
                     .addClass("text-white bg-passed")
+                  $so_reg_objective_button.addClass("btn-passed");
                   break;
                 case "FAIL":
                   $select_SO_form
-                    .removeClass("bg-passed")
-                    .addClass("text-white bg-danger")
+                    .addClass("text-white bg-failed")
+                  $so_reg_objective_button.addClass("btn-failed");
                   break;
                 default:
                   $select_SO_form
-                    .removeClass("text-white bg-passed bg-danger")
+                    .addClass("text-dark")
+                  $so_reg_objective_button.addClass("btn-warning");
               }
             }
             if (data.objective_state) {
               so_id = data.objective_state.id;
-              $so_objective_button = $("#security_objective_selector").find(`#${so_id}`);
-              $so_objective_button.removeClass("btn-passed btn-warning btn-failed");
+              $so_op_objective_button = $("#security_objective_selector").find(`#op_${so_id}`);
+              $so_op_objective_button.removeClass("btn-passed btn-warning btn-failed");
               if (data.objective_state.is_completed) {
-                $so_objective_button.addClass("btn-passed");
+                $so_op_objective_button.addClass("btn-passed");
               } else if (data.objective_state.is_partially) {
-                $so_objective_button.addClass("btn-warning");
+                $so_op_objective_button.addClass("btn-warning");
               } else if (data.objective_state.is_not_started) {
-                $so_objective_button.addClass("btn-failed");
+                $so_op_objective_button.addClass("btn-failed");
               }
+
+            }
+            $so_submit_button = $("#so_submit_button");
+            $so_send_button = $("#so_send_button");
+            $so_submit_button.prop("disabled", true);
+            $so_send_button.prop("disabled", true);
+            if (data.ready_to_submit) {
+              $so_submit_button.prop("disabled", false);
+            }
+            if (data.ready_to_send) {
+              $so_send_button.prop("disabled", false);
             }
             if (data.so_score) {
               const $scoreElem = $('.carousel-item.active').find('#so-score');
-              const label = $scoreElem.data('label');
-              $scoreElem.text(`${label} : ${data.so_score}`);
+              $scoreElem.text(`${data.so_score}`);
             }
           })
       })
