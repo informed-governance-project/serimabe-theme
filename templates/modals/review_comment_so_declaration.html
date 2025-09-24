@@ -6,10 +6,10 @@
 <script src='{% static "npm_components/jquery-ui/dist/jquery-ui.min.js" %}'></script>
 <link rel="stylesheet" type="text/css" href="{% static 'npm_components/jquery-ui/themes/base/all.css' %}" />
 <div class="modal-content">
-    <div class="modal-header bg-primary text-white">
-        <h4 class="modal-title" id="review_comment_so_declaration_label">
+    <div class="modal-header bg-primary text-white px-4 small">
+        <h5 class="modal-title" id="review_comment_so_declaration_label">
             {% translate "Review" %}
-        </h4>
+        </h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
     </div>
     <form action="{% url 'review_comment_so_declaration' standard_answer_id %}" method="post">
