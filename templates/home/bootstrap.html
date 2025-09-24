@@ -53,6 +53,11 @@
         {% block bootstrap5_extra_script %}{% endblock %}
     </body>
 </html>
+{{ cookiebanner_version|default:''|json_script:"cookiebanner_version" }}
+
+<script>
+  window.cookiebanner_version = JSON.parse(document.getElementById('cookiebanner_version').textContent);
+</script>
 {% if user.is_authenticated %}
 <script>
     function getCookie(name) {
