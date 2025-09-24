@@ -67,7 +67,14 @@
             <th class="col-2">{% translate "Sectors" %}</th>
             <th class="col-1">{% translate "Year" %}</th>
             <th class="col-2">{% translate "Progress" %}</th>
-            <th class="col-1">{% translate "Actions" %}</th>
+            <th class="col-1">
+                <div class="d-flex align-items-end">
+                    <span>{% translate "Actions" %}</span>
+                    <button class="btn btn-sm btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#SOhideColumns">
+                        <i class="bi bi-gear h5 m-0"></i>
+                    </button>
+                </div>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -165,6 +172,13 @@
 <div class="modal fade" id="so_access_log" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="so_access_log_label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"></div>
+</div>
+
+<div class="modal fade" id="SOhideColumns" data-bs-backdrop="static" data-bs-keyboard="false"tabindex="-1" 
+    aria-labelledby="so_hide_columns_label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        {% include "modals/so_dashboard_hide_columns.html" %}
+    </div>
 </div>
 
 <div class="modal fade right-modal pt-5 pe-5" id="filterModal" tabindex="-1" aria-hidden="true">

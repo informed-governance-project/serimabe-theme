@@ -1,6 +1,7 @@
 $(document).ready(function () {
   let table = $('#securityobjectives-table').DataTable({
     autoWidth: false,
+    stateSave: true,
     paging: false,
     searching: false,
     info: false,
@@ -51,6 +52,19 @@ $(document).ready(function () {
         orderable: false,
       },
     ]
+  });
+
+  $('.column-toggle').on('change', function () {
+    var colIdx = $(this).data('column');
+    table.column(colIdx).visible(this.checked);
+  });
+
+  $('#SOhideColumns').on('show.bs.modal', function () {
+    table.columns().every(function (idx) {
+      var col = table.column(idx);
+      var visible = col.visible();
+      $('.column-toggle[data-column="' + idx + '"]').prop('checked', visible);
+    });
   });
 
   $(document).on("click", ".delete_so_declaration", function () {
