@@ -119,10 +119,12 @@
                 <i class="bi bi-arrow-right"></i>
             </button>
           {% elif standard_answer.status == "UNDE" %}
-          <button id="so_submit_button" type="button" class="col-auto btn btn-passed" {% if not standard_answer.ready_to_submit %}disabled{% endif %}>
+          <a id="so_submit_button" type="button" 
+            href="{% url 'submit_so_declaration' standard_answer.id  %}"
+            class="col-auto btn btn-passed" {% if not standard_answer.ready_to_submit %}disabled{% endif %}>
             {% translate "Submit" %}
             <i class="bi bi-arrow-right"></i>
-          </button>
+          </a>
           {% endif %}
           <a type="button" class="col-auto btn btn-primary" href="{% url 'securityobjectives' %}" onclick="load_spinner()">
             {% translate "Close" %}
