@@ -1,65 +1,75 @@
 {% load i18n %}
+<style>
+    @page:first {
+        background-image: url("file:{{ static_theme_dir }}/images/bg_login.svg") !important;
+    }
+</style>
 
-<div class="my-6">
-    <div class="d-flex justify-content-center">
-        <img class="text-center"
-        src="file:{{ static_theme_dir }}/images/logo.svg" 
-        alt="Logo">
-
-    </div>
-
-    <h1 class="mt-5 mb-2 text-center fw-bold">{% translate "Security objectives statement" %}</h1>
-    <div class="mt-5 p-4 pb-2 border border-secondary border-1 rounded">
-        <p>
+<div class="d-flex justify-content-center w-100">
+    <img class="text-center img-fluid cover-logo"
+    src="file:{{ static_theme_dir }}/images/logo.svg"
+    alt="SERIMA Logo">
+</div>
+<div class="position-absolute top-50 ms-5 ps-2">
+    <h1 class="fw-bold text-primary text-uppercase">
+        {% translate "Security objectives statement" %}
+    </h1>
+    <div class="hr-separator"></div>
+    <div>
+        <p class="m-0">
             <span class="fw-bold">
-                {% translate "Company name" %}:
+                {% translate "Name of the Operator" %}:
             </span>
             {{ standard_answer.submitter_company }}
         </p>
-        <p>
-            <div class="d-flex justify-content-start">
-                <div class="fw-bold">
-                    {% translate "Sectors" %}:
-                </div>
-                <ul class="ms-1 p-0">
-                    {% for sector in standard_answer.sectors.all %}
-                    {{ sector }}
-                    <br />
-                    {% endfor %}
-                </ul>
-            </div>
+        <p class="m-0">
+            <span class="fw-bold">
+                {% translate "Sectors" %}:
+            </span>
+            <ul class="ms-1 p-0">
+                {% for sector in standard_answer.sectors.all %}
+                {{ sector }}
+                <br />
+                {% endfor %}
+            </ul>
         </p>
-        <p>
+        <p class="m-0">
             <span class="fw-bold">
                 {% translate "Evaluation Framework" %}:
             </span>
-            {{ standard_answer.standard }}
+            {{ standard_answer.standard }} 
         </p>
-        <p>
+        <p class="m-0">
+            <span class="fw-bold">
+                {% translate "Report status" %}:
+            </span>
+            {{ incident.get_incident_status_display }}   
+        </p>
+        <p class="m-0">
             <span class="fw-bold">
                 {% translate "Year" %}:
             </span>
-            {{ standard_answer.year_of_submission }}
+            {{ standard_answer.year_of_submission }}  
         </p>
-        <p>
+        <p class="m-0">
             <span class="fw-bold">
                 {% translate "Last update" %}:
             </span>
             {{ standard_answer.last_update|date:"d M Y, H:i" }}
         </p>
-        <p>
+        <p class="m-0">
             <span class="fw-bold">
                 {% translate "Submission date" %}:
             </span>
             {{ standard_answer.submit_date|date:"d M Y, H:i" }}
         </p>
-        <p>
+        <p class="m-0">
             <span class="fw-bold">
                 {% translate "Progress" %}:
             </span>
             {{ standard_answer.answered_percentage|default:0|floatformat:'0' }}%
         </p>
-        <p>
+        <p class="m-0">
             <span class="fw-bold">
                 {% translate "Status" %}:
             </span>
