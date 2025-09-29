@@ -131,7 +131,14 @@
             <th scope="col">{% translate "Reference" %}</th>
             <th scope="col">{% translate "Sectors" %}</th>
             <th scope="col">{% translate "Report" %}</th>
-            <th scope="col">{% translate "Actions" %}</th>
+            <th scope="col">
+                <div class="d-flex align-items-end">
+                    <span>{% translate "Actions" %}</span>
+                    <button class="btn btn-sm btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#IncidentshideColumns">
+                        <i class="bi bi-gear h5 m-0"></i>
+                    </button>
+                </div>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -241,7 +248,7 @@
                 <ul class="list-unstyled mb-0">
                     {% for report in incident.all_reports %}
                     {% with latest_incident_workflow=report.latest_incident_workflow %}
-                    <li class="mb-1 d-flex justify-content-between align-items-center">
+                    <li class="mb-1 d-flex align-items-center">
                         <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip"
                             title="{{ report.tooltip }}">
                             <i class="logo-{{ report.css_class }} align-middle" aria-hidden="true"></i>
@@ -253,28 +260,28 @@
                             </a>
                         </div>
                         {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
-                            <div class="d-inline-flex align-items-center">
-                                {% if incident_workflows %}
-                                <button class="btn text-dark p-0 ps-1 border-0 report_versions" data-workflows="{{ incident_workflows }}"
-                                    data-report="{{ report.name }}" data-incident-ref="{{ incident.incident_id}}"
-                                    data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
-                                    data-download-url="{% url 'download_incident_report_pdf' 0 %}" data-bs-toggle="modal"
-                                    data-bs-target="#report_versions">
-                                    <i class="custom-icon-versioning h4 align-self-center" aria-hidden="true" data-bs-placement="top"
-                                        data-bs-toggle="tooltip" title="{% translate 'Version control' %}">
-                                    </i>
-                                    <span class="visually-hidden">
-                                        {% translate 'Version control' %}
-                                    </span>
-                                </button>
-                                {% endif %}
-                                {% if latest_incident_workflow %}
-                                <a class="btn p-0 ps-1 border-0" href="{% url 'download_incident_report_pdf' latest_incident_workflow.id %}"
-                                    data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download PDF report' %}">
-                                    <i class="custom-icon-pdf-small h4 align-self-center" aria-hidden="true"></i>
-                                </a>
-                                {% endif %}
-                            </div>
+                        <div class="d-inline-flex align-items-center ms-2">
+                            {% if incident_workflows %}
+                            <button class="btn text-dark p-0 ps-1 border-0 report_versions" data-workflows="{{ incident_workflows }}"
+                                data-report="{{ report.name }}" data-incident-ref="{{ incident.incident_id}}"
+                                data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
+                                data-download-url="{% url 'download_incident_report_pdf' 0 %}" data-bs-toggle="modal"
+                                data-bs-target="#report_versions">
+                                <i class="custom-icon-versioning h4 align-self-center" aria-hidden="true" data-bs-placement="top"
+                                    data-bs-toggle="tooltip" title="{% translate 'Version control' %}">
+                                </i>
+                                <span class="visually-hidden">
+                                    {% translate 'Version control' %}
+                                </span>
+                            </button>
+                            {% endif %}
+                            {% if latest_incident_workflow %}
+                            <a class="btn p-0 ps-1 border-0" href="{% url 'download_incident_report_pdf' latest_incident_workflow.id %}"
+                                data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download PDF report' %}">
+                                <i class="custom-icon-pdf-small h4 align-self-center" aria-hidden="true"></i>
+                            </a>
+                            {% endif %}
+                        </div>
                         {% endwith %}
                     </li>
                     {% endwith %}
@@ -328,32 +335,39 @@
     </div>
 </div>
 
-    <div class="modal fade right-modal pt-5 pe-5" id="filterModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title fw-bold">{% translate "Filter" %}</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
-                </div>
-                <form method="get">
-                    <div class="modal-body small">
-                        {% bootstrap_field filter.form.incident_id label_class="fw-bold" wrapper_class="mb-3" %}
-                        {% bootstrap_field filter.form.incident_status label_class="fw-bold" wrapper_class="mb-3" %}
-                        {% bootstrap_field filter.form.is_significative_impact label_class="fw-bold" wrapper_class="mb-3"%}
-                        {% bootstrap_field filter.form.affected_sectors label_class="fw-bold" wrapper_class="affected-sector-filter mb-3" %}
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal" onclick="load_spinner()">
-                            {% translate "Reset" %}
-                        </button>
-                        <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
-                            {% translate "Search" %}
-                        </button>    
-                    </div>
-                </form>
+<div class="modal fade" id="IncidentshideColumns" data-bs-backdrop="static" data-bs-keyboard="false"tabindex="-1" 
+    aria-labelledby="so_hide_columns_label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        {% include "modals/incidents_dashboard_hide_columns.html" %}
+    </div>
+</div>
+
+<div class="modal fade right-modal pt-5 pe-5" id="filterModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fw-bold">{% translate "Filter" %}</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
             </div>
+            <form method="get">
+                <div class="modal-body small">
+                    {% bootstrap_field filter.form.incident_id label_class="fw-bold" wrapper_class="mb-3" %}
+                    {% bootstrap_field filter.form.incident_status label_class="fw-bold" wrapper_class="mb-3" %}
+                    {% bootstrap_field filter.form.is_significative_impact label_class="fw-bold" wrapper_class="mb-3"%}
+                    {% bootstrap_field filter.form.affected_sectors label_class="fw-bold" wrapper_class="affected-sector-filter mb-3" %}
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal" onclick="load_spinner()">
+                        {% translate "Reset" %}
+                    </button>
+                    <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
+                        {% translate "Search" %}
+                    </button>    
+                </div>
+            </form>
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% endblock %}
