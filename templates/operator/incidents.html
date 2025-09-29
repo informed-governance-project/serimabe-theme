@@ -58,7 +58,7 @@
     <ul class="list-unstyled mb-0">
     {% for report in incident.all_reports %}
     {% with latest_incident_workflow=report.latest_incident_workflow %}
-        <li class="mb-1 d-flex justify-content-between align-items-center">
+        <li class="mb-1 d-flex align-items-center">
             <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip"
                 title="{{ report.tooltip }}">
                 {% if not latest_incident_workflow and not report.is_disabled and forloop.first %}
@@ -79,44 +79,38 @@
                     {{ report.name }}
                 </a>
                 {% endif %}
+
             </div>
-            <div class="d-inline-flex align-items-center">
-            {% if latest_incident_workflow.comment %}
-            <button class="btn text-secondary workflow_comment p-0"
-                data-workflow-comment="{{ latest_incident_workflow.comment|linebreaksbr }}"
-                data-bs-toggle="modal"
-                data-bs-target="#workflow_comment">
-                <i class="custom-icon-comments h4"
-                    data-bs-placement="top" data-bs-toggle="tooltip"
-                    title="{% translate 'Comment/Explanation' %}"
-                    aria-hidden="true">
-                </i>
-                <span class="visually-hidden">
-                    {% translate 'Comment/Explanation' %}
-                </span>
-            </button>
-            {% endif %}
-            {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
-            {% if incident_workflows %}
-            <button class="btn text-dark p-0 ps-1 border-0 report_versions"
-                data-workflows="{{ incident_workflows }}"
-                data-report="{{ report.name }}"
-                data-incident-ref="{{ incident.incident_id}}"
-                data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
-                data-download-url="{% url 'download_incident_report_pdf' 0 %}"
-                data-bs-toggle="modal"
-                data-bs-target="#report_versions">
-                <i class="custom-icon-versioning h4 align-self-center" aria-hidden="true"
-                    data-bs-placement="top" data-bs-toggle="tooltip"
-                    title="{% translate 'Version control' %}">
-                </i>
-                <span class="visually-hidden">
-                    {% translate 'Version control' %}
-                </span>
-            </button>
-            {% endif %}
-            {% endwith %}
-            </div>
+            <div class="d-inline-flex align-items-center ms-2">
+                {% if latest_incident_workflow.comment %}
+                <button class="btn text-secondary workflow_comment p-0"
+                    data-workflow-comment="{{ latest_incident_workflow.comment|linebreaksbr }}" data-bs-toggle="modal"
+                    data-bs-target="#workflow_comment">
+                    <i class="custom-icon-comments h4" data-bs-placement="top" data-bs-toggle="tooltip"
+                        title="{% translate 'Review comment' %}" aria-hidden="true">
+                    </i>
+                    <span class="visually-hidden">
+                        {% translate 'Review comment' %}
+                    </span>
+                </button>
+                {% endif %}
+                {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
+                {% if incident_workflows %}
+                <button class="btn text-dark p-0 ps-1 border-0 report_versions" data-workflows="{{ incident_workflows }}"
+                    data-report="{{ report.name }}" data-incident-ref="{{ incident.incident_id}}"
+                    data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
+                    data-download-url="{% url 'download_incident_report_pdf' 0 %}" data-bs-toggle="modal"
+                    data-bs-target="#report_versions">
+                    <i class="custom-icon-versioning h4 align-self-center" aria-hidden="true" data-bs-placement="top"
+                        data-bs-toggle="tooltip" title="{% translate 'Version control' %}">
+                    </i>
+                    <span class="visually-hidden">
+                        {% translate 'Version control' %}
+                    </span>
+                </button>
+                {% endif %}
+                {% endwith %}
+            </div>              
         </li>
     {% endwith %}
     {% endfor %}
