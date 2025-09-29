@@ -45,7 +45,7 @@
             "contact_first_name": "{{ standard_answer.submitter_user.first_name }}",
             "contact_email": "{{ standard_answer.submitter_user.email }}",
             "contact_telephone": "{{ standard_answer.submitter_user.phone_number }}"}'>
-            <i class="custom-icon-profile h3"></i>
+            <i class="custom-icon-contact h3"></i>
             <span class="visually-hidden">{% translate 'Profile' %}</span>
           </button>
           <div class="col">
@@ -116,14 +116,14 @@
                 data-bs-toggle="modal" 
                 data-bs-target="#review_comment_so_declaration">
                 {% translate "Send" %}
-                <i class="bi bi-arrow-right"></i>
+                <i class="custom-icon-submit h4"></i>
             </button>
           {% elif standard_answer.status == "UNDE" %}
           <a id="so_submit_button" type="button" 
             href="{% url 'submit_so_declaration' standard_answer.id  %}"
             class="col-auto btn btn-passed" {% if not standard_answer.ready_to_submit %}disabled{% endif %}>
             {% translate "Submit" %}
-            <i class="bi bi-arrow-right"></i>
+            <i class="custom-icon-submit h4"></i>
           </a>
           {% endif %}
           <a type="button" class="col-auto btn btn-primary" href="{% url 'securityobjectives' %}" onclick="load_spinner()">

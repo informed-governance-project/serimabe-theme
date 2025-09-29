@@ -13182,6 +13182,18 @@ a.changelink {
   background-image: url("/static/images/icons/ico-duplicate.svg");
 }
 
+.custom-icon-submit {
+  background-image: url("/static/images/icons/ico-submit.svg");
+}
+
+.custom-icon-contact {
+  background-image: url("/static/images/icons/ico-contact.svg");
+}
+
+.custom-icon-contact-white {
+  background-image: url("/static/images/icons/ico-contact-white.svg");
+}
+
 .form-check-input {
   border-color: var(--bs-gray-600);
 }
