@@ -131,7 +131,14 @@
             <th scope="col">{% translate "Reference" %}</th>
             <th scope="col">{% translate "Sectors" %}</th>
             <th scope="col">{% translate "Report" %}</th>
-            <th scope="col">{% translate "Actions" %}</th>
+            <th scope="col">
+                <div class="d-flex align-items-end">
+                    <span>{% translate "Actions" %}</span>
+                    <button class="btn btn-sm btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#IncidentshideColumns">
+                        <i class="bi bi-gear h5 m-0"></i>
+                    </button>
+                </div>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -328,32 +335,39 @@
     </div>
 </div>
 
-    <div class="modal fade right-modal pt-5 pe-5" id="filterModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title fw-bold">{% translate "Filter" %}</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
-                </div>
-                <form method="get">
-                    <div class="modal-body small">
-                        {% bootstrap_field filter.form.incident_id label_class="fw-bold" wrapper_class="mb-3" %}
-                        {% bootstrap_field filter.form.incident_status label_class="fw-bold" wrapper_class="mb-3" %}
-                        {% bootstrap_field filter.form.is_significative_impact label_class="fw-bold" wrapper_class="mb-3"%}
-                        {% bootstrap_field filter.form.affected_sectors label_class="fw-bold" wrapper_class="affected-sector-filter mb-3" %}
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal" onclick="load_spinner()">
-                            {% translate "Reset" %}
-                        </button>
-                        <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
-                            {% translate "Search" %}
-                        </button>    
-                    </div>
-                </form>
+<div class="modal fade" id="IncidentshideColumns" data-bs-backdrop="static" data-bs-keyboard="false"tabindex="-1" 
+    aria-labelledby="so_hide_columns_label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        {% include "modals/incidents_dashboard_hide_columns.html" %}
+    </div>
+</div>
+
+<div class="modal fade right-modal pt-5 pe-5" id="filterModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fw-bold">{% translate "Filter" %}</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
             </div>
+            <form method="get">
+                <div class="modal-body small">
+                    {% bootstrap_field filter.form.incident_id label_class="fw-bold" wrapper_class="mb-3" %}
+                    {% bootstrap_field filter.form.incident_status label_class="fw-bold" wrapper_class="mb-3" %}
+                    {% bootstrap_field filter.form.is_significative_impact label_class="fw-bold" wrapper_class="mb-3"%}
+                    {% bootstrap_field filter.form.affected_sectors label_class="fw-bold" wrapper_class="affected-sector-filter mb-3" %}
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal" onclick="load_spinner()">
+                        {% translate "Reset" %}
+                    </button>
+                    <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
+                        {% translate "Search" %}
+                    </button>    
+                </div>
+            </form>
         </div>
     </div>
+</div>
 {% endblock %}
 
 {% endblock %}

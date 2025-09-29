@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#incidents-table').DataTable({
+    let table = $('#incidents-table').DataTable({
         autoWidth: false,
         stateSave: true,
         paging: false,
@@ -55,6 +55,19 @@ $(document).ready(function () {
             },
         ]
     });
+
+      $('.column-toggle').on('change', function () {
+    var colIdx = $(this).data('column');
+    table.column(colIdx).visible(this.checked);
+  });
+
+  $('#IncidentshideColumns').on('show.bs.modal', function () {
+    table.columns().every(function (idx) {
+      var col = table.column(idx);
+      var visible = col.visible();
+      $('.column-toggle[data-column="' + idx + '"]').prop('checked', visible);
+    });
+  });
 
 
     $(document).on("click", '.access_log', function () {
