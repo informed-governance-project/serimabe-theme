@@ -82,7 +82,7 @@
                     </ul>
                 </td>
                 <td class="col-auto table-group-divider py-3">
-                    {% security_objective_exists form.instance form.year.value form.initial.sector as exists %}
+                    {% security_objective_exists form.initial.object form.year.value form.initial.sector as exists %}
                     <div class="d-flex align-items-center justify-content-center">
                         {% if not exists %}
                             <a class="btn btn-sm import_so_declaration" 
@@ -90,7 +90,7 @@
                             data-bs-target="#import_so_declaration"
                             data-year="{{ form.year.value }}"
                             data-sector-id="{{ form.initial.sector.id }}"
-                            data-company-id="{{ form.instance.id }}">
+                            data-company-id="{{ form.initial.id }}">
                         {% endif %}
                             <div class="form-check boolean-checkbox">
                                     <input class="form-check-input large-checkbox no-opacity" 
@@ -104,7 +104,7 @@
                     </div>
                 </td>
                 <td class="col-auto table-group-divider py-3">
-                    {% risk_analysis_exists form.instance form.year.value form.initial.sector as exists %}
+                    {% risk_analysis_exists form.initial.object form.year.value form.initial.sector as exists %}
                     <div class="d-flex align-items-center justify-content-center">
                         {% if not exists %}
                             <a class="btn btn-sm import_risk_analysis" 
@@ -112,7 +112,7 @@
                             data-bs-target="#import_risk_analysis"
                             data-year="{{ form.year.value }}"
                             data-sector-id="{{ form.initial.sector.id }}"
-                            data-company-id="{{ form.instance.id }}">
+                            data-company-id="{{ form.initial.id }}">
                         {% endif %}
                             <div class="form-check boolean-checkbox">
                                     <input class="form-check-input large-checkbox no-opacity" 
@@ -126,20 +126,20 @@
                     </div>
                 </td>
                 <td class="col-auto table-group-divider py-3">
-                    {% get_report_recommandations form.instance form.year.value form.initial.sector as report_recommendations %}
+                    {% get_report_recommandations form.initial.object form.year.value form.initial.sector as report_recommendations %}
                     {{ report_recommendations|length }}
                 </td>
                 <td class="col-auto table-group-divider py-3">
                     <div class="d-flex align-items-center justify-content-between">
                         <a class="btn border-0 p-0 text-dark" 
-                            href="{% url 'report_recommendations' form.instance.id form.initial.sector.id form.year.value %}"
+                            href="{% url 'report_recommendations' form.initial.id form.initial.sector.id form.year.value %}"
                             onclick="load_spinner()">
                             <i class="bi bi-list-stars h4"
                                 data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Recommendations' %}">
                             </i>
                         </a>
                         <button class="btn border-0 p-0 text-dark review_comment_report" 
-                            data-company-id="{{ form.instance.id }}"
+                            data-company-id="{{ form.initial.id }}"
                             data-sector-id="{{ form.initial.sector.id }}"
                             data-year="{{ form.year.value }}"
                             type="button">
@@ -148,7 +148,7 @@
                             </i>
                         </button>
                         <button class="btn border-0 p-0 text-dark reporting_access_log" 
-                            data-company-id="{{ form.instance.id }}"
+                            data-company-id="{{ form.initial.id }}"
                             data-sector-id="{{ form.initial.sector.id }}"
                             data-year="{{ form.year.value }}"
                             type="button">

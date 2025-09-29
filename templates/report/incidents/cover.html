@@ -2,7 +2,8 @@
 {% load i18n %}
 
 {% block report_cover_content %}
-    <h1 class="fw-bold text-primary text-uppercase">{% translate "Report" %}
+    <h1 class="fw-bold text-primary text-uppercase">
+    {% translate "Report" %}
     {% if report_name %}
         <br>{{report_name}}
     {% endif %}

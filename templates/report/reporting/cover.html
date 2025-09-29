@@ -1,0 +1,23 @@
+{% extends 'report/base/cover.html' %}
+{% load i18n %}
+
+{% block report_cover_content %}
+<h1 class="fw-bold text-primary text-uppercase">
+    {% translate "Annual report" %} {{ year }}
+</h1>
+<div class="hr-separator"></div>
+<div>
+    <p class="m-0">
+        <span class="fw-bold">
+            {% translate "Company name" %}:
+        </span>
+        {{ company.name }}
+    </p>
+    <p class="m-0">
+        <span class="fw-bold">
+             {% translate "Sector" %}:
+        </span>
+        {{ sector.name }}
+    </p>
+</div>
+{% endblock %}
