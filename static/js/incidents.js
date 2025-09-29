@@ -180,7 +180,22 @@ $(document).ready(function () {
         load_spinner()
     });
 
-    toggleClearButton();
+    function checkNIStatusLegend() {
+        const status = localStorage.getItem('ni_status_legend');
+        if (status === "true") {
+            $('#collapseLegend').addClass("show");
+        } else {
+            $('#collapseLegend').removeClass("show");
+        }
+    }
 
+    checkNIStatusLegend();
+    toggleClearButton();
 });
+
+function save_ni_status_legend() {
+  const current = localStorage.getItem('ni_status_legend') === "true";
+  const newValue = !current;
+  localStorage.setItem('ni_status_legend', newValue);
+}
 
