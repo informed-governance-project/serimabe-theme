@@ -35,6 +35,13 @@
         aria-hidden="true">
     </i>
     <span class="visually-hidden">{% translate 'Incident with significant impact' %}</span>
+    {% else %}
+    <i class="custom-icon-impact-disabled logo-status"
+        data-bs-placement="top" data-bs-toggle="tooltip"
+        title="{% translate 'No significant impact' %}"
+        aria-hidden="true">
+    </i>
+    <span class="visually-hidden">{% translate 'No significant impact' %}</span>
     {% endif %}
 {% endblock %}
 
