@@ -190,5 +190,22 @@ $(document).ready(function () {
     load_spinner()
   });
 
+  function checkSOStatusLegend() {
+    const status = localStorage.getItem('so_status_legend');
+    if (status === "true") {
+      $('#collapseLegend').addClass("show");
+    } else {
+      $('#collapseLegend').removeClass("show");
+    }
+  }
+
+  checkSOStatusLegend();
   toggleClearButton();
+
 })
+
+function save_so_status_legend() {
+  const current = localStorage.getItem('so_status_legend') === "true";
+  const newValue = !current;
+  localStorage.setItem('so_status_legend', newValue);
+}
