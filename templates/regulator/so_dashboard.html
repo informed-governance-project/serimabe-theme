@@ -35,7 +35,7 @@
     href="{% url 'so_declaration' %}?id={{ standard.id }}"
     {% if standard.status == 'UNDE' %}aria-disabled="true" disabled{% endif %}
     onclick="load_spinner()">
-    <i class="bi bi-pencil-fill"
+    <i class="custom-icon-edit h4"
         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Review' %}">
     </i>
 </a>
