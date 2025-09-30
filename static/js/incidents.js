@@ -56,18 +56,18 @@ $(document).ready(function () {
         ]
     });
 
-      $('.column-toggle').on('change', function () {
-    var colIdx = $(this).data('column');
-    table.column(colIdx).visible(this.checked);
-  });
-
-  $('#IncidentshideColumns').on('show.bs.modal', function () {
-    table.columns().every(function (idx) {
-      var col = table.column(idx);
-      var visible = col.visible();
-      $('.column-toggle[data-column="' + idx + '"]').prop('checked', visible);
+    $('.column-toggle').on('change', function () {
+        var colIdx = $(this).data('column');
+        table.column(colIdx).visible(this.checked);
     });
-  });
+
+    $('#IncidentshideColumns').on('show.bs.modal', function () {
+        table.columns().every(function (idx) {
+            var col = table.column(idx);
+            var visible = col.visible();
+            $('.column-toggle[data-column="' + idx + '"]').prop('checked', visible);
+        });
+    });
 
 
     $(document).on("click", '.access_log', function () {
@@ -118,7 +118,7 @@ $(document).ready(function () {
                         ${formattedTime}
                     </td>
                     <td class="col-2 text-center">
-                        <div class="d-inline-flex">
+                        <div class="d-inline-flex align-middle">
                             <a class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center" href="${reviewUrl}"
                                 data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_review}">
                                 <i class="custom-icon-view h4 align-self-center" aria-hidden="true"></i>
@@ -207,8 +207,8 @@ $(document).ready(function () {
 });
 
 function save_ni_status_legend() {
-  const current = localStorage.getItem('ni_status_legend') === "true";
-  const newValue = !current;
-  localStorage.setItem('ni_status_legend', newValue);
+    const current = localStorage.getItem('ni_status_legend') === "true";
+    const newValue = !current;
+    localStorage.setItem('ni_status_legend', newValue);
 }
 
