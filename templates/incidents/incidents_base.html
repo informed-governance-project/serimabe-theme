@@ -62,42 +62,46 @@
             <span class="legend-title">
                 {% translate "Legend" %}
             </span>
-            <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
-                <li class="legend-item legend-impact">
-                    <i class="logo-report-impact m-0 h5" aria-hidden="true"></i>
+            <ul class="d-flex justify-content-between list-group list-group-horizontal-xl gap-2">
+                <li class="text-no-impact">
+                    <i class="custom-icon-impact-disabled h5" aria-hidden="true"></i>
+                    {% translate "No Significant Impact" %}
+                </li>
+                <li class="text-impact">
+                    <i class="custom-icon-impact m-0 h5" aria-hidden="true"></i>
                     {% translate "Significant Impact" %}
                 </li>
-                <li class="legend-item legend-ongoing">
-                    <i class="logo-report-ongoing m-0 h5" aria-hidden="true"></i>
+                <li class="text-ongoing">
+                    <i class="custom-icon-ongoing h5" aria-hidden="true"></i>
                     {% translate "Ongoing" %}
                 </li>
-                <li class="legend-item legend-closed">
-                    <i class="logo-report-closed m-0 h5" aria-hidden="true"></i>
+                <li class="text-closed">
+                    <i class="custom-icon-closed h5" aria-hidden="true"></i>
                     {% translate "Closed" %}
                 </li>
-                <li class="legend-item legend-unsubmitted">
-                    <i class="logo-report-unsubmitted m-0 h5" aria-hidden="true"></i>
+                <li class="text-unsubmitted">
+                    <i class="custom-icon-unsubmitted h5" aria-hidden="true"></i>
                     {% translate "Unsubmitted" %}
                 </li>
-                <li class="legend-item legend-under-review">
-                    <i class="logo-report-under-review m-0 h5" aria-hidden="true"></i>
+                <li class="text-under-review">
+                    <i class="custom-icon-under-review h5" aria-hidden="true"></i>
                     {% translate "Under review" %}
                 </li>
-                <li class="legend-item legend-late-under-review">
-                    <i class="logo-report-late-under-review m-0 pe-3 h5" aria-hidden="true"></i>
-                    {% translate "Late submission" %}
-                </li>
-                <li class="legend-item legend-submission-overdue">
-                    <i class="logo-report-overdue m-0 pe-3 h5" aria-hidden="true"></i>
+                <li class="text-overdue">
+                    <i class="custom-icon-overdue pe-3 h5" aria-hidden="true"></i>
                     {% translate "Submission overdue" %}
                 </li>
-                <li class="legend-item legend-passed">
-                    <i class="logo-report-pass m-0 h5" aria-hidden="true"></i>
-                    {% translate "Passed" %}
+                <li class="text-late-under-review">
+                    <i class="custom-icon-late-under-review pe-3 h5" aria-hidden="true"></i>
+                    {% translate "Late submission" %}
                 </li>
-                <li class="legend-item legend-failed">
-                    <i class="logo-report-fail m-0 h5" aria-hidden="true"></i>
+                <li class="text-failed">
+                    <i class="custom-icon-failed h5" aria-hidden="true"></i>
                     {% translate "Revision required" %}
+                </li>
+                <li class="text-passed">
+                    <i class="custom-icon-passed h5" aria-hidden="true"></i>
+                    {% translate "Passed" %}
                 </li>
             </ul>
         </div>
@@ -146,7 +150,7 @@
         {% timezone time_zone %}
         <tr>
             <td class="table-group-divider py-3"> <!-- Incident status  -->
-                <div class="col d-flex align-items-center justify-content-center">
+                <div class="col d-flex align-items-center justify-content-center gap-1">
                     {% block content_table_significative_impact %}
                         {% for field in incident.formsStatus %}
                             {% if field.name == "is_significative_impact" %}
@@ -251,8 +255,8 @@
                     <li class="mb-1 d-flex align-items-center">
                         <div class="d-inline" data-bs-placement="top" data-bs-toggle="tooltip"
                             title="{{ report.tooltip }}">
-                            <i class="logo-{{ report.css_class }} align-middle" aria-hidden="true"></i>
-                            <a class="{{ report.css_class }} {% if not latest_incident_workflow %}text-decoration-none{% endif %}"
+                            <i class="custom-icon-{{ report.css_class }} align-middle" aria-hidden="true"></i>
+                            <a class="text-{{ report.css_class }} {% if not latest_incident_workflow %}text-decoration-none{% endif %}"
                                 {% if latest_incident_workflow %}
                                 href="{% url incident_view_action %}?incident_workflow_id={{ latest_incident_workflow.id }}"
                                 {% endif %}>
@@ -267,7 +271,7 @@
                                 data-review-url="{% url 'review_workflow' %}?incident_workflow_id="
                                 data-download-url="{% url 'download_incident_report_pdf' 0 %}" data-bs-toggle="modal"
                                 data-bs-target="#report_versions">
-                                <i class="custom-icon-versioning h4 align-self-center" aria-hidden="true" data-bs-placement="top"
+                                <i class="custom-icon-versioning h6 align-self-center" aria-hidden="true" data-bs-placement="top"
                                     data-bs-toggle="tooltip" title="{% translate 'Version control' %}">
                                 </i>
                                 <span class="visually-hidden">
@@ -278,7 +282,7 @@
                             {% if latest_incident_workflow %}
                             <a class="btn p-0 ps-1 border-0" href="{% url 'download_incident_report_pdf' latest_incident_workflow.id %}"
                                 data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Download PDF report' %}">
-                                <i class="custom-icon-pdf-small h4 align-self-center" aria-hidden="true"></i>
+                                <i class="custom-icon-pdf-small h6 align-self-center" aria-hidden="true"></i>
                             </a>
                             {% endif %}
                         </div>
