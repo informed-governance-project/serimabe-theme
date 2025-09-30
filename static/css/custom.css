@@ -13134,10 +13134,6 @@ a.changelink {
   background-image: url("/static/images/icons/ico-trash.svg");
 }
 
-.custom-icon-not-submitted {
-  background-image: url("/static/images/icons/ico-not-submitted.svg");
-}
-
 .custom-icon-search {
   background-image: url("/static/images/icons/ico-search.svg");
 }
@@ -13198,6 +13194,74 @@ a.changelink {
   background-image: url("/static/images/icons/ico-impact-disabled.svg");
 }
 
+.custom-icon-impact {
+  background-image: url("/static/images/icons/ico-impact.svg");
+}
+
+.custom-icon-ongoing {
+  background-image: url("/static/images/icons/ico-on_going.svg");
+}
+
+.custom-icon-closed {
+  background-image: url("/static/images/icons/ico-closed.svg");
+}
+
+.custom-icon-unsubmitted {
+  background-image: url("/static/images/icons/ico-unsubmitted.svg");
+}
+
+.custom-icon-unsubmitted-white {
+  background-image: url("/static/images/icons/ico-unsubmitted-white.svg");
+}
+
+.custom-icon-under-review {
+  background-image: url("/static/images/icons/ico-under_review.svg");
+}
+
+.custom-icon-under-review-white {
+  background-image: url("/static/images/icons/ico-under_review-white.svg");
+}
+
+.custom-icon-overdue {
+  background-image: url("/static/images/icons/ico-submission_overdue.svg");
+}
+
+.custom-icon-overdue-white {
+  background-image: url("/static/images/icons/ico-submission_overdue-white.svg");
+}
+
+.custom-icon-late-under-review {
+  background-image: url("/static/images/icons/ico-late_under_review.svg");
+}
+
+.custom-icon-failed {
+  background-image: url("/static/images/icons/ico-failed.svg");
+}
+
+.custom-icon-failed-sent {
+  background-image: url("/static/images/icons/ico-failed-sent.svg");
+}
+
+.custom-icon-failed-white {
+  background-image: url("/static/images/icons/ico-failed-white.svg");
+}
+
+.custom-icon-passed {
+  background-image: url("/static/images/icons/ico-passed.svg");
+}
+
+.custom-icon-passed-sent {
+  background-image: url("/static/images/icons/ico-passed-sent.svg");
+}
+
+.custom-icon-passed-white {
+  background-image: url("/static/images/icons/ico-passed-white.svg");
+}
+
+.custom-icon-not-submitted {
+  background-image: url("/static/images/icons/ico-not-submitted.svg");
+}
+
 .form-check-input {
   border-color: var(--bs-gray-600);
 }
@@ -13246,7 +13310,8 @@ table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
   rotate: 90deg !important;
 }
 
-.search_icon, .close_icon {
+.search_icon,
+.close_icon {
   border-color: var(--bs-dark);
   padding: 2px;
   background-color: unset;
