@@ -1,19 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 26 25">
-  <!-- Generator: Adobe Illustrator 29.8.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 2)  -->
-  <defs>
-    <style>
-      .st0 {
-        fill: #ffc107;
-        stroke: #000;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-width: 1.2px;
-      }
-    </style>
-  </defs>
-  <path class="st0" d="M21.8,13v1.7c0,1.7-1.4,3-3,3h-6.7l-3.6,3.7v-3.7h-1.7c-1.7,0-3-1.4-3-3V6.5c0-1.7,1.4-3,3-3h5.1"/>
-  <path class="st0" d="M16.8,13.5c2.8,0,5-2.2,5-5s-2.2-5-5-5-5,2.2-5,5,2.2,5,5,5Z"/>
-  <path class="st0" d="M16.8,6.6v3.8"/>
-  <path class="st0" d="M14.9,8.5h3.8"/>
+<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21.5076 14.7571C21.5076 16.4312 20.1506 17.7886 18.4761 17.7886H11.7982L8.18578 21.508V17.7886H6.52338C4.84929 17.7886 3.49188 16.4316 3.49188 14.7571V6.52344C3.49188 4.84935 4.84894 3.49194 6.52338 3.49194H9.59984" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.7562 15C18.9327 15 21.5078 12.425 21.5078 9.24847C21.5078 6.07199 18.9327 3.49695 15.7562 3.49695C12.5797 3.49695 10.0047 6.07199 10.0047 9.24847C10.0047 12.425 12.5797 15 15.7562 15Z" fill="#008800" stroke="#008800" stroke-width="1.37853" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.7564 7.08252V11.4151" stroke="white" stroke-width="1.37853" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.5895 9.24854H17.9221" stroke="white" stroke-width="1.37853" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
