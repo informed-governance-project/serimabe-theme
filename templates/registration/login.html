@@ -2,12 +2,18 @@
 
 {% load django_bootstrap5 %}
 {% load i18n %}
+{% load static %}
 
 {% block login_content %}
 <div id="notify-options">
-    <h2 class="card-title fw-bolder lh-1 col-7">
-        {% translate "Incident Notification" %}
-    </h2>
+    <div>
+        <img src="{% static 'images/icons/ico-incident-notification.svg' %}" 
+            alt="incident notification icon"
+            class="w-15 mb-3">
+        <h2 class="card-title fw-bolder lh-1 col-7">
+            {% translate "Incident Notification"|upper %}
+        </h2>
+    </div>
     <div class="hr-separator"></div>
     <p class="card-text">
         {% translate "Incident Reporting and Management Module" %}
