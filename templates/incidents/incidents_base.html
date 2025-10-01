@@ -150,7 +150,7 @@
         {% timezone time_zone %}
         <tr>
             <td class="table-group-divider py-3"> <!-- Incident status  -->
-                <div class="col d-flex align-items-center justify-content-center gap-1">
+                <div class="col d-inline-flex align-items-center justify-content-center gap-1">
                     {% block content_table_significative_impact %}
                         {% for field in incident.formsStatus %}
                             {% if field.name == "is_significative_impact" %}
