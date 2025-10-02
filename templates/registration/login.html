@@ -4,9 +4,10 @@
 {% load i18n %}
 {% load static %}
 
-{% block login_content %}
+{% block login_card %}
 <div id="login_card" class="card shadow p-3 mb-5 rounded-1 col-12 col-xl-5 m-auto">
     <div class="card-body p-3">
+        {% block login_content %}
         <div id="notify-options">
             <div>
                 <img src="{% static 'images/icons/ico-incident-notification.svg' %}" alt="incident notification icon"
@@ -35,10 +36,9 @@
 
             {% elif wizard.steps.current == 'backup' %}
             <p class="my-3 py-3 text-start text-wrap">
-                {% blocktrans trimmed %}In the event of losing access to your account, you can use this form to regain
-                access to
-                your account with the help of one of the recovery codes (backup tokens) for Two-Factor Authentication
-                (2FA). These
+                {% blocktrans trimmed %}
+                In the event of losing access to your account, you can use this form to regain access to your account
+                with the help of one of the recovery codes (backup tokens) for Two-Factor Authentication (2FA). These
                 recovery codes were generated for you when setting up 2FA, and you were asked to keep them in a secure
                 location.
                 {% endblocktrans %}
@@ -83,7 +83,8 @@
                             <div class="hr-separator"></div>
                         </div>
                         <div class="position-relative border rounded-3 p-3 mt-4 text-center">
-                            <p class="small bg-transparent position-absolute top-0 start-0 translate-middle-y ms-3 px-3">
+                            <p
+                                class="small bg-transparent position-absolute top-0 start-0 translate-middle-y ms-3 px-3">
                                 {% translate "Create an account" %}
                             </p>
                             <a id="registration_button" role="button" class="btn btn-secondary my-3"
@@ -96,7 +97,7 @@
                 </div>
             </div>
         </div>
+        {% endblock login_content %}
     </div>
 </div>
-
-{% endblock login_content %}
+{% endblock login_card %}

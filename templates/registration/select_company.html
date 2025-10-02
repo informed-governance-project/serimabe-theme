@@ -7,11 +7,15 @@
     {% translate "Select company" %}
 {% endblock %}
 
-{% block login_content %}
-    <h5>{% translate "Your account is linked to multiple companies. Select one to proceed." %}</h5>
-    <form method="POST">
-        {% csrf_token %}
-        {% bootstrap_field form.select_company show_label=False %}
-        {% bootstrap_button button_type="submit" content=_("Save") %}
-    </form>
-{% endblock login_content %}
+{% block login_card %}
+<div id="login_card" class="card bg-transparent border-0 p-3 mb-5 rounded-1 col-12 col-xl-5 m-auto">
+    <div class="card-body p-3">
+        <h5>{% translate "Your account is linked to multiple companies. Select one to proceed." %}</h5>
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_field form.select_company show_label=False %}
+            {% bootstrap_button button_type="submit" content=_("Save") %}
+        </form>
+    </div>
+</div>
+{% endblock login_card %}
