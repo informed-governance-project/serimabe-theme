@@ -15,7 +15,7 @@
 {% block content %}
 <div id="terms" class="container-flex" lang="{% if LANGUAGE_CODE == 'fr' %}fr{% else %}en{% endif %}">
   <h3 class="fw-bolder">
-    {% translate "Terms of use of the SERIMA platform" %} - {% translate "Version" %} 1.0
+    {% translate "Terms of use of the SERIMA platform" %} - {% translate "Version" %} 2.0
   </h3>
   <div class="hr-separator"></div>
   {% if not LANGUAGE_CODE == 'fr' %}
@@ -254,9 +254,9 @@
           </li>
           <li>
             {% blocktranslate trimmed %}
-            ILR reserves the right to modify the Terms of Use at any time. ILR will inform Users of any changes to the
-            Terms
-            of Use.
+            The Regulators reserve the right to modify the Terms of Use at any time. Users will be informed of any
+            changes to the
+            Terms of Use.
             {% endblocktranslate %}
           </li>
         </ol>
@@ -458,7 +458,7 @@
           </li>
           <li>
             {% blocktranslate trimmed %}
-            Risk analyses notified to the Regulators are kept for 10 years and are then permanently deleted. Incident
+            Risk analyses notified to the Regulators are kept for 5 years and are then permanently deleted. Incident
             notifications notified to the Regulators are accessible for the Regulators and Observers concerned and kept
             for
             10 years after which they are then permanently deleted.
@@ -474,23 +474,12 @@
           </li>
           <li>
             {% blocktranslate trimmed %}
-            SERIMA uses client cookies, which are small text files necessary for its proper functioning (for example:
-            one
-            for the theme: light/dark (kept for the duration of the session), one which records the session
-            (persistent),
-            one which records the language (kept for the duration of the session) and one for the CSRF token
-            (persistent),
-            etc.). They are deposited by SERIMA in a directory provided for this purpose on the User's computer or
-            laptop.
-            Session cookies are deleted from the User's computer or laptop when the session is closed. However,
-            persistent
-            cookies remain on the User's computer or laptop after the session has ended. The User may, at any time, set
-            his/her browser options so that cookies are not accepted and stored. They may also delete stored cookies at
-            any
-            time via their browser. However, the use of certain SERIMA functions may be limited or deactivated if the
-            User
-            refuses SERIMA's cookies. The User is therefore advised to set the browser to accept SERIMA's cookies.
+            SERIMA uses client cookies. A client cookie is a text file sent to the User's browser and stored on the hard
+            drive of their device (e.g. PC, laptop or mobile phone) when they visit a website or online platform. Client
+            cookies may be used, for example, to ensure the proper functioning of a website or platform and to optimise
+            its usability and functionality. Information about the client cookies used by SERIMA is detailed
             {% endblocktranslate %}
+            <a href="{% url 'cookies' %}">{% translate "here" %}</a>.
           </li>
         </ol>
       </li>
@@ -515,13 +504,10 @@
           <li>
             {% blocktranslate trimmed %}
             Each Regulator is aware that SERIMA is a multi-operator platform. Therefore, each Regulator has access to
-            the
-            list of Operators using SERIMA, so that Regulators do not have to configurate the same Operator several
+            the list of Operators using SERIMA, so that Regulators do not have to configurate the same Operator several
             times.
             Each Regulator undertakes to manage the Operators and the data available on the platform with care, so as
-            not
-            to
-            have negative consequences for any other Regulator.
+            not to have negative consequences for any other Regulator.
             {% endblocktranslate %}
           </li>
         </ol>
@@ -532,16 +518,14 @@
           <li>
             {% blocktranslate trimmed %}
             The ILR shall use its best efforts to ensure maximum availability of SERIMA. However, the permanent
-            availability
-            of SERIMA cannot be guaranteed and ILR shall not be held liable in the event of the temporary or total
+            availability of SERIMA cannot be guaranteed and ILR shall not be held liable in the event of the temporary or total
             unavailability of SERIMA.
             {% endblocktranslate %}
           </li>
           <li>
             {% blocktranslate trimmed %}
             In particular, availability may be partially or totally affected in the event of force majeure or the
-            occurrence
-            of an event beyond ILR's control, or due to :
+            occurrence of an event beyond ILR's control, or due to :
             {% endblocktranslate %}
           </li>
           <ol>
@@ -649,91 +633,17 @@
         <ol>
           <li>
             {% blocktranslate trimmed %}
-            Each Regulator is the Controller of personal data for the personal data it processes.
+            Personal data is processed in accordance with the <a
+              href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679" target="_blank"
+              rel="noopener noreferrer">GDPR</a>.
             {% endblocktranslate %}
           </li>
           <li>
             {% blocktranslate trimmed %}
-            When using SERIMA, personal data is processed. Specifically, this concerns the following data: User contact
-            information (for example: identifier, surname, first name), contact information relating to certain roles
-            within
-            an Operator (for example: information relating to the identity of the members of the management body, the
-            CISO,
-            the person responsible for IT security), data linked to log files as described in paragraph 10.5. below.
+            Information relating to the processing of personal data carried out by Regulators in connection with the use
+            of SERIMA is detailed 
             {% endblocktranslate %}
-          </li>
-          <li>
-            {% blocktranslate trimmed %}
-            Personal data is processed in accordance with the GDPR. The User's data is recorded and processed by the
-            Regulator concerned solely for the purposes of managing the procedures concerned: the data is processed as
-            part
-            of the provision by the Regulators of SERIMA enabling Operators to fulfil their legal notification
-            obligations,
-            and to make and send to the Regulators incident notifications, risk analyses and declarations relating to
-            the
-            security measures they have put in place.
-            {% endblocktranslate %}
-          </li>
-          <li>
-            {% blocktranslate trimmed %}
-            The provision of SERIMA contributes to the fulfilment of the legal missions conferred on Regulators and
-            Observers under the Rules of Law.
-            {% endblocktranslate %}
-          </li>
-          <li>
-            {% blocktranslate trimmed %}
-            The User consents to data relating to his/her activity on SERIMA (log files) (for example: identifier,
-            surname,
-            first name, functionality used, date and time, parameters) being audited for the sole purpose of making such
-            data available to the respective Controller of personal data or to the judicial authorities in the following
-            limited cases:
-            {% endblocktranslate %}
-          </li>
-          <ol>
-            <li>
-              {% blocktranslate trimmed %}
-              to resolve security incidents relating to SERIMA, in the legitimate interest of guaranteeing the security
-              of
-              SERIMA;
-              {% endblocktranslate %}
-            </li>
-            <li>
-              {% blocktranslate trimmed %}
-              the establishment, exercise or defence of a legal right, in the context of judicial, administrative or
-              extrajudicial proceedings.
-              {% endblocktranslate %}
-            </li>
-          </ol>
-          <li>
-            {% blocktranslate trimmed %}
-            By providing personal data under its sole responsibility, the Operator declares and guarantees that it has
-            obtained and will obtain all legally required consents and authorisations from all persons concerned by the
-            use,
-            processing and transfer of personal data.
-            {% endblocktranslate %}
-          </li>
-          <li>
-            {% blocktranslate trimmed %}
-            Technical and organisational measures have been put in place to ensure a high level of data security on
-            SERIMA.
-            These security measures are tested and updated regularly.
-            {% endblocktranslate %}
-          </li>
-          <li>
-            {% blocktranslate trimmed %}
-            The personal data required to create a SERIMA account is kept for as long as the account exists. It is
-            permanently deleted when the account in question is deleted.
-            {% endblocktranslate %}
-          </li>
-          <li>
-            {% blocktranslate trimmed %}
-            Data subjects may assert their rights by contacting the
-            <a href="https://www.ilr.lu/informations-legales/protection-des-donnees/" target="_blank"
-              rel="noopener noreferrer">ILR's Data Protection Officer</a>.
-            Individuals who believe that the data
-            processing carried out via SERIMA constitutes a breach of the GDPR or that the response to their request for
-            information is unsatisfactory may lodge a complaint with the CNPD using the form available on its website.
-            {% endblocktranslate %}
+            <a href="{% url 'privacy' %}">{% translate "here" %}</a>.
           </li>
         </ol>
       </li>
