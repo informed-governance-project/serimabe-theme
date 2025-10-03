@@ -14,8 +14,31 @@
         <form method="POST">
             {% csrf_token %}
             {% bootstrap_field form.select_company show_label=False %}
-            {% bootstrap_button button_type="submit" content=_("Save") %}
+            <button id="submit-btn" type="submit" class="btn btn-primary" disabled>
+                {% translate "Select" %}
+            </button>
         </form>
     </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const select = document.getElementById("id_select_company");
+    const submitBtn = document.getElementById("submit-btn");
+
+    function toggleButton() {
+        if (select.value) {
+            submitBtn.disabled = false;
+        } else {
+            submitBtn.disabled = true;
+        }
+    }
+
+    // initial check
+    toggleButton();
+
+    // update on change
+    select.addEventListener("change", toggleButton);
+});
+</script>
 {% endblock login_card %}
