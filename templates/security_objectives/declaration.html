@@ -121,7 +121,8 @@
           {% elif standard_answer.status == "UNDE" %}
           <a id="so_submit_button" type="button" 
             href="{% url 'submit_so_declaration' standard_answer.id  %}"
-            class="col-auto btn btn-passed" {% if not standard_answer.ready_to_submit %}disabled{% endif %}>
+            class="col-auto btn btn-passed {% if not standard_answer.ready_to_submit %}disabled{% endif %}" 
+            {% if not standard_answer.ready_to_submit %}disabled{% endif %}>
             {% translate "Submit" %}
             <i class="custom-icon-submit h4"></i>
           </a>
