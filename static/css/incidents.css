@@ -1,16 +1,3 @@
-/* Redefine color of the incidents table */
-.table-danger {
-    background-color: #ff4c4c !important;
-}
-
-.table-success {
-    background-color: #84df90 !important;
-}
-
-.table-info {
-    background-color: #99dde9 !important;
-}
-
 .affected-sector-filter button {
     background-color: white !important;
 }
@@ -46,6 +33,14 @@
     position: relative;
 }
 
+.legend li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    justify-content: center;
+}
+
 .legend-title {
     background-color: var(--bs-body-bg);
     position: absolute;
@@ -54,39 +49,6 @@
     padding: 0 5px;
     font-weight: bold;
 }
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    flex: 1;
-    justify-content: center;
-}
-
-.legend-icon {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.legend-impact { color: #e40521;}
-
-.legend-ongoing { color: green; }
-
-.legend-closed { color: #666666; }
-
-.legend-unsubmitted { color: #727272; }
-
-.legend-under-review { color: #2673e5; }
-
-.legend-late-under-review { color: #5B1B8F; }
-
-.legend-submission-overdue { color: #a76806; }
-
-.legend-passed { color: #008800; }
-
-.legend-failed { color: #e40521; }
 
 .step-circle {
     width: 35px;
@@ -99,71 +61,6 @@
 
 .notification-buttons {
     transform: translateY(50%);
-}
-/* used in the incident list to manage the color of the link */
-.report-under-review { color: #2673e5; }
-
-.report-late-under-review { color: #5B1B8F; }
-
-.report-pass { color: #008800; }
-
-.report-fail { color: #e40521; }
-
-.report-overdue {  color: #a76806;}
-
-.report-unsubmitted {  color: #727272;}
-
-[class^="logo-report"]{
-    background-color: var(--bs-body-bg);
-    width: 1em;
-    height: 1em;
-    display: inline-block;
-    vertical-align: middle;
-    background-size: contain;
-    background-repeat: no-repeat;
-    justify-content: flex-end;
-    font-family: "bootstrap-icons";
-    font-style: normal; 
- }
-
-.logo-report-under-review {
-    background-image: url('/static/images/icons/ico-under_review.svg'); 
-}
-
-.logo-report-late-under-review {
-    background-image: url('/static/images/icons/ico-late_under_review.svg'); 
-}
-
-.logo-report-pass {
-    background-image: url('/static/images/icons/ico-passed.svg'); 
-}
-
-.logo-report-fail{
-    background-image: url('/static/images/icons/ico-failed.svg'); 
-}
-
-.logo-report-overdue {
-    background-image: url('/static/images/icons/ico-submission_overdue.svg'); 
-}
-
-.logo-report-unsubmitted {
-    background-image: url('/static/images/icons/ico-unsubmitted.svg'); 
-}
-
-.logo-report-impact {
-    background-image: url('/static/images/icons/ico-impact.svg'); 
-}
-
-.logo-report-ongoing {
-    background-image: url('/static/images/icons/ico-on_going.svg'); 
-}
-
-.logo-report-closed {
-    background-image: url('/static/images/icons/ico-closed.svg'); 
-}
-
-.logo-legend {
-    background-image: url('/static/images/icons/ico-legend.svg'); 
 }
 
 /* Status logo */
@@ -237,23 +134,16 @@
 
 .btn-not-submitted {
     display: flex;
-    background-color: #A76906;
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ffffff;
-    color: #ffffff;
     outline: 1px solid #727272;
-    text-align: center;
     line-height: 14px;
     align-items: center;
     text-align: left;
     gap: 10px;
-    transition: background-color 0.3s ease;
 }
 
 .btn-not-submitted:hover {
-    color: #ffffff;
-    transition: background-color 0.3s ease;
-    background-color: #8e5905;
     outline: 1px solid #616161;
 }

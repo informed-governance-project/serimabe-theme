@@ -5,10 +5,11 @@
 {% block bootstrap5_extra_head %}
 <script src='{% static "npm_components/@popperjs/core/dist/umd/popper.min.js" %}'></script>
 <script src='{% static "npm_components/jquery/dist/jquery.min.js" %}'></script>
+<script src='{% static "js/header.js" %}'></script>
 {% endblock %}
 
 
-<nav role="navigation" class="navbar navbar-expand-md navbar-light pb-0" aria-label="{% translate 'Main menu' %}">
+<nav role="navigation" class="navbar navbar-expand-md bg-white navbar-light pb-0" aria-label="{% translate 'Main menu' %}">
   <div class="container-fluid">
     <!-- Logo -->
     <a class="navbar-brand" href="{% url 'index' %}">
@@ -38,7 +39,9 @@
       {% if is_staff %}
       <li class="d-inline-flex nav-item">
         <img class="w-85" src="{% static 'images/icons/ico-setting.svg' %}" alt="Settings icon">
-        <a class="nav-link" href="{% url 'admin:index' %}">{% translate "Settings" %}</a>
+        <a class="nav-link" href="{% url 'admin:index' %}" onclick="saveLastUserPage()">
+          {% translate "Settings" %}
+        </a>
       </li>
       {% endif %}
       <li class="d-inline-flex nav-item dropdown">

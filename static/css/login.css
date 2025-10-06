@@ -1,8 +1,5 @@
 .background {
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background-color: #eaebeb;
-    height: 95vh;
-    width: 100vw;
+    background-color: #FCFCFC;
     background-image: url('/static/images/bg_login.svg') !important;
     background-repeat: no-repeat;
     background-position: center center;

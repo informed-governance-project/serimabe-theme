@@ -13134,10 +13134,6 @@ a.changelink {
   background-image: url("/static/images/icons/ico-trash.svg");
 }
 
-.custom-icon-not-submitted {
-  background-image: url("/static/images/icons/ico-not-submitted.svg");
-}
-
 .custom-icon-search {
   background-image: url("/static/images/icons/ico-search.svg");
 }
@@ -13222,7 +13218,8 @@ table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
   rotate: 90deg !important;
 }
 
-.search_icon, .close_icon {
+.search_icon,
+.close_icon {
   border-color: var(--bs-dark);
   padding: 2px;
   background-color: unset;
