@@ -1,3 +1,12 @@
+.background {
+    background-color: #FCFCFC;
+    height: 95vh;
+    width: 100vw;
+    background-image: url('/static/images/bg_login.svg') !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
 @media (min-width: 1200px) {
     .description-container {
         min-height: 150px;
