@@ -9,7 +9,7 @@
         {% translate "Average Risk Level" %}
     </h3>
     <div class="{{ chart_class }}">
-        <img src="data:image/svg;base64,{{ charts.risks_1 }}" class="img-fluid" />
+        <img src="data:image/svg;base64,{{ charts.risks_1 }}" class="img-fluid" alt="Average Risk Level Chart"/>
     </div>
 </div>
 <div>
@@ -17,7 +17,7 @@
         {% translate "High-Risk Rate" %} ( > {{ risk_data.threshold_for_high_risk }} )
     </h3>
     <div class="{{ chart_class }}">
-        <img src="data:image/svg;base64,{{ charts.risks_2 }}" class="img-fluid" />
+        <img src="data:image/svg;base64,{{ charts.risks_2 }}" class="img-fluid" alt="High-Risk Rate Chart" />
     </div>
 </div>
 <div>
@@ -25,7 +25,7 @@
         {% translate "Average High-Risk Level" %}
     </h3>
     <div class="{{ chart_class }}">
-        <img src="data:image/svg;base64,{{ charts.risks_3 }}" class="img-fluid" />
+        <img src="data:image/svg;base64,{{ charts.risks_3 }}" class="img-fluid" alt="Average High-Risk Level Chart"/>
 </div>
 </div>
 <div>
@@ -33,7 +33,7 @@
         {% translate "Evolution of the Highest Risks" %}
     </h3>
     <div class="{{ chart_class }}">
-        <img src="data:image/svg;base64,{{ charts.risks_4 }}" class="img-fluid" />
+        <img src="data:image/svg;base64,{{ charts.risks_4 }}" class="img-fluid" alt="Evolution of the Highest Risks Chart"/>
     </div>
     <div class="page-landscape page-break">
         <table class="{{ table_class }}">

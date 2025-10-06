@@ -101,3 +101,8 @@
 .start-40 {
     left: 40% !important
 }
+
+.so_contacts .custom-icon-contact:hover {
+    background-image: url('/static/images/icons/ico-contact-hover.svg');
+    transition: background-image 0.25s ease-out; 
+}

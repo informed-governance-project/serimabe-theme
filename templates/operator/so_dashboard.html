@@ -14,7 +14,7 @@
     <a id="so_submit_button" type="button" class="rounded-pill btn btn-sm btn-passed w-75"
         href="{% url 'submit_so_declaration' standard.id  %}">
         {% translate "Submit" %}
-        <i class="bi bi-arrow-right"></i>
+        <i class="custom-icon-submit h4"></i>
     </a>
     {% else %}
     <div class="progress w-75">
@@ -31,11 +31,11 @@
 {% block content_table_actions %}
 <a class="btn border-0 p-0 text-dark" href="{% url 'so_declaration' %}?id={{ standard.id }}" onclick="load_spinner()">
     {% if standard.status == 'UNDE' %}
-    <i class="bi bi-pencil-fill h4"
+    <i class="custom-icon-edit h4"
         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Edit' %}">
     </i>
     {% else %}
-    <i class="bi bi-eye-fill h4"
+    <i class="custom-icon-edit h4"
         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Review' %}">
     </i>
     {% endif %}
@@ -50,7 +50,7 @@
 
 <button class="btn border-0 p-0 text-dark copy_so_declaration" data-standard-answer-id="{{ standard.id }}"
     data-bs-toggle="modal" data-bs-target="#copy_so_declaration">
-    <i class="bi bi-copy h4"
+    <i class="custom-icon-duplicate h4"
         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Duplicate' %}">
     </i>
 </button>

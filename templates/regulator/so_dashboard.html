@@ -16,7 +16,7 @@
         data-bs-toggle="modal" 
         data-bs-target="#review_comment_so_declaration">
         {% translate "Send" %}
-        <i class="bi bi-arrow-right"></i>
+        <i class="custom-icon-submit h4"></i>
     </button>
     {% else %}
     <div class="progress w-75">
@@ -35,7 +35,7 @@
     href="{% url 'so_declaration' %}?id={{ standard.id }}"
     {% if standard.status == 'UNDE' %}aria-disabled="true" disabled{% endif %}
     onclick="load_spinner()">
-    <i class="bi bi-pencil-fill"
+    <i class="custom-icon-edit h4"
         data-bs-placement="top" data-bs-toggle="tooltip" title="{% translate 'Review' %}">
     </i>
 </a>

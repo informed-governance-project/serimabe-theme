@@ -45,7 +45,7 @@
             "contact_first_name": "{{ standard_answer.submitter_user.first_name }}",
             "contact_email": "{{ standard_answer.submitter_user.email }}",
             "contact_telephone": "{{ standard_answer.submitter_user.phone_number }}"}'>
-            <i class="custom-icon-profile h3"></i>
+            <i class="custom-icon-contact h3"></i>
             <span class="visually-hidden">{% translate 'Profile' %}</span>
           </button>
           <div class="col">
@@ -116,13 +116,15 @@
                 data-bs-toggle="modal" 
                 data-bs-target="#review_comment_so_declaration">
                 {% translate "Send" %}
-                <i class="bi bi-arrow-right"></i>
+                <i class="custom-icon-submit h4"></i>
             </button>
           {% elif standard_answer.status == "UNDE" %}
-          <button id="so_submit_button" type="button" class="col-auto btn btn-passed" {% if not standard_answer.ready_to_submit %}disabled{% endif %}>
+          <a id="so_submit_button" type="button" 
+            href="{% url 'submit_so_declaration' standard_answer.id  %}"
+            class="col-auto btn btn-passed" {% if not standard_answer.ready_to_submit %}disabled{% endif %}>
             {% translate "Submit" %}
-            <i class="bi bi-arrow-right"></i>
-          </button>
+            <i class="custom-icon-submit h4"></i>
+          </a>
           {% endif %}
           <a type="button" class="col-auto btn btn-primary" href="{% url 'securityobjectives' %}" onclick="load_spinner()">
             {% translate "Close" %}
@@ -180,10 +182,9 @@
               <h6 class="card-subtitle mb-3 text-muted">{{ security_objective.description }}</h6>
             </div>
             <div class="col-auto">
-              {% blocktranslate asvar score_translation %}Score{% endblocktranslate %}
               <div class="d-flex align-items-center justify-content-end">
                 <div id="score_container" class="position-relative">
-                  <img src="{% static 'images/icons/ico-score.png' %}" class="img-fluid" alt="Score ico">
+                  <img src="{% static 'images/icons/ico-score.svg' %}" class="img-fluid" alt="Score ico">
                   <div class="position-absolute top-50 translate-middle fw-bold text-dark start-40">
                     <div class="small text-muted">
                       <span id="so-score" class="h5 m-0 fw-bold">{{ security_objective.status.score|default:0|floatformat:1 }}</span>
