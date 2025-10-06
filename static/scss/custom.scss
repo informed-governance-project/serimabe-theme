@@ -4,9 +4,85 @@
 // Include any default variable overrides here (though functions won't be available)
 
 // IBPT Colors
-
 $primary: #34a9e1;
 $secondary: #2e2f7f; 
+
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+
+// Custom Colors
+$no-impact: #CCCCCC;
+$impact: #e40521;
+$closed: #666666;
+$ongoing: #008800;
+$passed: #008800;
+$failed: #e40521;
+$under-review: #727272;
+$late-under-review: #5B1B8F;
+$unsubmitted: #2673e5;
+$overdue: #e40521;
+$dark-gray: #4c4c4c;
+
+$custom-colors: (
+    "no-impact": $no-impact,
+    "impact": $impact,
+    "closed": $closed,
+    "ongoing": $ongoing,
+    "passed": $passed,
+    "failed": $failed,
+    "under-review": $under-review,
+    "late-under-review": $late-under-review,
+    "unsubmitted": $unsubmitted,
+    "overdue": $overdue,
+    "dark-gray": $dark-gray,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+$custom-colors-rgb: (
+);
+
+@each $name, $color in $custom-colors {
+    $custom-colors-rgb: map-merge($custom-colors-rgb,
+            ($name: to-rgb($color)));
+}
+
+@import "../../../node_modules/bootstrap/scss/_maps";
+@import "../../../node_modules/bootstrap/scss/utilities";
+
+$utilities: map-merge($utilities, ("width": map-merge(map-get($utilities, "width"), (responsive: true))));
+$utilities: map-merge($utilities, ("height": map-merge(map-get($utilities, "height"), (responsive: true))));
+
+$utilities: map-merge($utilities,
+        ("width": map-merge(map-get($utilities, "width"),
+                (values: map-merge(map-get(map-get($utilities, "width"), "values"),
+                        (1: 1%,
+                            2: 2%,
+                            3: 3%,
+                            4: 4%,
+                            5: 5%,
+                            10: 10%,
+                            15: 15%,
+                            20: 20%,
+                            30: 30%,
+                            35: 35%,
+                            40: 40%,
+                            45: 45%,
+                            48: 48%,
+                            49: 49%,
+                            55: 55%,
+                            60: 60%,
+                            65: 65%,
+                            70: 70%,
+                            80: 80%,
+                            85: 85%,
+                            90: 90%,
+                            95: 95%,
+                        ),
+                    ),
+                ),
+            ),
+        ));
 
 @font-face {
     font-family: Montserrat;
