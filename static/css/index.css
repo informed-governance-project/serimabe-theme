@@ -1,0 +1,10 @@
+@media (min-width: 1200px) {
+    .description-container {
+        min-height: 150px;
+    }
+
+    .title-container {
+        min-height: 55px;
+    }
+    
+}
