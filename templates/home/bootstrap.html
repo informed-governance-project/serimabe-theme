@@ -58,38 +58,3 @@
 <script>
   window.cookiebanner_version = JSON.parse(document.getElementById('cookiebanner_version').textContent);
 </script>
-{% if user.is_authenticated %}
-<script>
-    function getCookie(name) {
-        var nameEQ = name + "=";
-        var ca = document.cookie.split(';');
-        for(var i=0;i < ca.length;i++) {
-            var c = ca[i];
-            while (c.charAt(0)==' ') c = c.substring(1,c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-        }
-        return null;
-    }
-
-    if (getCookie("theme") == null) {
-        document.cookie = "theme=light; path=/";
-    }
-    document.documentElement.setAttribute('data-bs-theme', getCookie("theme"));
-    document.getElementById('btnThemeSwitch').textContent = (getCookie("theme") == 'dark' ? 'Light' : 'Dark').concat(' theme');
-
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById('btnThemeSwitch').addEventListener('click',()=>{
-            if (document.documentElement.getAttribute('data-bs-theme') == 'dark') {
-                document.documentElement.setAttribute('data-bs-theme','light')
-                document.getElementById('btnThemeSwitch').textContent = 'Dark theme';
-                document.cookie = "theme=light; path=/";
-            }
-            else {
-                document.documentElement.setAttribute('data-bs-theme','dark');
-                document.getElementById('btnThemeSwitch').textContent = 'Light theme';
-                document.cookie = "theme=dark; path=/";
-            }
-        })
-    });
-</script>
-{% endif %}
