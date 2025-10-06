@@ -142,12 +142,103 @@ a.changelink {
     background-image: url('/static/images/icons/ico-trash.svg');
 }
 
-.custom-icon-not-submitted {
-    background-image: url('/static/images/icons/ico-not-submitted.svg');
-}
-
 .custom-icon-search {
     background-image: url('/static/images/icons/ico-search.svg');
+}
+
+.custom-icon-edit {
+    background-image: url('/static/images/icons/ico-edit.svg');
+}
+
+.custom-icon-duplicate {
+    background-image: url('/static/images/icons/ico-duplicate.svg');
+}
+
+.custom-icon-submit {
+    background-image: url('/static/images/icons/ico-submit.svg');
+}
+
+.custom-icon-contact {
+    background-image: url('/static/images/icons/ico-contact.svg');
+}
+
+.custom-icon-contact-white {
+    background-image: url('/static/images/icons/ico-contact-white.svg');
+}
+
+.custom-icon-impact-disabled {
+    background-image: url('/static/images/icons/ico-impact-disabled.svg');
+}
+
+.custom-icon-impact {
+    background-image: url('/static/images/icons/ico-impact.svg');
+}
+
+.custom-icon-ongoing {
+    background-image: url('/static/images/icons/ico-on_going.svg');
+}
+
+.custom-icon-closed {
+    background-image: url('/static/images/icons/ico-closed.svg');
+}
+
+.custom-icon-unsubmitted {
+    background-image: url('/static/images/icons/ico-unsubmitted.svg');
+}
+
+.custom-icon-unsubmitted-white {
+    background-image: url('/static/images/icons/ico-unsubmitted-white.svg');
+}
+
+
+.custom-icon-under-review {
+    background-image: url('/static/images/icons/ico-under_review.svg');
+}
+
+.custom-icon-under-review-white {
+    background-image: url('/static/images/icons/ico-under_review-white.svg');
+}
+
+.custom-icon-overdue {
+    background-image: url('/static/images/icons/ico-submission_overdue.svg');
+}
+
+.custom-icon-overdue-white {
+    background-image: url('/static/images/icons/ico-submission_overdue-white.svg');
+}
+
+
+.custom-icon-late-under-review {
+    background-image: url('/static/images/icons/ico-late_under_review.svg');
+}
+
+.custom-icon-failed {
+    background-image: url('/static/images/icons/ico-failed.svg');
+}
+
+.custom-icon-failed-sent {
+    background-image: url('/static/images/icons/ico-failed-sent.svg');
+}
+
+.custom-icon-failed-white {
+    background-image: url('/static/images/icons/ico-failed-white.svg');
+}
+
+
+.custom-icon-passed {
+    background-image: url('/static/images/icons/ico-passed.svg');
+}
+
+.custom-icon-passed-sent {
+    background-image: url('/static/images/icons/ico-passed-sent.svg');
+}
+
+.custom-icon-passed-white {
+    background-image: url('/static/images/icons/ico-passed-white.svg');
+}
+
+.custom-icon-not-submitted {
+    background-image: url('/static/images/icons/ico-not-submitted.svg');
 }
 
 .form-check-input {
@@ -190,9 +281,9 @@ table.dataTable thead>tr>th.dt-ordering-asc span.dt-column-order:before,
 table.dataTable thead>tr>td.dt-orderable-asc span.dt-column-order:before,
 table.dataTable thead>tr>td.dt-ordering-asc span.dt-column-order:before {
     content: "❮" !important;
-    content: "❮"/"" !important;
+    content: "❮" /"" !important;
     rotate: 90deg !important;
-    
+
 }
 
 table.dataTable thead>tr>th.dt-orderable-desc span.dt-column-order:after,
@@ -200,11 +291,12 @@ table.dataTable thead>tr>th.dt-ordering-desc span.dt-column-order:after,
 table.dataTable thead>tr>td.dt-orderable-desc span.dt-column-order:after,
 table.dataTable thead>tr>td.dt-ordering-desc span.dt-column-order:after {
     content: "❯" !important;
-    content: "❯"/"" !important;
+    content: "❯" /"" !important;
     rotate: 90deg !important;
 }
 
-.search_icon, .close_icon {
+.search_icon,
+.close_icon {
     border-color: var(--bs-dark);
     padding: 2px;
     background-color: unset;

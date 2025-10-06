@@ -5,19 +5,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="title" content="{% translate 'Incident report' %}" />
-        <title>{% translate "Incident report" %}</title>
+        {% block report_head_title %}{% endblock %}
     </head>
     <body class="bg-transparent">
         <div id="page">
-            {% include 'report/header.html' %}
-            {% include 'report/footer.html' %}
-            {% include 'report/cover.html' %}
-            {% include 'report/toc.html' %}
-            {% include 'report/details.html' %}
-            {% include 'report/timeline.html' %}
-            {% include 'report/contacts.html' %}
-            {% include 'report/reports.html' %}
+            {% block report_pages %}{% endblock %}
         </div>
     </body>
     <script>
