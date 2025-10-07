@@ -104,6 +104,7 @@ $(document).ready(function () {
             let date = new Date(workflow.timestamp);
             let reviewStatus = workflow.review_status;
             let reviewStatusCssClass = workflow.css_class;
+            let reviewComment = workflow.comment
 
             let formattedDate = date.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit', });
             let formattedTime = date.toLocaleTimeString('en-GB', {
@@ -112,7 +113,32 @@ $(document).ready(function () {
             });
             let tooltip_download = gettext("Download PDF report");
             let tooltip_review = gettext("Review");
-
+            let tooltip_comment = gettext("Comment");
+            let commentIcon = ''
+            let commentShow = ''
+            if (reviewComment != null && reviewComment !=''){
+                commentIcon = `
+                    <button class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseComment${workflow.id}"
+                            aria-expanded="false"
+                            aria-controls="collapseComment${workflow.id}">
+                    <i class="custom-icon-comments h4 align-self-center"></i>
+                    </button>
+                `;
+                commentShow = `
+                    <tr>
+                        <td colspan="4" class="small text-center">
+                            <div class="collapse mt-2" id="collapseComment${workflow.id}">
+                                <div class="card card-body small text-muted">
+                                    ${reviewComment}
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                `
+            }
             let row = `
                 <tr>
                     <td class="col-3 small">${formattedDate}</td>
@@ -127,6 +153,7 @@ $(document).ready(function () {
                     </td>
                     <td class="col-2 text-center">
                         <div class="d-inline-flex align-middle">
+                            ${commentIcon}
                             <a class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center" href="${reviewUrl}"
                                 data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_review}">
                                 <i class="custom-icon-view h4 align-self-center" aria-hidden="true"></i>
@@ -138,6 +165,7 @@ $(document).ready(function () {
                         </div>
                     </td>
                 </tr>
+                ${commentShow}
             `;
             $modalWorkflowRows.append(row);
         });
