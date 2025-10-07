@@ -141,15 +141,16 @@ $(document).ready(function () {
             }
             let row = `
                 <tr>
-                    <td class="col-3 small">${formattedDate}</td>
-                    <td class="col-7 small">
+                    <td class="col-2 small">${formattedDate}</td>
+                    <td class="col-2 small">
                         <i class="bi bi-clock small" aria-hidden="true"></i> 
                         ${formattedTime}
                     </td>
-                    <td class="col-7">
-                        <p class="text-${reviewStatusCssClass}">
-                            <i class="custom-icon-${reviewStatusCssClass}" aria-hidden="true"></i>${reviewStatus}
-                        </p>
+                    <td class="col-6 small">
+                        <div class="hstack gap-1 text-${reviewStatusCssClass}">
+                            <i class="custom-icon-${reviewStatusCssClass}" aria-hidden="true"></i> 
+                            <span>${reviewStatus}</span>
+                        </div>
                     </td>
                     <td class="col-2 text-center">
                         <div class="d-inline-flex align-middle">
