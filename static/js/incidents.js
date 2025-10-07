@@ -102,6 +102,9 @@ $(document).ready(function () {
             let reviewUrl = reviewUrlBase + workflow.id;
             let downloadUrl = downloadUrlBase.replace('0', workflow.id);
             let date = new Date(workflow.timestamp);
+            let reviewStatus = workflow.review_status;
+            let reviewStatusCssClass = workflow.css_class;
+
             let formattedDate = date.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit', });
             let formattedTime = date.toLocaleTimeString('en-GB', {
                 hour: '2-digit',
@@ -116,6 +119,11 @@ $(document).ready(function () {
                     <td class="col-7 small">
                         <i class="bi bi-clock small" aria-hidden="true"></i> 
                         ${formattedTime}
+                    </td>
+                    <td class="col-7">
+                        <p class="text-${reviewStatusCssClass}">
+                            <i class="custom-icon-${reviewStatusCssClass}" aria-hidden="true"></i>${reviewStatus}
+                        </p>
                     </td>
                     <td class="col-2 text-center">
                         <div class="d-inline-flex align-middle">

@@ -6,7 +6,13 @@ function onChangeIncident(value, id) {
         let status = "CLOSE"
         if ($(value).is(':checked')) status = "GOING"
         formdata=`incident_status=${status}`
-    }   
+    }
+
+    if ($(value).attr('name') == 'is_significative_impact'){
+        let status = "False"
+        if ($(value).is(':checked')) status = "True"
+        formdata=`is_significative_impact=${status}`
+    }
 
     $.ajax({
         type: "POST",
@@ -22,10 +28,10 @@ function onChangeIncident(value, id) {
             let newImpactstatus = response.is_significative_impact;
             let $incident_status_html = $(`#incident_status_${incident_id}`);
             let $impact_status_html = $(`#impact_status_${incident_id}`);
-           
+            let $incident_status_checkbox = $impact_status_html.find('input[name="is_significative_impact"]');
             let incident_status_tooltip = (newIncidentstatus === "CLOSE") 
                 ? gettext("The incident is over") 
-                : gettext("The incident is still ongoing");
+                : gettext("The incident is still ongoing");  
 
             let impact_status_tooltip = newImpactstatus 
                 ? gettext("Incident with significant impact") 
@@ -34,6 +40,8 @@ function onChangeIncident(value, id) {
             let incident_tooltip = bootstrap.Tooltip.getInstance($incident_status_html[0]);
             let impact_tooltip = bootstrap.Tooltip.getInstance($impact_status_html[0]);
             
+            $incident_status_checkbox.prop("disabled", newIncidentstatus === "CLOSE");
+
             if (incident_tooltip && newIncidentstatus != undefined) {
                 incident_tooltip.setContent({ '.tooltip-inner': incident_status_tooltip });
                 setTimeout(() => {
