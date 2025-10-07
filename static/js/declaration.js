@@ -23,21 +23,7 @@ $(document).ready(function () {
         }
     });
 
-    const $statusSelect = $('select[name="2-review_status"]');
-    const $nextBtn = $('#wizard-next-btn');
-
-    function disableNextButton() {
-        if ($statusSelect.length === 0) {
-            return;
-        }
-        $nextBtn.prop('disabled', !$statusSelect.val());
-    }
-
-    disableNextButton();
-
-    $statusSelect.on('change', disableNextButton);
-
-    $nextBtn.on('click', function (event) {
+    $('#wizard-next-btn').on('click', function (event) {
         const form = $(this).closest('form')[0];
         const lastStep = $(this).data('last-step');
         const currentStep = $(this).data('current-step');
