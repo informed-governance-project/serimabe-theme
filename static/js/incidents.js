@@ -97,6 +97,9 @@ $(document).ready(function () {
         $captionAccessibility.text(currentText + ' : ' + reportId);
         $modalincidentRef.text(incidentRef);
         $modalWorkflowRows.empty();
+        let tooltip_download = gettext("Download PDF report");
+        let tooltip_review = gettext("Review");
+        let tooltip_comment = gettext("Comment");
 
         workflows.forEach(function (workflow) {
             let reviewUrl = reviewUrlBase + workflow.id;
@@ -105,48 +108,36 @@ $(document).ready(function () {
             let reviewStatus = workflow.review_status;
             let reviewStatusCssClass = workflow.css_class;
             let reviewComment = workflow.comment
+            console.log(workflow);
+            
 
             let formattedDate = date.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit', });
             let formattedTime = date.toLocaleTimeString('en-GB', {
                 hour: '2-digit',
                 minute: '2-digit'
             });
-            let tooltip_download = gettext("Download PDF report");
-            let tooltip_review = gettext("Review");
-            let tooltip_comment = gettext("Comment");
+  
+            let $modalReportVersionWorkflowComment = $('#modal-workflow-comment');
             let commentIcon = ''
-            let commentShow = ''
-            if (reviewComment != null && reviewComment !=''){
+            if (reviewComment != null && reviewComment != '') {
+                $modalReportVersionWorkflowComment.html(reviewComment);
                 commentIcon = `
-                    <button class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseComment${workflow.id}"
-                            aria-expanded="false"
-                            aria-controls="collapseComment${workflow.id}">
-                    <i class="custom-icon-comments h4 align-self-center"></i>
+                    <button class="btn p-0 ps-1 border-0 d-inline-flex align-items-center"
+                            type="button" data-bs-target="#report_version_workflow_comment" data-bs-toggle="modal">
+                    <i class="custom-icon-comments h4 align-self-center" 
+                    data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_comment}">
+                    </i>
                     </button>
                 `;
-                commentShow = `
-                    <tr>
-                        <td colspan="4" class="small text-center">
-                            <div class="collapse mt-2" id="collapseComment${workflow.id}">
-                                <div class="card card-body small text-muted">
-                                    ${reviewComment}
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                `
             }
             let row = `
                 <tr>
                     <td class="col-2 small">${formattedDate}</td>
-                    <td class="col-2 small">
+                    <td class="col-3 small">
                         <i class="bi bi-clock small" aria-hidden="true"></i> 
                         ${formattedTime}
                     </td>
-                    <td class="col-6 small">
+                    <td class="col-5 small">
                         <div class="hstack gap-1 text-${reviewStatusCssClass}">
                             <i class="custom-icon-${reviewStatusCssClass}" aria-hidden="true"></i> 
                             <span>${reviewStatus}</span>
@@ -166,7 +157,6 @@ $(document).ready(function () {
                         </div>
                     </td>
                 </tr>
-                ${commentShow}
             `;
             $modalWorkflowRows.append(row);
         });
