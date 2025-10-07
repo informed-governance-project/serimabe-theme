@@ -4,8 +4,8 @@ $(document).ready(function () {
         const resolutionDateInputId = "id_0-incident_resolution_date";
         const detectionDate = new Date($(this).val());
         if ($(`#${startingDateInputId}`)) {
-            let startingPicker = datePickers.find(p => p.optionsStore.input.id === startingDateInputId);           
-            if (startingPicker) {                
+            let startingPicker = datePickers.find(p => p.optionsStore.input.id === startingDateInputId);
+            if (startingPicker) {
                 startingPicker.dates.clear();
                 startingPicker.updateOptions({
                     restrictions: { maxDate: detectionDate }
@@ -23,55 +23,69 @@ $(document).ready(function () {
         }
     });
 
-$('#wizard-next-btn').on('click', function(event) {
-    const form = $(this).closest('form')[0];
-    const lastStep = $(this).data('last-step');
-    const currentStep = $(this).data('current-step');
+    const $statusSelect = $('select[name="2-review_status"]');
+    const $nextBtn = $('#wizard-next-btn');
 
-    let firstInvalid = null;
-    let allValid = true;
+    function disableNextButton() {
+        if ($statusSelect.length === 0) {
+            return;
+        }
+        $nextBtn.prop('disabled', !$statusSelect.val());
+    }
 
-    $(form).find(':input').removeClass('is-invalid');
+    disableNextButton();
 
-    for (const field of form.elements) {
-        let $field = $(field);
-        let $freeTextInput = $("#id_" + field.name + "_freetext_answer");
-        let $radios = $("#id_" + field.name).find('input[type="radio"]');
-        let $container = $radios.closest('.mb-3');
+    $statusSelect.on('change', disableNextButton);
 
-        if ($container.hasClass('required-field') && $freeTextInput.length) {
-            if ($freeTextInput.val().trim() !== "") {
-                $radios.prop("required", false).removeAttr("required");
-                $freeTextInput.prop("required", false).removeAttr("required");
-            } else if ($radios.is(":checked")) {
-                $radios.prop("required", true).attr("required", "required");
-                $freeTextInput.prop("required", false).removeAttr("required");
-            } else {
-                $radios.prop("required", true).attr("required", "required");
-                $freeTextInput.prop("required", true).attr("required", "required");
+    $nextBtn.on('click', function (event) {
+        const form = $(this).closest('form')[0];
+        const lastStep = $(this).data('last-step');
+        const currentStep = $(this).data('current-step');
+
+        let firstInvalid = null;
+        let allValid = true;
+
+        $(form).find(':input').removeClass('is-invalid');
+
+        for (const field of form.elements) {
+            let $field = $(field);
+            let $freeTextInput = $("#id_" + field.name + "_freetext_answer");
+            let $radios = $("#id_" + field.name).find('input[type="radio"]');
+            let $container = $radios.closest('.mb-3');
+
+            if ($container.hasClass('required-field') && $freeTextInput.length) {
+                if ($freeTextInput.val().trim() !== "") {
+                    $radios.prop("required", false).removeAttr("required");
+                    $freeTextInput.prop("required", false).removeAttr("required");
+                } else if ($radios.is(":checked")) {
+                    $radios.prop("required", true).attr("required", "required");
+                    $freeTextInput.prop("required", false).removeAttr("required");
+                } else {
+                    $radios.prop("required", true).attr("required", "required");
+                    $freeTextInput.prop("required", true).attr("required", "required");
+                }
+            }
+
+            if (field.willValidate && !field.checkValidity()) {
+                allValid = false;
+                $field.addClass('is-invalid');
+
+                if (!firstInvalid) {
+                    firstInvalid = field;
+                }
             }
         }
 
-        if (field.willValidate && !field.checkValidity()) {
-            allValid = false;
-            $field.addClass('is-invalid');
-
-            if (!firstInvalid) {
-                firstInvalid = field;
-            }
+        if (!allValid) {
+            firstInvalid.focus();
+            firstInvalid.reportValidity();
+            return;
         }
-    }
 
-    if (!allValid) {
-        firstInvalid.focus();
-        firstInvalid.reportValidity();
-        return;
-    }
-
-    if (lastStep === currentStep) {
-        load_spinner();
-    }
-});
+        if (lastStep === currentStep) {
+            load_spinner();
+        }
+    });
 
     let allTextarea = $('textarea');
 
