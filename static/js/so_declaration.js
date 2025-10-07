@@ -201,9 +201,11 @@ function update_so_declaration(form) {
             $so_submit_button = $("#so_submit_button");
             $so_send_button = $("#so_send_button");
             $so_submit_button.prop("disabled", true);
+            $so_submit_button.addClass("disabled");
             $so_send_button.prop("disabled", true);
             if (data.ready_to_submit) {
               $so_submit_button.prop("disabled", false);
+              $so_submit_button.removeClass("disabled");
             }
             if (data.ready_to_send) {
               $so_send_button.prop("disabled", false);
