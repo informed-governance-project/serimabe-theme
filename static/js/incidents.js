@@ -108,8 +108,8 @@ $(document).ready(function () {
             let reviewStatus = workflow.review_status;
             let reviewStatusCssClass = workflow.css_class;
             let reviewComment = workflow.comment
-            console.log(workflow);
-            
+            let $modalReportVersionWorkflowComment = $('#modal-workflow-comment');
+            let commentIcon = '' 
 
             let formattedDate = date.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit', });
             let formattedTime = date.toLocaleTimeString('en-GB', {
@@ -117,8 +117,6 @@ $(document).ready(function () {
                 minute: '2-digit'
             });
   
-            let $modalReportVersionWorkflowComment = $('#modal-workflow-comment');
-            let commentIcon = ''
             if (reviewComment != null && reviewComment != '') {
                 $modalReportVersionWorkflowComment.html(reviewComment);
                 commentIcon = `
