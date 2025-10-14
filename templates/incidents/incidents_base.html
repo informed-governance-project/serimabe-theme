@@ -139,7 +139,9 @@
                 <div class="d-flex align-items-end">
                     <span>{% translate "Actions" %}</span>
                     <button class="btn btn-sm btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#IncidentshideColumns">
-                        <i class="bi bi-gear h5 m-0"></i>
+                        <i class="bi bi-gear h5 m-0" data-bs-placement="top" 
+                            data-bs-toggle="tooltip" title="{% translate 'Columns settings' %}">
+                        </i>
                     </button>
                 </div>
             </th>
@@ -337,6 +339,13 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         {% include "modals/report_versions.html" %}
     </div>
+</div>
+<div class="modal fade" id="report_version_workflow_comment" data-bs-backdrop="static"
+     data-bs-keyboard="false" tabindex="-1" aria-labelledby="report_version_comment_label"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        {% include "modals/report_versions_workflow_comment.html" %}
+  </div>
 </div>
 
 <div class="modal fade" id="IncidentshideColumns" data-bs-backdrop="static" data-bs-keyboard="false"tabindex="-1" 

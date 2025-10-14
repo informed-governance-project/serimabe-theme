@@ -31,11 +31,11 @@ msgstr "_MENU_ entrées par page"
 msgid ": Activate to sort"
 msgstr ": Activer pour trier"
 
-#: theme/static/js/incidents.js:81
+#: theme/static/js/incidents.js:100
 msgid "Download PDF report"
 msgstr "Télécharger le rapport PDF"
 
-#: theme/static/js/incidents.js:82
+#: theme/static/js/incidents.js:101
 msgid "Review"
 msgstr "Revue"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-01 14:15+0200\n"
+"POT-Creation-Date: 2025-10-14 14:12+0200\n"
 "PO-Revision-Date: 2025-10-01 14:16+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,7 +20,7 @@ msgstr "Gestion du compte"
 
 #: theme/templates/account/edit.html:13 theme/templates/home/contact.html:22
 #: theme/templates/incidents/declaration.html:27
-#: theme/templates/registration/signup.html:15
+#: theme/templates/registration/signup.html:17
 msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr "Les champs marqués d'un astérisque (*) sont obligatoires."
 
@@ -28,23 +28,23 @@ msgstr "Les champs marqués d'un astérisque (*) sont obligatoires."
 msgid "Save changes"
 msgstr "Sauvegarder les modifications"
 
-#: theme/templates/admin/base_site.html:8
+#: theme/templates/admin/base_site.html:14
 msgid "Django admin area"
 msgstr "Administration de Django"
 
-#: theme/templates/admin/base_site.html:14
+#: theme/templates/admin/base_site.html:21
 msgid "Account security"
 msgstr "Sécurité du compte"
 
-#: theme/templates/admin/base_site.html:17
+#: theme/templates/admin/base_site.html:24
 msgid "Password change"
 msgstr "Changement du mot de passe"
 
-#: theme/templates/admin/base_site.html:21
+#: theme/templates/admin/base_site.html:28
 msgid "Return to user interface"
 msgstr "Retour à l'interface utilisateur"
 
-#: theme/templates/admin/base_site.html:25 theme/templates/parts/header.html:61
+#: theme/templates/admin/base_site.html:32 theme/templates/parts/header.html:60
 msgid "Log out"
 msgstr "Déconnexion"
 
@@ -170,7 +170,7 @@ msgstr "Formulaire de contact"
 #: theme/templates/home/contact.html:33
 #: theme/templates/incidents/contact_form.html:18
 #: theme/templates/incidents/contact_form.html:49
-#: theme/templates/registration/signup.html:22
+#: theme/templates/registration/signup.html:24
 msgid "First name"
 msgstr "Prénom"
 
@@ -294,6 +294,31 @@ msgstr ""
 #: theme/templates/home/cookies_policy.html:66
 #: theme/templates/home/cookies_policy.html:67
 msgid "Terme défini à l’article 1 des conditions d’utilisation de SERIMA."
+msgstr ""
+
+#: theme/templates/home/index.html:12
+msgid "Home"
+msgstr ""
+
+#: theme/templates/home/index.html:34
+#: theme/templates/registration/login.html:21
+msgid "Report cybersecurity incidents to the competent authority"
+msgstr ""
+
+#: theme/templates/home/index.html:36
+msgid ""
+"A self-assessment module to fulfill security objectives evaluation and "
+"provide evidences for security measures in place"
+msgstr ""
+
+#: theme/templates/home/index.html:38
+msgid ""
+"Generate annual reports from the security objectives and risk analysis "
+"towards informed governance."
+msgstr ""
+
+#: theme/templates/home/index.html:43
+msgid "Go to dashboard"
 msgstr ""
 
 #: theme/templates/home/language_selector.html:24
@@ -1278,17 +1303,17 @@ msgstr "de tout autre motif que l’ILR juge nécessaire."
 #: theme/templates/home/terms.html:559
 msgid ""
 "In the event of SERIMA being unavailable or of any malfunction, the User may "
-"contact ILR via the dedicated e-mail addresses : <a "
-"href=\"mailto:incident_notification@ilr.lu\">incident_notification@ilr.lu</"
-"a> for any item relating to the Incident Notification Module and <a "
-"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a> for any other Module."
+"contact ILR via the dedicated e-mail addresses : <a href=\"mailto:"
+"incident_notification@ilr.lu\">incident_notification@ilr.lu</a> for any item "
+"relating to the Incident Notification Module and <a href=\"mailto:serima@ilr."
+"lu\">serima@ilr.lu</a> for any other Module."
 msgstr ""
 "En cas d’indisponibilité de SERIMA ou de tout dysfonctionnement, "
 "l’Utilisateur peut s’adresser à l’ILR par le biais des adresses "
-"électroniques dédiées : <a "
-"href=\"mailto:incident_notification@ilr.lu\">incident_notification@ilr.lu</"
-"a> pour tout élément en lien avec le Module de notification d’incidents et "
-"<a href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a> pour tout autre Module."
+"électroniques dédiées : <a href=\"mailto:incident_notification@ilr."
+"lu\">incident_notification@ilr.lu</a> pour tout élément en lien avec le "
+"Module de notification d’incidents et <a href=\"mailto:serima@ilr."
+"lu\">serima@ilr.lu</a> pour tout autre Module."
 
 #: theme/templates/home/terms.html:568
 msgid ""
@@ -1381,8 +1406,8 @@ msgstr "Protection des données personnelles"
 
 #: theme/templates/home/terms.html:635
 msgid ""
-"Personal data is processed in accordance with the <a href=\"https://eur-"
-"lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
+"Personal data is processed in accordance with the <a href=\"https://eur-lex."
+"europa.eu/legal-content/FR/TXT/?uri=CELEX:32016R0679\" target=\"_blank\" "
 "rel=\"noopener noreferrer\">GDPR</a>."
 msgstr ""
 "Les données à caractère personnel sont traitées en conformité avec le <a "
@@ -1436,8 +1461,8 @@ msgstr ""
 #: theme/templates/home/terms.html:676
 msgid ""
 "For any comments, questions or complaints relating to SERIMA, the User may "
-"contact the ILR via the following e-mail address: <a "
-"href=\"mailto:serima@ilr.lu\">serima@ilr.lu</a>."
+"contact the ILR via the following e-mail address: <a href=\"mailto:"
+"serima@ilr.lu\">serima@ilr.lu</a>."
 msgstr ""
 "Pour tout commentaire, toute question ou réclamation relatifs à SERIMA, "
 "l’Utilisateur peut contacter l’ILR par le biais de l’adresse électronique "
@@ -1518,7 +1543,7 @@ msgstr "Intitulé du poste"
 
 #: theme/templates/incidents/contact_form.html:21
 #: theme/templates/incidents/contact_form.html:52
-#: theme/templates/registration/signup.html:23
+#: theme/templates/registration/signup.html:25
 msgid "Last name"
 msgstr "Nom"
 
@@ -1565,14 +1590,15 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #: theme/templates/incidents/declaration.html:133
-#: theme/templates/incidents/incidents_base.html:354
+#: theme/templates/incidents/incidents_base.html:363
 #: theme/templates/modals/accept_terms.html:20
 #: theme/templates/modals/access_log.html:20
 #: theme/templates/modals/contacts_incident.html:10
 #: theme/templates/modals/delete_incident.html:11
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:11
 #: theme/templates/modals/report_versions.html:12
-#: theme/templates/modals/workflow_comment.html:10
+#: theme/templates/modals/report_versions_workflow_comment.html:7
+#: theme/templates/modals/workflow_comment.html:11
 #: theme/templates/parts/messages.html:10
 #: theme/templates/parts/messages.html:12
 msgid "Close"
@@ -1600,7 +1626,7 @@ msgid "Filter by status, sector, etc."
 msgstr "Filtrer par statut, secteur, etc."
 
 #: theme/templates/incidents/incidents_base.html:41
-#: theme/templates/incidents/incidents_base.html:353
+#: theme/templates/incidents/incidents_base.html:362
 msgid "Filter"
 msgstr "Filtre"
 
@@ -1661,6 +1687,7 @@ msgid "Incidents table"
 msgstr "Tableau des incidents"
 
 #: theme/templates/incidents/incidents_base.html:116
+#: theme/templates/modals/report_versions.html:23
 msgid "Status"
 msgstr "Statut"
 
@@ -1706,39 +1733,43 @@ msgstr "Rapport"
 msgid "Actions"
 msgstr "Actions"
 
-#: theme/templates/incidents/incidents_base.html:159
+#: theme/templates/incidents/incidents_base.html:143
+msgid "Columns settings"
+msgstr ""
+
+#: theme/templates/incidents/incidents_base.html:161
 #: theme/templates/observer/incidents.html:27
 #: theme/templates/operator/incidents.html:34
 #: theme/templates/operator/incidents.html:37
 msgid "Incident with significant impact"
 msgstr "Incident ayant un impact significatif"
 
-#: theme/templates/incidents/incidents_base.html:161
+#: theme/templates/incidents/incidents_base.html:163
 #: theme/templates/operator/incidents.html:41
 #: theme/templates/operator/incidents.html:44
 msgid "No significant impact"
 msgstr "Pas d'impact significatif"
 
-#: theme/templates/incidents/incidents_base.html:177
+#: theme/templates/incidents/incidents_base.html:179
 #: theme/templates/observer/incidents.html:11
 #: theme/templates/operator/incidents.html:16
 #: theme/templates/operator/incidents.html:19
 msgid "The incident is still ongoing"
 msgstr "L'incident est toujours en cours"
 
-#: theme/templates/incidents/incidents_base.html:179
+#: theme/templates/incidents/incidents_base.html:181
 #: theme/templates/observer/incidents.html:17
 #: theme/templates/operator/incidents.html:23
 #: theme/templates/operator/incidents.html:26
 msgid "The incident is over"
 msgstr "L'incident est clos"
 
-#: theme/templates/incidents/incidents_base.html:189
+#: theme/templates/incidents/incidents_base.html:191
 msgid "Incident notification submission date"
 msgstr "Date de soumission de la notification de l'incident"
 
-#: theme/templates/incidents/incidents_base.html:275
-#: theme/templates/incidents/incidents_base.html:278
+#: theme/templates/incidents/incidents_base.html:277
+#: theme/templates/incidents/incidents_base.html:280
 #: theme/templates/modals/report_versions.html:8
 #: theme/templates/modals/report_versions.html:18
 #: theme/templates/operator/incidents.html:111
@@ -1746,27 +1777,27 @@ msgstr "Date de soumission de la notification de l'incident"
 msgid "Version control"
 msgstr "Gestion de versions"
 
-#: theme/templates/incidents/incidents_base.html:284
-#: theme/templates/incidents/incidents_base.html:306
+#: theme/templates/incidents/incidents_base.html:286
 #: theme/templates/incidents/incidents_base.html:308
+#: theme/templates/incidents/incidents_base.html:310
 msgid "Download PDF report"
 msgstr "Télécharger le rapport PDF"
 
-#: theme/templates/incidents/incidents_base.html:301
 #: theme/templates/incidents/incidents_base.html:303
+#: theme/templates/incidents/incidents_base.html:305
 #: theme/templates/modals/access_log.html:18
 msgid "Access Log"
 msgstr "Journal des accès"
 
-#: theme/templates/incidents/incidents_base.html:324
+#: theme/templates/incidents/incidents_base.html:326
 msgid "No incident reports have been submitted yet."
 msgstr "Aucun rapport d'incident n'a encore été soumis."
 
-#: theme/templates/incidents/incidents_base.html:365
+#: theme/templates/incidents/incidents_base.html:374
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: theme/templates/incidents/incidents_base.html:368
+#: theme/templates/incidents/incidents_base.html:377
 msgid "Search"
 msgstr "Rechercher"
 
@@ -1774,7 +1805,7 @@ msgstr "Rechercher"
 #: theme/templates/modals/accept_terms.html:16
 #: theme/templates/modals/accept_terms.html:18
 #: theme/templates/modals/accept_terms.html:32
-#: theme/templates/registration/signup.html:38
+#: theme/templates/registration/signup.html:39
 msgid "Terms of Service"
 msgstr "Conditions générales d'utilisation"
 
@@ -1815,7 +1846,7 @@ msgid "Document"
 msgstr "Document"
 
 #: theme/templates/modals/access_log.html:36
-#: theme/templates/modals/report_versions.html:23
+#: theme/templates/modals/report_versions.html:24
 msgid "Action"
 msgstr "Action"
 
@@ -1952,33 +1983,29 @@ msgstr ""
 msgid "Accessibility statement"
 msgstr "Déclaration d'accessibilité"
 
-#: theme/templates/parts/header.html:11
+#: theme/templates/parts/header.html:12
 #: theme/templates/registration/base.html:25
 msgid "Main menu"
 msgstr "Menu principal"
 
-#: theme/templates/parts/header.html:41
+#: theme/templates/parts/header.html:43
 msgid "Settings"
 msgstr "Paramètres"
 
-#: theme/templates/parts/header.html:51
+#: theme/templates/parts/header.html:54
 msgid "Account"
 msgstr "Compte"
 
-#: theme/templates/parts/header.html:52
+#: theme/templates/parts/header.html:55
 msgid "Security"
 msgstr "Sécurité"
 
-#: theme/templates/parts/header.html:53
-#: theme/templates/registration/signup.html:27
+#: theme/templates/parts/header.html:56
+#: theme/templates/registration/signup.html:29
 msgid "Password"
 msgstr "Mot de passe"
 
-#: theme/templates/parts/header.html:57
-msgid "Light theme"
-msgstr "Thème clair"
-
-#: theme/templates/parts/header.html:66
+#: theme/templates/parts/header.html:65
 msgid "Contact"
 msgstr "Contact"
 
@@ -2003,39 +2030,35 @@ msgid "entries"
 msgstr "entrées"
 
 #: theme/templates/registration/base.html:20
-#: theme/templates/registration/login.html:25
+#: theme/templates/registration/login.html:33
 msgid "Sign in"
 msgstr "Se connecter"
 
 #: theme/templates/registration/base.html:43
-#: theme/templates/registration/login.html:47
+#: theme/templates/registration/login.html:57
 msgid "Login"
 msgstr "Connexion"
 
 #: theme/templates/registration/base.html:50
-#: theme/templates/registration/login.html:79
-#: theme/templates/registration/signup.html:9
-#: theme/templates/registration/signup.html:45
+#: theme/templates/registration/login.html:92
+#: theme/templates/registration/signup.html:11
+#: theme/templates/registration/signup.html:46
 msgid "Create account"
 msgstr "Créer un compte"
 
-#: theme/templates/registration/login.html:9
+#: theme/templates/registration/login.html:16
 msgid "Incident Notification"
 msgstr "Notification d’incidents"
 
-#: theme/templates/registration/login.html:13
-msgid "Incident Reporting and Management Module"
-msgstr "Module de notification et de gestion des incidents"
-
-#: theme/templates/registration/login.html:16
+#: theme/templates/registration/login.html:24
 msgid "Report an incident <strong>with</strong> account"
 msgstr "Signaler un incident <strong>avec</strong> compte"
 
-#: theme/templates/registration/login.html:19
+#: theme/templates/registration/login.html:27
 msgid "Report an incident <strong>without</strong> account"
 msgstr "Signaler un incident <strong>sans</strong> compte"
 
-#: theme/templates/registration/login.html:31
+#: theme/templates/registration/login.html:39
 msgid ""
 "In the event of losing access to your account, you can use this form to "
 "regain access to your account with the help of one of the recovery codes "
@@ -2049,20 +2072,16 @@ msgstr ""
 "(2FA). Ces codes de récupération ont été générés pour vous lors de la "
 "configuration de la 2FA et vous avez été invité à les conserver en lieu sûr."
 
-#: theme/templates/registration/login.html:55
+#: theme/templates/registration/login.html:65
 msgid "As a last resort, you can use a backup token:"
 msgstr "En dernier recours, vous pouvez utiliser un jeton de secours :"
 
-#: theme/templates/registration/login.html:57
-msgid "Use backup token"
-msgstr "Utiliser le jeton de secours"
-
-#: theme/templates/registration/login.html:68
-#: theme/templates/registration/password_reset_form.html:9
+#: theme/templates/registration/login.html:79
+#: theme/templates/registration/password_reset_form.html:11
 msgid "Have you forgotten your password?"
 msgstr "Avez-vous oublié votre mot de passe ?"
 
-#: theme/templates/registration/login.html:76
+#: theme/templates/registration/login.html:88
 msgid "Create an account"
 msgstr "Créer un compte utilisateur"
 
@@ -2086,36 +2105,36 @@ msgstr ""
 "nouveau mot de passe."
 
 #: theme/templates/registration/password_change_form.html:31
-#: theme/templates/registration/password_reset_confirm.html:25
+#: theme/templates/registration/password_reset_confirm.html:27
 msgid "Change my password"
 msgstr "Changer mon mot de passe"
 
-#: theme/templates/registration/password_reset_complete.html:8
+#: theme/templates/registration/password_reset_complete.html:10
 msgid "Your password has been reset"
 msgstr "Réinitialisation du mot de passe terminée"
 
-#: theme/templates/registration/password_reset_complete.html:9
+#: theme/templates/registration/password_reset_complete.html:11
 msgid "Your password has been set. You may log in now."
 msgstr ""
 "Votre mot de passe a été défini. Vous pouvez maintenant vous connecter."
 
-#: theme/templates/registration/password_reset_complete.html:11
+#: theme/templates/registration/password_reset_complete.html:13
 msgid "Log in"
 msgstr "S’identifier"
 
-#: theme/templates/registration/password_reset_confirm.html:10
+#: theme/templates/registration/password_reset_confirm.html:12
 msgid "Set new password!"
 msgstr "Définir le nouveau mot de passe !"
 
-#: theme/templates/registration/password_reset_confirm.html:12
+#: theme/templates/registration/password_reset_confirm.html:14
 msgid "Invalid link"
 msgstr "Lien invalide"
 
-#: theme/templates/registration/password_reset_confirm.html:18
+#: theme/templates/registration/password_reset_confirm.html:20
 msgid "Please enter your new password twice."
 msgstr "Veuillez entrer votre nouveau mot de passe deux fois."
 
-#: theme/templates/registration/password_reset_confirm.html:30
+#: theme/templates/registration/password_reset_confirm.html:32
 msgid ""
 "The link for password recovery is invalid. It may have already been used or "
 "it has expired. Please submit a new request for password recovery."
@@ -2124,11 +2143,11 @@ msgstr ""
 "qu’il ait déjà été utilisé ou qu'il ait expiré. Veuillez soumettre une "
 "nouvelle demande de récupération de mot de passe."
 
-#: theme/templates/registration/password_reset_done.html:9
+#: theme/templates/registration/password_reset_done.html:11
 msgid "Email sent"
 msgstr "Courriel envoyé"
 
-#: theme/templates/registration/password_reset_done.html:13
+#: theme/templates/registration/password_reset_done.html:16
 msgid ""
 "We have received your request to reset your password. Please check your "
 "email for a link to reset your password. The email should arrive within a "
@@ -2139,7 +2158,7 @@ msgstr ""
 "permettra de réinitialiser votre mot de passe. Le courriel devrait arriver "
 "dans quelques minutes."
 
-#: theme/templates/registration/password_reset_done.html:14
+#: theme/templates/registration/password_reset_done.html:22
 msgid ""
 "If you do not receive the email, please check your spam or junk folder. "
 "Please make sure it is the email address you have registered with."
@@ -2157,31 +2176,31 @@ msgstr ""
 "Vous recevez ce courriel parce que vous avez demandé une restauration de mot "
 "de passe sur %(site_name)s."
 
-#: theme/templates/registration/password_reset_email.html:4
+#: theme/templates/registration/password_reset_email.html:6
 msgid "Please go to the following page and set up a new password:"
 msgstr ""
 "Merci d'aller à la page suivante et de choisir un nouveau mot de passe :"
 
-#: theme/templates/registration/password_reset_email.html:8
+#: theme/templates/registration/password_reset_email.html:10
 msgid "Your username:"
 msgstr "Votre nom d'utilisateur :"
 
-#: theme/templates/registration/password_reset_email.html:10
+#: theme/templates/registration/password_reset_email.html:12
 msgid "Thank you for visiting our website!"
 msgstr "Merci d’avoir visité notre site !"
 
-#: theme/templates/registration/password_reset_email.html:12
+#: theme/templates/registration/password_reset_email.html:14
 #, python-format
 msgid "The %(site_name)s team"
 msgstr "L'équipe %(site_name)s"
 
-#: theme/templates/registration/password_reset_form.html:13
+#: theme/templates/registration/password_reset_form.html:15
 msgid "Forgot your password? Enter your email to receive reset instructions."
 msgstr ""
 "Vous avez oublié votre mot de passe ? Saisissez votre adresse électronique "
 "pour recevoir les instructions de réinitialisation."
 
-#: theme/templates/registration/password_reset_form.html:18
+#: theme/templates/registration/password_reset_form.html:22
 msgid "Reset password"
 msgstr "Réinitialiser mon mot de passe"
 
@@ -2189,7 +2208,7 @@ msgstr "Réinitialiser mon mot de passe"
 msgid "Select company"
 msgstr "Choisissez l’entreprise"
 
-#: theme/templates/registration/select_company.html:11
+#: theme/templates/registration/select_company.html:13
 msgid "Your account is linked to multiple companies. Select one to proceed."
 msgstr ""
 "Votre compte est lié à plusieurs entreprises. Sélectionnez-en une pour "
@@ -2200,11 +2219,11 @@ msgstr ""
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: theme/templates/registration/signup.html:24
+#: theme/templates/registration/signup.html:26
 msgid "Email address"
 msgstr "Adresse de courrier électronique"
 
-#: theme/templates/registration/signup.html:28
+#: theme/templates/registration/signup.html:30
 msgid "Password confirmation"
 msgstr "Confirmation du mot de passe"
 
