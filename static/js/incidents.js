@@ -97,28 +97,53 @@ $(document).ready(function () {
         $captionAccessibility.text(currentText + ' : ' + reportId);
         $modalincidentRef.text(incidentRef);
         $modalWorkflowRows.empty();
+        let tooltip_download = gettext("Download PDF report");
+        let tooltip_review = gettext("Review");
+        let tooltip_comment = gettext("Comment");
 
         workflows.forEach(function (workflow) {
             let reviewUrl = reviewUrlBase + workflow.id;
             let downloadUrl = downloadUrlBase.replace('0', workflow.id);
             let date = new Date(workflow.timestamp);
+            let reviewStatus = workflow.review_status;
+            let reviewStatusCssClass = workflow.css_class;
+            let reviewComment = workflow.comment
+            let $modalReportVersionWorkflowComment = $('#report_version_workflow_comment').find('#modal-workflow-comment');
+            let commentIcon = ''
+
             let formattedDate = date.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit', });
             let formattedTime = date.toLocaleTimeString('en-GB', {
                 hour: '2-digit',
                 minute: '2-digit'
             });
-            let tooltip_download = gettext("Download PDF report");
-            let tooltip_review = gettext("Review");
 
+            if (reviewComment != null && reviewComment != '') {
+                $modalReportVersionWorkflowComment.html(reviewComment);
+                commentIcon = `
+                    <button class="btn p-0 ps-1 border-0 d-inline-flex align-items-center"
+                            type="button" data-bs-target="#report_version_workflow_comment" data-bs-toggle="modal">
+                    <i class="custom-icon-comments h4 align-self-center" 
+                    data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_comment}">
+                    </i>
+                    </button>
+                `;
+            }
             let row = `
                 <tr>
-                    <td class="col-3 small">${formattedDate}</td>
-                    <td class="col-7 small">
+                    <td class="col-2 small">${formattedDate}</td>
+                    <td class="col-3 small">
                         <i class="bi bi-clock small" aria-hidden="true"></i> 
                         ${formattedTime}
                     </td>
+                    <td class="col-5 small">
+                        <div class="hstack gap-1 text-${reviewStatusCssClass}">
+                            <i class="custom-icon-${reviewStatusCssClass}" aria-hidden="true"></i> 
+                            <span>${reviewStatus}</span>
+                        </div>
+                    </td>
                     <td class="col-2 text-center">
                         <div class="d-inline-flex align-middle">
+                            ${commentIcon}
                             <a class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center" href="${reviewUrl}"
                                 data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_review}">
                                 <i class="custom-icon-view h4 align-self-center" aria-hidden="true"></i>
