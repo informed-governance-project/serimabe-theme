@@ -7,7 +7,9 @@
         <h5 class="modal-title" id="workflowCommentLabel">
             {% translate "Review comment" %}
         </h5>
+        {% block modal_close_button %}
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
+        {% endblock modal_close_button %}
     </div>
     <div id="modal-workflow-comment" class="modal-body py-4 px-5"></div>
 </div>
