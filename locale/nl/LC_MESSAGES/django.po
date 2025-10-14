@@ -2607,12 +2607,6 @@ msgstr ""
 msgid "Report generation table"
 msgstr ""
 
-#: theme/templates/reporting/dashboard.html:53
-#: theme/templates/security_objectives/report/cover.html:40
-#: theme/templates/security_objectives/so_dashboard_base.html:63
-msgid "Year"
-msgstr ""
-
 #: theme/templates/reporting/dashboard.html:56
 #: theme/templates/security_objectives/so_dashboard_base.html:27
 msgid "Security objectives"
