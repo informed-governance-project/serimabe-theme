@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-13 12:46+0200\n"
+"POT-Creation-Date: 2025-10-14 13:59+0200\n"
 "PO-Revision-Date: 2025-05-26 10:40+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -31,35 +31,39 @@ msgstr "_MENU_ Zeilen anzeigen"
 msgid ": Activate to sort"
 msgstr ": Aktivieren zum Sortieren"
 
-#: theme/static/js/incidents.js:81
+#: theme/static/js/incidents.js:100
 msgid "Download PDF report"
 msgstr "PDF-Bericht herunterladen"
 
-#: theme/static/js/incidents.js:82
+#: theme/static/js/incidents.js:101
 msgid "Review"
 msgstr "Überprüfung"
 
-#: theme/static/js/incidents_regulator.js:27
+#: theme/static/js/incidents.js:102
+msgid "Comment"
+msgstr ""
+
+#: theme/static/js/incidents_regulator.js:33
 msgid "The incident is over"
 msgstr "Der Vorfall ist beendet"
 
-#: theme/static/js/incidents_regulator.js:28
+#: theme/static/js/incidents_regulator.js:34
 msgid "The incident is still ongoing"
 msgstr "Der Vorfall dauert noch an"
 
-#: theme/static/js/incidents_regulator.js:31
+#: theme/static/js/incidents_regulator.js:37
 msgid "Incident with significant impact"
 msgstr "Vorfall mit erheblichen Auswirkungen"
 
-#: theme/static/js/incidents_regulator.js:32
+#: theme/static/js/incidents_regulator.js:38
 msgid "No significant impact"
 msgstr "Keine erheblichen Auswirkungen"
 
-#: theme/static/js/so_declaration.js:18
+#: theme/static/js/so_declaration.js:25
 msgid "Justification required"
 msgstr "Rechtfertigung erforderlich"
 
-#: theme/static/js/so_declaration.js:38
+#: theme/static/js/so_declaration.js:45
 msgid ""
 "Please list your current and planned measures, including a schedule with the "
 "individual stages."
