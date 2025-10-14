@@ -1971,10 +1971,6 @@ msgstr "Berichtsgenerierungstabelle"
 msgid "Year"
 msgstr "Jahr"
 
-#: theme/templates/reporting/dashboard.html:54
-msgid "Operator"
-msgstr "Betreiber"
-
 #: theme/templates/reporting/dashboard.html:56
 #: theme/templates/security_objectives/so_dashboard_base.html:27
 msgid "Security objectives"
