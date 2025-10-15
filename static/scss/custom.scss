@@ -4,8 +4,11 @@
 // Include any default variable overrides here (though functions won't be available)
 
 // IBPT Colors
-$primary: #34a9e1;
-$secondary: #2e2f7f; 
+//$primary: #34a9e1;
+//$secondary: #e2f7f;
+// NCCN Colors 
+$primary: #ffdf1c; // Crisis yellow
+$secondary: #00A494; // Crisis green
 
 @import "../../../node_modules/bootstrap/scss/functions";
 @import "../../../node_modules/bootstrap/scss/variables";
