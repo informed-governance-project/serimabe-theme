@@ -1,218 +1,282 @@
-{% extends 'security_objectives/base.html' %}
+{% extends "security_objectives/base.html" %}
 {% load i18n %}
 {% load tz %}
 {% load static %}
 {% load SO_custom_filters %}
 {% load django_bootstrap5 %}
-
 {% block bootstrap5_extra_script %}
-{{ block.super }}
-<link rel="stylesheet" href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
-<link rel="stylesheet" href="{% static 'css/so_dashboard.css' %}" />
-<script type="text/javascript" src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
-<script type="text/javascript"src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
-<script src="//cdn.datatables.net/plug-ins/2.3.4/sorting/date-euro.js"></script>
-<script src='{% static "js/so_dashboard.js" %}'></script>
+  {{ block.super }}
+  <link rel="stylesheet"
+        href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/so_dashboard.css' %}" />
+  <script type="text/javascript"
+          src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
+  <script type="text/javascript"
+          src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
+  <script src="//cdn.datatables.net/plug-ins/2.3.4/sorting/date-euro.js"></script>
+  <script src='{% static "js/so_dashboard.js" %}'></script>
 {% endblock %}
-
 {% block content %}
-{% settings_value "TIME_ZONE" as time_zone %}
-<div class="d-flex justify-content-between align-items-center">
+  {% settings_value "TIME_ZONE" as time_zone %}
+  <div class="d-flex justify-content-between align-items-center">
     <div>
-        <h3 class="fw-bolder">
-            {% block title %}
-            {% translate "Dashboard" %}
-            {% endblock %}
-        </h3>
-        <div class="hr-separator"></div>
+      <h3 class="fw-bolder">
+        {% block title %}
+          {% translate "Dashboard" %}
+        {% endblock %}
+      </h3>
+      <div class="hr-separator">
+      </div>
     </div>
     <div class="d-inline-flex gap-4">
-        <form id="search_bar_form" method="get">
-            {% bootstrap_field filter.form.search label_class="fw-bold" addon_before="<i class='custom-icon-search h4'></i>" addon_before_class="input-group-text search_icon" addon_after="<button id='clearSearch' type='button' class='btn-close d-none'></button>" addon_after_class="input-group-text close_icon" show_label=false wrapper_class="mb-0"%}
-        </form>
-        <button id="openFilter" class="btn btn-filter-gray btn-sm px-3" type="button" data-bs-placement="top"
-            data-bs-toggle="tooltip" title="{% translate 'Filter by status, sector, etc.' %}">
-            {% translate "Filter" %}
-            {% if is_filtered %}
-            <span>
-                ({% translate "Active" %})
-            </span>
-            {% endif %}
-            <i class="bi bi-filter" aria-hidden="true"></i>
-        </button>
-        <button type="button" class="btn btn-primary bg-body border-0 p-0" data-bs-toggle="collapse"
-            data-bs-target="#collapseLegend" aria-expanded="false" aria-controls="collapseLegend"
-            onclick="save_so_status_legend()">
-            <img src="{% static 'images/icons/ico-legend.svg' %}" alt="legend" data-bs-placement="top"
-                data-bs-toggle="tooltip" title="{% translate 'Icon Guide' %}">
-        </button>
+      <form id="search_bar_form" method="get">
+        {% bootstrap_field filter.form.search label_class="fw-bold" addon_before="<i class='custom-icon-search h4'></i>" addon_before_class="input-group-text search_icon" addon_after="<button id='clearSearch' type='button' class='btn-close d-none'></button>" addon_after_class="input-group-text close_icon" show_label=false wrapper_class="mb-0" %}
+      </form>
+      <button id="openFilter"
+              class="btn btn-filter-gray btn-sm px-3"
+              type="button"
+              data-bs-placement="top"
+              data-bs-toggle="tooltip"
+              title='{% translate "Filter by status, sector, etc." %}'>
+        {% translate "Filter" %}
+        {% if is_filtered %}
+          <span>
+            ({% translate "Active" %})
+          </span>
+        {% endif %}
+        <i class="bi bi-filter" aria-hidden="true"></i>
+      </button>
+      <button type="button"
+              class="btn btn-primary bg-body border-0 p-0"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseLegend"
+              aria-expanded="false"
+              aria-controls="collapseLegend"
+              onclick="save_so_status_legend()">
+        <img src="{% static 'images/icons/ico-legend.svg' %}"
+             alt="legend"
+             data-bs-placement="top"
+             data-bs-toggle="tooltip"
+             title='{% translate "Icon Guide" %}'>
+      </button>
     </div>
-</div>
-
-<!-- Legend -->
-<div class="my-2">
+  </div>
+  <!-- Legend -->
+  <div class="my-2">
     <div id="collapseLegend" class="collapse">
-        <div class="legend">
-            <span class="legend-title">
-                {% translate "Legend" %}
-            </span>
-            <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
-                {% block content_table_legend %}{% endblock %}  
-            </ul>
-        </div>
+      <div class="legend">
+        <span class="legend-title">
+          {% translate "Legend" %}
+        </span>
+        <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
+          {% block content_table_legend %}
+          {% endblock %}
+        </ul>
+      </div>
     </div>
-</div>
-
-{% if filter.qs %}
-<table id="securityobjectives-table" class="table align-middle table-sm small">
-    <caption class="visually-hidden">{% translate "Security objectives table" %}</caption>
-    <thead>
+  </div>
+  {% if filter.qs %}
+    <table id="securityobjectives-table"
+           class="table align-middle table-sm small">
+      <caption class="visually-hidden">{% translate "Security objectives table" %}</caption>
+      <thead>
         <tr>
-            <th class="col-1">{% translate "Status" %}</th>
-            <th class="col-1">{% translate "Last update" %}</th>
-            <th class="col-1">{% translate "Submission date" %}</th>
-            <th class="col-1">{% translate "Evaluation Framework" %}</th>
-            <th class="col-1">
-                {% if not is_regulator %}
-                {% translate "Creator" %}
-                {% else %}
-                {% translate "Company" %}
-                {% endif %}
-            </th>
-            <th class="col-2">{% translate "Sectors" %}</th>
-            <th class="col-1">{% translate "Year" %}</th>
-            <th class="col-2">{% translate "Progress" %}</th>
-            <th class="col-1">
-                <div class="d-flex align-items-end">
-                    <span>{% translate "Actions" %}</span>
-                    <button class="btn btn-sm btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#SOhideColumns">
-                        <i class="bi bi-gear h5 m-0"></i>
-                    </button>
-                </div>
-            </th>
+          <th class="col-1">
+            {% translate "Status" %}
+          </th>
+          <th class="col-1">
+            {% translate "Last update" %}
+          </th>
+          <th class="col-1">
+            {% translate "Submission date" %}
+          </th>
+          <th class="col-1">
+            {% translate "Evaluation Framework" %}
+          </th>
+          <th class="col-1">
+            {% if not is_regulator %}
+              {% translate "Creator" %}
+            {% else %}
+              {% translate "Company" %}
+            {% endif %}
+          </th>
+          <th class="col-2">
+            {% translate "Sectors" %}
+          </th>
+          <th class="col-1">
+            {% translate "Year" %}
+          </th>
+          <th class="col-2">
+            {% translate "Progress" %}
+          </th>
+          <th class="col-1">
+            <div class="d-flex align-items-end">
+              <span>{% translate "Actions" %}</span>
+              <button class="btn btn-sm btn-primary ms-auto"
+                      data-bs-toggle="modal"
+                      data-bs-target="#SOhideColumns">
+                <i class="bi bi-gear h5 m-0"></i>
+              </button>
+            </div>
+          </th>
         </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
         {% for standard in standard_answers %}
-        {% timezone time_zone %}
-        <tr>
+          {% timezone time_zone %}
+          <tr>
             <td class="col-1 table-group-divider py-3">
-                <div class="d-none {% status_class standard.status %} icon-container m-auto rounded-circle justify-content-center align-items-center"
-                data-bs-placement="top" data-bs-toggle="tooltip" title="{% status_tooltip standard.status %}">
-                    <i class="{% status_icon standard.status %} m-0 h5" aria-hidden="true">
+              <div class="d-none {% status_class standard.status %} icon-container m-auto rounded-circle justify-content-center align-items-center"
+                   data-bs-placement="top"
+                   data-bs-toggle="tooltip"
+                   title="{% status_tooltip standard.status %}">
+                <i class="{% status_icon standard.status %} m-0 h5" aria-hidden="true">
                 </i>
-                </div>
+              </div>
             </td>
-            <td class="col-1 table-group-divider py-3" data-order="{{standard.last_update.timestamp}}">
-                {% if standard.last_update %}
-                {{ standard.last_update|date:"d/m/y" }}<br/>
+            <td class="col-1 table-group-divider py-3"
+                data-order="{{ standard.last_update.timestamp }}">
+              {% if standard.last_update %}
+                {{ standard.last_update|date:"d/m/y" }}
+                <br />
                 <i class="bi bi-clock"></i>
-                {{ standard.last_update|date:"H:i" }}                  
-                {% endif %}
+                {{ standard.last_update|date:"H:i" }}
+              {% endif %}
             </td>
-            <td class="col-1 table-group-divider py-3" data-order="{{standard.submit_date.timestamp}}">
-                {% if standard.submit_date %}
-                {{ standard.submit_date|date:"d/m/y" }}<br/>
+            <td class="col-1 table-group-divider py-3"
+                data-order="{{ standard.submit_date.timestamp }}">
+              {% if standard.submit_date %}
+                {{ standard.submit_date|date:"d/m/y" }}
+                <br />
                 <i class="bi bi-clock"></i>
-                {{ standard.submit_date|date:"H:i" }}                 
-                {% endif %}
+                {{ standard.submit_date|date:"H:i" }}
+              {% endif %}
             </td>
-            <td class="col-1 table-group-divider py-3">{{standard.standard.label}}</td>
             <td class="col-1 table-group-divider py-3">
-                {% if not is_regulator %}
+              {{ standard.standard.label }}
+            </td>
+            <td class="col-1 table-group-divider py-3">
+              {% if not is_regulator %}
                 {{ standard.creator_name }}
-                {% else %}
+              {% else %}
                 {{ standard.creator_company_name }}
-                {% endif %}
+              {% endif %}
             </td>
             <td class="col-2 table-group-divider py-3">
-                {% for root_sector in standard.get_no_childrens_sectors %}
-                    <ul class="m-0 p-0 list-sectors">
-                        <span class="fw-bolder">
-                            {{ root_sector.get_safe_translation }}
-                        </span>
-                    </ul>
-                {% endfor %}
+              {% for root_sector in standard.get_no_childrens_sectors %}
                 <ul class="m-0 p-0 list-sectors">
-                    {% for root_sector in standard.get_root_sectors %}
-                        <span class="fw-bolder">
-                            {{ root_sector.get_safe_translation }}
-                        </span>
-                        <ul class="list-unstyled">                           
-                        {% for sector in root_sector.children.all %}
-                            {% if sector in standard.sectors.all %}
-                                <li>{{ sector.get_safe_translation }}</li>
-                            {% endif %}
-                        {% endfor %}
-                        </ul>
-                    {% endfor %}
+                  <span class="fw-bolder">
+                    {{ root_sector.get_safe_translation }}
+                  </span>
                 </ul>
-            </td>
-            <td class="col-1 table-group-divider py-3">{{standard.year_of_submission}}</td>
-            <td class="col-2 table-group-divider py-3">
-            {% block progress_bar %}{% endblock %}
+              {% endfor %}
+              <ul class="m-0 p-0 list-sectors">
+                {% for root_sector in standard.get_root_sectors %}
+                  <span class="fw-bolder">
+                    {{ root_sector.get_safe_translation }}
+                  </span>
+                  <ul class="list-unstyled">
+                    {% for sector in root_sector.children.all %}
+                      {% if sector in standard.sectors.all %}
+                        <li>
+                          {{ sector.get_safe_translation }}
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% endfor %}
+              </ul>
             </td>
             <td class="col-1 table-group-divider py-3">
-                <div class="d-flex align-items-center justify-content-between">
-                    {% block content_table_actions %}{% endblock %}                    
-                </div>
+              {{ standard.year_of_submission }}
             </td>
-        </tr>
+            <td class="col-2 table-group-divider py-3">
+              {% block progress_bar %}
+              {% endblock %}
+            </td>
+            <td class="col-1 table-group-divider py-3">
+              <div class="d-flex align-items-center justify-content-between">
+                {% block content_table_actions %}
+                {% endblock %}
+              </div>
+            </td>
+          </tr>
         {% endtimezone %}
-        {% endfor %}
+      {% endfor %}
     </tbody>
-</table>
-
-{% with pagination_data=standard_answers %}
+  </table>
+  {% with pagination_data=standard_answers %}
     {% include "parts/pagination.html" %}
-{% endwith %}
-
+  {% endwith %}
 {% else %}
-<p>{% translate "No security objectives statements have been submitted yet." %}</p>
+  <p>
+    {% translate "No security objectives statements have been submitted yet." %}
+  </p>
 {% endif %}
-
 <!-- Modals -->
 {% block content_modals %}
-<div class="modal fade" id="so_access_log" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="so_access_log_label" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"></div>
-</div>
-
-<div class="modal fade" id="SOhideColumns" data-bs-backdrop="static" data-bs-keyboard="false"tabindex="-1" 
-    aria-labelledby="so_hide_columns_label" aria-hidden="true">
+  <div class="modal fade"
+       id="so_access_log"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="so_access_log_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    </div>
+  </div>
+  <div class="modal fade"
+       id="SOhideColumns"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="so_hide_columns_label"
+       aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        {% include "modals/so_dashboard_hide_columns.html" %}
+      {% include "modals/so_dashboard_hide_columns.html" %}
     </div>
-</div>
-
-<div class="modal fade right-modal pt-5 pe-5" id="filterModal" tabindex="-1" aria-hidden="true">
+  </div>
+  <div class="modal fade right-modal pt-5 pe-5"
+       id="filterModal"
+       tabindex="-1"
+       aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title fw-bold">{% translate "Filter" %}</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% translate 'Close' %}"></button>
-            </div>
-            <form method="get">
-                <div class="modal-body small">
-                    {% bootstrap_field filter.form.standard label_class="fw-bold" wrapper_class="mb-3" %}
-                    {% bootstrap_field filter.form.year_of_submission label_class="fw-bold" wrapper_class="mb-3" %}
-                    {% bootstrap_field filter.form.sectors label_class="fw-bold" wrapper_class="sector-filter mb-3" %}
-                    {% bootstrap_field filter.form.status label_class="fw-bold" wrapper_class="mb-3"%}
-                    {% block content_filter %}
-                    {% endblock %}
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary btn-sm" type="submit" name="reset" value="true" data-bs-dismiss="modal" onclick="load_spinner()">
-                        {% translate "Reset" %}
-                    </button>
-                    <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
-                        {% translate "Search" %}
-                    </button>    
-                </div>
-            </form>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title fw-bold">
+            {% translate "Filter" %}
+          </h4>
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label='{% translate "Close" %}'>
+          </button>
         </div>
+        <form method="get">
+          <div class="modal-body small">
+            {% bootstrap_field filter.form.standard label_class="fw-bold" wrapper_class="mb-3" %}
+            {% bootstrap_field filter.form.year_of_submission label_class="fw-bold" wrapper_class="mb-3" %}
+            {% bootstrap_field filter.form.sectors label_class="fw-bold" wrapper_class="sector-filter mb-3" %}
+            {% bootstrap_field filter.form.status label_class="fw-bold" wrapper_class="mb-3" %}
+            {% block content_filter %}
+            {% endblock %}
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary btn-sm"
+                    type="submit"
+                    name="reset"
+                    value="true"
+                    data-bs-dismiss="modal"
+                    onclick="load_spinner()">
+              {% translate "Reset" %}
+            </button>
+            <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
+              {% translate "Search" %}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
+  </div>
 {% endblock %}
-
 {% endblock %}

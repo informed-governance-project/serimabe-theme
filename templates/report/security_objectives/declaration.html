@@ -1,135 +1,177 @@
 {% load i18n %}
 <style>
-  .switch-handle.checked {
-    background: url("images/icons/ico-switch-checked.svg") no-repeat center;
-  }
+    .switch-handle.checked {
+        background: url("images/icons/ico-switch-checked.svg") no-repeat center;
+    }
 
-  .switch-handle.not-checked {
-    background: url("images/icons/ico-switch-unchecked.svg") no-repeat center;
-  }
+    .switch-handle.not-checked {
+        background: url("images/icons/ico-switch-unchecked.svg") no-repeat center;
+    }
 </style>
-
 {% for security_objective, maturity_levels in security_objectives.items %}
-<div class="page-landscape">
-  <div class="d-flex m-0 mb-1">
-    <div class="me-auto">
-      <h5 id="{{ security_objective.unique_code }}" class="fw-bold m-0">
-        {{ security_objective.unique_code }}: {{ security_objective.objective }}
-      </h5>
-      <h6 class="card-subtitle text-muted">{{ security_objective.description }}</h6>
-    </div>
-    <div class="col-2 text-end">
-      {% if is_regulator %}
-        {% if security_objective.status %}
-        <h5 class="fw-bold m-0 
-          {% if security_objective.status.status == 'PASS' %}text-success
-          {% elif security_objective.status.status == 'FAIL' %}text-danger
-          {% else %}text-dark{% endif %}">
-          [{{ security_objective.status.get_status_display }}]
+  <div class="page-landscape">
+    <div class="d-flex m-0 mb-1">
+      <div class="me-auto">
+        <h5 id="{{ security_objective.unique_code }}" class="fw-bold m-0">
+          {{ security_objective.unique_code }}: {{ security_objective.objective }}
         </h5>
-        {% else %}
-        <h5 class="fw-bold m-0">
-          [{% translate "Not reviewed" %}]
-        </h5>
+        <h6 class="card-subtitle text-muted">
+          {{ security_objective.description }}
+        </h6>
+      </div>
+      <div class="col-2 text-end">
+        {% if is_regulator %}
+          {% if security_objective.status %}
+            <h5 class="fw-bold m-0
+                       {% if security_objective.status.status == 'PASS' %}
+                         text-success
+                       {% elif security_objective.status.status == 'FAIL' %}
+                         text-danger
+                       {% else %}
+                         text-dark
+                       {% endif %}">
+              [{{ security_objective.status.get_status_display }}]
+            </h5>
+          {% else %}
+            <h5 class="fw-bold m-0">
+              [{% translate "Not reviewed" %}]
+            </h5>
+          {% endif %}
         {% endif %}
-      {% endif %}
-      <h6 class="card-subtitle text-end text-muted m-0">
-        <div class="d-flex align-items-center justify-content-end">
-          <div id="score_container" class="position-relative pe-3">
-            <img src="images/icons/ico-score.svg" class="img-fluid" alt="Score ico">
-            <div class="score_text position-absolute fw-bold text-dark">
-              <div class="text-muted">
-                <div>
-                  <span class="h6 fw-bold">{{ security_objective.status.score|default:0|floatformat:1 }}</span>
-                  <span>/ {{ last_maturity_level }}</span>
+        <h6 class="card-subtitle text-end text-muted m-0">
+          <div class="d-flex align-items-center justify-content-end">
+            <div id="score_container" class="position-relative pe-3">
+              <img src="images/icons/ico-score.svg" class="img-fluid" alt="Score ico">
+              <div class="score_text position-absolute fw-bold text-dark">
+                <div class="text-muted">
+                  <div>
+                    <span class="h6 fw-bold">{{ security_objective.status.score|default:0|floatformat:1 }}</span>
+                    <span>/ {{ last_maturity_level }}</span>
+                  </div>
                 </div>
-
               </div>
             </div>
           </div>
-        </div>
-      </h6>
+        </h6>
+      </div>
     </div>
-  </div>
-  <table id="declaration_table" class="table table-sm table-borderless border-bottom border-1 border-dark small">
-    <caption class="visually-hidden">
-      {% translate "table of" %} {{ security_objective.unique_code }}: {{ security_objective.objective }}
-    </caption>
-    <thead>
-      <tr>
-        <th class="col-1 text-center align-middle">
-          {% translate "Maturity Level" %}
-        </th>
-        <th class="col-2 text-center align-middle">
-          {% translate "Security Measure" %}
-        </th>
-        <th class="col-2 text-center align-middle">
-          {% translate "Evidence" %}
-        </th>
-        <th class="col-1 text-center align-middle">
-          {% translate "Measure implemented?" %}
-        </th>
-        <th class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}col-2{% else %}col-4{% endif %} text-center align-middle">
-          {% translate "Justification" %}
-        </th>
-        {% if is_regulator or security_objective.declaration_status != "UNDE" %}
-        <th class="col-2 text-center align-middle">
-          {% translate "Review Comment" %}
-        </th>
-        {% endif %}
-        <th
-          class="col-2 text-center align-middle">
-          {% translate "Planned Measures" %}
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for maturity_level, measures in maturity_levels.items %}
-      {% for measure in measures %}
-      <tr>
-        {% if forloop.first %}
-        <th rowspan="{{ measures|length }}" class="col-1 table-group-divider text-center align-middle lh-sm">
-          {{ maturity_level }}
-        </th>
-        {% endif %}
-        <td class="col-2 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
-          {{ measure }}
-        </td>
-        <td class="col-2 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
-          {{ measure.evidence|linebreaksbr }}
-        </td>
-        <td class="col-1 align-middle {% if forloop.first %}table-group-divider{% endif %}">
-          <div class="d-flex justify-content-center">
-            <div class="border rounded-pill switch">
-              <div class="switch-handle {% if measure.is_implemented %}checked{% else %}not-checked{% endif %}"></div>
-            </div>
-          </div>
-        </td>
-        <td class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}col-2{% else %}col-4{% endif %} lh-sm {% if forloop.first %}table-group-divider{% endif %}">
-          {{ measure.justification|default:""|linebreaksbr }}
-        </td>
-        {% if is_regulator or security_objective.declaration_status != "UNDE" %}
-          <td class="col-2 lh-sm {% if forloop.first %}table-group-divider{% endif %}">
-            {{ measure.review_comment|default:""|linebreaksbr }}
-          </td>
-        {% endif %}
-        {% if forloop.parentloop.first %}
-          {% translate "Please list your current and planned measures, including a schedule with the individual stages." as placeholder_translation %}
-          <td rowspan="{{security_objective.securitymeasure_set.all.count}}" class="col-2 table-group-divider border border-1 border-dark border-end-0">
-              {{ security_objective.status.actions|default:""|linebreaksbr }}
-          </td>
-        {% endif %}
-      </tr>
-      {% empty %}
-      <h3>{% translate "No security measures data available." %}</h3>
-      {% endfor %}
-      {% endfor %}
-    </tbody>
-  </table>
-  {% if not forloop.last %}
-    <p class="page-break"></p>
-  {% endif %}
+    <table id="declaration_table"
+           class="table table-sm table-borderless border-bottom border-1 border-dark small">
+      <caption class="visually-hidden">
+        {% translate "table of" %} {{ security_objective.unique_code }}: {{ security_objective.objective }}
+      </caption>
+      <thead>
+        <tr>
+          <th class="col-1 text-center align-middle">
+            {% translate "Maturity Level" %}
+          </th>
+          <th class="col-2 text-center align-middle">
+            {% translate "Security Measure" %}
+          </th>
+          <th class="col-2 text-center align-middle">
+            {% translate "Evidence" %}
+          </th>
+          <th class="col-1 text-center align-middle">
+            {% translate "Measure implemented?" %}
+          </th>
+          <th class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}
+                       col-2
+                     {% else %}
+                       col-4
+                     {% endif %}
+                     text-center align-middle">
+            {% translate "Justification" %}
+          </th>
+          {% if is_regulator or security_objective.declaration_status != "UNDE" %}
+            <th class="col-2 text-center align-middle">
+              {% translate "Review Comment" %}
+            </th>
+          {% endif %}
+          <th class="col-2 text-center align-middle">
+            {% translate "Planned Measures" %}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for maturity_level, measures in maturity_levels.items %}
+          {% for measure in measures %}
+            <tr>
+              {% if forloop.first %}
+                <th rowspan="{{ measures|length }}"
+                    class="col-1 table-group-divider text-center align-middle lh-sm">
+                  {{ maturity_level }}
+                </th>
+              {% endif %}
+              <td class="col-2 lh-sm
+                         {% if forloop.first %}
+                           table-group-divider
+                         {% endif %}">
+                {{ measure }}
+              </td>
+              <td class="col-2 lh-sm
+                         {% if forloop.first %}
+                           table-group-divider
+                         {% endif %}">
+                {{ measure.evidence|linebreaksbr }}
+              </td>
+              <td class="col-1 align-middle
+                         {% if forloop.first %}
+                           table-group-divider
+                         {% endif %}">
+                <div class="d-flex justify-content-center">
+                  <div class="border rounded-pill switch">
+                    <div class="switch-handle
+                                {% if measure.is_implemented %}
+                                  checked
+                                {% else %}
+                                  not-checked
+                                {% endif %}">
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}
+                           col-2
+                         {% else %}
+                           col-4
+                         {% endif %}
+                         lh-sm
+                         {% if forloop.first %}
+                           table-group-divider
+                         {% endif %}">
+                {{ measure.justification|default:""|linebreaksbr }}
+              </td>
+              {% if is_regulator or security_objective.declaration_status != "UNDE" %}
+                <td class="col-2 lh-sm
+                           {% if forloop.first %}
+                             table-group-divider
+                           {% endif %}">
+                  {{ measure.review_comment|default:""|linebreaksbr }}
+                </td>
+              {% endif %}
+              {% if forloop.parentloop.first %}
+                {% translate "Please list your current and planned measures, including a schedule with the individual stages." as placeholder_translation %}
+                <td rowspan="{{ security_objective.securitymeasure_set.all.count }}"
+                    class="col-2 table-group-divider border border-1 border-dark border-end-0">
+                  {{ security_objective.status.actions|default:""|linebreaksbr }}
+                </td>
+              {% endif %}
+            </tr>
+          {% empty %}
+            <h3>
+              {% translate "No security measures data available." %}
+            </h3>
+          {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+    {% if not forloop.last %}
+      <p class="page-break">
+      </p>
+    {% endif %}
   {% empty %}
-  <h3>{% translate "No security objectives data available." %}</h3>
-</div>
+    <h3>
+      {% translate "No security objectives data available." %}
+    </h3>
+  </div>
 {% endfor %}
