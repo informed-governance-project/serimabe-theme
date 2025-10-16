@@ -27,7 +27,7 @@ $(document).ready(function () {
     });
   }
 
-  function checkRequiredFields() {  
+  function checkRequiredFields() {
     const $activeSlide = $('.carousel-item.active');
     const $checkboxes_required = $activeSlide.find(".form-check-input").not(".not-required, .readonly_field")
     const $textareas_required = $activeSlide.find(".form-control").not(".not-required, .readonly_field")
