@@ -5,3 +5,7 @@
 .captcha-refresh:hover>i {
     color: var(--bs-primary) !important;
 }
+
+.translateY-50 {
+    transform: translateY(50%);
+}

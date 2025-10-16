@@ -35,25 +35,6 @@ $(document).ready(function () {
     });
   }
 
-  function checkActions() {
-    const $activeSlide = $('.carousel-item.active');
-    const $checkboxes = $activeSlide.find(".form-check-input").not(".readonly_field")
-    const $actionstextarea = $activeSlide.find(".so_actions_form");
-    const $lastMaturityLevelMeasures = $activeSlide.find(".last_maturity_level_measure").length;
-    const $lastMaturityLevelMeasuresCheked = $activeSlide.find(".last_maturity_level_measure").filter(":checked").length
-    const allLastLevelMeasureschecked = $lastMaturityLevelMeasures > 0 && $lastMaturityLevelMeasuresCheked === $lastMaturityLevelMeasures;
-    const placeholdertext = gettext("Please list your current and planned measures, including a schedule with the individual stages.");
-    if ($actionstextarea.val().trim() === "" && !allLastLevelMeasureschecked && $checkboxes.is(":checked")) {
-      $actionstextarea
-        .attr('placeholder', placeholdertext)
-        .addClass("border border-danger border-2")
-    } else {
-      $actionstextarea
-        .removeAttr('placeholder')
-        .removeClass("border border-danger border-2")
-    }
-  }
-
   function checkRequiredFields() {
     const $activeSlide = $('.carousel-item.active');
     const $checkboxes_required = $activeSlide.find(".form-check-input").not(".not-required, .readonly_field")
