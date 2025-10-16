@@ -22,10 +22,13 @@
                      class="w-10 w-xl-15 mb-3">
               {% endwith %}
               <div class="d-flex flex-column justify-content-end title-container">
-                <h3 class="card-title fw-bolder lh-1 col-8 mb-0">{{ user_module.name|upper }}</h3>
+                <h3 class="card-title fw-bolder lh-1 col-8 mb-0">
+                  {{ user_module.name|upper }}
+                </h3>
               </div>
             </div>
-            <div class="hr-separator mt-1"></div>
+            <div class="hr-separator mt-1">
+            </div>
             <p class="card-text description-container">
               {% if user_module.type == "incidents" %}
                 {% translate "Report cybersecurity incidents to the competent authority" %}

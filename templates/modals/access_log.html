@@ -10,35 +10,58 @@
   {% settings_value "TIME_ZONE" as time_zone %}
   <div class="modal-content">
     <div class="modal-header bg-primary text-white px-4 small">
-      <h5 class="modal-title" id="access_log_label">{% translate "Access Log" %}</h5>
+      <h5 class="modal-title" id="access_log_label">
+        {% translate "Access Log" %}
+      </h5>
       <button type="button"
               class="btn-close btn-close-white"
               data-bs-dismiss="modal"
-              aria-label='{% translate "Close" %}'></button>
+              aria-label='{% translate "Close" %}'>
+      </button>
     </div>
     <div class="modal-body py-4 px-5">
-      <p class="fw-bolder">{{ incident.incident_id }}</p>
+      <p class="fw-bolder">
+        {{ incident.incident_id }}
+      </p>
       {% if log %}
         <table id="access-log-table" class="table table-sm small">
           <caption class="visually-hidden">{% translate "Access log table" %}</caption>
           <thead class="table">
             <tr>
-              <th scope="col" class="text-start">{% translate "Date" %}</th>
+              <th scope="col" class="text-start">
+                {% translate "Date" %}
+              </th>
               {% if is_regulator %}
-                <th scope="col">{% translate "Entity" %}</th>
+                <th scope="col">
+                  {% translate "Entity" %}
+                </th>
               {% endif %}
-              <th scope="col">{% translate "User" %}</th>
-              <th scope="col">{% translate "Role" %}</th>
-              <th scope="col">{% translate "Document" %}</th>
-              <th scope="col">{% translate "Action" %}</th>
+              <th scope="col">
+                {% translate "User" %}
+              </th>
+              <th scope="col">
+                {% translate "Role" %}
+              </th>
+              <th scope="col">
+                {% translate "Document" %}
+              </th>
+              <th scope="col">
+                {% translate "Action" %}
+              </th>
             </tr>
           </thead>
           <tbody>
             {% for record in log %}
               {% timezone time_zone %}
               <tr>
-                <td class="text-start">{{ record.timestamp|date:"d M Y, H:i" }}</td>
-                {% if is_regulator %}<td>{{ record.entity_name }}</td>{% endif %}
+                <td class="text-start">
+                  {{ record.timestamp|date:"d M Y, H:i" }}
+                </td>
+                {% if is_regulator %}
+                  <td>
+                    {{ record.entity_name }}
+                  </td>
+                {% endif %}
                 <td>
                   {% if record.user %}
                     {{ record.user.get_full_name }}
@@ -46,7 +69,9 @@
                     {{ record.user__full_name }}
                   {% endif %}
                 </td>
-                <td>{{ record.role }}</td>
+                <td>
+                  {{ record.role }}
+                </td>
                 <td>
                   {% if record.incident_report %}
                     {{ record.incident_report.workflow.name }}
@@ -55,14 +80,18 @@
                     {{ record.incident.incident_id }}
                   {% endif %}
                 </td>
-                <td>{{ record.action }}</td>
+                <td>
+                  {{ record.action }}
+                </td>
               </tr>
             {% endtimezone %}
           {% endfor %}
         </tbody>
       </table>
     {% else %}
-      <h2 class="text-center">{% translate "No entries" %}</h2>
+      <h2 class="text-center">
+        {% translate "No entries" %}
+      </h2>
     {% endif %}
   </div>
 </div>

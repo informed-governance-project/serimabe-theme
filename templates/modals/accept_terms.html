@@ -15,20 +15,32 @@
       <div class="modal-content">
         <div class="modal-header bg-primary text-white px-4 small">
           {% if is_only_admin %}
-            <h1>{% translate "Terms of Service" %}</h1>
+            <h1>
+              {% translate "Terms of Service" %}
+            </h1>
           {% else %}
-            <h5 class="modal-title">{% translate "Terms of Service" %}</h5>
+            <h5 class="modal-title">
+              {% translate "Terms of Service" %}
+            </h5>
           {% endif %}
           <button type="button"
-                  class="btn-close {% if is_only_admin %}hidden{% endif %} btn-close-white"
+                  class="btn-close
+                         {% if is_only_admin %}
+                           hidden
+                         {% endif %}
+                         btn-close-white"
                   data-bs-dismiss="modal"
-                  aria-label='{% translate "Close" %}'></button>
+                  aria-label='{% translate "Close" %}'>
+          </button>
         </div>
         <form action="" method="post">
           <div class="modal-body py-4 px-5">
             {% csrf_token %}
             <div class="form-check">
-              <input class="form-check-input {% if is_only_admin %}input{% endif %}"
+              <input class="form-check-input
+                            {% if is_only_admin %}
+                              input
+                            {% endif %}"
                      type="checkbox"
                      id="{{ form.accept.id_for_label }}"
                      name="{{ form.accept.name }}">
@@ -36,13 +48,20 @@
                 {{ form.accept.label|safe }}
                 <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
                    rel="noopener noreferrer"
-                   target="{% if regulator.tos_url %} _blank {% endif %}">{% translate "Terms of Service" %}</a>
+                   target="{% if regulator.tos_url %}
+                             _blank
+                           {% endif %}">{% translate "Terms of Service" %}</a>
               </label>
             </div>
           </div>
           <div class="modal-footer {% if is_only_admin %}double-padding{% endif %}">
             <button type="submit"
-                    class="btn btn-primary {% if is_only_admin %}button{% endif %}">{% translate "Continue" %}</button>
+                    class="btn btn-primary
+                           {% if is_only_admin %}
+                             button
+                           {% endif %}">
+              {% translate "Continue" %}
+            </button>
           </div>
         </form>
       </div>

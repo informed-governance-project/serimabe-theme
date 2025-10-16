@@ -1,6 +1,9 @@
 {% load i18n %}
-<h2 id="incident_contacts" class="fw-bold text-primary">{% translate "Contact details" %}</h2>
-<div class="hr-separator"></div>
+<h2 id="incident_contacts" class="fw-bold text-primary">
+  {% translate "Contact details" %}
+</h2>
+<div class="hr-separator">
+</div>
 <div class="card mb-3 border-0">
   <div class="row g-0 align-items-center">
     <div class="col-3">
@@ -14,8 +17,14 @@
           <span class="fw-bold">{% translate "Role" %} :</span>
           <span>{% translate "Incident notification manager" %}</span>
         </h5>
-        <p class="card-text fw-bold m-0">{{ incident.contact_lastname }} {{ incident.contact_firstname }}</p>
-        {% if incident.contact_title %}<p class="card-text m-0">{{ incident.contact_title }}</p>{% endif %}
+        <p class="card-text fw-bold m-0">
+          {{ incident.contact_lastname }} {{ incident.contact_firstname }}
+        </p>
+        {% if incident.contact_title %}
+          <p class="card-text m-0">
+            {{ incident.contact_title }}
+          </p>
+        {% endif %}
         <p class="card-text m-0">
           <svg xmlns="http://www.w3.org/2000/svg"
                width="16"
@@ -56,8 +65,14 @@
           <span class="fw-bold">{% translate "Role" %} :</span>
           <span>{% translate "Technical contact" %}</span>
         </h5>
-        <p class="card-text fw-bold m-0">{{ incident.technical_lastname }} {{ incident.technical_firstname }}</p>
-        {% if incident.technical_title %}<p class="card-text m-0">{{ incident.technical_title }}</p>{% endif %}
+        <p class="card-text fw-bold m-0">
+          {{ incident.technical_lastname }} {{ incident.technical_firstname }}
+        </p>
+        {% if incident.technical_title %}
+          <p class="card-text m-0">
+            {{ incident.technical_title }}
+          </p>
+        {% endif %}
         <p class="card-text m-0">
           <svg xmlns="http://www.w3.org/2000/svg"
                width="16"
@@ -85,4 +100,5 @@
     </div>
   </div>
 </div>
-<p class="page-break"></p>
+<p class="page-break">
+</p>

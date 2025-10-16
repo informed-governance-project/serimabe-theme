@@ -5,11 +5,16 @@
             class="nav-link dropdown-toggle fw-bold"
             type="button"
             data-bs-toggle="dropdown"
-            aria-expanded="false">{{ current_module }}</button>
+            aria-expanded="false">
+      {{ current_module }}
+    </button>
     <ul class="dropdown-menu fit-content" aria-labelledby="module_selector">
       {% for module in user_modules %}
         <li role="presentation">
-          <a class="dropdown-item {% if module.name == current_module %}active{% endif %}"
+          <a class="dropdown-item
+                    {% if module.name == current_module %}
+                      active
+                    {% endif %}"
              href="{% url module.type %}"
              type="button"
              onclick="load_spinner();">{{ module.name }}</a>

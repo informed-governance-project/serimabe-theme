@@ -19,8 +19,11 @@
       {% translate "Report an incident" %}
     {% endblock %}
   </h1>
-  <div class="hr-separator"></div>
-  <p>{% translate "Fields marked with an asterisk (*) are mandatory." %}</p>
+  <div class="hr-separator">
+  </div>
+  <p>
+    {% translate "Fields marked with an asterisk (*) are mandatory." %}
+  </p>
   <div class="card shadow rounded-3 my-5">
     <form method="post">
       {% csrf_token %}
@@ -38,11 +41,21 @@
                             name="wizard_goto_step"
                             value="{{ step }}"
                             aria-current="step"
-                            {% if action == 'Create' %}disabled{% endif %}>
-                      <div class="step-circle {% if action == 'Create' %}bg-transparent border border-secondary force_disabled{% else %}bg-secondary text-white{% endif %}">
+                            {% if action == 'Create' %}
+                              disabled
+                            {% endif %}>
+                      <div class="step-circle
+                                  {% if action == 'Create' %}
+                                    bg-transparent border border-secondary force_disabled
+                                  {% else %}
+                                    bg-secondary text-white
+                                  {% endif %}">
                         {{ forloop.counter }}
                       </div>
-                      <span class="ps-2 d-none d-lg-block {% if not action == 'Create' %}text-secondary{% endif %}">{{ step_name }}</span>
+                      <span class="ps-2 d-none d-lg-block
+                                   {% if not action == 'Create' %}
+                                     text-secondary
+                                   {% endif %}">{{ step_name }}</span>
                     </button>
                   </div>
                 {% elif step < wizard.steps.current %}
@@ -52,7 +65,9 @@
                           value="{{ step }}"
                           aria-current="step"
                           formnovalidate>
-                    <div class="step-circle bg-secondary text-white">{{ forloop.counter }}</div>
+                    <div class="step-circle bg-secondary text-white">
+                      {{ forloop.counter }}
+                    </div>
                     <span class="ps-2 d-none d-lg-block">{{ step_name }}</span>
                   </button>
                 {% else %}
@@ -62,7 +77,9 @@
                             name="wizard_goto_step"
                             value="{{ step }}"
                             aria-current="step">
-                      <div class="step-circle bg-primary text-white">{{ forloop.counter }}</div>
+                      <div class="step-circle bg-primary text-white">
+                        {{ forloop.counter }}
+                      </div>
                       <span class="ps-2 d-none d-lg-block">{{ step_name }}</span>
                     </button>
                   </div>
@@ -76,7 +93,9 @@
         {% for step in wizard.steps.all %}
           {% with step_name=steps|index:step %}
             {% if step == wizard.steps.current %}
-              <h4 class="fw-bolder text-center text-primary text-decoration-underline d-block d-lg-none pb-3">{{ step_name }}</h4>
+              <h4 class="fw-bolder text-center text-primary text-decoration-underline d-block d-lg-none pb-3">
+                {{ step_name }}
+              </h4>
             {% endif %}
           {% endwith %}
         {% endfor %}
@@ -107,11 +126,16 @@
                     {% bootstrap_field field show_label=False %}
                   </div>
                 {% else %}
-                  <div class="d-flex align-items-center {% if field.field.required %}required-field{% endif %}">
+                  <div class="d-flex align-items-center
+                              {% if field.field.required %}
+                                required-field
+                              {% endif %}">
                     {% bootstrap_label field.label label_class="fw-bold me-2" label_for=field.id_for_label %}
                     <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
                   </div>
-                  <div class="pt-4">{% bootstrap_field field show_label=False %}</div>
+                  <div class="pt-4">
+                    {% bootstrap_field field show_label=False %}
+                  </div>
                 {% endif %}
               {% endfor %}
             {% endif %}
@@ -146,7 +170,14 @@
             {% endif %}
             {% with last_step=wizard.steps.last current_step=wizard.steps.current class_name=view|get_class_name is_read_only=view.read_only %}
               <button id="wizard-next-btn"
-                      class="btn ms-0 ms-sm-3 d-inline-flex btn-primary {% if last_step == current_step %} {% if is_read_only %}d-none {% elif class_name != 'FormWizardView' %}btn-secondary{% endif %} {% endif %}"
+                      class="btn ms-0 ms-sm-3 d-inline-flex btn-primary
+                             {% if last_step == current_step %}
+                               {% if is_read_only %}
+                                 d-none
+                               {% elif class_name != 'FormWizardView' %}
+                                 btn-secondary
+                               {% endif %}
+                             {% endif %}"
                       name="wizard_goto_step"
                       type="submit"
                       value="{{ wizard.steps.next }}"

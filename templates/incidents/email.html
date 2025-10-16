@@ -4,5 +4,7 @@
   <base href="{{ url_site }}">
 </head>
 {% autoescape off %}
-  <div>{{ content | linebreaksbr | safe }}</div>
+  <div>
+    {{ content | linebreaksbr | safe }}
+  </div>
 {% endautoescape %}

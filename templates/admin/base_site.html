@@ -12,7 +12,9 @@
   <a href="{% url 'admin:index' %}" class="margin-right-10">
     <img src="{% static 'images/logo.svg' %}" alt="Logo">
   </a>
-  <h1 id="site-name">{{ site_header|default:_("Django admin area") }}</h1>
+  <h1 id="site-name">
+    {{ site_header|default:_("Django admin area") }}
+  </h1>
 {% endblock %}
 {% block nav-global %}
   <div class="header-links">

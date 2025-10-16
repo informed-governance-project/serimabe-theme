@@ -29,8 +29,14 @@
     </button>
     <!-- Navigation Menu -->
     <div class="collapse navbar-collapse my-auto" id="navbarNav">
-      <div class="vr"></div>
-      <ul class="navbar-nav {% if user.is_authenticated %}me-auto{% else %}ms-auto{% endif %}">
+      <div class="vr">
+      </div>
+      <ul class="navbar-nav
+                 {% if user.is_authenticated %}
+                   me-auto
+                 {% else %}
+                   ms-auto
+                 {% endif %}">
         {% if user.is_authenticated %}
           {% if is_regulator == True %}
             {% include "regulator/menu.html" %}
@@ -38,7 +44,8 @@
           {% if is_regulator == False %}
             {% include "operator/menu.html" %}
           {% endif %}
-          <div class="vr"></div>
+          <div class="vr">
+          </div>
         </ul>
         <ul class="navbar-nav gap-3">
           {% if is_staff %}
@@ -59,7 +66,9 @@
                     id="navbarDropdown"
                     type="button"
                     data-bs-toggle="dropdown"
-                    aria-expanded="false">{{ request.user.get_full_name }}</button>
+                    aria-expanded="false">
+              {{ request.user.get_full_name }}
+            </button>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
                 <a class="dropdown-item" href="{% url 'edit_account' %}">{% translate "Account" %}</a>
@@ -84,7 +93,9 @@
             {% translate "Contact" %}</a>
           </li>
         {% endif %}
-        <li class="nav-item align-self-center">{% include "home/language_selector.html" %}</li>
+        <li class="nav-item align-self-center">
+          {% include "home/language_selector.html" %}
+        </li>
       </ul>
     </div>
   </div>

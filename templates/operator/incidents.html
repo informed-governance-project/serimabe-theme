@@ -44,8 +44,12 @@
     <span class="visually-hidden">{% translate "No significant impact" %}</span>
   {% endif %}
 {% endblock %}
-{% block content_table_incident_id %}{{ incident.incident_id }}{% endblock %}
-{% block content_table_entity %}{{ incident.sector_regulation.regulator }}{% endblock %}
+{% block content_table_incident_id %}
+  {{ incident.incident_id }}
+{% endblock %}
+{% block content_table_entity %}
+  {{ incident.sector_regulation.regulator }}
+{% endblock %}
 {% block content_table_report %}
   {% with completed_workflows=incident.get_workflows_completed %}
     <ul class="list-unstyled mb-0">
@@ -76,10 +80,13 @@
                 <i class="custom-icon-{{ report.css_class }} align-middle"
                    aria-hidden="true"></i>
                 {% with base_url=latest_incident_workflow|yesno:"edit_workflow,create_workflow" %}
-                  <a class="text-{{ report.css_class }} {% if report.is_disabled %}text-decoration-none{% endif %}"
-                     {% if not report.is_disabled %} href="{% url base_url %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}" {% endif %}>
-                    {{ report.name }}
-                  </a>
+                  <a class="text-{{ report.css_class }}
+                            {% if report.is_disabled %}
+                              text-decoration-none
+                            {% endif %}"
+                     {% if not report.is_disabled %}
+                       href="{% url base_url %}?incident_id={{ incident.id }}&workflow_id={{ report.id }}"
+                     {% endif %}>{{ report.name }}</a>
                 {% endwith %}
               {% endif %}
             </div>
@@ -163,6 +170,8 @@
        tabindex="-1"
        aria-labelledby="delete_incident_label"
        aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">{% include "modals/delete_incident.html" %}</div>
+    <div class="modal-dialog modal-dialog-centered">
+      {% include "modals/delete_incident.html" %}
+    </div>
   </div>
 {% endblock %}

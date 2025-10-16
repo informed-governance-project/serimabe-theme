@@ -29,10 +29,16 @@
     </i>
   {% endif %}
 {% endblock %}
-{% block content_table_incident_id %}{{ incident.incident_id }}{% endblock %}
-{% block content_table_regulation_or_regulator %}{{ incident.sector_regulation.regulator }}{% endblock %}
+{% block content_table_incident_id %}
+  {{ incident.incident_id }}
+{% endblock %}
+{% block content_table_regulation_or_regulator %}
+  {{ incident.sector_regulation.regulator }}
+{% endblock %}
 {% block content_table_report %}
-  {% with incident_view_action="review_workflow" %}{{ block.super }}{% endwith %}
+  {% with incident_view_action="review_workflow" %}
+    {{ block.super }}
+  {% endwith %}
 {% endblock %}
 {% block content_table_actions %}
   {{ block.super }}

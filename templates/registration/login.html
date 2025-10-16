@@ -12,10 +12,15 @@
             <img src="{% static 'images/icons/ico-incidents.svg' %}"
                  alt="incident notification icon"
                  class="w-15 mb-3">
-            <h2 class="card-title fw-bolder lh-1 col-7">{% translate "Incident Notification"|upper %}</h2>
+            <h2 class="card-title fw-bolder lh-1 col-7">
+              {% translate "Incident Notification"|upper %}
+            </h2>
           </div>
-          <div class="hr-separator"></div>
-          <p class="card-text">{% translate "Report cybersecurity incidents to the competent authority" %}</p>
+          <div class="hr-separator">
+          </div>
+          <p class="card-text">
+            {% translate "Report cybersecurity incidents to the competent authority" %}
+          </p>
           <button id="with-account"
                   type="button"
                   class="d-block btn btn-primary w-100 mb-3 report-incident-button">
@@ -28,8 +33,11 @@
         </div>
         <div id="login-content" class="d-none">
           {% if wizard.steps.current == 'auth' %}
-            <h2 class="card-title fw-bolder lh-1">{% translate "Sign in" %}</h2>
-            <div class="hr-separator"></div>
+            <h2 class="card-title fw-bolder lh-1">
+              {% translate "Sign in" %}
+            </h2>
+            <div class="hr-separator">
+            </div>
           {% elif wizard.steps.current == 'backup' %}
             <p class="my-3 py-3 text-start text-wrap">
               {% blocktrans trimmed %}
@@ -58,7 +66,9 @@
                     <div class="backup_tokens_form">
                       <form action="" method="post">
                         {% csrf_token %}
-                        <p>{% trans "As a last resort, you can use a backup token:" %}</p>
+                        <p>
+                          {% trans "As a last resort, you can use a backup token:" %}
+                        </p>
                         <p>
                           {% bootstrap_button name="wizard_goto_step" button_type="submit"
                           button_class="btn-secondary btn-sm submit_login" value="backup" content=_("Use backup token") %}
@@ -74,7 +84,8 @@
                     <a class="text-muted" href="{% url 'password_reset' %}">{% translate "Have you forgotten your password?" %}</a>
                   </p>
                   <div class="d-flex justify-content-center">
-                    <div class="hr-separator"></div>
+                    <div class="hr-separator">
+                    </div>
                   </div>
                   <div class="position-relative border rounded-3 p-3 mt-4 text-center">
                     <p class="small bg-transparent position-absolute top-0 start-0 translate-middle-y ms-3 px-3">

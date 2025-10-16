@@ -28,7 +28,8 @@
           {% translate "Overview of reported incidents" %}
         {% endif %}
       </h3>
-      <div class="hr-separator"></div>
+      <div class="hr-separator">
+      </div>
     </div>
     <div class="d-inline-flex gap-4">
       <form id="search_bar_form" method="get">
@@ -117,8 +118,12 @@
       <caption class="visually-hidden">{% translate "Incidents table" %}</caption>
       <thead>
         <tr>
-          <th scope="col">{% translate "Status" %}</th>
-          <th scope="col">{% translate "Creation date" %}</th>
+          <th scope="col">
+            {% translate "Status" %}
+          </th>
+          <th scope="col">
+            {% translate "Creation date" %}
+          </th>
           <th scope="col">
             {% if is_regulator and not is_regulator_incidents or is_observer %}
               {% translate "Operator Acronym" %}
@@ -127,7 +132,9 @@
             {% endif %}
           </th>
           <th scope="col"
-              class="{% if not is_regulator or is_regulator_incidents and not is_observer %}d-none{% endif %}">
+              class="{% if not is_regulator or is_regulator_incidents and not is_observer %}
+                       d-none
+                     {% endif %}">
             {% translate "Operator Name" %}
           </th>
           <th scope="col">
@@ -137,9 +144,15 @@
               {% translate "Regulation" %}
             {% endif %}
           </th>
-          <th scope="col">{% translate "Reference" %}</th>
-          <th scope="col">{% translate "Sectors" %}</th>
-          <th scope="col">{% translate "Report" %}</th>
+          <th scope="col">
+            {% translate "Reference" %}
+          </th>
+          <th scope="col">
+            {% translate "Sectors" %}
+          </th>
+          <th scope="col">
+            {% translate "Report" %}
+          </th>
           <th scope="col">
             <div class="d-flex align-items-end">
               <span>{% translate "Actions" %}</span>
@@ -169,7 +182,11 @@
                       <div id="impact_status_{{ incident.id }}"
                            data-bs-placement="top"
                            data-bs-toggle="tooltip"
-                           {% if field.initial == True %} title='{% translate "Incident with significant impact" %}' {% else %} title='{% translate "No significant impact" %}' {% endif %}>
+                           {% if field.initial == True %}
+                             title='{% translate "Incident with significant impact" %}'
+                           {% else %}
+                             title='{% translate "No significant impact" %}'
+                           {% endif %}>
                         {% bootstrap_field field show_label=False wrapper_class="m-0" field_class="is_significative_impact_checkbox" %}
                       </div>
                     {% endif %}
@@ -185,7 +202,11 @@
                              id="incident_status_{{ incident.id }}"
                              data-bs-placement="top"
                              data-bs-toggle="tooltip"
-                             {% if field.initial == "GOING" %}checked title='{% translate "The incident is still ongoing" %}' {% else %} title='{% translate "The incident is over" %}' {% endif %}
+                             {% if field.initial == "GOING" %}
+                               checked title='{% translate "The incident is still ongoing" %}'
+                             {% else %}
+                               title='{% translate "The incident is over" %}'
+                             {% endif %}
                              data-bs-placement="top"
                              data-bs-toggle="tooltip">
                     {% endif %}
@@ -216,7 +237,10 @@
                 {% endif %}
               {% endblock %}
             </td>
-            <td class="table-group-divider py-3 {% if not is_regulator or is_regulator_incidents and not is_observer %}d-none{% endif %}">
+            <td class="table-group-divider py-3
+                       {% if not is_regulator or is_regulator_incidents and not is_observer %}
+                         d-none
+                       {% endif %}">
               <!-- Regulator / Operator Name -->
               {% if incident.company %}
                 {{ incident.company.name }}
@@ -228,7 +252,9 @@
             </td>
             <td class="table-group-divider py-3">
               <!-- Regulation or Regulator(observer case) -->
-              {% block content_table_regulation_or_regulator %}{{ incident.sector_regulation.regulation }}{% endblock %}
+              {% block content_table_regulation_or_regulator %}
+                {{ incident.sector_regulation.regulation }}
+              {% endblock %}
             </td>
             <td class="table-group-divider py-3">
               <!-- Reference -->
@@ -251,7 +277,11 @@
                 <span class="fw-bolder">{{ root_sector.get_safe_translation }}</span>
                 <ul class="list-unstyled">
                   {% for sector in root_sector.children.all %}
-                    {% if sector in incident.affected_sectors.all %}<li>{{ sector.get_safe_translation }}</li>{% endif %}
+                    {% if sector in incident.affected_sectors.all %}
+                      <li>
+                        {{ sector.get_safe_translation }}
+                      </li>
+                    {% endif %}
                   {% endfor %}
                 </ul>
               {% endfor %}
@@ -270,10 +300,13 @@
                                title="{{ report.tooltip }}">
                             <i class="custom-icon-{{ report.css_class }} align-middle"
                                aria-hidden="true"></i>
-                            <a class="text-{{ report.css_class }} {% if not latest_incident_workflow %}text-decoration-none{% endif %}"
-                               {% if latest_incident_workflow %} href="{% url incident_view_action %}?incident_workflow_id={{ latest_incident_workflow.id }}" {% endif %}>
-                              {{ report.name }}
-                            </a>
+                            <a class="text-{{ report.css_class }}
+                                      {% if not latest_incident_workflow %}
+                                        text-decoration-none
+                                      {% endif %}"
+                               {% if latest_incident_workflow %}
+                                 href="{% url incident_view_action %}?incident_workflow_id={{ latest_incident_workflow.id }}"
+                               {% endif %}>{{ report.name }}</a>
                           </div>
                           {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
                             <div class="d-inline-flex align-items-center ms-2">
@@ -345,7 +378,9 @@
     {% include "parts/pagination.html" %}
   {% endwith %}
 {% else %}
-  <p>{% translate "No incident reports have been submitted yet." %}</p>
+  <p>
+    {% translate "No incident reports have been submitted yet." %}
+  </p>
 {% endif %}
 <!-- Modal dialogs -->
 {% block content_modals %}
@@ -356,7 +391,8 @@
        tabindex="-1"
        aria-labelledby="access_log_label"
        aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"></div>
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+    </div>
   </div>
   <div class="modal fade"
        id="report_versions"
@@ -387,7 +423,9 @@
        tabindex="-1"
        aria-labelledby="so_hide_columns_label"
        aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">{% include "modals/incidents_dashboard_hide_columns.html" %}</div>
+    <div class="modal-dialog modal-dialog-centered">
+      {% include "modals/incidents_dashboard_hide_columns.html" %}
+    </div>
   </div>
   <div class="modal fade right-modal pt-5 pe-5"
        id="filterModal"
@@ -396,11 +434,14 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title fw-bold">{% translate "Filter" %}</h4>
+          <h4 class="modal-title fw-bold">
+            {% translate "Filter" %}
+          </h4>
           <button type="button"
                   class="btn-close"
                   data-bs-dismiss="modal"
-                  aria-label='{% translate "Close" %}'></button>
+                  aria-label='{% translate "Close" %}'>
+          </button>
         </div>
         <form method="get">
           <div class="modal-body small">
@@ -415,8 +456,12 @@
                     name="reset"
                     value="true"
                     data-bs-dismiss="modal"
-                    onclick="load_spinner()">{% translate "Reset" %}</button>
-            <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">{% translate "Search" %}</button>
+                    onclick="load_spinner()">
+              {% translate "Reset" %}
+            </button>
+            <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
+              {% translate "Search" %}
+            </button>
           </div>
         </form>
       </div>

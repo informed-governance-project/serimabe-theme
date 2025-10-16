@@ -1,7 +1,11 @@
 {% load django_bootstrap5 %}
 {% load custom_filters %}
 <div class="d-flex align-items-center">
-  {% with step_name=steps|index:wizard.steps.current %}<label class="fw-bold me-2">{{ step_name }}</label>{% endwith %}
+  {% with step_name=steps|index:wizard.steps.current %}
+    <label class="fw-bold me-2">
+      {{ step_name }}
+    </label>
+  {% endwith %}
   <hr class="flex-grow-1 border-secondary no-opacity" aria-hidden="true">
 </div>
 <div class="row row-cols-1 row-cols-lg-2 pt-4">

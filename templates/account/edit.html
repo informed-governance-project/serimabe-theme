@@ -8,9 +8,12 @@
       {% translate "Account management" %}
     {% endblock %}
   </h3>
-  <div class="hr-separator"></div>
+  <div class="hr-separator">
+  </div>
   <div class="col-md-6">
-    <p>{% translate "Fields marked with an asterisk (*) are mandatory." %}</p>
+    <p>
+      {% translate "Fields marked with an asterisk (*) are mandatory." %}
+    </p>
     <form method="post">
       {% csrf_token %}
       {% bootstrap_form_errors form %}

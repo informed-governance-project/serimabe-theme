@@ -12,7 +12,8 @@
     <!-- Page title -->
     <title>
       {% block bootstrap5_title %}
-        {% block title %}{% endblock %}
+        {% block title %}
+        {% endblock %}
       {% endblock %}
       | {{ site_name }}
     </title>
@@ -40,19 +41,24 @@
     {% if 'javascript_in_head'|bootstrap_setting %}
       {% bootstrap_javascript %}
     {% endif %}
-    {% block bootstrap5_extra_head %}{% endblock %}
+    {% block bootstrap5_extra_head %}
+    {% endblock %}
   </head>
   <body class="d-flex flex-column h-100 background">
     <a class="visually-hidden-focusable bg-transparent d-inline text-center"
        href="#main_content">{% translate "Skip to main content" %}</a>
-    {% block bootstrap5_before_content %}{% endblock %}
-    {% block bootstrap5_content %}{% endblock %}
-    {% block bootstrap5_after_content %}{% endblock %}
+    {% block bootstrap5_before_content %}
+    {% endblock %}
+    {% block bootstrap5_content %}
+    {% endblock %}
+    {% block bootstrap5_after_content %}
+    {% endblock %}
     <!-- Bootstrap JavaScript if it is in body -->
     <!-- {% if not 'javascript_in_head'|bootstrap_setting %}
             {% bootstrap_javascript %}
 {% endif %} -->
-    {% block bootstrap5_extra_script %}{% endblock %}
+    {% block bootstrap5_extra_script %}
+    {% endblock %}
   </body>
 </html>
 {{ cookiebanner_version|default:''|json_script:"cookiebanner_version" }}

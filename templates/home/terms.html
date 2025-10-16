@@ -12,9 +12,16 @@
 {% block content %}
   <div id="terms"
        class="container-flex"
-       lang="{% if LANGUAGE_CODE == 'fr' %}fr{% else %}en{% endif %}">
-    <h3 class="fw-bolder">{% translate "Terms of use of the SERIMA platform" %} - {% translate "Version" %} 2.0</h3>
-    <div class="hr-separator"></div>
+       lang="{% if LANGUAGE_CODE == 'fr' %}
+               fr
+             {% else %}
+               en
+             {% endif %}">
+    <h3 class="fw-bolder">
+      {% translate "Terms of use of the SERIMA platform" %} - {% translate "Version" %} 2.0
+    </h3>
+    <div class="hr-separator">
+    </div>
     {% if not LANGUAGE_CODE == 'fr' %}
       <blockquote class="blockquote">
         <p>

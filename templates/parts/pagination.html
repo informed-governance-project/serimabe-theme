@@ -7,12 +7,17 @@
                 type="button"
                 id="perPageDropdown"
                 data-bs-toggle="dropdown"
-                aria-expanded="false">{{ pagination_data.paginator.per_page|default:'10' }}</button>
+                aria-expanded="false">
+          {{ pagination_data.paginator.per_page|default:'10' }}
+        </button>
         <ul class="dropdown-menu fit-content" aria-labelledby="perPageDropdown">
           {% with "10 25 50 100" as items_per_page_choices %}
             {% for size in items_per_page_choices.split %}
               <li>
-                <a class="dropdown-item {% if pagination_data.paginator.per_page|stringformat:'s' == size %}active{% endif %}"
+                <a class="dropdown-item
+                          {% if pagination_data.paginator.per_page|stringformat:'s' == size %}
+                            active
+                          {% endif %}"
                    href="?{% for key, value in request.GET.items %}{% if key != 'per_page' %}{{ key }}={{ value|urlencode }}&{% endif %}{% endfor %}per_page={{ size }}"
                    onclick="load_spinner()">{{ size }}</a>
               </li>
@@ -22,7 +27,9 @@
       </div>
       <span>{% translate "entries per page" %}</span>
       {% for key, value in request.GET.items %}
-        {% if key != 'per_page' %}<input type="hidden" name="{{ key }}" value="{{ value }}">{% endif %}
+        {% if key != 'per_page' %}
+          <input type="hidden" name="{{ key }}" value="{{ value }}">
+        {% endif %}
       {% endfor %}
     </form>
     <div>
@@ -57,13 +64,19 @@
         {# Page Numbers with Ellipsis #}
         {% for num in pagination_data.paginator.page_range %}
           {% if num == 1 or num == pagination_data.paginator.num_pages %}
-            <li class="page-item {% if pagination_data.number == num %}active{% endif %}">
+            <li class="page-item
+                       {% if pagination_data.number == num %}
+                         active
+                       {% endif %}">
               <a class="page-link"
                  href="?page={{ num }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}"
                  onclick="load_spinner()">{{ num }}</a>
             </li>
           {% elif num >= pagination_data.number|add:"-1" and num <= pagination_data.number|add:"1" %}
-            <li class="page-item {% if pagination_data.number == num %}active{% endif %}">
+            <li class="page-item
+                       {% if pagination_data.number == num %}
+                         active
+                       {% endif %}">
               <a class="page-link"
                  href="?page={{ num }}{% for k,v in request.GET.items %}{% if k != 'page' %}&{{ k }}={{ v }}{% endif %}{% endfor %}"
                  onclick="load_spinner()">{{ num }}</a>

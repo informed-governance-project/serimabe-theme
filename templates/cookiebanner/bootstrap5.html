@@ -19,8 +19,14 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header bg-primary">
-        <h3 class="modal-title text-white fw-bold" id="cookiebannerModalLabel">{{ cb_settings.title }}</h3>
-        {% if cb_settings.header_text %}<p>{{ cb_settings.header_text|safe }}</p>{% endif %}
+        <h3 class="modal-title text-white fw-bold" id="cookiebannerModalLabel">
+          {{ cb_settings.title }}
+        </h3>
+        {% if cb_settings.header_text %}
+          <p>
+            {{ cb_settings.header_text|safe }}
+          </p>
+        {% endif %}
       </div>
       <div class="modal-body">
         <form id="cookiebannerForm">
@@ -33,26 +39,44 @@
                       aria-controls="cookiesDescription"
                       type="button"
                       aria-expanded="false"
-                      aria-controls="cookiesDescription">{% translate "Details" %}</button>
+                      aria-controls="cookiesDescription">
+                {% translate "Details" %}
+              </button>
             </p>
             <div class="collapse" id="cookiesDescription">
               <table class="table table-sm">
                 <caption class="visually-hidden"> {% translate "Cookies description" %} </caption>
                 <thead>
                   <tr>
-                    <th scope="col">{{ _("Name") }}</th>
-                    <th scope="col">{{ _("Description") }}</th>
-                    <th scope="col">{{ _("Content") }}</th>
-                    <th scope="col">{{ _("Maximum duration") }}</th>
+                    <th scope="col">
+                      {{ _("Name") }}
+                    </th>
+                    <th scope="col">
+                      {{ _("Description") }}
+                    </th>
+                    <th scope="col">
+                      {{ _("Content") }}
+                    </th>
+                    <th scope="col">
+                      {{ _("Maximum duration") }}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {% for cookie in cookiegroup.cookies %}
                     <tr class="text-justify small">
-                      <td>{{ cookie.pattern }}</td>
-                      <td>{{ cookie.description }}</td>
-                      <td>{{ cookie.content }}</td>
-                      <td>{{ cookie.max_age }}</td>
+                      <td>
+                        {{ cookie.pattern }}
+                      </td>
+                      <td>
+                        {{ cookie.description }}
+                      </td>
+                      <td>
+                        {{ cookie.content }}
+                      </td>
+                      <td>
+                        {{ cookie.max_age }}
+                      </td>
                     </tr>
                   {% endfor %}
                 </tbody>
@@ -62,7 +86,11 @@
         </form>
       </div>
       <div class="modal-footer">
-        {% if cb_settings.footer_text %}<p class="text-left">{{ cb_settings.footer_text|safe }}</p>{% endif %}
+        {% if cb_settings.footer_text %}
+          <p class="text-left">
+            {{ cb_settings.footer_text|safe }}
+          </p>
+        {% endif %}
         <input type="submit"
                name="enable_all"
                class="cookiebannerSubmit btn btn-primary mx-auto text-white fw-bold"
