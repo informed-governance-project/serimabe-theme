@@ -1,4 +1,4 @@
 {
     "indent": "2",
-    "use_spaces": "true"
+    "ignore":"H006,H008,H030,H031,T003"
 }

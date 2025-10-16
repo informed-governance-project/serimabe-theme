@@ -4,7 +4,6 @@ repos:
     hooks:
       - id: djlint-reformat-django
       - id: djlint-django
-        args: ["--ignore=H006,H008,H030,H031,T003"]
 
 
   
