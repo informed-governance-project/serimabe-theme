@@ -1,14 +1,16 @@
-repos:
-  - repo: https://github.com/rtts/djhtml
-    rev: '3.0.10'
-    hooks:
-      - id: djhtml
-      - id: djcss
-      - id: djjs
-      
+repos:     
   - repo: https://github.com/djlint/djLint
     rev: v1.36.4
     hooks:
       - id: djlint-reformat-django
       - id: djlint-django
-        args: ["--indent=2"]
+        args: ["--ignore=H006,H030,H031,T003","--max-blank-lines=1", "--max-line-length=80"]
+  
+  - repo: https://github.com/rtts/djhtml
+    rev: '3.0.10'
+    hooks:
+      - id: djhtml
+        entry: djhtml --tabwidth 2
+      - id: djcss
+      - id: djjs
+        entry: djjs --tabwidth 2
