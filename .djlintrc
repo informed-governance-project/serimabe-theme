@@ -1,4 +1,12 @@
 {
     "indent": "2",
-    "ignore":"H006,H008,H030,H031,T003"
+    "ignore": "H006,H008,H030,H031,T003",
+    "format_css": true,
+    "css": {
+        "indent_size": 4
+    },
+    "format_js": true,
+    "js": {
+        "indent_size": 2
+    }
 }
