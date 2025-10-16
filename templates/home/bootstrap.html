@@ -56,4 +56,6 @@
   </body>
 </html>
 {{ cookiebanner_version|default:''|json_script:"cookiebanner_version" }}
-<script>window.cookiebanner_version = JSON.parse(document.getElementById('cookiebanner_version').textContent);</script>
+<script>
+  window.cookiebanner_version = JSON.parse(document.getElementById('cookiebanner_version').textContent);
+</script>
