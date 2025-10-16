@@ -4,8 +4,8 @@ repos:
     hooks:
       - id: djlint-reformat-django
       - id: djlint-django
-        args: ["--ignore=H006,H008,H030,H031,T003","--max-blank-lines=1", "--max-line-length=80", "--indent=2"]
-         
+        args: ["--ignore=H006,H008,H030,H031,T003"]
+
   - repo: https://github.com/rtts/djhtml
     rev: '3.0.10'
     hooks:
