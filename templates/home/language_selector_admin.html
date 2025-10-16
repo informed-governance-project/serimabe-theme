@@ -15,9 +15,7 @@
     <select id="language_selector" name="language">
       {% for language in languages %}
         <option value="{{ language.code }}"
-                {% if language.code == current_language %}selected{% endif %}>
-          {{ language.code|upper }}
-        </option>
+                {% if language.code == current_language %}selected{% endif %}>{{ language.code|upper }}</option>
       {% endfor %}
     </select>
   </form>

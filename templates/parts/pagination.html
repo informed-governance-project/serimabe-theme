@@ -54,7 +54,7 @@
             <span class="page-link">‹</span>
           </li>
         {% endif %}
-                {# Page Numbers with Ellipsis #}
+        {# Page Numbers with Ellipsis #}
         {% for num in pagination_data.paginator.page_range %}
           {% if num == 1 or num == pagination_data.paginator.num_pages %}
             <li class="page-item {% if pagination_data.number == num %}active{% endif %}">
@@ -74,7 +74,7 @@
             </li>
           {% endif %}
         {% endfor %}
-                {# Next & Last #}
+        {# Next & Last #}
         {% if pagination_data.has_next %}
           <li class="page-item">
             <a class="page-link"

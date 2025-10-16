@@ -36,34 +36,34 @@
           <tbody>
             {% for record in log %}
               {% timezone time_zone %}
-                <tr>
-                  <td class="text-start">{{ record.timestamp|date:"d M Y, H:i" }}</td>
-                  {% if is_regulator %}<td>{{ record.entity_name }}</td>{% endif %}
-                  <td>
-                    {% if record.user %}
-                      {{ record.user.get_full_name }}
-                    {% else %}
-                      {{ record.user__full_name }}
-                    {% endif %}
-                  </td>
-                  <td>{{ record.role }}</td>
-                  <td>
-                    {% if record.incident_report %}
-                      {{ record.incident_report.workflow.name }}
-                      ({{ record.incident_report.timestamp|date:"d/m/Y H:i" }})
-                    {% else %}
-                      {{ record.incident.incident_id }}
-                    {% endif %}
-                  </td>
-                  <td>{{ record.action }}</td>
-                </tr>
-              {% endtimezone %}
-            {% endfor %}
-          </tbody>
-        </table>
-      {% else %}
-        <h2 class="text-center">{% translate "No entries" %}</h2>
-      {% endif %}
-    </div>
+              <tr>
+                <td class="text-start">{{ record.timestamp|date:"d M Y, H:i" }}</td>
+                {% if is_regulator %}<td>{{ record.entity_name }}</td>{% endif %}
+                <td>
+                  {% if record.user %}
+                    {{ record.user.get_full_name }}
+                  {% else %}
+                    {{ record.user__full_name }}
+                  {% endif %}
+                </td>
+                <td>{{ record.role }}</td>
+                <td>
+                  {% if record.incident_report %}
+                    {{ record.incident_report.workflow.name }}
+                    ({{ record.incident_report.timestamp|date:"d/m/Y H:i" }})
+                  {% else %}
+                    {{ record.incident.incident_id }}
+                  {% endif %}
+                </td>
+                <td>{{ record.action }}</td>
+              </tr>
+            {% endtimezone %}
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <h2 class="text-center">{% translate "No entries" %}</h2>
+    {% endif %}
   </div>
+</div>
 {% endblock %}

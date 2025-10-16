@@ -36,17 +36,13 @@
                 {{ form.accept.label|safe }}
                 <a href="{% if regulator.tos_url %} {{ regulator.tos_url }} {% else %} {% url 'terms' %} {% endif %}"
                    rel="noopener noreferrer"
-                   target="{% if regulator.tos_url %} _blank {% endif %}">
-                  {% translate "Terms of Service" %}
-                </a>
+                   target="{% if regulator.tos_url %} _blank {% endif %}">{% translate "Terms of Service" %}</a>
               </label>
             </div>
           </div>
           <div class="modal-footer {% if is_only_admin %}double-padding{% endif %}">
             <button type="submit"
-                    class="btn btn-primary {% if is_only_admin %}button{% endif %}">
-              {% translate "Continue" %}
-            </button>
+                    class="btn btn-primary {% if is_only_admin %}button{% endif %}">{% translate "Continue" %}</button>
           </div>
         </form>
       </div>
