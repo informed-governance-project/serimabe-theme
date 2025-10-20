@@ -1,0 +1,21 @@
+{% load i18n %}
+<h2 id="observations" class="{{ title_class }}">
+  {% translate "Observations and recommendations" %}
+</h2>
+<p>
+  {% blocktrans trimmed %}
+    The following observations and recommendations deserve your particular attention:
+  {% endblocktrans %}
+</p>
+<ul>
+  {% for report_recommendation in report_recommendations %}
+    <li class="text-break">
+      {{ report_recommendation.description|linebreaks }}
+    </li>
+  {% endfor %}
+  {% if company_reporting.comment %}
+    <li class="text-break">
+      {{ company_reporting.comment|linebreaks }}
+    </li>
+  {% endif %}
+</ul>

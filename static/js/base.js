@@ -69,8 +69,31 @@ $(document).ready(function () {
   });
 
   $('.import_so_declaration').on("click", function () {
+    let company_id = $(this).data("company-id");
+    let sector_id = $(this).data("sector-id");
+    let year = $(this).data("year");
     var $popup = $("#import_so_declaration");
     var popup_url = '/securityobjectives/import';
+
+    if (company_id && sector_id && year) {
+      popup_url = '/securityobjectives/import?company_id=' + company_id + '&sector_id=' + sector_id + '&year=' + year;
+    }
+
+    $(".modal-dialog", $popup).load(popup_url, function () {
+      $popup.modal("show");
+    });
+  });
+
+  $('.import_risk_analysis').on("click", function () {
+    let company_id = $(this).data("company-id");
+    let sector_id = $(this).data("sector-id");
+    let year = $(this).data("year");
+    var $popup = $("#import_risk_analysis");
+    var popup_url = '/reporting/import_risk_analysis';
+
+    if (company_id && sector_id && year) {
+      popup_url = '/reporting/import_risk_analysis?company_id=' + company_id + '&sector_id=' + sector_id + '&year=' + year;
+    }
 
     $(".modal-dialog", $popup).load(popup_url, function () {
       $popup.modal("show");
@@ -88,11 +111,27 @@ $(document).ready(function () {
   $('label.visually-hidden').remove();
 })
 
-window.load_spinner = function(){
+window.getCookie = function (name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      // Does this cookie string begin with the name we want?
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
+window.load_spinner = function () {
   $('#loading-spinner').removeClass('d-none').fadeIn();
 }
 
-window.stop_spinner = function() {
+window.stop_spinner = function () {
   $('#loading-spinner').fadeOut().addClass('d-none');
 }
 

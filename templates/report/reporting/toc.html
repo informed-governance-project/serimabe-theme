@@ -1,0 +1,38 @@
+{% extends "report/base/toc.html" %}
+{% load i18n %}
+{% load reporting_filters %}
+{% block report_toc_list_content %}
+  <li class="border-bottom border-secondary">
+    <span class="pe-1">1.</span>
+    <a class="text-decoration-none text-reset" href="#security_measures"></a>
+  </li>
+  <ul class="list-unstyled ps-4 small">
+    {% for index in "7"|range_list %}
+      {% if not forloop.first %}
+        <li class="border-bottom border-secondary pt-1">
+          <span class="pe-1">1.{{ index }}</span>
+          <a class="text-decoration-none text-reset"
+             href="#security_measures_{{ index }}"></a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <li class="border-bottom border-secondary">
+    <span class="pe-1">2.</span>
+    <a class="text-decoration-none text-reset" href="#risks"></a>
+  </li>
+  <ul class="list-unstyled ps-4 small">
+    {% for index in "12"|range_list %}
+      {% if not forloop.first %}
+        <li class="border-bottom border-secondary pt-1">
+          <span class="pe-1">2.{{ index }}</span>
+          <a class="text-decoration-none text-reset" href="#risks_{{ index }}"></a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <li class="border-bottom border-secondary">
+    <span class="pe-1">3.</span>
+    <a class="text-decoration-none text-reset" href="#observations"></a>
+  </li>
+{% endblock %}

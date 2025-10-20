@@ -1,0 +1,41 @@
+{% extends "reporting/base.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% block bootstrap5_title %}
+  {% translate "Add configuration" %}
+{% endblock %}
+{% block content %}
+  <form action="" method="post">
+    {% csrf_token %}
+    {% bootstrap_form_errors form %}
+    {% bootstrap_form form exclude="so_excluded" %}
+    <div class="mb-3">
+      <label for="id_so_excluded" class="form-label">
+        {{ form.fields.so_excluded.label }}
+      </label>
+      <select name="so_excluded"
+              id="id_so_excluded"
+              class="selectpicker w-100"
+              multiple
+              data-selected-text-format="count > 3"
+              data-live-search="true">
+        {% for objective in form.fields.so_excluded.queryset %}
+          <option value="{{ objective.pk }}"
+                  {% if objective in form.instance.so_excluded.all %}
+                    selected
+                  {% endif %}>
+            {{ objective }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      {% translate "Save" %}
+    </button>
+    <a class="btn btn-secondary"
+       type="button"
+       href="{% url 'report_configuration' %}">
+      {% translate "Cancel" %}
+    </a>
+  </form>
+{% endblock %}

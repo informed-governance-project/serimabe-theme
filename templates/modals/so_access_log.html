@@ -1,0 +1,80 @@
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% load tz %}
+{% load SO_custom_filters %}
+{% load static %}
+{% block bootstrap5_extra_script %}
+  <script src='{% static "js/access_log.js" %}'></script>
+{% endblock %}
+{% block content %}
+  {% settings_value "TIME_ZONE" as time_zone %}
+  <div class="modal-content">
+    <div class="modal-header bg-primary text-white px-4 small">
+      <h5 class="modal-title" id="access_log_label">
+        {% translate "Access Log" %}
+      </h5>
+      <button type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label='{% translate "Close" %}'>
+      </button>
+    </div>
+    <div class="modal-body">
+      {% if log %}
+        <table id="access-log-table" class="table table-sm small">
+          <caption class="visually-hidden">{% translate "Access log table" %}</caption>
+          <thead class="table-light">
+            <tr>
+              <th class="text-start">
+                {% translate "Date" %}
+              </th>
+              <th>
+                {% translate "Entity" %}
+              </th>
+              <th>
+                {% translate "User" %}
+              </th>
+              <th>
+                {% translate "Role" %}
+              </th>
+              <th>
+                {% translate "Action" %}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for record in log %}
+              {% timezone time_zone %}
+              <tr>
+                <td class="text-start">
+                  {{ record.timestamp|date:"d M Y, H:i" }}
+                </td>
+                <td>
+                  {{ record.entity_name }}
+                </td>
+                <td>
+                  {% if record.user %}
+                    {{ record.user.get_full_name }}
+                  {% else %}
+                    {{ record.user__full_name }}
+                  {% endif %}
+                </td>
+                <td>
+                  {{ record.role }}
+                </td>
+                <td>
+                  {{ record.action }}
+                </td>
+              </tr>
+            {% endtimezone %}
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <h2 class="text-center">
+        {% translate "No entries" %}
+      </h2>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
