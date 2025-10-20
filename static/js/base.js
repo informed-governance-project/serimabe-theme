@@ -104,7 +104,7 @@ window.getCookie = function (name) {
   return cookieValue;
 }
 
-window.load_spinner = function (){
+window.load_spinner = function () {
   $('#loading-spinner').removeClass('d-none').fadeIn();
 }
 
