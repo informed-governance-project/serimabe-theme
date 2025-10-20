@@ -4,8 +4,13 @@
 // Include any default variable overrides here (though functions won't be available)
 
 // IBPT Colors
-$primary: #34a9e1;
-$secondary: #2e2f7f; 
+//$primary: #34a9e1; // light blue
+//$secondary: #2e2f7f; // dark blue
+
+// NCCN Colors
+$primary: #ffdf1c; // NCCN yellow
+$secondary: #00A49A; // NCCN green
+// Other unused NCCN colors : black (#000000), Red (#f0492e) and White (#ffffff, background only)
 
 @import "../../../node_modules/bootstrap/scss/functions";
 @import "../../../node_modules/bootstrap/scss/variables";
