@@ -26,9 +26,7 @@
               {% bootstrap_field form.email show_label=False placeholder=_("Email address")|add:" *" %}
             </div>
             <div class="col">
-              {% bootstrap_field form.password1 show_help=False show_label=False placeholder=_("Password")|add:" *" %}
-              {% bootstrap_field form.password2 show_help=False show_label=False placeholder=_("Password confirmation")|add:" *" %}
-              <div class="d-inline-flex">
+              <div class="d-inline-flex mb-3">
                 <input class="form-check-input custom-checkbox"
                        type="checkbox"
                        id="{{ form.accept_terms.id_for_label }}"
@@ -43,12 +41,26 @@
                 </label>
               </div>
             </div>
+            <div class="col hstack">
+              <div class="flex-grow-1">
+                {% bootstrap_field form.captcha show_label=False placeholder=_("Captcha")|add:" *" wrapper_class="d-flex" %}
+              </div>
+              <div>
+                <button type="button"
+                        class="btn btn-outline-light text-secondary border shadow-sm captcha-refresh m-0"
+                        data-bs-placement="top"
+                        data-bs-toggle="tooltip"
+                        title='{% translate "Refresh" %}'>
+                  <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
           </div>
-          <button class="btn btn-primary mt-3" type="submit">
-            {% translate "Create account" %}
-          </button>
-        </form>
-      </div>
+        </div>
+        <button class="btn btn-primary mt-3" type="submit">
+          {% translate "Create account" %}
+        </button>
+      </form>
     </div>
   </div>
 {% endblock login_card %}
