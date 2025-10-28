@@ -47,20 +47,6 @@
               <div class="col">
                 {% bootstrap_field form.message show_label=False placeholder=_("Message")|add:" *" %}
               </div>
-              <div class="d-flex col">
-                <div class="flex-grow-1">
-                  {% bootstrap_field form.captcha show_label=False placeholder=_("Captcha")|add:" *" wrapper_class="mb-3 d-flex" %}
-                </div>
-                <div class="inline-flex">
-                  <button type="button"
-                          class="btn btn-outline-light text-secondary border shadow-sm captcha-refresh py-0"
-                          data-bs-placement="top"
-                          data-bs-toggle="tooltip"
-                          title='{% translate "Refresh" %}'>
-                    <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
-                  </button>
-                </div>
-              </div>
               <div class="col d-flex d-inline form-check ps-0">
                 {% translate "I agree that my personal data may be used for communication purposes." as translated_label %}
                 {% bootstrap_field form.terms_accepted show_label=False %}
