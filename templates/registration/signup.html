@@ -1,6 +1,11 @@
 {% extends "registration/base.html" %}
 {% load django_bootstrap5 %}
 {% load i18n %}
+{% load static %}
+{% block bootstrap5_extra_script %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+{% endblock %}
 {% block login_card %}
   <div id="login_card"
        class="card border-0 bg-transparent p-3 mb-5 rounded-1 col-12 col-xl-5 m-auto">
@@ -21,14 +26,30 @@
           {% bootstrap_form_errors form %}
           <div class="row row-cols-1 row-cols-xl-1">
             <div class="col">
+              <input type="text"
+                     name="{{ honeypot_field_name }}"
+                     id="{{ honeypot_field_name }}"
+                     class="d-none"
+                     autocomplete="off"
+                     tabindex="-1" />
               {% bootstrap_field form.first_name show_label=False placeholder=_("First name") %}
               {% bootstrap_field form.last_name show_label=False placeholder=_("Last name") %}
               {% bootstrap_field form.email show_label=False placeholder=_("Email address")|add:" *" %}
             </div>
+            <div class="col hstack mb-3">
+              <div id="captcha_field" class="flex-grow-1 h-100">
+                {% bootstrap_field form.captcha show_label=False placeholder=_("Captcha")|add:" *" wrapper_class="d-flex" %}
+              </div>
+              <button type="button"
+                      class="btn btn-outline-light text-secondary border shadow-sm captcha-refresh m-0 py-1 h-100"
+                      data-bs-placement="top"
+                      data-bs-toggle="tooltip"
+                      title='{% translate "Refresh" %}'>
+                <i class="bi bi-arrow-clockwise h4" aria-hidden="true"></i>
+              </button>
+            </div>
             <div class="col">
-              {% bootstrap_field form.password1 show_help=False show_label=False placeholder=_("Password")|add:" *" %}
-              {% bootstrap_field form.password2 show_help=False show_label=False placeholder=_("Password confirmation")|add:" *" %}
-              <div class="d-inline-flex">
+              <div class="d-inline-flex mb-3">
                 <input class="form-check-input custom-checkbox"
                        type="checkbox"
                        id="{{ form.accept_terms.id_for_label }}"
@@ -44,11 +65,11 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-primary mt-3" type="submit">
-            {% translate "Create account" %}
-          </button>
-        </form>
-      </div>
+        </div>
+        <button class="btn btn-primary" type="submit">
+          {% translate "Create account" %}
+        </button>
+      </form>
     </div>
   </div>
 {% endblock login_card %}
