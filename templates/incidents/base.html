@@ -22,8 +22,12 @@
         <a class="btn btn-primary" href="{% url 'declaration' %}">{% translate "Notify an incident" %}</a>
       {% endif %}
       {% if can_export_incidents %}
-        <a class="fw-bold" href="{% url 'export_incidents' %}">
-        {% translate "Export" %}</a>
+        <a class="fw-bold export_incidents"
+           href="{% url 'export_incidents' %}"
+           data-bs-toggle="modal"
+           data-bs-target="#export_incidents">
+          {% translate "Export" %}
+        </a>
       {% endif %}
     </div>
   </div>
