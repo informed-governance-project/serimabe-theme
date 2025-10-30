@@ -21,8 +21,10 @@
       {% if not is_regulator and not is_observer or is_regulator_incidents %}
         <a class="btn btn-primary" href="{% url 'declaration' %}">{% translate "Notify an incident" %}</a>
       {% endif %}
-      <a class="fw-bold" href="{% url 'export_incidents' %}">
-      {% translate "Export" %}</a>
+      {% if can_export_incidents %}
+        <a class="fw-bold" href="{% url 'export_incidents' %}">
+        {% translate "Export" %}</a>
+      {% endif %}
     </div>
   </div>
 {% endblock %}
