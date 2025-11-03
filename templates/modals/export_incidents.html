@@ -1,5 +1,9 @@
 {% load django_bootstrap5 %}
+{% load static %}
 {% load i18n %}
+{% block bootstrap5_extra_script %}
+  <script src='{% static "js/export_incidents.js" %}'></script>
+{% endblock %}
 {% block content %}
   <div class="modal-content">
     <div class="modal-header bg-primary text-white px-4 small">
@@ -16,7 +20,22 @@
       <div class="modal-body py-4 px-5">
         {% csrf_token %}
         {% bootstrap_form_errors form %}
-        {% bootstrap_form form %}
+        {% bootstrap_field form.regulation %}
+        <div class="mb-3 required-field">
+          <label for="id_workflow" class="form-label">
+            {{ form.workflow.label }}
+          </label>
+          <select name="workflow" id="id_workflow" class="form-select" required>
+            <option value selected>
+              ---------
+            </option>
+            {% for wf in form.fields.workflow.queryset %}
+              <option value="{{ wf.id }}" data-regulation="{{ wf.regulation_id }}">
+                {{ wf }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button"
@@ -24,7 +43,7 @@
                 data-bs-dismiss="modal">
           {% translate "Cancel" %}
         </button>
-        <button type="submit" class="btn btn-sm btn-primary" data-bs-dismiss="modal">
+        <button type="submit" class="btn btn-sm btn-primary">
           {% translate "Export" %}
         </button>
       </div>
