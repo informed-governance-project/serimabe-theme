@@ -2,6 +2,9 @@
 {% load static %}
 {% load i18n %}
 {% block bootstrap5_extra_script %}
+  <link rel="stylesheet"
+        href="{% static 'npm_components/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css' %}">
+  <script src="{% static 'npm_components/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js' %}"></script>
   <script src='{% static "js/export_incidents.js" %}'></script>
 {% endblock %}
 {% block content %}
@@ -21,6 +24,14 @@
         {% csrf_token %}
         {% bootstrap_form_errors form %}
         {% bootstrap_field form.regulation %}
+        <div class="row">
+          <div class="col-6">
+            {% bootstrap_field form.from_date %}
+          </div>
+          <div class="col-6">
+            {% bootstrap_field form.to_date %}
+          </div>
+        </div>
         <div class="mb-3 required-field">
           <label for="id_workflow" class="form-label">
             {{ form.workflow.label }}
