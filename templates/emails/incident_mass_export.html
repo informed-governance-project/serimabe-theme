@@ -1,0 +1,22 @@
+{% load i18n %}
+{% spaceless %}
+  <p>
+    {% translate "Dear Sir, Madame," %}
+  </p>
+  <p>
+    {% blocktranslate trimmed with regulation=regulation %}
+      This e-mail to inform you that a new incident mass export has been performed for {{ regulation }} regulation.
+    {% endblocktranslate %}
+  </p>
+  <p>
+    {% translate "Thanks" %}
+  </p>
+  <p>
+    {% translate "Best regards," %}
+  </p>
+  <p>
+    {% blocktranslate trimmed with site_name=site_name %}
+      {{ site_name }} Incident Notification
+    {% endblocktranslate %}
+  </p>
+{% endspaceless %}
