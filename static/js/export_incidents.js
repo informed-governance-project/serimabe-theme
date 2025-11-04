@@ -111,8 +111,69 @@ $(document).ready(function () {
     isUpdating = false;
   });
 
+  $("#exportIncidentsForm").on("submit", function (e) {
+    e.preventDefault();
+    const csrftoken = getCookie('csrftoken');
+    const form = this;
+    const $form = $(form);
+    const url = $form.attr("action");
+    const formData = new FormData(form);
 
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "X-CSRFToken": csrftoken,
+      },
+      body: formData
+    })
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(data => {
+            const modalEl = $form.closest(".modal");
+            if (modalEl.length) {
+              const modal = bootstrap.Modal.getInstance(modalEl[0]);
+              modal.hide();
+            }
+            if (data.messages) {
+              const messagesContainer = $("#messages-container");
+              if (messagesContainer.length) {
+                messagesContainer.html(data.messages);
+              }
+              throw new Error(response.statusText);
+            }
+          });
+        }
 
+        let filename = "export.csv";
+        const disposition = response.headers.get("Content-Disposition") || "";
+        const match = disposition.match(/filename="?([^"]+)"?/);
+        if (match && match[1]) filename = match[1];
+
+        return response.blob().then(blob => ({ blob, filename }));
+      })
+      .then(({ blob, filename }) => {
+        const modalEl = $form.closest(".modal");
+        const link = document.createElement("a");
+
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        stop_spinner();
+
+        if (modalEl.length) {
+          const modal = bootstrap.Modal.getInstance(modalEl[0]);
+          modal.hide();
+        }
+
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        stop_spinner();
+      })
+      .finally(() => stop_spinner());
+  });
 });
 
 
