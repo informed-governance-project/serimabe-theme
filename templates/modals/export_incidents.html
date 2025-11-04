@@ -27,6 +27,24 @@
         {% bootstrap_form_errors form %}
         {% bootstrap_field form.regulation %}
         <div class="mb-3 required-field">
+          <label for="id_sectorregulation" class="form-label">
+            {{ form.sectorregulation.label }}
+          </label>
+          <select name="sectorregulation"
+                  id="id_sectorregulation"
+                  class="form-select"
+                  required>
+            <option value selected>
+              ---------
+            </option>
+            {% for sr in form.fields.sectorregulation.queryset %}
+              <option value="{{ sr.id }}" data-regulation="{{ sr.regulation.id }}">
+                {{ sr }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="mb-3 required-field">
           <label for="id_workflow" class="form-label">
             {{ form.workflow.label }}
           </label>
@@ -35,7 +53,8 @@
               ---------
             </option>
             {% for wf in form.fields.workflow.queryset %}
-              <option value="{{ wf.id }}" data-regulation="{{ wf.regulation_id }}">
+              <option value="{{ wf.id }}"
+                      data-sectorregulation="{{ wf.sectorregulation_id }}">
                 {{ wf }}
               </option>
             {% endfor %}
