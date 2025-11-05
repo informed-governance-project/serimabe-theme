@@ -189,6 +189,15 @@ $(document).ready(function () {
     $('#technical-telephone').text(contacts.technical_telephone);
   });
 
+  $(document).on("click", ".export_incidents", function () {
+    let $popup = $("#export_incidents");
+    let popup_url = `/incidents/export_incidents`;
+
+    $(".modal-dialog", $popup).load(popup_url, function () {
+      $popup.modal("show");
+    });
+  });
+
   $("#openFilter").on("click", function () {
     $("#filterModal").modal("show");
   });
