@@ -1,18 +1,18 @@
 {% load i18n %}
 {% spaceless %}
   <p>
-    {% translate "Dear Sir, Madame," %}
+    {% translate "Dear Sir or Madam," %}
   </p>
   <p>
     {% blocktranslate trimmed with regulation=regulation %}
-      This e-mail to inform you that a new incident mass export has been performed for {{ regulation }} regulation.
+      We would like to inform you that a new incident mass export related to the regulation {{ regulation }} has been
+      completed.
+      If you or a member of your team did not initiate this action or if it appears suspicious, we recommend that you
+      investigate the matter further.
     {% endblocktranslate %}
   </p>
   <p>
-    {% translate "Thanks" %}
-  </p>
-  <p>
-    {% translate "Best regards," %}
+    {% translate "Kind regards," %}
   </p>
   <p>
     {% blocktranslate trimmed with site_name=site_name %}
