@@ -112,3 +112,13 @@ window.stop_spinner = function () {
   $('#loading-spinner').fadeOut().addClass('d-none');
 }
 
+window.addEventListener("pageshow", function (event) {
+  if (event.persisted) {
+    stop_spinner();
+  }
+});
+
+window.addEventListener("load", function () {
+  stop_spinner();
+});
+

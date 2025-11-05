@@ -19,18 +19,30 @@
               aria-label='{% translate "Close" %}'>
       </button>
     </div>
-    <form method="post" action="{% url 'export_incidents' %}">
+    <form id="exportIncidentsForm"
+          method="post"
+          action="{% url 'export_incidents' %}">
       <div class="modal-body py-4 px-5">
         {% csrf_token %}
         {% bootstrap_form_errors form %}
         {% bootstrap_field form.regulation %}
-        <div class="row">
-          <div class="col-6">
-            {% bootstrap_field form.from_date %}
-          </div>
-          <div class="col-6">
-            {% bootstrap_field form.to_date %}
-          </div>
+        <div class="mb-3 required-field">
+          <label for="id_sectorregulation" class="form-label">
+            {{ form.sectorregulation.label }}
+          </label>
+          <select name="sectorregulation"
+                  id="id_sectorregulation"
+                  class="form-select"
+                  required>
+            <option value selected>
+              ---------
+            </option>
+            {% for sr in form.fields.sectorregulation.queryset %}
+              <option value="{{ sr.id }}" data-regulation="{{ sr.regulation.id }}">
+                {{ sr }}
+              </option>
+            {% endfor %}
+          </select>
         </div>
         <div class="mb-3 required-field">
           <label for="id_workflow" class="form-label">
@@ -41,12 +53,22 @@
               ---------
             </option>
             {% for wf in form.fields.workflow.queryset %}
-              <option value="{{ wf.id }}" data-regulation="{{ wf.regulation_id }}">
+              <option value="{{ wf.id }}"
+                      data-sectorregulation="{{ wf.sectorregulation_id }}">
                 {{ wf }}
               </option>
             {% endfor %}
           </select>
         </div>
+        <div class="row">
+          <div class="col-6">
+            {% bootstrap_field form.from_date %}
+          </div>
+          <div class="col-6">
+            {% bootstrap_field form.to_date %}
+          </div>
+        </div>
+        {% bootstrap_field form.file_format %}
       </div>
       <div class="modal-footer">
         <button type="button"
