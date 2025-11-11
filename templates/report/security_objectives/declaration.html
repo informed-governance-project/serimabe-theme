@@ -58,7 +58,7 @@
     <table id="declaration_table"
            class="table table-sm table-borderless border-bottom border-1 border-dark small">
       <caption class="visually-hidden">
-        {% translate "table of" %} {{ security_objective.unique_code }}: {{ security_objective.objective }}
+        {% translate "Table of" %} {{ security_objective.unique_code }}: {{ security_objective.objective }}
       </caption>
       <thead>
         <tr>
@@ -72,7 +72,7 @@
             {% translate "Evidence" %}
           </th>
           <th class="col-1 text-center align-middle">
-            {% translate "Measure implemented?" %}
+            {% translate "Measure Implemented?" %}
           </th>
           <th class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}
                        col-2
