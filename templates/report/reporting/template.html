@@ -1,23 +1,24 @@
-{% extends 'report/base/template.html' %}
+{% extends "report/base/template.html" %}
 {% load i18n %}
-
 {% block report_head_title %}
-    <meta name="title" content="{% translate 'Annual report' %}_{{ year }}_{{ company.name }}" />
-    <title>{% translate 'Annual report' %}_{{ year }}_{{ company.name }}</title>
+  <meta name="title"
+        content='{% translate "Annual report" %}_{{ year }}_{{ company.name }}' />
+  <title>{% translate "Annual report" %}_{{ year }}_{{ company.name }}</title>
 {% endblock %}
-
 {% block report_pages %}
-    {% with title_class="fw-bold text-primary" table_class="table table-sm table-bordered small" chart_class="py-3" %}
-        {% include 'report/reporting/header.html' %}
-        {% include 'report/base/footer.html' %}
-        {% include 'report/reporting/cover.html' %}
-        {% include 'report/reporting/toc.html' %}
-        <div id="content">
-            {% include 'report/reporting/security_mesures.html' %}
-            <div class="page-break"></div>
-            {% include 'report/reporting/risks.html' %}
-            <div class="page-break"></div>
-            {% include 'report/reporting/observations.html' %}
-        </div>
-    {% endwith %}
+  {% with title_class="fw-bold text-primary" table_class="table table-sm table-bordered small" chart_class="py-3" %}
+    {% include "report/reporting/header.html" %}
+    {% include "report/base/footer.html" %}
+    {% include "report/reporting/cover.html" %}
+    {% include "report/reporting/toc.html" %}
+    <div id="content">
+      {% include "report/reporting/security_mesures.html" %}
+      <div class="page-break">
+      </div>
+      {% include "report/reporting/risks.html" %}
+      <div class="page-break">
+      </div>
+      {% include "report/reporting/observations.html" %}
+    </div>
+  {% endwith %}
 {% endblock %}

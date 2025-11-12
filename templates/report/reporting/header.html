@@ -1,14 +1,12 @@
-{% extends 'report/base/header.html' %}
+{% extends "report/base/header.html" %}
 {% load i18n %}
-
 {% block report_header_left %}
-<div class="text-primary fw-bold text-uppercase ps-2">
+  <div class="text-primary fw-bold text-uppercase ps-2">
     {% translate "Annual report" %} {{ year }}
-</div>
+  </div>
 {% endblock %}
-
 {% block report_header_right %}
-<div class="text-primary">
+  <div class="text-primary">
     {% now "d M Y" %}
-</div>
+  </div>
 {% endblock %}

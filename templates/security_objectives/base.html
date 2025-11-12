@@ -1,35 +1,43 @@
-{% extends 'home/base.html' %}
+{% extends "home/base.html" %}
 {% load i18n %}
 {% load static %}
-
 {% block bootstrap5_extra_script %}
-{{ block.super }}
-<link rel="stylesheet" href="{% static 'npm_components/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css' %}">
-<script src="{% static 'npm_components/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js' %}"></script>
+  {{ block.super }}
+  <link rel="stylesheet"
+        href="{% static 'npm_components/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css' %}">
+  <script src="{% static 'npm_components/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js' %}"></script>
 {% endblock %}
-
 {% block subheader %}
-<div class="container-fluid d-flex bg-light py-4 align-items-center mb-4">
+  <div class="container-fluid d-flex bg-light py-4 align-items-center mb-4">
     <div class="hstack me-auto gap-2">
-        <img src="{% static 'images/icons/ico-securityobjectives.svg' %}" alt="Security objectives icon" style="width:30px">
-        <h2 class="fw-bolder mb-0">
-            {% translate "Security objectives"|upper %}
-        </h2>
+      <img src="{% static 'images/icons/ico-securityobjectives.svg' %}"
+           alt="Security objectives icon"
+           class="w-7">
+      <h2 class="fw-bolder mb-0">
+        {% translate "Security objectives"|upper %}
+      </h2>
     </div>
     <div class="hstack gap-4 pe-2">
-        <a class="fw-bold" href="{% url 'securityobjectives' %}" onclick="load_spinner()">
-            {% translate "Dashboard" %}
+      <a class="fw-bold"
+         href="{% url 'securityobjectives' %}"
+         onclick="load_spinner()">
+        {% translate "Dashboard" %}
+      </a>
+      {% if is_regulator %}
+        <a class="fw-bold import_so_declaration"
+           href="#"
+           data-bs-toggle="modal"
+           data-bs-target="#import_so_declaration">
+          {% translate "Import" %}
         </a>
-        {% if is_regulator %}
-        <a class="fw-bold import_so_declaration" href="#" data-bs-toggle="modal" data-bs-target="#import_so_declaration">
-            {% translate "Import" %}
-        </a>
-        {% else %}
-        <button type="button" class="btn btn-primary create_so_declaration" data-bs-toggle="modal"
-            data-bs-target="#create_so_declaration">
-            {% translate "New submission" %}
+      {% else %}
+        <button type="button"
+                class="btn btn-primary create_so_declaration"
+                data-bs-toggle="modal"
+                data-bs-target="#create_so_declaration">
+          {% translate "New submission" %}
         </button>
-        {% endif %}
+      {% endif %}
     </div>
-</div>
+  </div>
 {% endblock %}

@@ -1,49 +1,57 @@
-{% extends 'reporting/base.html' %}
+{% extends "reporting/base.html" %}
 {% load i18n %}
 {% load django_bootstrap5 %}
 {% load static %}
-
 {% block bootstrap5_extra_script %}
-{{ block.super }}
-<link rel="stylesheet" href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
-<script type="text/javascript" src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
-<script type="text/javascript"src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
-<script src='{% static "js/download_center.js" %}'></script>
+  {{ block.super }}
+  <link rel="stylesheet"
+        href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
+  <script type="text/javascript"
+          src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
+  <script type="text/javascript"
+          src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
+  <script src='{% static "js/download_center.js" %}'></script>
 {% endblock %}
-
 {% block content %}
-<h3 class="fw-bolder">
+  <h3 class="fw-bolder">
     {% block title %}
-    {% translate "Download Center" %}
+      {% translate "Download Center" %}
     {% endblock %}
-</h3>
-<div class="hr-separator"></div>
-
-<table id="download-center-table" class="table align-middle table-sm small">
-  <caption class="visually-hidden">{% translate "Download center table" %}</caption>
-  <thead>
-    <tr>
-      <th class="col-auto">{% translate "Creation date" %}</th>
-      <th class="col-auto">{% translate "Filename" %}</th>
-      <th class="col-auto">{% translate "Download" %}</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for report in reports %}
-    <tr>
-      <td class="col-auto table-group-divider py-3">
-        {{ report.timestamp|date:"Y-m-d H:i" }}
-      </td>
-      <td class="col-auto table-group-divider py-3">
-        {{ report.filename }}
-      </td>
-      <td class="col-auto table-group-divider py-3">
-        <a href="{% url 'download_report' report.file_uuid %}" class="btn btn-sm btn-primary">
+  </h3>
+  <div class="hr-separator">
+  </div>
+  <table id="download-center-table" class="table align-middle table-sm small">
+    <caption class="visually-hidden">{% translate "Download center table" %}</caption>
+    <thead>
+      <tr>
+        <th class="col-auto">
+          {% translate "Creation date" %}
+        </th>
+        <th class="col-auto">
+          {% translate "Filename" %}
+        </th>
+        <th class="col-auto">
           {% translate "Download" %}
-        </a>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for report in reports %}
+        <tr>
+          <td class="col-auto table-group-divider py-3">
+            {{ report.timestamp|date:"Y-m-d H:i" }}
+          </td>
+          <td class="col-auto table-group-divider py-3">
+            {{ report.filename }}
+          </td>
+          <td class="col-auto table-group-divider py-3">
+            <a href="{% url 'download_report' report.file_uuid %}"
+               class="btn btn-sm btn-primary">
+              {% translate "Download" %}
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}
