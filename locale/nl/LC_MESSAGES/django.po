@@ -1411,7 +1411,7 @@ msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:81
 msgid "Ongoing"
-msgstr ""
+msgstr "Lopend"
 
 #: theme/templates/incidents/incidents_base.html:85
 #: theme/templates/report/reporting/risks.html:691

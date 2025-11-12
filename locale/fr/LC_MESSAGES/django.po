@@ -171,8 +171,8 @@ msgid ""
 "Please note: this is purely a suggestion and not an action you need to take "
 "unless you confirm it."
 msgstr ""
-"Veuillez noter que ceci est purement une suggestion et aucune action n'est "
-"requise à moins que vous ne la confirmiez."
+"En cas de doute, veuillez rejeter cette proposition en sélectionnant "
+"supprimer."
 
 #: theme/templates/emails/suggestion_link_user_account.html:46
 msgid "Otherwise, feel free to disregard this message."
