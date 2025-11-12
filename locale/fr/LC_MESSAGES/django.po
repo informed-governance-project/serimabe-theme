@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-11 10:35+0100\n"
-"PO-Revision-Date: 2025-11-11 10:34+0100\n"
+"POT-Creation-Date: 2025-11-12 09:07+0100\n"
+"PO-Revision-Date: 2025-11-12 09:07+0100\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,7 @@ msgstr "Sauvegarder les modifications"
 
 #: theme/templates/admin/base_site.html:16
 msgid "Django admin area"
-msgstr "Administration de Django"
+msgstr "Page d'administration Django"
 
 #: theme/templates/admin/base_site.html:21
 msgid "Account security"
@@ -163,26 +163,24 @@ msgstr ""
 "l'adresse e-mail."
 
 #: theme/templates/emails/suggestion_link_user_account.html:35
-msgid "In case of any doubt, please reject this proposal."
-msgstr "En cas de doute, veuillez rejeter cette proposition."
-
-#: theme/templates/emails/suggestion_link_user_account.html:40
-msgid ""
-"Please note: this is purely a suggestion and not an action you need to take "
-"unless you confirm it."
+msgid "In case of any doubt, please reject this proposal by selecting delete."
 msgstr ""
 "En cas de doute, veuillez rejeter cette proposition en sélectionnant "
 "supprimer."
 
-#: theme/templates/emails/suggestion_link_user_account.html:46
+#: theme/templates/emails/suggestion_link_user_account.html:40
+msgid "Please note: This is a suggestion only."
+msgstr "Veuillez noter que ceci est purement une suggestion."
+
+#: theme/templates/emails/suggestion_link_user_account.html:45
 msgid "Otherwise, feel free to disregard this message."
 msgstr "Sinon, n'hésitez pas à ignorer ce message."
 
-#: theme/templates/emails/suggestion_link_user_account.html:51
+#: theme/templates/emails/suggestion_link_user_account.html:50
 msgid "Thank you."
 msgstr "Merci."
 
-#: theme/templates/emails/suggestion_link_user_account.html:54
+#: theme/templates/emails/suggestion_link_user_account.html:53
 msgid "Best regards,"
 msgstr "Cordialement,"
 
