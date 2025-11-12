@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-11 11:18+0100\n"
+"POT-Creation-Date: 2025-11-12 08:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,24 +154,22 @@ msgid ""
 msgstr ""
 
 #: theme/templates/emails/suggestion_link_user_account.html:35
-msgid "In case of any doubt, please reject this proposal."
+msgid "In case of any doubt, please reject this proposal by selecting delete."
 msgstr ""
 
 #: theme/templates/emails/suggestion_link_user_account.html:40
-msgid ""
-"Please note: this is purely a suggestion and not an action you need to take "
-"unless you confirm it."
+msgid "Please note: This is a suggestion only."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:46
+#: theme/templates/emails/suggestion_link_user_account.html:45
 msgid "Otherwise, feel free to disregard this message."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:51
+#: theme/templates/emails/suggestion_link_user_account.html:50
 msgid "Thank you."
 msgstr ""
 
-#: theme/templates/emails/suggestion_link_user_account.html:54
+#: theme/templates/emails/suggestion_link_user_account.html:53
 msgid "Best regards,"
 msgstr ""
 
