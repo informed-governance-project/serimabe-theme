@@ -52,6 +52,7 @@
   --bs-unsubmitted: #2673e5;
   --bs-overdue: #e40521;
   --bs-dark-gray: #4c4c4c;
+  --bs-uninitiated: #4c4c4c;
   --bs-primary-rgb: 255, 223, 28;
   --bs-secondary-rgb: 0, 164, 148;
   --bs-success-rgb: 25, 135, 84;
@@ -71,6 +72,7 @@
   --bs-unsubmitted-rgb: 38, 115, 229;
   --bs-overdue-rgb: 228, 5, 33;
   --bs-dark-gray-rgb: 76, 76, 76;
+  --bs-uninitiated-rgb: 76, 76, 76;
   --bs-primary-text-emphasis: rgb(102, 89.2, 11.2);
   --bs-secondary-text-emphasis: rgb(0, 65.6, 59.2);
   --bs-success-text-emphasis: rgb(10, 54, 33.6);
