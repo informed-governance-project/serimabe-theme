@@ -37,7 +37,7 @@
               type="button"
               data-bs-placement="top"
               data-bs-toggle="tooltip"
-              title='{% translate "Filter by status, sector, etc." %}'>
+              title="{% translate 'Filter by status, sector, etc.' %}">
         {% translate "Filter" %}
         {% if is_filtered %}
           <span>
@@ -57,7 +57,7 @@
              alt="legend"
              data-bs-placement="top"
              data-bs-toggle="tooltip"
-             title='{% translate "Icon Guide" %}'>
+             title="{% translate 'Icon Guide' %}">
       </button>
     </div>
   </div>
@@ -68,10 +68,8 @@
         <span class="legend-title">
           {% translate "Legend" %}
         </span>
-        <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
-          {% block content_table_legend %}
-          {% endblock %}
-        </ul>
+        {% block content_table_legend %}
+        {% endblock %}
       </div>
     </div>
   </div>
@@ -81,7 +79,7 @@
       <caption class="visually-hidden">{% translate "Security objectives table" %}</caption>
       <thead>
         <tr>
-          <th class="col-1">
+          <th class="col-1 text-center">
             {% translate "Status" %}
           </th>
           <th class="col-1">
@@ -125,7 +123,7 @@
         {% for standard in standard_answers %}
           {% timezone time_zone %}
           <tr>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1 table-group-divider py-3 pe-4">
               <div class="d-none {% status_class standard.status %} icon-container m-auto rounded-circle justify-content-center align-items-center"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"
@@ -195,7 +193,7 @@
               {% endblock %}
             </td>
             <td class="col-1 table-group-divider py-3">
-              <div class="d-flex align-items-center justify-content-between">
+              <div class="hstack gap-2">
                 {% block content_table_actions %}
                 {% endblock %}
               </div>
@@ -215,6 +213,27 @@
 {% endif %}
 <!-- Modals -->
 {% block content_modals %}
+  <div class="modal fade"
+       id="so_versions"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="so_versions_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      {% include "modals/so_versions.html" %}
+    </div>
+  </div>
+  <div class="modal fade"
+       id="so_versions_review_comment_so_declaration"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="so_versions_review_comment_so_declaration_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
   <div class="modal fade"
        id="so_access_log"
        data-bs-backdrop="static"
@@ -249,7 +268,7 @@
           <button type="button"
                   class="btn-close"
                   data-bs-dismiss="modal"
-                  aria-label='{% translate "Close" %}'>
+                  aria-label="{% translate 'Close' %}">
           </button>
         </div>
         <form method="get">

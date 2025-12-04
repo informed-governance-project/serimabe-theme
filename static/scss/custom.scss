@@ -27,6 +27,7 @@ $late-under-review: #5B1B8F;
 $unsubmitted: #2673e5;
 $overdue: #e40521;
 $dark-gray: #4c4c4c;
+$uninitiated:#4c4c4c;
 
 $custom-colors: (
     "no-impact": $no-impact,
@@ -40,6 +41,7 @@ $custom-colors: (
     "unsubmitted": $unsubmitted,
     "overdue": $overdue,
     "dark-gray": $dark-gray,
+    "uninitiated": $uninitiated,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
@@ -200,6 +202,10 @@ a.changelink {
     background-image: url('/static/images/icons/ico-pdf.svg');
 }
 
+.custom-icon-legend {
+    background-image: url('/static/images/icons/ico-legend.svg');
+}
+
 .custom-icon-pdf-small {
     background-image: url("/static/images/icons/ico-pdf-small.svg");
 }
@@ -208,8 +214,20 @@ a.changelink {
     background-image: url("/static/images/icons/ico-versioning.svg");
 }
 
+.custom-icon-versioning-disabled {
+    background-image: url("/static/images/icons/ico-versioning-disabled.svg");
+}
+
 .custom-icon-comments {
     background-image: url("/static/images/icons/ico-comments.svg");
+}
+
+.custom-icon-comments-add {
+    background-image: url("/static/images/icons/ico-comments-add.svg");
+}
+
+.custom-icon-comments-disabled {
+    background-image: url("/static/images/icons/ico-comments-disabled.svg");
 }
 
 .custom-icon-view {

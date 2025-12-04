@@ -3,8 +3,8 @@
 {% block content %}
   <div class="modal-content">
     <div class="modal-header bg-primary text-white px-4 small">
-      <h5 class="modal-title" id="delete_so_declaration_label">
-        {% translate "Confirm Deletion of Security Objectives Statement" %}
+      <h5 class="modal-title" id="update_so_declaration_label">
+        {% translate "Update or review security objectives statement" %}
       </h5>
       <button type="button"
               class="btn-close btn-close-white"
@@ -14,18 +14,21 @@
     </div>
     <div class="modal-body">
       <div>
-        {% translate "Are you sure you want to delete the security objectives statement?" %}
+        {% translate "What do you want to do ?" %}
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-        {% translate "Cancel" %}
-      </button>
-      <a id="modal-delete-declaration-button"
+      <a id="modal-review-declaration-button"
+         type="button"
+         class="btn btn-secondary"
+         href="#">
+        {% translate "Review" %}
+      </a>
+      <a id="modal-update-declaration-button"
          type="button"
          class="btn btn-primary"
          href="#">
-        {% translate "Delete" %}
+        {% translate "Update" %}
       </a>
     </div>
   </div>

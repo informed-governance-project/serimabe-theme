@@ -78,6 +78,15 @@ $(document).ready(function () {
     }
   }
 
+  function checkSODeclarationStatusLegend() {
+    const status = localStorage.getItem('so_declaration_status_legend');
+    if (status === "true") {
+      $('#collapseLegend').addClass("show");
+    } else {
+      $('#collapseLegend').removeClass("show");
+    }
+  }
+
   $('.form-check-input').on('change', function () {
     checkImplementation();
     checkRequiredFields()
@@ -95,11 +104,16 @@ $(document).ready(function () {
   $(document).on("click", ".review_comment_so_declaration", function () {
     let $this = $(this);
     let standardAnswerId = $this.data('standard-answer-id');
+    let onlyReviewComment = $this.data('only-review-comment');
     let $popup = $("#review_comment_so_declaration");
     let popup_url = `/securityobjectives/review_comment/${standardAnswerId}`;
+    if (onlyReviewComment) {
+      popup_url += "?only_review_comment=true";
+    }
     $popup.find(".modal-dialog").empty();
     $(".modal-dialog", $popup).load(popup_url, function () {
       $popup.modal("show");
+      $("#so-review-comment-form").attr("action", popup_url);
       groupEl = document.querySelector('.input-group[data-td-target-input="nearest"]')
       const options = {
         ...defaultTempusdOptions,
@@ -107,10 +121,43 @@ $(document).ready(function () {
           minDate: new Date()
         }
       };
-      new tempusDominus.TempusDominus(groupEl, options);
+      if (!onlyReviewComment) {
+        new tempusDominus.TempusDominus(groupEl, options);
+      }
     });
   });
 
+  $(document).on('submit', '#so-review-comment-form', function (e) {
+    let $form = $(this);
+    let is_only_review_comment = $form.attr('is_only_review_comment');
+    if (is_only_review_comment=="False"){
+      return true;
+    }
+
+    e.preventDefault();
+    const csrftoken = getCookie('csrftoken');
+    const url = $form.attr('action');
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "X-CSRFToken": csrftoken,
+        "X-Requested-With": "XMLHttpRequest"
+      },
+      body: new FormData(this),
+    })
+      .then(response => {
+        if (response.ok) {
+          let modalEl = $("#review_comment_so_declaration");
+          let modalObj = bootstrap.Modal.getInstance(modalEl);
+          modalObj.hide();
+        }
+
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
+  });
   $security_objectives_carousel.on('slid.bs.carousel', function (event) {
     adjustTextareaHeights();
     checkRequiredFields();
@@ -126,6 +173,8 @@ $(document).ready(function () {
   checkRequiredFields();
   showActiveSOStatusForm();
   checkActions();
+  checkSODeclarationStatusLegend();
+
   $("#security_objective_selector").find(`[data-bs-slide-to="0"]`).addClass("slide-active-container");
 
   $(document).on("click", '.so_contacts', function () {
@@ -188,13 +237,13 @@ function update_so_declaration(form) {
             if (data.objective_state) {
               so_id = data.objective_state.id;
               $so_op_objective_button = $("#security_objective_selector").find(`#op_${so_id}`);
-              $so_op_objective_button.removeClass("btn-passed btn-warning btn-failed");
+              $so_op_objective_button.removeClass("btn-passed btn-failed btn-warning btn-uninitiated");
               if (data.objective_state.is_completed) {
                 $so_op_objective_button.addClass("btn-passed");
               } else if (data.objective_state.is_partially) {
                 $so_op_objective_button.addClass("btn-warning");
               } else if (data.objective_state.is_not_started) {
-                $so_op_objective_button.addClass("btn-failed");
+                $so_op_objective_button.addClass("btn-uninitiated");
               }
 
             }
@@ -220,4 +269,10 @@ function update_so_declaration(form) {
         console.log(error);
       });
   }
+}
+
+function save_so_declaration_status_legend() {
+  const current = localStorage.getItem('so_declaration_status_legend') === "true";
+  const newValue = !current;
+  localStorage.setItem('so_declaration_status_legend', newValue);
 }

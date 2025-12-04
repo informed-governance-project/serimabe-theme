@@ -1,5 +1,6 @@
 {% extends "security_objectives/so_dashboard_base.html" %}
 {% load django_bootstrap5 %}
+{% load SO_custom_filters %}
 {% load i18n %}
 {% block content_filter %}
   {% bootstrap_field filter.form.submitter_company label_class="fw-bold" wrapper_class="mb-3" %}
@@ -40,7 +41,63 @@
   {% endwith %}
 {% endblock %}
 {% block content_table_actions %}
-  <a class="btn border-0 p-0 text-dark
+  {% get_all_versions standard as versions %}
+  {% if versions %}
+    <button class="btn text-dark p-0 ps-1 border-0 so_versions"
+            data-so-versions="{{ versions }}"
+            data-review-url="{% url 'so_declaration' %}"
+            data-download-url="{% url 'download_so_declaration_pdf' 0 %}"
+            data-bs-toggle="modal"
+            data-bs-target="#so_versions">
+      <i class="custom-icon-versioning h4 align-self-center"
+         aria-hidden="true"
+         data-so-versions="{{ standard.get_all_versions }}"
+         data-bs-placement="top"
+         data-bs-toggle="tooltip"
+         title="{% translate 'Version control' %}">
+      </i>
+      <span class="visually-hidden">{% translate "Version control" %}</span>
+    </button>
+  {% else %}
+    <button class="btn text-dark p-0 ps-1 border-0" disabled>
+      <i class="custom-icon-versioning-disabled h4 align-self-center"
+         aria-hidden="true"
+         data-bs-placement="top"
+         data-bs-toggle="tooltip"
+         title="{% translate 'Version control' %}">
+      </i>
+      <span class="visually-hidden">{% translate "Version control" %}</span>
+    </button>
+  {% endif %}
+  {% if standard.reviewed_percentage == 100 and standard.status in ",PASS,FAIL,DELIV," %}
+    <button class="btn border-0 p-0 review_comment_so_declaration"
+            data-standard-answer-id="{{ standard.id }}"
+            data-bs-toggle="modal"
+            data-bs-target="#review_comment_so_declaration">
+      <i class="custom-icon-comments-add h4"
+         data-bs-placement="top"
+         data-bs-toggle="tooltip"
+         title="{% translate 'Review comment' %}">
+      </i>
+    </button>
+  {% elif standard.status in ",PASSM,FAILM," %}
+    <button class="btn border-0 p-0 review_comment_so_declaration"
+            data-standard-answer-id="{{ standard.id }}"
+            data-bs-toggle="modal"
+            data-bs-target="#review_comment_so_declaration">
+      <i class="custom-icon-comments h4"
+         data-bs-placement="top"
+         data-bs-toggle="tooltip"
+         title="{% translate 'Review comment' %}">
+      </i>
+    </button>
+  {% else %}
+    <button class="btn border-0 p-0" disabled>
+      <i class="custom-icon-comments-disabled h4">
+      </i>
+    </button>
+  {% endif %}
+  <a class="btn border-0 p-0
             {% if standard.status == 'UNDE' %}
               disabled
             {% endif %}"
@@ -52,7 +109,7 @@
     <i class="custom-icon-edit h4"
        data-bs-placement="top"
        data-bs-toggle="tooltip"
-       title='{% translate "Review" %}'>
+       title="{% translate 'Review' %}">
     </i>
   </a>
   <button class="btn border-0 p-0 download-link"
@@ -60,7 +117,7 @@
     <i class="custom-icon-pdf h4"
        data-bs-placement="top"
        data-bs-toggle="tooltip"
-       title='{% translate "Download" %}'>
+       title="{% translate 'Download' %}">
     </i>
   </button>
   <button class="btn border-0 p-0 so_access_log"
@@ -68,7 +125,7 @@
     <i class="custom-icon-log h4"
        data-bs-placement="top"
        data-bs-toggle="tooltip"
-       title='{% translate "Access Log" %}'>
+       title="{% translate 'Access Log' %}">
     </i>
   </button>
   <button class="btn border-0 p-0 delete_so_declaration"
@@ -79,41 +136,65 @@
     <i class="custom-icon-trash h4"
        data-bs-placement="top"
        data-bs-toggle="tooltip"
-       title='{% translate "Delete" %}'>
+       title="{% translate 'Delete' %}">
     </i>
   </button>
 {% endblock %}
 {% block content_table_legend %}
-  <li class="legend-item">
-    <div class="icon-container border border-passed border-2 rounded-circle d-flex justify-content-center align-items-center">
-      <i class="custom-icon-passed m-0 h5" aria-hidden="true"></i>
-    </div>
-    {% translate "Passed" %}
-  </li>
-  <li class="legend-item">
-    <div class="icon-container bg-passed rounded-circle d-flex justify-content-center align-items-center">
-      <i class="custom-icon-passed-sent m-0 h5" aria-hidden="true"></i>
-    </div>
-    {% translate "Passed and sent" %}
-  </li>
-  <li class="legend-item">
-    <div class="icon-container bg-under-review rounded-circle d-flex justify-content-center align-items-center">
-      <i class="custom-icon-under-review-white m-0 h5" aria-hidden="true"></i>
-    </div>
-    {% translate "Under review" %}
-  </li>
-  <li class="legend-item">
-    <div class="icon-container border border-failed border-2 rounded-circle d-flex justify-content-center align-items-center">
-      <i class="custom-icon-failed m-0 h5" aria-hidden="true"></i>
-    </div>
-    {% translate "Revision required" %}
-  </li>
-  <li class="legend-item">
-    <div class="icon-container bg-failed rounded-circle d-flex justify-content-center align-items-center">
-      <i class="custom-icon-failed-sent m-0 h5" aria-hidden="true"></i>
-    </div>
-    {% translate "Revision required and sent" %}
-  </li>
+  <div class="vstack gap-xl-3">
+    <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
+      <li class="legend-item">
+        <div class="icon-container border border-passed border-2 rounded-circle d-flex justify-content-center align-items-center">
+          <i class="custom-icon-passed m-0 h5" aria-hidden="true"></i>
+        </div>
+        {% translate "Passed" %}
+      </li>
+      <li class="legend-item">
+        <div class="icon-container bg-passed rounded-circle d-flex justify-content-center align-items-center">
+          <i class="custom-icon-passed-sent m-0 h5" aria-hidden="true"></i>
+        </div>
+        {% translate "Passed and sent" %}
+      </li>
+      <li class="legend-item">
+        <div class="icon-container bg-under-review rounded-circle d-flex justify-content-center align-items-center">
+          <i class="custom-icon-under-review-white m-0 h5" aria-hidden="true"></i>
+        </div>
+        {% translate "Under review" %}
+      </li>
+      <li class="legend-item">
+        <div class="icon-container border border-failed border-2 rounded-circle d-flex justify-content-center align-items-center">
+          <i class="custom-icon-failed m-0 h5" aria-hidden="true"></i>
+        </div>
+        {% translate "Revision required" %}
+      </li>
+      <li class="legend-item">
+        <div class="icon-container bg-failed rounded-circle d-flex justify-content-center align-items-center">
+          <i class="custom-icon-failed-sent m-0 h5" aria-hidden="true"></i>
+        </div>
+        {% translate "Revision required and sent" %}
+      </li>
+    </ul>
+    <ul class="d-flex justify-content-between list-group list-group-horizontal-xl">
+      <li class="legend-item">
+        <div class="d-flex justify-content-center align-items-center">
+          <i class="custom-icon-versioning m-0 h4" aria-hidden="true"></i>
+        </div>
+        {% translate "Versioning" %}
+      </li>
+      <li class="legend-item">
+        <div class="d-flex justify-content-center align-items-center">
+          <i class="custom-icon-edit m-0 h4" aria-hidden="true"></i>
+        </div>
+        {% translate "Editing" %}
+      </li>
+      <li class="legend-item">
+        <div class="d-flex justify-content-center align-items-center">
+          <i class="custom-icon-trash m-0 h4" aria-hidden="true"></i>
+        </div>
+        {% translate "Delete" %}
+      </li>
+    </ul>
+  </div>
 {% endblock %}
 {% block content_modals %}
   {{ block.super }}

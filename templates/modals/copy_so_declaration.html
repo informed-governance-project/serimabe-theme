@@ -13,11 +13,10 @@
       <button type="button"
               class="btn-close btn-close-white"
               data-bs-dismiss="modal"
-              aria-label='{% translate "Close" %}'>
+              aria-label="{% translate 'Close' %}">
       </button>
     </div>
-    <form action="{% url 'copy_so_declaration' standard_answer_id %}"
-          method="post">
+    <form action="{% url 'copy_so_declaration' group_id %}" method="post">
       {% csrf_token %}
       <div class="modal-body">
         {% bootstrap_form_errors form %}
