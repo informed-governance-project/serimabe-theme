@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-26 10:49+0100\n"
+"POT-Creation-Date: 2025-12-04 09:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,50 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: theme/globals.py:5
+msgid "Province of Antwerp"
+msgstr ""
+
+#: theme/globals.py:6
+msgid "Province of Limburg"
+msgstr ""
+
+#: theme/globals.py:7
+msgid "Province of West Flanders"
+msgstr ""
+
+#: theme/globals.py:8
+msgid "Province of East Flanders"
+msgstr ""
+
+#: theme/globals.py:9
+msgid "Province of Hainaut"
+msgstr ""
+
+#: theme/globals.py:10
+msgid "Province of Liège"
+msgstr ""
+
+#: theme/globals.py:11
+msgid "Province of Luxembourg"
+msgstr ""
+
+#: theme/globals.py:12
+msgid "Province of Namur"
+msgstr ""
+
+#: theme/globals.py:13
+msgid "Province of Flemish Brabant"
+msgstr ""
+
+#: theme/globals.py:14
+msgid "Province of Walloon Brabant"
+msgstr ""
+
+#: theme/globals.py:15
+msgid "Brussels-Capital Region"
+msgstr ""
 
 #: theme/templates/account/edit.html:8
 msgid "Account management"
@@ -120,9 +164,9 @@ msgstr ""
 msgid "Kind regards,"
 msgstr ""
 
-#: theme/templates/emails/incident_mass_export.html:22
-#, python-format
-msgid "%(site_name)s Incident Notification"
+#: theme/templates/emails/incident_mass_export.html:23
+#: theme/templates/registration/login.html:16
+msgid "Incident Notification"
 msgstr ""
 
 #: theme/templates/emails/suggestion_link_user_account.html:5
@@ -1558,17 +1602,17 @@ msgstr ""
 msgid "Incident notification submission date"
 msgstr ""
 
-#: theme/templates/incidents/incidents_base.html:326
-#: theme/templates/incidents/incidents_base.html:328
+#: theme/templates/incidents/incidents_base.html:325
+#: theme/templates/incidents/incidents_base.html:327
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
-#: theme/templates/operator/incidents.html:128
-#: theme/templates/operator/incidents.html:130
-#: theme/templates/operator/incidents.html:136
+#: theme/templates/operator/incidents.html:127
+#: theme/templates/operator/incidents.html:129
+#: theme/templates/operator/incidents.html:135
 msgid "Version control"
 msgstr ""
 
-#: theme/templates/incidents/incidents_base.html:336
+#: theme/templates/incidents/incidents_base.html:335
 #: theme/templates/incidents/incidents_base.html:365
 #: theme/templates/incidents/incidents_base.html:367
 msgid "Download PDF report"
@@ -1680,9 +1724,9 @@ msgid "Choice of columns"
 msgstr ""
 
 #: theme/templates/modals/workflow_comment.html:7
-#: theme/templates/operator/incidents.html:102
-#: theme/templates/operator/incidents.html:105
-#: theme/templates/operator/incidents.html:111
+#: theme/templates/operator/incidents.html:101
+#: theme/templates/operator/incidents.html:104
+#: theme/templates/operator/incidents.html:110
 msgid "Review comment"
 msgstr ""
 
@@ -1716,10 +1760,6 @@ msgstr ""
 
 #: theme/templates/parts/500.html:23
 msgid "Please try again later."
-msgstr ""
-
-#: theme/templates/parts/footer.html:12
-msgid "A platform developed by"
 msgstr ""
 
 #: theme/templates/parts/footer.html:36
@@ -1798,10 +1838,6 @@ msgstr ""
 #: theme/templates/registration/signup.html:15
 #: theme/templates/registration/signup.html:70
 msgid "Create account"
-msgstr ""
-
-#: theme/templates/registration/login.html:16
-msgid "Incident Notification"
 msgstr ""
 
 #: theme/templates/registration/login.html:27
