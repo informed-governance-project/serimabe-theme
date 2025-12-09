@@ -2,11 +2,14 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-04 09:51+0100\n"
-"PO-Revision-Date: 2025-11-12 09:07+0100\n"
+"POT-Creation-Date: 2025-12-08 09:48+0100\n"
+"PO-Revision-Date: 2025-12-02 13:16+0000\n"
+"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14.3\n"
 "Generated-By: xls-to-po 1.0\n"
 
 #: theme/globals.py:5
@@ -94,7 +97,7 @@ msgstr "Voorwaarden opnieuw instellen"
 
 #: theme/templates/admin/reset_accepted_terms.html:13
 msgid "Reset accepted cookies"
-msgstr ""
+msgstr "Aanvaarde cookies resetten"
 
 #: theme/templates/admin/settings_list.html:5
 msgid "Variables Django Settings"
@@ -1357,7 +1360,7 @@ msgstr ""
 #: theme/templates/incidents/base.html:29
 #: theme/templates/modals/export_incidents.html:80
 msgid "Export"
-msgstr ""
+msgstr "Exporteren"
 
 #: theme/templates/incidents/contact_form.html:6
 #: theme/templates/report/incidents/cover.html:15
