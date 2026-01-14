@@ -5,7 +5,7 @@ $(document).ready(function () {
     paging: false,
     searching: false,
     info: false,
-    order: [],
+    order: [1, 'desc'],
     initComplete: function () {
       stop_spinner();
     },
