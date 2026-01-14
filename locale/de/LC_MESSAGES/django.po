@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-06 15:49+0100\n"
+"POT-Creation-Date: 2026-01-14 16:29+0100\n"
 "PO-Revision-Date: 2026-01-12 14:14+0000\n"
 "Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -2040,8 +2040,8 @@ msgstr "Der Vorfall ist noch nicht abgeschlossen"
 #: theme/templates/observer/incidents.html:17
 #: theme/templates/operator/incidents.html:22
 #: theme/templates/operator/incidents.html:25
-msgid "The incident is over"
-msgstr "Der Vorfall ist beendet"
+msgid "The incident has been closed"
+msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:223
 msgid "Incident notification submission date"
