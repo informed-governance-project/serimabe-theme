@@ -75,7 +75,7 @@ $(document).ready(function () {
     var popup_url = 'access_log/' + $(this).data("incident-id");
 
     $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr)  {
-      if (xhr.status === 400) {
+      if (xhr.status === 403 || xhr.status === 404) {
         window.location.reload();
       } else {
         $popup.modal("show");
@@ -217,7 +217,7 @@ $(document).ready(function () {
     let popup_url = `/incidents/export_incidents`;
 
     $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr)  {
-      if (xhr.status === 400) {
+      if (xhr.status === 403) {
         window.location.reload();
       } else {
         $popup.modal("show");
