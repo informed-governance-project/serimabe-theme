@@ -74,8 +74,12 @@ $(document).ready(function () {
     var $popup = $("#access_log");
     var popup_url = 'access_log/' + $(this).data("incident-id");
 
-    $(".modal-dialog", $popup).load(popup_url, function () {
-      $popup.modal("show");
+    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr)  {
+      if (xhr.status === 400) {
+        window.location.reload();
+      } else {
+        $popup.modal("show");
+      }
     });
   });
 
@@ -212,8 +216,12 @@ $(document).ready(function () {
     let $popup = $("#export_incidents");
     let popup_url = `/incidents/export_incidents`;
 
-    $(".modal-dialog", $popup).load(popup_url, function () {
-      $popup.modal("show");
+    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr)  {
+      if (xhr.status === 400) {
+        window.location.reload();
+      } else {
+        $popup.modal("show");
+      }
     });
   });
 
