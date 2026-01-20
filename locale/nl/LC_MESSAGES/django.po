@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-14 16:29+0100\n"
+"POT-Creation-Date: 2026-01-20 15:52+0100\n"
 "PO-Revision-Date: 2026-01-12 11:27+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -223,7 +223,7 @@ msgstr ""
 
 #: theme/templates/home/contact.html:58
 #: theme/templates/modals/review_comment_report.html:31
-#: theme/templates/modals/review_comment_so_declaration.html:45
+#: theme/templates/modals/review_comment_so_declaration.html:42
 #: theme/templates/regulator/so_dashboard.html:19
 #: theme/templates/security_objectives/declaration.html:166
 msgid "Send"
@@ -1859,7 +1859,7 @@ msgstr ""
 msgid "Review"
 msgstr ""
 
-#: theme/templates/modals/review_comment_so_declaration.html:43
+#: theme/templates/modals/review_comment_so_declaration.html:40
 #: theme/templates/reporting/add_report_configuration.html:33
 msgid "Save"
 msgstr "Opslaan"

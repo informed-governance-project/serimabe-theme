@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 09:25+0100\n"
+"POT-Creation-Date: 2026-01-20 15:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -226,7 +226,7 @@ msgstr ""
 
 #: theme/templates/home/contact.html:58
 #: theme/templates/modals/review_comment_report.html:31
-#: theme/templates/modals/review_comment_so_declaration.html:45
+#: theme/templates/modals/review_comment_so_declaration.html:42
 #: theme/templates/regulator/so_dashboard.html:19
 #: theme/templates/security_objectives/declaration.html:166
 msgid "Send"
@@ -1860,7 +1860,7 @@ msgstr ""
 msgid "Review"
 msgstr ""
 
-#: theme/templates/modals/review_comment_so_declaration.html:43
+#: theme/templates/modals/review_comment_so_declaration.html:40
 #: theme/templates/reporting/add_report_configuration.html:33
 msgid "Save"
 msgstr ""
