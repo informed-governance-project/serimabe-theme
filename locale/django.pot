@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-11 16:07+0100\n"
+"POT-Creation-Date: 2026-01-20 09:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1298,11 +1298,6 @@ msgid ""
 "connection with the Terms of Use and with SERIMA."
 msgstr ""
 
-#: theme/templates/incidents/base.html:11
-#: theme/templates/incidents/incidents_base.html:8
-msgid "Incident notification"
-msgstr ""
-
 #: theme/templates/incidents/base.html:15
 msgid "Overview"
 msgstr ""
@@ -1404,6 +1399,10 @@ msgstr ""
 
 #: theme/templates/incidents/declaration.html:191
 msgid "Next"
+msgstr ""
+
+#: theme/templates/incidents/incidents_base.html:8
+msgid "Incident notification"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:27
@@ -1551,7 +1550,7 @@ msgstr ""
 #: theme/templates/observer/incidents.html:17
 #: theme/templates/operator/incidents.html:22
 #: theme/templates/operator/incidents.html:25
-msgid "The incident is over"
+msgid "The incident has been closed"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:223
@@ -1827,7 +1826,7 @@ msgstr ""
 
 #: theme/templates/registration/login.html:83
 #: theme/templates/registration/password_reset_form.html:10
-msgid "Have you forgotten your password?"
+msgid "Password forgotten?"
 msgstr ""
 
 #: theme/templates/registration/login.html:91

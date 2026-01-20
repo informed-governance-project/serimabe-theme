@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-11 16:06+0100\n"
-"PO-Revision-Date: 2025-12-11 12:40+0000\n"
-"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
+"POT-Creation-Date: 2026-01-20 09:01+0100\n"
+"PO-Revision-Date: 2026-01-19 08:27+0000\n"
+"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -1758,11 +1758,6 @@ msgstr ""
 "exclusivement compétents pour connaître de tout litige concernant ou en lien "
 "avec les Conditions d’utilisation et avec SERIMA."
 
-#: theme/templates/incidents/base.html:11
-#: theme/templates/incidents/incidents_base.html:8
-msgid "Incident notification"
-msgstr "Notification d'incident"
-
 #: theme/templates/incidents/base.html:15
 msgid "Overview"
 msgstr "Aperçu"
@@ -1868,6 +1863,10 @@ msgstr "Soumettre"
 msgid "Next"
 msgstr "Suivant"
 
+#: theme/templates/incidents/incidents_base.html:8
+msgid "Incident notification"
+msgstr "Notification d'incident"
+
 #: theme/templates/incidents/incidents_base.html:27
 msgid "Overview of reported incidents"
 msgstr "Vue d'ensemble des incidents signalés"
@@ -1879,7 +1878,7 @@ msgstr "Filtrer par statut, secteur, etc."
 #: theme/templates/incidents/incidents_base.html:43
 #: theme/templates/incidents/incidents_base.html:442
 msgid "Filter"
-msgstr "Filtre"
+msgstr "Filtrer"
 
 #: theme/templates/incidents/incidents_base.html:45
 msgid "Active"
@@ -2007,13 +2006,13 @@ msgstr "Impact non significatif"
 #: theme/templates/operator/incidents.html:14
 #: theme/templates/operator/incidents.html:17
 msgid "The incident is still ongoing"
-msgstr "L'incident est toujours en cours"
+msgstr "L'incident est en cours"
 
 #: theme/templates/incidents/incidents_base.html:208
 #: theme/templates/observer/incidents.html:17
 #: theme/templates/operator/incidents.html:22
 #: theme/templates/operator/incidents.html:25
-msgid "The incident is over"
+msgid "The incident has been closed"
 msgstr "L'incident est clos"
 
 #: theme/templates/incidents/incidents_base.html:223
@@ -2117,7 +2116,7 @@ msgstr "Responsable de la notification d’incidents"
 
 #: theme/templates/modals/contacts_incident.html:27
 msgid "Incident notification manager and technical contact"
-msgstr "Responsable de la notification d’incident et contact technique"
+msgstr "Responsable de la notification de l’incident et contact technique"
 
 #: theme/templates/modals/delete_incident.html:7
 msgid "Delete incident"
@@ -2296,8 +2295,8 @@ msgstr "Utiliser le jeton de secours"
 
 #: theme/templates/registration/login.html:83
 #: theme/templates/registration/password_reset_form.html:10
-msgid "Have you forgotten your password?"
-msgstr "Avez-vous oublié votre mot de passe ?"
+msgid "Password forgotten?"
+msgstr "Mot de passe oublié ?"
 
 #: theme/templates/registration/login.html:91
 msgid "Create an account"
@@ -2324,15 +2323,15 @@ msgstr ""
 
 #: theme/templates/registration/password_change_form.html:24
 msgid "Old password"
-msgstr ""
+msgstr "Ancien mot de passe"
 
 #: theme/templates/registration/password_change_form.html:25
 msgid "New password"
-msgstr ""
+msgstr "Nouveau mot de passe"
 
 #: theme/templates/registration/password_change_form.html:31
 msgid "New password confirmation"
-msgstr ""
+msgstr "Confirmation du nouveau mot de passe"
 
 #: theme/templates/registration/password_change_form.html:32
 #: theme/templates/registration/password_reset_confirm.html:27
@@ -2568,7 +2567,7 @@ msgstr ""
 #: theme/templates/two_factor/core/setup_complete.html:17
 msgid "Two-Factor Authentication has been set. Please log in again."
 msgstr ""
-"L'authentification à deux facteurs est activée. Veuillez-vous connecter à "
+"L'authentification à deux facteurs est activée. Veuillez vous connecter à "
 "nouveau."
 
 #: theme/templates/two_factor/core/setup_complete.html:22

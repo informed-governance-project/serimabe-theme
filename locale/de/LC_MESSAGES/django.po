@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-11 16:06+0100\n"
-"PO-Revision-Date: 2025-12-11 12:40+0000\n"
-"Last-Translator: Jacques Kellner <Jacques.Kellner+RegAdmin@ilr.lu>\n"
+"POT-Creation-Date: 2026-01-20 09:01+0100\n"
+"PO-Revision-Date: 2026-01-19 08:27+0000\n"
+"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -1120,7 +1120,7 @@ msgstr ""
 
 #: theme/templates/home/terms.html:274
 msgid "Description of SERIMA"
-msgstr "Description of SERIMA"
+msgstr "Beschreibung von SERIMA"
 
 #: theme/templates/home/terms.html:277
 msgid ""
@@ -1710,11 +1710,6 @@ msgstr ""
 "shall have exclusive jurisdiction to hear any dispute concerning or in "
 "connection with the Terms of Use and with SERIMA."
 
-#: theme/templates/incidents/base.html:11
-#: theme/templates/incidents/incidents_base.html:8
-msgid "Incident notification"
-msgstr "Vorfallmeldung"
-
 #: theme/templates/incidents/base.html:15
 msgid "Overview"
 msgstr "Übersicht"
@@ -1820,6 +1815,10 @@ msgstr "Einreichen"
 msgid "Next"
 msgstr "Weiter"
 
+#: theme/templates/incidents/incidents_base.html:8
+msgid "Incident notification"
+msgstr "Vorfallmeldung"
+
 #: theme/templates/incidents/incidents_base.html:27
 msgid "Overview of reported incidents"
 msgstr "Übersicht der gemeldeten Vorfälle"
@@ -1831,7 +1830,7 @@ msgstr "Filtern nach Status, Sektor usw."
 #: theme/templates/incidents/incidents_base.html:43
 #: theme/templates/incidents/incidents_base.html:442
 msgid "Filter"
-msgstr "Filter"
+msgstr "Filtern"
 
 #: theme/templates/incidents/incidents_base.html:45
 msgid "Active"
@@ -1965,8 +1964,8 @@ msgstr "Der Vorfall ist noch nicht abgeschlossen"
 #: theme/templates/observer/incidents.html:17
 #: theme/templates/operator/incidents.html:22
 #: theme/templates/operator/incidents.html:25
-msgid "The incident is over"
-msgstr "Der Vorfall ist beendet"
+msgid "The incident has been closed"
+msgstr "Der Vorfall wurde abgeschlossen"
 
 #: theme/templates/incidents/incidents_base.html:223
 msgid "Incident notification submission date"
@@ -2251,8 +2250,8 @@ msgstr "Wiederherstellungscode verwenden"
 
 #: theme/templates/registration/login.html:83
 #: theme/templates/registration/password_reset_form.html:10
-msgid "Have you forgotten your password?"
-msgstr "Haben Sie Ihr Passwort vergessen?"
+msgid "Password forgotten?"
+msgstr "Passwort vergessen?"
 
 #: theme/templates/registration/login.html:91
 msgid "Create an account"
@@ -2279,15 +2278,15 @@ msgstr ""
 
 #: theme/templates/registration/password_change_form.html:24
 msgid "Old password"
-msgstr ""
+msgstr "Altes Passwort"
 
 #: theme/templates/registration/password_change_form.html:25
 msgid "New password"
-msgstr ""
+msgstr "Neues Passwort"
 
 #: theme/templates/registration/password_change_form.html:31
 msgid "New password confirmation"
-msgstr ""
+msgstr "Neues Passwort bestätigen"
 
 #: theme/templates/registration/password_change_form.html:32
 #: theme/templates/registration/password_reset_confirm.html:27

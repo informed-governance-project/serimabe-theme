@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-11 16:06+0100\n"
-"PO-Revision-Date: 2025-12-11 13:29+0000\n"
-"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
+"POT-Creation-Date: 2026-01-20 09:01+0100\n"
+"PO-Revision-Date: 2026-01-12 11:27+0000\n"
+"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1295,11 +1295,6 @@ msgid ""
 "connection with the Terms of Use and with SERIMA."
 msgstr ""
 
-#: theme/templates/incidents/base.html:11
-#: theme/templates/incidents/incidents_base.html:8
-msgid "Incident notification"
-msgstr "Incidentmelding"
-
 #: theme/templates/incidents/base.html:15
 msgid "Overview"
 msgstr ""
@@ -1404,6 +1399,10 @@ msgstr ""
 #: theme/templates/incidents/declaration.html:191
 msgid "Next"
 msgstr "Volgend"
+
+#: theme/templates/incidents/incidents_base.html:8
+msgid "Incident notification"
+msgstr "Incidentmelding"
 
 #: theme/templates/incidents/incidents_base.html:27
 msgid "Overview of reported incidents"
@@ -1550,8 +1549,8 @@ msgstr "Het incident is nog aan de gang"
 #: theme/templates/observer/incidents.html:17
 #: theme/templates/operator/incidents.html:22
 #: theme/templates/operator/incidents.html:25
-msgid "The incident is over"
-msgstr "Het incident is gesloten"
+msgid "The incident has been closed"
+msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:223
 msgid "Incident notification submission date"
@@ -1831,8 +1830,8 @@ msgstr "Het back-uptoken gebruiken"
 
 #: theme/templates/registration/login.html:83
 #: theme/templates/registration/password_reset_form.html:10
-msgid "Have you forgotten your password?"
-msgstr "Bent u uw wachtwoord vergeten?"
+msgid "Password forgotten?"
+msgstr ""
 
 #: theme/templates/registration/login.html:91
 msgid "Create an account"

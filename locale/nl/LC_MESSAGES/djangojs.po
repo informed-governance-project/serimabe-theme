@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-10 14:51+0100\n"
+"POT-Creation-Date: 2026-01-20 09:01+0100\n"
 "PO-Revision-Date: 2025-05-26 10:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -39,21 +39,21 @@ msgstr "Niets geselecteerd"
 msgid "items selected"
 msgstr "items geselecteerd"
 
-#: theme/static/js/incidents.js:100
+#: theme/static/js/incidents.js:104
 msgid "Download PDF report"
 msgstr "Het PDF-verslag downloaden"
 
-#: theme/static/js/incidents.js:101
+#: theme/static/js/incidents.js:105
 msgid "Review"
 msgstr "Beoordeling"
 
-#: theme/static/js/incidents.js:102
+#: theme/static/js/incidents.js:106
 msgid "Comment"
 msgstr ""
 
 #: theme/static/js/incidents_regulator.js:33
-msgid "The incident is over"
-msgstr "Het incident is gesloten"
+msgid "The incident has been closed"
+msgstr ""
 
 #: theme/static/js/incidents_regulator.js:34
 msgid "The incident is still ongoing"
