@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 09:01+0100\n"
+"POT-Creation-Date: 2026-01-20 09:25+0100\n"
 "PO-Revision-Date: 2025-05-26 10:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -39,15 +39,15 @@ msgstr "Niets geselecteerd"
 msgid "items selected"
 msgstr "items geselecteerd"
 
-#: theme/static/js/incidents.js:104
+#: theme/static/js/incidents.js:104 theme/static/js/so_dashboard.js:82
 msgid "Download PDF report"
 msgstr "Het PDF-verslag downloaden"
 
-#: theme/static/js/incidents.js:105
+#: theme/static/js/incidents.js:105 theme/static/js/so_dashboard.js:83
 msgid "Review"
 msgstr "Beoordeling"
 
-#: theme/static/js/incidents.js:106
+#: theme/static/js/incidents.js:106 theme/static/js/so_dashboard.js:84
 msgid "Comment"
 msgstr ""
 
