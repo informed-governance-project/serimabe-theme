@@ -210,15 +210,6 @@ $(document).ready(function () {
         window.location.reload();
       } else {
         $popup.modal("show");
-        groupEl = document.querySelector('.input-group[data-td-target-input="nearest"]')
-
-        const options = {
-          ...defaultTempusdOptions,
-          restrictions: {
-            minDate: new Date()
-          }
-        };
-        if (groupEl) new tempusDominus.TempusDominus(groupEl, options);
       }
     });
   });
@@ -235,15 +226,6 @@ $(document).ready(function () {
         window.location.reload();
       } else {
         $popup.modal("show");
-        groupEl = document.querySelector('.input-group[data-td-target-input="nearest"]')
-
-        const options = {
-          ...defaultTempusdOptions,
-          restrictions: {
-            minDate: new Date()
-          }
-        };
-        if (groupEl) new tempusDominus.TempusDominus(groupEl, options);
       }
     });
   });

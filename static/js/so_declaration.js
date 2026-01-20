@@ -111,16 +111,6 @@ $(document).ready(function () {
     $(".modal-dialog", $popup).load(popup_url, function () {
       $popup.modal("show");
       $("#so-review-comment-form").attr("action", popup_url);
-      groupEl = document.querySelector('.input-group[data-td-target-input="nearest"]')
-      const options = {
-        ...defaultTempusdOptions,
-        restrictions: {
-          minDate: new Date()
-        }
-      };
-      if (!onlyReviewComment) {
-        new tempusDominus.TempusDominus(groupEl, options);
-      }
     });
   });
 
