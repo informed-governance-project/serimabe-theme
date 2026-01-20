@@ -26,9 +26,6 @@
         {% if not messages %}
           {% bootstrap_field form.status %}
           {% bootstrap_field form.review_comment %}
-          {% if is_regulator or form.initial.deadline %}
-            {% bootstrap_field form.deadline %}
-          {% endif %}
         {% endif %}
       </div>
       {% if not messages and is_regulator and not form.is_read_only %}
