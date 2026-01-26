@@ -158,15 +158,3 @@ window.addEventListener("pageshow", function (event) {
 window.addEventListener("load", function () {
   stop_spinner();
 });
-
-function htmlDecode(input) {
-  const e = document.createElement('textarea');
-  e.innerHTML = input;
-  return e.value;
-}
-
-function decodeUnicodeEscapes(str) {
-  return str.replace(/\\u([0-9a-fA-F]{4})/g, function (_, code) {
-    return String.fromCharCode(parseInt(code, 16));
-  });
-}
