@@ -44,8 +44,8 @@ msgid "Comment"
 msgstr ""
 
 #: theme/static/js/incidents_regulator.js:33
-msgid "The incident is over"
-msgstr "Het incident is gesloten"
+msgid "The incident has been closed"
+msgstr ""
 
 #: theme/static/js/incidents_regulator.js:34
 msgid "The incident is still ongoing"

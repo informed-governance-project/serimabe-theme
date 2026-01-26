@@ -41,11 +41,11 @@ msgstr "Überprüfung"
 
 #: theme/static/js/incidents.js:102 theme/static/js/so_dashboard.js:79
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 #: theme/static/js/incidents_regulator.js:33
-msgid "The incident is over"
-msgstr "Der Vorfall ist beendet"
+msgid "The incident has been closed"
+msgstr "Der Vorfall wurde abgeschlossen"
 
 #: theme/static/js/incidents_regulator.js:34
 msgid "The incident is still ongoing"

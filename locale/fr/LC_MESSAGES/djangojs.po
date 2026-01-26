@@ -41,10 +41,10 @@ msgstr "Revue"
 
 #: theme/static/js/incidents.js:102 theme/static/js/so_dashboard.js:79
 msgid "Comment"
-msgstr ""
+msgstr "Commentaire"
 
 #: theme/static/js/incidents_regulator.js:33
-msgid "The incident is over"
+msgid "The incident has been closed"
 msgstr "L'incident est clos"
 
 #: theme/static/js/incidents_regulator.js:34

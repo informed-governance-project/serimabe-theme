@@ -42,7 +42,7 @@ msgid "Comment"
 msgstr ""
 
 #: theme/static/js/incidents_regulator.js:33
-msgid "The incident is over"
+msgid "The incident has been closed"
 msgstr ""
 
 #: theme/static/js/incidents_regulator.js:34
