@@ -135,18 +135,3 @@ window.addEventListener("pageshow", function (event) {
 window.addEventListener("load", function () {
   stop_spinner();
 });
-
-function htmlDecode(input) {
-  if (!input) return '';
-
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(input, 'text/html');
-
-  return doc.documentElement.textContent;
-}
-
-function decodeUnicodeEscapes(str) {
-  return str.replace(/\\u([0-9a-fA-F]{4})/g, function (_, code) {
-    return String.fromCharCode(parseInt(code, 16));
-  });
-}
