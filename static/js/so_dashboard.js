@@ -49,6 +49,11 @@ $(document).ready(function () {
       },
       {
         targets: 8,
+        orderable: true,
+        type: 'string-utf8',
+      },
+      {
+        targets: 9,
         orderable: false,
       },
     ]
@@ -184,8 +189,12 @@ $(document).ready(function () {
     let $popup = $("#copy_so_declaration");
     let popup_url = `/securityobjectives/copy/${standardAnswerId}`;
 
-    $(".modal-dialog", $popup).load(popup_url, function () {
-      $popup.modal("show");
+    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr)  {
+      if (xhr.status === 403 || xhr.status === 404) {
+        window.location.reload();
+      } else {
+        $popup.modal("show");
+      }
     });
   });
 
@@ -195,17 +204,13 @@ $(document).ready(function () {
     let $popup = $("#review_comment_so_declaration");
     let popup_url = `/securityobjectives/review_comment/${standardAnswerId}`;
     $popup.find(".modal-dialog").empty();
-    $(".modal-dialog", $popup).load(popup_url, function () {
-      $popup.modal("show");
-      groupEl = document.querySelector('.input-group[data-td-target-input="nearest"]')
 
-      const options = {
-        ...defaultTempusdOptions,
-        restrictions: {
-          minDate: new Date()
-        }
-      };
-      if (groupEl) new tempusDominus.TempusDominus(groupEl, options);
+    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr) {
+      if (xhr.status === 403 || xhr.status === 404) {
+        window.location.reload();
+      } else {
+        $popup.modal("show");
+      }
     });
   });
 
@@ -215,17 +220,13 @@ $(document).ready(function () {
     let $popup = $("#so_versions_review_comment_so_declaration");
     let popup_url = `/securityobjectives/review_comment/${standardAnswerId}?from=versions`;
     $popup.find(".modal-dialog").empty();
-    $(".modal-dialog", $popup).load(popup_url, function () {
-      $popup.modal("show");
-      groupEl = document.querySelector('.input-group[data-td-target-input="nearest"]')
 
-      const options = {
-        ...defaultTempusdOptions,
-        restrictions: {
-          minDate: new Date()
-        }
-      };
-      if (groupEl) new tempusDominus.TempusDominus(groupEl, options);
+    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr) {
+      if (xhr.status === 403 || xhr.status === 404) {
+        window.location.reload();
+      } else {
+        $popup.modal("show");
+      }
     });
   });
 
