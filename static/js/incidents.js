@@ -178,7 +178,6 @@ $(document).ready(function () {
     // Show the comment
     $(document).on('click', '.comment-btn', function () {
       let comment = decodeURIComponent($(this).data('comment') || '');
-      comment = htmlDecode(comment);
       $('#report_version_workflow_comment #modal-workflow-comment').val(comment);
     });
     $modalWorkflowRows.find('[data-bs-toggle="tooltip"]').tooltip();
