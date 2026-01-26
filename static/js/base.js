@@ -59,6 +59,20 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 })
 
 $(document).ready(function () {
+  $('.multiselectcheckbox').multiselect({
+    maxHeight: 400,
+    buttonWidth: '100%',
+    widthSynchronizationMode: 'always',
+    buttonTextAlignment: 'left',
+    nonSelectedText: gettext('Nothing selected'),
+    nSelectedText: gettext('items selected'),
+    numberDisplayed: 1,
+    templates: {
+      button: '<button class="multiselect form-select dropdown-toggle" data-bs-toggle="dropdown"><span class="multiselect-selected-text"></span></button>',
+      option: '<button class="multiselect-option dropdown-item"></button>',
+    }
+  });
+
   $('.create_so_declaration').on("click", function () {
     var $popup = $("#create_so_declaration");
     var popup_url = '/securityobjectives/create';
@@ -122,3 +136,14 @@ window.addEventListener("load", function () {
   stop_spinner();
 });
 
+function htmlDecode(input) {
+  const e = document.createElement('textarea');
+  e.innerHTML = input;
+  return e.value;
+}
+
+function decodeUnicodeEscapes(str) {
+  return str.replace(/\\u([0-9a-fA-F]{4})/g, function (_, code) {
+    return String.fromCharCode(parseInt(code, 16));
+  });
+}
