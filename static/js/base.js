@@ -137,9 +137,12 @@ window.addEventListener("load", function () {
 });
 
 function htmlDecode(input) {
-  const e = document.createElement('textarea');
-  e.innerHTML = input;
-  return e.value;
+  if (!input) return '';
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(input, 'text/html');
+
+  return doc.documentElement.textContent;
 }
 
 function decodeUnicodeEscapes(str) {
