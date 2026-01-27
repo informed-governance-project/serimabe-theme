@@ -18,9 +18,7 @@
       </h2>
     </div>
     <div class="hstack gap-4 pe-2">
-      <a class="fw-bold"
-         href="{% url 'securityobjectives' %}"
-         onclick="load_spinner()">
+      <a class="fw-bold spinner-trigger" href="{% url 'securityobjectives' %}">
         {% translate "Dashboard" %}
       </a>
       {% if is_regulator %}

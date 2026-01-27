@@ -144,7 +144,7 @@ $(document).ready(function () {
           <td class="col-2 text-center">
             <div class="d-inline-flex align-middle">
               ${commentIcon}
-              <a class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center" href="${reviewUrl}"
+              <a class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center spinner-trigger" href="${reviewUrl}"
                   data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_review}">
                   <i class="custom-icon-view h4 align-self-center" aria-hidden="true"></i>
               </a>

@@ -26,14 +26,11 @@
   </h5>
   <div class="d-flex">
     <div class="me-auto">
-      <button id="addSelectedButton"
-              class="btn btn-primary btn-sm"
-              onclick="load_spinner()">
+      <button id="addSelectedButton" class="btn btn-primary btn-sm spinner-trigger">
         {% translate "Add selected recommendation(s)" %}
       </button>
-      <a class="btn btn-secondary btn-sm"
-         href="{% url 'report_recommendations' company.id sector.id year %}"
-         onclick="load_spinner()">
+      <a class="btn btn-secondary btn-sm spinner-trigger"
+         href="{% url 'report_recommendations' company.id sector.id year %}">
         {% translate "Cancel" %}
       </a>
     </div>
@@ -75,15 +72,14 @@
             {% bootstrap_field filter.form.sectors label_class="fw-bold" wrapper_class="affected-sector-filter mb-3" %}
           </div>
           <div class="modal-footer">
-            <button class="btn btn-secondary btn-sm"
+            <button class="btn btn-secondary btn-sm spinner-trigger"
                     type="submit"
                     name="reset"
                     value="true"
-                    data-bs-dismiss="modal"
-                    onclick="load_spinner()">
+                    data-bs-dismiss="modal">
               {% translate "Reset" %}
             </button>
-            <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
+            <button class="btn btn-primary btn-sm spinner-trigger" type="submit">
               {% translate "Search" %}
             </button>
           </div>
