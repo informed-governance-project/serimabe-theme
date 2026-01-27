@@ -100,6 +100,11 @@ $(document).ready(function () {
 
   // Accesibility hack to be compliant with RGAA 10.8
   $('label.visually-hidden').remove();
+
+  $(document).on('click', '.spinner-trigger', function () {
+    load_spinner();
+  });
+
 })
 
 window.getCookie = function (name) {
