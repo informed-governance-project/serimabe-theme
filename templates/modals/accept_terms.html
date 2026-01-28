@@ -38,11 +38,10 @@
           </button>
         </div>
         <form action="" method="post">
-          {{ form.accept.id_for_label|json_script:"acceptId-data" }}
           <div class="modal-body py-4 px-5">
             {% csrf_token %}
             <div class="form-check">
-              <input class="form-check-input
+              <input class="accept-tos-input form-check-input
                             {% if is_only_admin %}
                               input
                             {% endif %}"
