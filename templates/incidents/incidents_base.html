@@ -9,7 +9,6 @@
 {% endblock %}
 {% block bootstrap5_extra_script %}
   {{ block.super }}
-  <meta name="csrf-token" content="{{ csrf_token }}">
   <script type="text/javascript"
           src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
   <script type="text/javascript"
