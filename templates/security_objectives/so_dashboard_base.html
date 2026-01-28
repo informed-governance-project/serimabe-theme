@@ -46,13 +46,13 @@
         {% endif %}
         <i class="bi bi-filter" aria-hidden="true"></i>
       </button>
-      <button type="button"
+      <button id="so_status_legend_btn"
+              type="button"
               class="btn btn-primary bg-body border-0 p-0"
               data-bs-toggle="collapse"
               data-bs-target="#collapseLegend"
               aria-expanded="false"
-              aria-controls="collapseLegend"
-              onclick="save_so_status_legend()">
+              aria-controls="collapseLegend">
         <img src="{% static 'images/icons/ico-legend.svg' %}"
              alt="legend"
              data-bs-placement="top"
