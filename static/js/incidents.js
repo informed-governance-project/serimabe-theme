@@ -228,6 +228,11 @@ $(document).ready(function () {
     $("#filterModal").modal("show");
   });
 
+  $(document).on("click", "#ni_legend_btn", function () {
+    const current = localStorage.getItem('ni_status_legend') === "true";
+    const newValue = !current;
+    localStorage.setItem('ni_status_legend', newValue);
+  });
 
   const $search_bar_form = $("#search_bar_form")
   const $search_bar_input = $("#id_search")
@@ -266,9 +271,4 @@ $(document).ready(function () {
   toggleClearButton();
 });
 
-function save_ni_status_legend() {
-  const current = localStorage.getItem('ni_status_legend') === "true";
-  const newValue = !current;
-  localStorage.setItem('ni_status_legend', newValue);
-}
 
