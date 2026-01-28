@@ -120,7 +120,7 @@ $(document).ready(function () {
     if (companyTableForm.length) {
       paginationParams = table.page.info();
       table.page.len(-1).draw();
-      const csrftoken = getCookie('csrftoken');
+      const csrftoken = getCsrftoken();
       let formdata = companyTableForm.serialize();
       table.page.len(paginationParams.length).draw();
       load_spinner();

@@ -47,7 +47,7 @@ $(document).ready(function () {
 });
 
 function onChangeRecommendation(value, id) {
-  const csrftoken = getCookie('csrftoken');
+  const csrftoken = getCsrftoken();
   let formdata = $(value).serialize();
 
   $.ajax({

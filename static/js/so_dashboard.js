@@ -241,7 +241,7 @@ $(document).ready(function () {
 
   $(".download-link").on("click", function (e) {
     let $this = $(this);
-    const csrftoken = getCookie('csrftoken');
+    const csrftoken = getCsrftoken();
     const standardAnswerId = $this.data('standard-answer-id');
     load_spinner();
     fetch(`download/${standardAnswerId}`, {

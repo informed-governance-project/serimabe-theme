@@ -122,7 +122,7 @@ $(document).ready(function () {
     }
 
     e.preventDefault();
-    const csrftoken = getCookie('csrftoken');
+    const csrftoken = getCsrftoken();
     const url = $form.attr('action');
 
     fetch(url, {
