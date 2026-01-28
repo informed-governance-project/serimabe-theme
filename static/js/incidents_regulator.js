@@ -1,5 +1,7 @@
 function onChangeIncident(value, id) {
-  const csrftoken = getCookie('csrftoken');
+  const csrftoken = document
+    .querySelector('meta[name="csrf-token"]')
+    .getAttribute('content');
   let formdata = $(value).serialize();
 
   if ($(value).attr('name') == 'incident_status'){
