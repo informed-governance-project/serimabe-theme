@@ -162,15 +162,13 @@ $(document).ready(function () {
     $modalVersionsRows.find('[data-bs-toggle="tooltip"]').tooltip();
   });
 
-
-
   $(document).on("click", ".delete_so_declaration", function () {
     let $this = $(this);
-    let modalDeleteButton = $("#modal-delete-declaration-button");
+    let modalDeleteForm = $("#modal-delete-declaration-form");
     let deleteUrlBase = $this.data('delete-url');
     let standardAnswerId = $this.data('standard-answer-id');
     let deleteUrl = deleteUrlBase.replace('0', standardAnswerId);
-    modalDeleteButton.attr('href', deleteUrl);
+    modalDeleteForm.attr('action', deleteUrl);
   });
 
   $(document).on("click", ".update_so_declaration", function () {
