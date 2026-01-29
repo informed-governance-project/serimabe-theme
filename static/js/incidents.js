@@ -185,11 +185,11 @@ $(document).ready(function () {
 
   $(document).on("click", '.delete_incident', function () {
     let $this = $(this);
-    let modalDeleteButton = $("#modal-delete-button");
+    let modalDeleteForm = $("#modal-delete-form");
     let deleteUrlBase = $this.data('delete-url');
     let incidentId = $this.data('incident-id');
     let deleteUrl = deleteUrlBase.replace('0', incidentId);
-    modalDeleteButton.attr('href', deleteUrl);
+    modalDeleteForm.attr('action', deleteUrl);
   });
 
   $(document).on("click", '.contacts_incident', function () {
