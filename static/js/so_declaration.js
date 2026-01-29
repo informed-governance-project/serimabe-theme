@@ -178,10 +178,14 @@ $(document).ready(function () {
     const newValue = !current;
     localStorage.setItem('so_declaration_status_legend', newValue);
   });
+
+  $(document).on("change", ".so-input-field", function () {
+    update_so_declaration(this);
+  });
 });
 
 function update_so_declaration(form) {
-  const csrftoken = $('input[name=csrfmiddlewaretoken]').val();
+  const csrftoken = getCsrftoken();
   const id = form.name.split('-').shift();
   const name = form.name.split('-').pop();
   if (form.checked !== undefined) form.value = form.checked;
