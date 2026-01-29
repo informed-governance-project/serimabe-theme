@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(".incident-input-field").on("change", function () {
+  $(document).on("change", ".incident-input-field", function () {
     onChangeIncident(this);
   });
 
