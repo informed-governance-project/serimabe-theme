@@ -187,7 +187,7 @@
                            {% else %}
                              title="{% translate 'No significant impact' %}"
                            {% endif %}>
-                        {% bootstrap_field field show_label=False wrapper_class="m-0" field_class="is_significative_impact_checkbox" %}
+                        {% bootstrap_field field show_label=False wrapper_class="m-0" %}
                       </div>
                     {% endif %}
                   {% endfor %}
@@ -197,8 +197,8 @@
                     {% if field.name == "incident_status" %}
                       <input type="checkbox"
                              name="incident_status"
-                             class="form-check-input status_checkbox large-checkbox m-0"
-                             onchange="onChangeIncident(this, {{ incident.id }})"
+                             class="form-check-input status_checkbox large-checkbox m-0 incident-input-field"
+                             data-incident-id="{{ incident.id }}"
                              id="incident_status_{{ incident.id }}"
                              data-bs-placement="top"
                              data-bs-toggle="tooltip"
