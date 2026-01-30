@@ -118,6 +118,9 @@
       <thead>
         <tr>
           <th scope="col">
+            {% translate "Last update" %}
+          </th>
+          <th scope="col">
             {% translate "Status" %}
           </th>
           <th scope="col">
@@ -174,6 +177,18 @@
           {% timezone time_zone %}
           <tr>
             <!-- Incident status  -->
+            <td class="table-group-divider py-3"
+                data-order="{{ incident.incident_last_update.timestamp }}">
+              <div class="d-inline"
+                   data-bs-placement="top"
+                   data-bs-toggle="tooltip"
+                   title="{% translate 'Last update date' %}">
+                {{ incident.incident_last_update|date:"d/m/y" }}
+                <br />
+                <i class="bi bi-clock" aria-hidden="true"></i>
+                {{ incident.incident_last_update|date:"H:i" }}
+              </div>
+            </td>
             <td class="table-group-divider py-3">
               <div class="col d-inline-flex align-items-center justify-content-center gap-1">
                 {% block content_table_significative_impact %}
