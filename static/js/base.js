@@ -128,6 +128,56 @@ $(document).ready(function () {
     load_spinner();
   });
 
+  // Sorting icons for sortable table headers
+  const currentSortField = new URLSearchParams(window.location.search).get('sort_field');
+  const currentSortDirection = new URLSearchParams(window.location.search).get('sort_direction');
+
+  $('.sortable').each(function () {
+    const $th = $(this);
+    const sortField = $th.data('sort-field');
+
+    // Wrap existing text
+    const $label = $th.text().trim();
+    $th.empty();
+
+    const $container = $('<div>', {
+      class: 'd-flex align-items-center justify-content-between'
+    });
+
+
+    const $icons = $('<span>', {
+      class: 'd-flex flex-column ms-2 lh-1 sort-icons'
+    });
+
+    const $up = $('<i>', {
+      class: 'bi bi-caret-up-fill'
+    });
+
+    const $down = $('<i>', {
+      class: 'bi bi-caret-down-fill'
+    });
+
+    // Default muted
+    $up.addClass('text-muted');
+    $down.addClass('text-muted');
+
+    // Highlight active arrow
+    if ( currentSortField === null && $th.hasClass('default-sort-field')) {
+      $down.removeClass('text-muted').addClass('text-primary');
+    }
+    if (sortField === currentSortField) {
+      if (currentSortDirection === 'asc') {
+        $up.removeClass('text-muted').addClass('text-primary');
+      } else if (currentSortDirection === 'desc') {
+        $down.removeClass('text-muted').addClass('text-primary');
+      }
+    }
+
+    $icons.append($up, $down);
+    $container.append($label, $icons);
+    $th.append($container);
+  });
+
 })
 
 window.getCsrftoken = function () {
@@ -150,4 +200,35 @@ window.addEventListener("pageshow", function (event) {
 
 window.addEventListener("load", function () {
   stop_spinner();
+});
+
+$('.sortable').on('click', function () {
+  load_spinner();
+  const sortField = $(this).data('sort-field');
+  const params = new URLSearchParams(window.location.search);
+
+  const currentField = params.get('sort_field');
+  const currentDirection = params.get('sort_direction');
+
+  let nextDirection = 'asc';
+
+  if (currentField === sortField) {
+    if (currentDirection === 'asc') {
+      nextDirection = 'desc';
+    } else if (currentDirection === 'desc') {
+      params.delete('sort_field');
+      params.delete('sort_direction');
+      const query = params.toString();
+      window.location.href = query
+        ? `${window.location.pathname}?${query}`
+        : window.location.pathname;
+      return;
+    }
+  }
+
+    // Apply sorting
+  params.set('sort_field', sortField);
+  params.set('sort_direction', nextDirection);
+
+  window.location.search = params.toString();
 });
