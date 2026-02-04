@@ -117,16 +117,22 @@
       <caption class="visually-hidden">{% translate "Incidents table" %}</caption>
       <thead>
         <tr>
-          <th scope="col">
-            {% translate "Last update" %}
-          </th>
-          <th scope="col">
+          <th scope="col" class="sortable align-middle" data-sort-field="status">
             {% translate "Status" %}
           </th>
-          <th scope="col">
+          <th scope="col"
+              class="sortable align-middle default-sort-field"
+              data-sort-field="last_update">
+            {% translate "Last update" %}
+          </th>
+          <th scope="col"
+              class="sortable align-middle"
+              data-sort-field="notification_date">
             {% translate "Creation date" %}
           </th>
-          <th scope="col">
+          <th scope="col"
+              class="sortable align-middle"
+              data-sort-field="company_identifier">
             {% if is_regulator and not is_regulator_incidents or is_observer %}
               {% translate "Operator Acronym" %}
             {% else %}
@@ -134,30 +140,34 @@
             {% endif %}
           </th>
           <th scope="col"
-              class="{% if not is_regulator or is_regulator_incidents and not is_observer %}
+              class="sortable align-middle
+                     {% if not is_regulator or is_regulator_incidents and not is_observer %}
                        d-none
-                     {% endif %}">
+                     {% endif %}"
+              data-sort-field="company_name">
             {% translate "Operator Name" %}
           </th>
-          <th scope="col">
+          <th scope="col"
+              class="sortable align-middle"
+              data-sort-field="regulation">
             {% if is_observer %}
               {% translate "Regulator" %}
             {% else %}
               {% translate "Regulation" %}
             {% endif %}
           </th>
-          <th scope="col">
+          <th scope="col" class="sortable align-middle" data-sort-field="reference">
             {% translate "Reference" %}
           </th>
-          <th scope="col">
+          <th scope="col" class="sortable align-middle" data-sort-field="sectors">
             {% translate "Sectors" %}
           </th>
-          <th scope="col">
+          <th scope="col" class="align-middle">
             {% translate "Report" %}
           </th>
-          <th scope="col">
-            <div class="d-flex align-items-end">
-              <span>{% translate "Actions" %}</span>
+          <th scope="col" class="align-middle">
+            <div class="d-flex align-items-center">
+              {% translate "Actions" %}
               <button class="btn btn-sm btn-primary ms-auto"
                       data-bs-toggle="modal"
                       data-bs-target="#IncidentshideColumns">
@@ -177,18 +187,6 @@
           {% timezone time_zone %}
           <tr>
             <!-- Incident status  -->
-            <td class="table-group-divider py-3"
-                data-order="{{ incident.incident_last_update.timestamp }}">
-              <div class="d-inline"
-                   data-bs-placement="top"
-                   data-bs-toggle="tooltip"
-                   title="{% translate 'Last update date' %}">
-                {{ incident.incident_last_update|date:"d/m/y" }}
-                <br />
-                <i class="bi bi-clock" aria-hidden="true"></i>
-                {{ incident.incident_last_update|date:"H:i" }}
-              </div>
-            </td>
             <td class="table-group-divider py-3">
               <div class="col d-inline-flex align-items-center justify-content-center gap-1">
                 {% block content_table_significative_impact %}
@@ -229,9 +227,20 @@
                 {% endblock %}
               </div>
             </td>
-            <!-- NoIncident notification date -->
-            <td class="table-group-divider py-3"
-                data-order="{{ incident.incident_notification_date.timestamp }}">
+            <!-- Incident last update date -->
+            <td class="table-group-divider py-3">
+              <div class="d-inline"
+                   data-bs-placement="top"
+                   data-bs-toggle="tooltip"
+                   title="{% translate 'Last update date' %}">
+                {{ incident.incident_last_update|date:"d/m/y" }}
+                <br />
+                <i class="bi bi-clock" aria-hidden="true"></i>
+                {{ incident.incident_last_update|date:"H:i" }}
+              </div>
+            </td>
+            <!-- Incident notification date -->
+            <td class="table-group-divider py-3">
               <div class="d-inline"
                    data-bs-placement="top"
                    data-bs-toggle="tooltip"

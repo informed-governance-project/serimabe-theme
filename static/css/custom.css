@@ -13830,4 +13830,13 @@ table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
   box-shadow: none;
 }
 
+th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+th.sortable .sort-icons {
+  font-size: xx-small;
+}
+
 /*# sourceMappingURL=custom.css.map */

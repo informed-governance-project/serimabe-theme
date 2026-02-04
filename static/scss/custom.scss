@@ -410,3 +410,12 @@ table.dataTable thead>tr>td.dt-ordering-desc span.dt-column-order:after {
     border-color: var(--bs-dark);
     box-shadow: none;
 }
+
+th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+th.sortable .sort-icons {
+    font-size: xx-small;
+}
