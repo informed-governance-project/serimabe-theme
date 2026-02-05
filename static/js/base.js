@@ -107,7 +107,7 @@ $(document).ready(function () {
 
   // Sorting icons for sortable table headers
   const currentSortField = new URLSearchParams(window.location.search).get('sort_field');
-  const currentSortDirection = new URLSearchParams(window.location.search).get('sort_direction');
+  const currentSortDirection = new URLSearchParams(window.location.search).get('sort_direction') || 'desc';
 
   $('.sortable').each(function () {
     const $th = $(this);
@@ -181,11 +181,11 @@ window.addEventListener("load", function () {
 
 $('.sortable').on('click', function () {
   load_spinner();
-  const sortField = $(this).data('sort-field').trim();
+  const sortField = $(this).data('sort-field') ? $(this).data('sort-field').trim() : null;
   const params = new URLSearchParams(window.location.search);
 
-  const currentField = params.get('sort_field').trim();
-  const currentDirection = params.get('sort_direction').trim();
+  const currentField = params.get('sort_field') ? params.get('sort_field').trim() : null;
+  const currentDirection = params.get('sort_direction') ? params.get('sort_direction').trim() : null;
 
   let nextDirection = 'asc';
 
