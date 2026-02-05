@@ -181,11 +181,11 @@ window.addEventListener("load", function () {
 
 $('.sortable').on('click', function () {
   load_spinner();
-  const sortField = $(this).data('sort-field');
+  const sortField = $(this).data('sort-field').trim();
   const params = new URLSearchParams(window.location.search);
 
-  const currentField = params.get('sort_field');
-  const currentDirection = params.get('sort_direction');
+  const currentField = params.get('sort_field').trim();
+  const currentDirection = params.get('sort_direction').trim();
 
   let nextDirection = 'asc';
 
