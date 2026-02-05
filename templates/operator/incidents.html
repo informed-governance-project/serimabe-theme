@@ -47,9 +47,6 @@
 {% block content_table_incident_id %}
   {{ incident.incident_id }}
 {% endblock %}
-{% block content_table_entity %}
-  {{ incident.sector_regulation.regulator }}
-{% endblock %}
 {% block content_table_report %}
   {% with completed_workflows=incident.get_workflows_completed %}
     <ul class="list-unstyled mb-0">
