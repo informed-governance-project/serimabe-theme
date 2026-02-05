@@ -106,8 +106,10 @@ $(document).ready(function () {
   });
 
   // Sorting icons for sortable table headers
-  const currentSortField = new URLSearchParams(window.location.search).get('sort_field');
-  const currentSortDirection = new URLSearchParams(window.location.search).get('sort_direction') || 'desc';
+  const sort_field_from_context = $('#sort_field_ni_table').text() ? JSON.parse($('#sort_field_ni_table').text()) : null;
+  const sort_direction_from_context = $('#sort_direction_ni_table').text() ? JSON.parse($('#sort_direction_ni_table').text()) : "desc";
+  const currentSortField = new URLSearchParams(window.location.search).get('sort_field') || sort_field_from_context;
+  const currentSortDirection = new URLSearchParams(window.location.search).get('sort_direction') || sort_direction_from_context;
 
   $('.sortable').each(function () {
     const $th = $(this);
@@ -181,11 +183,12 @@ window.addEventListener("load", function () {
 
 $('.sortable').on('click', function () {
   load_spinner();
+  const sort_field_from_context = $('#sort_field_ni_table').text() ? JSON.parse($('#sort_field_ni_table').text()) : null;
+  const sort_direction_from_context = $('#sort_direction_ni_table').text() ? JSON.parse($('#sort_direction_ni_table').text()) : "desc";
   const sortField = $(this).data('sort-field') ? $(this).data('sort-field').trim() : null;
   const params = new URLSearchParams(window.location.search);
-
-  const currentField = params.get('sort_field') ? params.get('sort_field').trim() : null;
-  const currentDirection = params.get('sort_direction') ? params.get('sort_direction').trim() : null;
+  const currentField = params.get('sort_field') ? params.get('sort_field').trim() : sort_field_from_context;
+  const currentDirection = params.get('sort_direction') ? params.get('sort_direction').trim() : sort_direction_from_context;
 
   let nextDirection = 'asc';
 
@@ -195,6 +198,7 @@ $('.sortable').on('click', function () {
     } else if (currentDirection === 'desc') {
       params.delete('sort_field');
       params.delete('sort_direction');
+      params.set('reset_sort', 'true');
       const query = params.toString();
       window.location.href = query
         ? `${window.location.pathname}?${query}`
