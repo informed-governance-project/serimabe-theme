@@ -79,39 +79,48 @@
       <caption class="visually-hidden">{% translate "Security objectives table" %}</caption>
       <thead>
         <tr>
-          <th class="col-1 text-center">
+          <th class="col-1 text-center sortable align-middle"
+              data-sort-field="status">
             {% translate "Status" %}
           </th>
-          <th class="col-1">
+          <th class="col-1 sortable align-middle default-sort-field"
+              data-sort-field="last_update">
             {% translate "Last update" %}
           </th>
-          <th class="col-1">
+          <th class="col-1 sortable align-middle" data-sort-field="submit_date">
             {% translate "Submission date" %}
           </th>
-          <th class="col-1">
+          <th class="col-1 sortable align-middle" data-sort-field="identifier">
             {% translate "Identifier" %}
           </th>
-          <th class="col-1">
+          <th class="col-1 sortable align-middle" data-sort-field="framework">
             {% translate "Evaluation Framework" %}
           </th>
-          <th class="col-1">
-            {% if not is_regulator %}
+          {% if not is_regulator %}
+            <th class="col-1 sortable align-middle" data-sort-field="creator">
               {% translate "Creator" %}
-            {% else %}
+            </th>
+          {% else %}
+            <th class="col-1 sortable align-middle" data-sort-field="company_name">
               {% translate "Company" %}
-            {% endif %}
-          </th>
-          <th class="col-2">
+            </th>
+          {% endif %}
+          <th class="col-2 sortable align-middle" data-sort-field="sectors">
             {% translate "Sectors" %}
           </th>
-          <th class="col-1">
+          <th class="col-1 sortable align-middle" data-sort-field="year">
             {% translate "Year" %}
           </th>
-          <th class="col-2">
+          <th class="col-2 sortable align-middle"
+              data-sort-field="{% if is_regulator %}
+                                 reviewed_percentage
+                               {% else %}
+                                 answered_percentage
+                               {% endif %}">
             {% translate "Progress" %}
           </th>
-          <th class="col-1">
-            <div class="d-flex align-items-end">
+          <th class="col-1 align-middle">
+            <div class="d-flex align-items-center">
               <span>{% translate "Actions" %}</span>
               <button class="btn btn-sm btn-primary ms-auto"
                       data-bs-toggle="modal"
