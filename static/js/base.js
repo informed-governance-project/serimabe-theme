@@ -127,6 +127,9 @@ $(document).ready(function () {
   $(document).on('click', '.spinner-trigger', function () {
     load_spinner();
   });
+
+  // Search bar form
+  toggleClearButton();
 })
 
 $(document).on("click","#openFilter", function () {
@@ -154,6 +157,7 @@ window.addEventListener("pageshow", function (event) {
 window.addEventListener("load", function () {
   stop_spinner();
 });
+
 
 // Dashboard columns sort management
 var sort_field_from_context = null
@@ -238,48 +242,104 @@ $(document).on('click', '.sortable', function () {
 });
 
 // Dashboard columns visibility management
-var $tableDashboard = null;
-var STORAGE_TABLE_DASHBOARD_KEY = null;
-var $choiceColumnsModal = null;
+const STORAGE_DASHBOARD_KEY = 'Dashboard:' + encodeURIComponent(window.location.pathname);
 
-function setColumnVisible(colIdx, visible) {
-  $tableDashboard.find('tr').each(function () {
+function getStoredData() {
+  return JSON.parse(localStorage.getItem(STORAGE_DASHBOARD_KEY) || '{}');
+}
+
+function saveLocalStorageData(data) {
+  localStorage.setItem(STORAGE_DASHBOARD_KEY, JSON.stringify(data));
+}
+
+function setColumnVisible($table, colIdx, visible) {
+  $table.find('tr').each(function () {
     $(this).children().eq(colIdx).toggle(visible);
   });
 }
 
 function saveColumnDashboardState() {
-  const state = {};
+  const storedData = getStoredData();
+  storedData.ColumnsState = storedData.ColumnsState || {};
   $('.column-toggle').each(function () {
-    state[$(this).data('column')] = this.checked;
+    storedData.ColumnsState[$(this).data('column')] = this.checked;
   });
-  localStorage.setItem(STORAGE_TABLE_DASHBOARD_KEY, JSON.stringify(state));
+  saveLocalStorageData(storedData);
 }
 
-function loadColumnDashboardState() {
-  const saved = localStorage.getItem(STORAGE_TABLE_DASHBOARD_KEY);
-  if (!saved) return;
-
-  const state = JSON.parse(saved);
-
-  Object.entries(state).forEach(([colIdx, visible]) => {
-    setColumnVisible(Number(colIdx), visible);
-    $('.column-toggle[data-column="' + colIdx + '"]').prop('checked', visible);
-  });
+function loadColumnDashboardState($table) {
+  const storedData = getStoredData();
+  if (storedData.ColumnsState) {
+    Object.entries(storedData.ColumnsState).forEach(([colIdx, visible]) => {
+      setColumnVisible($table, Number(colIdx), visible);
+      $('.column-toggle[data-column="' + colIdx + '"]').prop('checked', visible);
+    });
+  }
 }
 
-$('.column-toggle').on('change', function () {
-  const colIdx = $(this).data('column');
-  const visible = this.checked;
-
-  setColumnVisible(colIdx, visible);
+function changeColumnVisibility($table, checkbox) {
+  const colIdx = $(checkbox).data('column');
+  const visible = checkbox.checked;
+  setColumnVisible($table,colIdx, visible);
   saveColumnDashboardState();
-});
+};
 
-$(document).on('show.bs.modal', $choiceColumnsModal, function () {
+function initColumnsChoice($table) {
   $('.column-toggle').each(function () {
     const colIdx = $(this).data('column');
-    const isVisible = $tableDashboard.find('thead th').eq(colIdx).is(':visible');
+    const isVisible = $table.find('thead th').eq(colIdx).is(':visible');
     $(this).prop('checked', isVisible);
   });
+};
+
+// Search input global functions
+const $search_bar_form = $("#search_bar_form")
+const $search_bar_input = $("#id_search")
+const $clearSearchBtn = $("#clearSearch")
+
+function toggleClearButton() {
+  if ($search_bar_input.val() !== "") {
+    $clearSearchBtn.removeClass("d-none");
+  } else {
+    $clearSearchBtn.addClass("d-none");
+  }
+}
+
+$(document).on("input", $search_bar_input, toggleClearButton)
+
+$(document).on("click", "#clearSearch", function () {
+  $search_bar_input.val("");
+  toggleClearButton();
+  $search_bar_form.trigger("submit");
 });
+
+$(document).on("submit", $search_bar_form, function () {
+  load_spinner()
+});
+
+
+// Legend status management
+function loadStatusLegend() {
+  const storedData = getStoredData();
+  const $legend = $('#collapseLegend');
+
+  if (storedData.show_legend === true) {
+    $legend.addClass('show');
+  } else if (storedData.show_legend === false) {
+    $legend.removeClass('show');
+  }
+}
+
+function saveStatusLegend() {
+  const storedData = getStoredData();
+  storedData.show_legend = !(storedData.show_legend === true);
+  saveLocalStorageData(storedData);
+}
+
+
+
+
+
+
+
+
