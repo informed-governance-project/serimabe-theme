@@ -141,7 +141,7 @@ $(document).ready(function () {
     $down.addClass('text-muted');
 
     // Highlight active arrow
-    if ( currentSortField === null && $th.hasClass('default-sort-field')) {
+    if (currentSortField === null && $th.hasClass('default-sort-field')) {
       $down.removeClass('text-muted').addClass('text-primary');
     }
     if (sortField === currentSortField) {
@@ -158,6 +158,10 @@ $(document).ready(function () {
   });
 
 })
+
+$(document).on("click","#openFilter", function () {
+  $("#filterModal").modal("show");
+});
 
 window.getCsrftoken = function () {
   return $('meta[name="csrf-token"]').attr('content');
@@ -212,4 +216,52 @@ $('.sortable').on('click', function () {
   params.set('sort_direction', nextDirection);
 
   window.location.search = params.toString();
+});
+
+
+// Dashboard columns visibility management
+var $tableDashboard = null;
+var STORAGE_TABLE_DASHBOARD_KEY = null;
+var $choiceColumnsModal = null;
+
+function setColumnVisible(colIdx, visible) {
+  $tableDashboard.find('tr').each(function () {
+    $(this).children().eq(colIdx).toggle(visible);
+  });
+}
+
+function saveColumnDashboardState() {
+  const state = {};
+  $('.column-toggle').each(function () {
+    state[$(this).data('column')] = this.checked;
+  });
+  localStorage.setItem(STORAGE_TABLE_DASHBOARD_KEY, JSON.stringify(state));
+}
+
+function loadColumnDashboardState() {
+  const saved = localStorage.getItem(STORAGE_TABLE_DASHBOARD_KEY);
+  if (!saved) return;
+
+  const state = JSON.parse(saved);
+
+  Object.entries(state).forEach(([colIdx, visible]) => {
+    setColumnVisible(Number(colIdx), visible);
+    $('.column-toggle[data-column="' + colIdx + '"]').prop('checked', visible);
+  });
+}
+
+$('.column-toggle').on('change', function () {
+  const colIdx = $(this).data('column');
+  const visible = this.checked;
+
+  setColumnVisible(colIdx, visible);
+  saveColumnDashboardState();
+});
+
+$(document).on('show.bs.modal', $choiceColumnsModal, function () {
+  $('.column-toggle').each(function () {
+    const colIdx = $(this).data('column');
+    const isVisible = $tableDashboard.find('thead th').eq(colIdx).is(':visible');
+    $(this).prop('checked', isVisible);
+  });
 });

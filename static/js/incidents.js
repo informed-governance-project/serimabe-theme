@@ -1,23 +1,9 @@
 $(document).ready(function () {
-  $('.column-toggle').on('change', function () {
-    var colIdx = $(this).data('column');
-    table.column(colIdx).visible(this.checked);
-  });
-
-  $('#IncidentshideColumns').on('show.bs.modal', function () {
-    table.columns().every(function (idx) {
-      var col = table.column(idx);
-      var visible = col.visible();
-      $('.column-toggle[data-column="' + idx + '"]').prop('checked', visible);
-    });
-  });
-
-
   $(document).on("click", '.access_log', function () {
     var $popup = $("#access_log");
     var popup_url = 'access_log/' + $(this).data("incident-id");
 
-    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr)  {
+    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr) {
       if (xhr.status === 403 || xhr.status === 404) {
         window.location.reload();
       } else {
@@ -158,17 +144,13 @@ $(document).ready(function () {
     let $popup = $("#export_incidents");
     let popup_url = `/incidents/export_incidents`;
 
-    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr)  {
+    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr) {
       if (xhr.status === 403) {
         window.location.reload();
       } else {
         $popup.modal("show");
       }
     });
-  });
-
-  $("#openFilter").on("click", function () {
-    $("#filterModal").modal("show");
   });
 
   $(document).on("click", "#ni_legend_btn", function () {
@@ -212,6 +194,11 @@ $(document).ready(function () {
 
   checkNIStatusLegend();
   toggleClearButton();
-});
 
+  // Dashboard columns visibility management
+  STORAGE_TABLE_DASHBOARD_KEY = 'tableColumns:' + window.location.pathname;
+  $tableDashboard = $('#incidents-table');
+  $choiceColumnsModal= $('#IncidentshideColumns');
+  loadColumnDashboardState();
+});
 
