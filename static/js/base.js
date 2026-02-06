@@ -104,59 +104,6 @@ $(document).ready(function () {
   $(document).on('click', '.spinner-trigger', function () {
     load_spinner();
   });
-
-  // Sorting icons for sortable table headers
-  const sort_field_from_context = $('#sort_field_ni_table').text() ? JSON.parse($('#sort_field_ni_table').text()) : null;
-  const sort_direction_from_context = $('#sort_direction_ni_table').text() ? JSON.parse($('#sort_direction_ni_table').text()) : "desc";
-  const currentSortField = new URLSearchParams(window.location.search).get('sort_field') || sort_field_from_context;
-  const currentSortDirection = new URLSearchParams(window.location.search).get('sort_direction') || sort_direction_from_context;
-
-  $('.sortable').each(function () {
-    const $th = $(this);
-    const sortField = $th.data('sort-field');
-
-    // Wrap existing text
-    const $label = $th.text().trim();
-    $th.empty();
-
-    const $container = $('<div>', {
-      class: 'd-flex align-items-center justify-content-between'
-    });
-
-
-    const $icons = $('<span>', {
-      class: 'd-flex flex-column ms-2 lh-1 sort-icons'
-    });
-
-    const $up = $('<i>', {
-      class: 'bi bi-caret-up-fill'
-    });
-
-    const $down = $('<i>', {
-      class: 'bi bi-caret-down-fill'
-    });
-
-    // Default muted
-    $up.addClass('text-muted');
-    $down.addClass('text-muted');
-
-    // Highlight active arrow
-    if (currentSortField === null && $th.hasClass('default-sort-field')) {
-      $down.removeClass('text-muted').addClass('text-primary');
-    }
-    if (sortField === currentSortField) {
-      if (currentSortDirection === 'asc') {
-        $up.removeClass('text-muted').addClass('text-primary');
-      } else if (currentSortDirection === 'desc') {
-        $down.removeClass('text-muted').addClass('text-primary');
-      }
-    }
-
-    $icons.append($up, $down);
-    $container.append($label, $icons);
-    $th.append($container);
-  });
-
 })
 
 $(document).on("click","#openFilter", function () {
@@ -185,10 +132,60 @@ window.addEventListener("load", function () {
   stop_spinner();
 });
 
-$('.sortable').on('click', function () {
+// Dashboard columns sort management
+var sort_field_from_context = null
+var sort_direction_from_context = "desc"
+
+function initSortableHeaders(options = {}) {
+  const {
+    sortField = null,
+    sortDirection = "desc",
+  } = options;
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const currentSortField = urlParams.get("sort_field") || sortField;
+  const currentSortDirection = urlParams.get("sort_direction") || sortDirection;
+
+  $('.sortable').each(function () {
+    const $th = $(this);
+    const sortFieldAttr = $th.data('sort-field');
+
+    const label = $th.text().trim();
+    $th.empty();
+
+    const $container = $('<div>', {
+      class: 'd-flex align-items-center justify-content-between'
+    });
+
+    const $icons = $('<span>', {
+      class: 'd-flex flex-column ms-2 lh-1 sort-icons'
+    });
+
+    const $up = $('<i>', { class: 'bi bi-caret-up-fill text-muted' });
+    const $down = $('<i>', { class: 'bi bi-caret-down-fill text-muted' });
+
+    // Default sort
+    if (currentSortField === null && $th.hasClass('default-sort-field')) {
+      $down.removeClass('text-muted').addClass('text-primary');
+    }
+
+    // Active sort
+    if (sortFieldAttr === currentSortField) {
+      if (currentSortDirection === 'asc') {
+        $up.removeClass('text-muted').addClass('text-primary');
+      } else {
+        $down.removeClass('text-muted').addClass('text-primary');
+      }
+    }
+
+    $icons.append($up, $down);
+    $container.append(label, $icons);
+    $th.append($container);
+  });
+}
+
+$(document).on('click', '.sortable', function () {
   load_spinner();
-  const sort_field_from_context = $('#sort_field_ni_table').text() ? JSON.parse($('#sort_field_ni_table').text()) : null;
-  const sort_direction_from_context = $('#sort_direction_ni_table').text() ? JSON.parse($('#sort_direction_ni_table').text()) : "desc";
   const sortField = $(this).data('sort-field') ? $(this).data('sort-field').trim() : null;
   const params = new URLSearchParams(window.location.search);
   const currentField = params.get('sort_field') ? params.get('sort_field').trim() : sort_field_from_context;
@@ -217,7 +214,6 @@ $('.sortable').on('click', function () {
 
   window.location.search = params.toString();
 });
-
 
 // Dashboard columns visibility management
 var $tableDashboard = null;
