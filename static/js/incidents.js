@@ -153,49 +153,6 @@ $(document).ready(function () {
     });
   });
 
-  $(document).on("click", "#ni_legend_btn", function () {
-    const current = localStorage.getItem('ni_status_legend') === "true";
-    const newValue = !current;
-    localStorage.setItem('ni_status_legend', newValue);
-  });
-
-  const $search_bar_form = $("#search_bar_form")
-  const $search_bar_input = $("#id_search")
-  const $clearSearchBtn = $("#clearSearch")
-
-  function toggleClearButton() {
-    if ($search_bar_input.val() !== "") {
-      $clearSearchBtn.removeClass("d-none");
-    } else {
-      $clearSearchBtn.addClass("d-none");
-    }
-  }
-
-  $(document).on("input", $search_bar_input, toggleClearButton)
-
-  $(document).on("click", "#clearSearch", function () {
-    $search_bar_input.val("");
-    toggleClearButton();
-    $search_bar_form.trigger("submit");
-  });
-
-  $(document).on("submit", $search_bar_form, function () {
-    load_spinner()
-  });
-
-  function checkNIStatusLegend() {
-    const status = localStorage.getItem('ni_status_legend');
-    if (status === "true") {
-      $('#collapseLegend').addClass("show");
-    } else {
-      $('#collapseLegend').removeClass("show");
-    }
-  }
-
-
-  checkNIStatusLegend();
-  toggleClearButton();
-
   // Dashboard columns sort management
 
   sort_field_from_context = $('#sort_field_ni_table').text() ? JSON.parse($('#sort_field_ni_table').text()) : null,
@@ -209,9 +166,17 @@ $(document).ready(function () {
   );
 
   // Dashboard columns visibility management
-  STORAGE_TABLE_DASHBOARD_KEY = 'tableColumns:' + window.location.pathname;
-  $tableDashboard = $('#incidents-table');
-  $choiceColumnsModal= $('#IncidentshideColumns');
-  loadColumnDashboardState();
+  const $tableDashboard = $('#incidents-table');
+  $(document).on('show.bs.modal', '#IncidentshideColumns', function () {
+    initColumnsChoice($tableDashboard);
+  });
+  $(document).on('change', '.column-toggle', function () {
+    changeColumnVisibility($tableDashboard, this);
+  });
+  loadColumnDashboardState($tableDashboard);
+
+  //Legend status management
+  $(document).on('click', '#ni_legend_btn', saveStatusLegend)
+  loadStatusLegend();
 });
 
