@@ -171,7 +171,7 @@ function initSortableHeaders(options = {}) {
 
   $('.sortable').each(function () {
     const $th = $(this);
-    const sortFieldAttr = $th.data('sort-field');
+    const sortFieldAttr = $th.data('sort-field').trim();
 
     const label = $th.text().trim();
     $th.empty();
@@ -215,7 +215,6 @@ $(document).on('click', '.sortable', function () {
   const currentDirection = params.get('sort_direction') ? params.get('sort_direction').trim() : sort_direction_from_context;
 
   let nextDirection = 'asc';
-
   if (currentField === sortField) {
     if (currentDirection === 'asc') {
       nextDirection = 'desc';
