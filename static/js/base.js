@@ -129,8 +129,10 @@ $(document).ready(function () {
   });
 
   // Sorting icons for sortable table headers
-  const currentSortField = new URLSearchParams(window.location.search).get('sort_field');
-  const currentSortDirection = new URLSearchParams(window.location.search).get('sort_direction');
+  const sort_field_from_context = $('#sort_field_ni_table').text() ? JSON.parse($('#sort_field_ni_table').text()) : null;
+  const sort_direction_from_context = $('#sort_direction_ni_table').text() ? JSON.parse($('#sort_direction_ni_table').text()) : "desc";
+  const currentSortField = new URLSearchParams(window.location.search).get('sort_field') || sort_field_from_context;
+  const currentSortDirection = new URLSearchParams(window.location.search).get('sort_direction') || sort_direction_from_context;
 
   $('.sortable').each(function () {
     const $th = $(this);
@@ -162,7 +164,7 @@ $(document).ready(function () {
     $down.addClass('text-muted');
 
     // Highlight active arrow
-    if ( currentSortField === null && $th.hasClass('default-sort-field')) {
+    if (currentSortField === null && $th.hasClass('default-sort-field')) {
       $down.removeClass('text-muted').addClass('text-primary');
     }
     if (sortField === currentSortField) {
@@ -179,6 +181,10 @@ $(document).ready(function () {
   });
 
 })
+
+$(document).on("click","#openFilter", function () {
+  $("#filterModal").modal("show");
+});
 
 window.getCsrftoken = function () {
   return $('meta[name="csrf-token"]').attr('content');
@@ -204,11 +210,12 @@ window.addEventListener("load", function () {
 
 $('.sortable').on('click', function () {
   load_spinner();
-  const sortField = $(this).data('sort-field');
+  const sort_field_from_context = $('#sort_field_ni_table').text() ? JSON.parse($('#sort_field_ni_table').text()) : null;
+  const sort_direction_from_context = $('#sort_direction_ni_table').text() ? JSON.parse($('#sort_direction_ni_table').text()) : "desc";
+  const sortField = $(this).data('sort-field') ? $(this).data('sort-field').trim() : null;
   const params = new URLSearchParams(window.location.search);
-
-  const currentField = params.get('sort_field');
-  const currentDirection = params.get('sort_direction');
+  const currentField = params.get('sort_field') ? params.get('sort_field').trim() : sort_field_from_context;
+  const currentDirection = params.get('sort_direction') ? params.get('sort_direction').trim() : sort_direction_from_context;
 
   let nextDirection = 'asc';
 
@@ -218,6 +225,7 @@ $('.sortable').on('click', function () {
     } else if (currentDirection === 'desc') {
       params.delete('sort_field');
       params.delete('sort_direction');
+      params.set('reset_sort', 'true');
       const query = params.toString();
       window.location.href = query
         ? `${window.location.pathname}?${query}`
@@ -231,4 +239,52 @@ $('.sortable').on('click', function () {
   params.set('sort_direction', nextDirection);
 
   window.location.search = params.toString();
+});
+
+
+// Dashboard columns visibility management
+var $tableDashboard = null;
+var STORAGE_TABLE_DASHBOARD_KEY = null;
+var $choiceColumnsModal = null;
+
+function setColumnVisible(colIdx, visible) {
+  $tableDashboard.find('tr').each(function () {
+    $(this).children().eq(colIdx).toggle(visible);
+  });
+}
+
+function saveColumnDashboardState() {
+  const state = {};
+  $('.column-toggle').each(function () {
+    state[$(this).data('column')] = this.checked;
+  });
+  localStorage.setItem(STORAGE_TABLE_DASHBOARD_KEY, JSON.stringify(state));
+}
+
+function loadColumnDashboardState() {
+  const saved = localStorage.getItem(STORAGE_TABLE_DASHBOARD_KEY);
+  if (!saved) return;
+
+  const state = JSON.parse(saved);
+
+  Object.entries(state).forEach(([colIdx, visible]) => {
+    setColumnVisible(Number(colIdx), visible);
+    $('.column-toggle[data-column="' + colIdx + '"]').prop('checked', visible);
+  });
+}
+
+$('.column-toggle').on('change', function () {
+  const colIdx = $(this).data('column');
+  const visible = this.checked;
+
+  setColumnVisible(colIdx, visible);
+  saveColumnDashboardState();
+});
+
+$(document).on('show.bs.modal', $choiceColumnsModal, function () {
+  $('.column-toggle').each(function () {
+    const colIdx = $(this).data('column');
+    const isVisible = $tableDashboard.find('thead th').eq(colIdx).is(':visible');
+    $(this).prop('checked', isVisible);
+  });
 });
