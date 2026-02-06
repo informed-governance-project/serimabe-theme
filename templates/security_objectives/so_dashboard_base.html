@@ -10,6 +10,8 @@
   <script src='{% static "js/so_dashboard.js" %}'></script>
 {% endblock %}
 {% block content %}
+  {{ sort_field|default:'last_update'|json_script:"sort_field_so_table" }}
+  {{ sort_direction|default:'desc'|json_script:"sort_direction_so_table" }}
   {% settings_value "TIME_ZONE" as time_zone %}
   <div class="d-flex justify-content-between align-items-center">
     <div>
