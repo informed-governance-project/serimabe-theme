@@ -1,17 +1,4 @@
 $(document).ready(function () {
-  $('.column-toggle').on('change', function () {
-    var colIdx = $(this).data('column');
-    table.column(colIdx).visible(this.checked);
-  });
-
-  $('#SOhideColumns').on('show.bs.modal', function () {
-    table.columns().every(function (idx) {
-      var col = table.column(idx);
-      var visible = col.visible();
-      $('.column-toggle[data-column="' + idx + '"]').prop('checked', visible);
-    });
-  });
-
   $(document).on("click", '.so_versions', function () {
     let $this = $(this);
     let versions = $this.data('so-versions');
@@ -223,10 +210,6 @@ $(document).ready(function () {
       });
   });
 
-  $("#openFilter").on("click", function () {
-    $("#filterModal").modal("show");
-  })
-
   $(document).on("click", "#so_status_legend_btn", function () {
     const current = localStorage.getItem('so_status_legend') === "true";
     const newValue = !current;
@@ -268,5 +251,11 @@ $(document).ready(function () {
 
   checkSOStatusLegend();
   toggleClearButton();
+
+  // Dashboard columns visibility management
+  STORAGE_TABLE_DASHBOARD_KEY = 'tableColumns:' + window.location.pathname;
+  $tableDashboard = $('#securityobjectives-table');
+  $choiceColumnsModal= $('#SOhideColumns');
+  loadColumnDashboardState();
 
 })
