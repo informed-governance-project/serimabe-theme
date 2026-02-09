@@ -246,23 +246,13 @@
               </div>
             </td>
             {% if is_regulator and not is_regulator_incidents or is_observer %}
-              <!-- Operator Acronym -->
+              <!-- Operator/regulator Acronym -->
               <td class="table-group-divider py-3">
-                {% if incident.company %}
-                  {{ incident.company.identifier }}
-                {% elif incident.regulator %}
-                  {{ incident.regulator }}
-                {% endif %}
+                {{ incident.company_or_regulator_acronym }}
               </td>
-              <!-- Operator name -->
+              <!-- Operator/regulator name -->
               <td class="table-group-divider py-3">
-                {% if incident.company %}
-                  {{ incident.company.name }}
-                {% elif incident.regulator %}
-                  {{ incident.regulator.full_name }}
-                {% else %}
-                  {{ incident.company_name }}
-                {% endif %}
+                {{ incident.company_or_regulator_name }}
               </td>
             {% endif %}
             <!-- Regulator -->
