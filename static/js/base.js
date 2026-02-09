@@ -211,13 +211,16 @@ $(document).on('click', '.sortable', function () {
   const params = new URLSearchParams(window.location.search);
   const currentField = params.get('sort_field') ? params.get('sort_field').trim() : sort_field_from_context;
   const currentDirection = params.get('sort_direction') ? params.get('sort_direction').trim() : sort_direction_from_context;
+  const isDefaultField = $(this).hasClass("default-sort-field")
 
   let nextDirection = 'asc';
 
   if (currentField === sortField) {
     if (currentDirection === 'asc') {
       nextDirection = 'desc';
-    } else if (currentDirection === 'desc') {
+    } else if (currentDirection === 'desc' && isDefaultField) {
+      nextDirection = 'asc'
+    } else {
       params.delete('sort_field');
       params.delete('sort_direction');
       params.set('reset_sort', 'true');
