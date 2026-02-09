@@ -141,6 +141,23 @@ var sort_field_from_context = null
 var sort_direction_from_context = "desc"
 
 function initSortableHeaders(options = {}) {
+  function chevron(direction = 'down') {
+    const path =
+      direction === 'up'
+      ? 'M1.5 10.5l6-6 6 6'
+      : 'M1.5 5.5l6 6 6-6';
+
+    return $(`
+      <svg class="sort-icon unsorted"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 1 16 14"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3">
+        <path d="${path}"/>
+      </svg>
+    `);
+  }
   const {
     sortField = null,
     sortDirection = "desc",
@@ -162,23 +179,23 @@ function initSortableHeaders(options = {}) {
     });
 
     const $icons = $('<span>', {
-      class: 'd-flex flex-column ms-2 lh-1 sort-icons'
+      class: 'd-flex flex-column ms-2'
     });
 
-    const $up = $('<i>', { class: 'bi bi-caret-up-fill text-muted' });
-    const $down = $('<i>', { class: 'bi bi-caret-down-fill text-muted' });
+    const $up = chevron("up")
+    const $down = chevron("down")
 
     // Default sort
     if (currentSortField === null && $th.hasClass('default-sort-field')) {
-      $down.removeClass('text-muted').addClass('text-primary');
+      $down.removeClass('unsorted')
     }
 
     // Active sort
     if (sortFieldAttr === currentSortField) {
       if (currentSortDirection === 'asc') {
-        $up.removeClass('text-muted').addClass('text-primary');
+        $up.removeClass('unsorted')
       } else {
-        $down.removeClass('text-muted').addClass('text-primary');
+        $down.removeClass('unsorted')
       }
     }
 

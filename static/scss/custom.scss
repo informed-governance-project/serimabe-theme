@@ -416,6 +416,11 @@ th.sortable {
     user-select: none;
 }
 
-th.sortable .sort-icons {
-    font-size: xx-small;
+.sort-icon {
+    width: 0.8rem;
+    height: 0.5rem;
+}
+
+.sort-icon.unsorted {
+    opacity: 0.3;
 }
