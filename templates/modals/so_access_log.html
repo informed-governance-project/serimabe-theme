@@ -64,7 +64,8 @@
                   {% endif %}
                 </td>
                 <td>
-                  {{ record.role }}
+                  {% display_role record as role %}
+                  {{ role }}
                 </td>
                 <td>
                   {{ record.action }}
