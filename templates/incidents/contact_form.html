@@ -75,13 +75,8 @@
       </h6>
       <small class="text-muted ps-2">({{ _("Optional") }})</small>
     </div>
-    <div class="row row-cols-1 row-cols-lg-2">
-      <div class="col">
-        {% bootstrap_field wizard.form.incident_reference show_label=False %}
-      </div>
-      <div class="col">
-        {% bootstrap_field wizard.form.complaint_reference show_label=False %}
-      </div>
+    <div class="col">
+      {% bootstrap_field wizard.form.incident_reference show_label=False %}
     </div>
   </div>
 </div>
