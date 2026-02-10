@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 16:13+0100\n"
+"POT-Creation-Date: 2026-02-10 14:27+0100\n"
 "PO-Revision-Date: 2026-01-12 11:27+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -1755,9 +1755,9 @@ msgstr "Document"
 msgid "Action"
 msgstr "Actie"
 
-#: theme/templates/modals/access_log.html:97
+#: theme/templates/modals/access_log.html:98
 #: theme/templates/modals/reporting_access_log.html:63
-#: theme/templates/modals/so_access_log.html:79
+#: theme/templates/modals/so_access_log.html:80
 msgid "No entries"
 msgstr "Geen registraties"
 

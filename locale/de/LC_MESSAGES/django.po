@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 16:13+0100\n"
+"POT-Creation-Date: 2026-02-10 14:27+0100\n"
 "PO-Revision-Date: 2026-01-19 08:27+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -2053,7 +2053,6 @@ msgid "The incident has been closed"
 msgstr "Der Vorfall wurde abgeschlossen"
 
 #: theme/templates/incidents/incidents_base.html:229
-#| msgid "Last update"
 msgid "Last update date"
 msgstr ""
 
@@ -2171,9 +2170,9 @@ msgstr "Dokument"
 msgid "Action"
 msgstr "Aktion"
 
-#: theme/templates/modals/access_log.html:97
+#: theme/templates/modals/access_log.html:98
 #: theme/templates/modals/reporting_access_log.html:63
-#: theme/templates/modals/so_access_log.html:79
+#: theme/templates/modals/so_access_log.html:80
 msgid "No entries"
 msgstr "Keine Einträge"
 
