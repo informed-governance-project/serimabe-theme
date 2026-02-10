@@ -460,3 +460,17 @@ table.dataTable thead>tr>td.dt-ordering-desc span.dt-column-order:after {
     border-radius: 50%;
     display: inline-block;
 }
+
+th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.sort-icon {
+    width: 0.8rem;
+    height: 0.5rem;
+}
+
+.sort-icon.unsorted {
+    opacity: 0.3;
+}
