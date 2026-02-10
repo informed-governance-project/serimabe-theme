@@ -31,7 +31,6 @@ $(document).ready(function () {
 
   displayPagination(table);
 
-
   function displayPagination(table) {
     let rowCount = table.data().length;
     if (rowCount <= 10) $('#reporting-recommendations-table').siblings('.table_controls').addClass("d-none");
@@ -44,11 +43,16 @@ $(document).ready(function () {
     modalDeleteButton.attr('href', deleteUrlBase);
   });
 
+  $(document).on("change", ".reporting-input-field", function () {
+    onChangeRecommendation(this);
+  });
 });
 
-function onChangeRecommendation(value, id) {
-  const csrftoken = getCookie('csrftoken');
-  let formdata = $(value).serialize();
+function onChangeRecommendation(input) {
+  const $this = $(input)
+  const id = $this.data("recommendation-id");
+  const csrftoken = getCsrftoken();
+  let formdata = $this.serialize();
 
   $.ajax({
     type: "POST",

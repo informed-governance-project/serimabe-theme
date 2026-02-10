@@ -157,9 +157,8 @@
             </td>
             <td class="col-auto table-group-divider py-3">
               <div class="d-flex align-items-center justify-content-between">
-                <a class="btn border-0 p-0 text-dark"
-                   href="{% url 'report_recommendations' form.initial.id form.initial.sector.id form.year.value %}"
-                   onclick="load_spinner()">
+                <a class="btn border-0 p-0 text-dark spinner-trigger"
+                   href="{% url 'report_recommendations' form.initial.id form.initial.sector.id form.year.value %}">
                   <i class="bi bi-list-stars h4"
                      data-bs-placement="top"
                      data-bs-toggle="tooltip"
@@ -198,7 +197,6 @@
   {% include "parts/pagination.html" %}
   <div class="modal fade"
        id="review_comment_report"
-       data-bs-backdrop="static"
        data-bs-keyboard="false"
        tabindex="-1"
        aria-labelledby="review_comment_report_label"
@@ -208,7 +206,6 @@
   </div>
   <div class="modal fade"
        id="reporting_access_log"
-       data-bs-backdrop="static"
        data-bs-keyboard="false"
        tabindex="-1"
        aria-labelledby="reporting_access_log_label"
@@ -239,20 +236,41 @@
             {% bootstrap_field filter.form.sectors label_class="fw-bold" wrapper_class="sector-filter mb-3" %}
           </div>
           <div class="modal-footer">
-            <button class="btn btn-secondary btn-sm"
+            <button class="btn btn-secondary btn-sm spinner-trigger"
                     type="submit"
                     name="reset"
                     value="true"
-                    data-bs-dismiss="modal"
-                    onclick="load_spinner()">
+                    data-bs-dismiss="modal">
               {% translate "Reset" %}
             </button>
-            <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
+            <button class="btn btn-primary btn-sm spinner-trigger" type="submit">
               {% translate "Search" %}
             </button>
           </div>
         </form>
       </div>
+    </div>
+  </div>
+{% endblock %}
+{% block app_modals %}
+  <div class="modal fade"
+       id="import_so_declaration"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="import_so_declaration_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
+  <div class="modal fade"
+       id="import_risk_analysis"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="import_risk_analysis_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
     </div>
   </div>
 {% endblock %}

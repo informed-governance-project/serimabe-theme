@@ -167,24 +167,24 @@
                 <i class="custom-icon-submit h4"></i>
               </button>
             {% elif standard_answer.status == "UNDE" %}
-              <a id="so_submit_button"
-                 type="button"
-                 href="{% url 'submit_so_declaration' standard_answer.id %}"
-                 class="col-auto btn btn-passed
-                        {% if not standard_answer.ready_to_submit %}
-                          disabled
-                        {% endif %}"
-                 {% if not standard_answer.ready_to_submit %}
-                   disabled
-                 {% endif %}>
-                {% translate "Submit" %}
-                <i class="custom-icon-submit h4"></i>
-              </a>
+              <form method="post" class="col-auto" action="{% url 'submit_so_declaration' standard_answer.id %}">
+                {% csrf_token %}
+                <button id="so_submit_button" type="submit" 
+                    class="btn btn-passed
+                    {% if not standard_answer.ready_to_submit %}
+                      disabled
+                    {% endif %}" 
+                    {% if not standard_answer.ready_to_submit %} 
+                    disabled 
+                    {% endif %}>
+                  {% translate "Submit" %}
+                  <i class="custom-icon-submit h4"></i>
+                </button>
+              </form>
             {% endif %}
             <a type="button"
-               class="col-auto btn btn-primary"
-               href="{% url 'securityobjectives' %}"
-               onclick="load_spinner()">
+               class="col-auto btn btn-primary spinner-trigger"
+               href="{% url 'securityobjectives' %}">
               {% translate "Close" %}
             </a>
           </div>
@@ -276,13 +276,13 @@
               <i class="carousel-control-next-icon bi bi-arrow-right text-secondary h2"></i>
             </button>
           </div>
-          <button type="button"
+          <button id="so_declaration_status_legend_btn"
+                  type="button"
                   class="btn btn-primary bg-body border-0 p-0"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseLegend"
                   aria-expanded="false"
-                  aria-controls="collapseLegend"
-                  onclick="save_so_declaration_status_legend()">
+                  aria-controls="collapseLegend">
             <i class="custom-icon-legend h3 align-self-center"
                alt="legend"
                data-bs-placement="top"
@@ -481,7 +481,6 @@
   <!-- Modal dialogs -->
   <div class="modal fade"
        id="so_contacts"
-       data-bs-backdrop="static"
        data-bs-keyboard="false"
        tabindex="-1"
        aria-labelledby="so_contacts_label"

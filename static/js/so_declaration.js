@@ -122,7 +122,7 @@ $(document).ready(function () {
     }
 
     e.preventDefault();
-    const csrftoken = getCookie('csrftoken');
+    const csrftoken = getCsrftoken();
     const url = $form.attr('action');
 
     fetch(url, {
@@ -172,10 +172,20 @@ $(document).ready(function () {
     $('#contact-email').text(contacts.contact_email);
     $('#contact-telephone').text(contacts.contact_telephone);
   });
+
+  $(document).on("click", "#so_declaration_status_legend_btn", function () {
+    const current = localStorage.getItem('so_declaration_status_legend') === "true";
+    const newValue = !current;
+    localStorage.setItem('so_declaration_status_legend', newValue);
+  });
+
+  $(document).on("change", ".so-input-field", function () {
+    update_so_declaration(this);
+  });
 });
 
 function update_so_declaration(form) {
-  const csrftoken = $('input[name=csrfmiddlewaretoken]').val();
+  const csrftoken = getCsrftoken();
   const id = form.name.split('-').shift();
   const name = form.name.split('-').pop();
   if (form.checked !== undefined) form.value = form.checked;
@@ -256,10 +266,4 @@ function update_so_declaration(form) {
         console.log(error);
       });
   }
-}
-
-function save_so_declaration_status_legend() {
-  const current = localStorage.getItem('so_declaration_status_legend') === "true";
-  const newValue = !current;
-  localStorage.setItem('so_declaration_status_legend', newValue);
 }

@@ -6,17 +6,12 @@
 {% load django_bootstrap5 %}
 {% block bootstrap5_extra_script %}
   {{ block.super }}
-  <link rel="stylesheet"
-        href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
   <link rel="stylesheet" href="{% static 'css/so_dashboard.css' %}" />
-  <script type="text/javascript"
-          src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
-  <script type="text/javascript"
-          src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
-  <script src="//cdn.datatables.net/plug-ins/2.3.4/sorting/date-euro.js"></script>
   <script src='{% static "js/so_dashboard.js" %}'></script>
 {% endblock %}
 {% block content %}
+  {{ sort_field|default:'last_update'|json_script:"sort_field_so_table" }}
+  {{ sort_direction|default:'desc'|json_script:"sort_direction_so_table" }}
   {% settings_value "TIME_ZONE" as time_zone %}
   <div class="d-flex justify-content-between align-items-center">
     <div>
@@ -46,13 +41,13 @@
         {% endif %}
         <i class="bi bi-filter" aria-hidden="true"></i>
       </button>
-      <button type="button"
+      <button id="so_status_legend_btn"
+              type="button"
               class="btn btn-primary bg-body border-0 p-0"
               data-bs-toggle="collapse"
               data-bs-target="#collapseLegend"
               aria-expanded="false"
-              aria-controls="collapseLegend"
-              onclick="save_so_status_legend()">
+              aria-controls="collapseLegend">
         <img src="{% static 'images/icons/ico-legend.svg' %}"
              alt="legend"
              data-bs-placement="top"
@@ -79,39 +74,48 @@
       <caption class="visually-hidden">{% translate "Security objectives table" %}</caption>
       <thead>
         <tr>
-          <th class="col-1 text-center">
+          <th class="col-1 text-center sortable align-middle"
+              data-sort-field="status">
             {% translate "Status" %}
           </th>
-          <th class="col-1">
+          <th class="col-1 sortable align-middle default-sort-field"
+              data-sort-field="last_update">
             {% translate "Last update" %}
           </th>
-          <th class="col-1">
+          <th class="col-1 sortable align-middle" data-sort-field="submit_date">
             {% translate "Submission date" %}
           </th>
-          <th class="col-1">
+          <th class="col-1 sortable align-middle" data-sort-field="identifier">
             {% translate "Identifier" %}
           </th>
-          <th class="col-1">
+          <th class="col-1 sortable align-middle" data-sort-field="framework">
             {% translate "Evaluation Framework" %}
           </th>
-          <th class="col-1">
-            {% if not is_regulator %}
+          {% if not is_regulator %}
+            <th class="col-1 sortable align-middle" data-sort-field="creator">
               {% translate "Creator" %}
-            {% else %}
+            </th>
+          {% else %}
+            <th class="col-1 sortable align-middle" data-sort-field="company_name">
               {% translate "Company" %}
-            {% endif %}
-          </th>
-          <th class="col-2">
+            </th>
+          {% endif %}
+          <th class="col-2 sortable align-middle" data-sort-field="sectors">
             {% translate "Sectors" %}
           </th>
-          <th class="col-1">
+          <th class="col-1 sortable align-middle" data-sort-field="year">
             {% translate "Year" %}
           </th>
-          <th class="col-2">
+          <th class="col-2 sortable align-middle"
+              data-sort-field="{% if is_regulator %}
+                                 reviewed_percentage
+                               {% else %}
+                                 answered_percentage
+                               {% endif %}">
             {% translate "Progress" %}
           </th>
-          <th class="col-1">
-            <div class="d-flex align-items-end">
+          <th class="col-1 align-middle">
+            <div class="d-flex align-items-center gap-1">
               <span>{% translate "Actions" %}</span>
               <button class="btn btn-sm btn-primary ms-auto"
                       data-bs-toggle="modal"
@@ -221,7 +225,6 @@
 {% block content_modals %}
   <div class="modal fade"
        id="so_versions"
-       data-bs-backdrop="static"
        data-bs-keyboard="false"
        tabindex="-1"
        aria-labelledby="so_versions_label"
@@ -242,7 +245,6 @@
   </div>
   <div class="modal fade"
        id="so_access_log"
-       data-bs-backdrop="static"
        data-bs-keyboard="false"
        tabindex="-1"
        aria-labelledby="so_access_log_label"
@@ -252,7 +254,6 @@
   </div>
   <div class="modal fade"
        id="SOhideColumns"
-       data-bs-backdrop="static"
        data-bs-keyboard="false"
        tabindex="-1"
        aria-labelledby="so_hide_columns_label"
@@ -287,15 +288,14 @@
             {% endblock %}
           </div>
           <div class="modal-footer">
-            <button class="btn btn-secondary btn-sm"
+            <button class="btn btn-secondary btn-sm spinner-trigger"
                     type="submit"
                     name="reset"
                     value="true"
-                    data-bs-dismiss="modal"
-                    onclick="load_spinner()">
+                    data-bs-dismiss="modal">
               {% translate "Reset" %}
             </button>
-            <button class="btn btn-primary btn-sm" type="submit" onclick="load_spinner()">
+            <button class="btn btn-primary btn-sm spinner-trigger" type="submit">
               {% translate "Search" %}
             </button>
           </div>

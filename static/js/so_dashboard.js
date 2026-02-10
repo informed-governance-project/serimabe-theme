@@ -1,77 +1,4 @@
 $(document).ready(function () {
-  let table = $('#securityobjectives-table').DataTable({
-    autoWidth: false,
-    stateSave: true,
-    paging: false,
-    searching: false,
-    info: false,
-    order: [],
-    columnDefs: [
-      {
-        targets: 0,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 1,
-        orderable: true,
-        type: 'string-utf8',
-      },
-      {
-        targets: 2,
-        orderable: true,
-        type: 'string-utf8',
-      },
-      {
-        targets: 3,
-        orderable: true,
-        type: 'string-utf8',
-      },
-      {
-        targets: 4,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 5,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 6,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 7,
-        orderable: true,
-        type: 'string-utf8',
-      },
-      {
-        targets: 8,
-        orderable: true,
-        type: 'string-utf8',
-      },
-      {
-        targets: 9,
-        orderable: false,
-      },
-    ]
-  });
-
-  $('.column-toggle').on('change', function () {
-    var colIdx = $(this).data('column');
-    table.column(colIdx).visible(this.checked);
-  });
-
-  $('#SOhideColumns').on('show.bs.modal', function () {
-    table.columns().every(function (idx) {
-      var col = table.column(idx);
-      var visible = col.visible();
-      $('.column-toggle[data-column="' + idx + '"]').prop('checked', visible);
-    });
-  });
-
   $(document).on("click", '.so_versions', function () {
     let $this = $(this);
     let versions = $this.data('so-versions');
@@ -144,7 +71,7 @@ $(document).ready(function () {
           <td class="col-2 text-center">
             <div class="d-inline-flex align-middle">
               ${commentIcon}
-              <a class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center" href="${reviewUrl}"
+              <a class="btn text-dark p-0 ps-1 border-0 d-inline-flex align-items-center spinner-trigger" href="${reviewUrl}"
                   data-bs-placement="top" data-bs-toggle="tooltip" title="${tooltip_review}">
                   <i class="custom-icon-view h4 align-self-center" aria-hidden="true"></i>
               </a>
@@ -162,15 +89,13 @@ $(document).ready(function () {
     $modalVersionsRows.find('[data-bs-toggle="tooltip"]').tooltip();
   });
 
-
-
   $(document).on("click", ".delete_so_declaration", function () {
     let $this = $(this);
-    let modalDeleteButton = $("#modal-delete-declaration-button");
+    let modalDeleteForm = $("#modal-delete-declaration-form");
     let deleteUrlBase = $this.data('delete-url');
     let standardAnswerId = $this.data('standard-answer-id');
     let deleteUrl = deleteUrlBase.replace('0', standardAnswerId);
-    modalDeleteButton.attr('href', deleteUrl);
+    modalDeleteForm.attr('action', deleteUrl);
   });
 
   $(document).on("click", ".update_so_declaration", function () {
@@ -241,7 +166,7 @@ $(document).ready(function () {
 
   $(".download-link").on("click", function (e) {
     let $this = $(this);
-    const csrftoken = getCookie('csrftoken');
+    const csrftoken = getCsrftoken();
     const standardAnswerId = $this.data('standard-answer-id');
     load_spinner();
     fetch(`download/${standardAnswerId}`, {
@@ -285,50 +210,28 @@ $(document).ready(function () {
       });
   });
 
-  $("#openFilter").on("click", function () {
-    $("#filterModal").modal("show");
-  })
+  // Dashboard columns sort management
+  sort_field_from_context = $('#sort_field_so_table').text() ? JSON.parse($('#sort_field_so_table').text()) : null,
+  sort_direction_from_context = $('#sort_direction_so_table').text() ? JSON.parse($('#sort_direction_so_table').text()) : "desc",
 
-  const $search_bar_form = $("#search_bar_form")
-  const $search_bar_input = $("#id_search")
-  const $clearSearchBtn = $("#clearSearch")
-
-  function toggleClearButton() {
-    if ($search_bar_input.val() !== "") {
-      $clearSearchBtn.removeClass("d-none");
-    } else {
-      $clearSearchBtn.addClass("d-none");
+  initSortableHeaders(
+    {
+      sortField: sort_field_from_context,
+      sortDirection: sort_direction_from_context,
     }
-  }
+  );
 
-  $(document).on("input", $search_bar_input, toggleClearButton)
-
-  $(document).on("click", "#clearSearch", function () {
-    $search_bar_input.val("");
-    toggleClearButton();
-    $search_bar_form.trigger("submit");
+  // Dashboard columns visibility management
+  const $tableDashboard = $('#securityobjectives-table');
+  $(document).on('show.bs.modal', '#SOhideColumns', function () {
+    initColumnsChoice($tableDashboard);
   });
-
-  $(document).on("submit", $search_bar_form, function () {
-    load_spinner()
+  $(document).on('change', '.column-toggle', function () {
+    changeColumnVisibility($tableDashboard, this);
   });
+  loadColumnDashboardState($tableDashboard);
 
-  function checkSOStatusLegend() {
-    const status = localStorage.getItem('so_status_legend');
-    if (status === "true") {
-      $('#collapseLegend').addClass("show");
-    } else {
-      $('#collapseLegend').removeClass("show");
-    }
-  }
-
-  checkSOStatusLegend();
-  toggleClearButton();
-
+  //Legend status management
+  $(document).on('click', '#so_status_legend_btn', saveStatusLegend)
+  loadStatusLegend();
 })
-
-function save_so_status_legend() {
-  const current = localStorage.getItem('so_status_legend') === "true";
-  const newValue = !current;
-  localStorage.setItem('so_status_legend', newValue);
-}
