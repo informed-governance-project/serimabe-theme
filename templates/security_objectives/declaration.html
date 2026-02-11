@@ -347,7 +347,7 @@
                            alt="Score ico">
                       <div class="position-absolute top-50 translate-middle fw-bold text-dark start-40">
                         <div class="small">
-                          <span id="so-score" class="h5 m-0 fw-bold">{{ security_objective.status.score|default:0|floatformat:1 }}</span>
+                          <span id="so-score" class="h5 m-0 fw-bold">{{ security_objective.status.score|default:0|stringformat:"0.1f" }}</span>
                           <span>/</span>
                           <span>{{ last_maturity_level }}</span>
                         </div>
@@ -366,10 +366,10 @@
                     <th class="col-1 text-center align-middle">
                       {% translate "Maturity Level" %}
                     </th>
-                    <th class="col-2 text-center align-middle">
+                    <th class="col-3 text-center align-middle">
                       {% translate "Security Measure" %}
                     </th>
-                    <th class="col-2 text-center align-middle">
+                    <th class="col-3 text-center align-middle">
                       {% translate "Evidence" %}
                     </th>
                     <th class="col-1 text-center align-middle">
@@ -400,13 +400,13 @@
                             {{ maturity_level.level }}
                           </th>
                         {% endif %}
-                        <td class="col-2 lh-sm
+                        <td class="col-3 lh-sm
                                    {% if forloop.first %}
                                      table-group-divider
                                    {% endif %}">
                           {{ measure }}
                         </td>
-                        <td class="col-2 lh-sm
+                        <td class="col-3 lh-sm
                                    {% if forloop.first %}
                                      table-group-divider
                                    {% endif %}">
