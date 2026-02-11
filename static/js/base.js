@@ -334,7 +334,13 @@ function saveStatusLegend() {
   saveLocalStorageData(storedData);
 }
 
-
+// Click-handler for the CAPTCHA refresh-link
+$(document).on("click", '.captcha-refresh', function () {
+  $.getJSON("/captcha/refresh/", function (result) {
+    $('.captcha').attr('src', result['image_url']);
+    $('#id_captcha_0').val(result['key'])
+  });
+});
 
 
 
