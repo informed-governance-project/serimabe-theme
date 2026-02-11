@@ -38,16 +38,25 @@ $(document).ready(function () {
   function checkActions() {
     const $activeSlide = $('.carousel-item.active');
     const $actionstextarea = $activeSlide.find(".so_actions_form");
-    const $firstMaturityLevelMeasure = $activeSlide.find(".first_maturity_level_measure");
+    const $firstSwitchMeasure = $activeSlide.find(".is-implemented-first-switch");
+    const $allSwitchMeasures = $activeSlide.find(".is-implemented-switch");
     const placeholdertext = gettext("Please list your current and planned measures, including a schedule with the individual stages.");
-    if ($actionstextarea.val().trim() === "" && $firstMaturityLevelMeasure.is(":checked")) {
+    const textareaEmpty = !$actionstextarea.val().trim();
+    const firstChecked = $firstSwitchMeasure.is(":checked");
+    const totalMeasures = $allSwitchMeasures.length;
+    const checkedMeasures = $allSwitchMeasures.filter(":checked").length;
+    const anyChecked = firstChecked || checkedMeasures > 0;
+    const allChecked = totalMeasures > 0 && checkedMeasures === totalMeasures;
+    const showPlaceholder = textareaEmpty && anyChecked && !allChecked;
+
+    if (showPlaceholder) {
       $actionstextarea
-        .attr('placeholder', placeholdertext)
-        .addClass("border border-danger border-2")
+        .attr("placeholder", placeholdertext)
+        .addClass("border border-danger border-2");
     } else {
       $actionstextarea
-        .removeAttr('placeholder')
-        .removeClass("border border-danger border-2")
+        .removeAttr("placeholder")
+        .removeClass("border border-danger border-2");
     }
   }
 
