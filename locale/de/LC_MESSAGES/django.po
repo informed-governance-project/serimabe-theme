@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-10 14:27+0100\n"
+"POT-Creation-Date: 2026-02-12 16:39+0100\n"
 "PO-Revision-Date: 2026-02-12 08:27+0000\n"
 "Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -17,9 +17,9 @@ msgstr ""
 msgid "Account management"
 msgstr "Kontoverwaltung"
 
-#: theme/templates/account/edit.html:15 theme/templates/home/contact.html:23
+#: theme/templates/account/edit.html:15 theme/templates/home/contact.html:22
 #: theme/templates/incidents/declaration.html:25
-#: theme/templates/registration/signup.html:22
+#: theme/templates/registration/signup.html:18
 msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr ""
 "Die mit einem Sternchen (*) gekennzeichneten Felder sind Pflichtfelder."
@@ -63,7 +63,7 @@ msgstr "Django-Einstellungsvariablen"
 
 #: theme/templates/admin/settings_list.html:19
 #: theme/templates/cookiebanner/bootstrap5.html:53
-#: theme/templates/home/contact.html:33
+#: theme/templates/home/contact.html:32
 #: theme/templates/incidents/contact_form.html:8
 #: theme/templates/modals/so_contacts.html:18
 #: theme/templates/reporting/add_recommendations.html:104
@@ -207,41 +207,42 @@ msgstr "Mit freundlichen Grüßen,"
 msgid "Skip to main content"
 msgstr "Zum Hauptinhalt springen"
 
-#: theme/templates/home/contact.html:16
+#: theme/templates/home/contact.html:15
 msgid "Contact form"
 msgstr "Kontakt-Formular"
 
-#: theme/templates/home/contact.html:36
+#: theme/templates/home/contact.html:35
 #: theme/templates/incidents/contact_form.html:21
 #: theme/templates/incidents/contact_form.html:54
 #: theme/templates/modals/so_contacts.html:22
-#: theme/templates/registration/signup.html:35
+#: theme/templates/registration/signup.html:31
 msgid "First name"
 msgstr "Vorname"
 
-#: theme/templates/home/contact.html:41
+#: theme/templates/home/contact.html:40
 #: theme/templates/incidents/contact_form.html:29
 #: theme/templates/incidents/contact_form.html:62
 #: theme/templates/modals/so_contacts.html:26
+#: theme/templates/registration/password_reset_form.html:32
 msgid "Email"
 msgstr "E-Mail"
 
-#: theme/templates/home/contact.html:44
+#: theme/templates/home/contact.html:43
 #: theme/templates/modals/so_contacts.html:30
 msgid "Phone"
 msgstr "Telefon"
 
-#: theme/templates/home/contact.html:48
+#: theme/templates/home/contact.html:47
 msgid "Message"
 msgstr "Nachricht"
 
-#: theme/templates/home/contact.html:51
+#: theme/templates/home/contact.html:50
 msgid "I agree that my personal data may be used for communication purposes."
 msgstr ""
 "Ich bin damit einverstanden, dass meine personenbezogenen Daten zu "
 "Kommunikationszwecken verwendet werden können."
 
-#: theme/templates/home/contact.html:58
+#: theme/templates/home/contact.html:57
 #: theme/templates/modals/review_comment_report.html:31
 #: theme/templates/modals/review_comment_so_declaration.html:42
 #: theme/templates/regulator/so_dashboard.html:19
@@ -249,19 +250,19 @@ msgstr ""
 msgid "Send"
 msgstr "Senden"
 
-#: theme/templates/home/contact.html:67
+#: theme/templates/home/contact.html:66
 msgid "Address"
 msgstr "Adresse"
 
-#: theme/templates/home/contact.html:81
+#: theme/templates/home/contact.html:80
 msgid "Postal address"
 msgstr "Postanschrift"
 
-#: theme/templates/home/contact.html:88
+#: theme/templates/home/contact.html:87
 msgid "Tel.:"
 msgstr "Tel.:"
 
-#: theme/templates/home/contact.html:91
+#: theme/templates/home/contact.html:90
 msgid "Email:"
 msgstr "E-Mail:"
 
@@ -1759,7 +1760,7 @@ msgstr "Jobtitel"
 
 #: theme/templates/incidents/contact_form.html:24
 #: theme/templates/incidents/contact_form.html:57
-#: theme/templates/registration/signup.html:36
+#: theme/templates/registration/signup.html:32
 msgid "Last name"
 msgstr "Nachname"
 
@@ -2119,7 +2120,7 @@ msgstr "Suchen"
 #: theme/templates/modals/accept_terms.html:23
 #: theme/templates/modals/accept_terms.html:27
 #: theme/templates/modals/accept_terms.html:57
-#: theme/templates/registration/signup.html:63
+#: theme/templates/registration/signup.html:59
 msgid "Terms of Service"
 msgstr "Nutzungsbedingungen"
 
@@ -2460,8 +2461,8 @@ msgstr "Anmeldung"
 
 #: theme/templates/registration/base.html:50
 #: theme/templates/registration/login.html:96
-#: theme/templates/registration/signup.html:15
-#: theme/templates/registration/signup.html:70
+#: theme/templates/registration/signup.html:11
+#: theme/templates/registration/signup.html:66
 msgid "Create account"
 msgstr "Benutzerkonto erstellen"
 
@@ -2516,6 +2517,7 @@ msgid "Your password has been changed."
 msgstr "Ihr Passwort wurde geändert."
 
 #: theme/templates/registration/password_change_form.html:15
+#: theme/templates/registration/password_reset_form.html:19
 msgid "All Fields are mandatory."
 msgstr "Alle Felder sind Pflichtfelder."
 
@@ -2631,7 +2633,17 @@ msgstr ""
 "Passwort vergessen? Geben Sie Ihre E-Mail-Adresse ein, um Anweisungen zum "
 "Zurücksetzen zu erhalten."
 
-#: theme/templates/registration/password_reset_form.html:21
+#: theme/templates/registration/password_reset_form.html:36
+#: theme/templates/registration/signup.html:37
+msgid "Captcha"
+msgstr "Captcha"
+
+#: theme/templates/registration/password_reset_form.html:42
+#: theme/templates/registration/signup.html:43
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+#: theme/templates/registration/password_reset_form.html:47
 msgid "Reset password"
 msgstr "Passwort zurücksetzen"
 
@@ -2649,17 +2661,9 @@ msgstr ""
 msgid "Select"
 msgstr "Auswählen"
 
-#: theme/templates/registration/signup.html:37
+#: theme/templates/registration/signup.html:33
 msgid "Email address"
 msgstr "E-Mail-Adresse"
-
-#: theme/templates/registration/signup.html:41
-msgid "Captcha"
-msgstr "Captcha"
-
-#: theme/templates/registration/signup.html:47
-msgid "Refresh"
-msgstr "Aktualisieren"
 
 #: theme/templates/regulator/so_dashboard.html:155
 msgid "Passed and sent"
@@ -2684,8 +2688,9 @@ msgstr "Datum der Vorfallmeldung"
 
 #: theme/templates/report/incidents/cover.html:27
 #: theme/templates/report/incidents/details.html:19
-msgid "Report status"
-msgstr "Berichtstatus"
+#| msgid "My reported incidents"
+msgid "Status of the incident"
+msgstr ""
 
 #: theme/templates/report/incidents/details.html:3
 msgid "Incident details"
@@ -3098,52 +3103,52 @@ msgstr "Fortschritt"
 msgid "Not reviewed"
 msgstr "Nicht überprüft"
 
-#: theme/templates/report/security_objectives/declaration.html:61
+#: theme/templates/report/security_objectives/declaration.html:57
 #: theme/templates/security_objectives/declaration.html:362
 msgid "Table of"
 msgstr "Tabelle von"
 
-#: theme/templates/report/security_objectives/declaration.html:66
+#: theme/templates/report/security_objectives/declaration.html:62
 #: theme/templates/security_objectives/declaration.html:367
 msgid "Maturity Level"
 msgstr "Reifegrad"
 
-#: theme/templates/report/security_objectives/declaration.html:69
+#: theme/templates/report/security_objectives/declaration.html:65
 #: theme/templates/security_objectives/declaration.html:370
 msgid "Security Measure"
 msgstr "Sicherheitsmaßnahme"
 
-#: theme/templates/report/security_objectives/declaration.html:72
+#: theme/templates/report/security_objectives/declaration.html:68
 #: theme/templates/security_objectives/declaration.html:373
 msgid "Evidence"
 msgstr "Beweis"
 
-#: theme/templates/report/security_objectives/declaration.html:75
+#: theme/templates/report/security_objectives/declaration.html:71
 #: theme/templates/security_objectives/declaration.html:376
 msgid "Measure Implemented?"
 msgstr "Maßnahme umgesetzt?"
 
-#: theme/templates/report/security_objectives/declaration.html:83
+#: theme/templates/report/security_objectives/declaration.html:79
 #: theme/templates/security_objectives/declaration.html:384
 msgid "Justification"
 msgstr "Begründung"
 
-#: theme/templates/report/security_objectives/declaration.html:87
+#: theme/templates/report/security_objectives/declaration.html:83
 #: theme/templates/security_objectives/declaration.html:388
 msgid "Review Comment"
 msgstr "Review Kommentar"
 
-#: theme/templates/report/security_objectives/declaration.html:152
+#: theme/templates/report/security_objectives/declaration.html:148
 #: theme/templates/security_objectives/declaration.html:453
 msgid "No security measures data available."
 msgstr "Keine Daten zu Sicherheitsmaßnahmen verfügbar."
 
-#: theme/templates/report/security_objectives/declaration.html:158
+#: theme/templates/report/security_objectives/declaration.html:154
 #: theme/templates/security_objectives/declaration.html:459
 msgid "Planned Measures"
 msgstr "Geplante Maßnahmen"
 
-#: theme/templates/report/security_objectives/declaration.html:176
+#: theme/templates/report/security_objectives/declaration.html:172
 #: theme/templates/security_objectives/declaration.html:474
 msgid "No security objectives data available."
 msgstr "Keine Daten zu Sicherheitszielen verfügbar."

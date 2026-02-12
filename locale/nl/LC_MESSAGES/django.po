@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-10 14:27+0100\n"
+"POT-Creation-Date: 2026-02-12 16:39+0100\n"
 "PO-Revision-Date: 2026-02-12 10:27+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -16,9 +16,9 @@ msgstr ""
 msgid "Account management"
 msgstr "Accountbeheer"
 
-#: theme/templates/account/edit.html:15 theme/templates/home/contact.html:23
+#: theme/templates/account/edit.html:15 theme/templates/home/contact.html:22
 #: theme/templates/incidents/declaration.html:25
-#: theme/templates/registration/signup.html:22
+#: theme/templates/registration/signup.html:18
 msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr "Velden met een sterretje (*) zijn verplicht."
 
@@ -61,7 +61,7 @@ msgstr ""
 
 #: theme/templates/admin/settings_list.html:19
 #: theme/templates/cookiebanner/bootstrap5.html:53
-#: theme/templates/home/contact.html:33
+#: theme/templates/home/contact.html:32
 #: theme/templates/incidents/contact_form.html:8
 #: theme/templates/modals/so_contacts.html:18
 #: theme/templates/reporting/add_recommendations.html:104
@@ -187,41 +187,42 @@ msgstr ""
 msgid "Skip to main content"
 msgstr "Overgaan naar de hoofdinhoud"
 
-#: theme/templates/home/contact.html:16
+#: theme/templates/home/contact.html:15
 msgid "Contact form"
 msgstr "Contactformulier"
 
-#: theme/templates/home/contact.html:36
+#: theme/templates/home/contact.html:35
 #: theme/templates/incidents/contact_form.html:21
 #: theme/templates/incidents/contact_form.html:54
 #: theme/templates/modals/so_contacts.html:22
-#: theme/templates/registration/signup.html:35
+#: theme/templates/registration/signup.html:31
 msgid "First name"
 msgstr "Voornaam"
 
-#: theme/templates/home/contact.html:41
+#: theme/templates/home/contact.html:40
 #: theme/templates/incidents/contact_form.html:29
 #: theme/templates/incidents/contact_form.html:62
 #: theme/templates/modals/so_contacts.html:26
+#: theme/templates/registration/password_reset_form.html:32
 msgid "Email"
 msgstr "E-mail"
 
-#: theme/templates/home/contact.html:44
+#: theme/templates/home/contact.html:43
 #: theme/templates/modals/so_contacts.html:30
 msgid "Phone"
 msgstr "Telefoon"
 
-#: theme/templates/home/contact.html:48
+#: theme/templates/home/contact.html:47
 msgid "Message"
 msgstr "Bericht"
 
-#: theme/templates/home/contact.html:51
+#: theme/templates/home/contact.html:50
 msgid "I agree that my personal data may be used for communication purposes."
 msgstr ""
 "Ik aanvaard dat mijn persoonlijke gegevens worden gebruikt voor "
 "communicatiedoeleinden."
 
-#: theme/templates/home/contact.html:58
+#: theme/templates/home/contact.html:57
 #: theme/templates/modals/review_comment_report.html:31
 #: theme/templates/modals/review_comment_so_declaration.html:42
 #: theme/templates/regulator/so_dashboard.html:19
@@ -229,19 +230,19 @@ msgstr ""
 msgid "Send"
 msgstr "Verzenden"
 
-#: theme/templates/home/contact.html:67
+#: theme/templates/home/contact.html:66
 msgid "Address"
 msgstr "Adres"
 
-#: theme/templates/home/contact.html:81
+#: theme/templates/home/contact.html:80
 msgid "Postal address"
 msgstr "Postadres"
 
-#: theme/templates/home/contact.html:88
+#: theme/templates/home/contact.html:87
 msgid "Tel.:"
 msgstr "Tel.:"
 
-#: theme/templates/home/contact.html:91
+#: theme/templates/home/contact.html:90
 msgid "Email:"
 msgstr "E-mail:"
 
@@ -1344,7 +1345,7 @@ msgstr "Functiebenaming"
 
 #: theme/templates/incidents/contact_form.html:24
 #: theme/templates/incidents/contact_form.html:57
-#: theme/templates/registration/signup.html:36
+#: theme/templates/registration/signup.html:32
 msgid "Last name"
 msgstr "Achternaam"
 
@@ -1704,7 +1705,7 @@ msgstr "Zoeken"
 #: theme/templates/modals/accept_terms.html:23
 #: theme/templates/modals/accept_terms.html:27
 #: theme/templates/modals/accept_terms.html:57
-#: theme/templates/registration/signup.html:63
+#: theme/templates/registration/signup.html:59
 msgid "Terms of Service"
 msgstr "Algemene gebruiksvoorwaarden"
 
@@ -2041,8 +2042,8 @@ msgstr "Inloggen"
 
 #: theme/templates/registration/base.html:50
 #: theme/templates/registration/login.html:96
-#: theme/templates/registration/signup.html:15
-#: theme/templates/registration/signup.html:70
+#: theme/templates/registration/signup.html:11
+#: theme/templates/registration/signup.html:66
 msgid "Create account"
 msgstr "Een account aanmaken"
 
@@ -2095,6 +2096,7 @@ msgid "Your password has been changed."
 msgstr "Uw wachtwoord is gewijzigd."
 
 #: theme/templates/registration/password_change_form.html:15
+#: theme/templates/registration/password_reset_form.html:19
 msgid "All Fields are mandatory."
 msgstr "Alle velden zijn verplicht."
 
@@ -2207,7 +2209,17 @@ msgstr ""
 "Bent u uw wachtwoord vergeten? Voer uw mailadres in om de instructies voor "
 "het resetten te ontvangen."
 
-#: theme/templates/registration/password_reset_form.html:21
+#: theme/templates/registration/password_reset_form.html:36
+#: theme/templates/registration/signup.html:37
+msgid "Captcha"
+msgstr "Captcha"
+
+#: theme/templates/registration/password_reset_form.html:42
+#: theme/templates/registration/signup.html:43
+msgid "Refresh"
+msgstr "Vernieuwen"
+
+#: theme/templates/registration/password_reset_form.html:47
 msgid "Reset password"
 msgstr "Mijn wachtwoord opnieuw instellen"
 
@@ -2225,17 +2237,9 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: theme/templates/registration/signup.html:37
+#: theme/templates/registration/signup.html:33
 msgid "Email address"
 msgstr "E-mailadres"
-
-#: theme/templates/registration/signup.html:41
-msgid "Captcha"
-msgstr "Captcha"
-
-#: theme/templates/registration/signup.html:47
-msgid "Refresh"
-msgstr "Vernieuwen"
 
 #: theme/templates/regulator/so_dashboard.html:155
 msgid "Passed and sent"
@@ -2260,8 +2264,9 @@ msgstr "Datum van de incidentmelding"
 
 #: theme/templates/report/incidents/cover.html:27
 #: theme/templates/report/incidents/details.html:19
-msgid "Report status"
-msgstr "Status rapport"
+#| msgid "My reported incidents"
+msgid "Status of the incident"
+msgstr ""
 
 #: theme/templates/report/incidents/details.html:3
 msgid "Incident details"
@@ -2671,52 +2676,52 @@ msgstr ""
 msgid "Not reviewed"
 msgstr "Niet gecontroleerd"
 
-#: theme/templates/report/security_objectives/declaration.html:61
+#: theme/templates/report/security_objectives/declaration.html:57
 #: theme/templates/security_objectives/declaration.html:362
 msgid "Table of"
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:66
+#: theme/templates/report/security_objectives/declaration.html:62
 #: theme/templates/security_objectives/declaration.html:367
 msgid "Maturity Level"
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:69
+#: theme/templates/report/security_objectives/declaration.html:65
 #: theme/templates/security_objectives/declaration.html:370
 msgid "Security Measure"
 msgstr "Veiligheidsmaatregel"
 
-#: theme/templates/report/security_objectives/declaration.html:72
+#: theme/templates/report/security_objectives/declaration.html:68
 #: theme/templates/security_objectives/declaration.html:373
 msgid "Evidence"
 msgstr "Bewijs"
 
-#: theme/templates/report/security_objectives/declaration.html:75
+#: theme/templates/report/security_objectives/declaration.html:71
 #: theme/templates/security_objectives/declaration.html:376
 msgid "Measure Implemented?"
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:83
+#: theme/templates/report/security_objectives/declaration.html:79
 #: theme/templates/security_objectives/declaration.html:384
 msgid "Justification"
 msgstr "Toelichting"
 
-#: theme/templates/report/security_objectives/declaration.html:87
+#: theme/templates/report/security_objectives/declaration.html:83
 #: theme/templates/security_objectives/declaration.html:388
 msgid "Review Comment"
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:152
+#: theme/templates/report/security_objectives/declaration.html:148
 #: theme/templates/security_objectives/declaration.html:453
 msgid "No security measures data available."
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:158
+#: theme/templates/report/security_objectives/declaration.html:154
 #: theme/templates/security_objectives/declaration.html:459
 msgid "Planned Measures"
 msgstr "Geplande maatregelen"
 
-#: theme/templates/report/security_objectives/declaration.html:176
+#: theme/templates/report/security_objectives/declaration.html:172
 #: theme/templates/security_objectives/declaration.html:474
 msgid "No security objectives data available."
 msgstr ""
