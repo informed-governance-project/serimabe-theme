@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 16:39+0100\n"
+"POT-Creation-Date: 2026-02-12 16:47+0100\n"
 "PO-Revision-Date: 2026-02-12 10:27+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -2264,7 +2264,6 @@ msgstr "Datum van de incidentmelding"
 
 #: theme/templates/report/incidents/cover.html:27
 #: theme/templates/report/incidents/details.html:19
-#| msgid "My reported incidents"
 msgid "Status of the incident"
 msgstr ""
 

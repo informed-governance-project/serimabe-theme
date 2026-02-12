@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 16:39+0100\n"
+"POT-Creation-Date: 2026-02-12 16:47+0100\n"
 "PO-Revision-Date: 2026-02-12 08:27+0000\n"
 "Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -2688,7 +2688,6 @@ msgstr "Datum der Vorfallmeldung"
 
 #: theme/templates/report/incidents/cover.html:27
 #: theme/templates/report/incidents/details.html:19
-#| msgid "My reported incidents"
 msgid "Status of the incident"
 msgstr ""
 
