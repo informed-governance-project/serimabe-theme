@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-12 16:47+0100\n"
-"PO-Revision-Date: 2026-02-12 08:27+0000\n"
+"PO-Revision-Date: 2026-02-25 08:37+0000\n"
 "Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.14.3\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: theme/templates/account/edit.html:8
 msgid "Account management"
@@ -2737,7 +2737,7 @@ msgstr "Date de la notification d'incident"
 #: theme/templates/report/incidents/cover.html:27
 #: theme/templates/report/incidents/details.html:19
 msgid "Status of the incident"
-msgstr ""
+msgstr "Statut de l'incident"
 
 #: theme/templates/report/incidents/details.html:3
 msgid "Incident details"
