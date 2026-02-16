@@ -60,9 +60,9 @@ msgstr ""
 msgid "Account management"
 msgstr "Accountbeheer"
 
-#: theme/templates/account/edit.html:15 theme/templates/home/contact.html:23
+#: theme/templates/account/edit.html:15 theme/templates/home/contact.html:22
 #: theme/templates/incidents/declaration.html:25
-#: theme/templates/registration/signup.html:22
+#: theme/templates/registration/signup.html:18
 msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr "Velden met een sterretje (*) zijn verplicht."
 
@@ -231,11 +231,11 @@ msgstr ""
 msgid "Skip to main content"
 msgstr "Overgaan naar de hoofdinhoud"
 
-#: theme/templates/home/contact.html:16
+#: theme/templates/home/contact.html:15
 msgid "Contact form"
 msgstr "Contactformulier"
 
-#: theme/templates/home/contact.html:36
+#: theme/templates/home/contact.html:35
 #: theme/templates/incidents/contact_form.html:21
 #: theme/templates/incidents/contact_form.html:54
 #: theme/templates/modals/so_contacts.html:22
@@ -243,7 +243,7 @@ msgstr "Contactformulier"
 msgid "First name"
 msgstr "Voornaam"
 
-#: theme/templates/home/contact.html:41
+#: theme/templates/home/contact.html:40
 #: theme/templates/incidents/contact_form.html:29
 #: theme/templates/incidents/contact_form.html:62
 #: theme/templates/modals/so_contacts.html:26
@@ -255,14 +255,14 @@ msgstr "E-mail"
 msgid "Phone"
 msgstr "Telefoon"
 
-#: theme/templates/home/contact.html:48
+#: theme/templates/home/contact.html:47
 msgid "Message"
 msgstr "Bericht"
 
-#: theme/templates/home/contact.html:51
+#: theme/templates/home/contact.html:50
 msgid "I agree that my personal data may be used for communication purposes."
 msgstr ""
-"Ik accepteer dat mijn persoonlijke gegevens worden gebruikt voor "
+"Ik aanvaard dat mijn persoonlijke gegevens worden gebruikt voor "
 "communicatiedoeleinden."
 
 #: theme/templates/home/contact.html:58
@@ -273,19 +273,19 @@ msgstr ""
 msgid "Send"
 msgstr "Verzenden"
 
-#: theme/templates/home/contact.html:67
+#: theme/templates/home/contact.html:66
 msgid "Address"
 msgstr "Adres"
 
-#: theme/templates/home/contact.html:81
+#: theme/templates/home/contact.html:80
 msgid "Postal address"
 msgstr "Postadres"
 
-#: theme/templates/home/contact.html:88
+#: theme/templates/home/contact.html:87
 msgid "Tel.:"
 msgstr "Tel.:"
 
-#: theme/templates/home/contact.html:91
+#: theme/templates/home/contact.html:90
 msgid "Email:"
 msgstr "E-mail:"
 
@@ -363,7 +363,7 @@ msgstr ""
 
 #: theme/templates/home/index.html:10
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: theme/templates/home/index.html:34
 #: theme/templates/registration/login.html:22
@@ -1355,12 +1355,12 @@ msgstr ""
 
 #: theme/templates/incidents/base.html:15
 msgid "Overview"
-msgstr ""
+msgstr "Overzicht"
 
 #: theme/templates/incidents/base.html:18
 #: theme/templates/incidents/incidents_base.html:23
 msgid "My reported incidents"
-msgstr ""
+msgstr "Mijn gemelde incidenten"
 
 #: theme/templates/incidents/base.html:21
 msgid "Notify an incident"
@@ -1388,7 +1388,7 @@ msgstr "Functiebenaming"
 
 #: theme/templates/incidents/contact_form.html:24
 #: theme/templates/incidents/contact_form.html:57
-#: theme/templates/registration/signup.html:36
+#: theme/templates/registration/signup.html:32
 msgid "Last name"
 msgstr "Achternaam"
 
@@ -1548,7 +1548,7 @@ msgstr "Afgesloten"
 #: theme/templates/incidents/incidents_base.html:86
 #: theme/templates/operator/so_dashboard.html:178
 msgid "Unsubmitted"
-msgstr "Niet voorgelegd"
+msgstr "Niet ingediend"
 
 #: theme/templates/incidents/incidents_base.html:90
 #: theme/templates/operator/so_dashboard.html:166
@@ -1569,14 +1569,14 @@ msgstr "Te late indiening"
 #: theme/templates/regulator/so_dashboard.html:167
 #: theme/templates/report/security_objectives/cover.html:40
 msgid "Revision required"
-msgstr ""
+msgstr "Revisie vereist"
 
 #: theme/templates/incidents/incidents_base.html:106
 #: theme/templates/operator/so_dashboard.html:160
 #: theme/templates/regulator/so_dashboard.html:149
 #: theme/templates/report/security_objectives/cover.html:38
 msgid "Passed"
-msgstr "Aanvaard"
+msgstr "Geslaagd"
 
 #: theme/templates/incidents/incidents_base.html:115
 msgid "Incidents table"
@@ -1617,7 +1617,7 @@ msgstr "Regulator"
 
 #: theme/templates/incidents/incidents_base.html:151
 msgid "Regulation"
-msgstr "Regulering"
+msgstr "Regelgeving"
 
 #: theme/templates/incidents/incidents_base.html:154
 #: theme/templates/report/incidents/cover.html:19
@@ -1637,7 +1637,7 @@ msgstr "Sectoren"
 #: theme/templates/report/incidents/cover.html:5
 #: theme/templates/report/incidents/header.html:5
 msgid "Report"
-msgstr "Verslag"
+msgstr "Rapport"
 
 #: theme/templates/incidents/incidents_base.html:164
 #: theme/templates/reporting/dashboard.html:77
@@ -1679,6 +1679,10 @@ msgstr "Het incident is nog aan de gang"
 #: theme/templates/operator/incidents.html:22
 #: theme/templates/operator/incidents.html:25
 msgid "The incident has been closed"
+msgstr "Het incident is afgesloten"
+
+#: theme/templates/incidents/incidents_base.html:229
+msgid "Last update date"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:229
@@ -1907,7 +1911,7 @@ msgstr ""
 #: theme/templates/reporting/dashboard.html:176
 #: theme/templates/security_objectives/declaration.html:114
 msgid "Review comment"
-msgstr ""
+msgstr "Opmerking bekijken"
 
 #: theme/templates/modals/review_comment_so_declaration.html:8
 #: theme/templates/modals/update_so_declaration.html:25
@@ -2018,7 +2022,7 @@ msgstr ""
 
 #: theme/templates/parts/footer.html:53
 msgid "Cookies policy"
-msgstr ""
+msgstr "Cookiebeleid"
 
 #: theme/templates/parts/footer.html:57
 msgid "Accessibility statement"
@@ -2081,8 +2085,8 @@ msgstr "Inloggen"
 
 #: theme/templates/registration/base.html:50
 #: theme/templates/registration/login.html:96
-#: theme/templates/registration/signup.html:15
-#: theme/templates/registration/signup.html:70
+#: theme/templates/registration/signup.html:11
+#: theme/templates/registration/signup.html:66
 msgid "Create account"
 msgstr "Een account aanmaken"
 
@@ -2135,6 +2139,7 @@ msgid "Your password has been changed."
 msgstr "Uw wachtwoord is gewijzigd."
 
 #: theme/templates/registration/password_change_form.html:15
+#: theme/templates/registration/password_reset_form.html:19
 msgid "All Fields are mandatory."
 msgstr "Alle velden zijn verplicht."
 
@@ -2247,7 +2252,17 @@ msgstr ""
 "Bent u uw wachtwoord vergeten? Voer uw mailadres in om de instructies voor "
 "het resetten te ontvangen."
 
-#: theme/templates/registration/password_reset_form.html:21
+#: theme/templates/registration/password_reset_form.html:36
+#: theme/templates/registration/signup.html:37
+msgid "Captcha"
+msgstr "Captcha"
+
+#: theme/templates/registration/password_reset_form.html:42
+#: theme/templates/registration/signup.html:43
+msgid "Refresh"
+msgstr "Vernieuwen"
+
+#: theme/templates/registration/password_reset_form.html:47
 msgid "Reset password"
 msgstr "Mijn wachtwoord opnieuw instellen"
 
@@ -2265,7 +2280,7 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: theme/templates/registration/signup.html:37
+#: theme/templates/registration/signup.html:33
 msgid "Email address"
 msgstr "E-mailadres"
 
@@ -2300,8 +2315,8 @@ msgstr "Datum van de incidentmelding"
 
 #: theme/templates/report/incidents/cover.html:27
 #: theme/templates/report/incidents/details.html:19
-msgid "Report status"
-msgstr "Status van het verslag"
+msgid "Status of the incident"
+msgstr ""
 
 #: theme/templates/report/incidents/details.html:3
 msgid "Incident details"
@@ -2337,7 +2352,7 @@ msgstr "Ref"
 
 #: theme/templates/report/incidents/reports.html:3
 msgid "Reports"
-msgstr "Verslagen"
+msgstr "Rapporten"
 
 #: theme/templates/report/incidents/reports.html:44
 msgid "Impacts"
@@ -2350,7 +2365,7 @@ msgstr "Er is geen incidentverslag ingediend."
 #: theme/templates/report/incidents/template.html:4
 #: theme/templates/report/incidents/template.html:5
 msgid "Incident report"
-msgstr "Incidentverslag"
+msgstr "Incidentrapport"
 
 #: theme/templates/report/incidents/timeline.html:3
 msgid "Incident timeline"
@@ -2374,7 +2389,7 @@ msgstr "Datum van aanvang van het incident"
 
 #: theme/templates/report/incidents/timeline.html:43
 msgid "Incident resolution date"
-msgstr ""
+msgstr "Datum van oplossing van het incident"
 
 #: theme/templates/report/incidents/timeline.html:53
 msgid "Report Timeline"

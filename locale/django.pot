@@ -65,9 +65,9 @@ msgstr ""
 msgid "Account management"
 msgstr ""
 
-#: theme/templates/account/edit.html:15 theme/templates/home/contact.html:23
+#: theme/templates/account/edit.html:15 theme/templates/home/contact.html:22
 #: theme/templates/incidents/declaration.html:25
-#: theme/templates/registration/signup.html:22
+#: theme/templates/registration/signup.html:18
 msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr ""
 
@@ -236,11 +236,11 @@ msgstr ""
 msgid "Skip to main content"
 msgstr ""
 
-#: theme/templates/home/contact.html:16
+#: theme/templates/home/contact.html:15
 msgid "Contact form"
 msgstr ""
 
-#: theme/templates/home/contact.html:36
+#: theme/templates/home/contact.html:35
 #: theme/templates/incidents/contact_form.html:21
 #: theme/templates/incidents/contact_form.html:54
 #: theme/templates/modals/so_contacts.html:22
@@ -248,7 +248,7 @@ msgstr ""
 msgid "First name"
 msgstr ""
 
-#: theme/templates/home/contact.html:41
+#: theme/templates/home/contact.html:40
 #: theme/templates/incidents/contact_form.html:29
 #: theme/templates/incidents/contact_form.html:62
 #: theme/templates/modals/so_contacts.html:26
@@ -260,11 +260,11 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
-#: theme/templates/home/contact.html:48
+#: theme/templates/home/contact.html:47
 msgid "Message"
 msgstr ""
 
-#: theme/templates/home/contact.html:51
+#: theme/templates/home/contact.html:50
 msgid "I agree that my personal data may be used for communication purposes."
 msgstr ""
 
@@ -276,19 +276,19 @@ msgstr ""
 msgid "Send"
 msgstr ""
 
-#: theme/templates/home/contact.html:67
+#: theme/templates/home/contact.html:66
 msgid "Address"
 msgstr ""
 
-#: theme/templates/home/contact.html:81
+#: theme/templates/home/contact.html:80
 msgid "Postal address"
 msgstr ""
 
-#: theme/templates/home/contact.html:88
+#: theme/templates/home/contact.html:87
 msgid "Tel.:"
 msgstr ""
 
-#: theme/templates/home/contact.html:91
+#: theme/templates/home/contact.html:90
 msgid "Email:"
 msgstr ""
 
@@ -1391,7 +1391,7 @@ msgstr ""
 
 #: theme/templates/incidents/contact_form.html:24
 #: theme/templates/incidents/contact_form.html:57
-#: theme/templates/registration/signup.html:36
+#: theme/templates/registration/signup.html:32
 msgid "Last name"
 msgstr ""
 
@@ -2082,8 +2082,8 @@ msgstr ""
 
 #: theme/templates/registration/base.html:50
 #: theme/templates/registration/login.html:96
-#: theme/templates/registration/signup.html:15
-#: theme/templates/registration/signup.html:70
+#: theme/templates/registration/signup.html:11
+#: theme/templates/registration/signup.html:66
 msgid "Create account"
 msgstr ""
 
@@ -2131,6 +2131,7 @@ msgid "Your password has been changed."
 msgstr ""
 
 #: theme/templates/registration/password_change_form.html:15
+#: theme/templates/registration/password_reset_form.html:19
 msgid "All Fields are mandatory."
 msgstr ""
 
@@ -2247,14 +2248,11 @@ msgid "Select"
 msgstr ""
 
 #: theme/templates/registration/signup.html:37
-msgid "Email address"
-msgstr ""
-
-#: theme/templates/registration/signup.html:41
 msgid "Captcha"
 msgstr ""
 
-#: theme/templates/registration/signup.html:47
+#: theme/templates/registration/password_reset_form.html:42
+#: theme/templates/registration/signup.html:43
 msgid "Refresh"
 msgstr ""
 
@@ -2281,7 +2279,7 @@ msgstr ""
 
 #: theme/templates/report/incidents/cover.html:27
 #: theme/templates/report/incidents/details.html:19
-msgid "Report status"
+msgid "Status of the incident"
 msgstr ""
 
 #: theme/templates/report/incidents/details.html:3

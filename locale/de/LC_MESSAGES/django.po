@@ -61,9 +61,9 @@ msgstr ""
 msgid "Account management"
 msgstr "Kontoverwaltung"
 
-#: theme/templates/account/edit.html:15 theme/templates/home/contact.html:23
+#: theme/templates/account/edit.html:15 theme/templates/home/contact.html:22
 #: theme/templates/incidents/declaration.html:25
-#: theme/templates/registration/signup.html:22
+#: theme/templates/registration/signup.html:18
 msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr ""
 "Die mit einem Sternchen (*) gekennzeichneten Felder sind Pflichtfelder."
@@ -251,11 +251,11 @@ msgstr "Mit freundlichen Grüßen,"
 msgid "Skip to main content"
 msgstr "Zum Hauptinhalt springen"
 
-#: theme/templates/home/contact.html:16
+#: theme/templates/home/contact.html:15
 msgid "Contact form"
 msgstr "Kontakt-Formular"
 
-#: theme/templates/home/contact.html:36
+#: theme/templates/home/contact.html:35
 #: theme/templates/incidents/contact_form.html:21
 #: theme/templates/incidents/contact_form.html:54
 #: theme/templates/modals/so_contacts.html:22
@@ -263,7 +263,7 @@ msgstr "Kontakt-Formular"
 msgid "First name"
 msgstr "Vorname"
 
-#: theme/templates/home/contact.html:41
+#: theme/templates/home/contact.html:40
 #: theme/templates/incidents/contact_form.html:29
 #: theme/templates/incidents/contact_form.html:62
 #: theme/templates/modals/so_contacts.html:26
@@ -275,11 +275,11 @@ msgstr "E-Mail"
 msgid "Phone"
 msgstr "Telefon"
 
-#: theme/templates/home/contact.html:48
+#: theme/templates/home/contact.html:47
 msgid "Message"
 msgstr "Nachricht"
 
-#: theme/templates/home/contact.html:51
+#: theme/templates/home/contact.html:50
 msgid "I agree that my personal data may be used for communication purposes."
 msgstr ""
 "Ich bin damit einverstanden, dass meine personenbezogenen Daten zu "
@@ -293,19 +293,19 @@ msgstr ""
 msgid "Send"
 msgstr "Senden"
 
-#: theme/templates/home/contact.html:67
+#: theme/templates/home/contact.html:66
 msgid "Address"
 msgstr "Adresse"
 
-#: theme/templates/home/contact.html:81
+#: theme/templates/home/contact.html:80
 msgid "Postal address"
 msgstr "Postanschrift"
 
-#: theme/templates/home/contact.html:88
+#: theme/templates/home/contact.html:87
 msgid "Tel.:"
 msgstr "Tel.:"
 
-#: theme/templates/home/contact.html:91
+#: theme/templates/home/contact.html:90
 msgid "Email:"
 msgstr "E-Mail:"
 
@@ -1803,7 +1803,7 @@ msgstr "Jobtitel"
 
 #: theme/templates/incidents/contact_form.html:24
 #: theme/templates/incidents/contact_form.html:57
-#: theme/templates/registration/signup.html:36
+#: theme/templates/registration/signup.html:32
 msgid "Last name"
 msgstr "Nachname"
 
@@ -2505,8 +2505,8 @@ msgstr "Anmeldung"
 
 #: theme/templates/registration/base.html:50
 #: theme/templates/registration/login.html:96
-#: theme/templates/registration/signup.html:15
-#: theme/templates/registration/signup.html:70
+#: theme/templates/registration/signup.html:11
+#: theme/templates/registration/signup.html:66
 msgid "Create account"
 msgstr "Benutzerkonto erstellen"
 
@@ -2561,6 +2561,7 @@ msgid "Your password has been changed."
 msgstr "Ihr Passwort wurde geändert."
 
 #: theme/templates/registration/password_change_form.html:15
+#: theme/templates/registration/password_reset_form.html:19
 msgid "All Fields are mandatory."
 msgstr "Alle Felder sind Pflichtfelder."
 
@@ -2676,7 +2677,17 @@ msgstr ""
 "Passwort vergessen? Geben Sie Ihre E-Mail-Adresse ein, um Anweisungen zum "
 "Zurücksetzen zu erhalten."
 
-#: theme/templates/registration/password_reset_form.html:21
+#: theme/templates/registration/password_reset_form.html:36
+#: theme/templates/registration/signup.html:37
+msgid "Captcha"
+msgstr "Captcha"
+
+#: theme/templates/registration/password_reset_form.html:42
+#: theme/templates/registration/signup.html:43
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+#: theme/templates/registration/password_reset_form.html:47
 msgid "Reset password"
 msgstr "Passwort zurücksetzen"
 
@@ -2694,7 +2705,7 @@ msgstr ""
 msgid "Select"
 msgstr "Auswählen"
 
-#: theme/templates/registration/signup.html:37
+#: theme/templates/registration/signup.html:33
 msgid "Email address"
 msgstr "E-Mail-Adresse"
 
@@ -2729,8 +2740,8 @@ msgstr "Datum der Vorfallmeldung"
 
 #: theme/templates/report/incidents/cover.html:27
 #: theme/templates/report/incidents/details.html:19
-msgid "Report status"
-msgstr "Berichtstatus"
+msgid "Status of the incident"
+msgstr ""
 
 #: theme/templates/report/incidents/details.html:3
 msgid "Incident details"
