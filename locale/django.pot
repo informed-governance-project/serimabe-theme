@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 16:47+0100\n"
+"POT-Creation-Date: 2026-02-16 11:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2258,13 +2258,8 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: theme/templates/registration/signup.html:37
-msgid "Captcha"
-msgstr ""
-
-#: theme/templates/registration/password_reset_form.html:42
-#: theme/templates/registration/signup.html:43
-msgid "Refresh"
+#: theme/templates/registration/signup.html:33
+msgid "Email address"
 msgstr ""
 
 #: theme/templates/regulator/so_dashboard.html:155

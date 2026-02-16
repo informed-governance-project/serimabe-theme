@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-12 16:47+0100\n"
+"POT-Creation-Date: 2026-02-16 11:43+0100\n"
 "PO-Revision-Date: 2026-02-12 08:27+0000\n"
 "Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -2475,10 +2475,6 @@ msgstr ""
 #: theme/templates/parts/500.html:23
 msgid "Please try again later."
 msgstr "Veuillez réessayer plus tard."
-
-#: theme/templates/parts/footer.html:12
-msgid "A platform developed by"
-msgstr "Une plateforme développée par"
 
 #: theme/templates/parts/footer.html:36
 msgid "Terms of service"
