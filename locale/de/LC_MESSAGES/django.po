@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 16:13+0100\n"
-"PO-Revision-Date: 2026-01-19 08:27+0000\n"
-"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
+"POT-Creation-Date: 2026-02-12 16:47+0100\n"
+"PO-Revision-Date: 2026-02-12 08:27+0000\n"
+"Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -107,7 +107,7 @@ msgstr "Django-Einstellungsvariablen"
 
 #: theme/templates/admin/settings_list.html:19
 #: theme/templates/cookiebanner/bootstrap5.html:53
-#: theme/templates/home/contact.html:33
+#: theme/templates/home/contact.html:32
 #: theme/templates/incidents/contact_form.html:8
 #: theme/templates/modals/so_contacts.html:18
 #: theme/templates/reporting/add_recommendations.html:104
@@ -259,7 +259,7 @@ msgstr "Kontakt-Formular"
 #: theme/templates/incidents/contact_form.html:21
 #: theme/templates/incidents/contact_form.html:54
 #: theme/templates/modals/so_contacts.html:22
-#: theme/templates/registration/signup.html:35
+#: theme/templates/registration/signup.html:31
 msgid "First name"
 msgstr "Vorname"
 
@@ -267,10 +267,11 @@ msgstr "Vorname"
 #: theme/templates/incidents/contact_form.html:29
 #: theme/templates/incidents/contact_form.html:62
 #: theme/templates/modals/so_contacts.html:26
+#: theme/templates/registration/password_reset_form.html:32
 msgid "Email"
 msgstr "E-Mail"
 
-#: theme/templates/home/contact.html:44
+#: theme/templates/home/contact.html:43
 #: theme/templates/modals/so_contacts.html:30
 msgid "Phone"
 msgstr "Telefon"
@@ -285,7 +286,7 @@ msgstr ""
 "Ich bin damit einverstanden, dass meine personenbezogenen Daten zu "
 "Kommunikationszwecken verwendet werden können."
 
-#: theme/templates/home/contact.html:58
+#: theme/templates/home/contact.html:57
 #: theme/templates/modals/review_comment_report.html:31
 #: theme/templates/modals/review_comment_so_declaration.html:42
 #: theme/templates/regulator/so_dashboard.html:19
@@ -2097,9 +2098,8 @@ msgid "The incident has been closed"
 msgstr "Der Vorfall wurde abgeschlossen"
 
 #: theme/templates/incidents/incidents_base.html:229
-#| msgid "Last update"
 msgid "Last update date"
-msgstr ""
+msgstr "Letztes Aktualisierungsdatum"
 
 #: theme/templates/incidents/incidents_base.html:241
 msgid "Incident notification submission date"
@@ -2164,7 +2164,7 @@ msgstr "Suchen"
 #: theme/templates/modals/accept_terms.html:23
 #: theme/templates/modals/accept_terms.html:27
 #: theme/templates/modals/accept_terms.html:57
-#: theme/templates/registration/signup.html:63
+#: theme/templates/registration/signup.html:59
 msgid "Terms of Service"
 msgstr "Nutzungsbedingungen"
 
@@ -2215,9 +2215,9 @@ msgstr "Dokument"
 msgid "Action"
 msgstr "Aktion"
 
-#: theme/templates/modals/access_log.html:97
+#: theme/templates/modals/access_log.html:98
 #: theme/templates/modals/reporting_access_log.html:63
-#: theme/templates/modals/so_access_log.html:79
+#: theme/templates/modals/so_access_log.html:80
 msgid "No entries"
 msgstr "Keine Einträge"
 
@@ -2709,14 +2709,6 @@ msgstr "Auswählen"
 msgid "Email address"
 msgstr "E-Mail-Adresse"
 
-#: theme/templates/registration/signup.html:41
-msgid "Captcha"
-msgstr "Captcha"
-
-#: theme/templates/registration/signup.html:47
-msgid "Refresh"
-msgstr "Aktualisieren"
-
 #: theme/templates/regulator/so_dashboard.html:155
 msgid "Passed and sent"
 msgstr "Bestanden und gesendet"
@@ -3154,52 +3146,52 @@ msgstr "Fortschritt"
 msgid "Not reviewed"
 msgstr "Nicht überprüft"
 
-#: theme/templates/report/security_objectives/declaration.html:61
+#: theme/templates/report/security_objectives/declaration.html:57
 #: theme/templates/security_objectives/declaration.html:362
 msgid "Table of"
 msgstr "Tabelle von"
 
-#: theme/templates/report/security_objectives/declaration.html:66
+#: theme/templates/report/security_objectives/declaration.html:62
 #: theme/templates/security_objectives/declaration.html:367
 msgid "Maturity Level"
 msgstr "Reifegrad"
 
-#: theme/templates/report/security_objectives/declaration.html:69
+#: theme/templates/report/security_objectives/declaration.html:65
 #: theme/templates/security_objectives/declaration.html:370
 msgid "Security Measure"
 msgstr "Sicherheitsmaßnahme"
 
-#: theme/templates/report/security_objectives/declaration.html:72
+#: theme/templates/report/security_objectives/declaration.html:68
 #: theme/templates/security_objectives/declaration.html:373
 msgid "Evidence"
 msgstr "Beweis"
 
-#: theme/templates/report/security_objectives/declaration.html:75
+#: theme/templates/report/security_objectives/declaration.html:71
 #: theme/templates/security_objectives/declaration.html:376
 msgid "Measure Implemented?"
 msgstr "Maßnahme umgesetzt?"
 
-#: theme/templates/report/security_objectives/declaration.html:83
+#: theme/templates/report/security_objectives/declaration.html:79
 #: theme/templates/security_objectives/declaration.html:384
 msgid "Justification"
 msgstr "Begründung"
 
-#: theme/templates/report/security_objectives/declaration.html:87
+#: theme/templates/report/security_objectives/declaration.html:83
 #: theme/templates/security_objectives/declaration.html:388
 msgid "Review Comment"
 msgstr "Review Kommentar"
 
-#: theme/templates/report/security_objectives/declaration.html:152
+#: theme/templates/report/security_objectives/declaration.html:148
 #: theme/templates/security_objectives/declaration.html:453
 msgid "No security measures data available."
 msgstr "Keine Daten zu Sicherheitsmaßnahmen verfügbar."
 
-#: theme/templates/report/security_objectives/declaration.html:158
+#: theme/templates/report/security_objectives/declaration.html:154
 #: theme/templates/security_objectives/declaration.html:459
 msgid "Planned Measures"
 msgstr "Geplante Maßnahmen"
 
-#: theme/templates/report/security_objectives/declaration.html:176
+#: theme/templates/report/security_objectives/declaration.html:172
 #: theme/templates/security_objectives/declaration.html:474
 msgid "No security objectives data available."
 msgstr "Keine Daten zu Sicherheitszielen verfügbar."

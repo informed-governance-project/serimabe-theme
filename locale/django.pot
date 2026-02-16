@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 16:13+0100\n"
+"POT-Creation-Date: 2026-02-12 16:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -110,7 +110,7 @@ msgstr ""
 
 #: theme/templates/admin/settings_list.html:19
 #: theme/templates/cookiebanner/bootstrap5.html:53
-#: theme/templates/home/contact.html:33
+#: theme/templates/home/contact.html:32
 #: theme/templates/incidents/contact_form.html:8
 #: theme/templates/modals/so_contacts.html:18
 #: theme/templates/reporting/add_recommendations.html:104
@@ -244,7 +244,7 @@ msgstr ""
 #: theme/templates/incidents/contact_form.html:21
 #: theme/templates/incidents/contact_form.html:54
 #: theme/templates/modals/so_contacts.html:22
-#: theme/templates/registration/signup.html:35
+#: theme/templates/registration/signup.html:31
 msgid "First name"
 msgstr ""
 
@@ -252,10 +252,11 @@ msgstr ""
 #: theme/templates/incidents/contact_form.html:29
 #: theme/templates/incidents/contact_form.html:62
 #: theme/templates/modals/so_contacts.html:26
+#: theme/templates/registration/password_reset_form.html:32
 msgid "Email"
 msgstr ""
 
-#: theme/templates/home/contact.html:44
+#: theme/templates/home/contact.html:43
 #: theme/templates/modals/so_contacts.html:30
 msgid "Phone"
 msgstr ""
@@ -268,7 +269,7 @@ msgstr ""
 msgid "I agree that my personal data may be used for communication purposes."
 msgstr ""
 
-#: theme/templates/home/contact.html:58
+#: theme/templates/home/contact.html:57
 #: theme/templates/modals/review_comment_report.html:31
 #: theme/templates/modals/review_comment_so_declaration.html:42
 #: theme/templates/regulator/so_dashboard.html:19
@@ -1749,7 +1750,7 @@ msgstr ""
 #: theme/templates/modals/accept_terms.html:23
 #: theme/templates/modals/accept_terms.html:27
 #: theme/templates/modals/accept_terms.html:57
-#: theme/templates/registration/signup.html:63
+#: theme/templates/registration/signup.html:59
 msgid "Terms of Service"
 msgstr ""
 
@@ -1800,9 +1801,9 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
-#: theme/templates/modals/access_log.html:97
+#: theme/templates/modals/access_log.html:98
 #: theme/templates/modals/reporting_access_log.html:63
-#: theme/templates/modals/so_access_log.html:79
+#: theme/templates/modals/so_access_log.html:80
 msgid "No entries"
 msgstr ""
 
@@ -2231,7 +2232,17 @@ msgstr ""
 msgid "Forgot your password? Enter your email to receive reset instructions."
 msgstr ""
 
-#: theme/templates/registration/password_reset_form.html:21
+#: theme/templates/registration/password_reset_form.html:36
+#: theme/templates/registration/signup.html:37
+msgid "Captcha"
+msgstr ""
+
+#: theme/templates/registration/password_reset_form.html:42
+#: theme/templates/registration/signup.html:43
+msgid "Refresh"
+msgstr ""
+
+#: theme/templates/registration/password_reset_form.html:47
 msgid "Reset password"
 msgstr ""
 
@@ -2690,52 +2701,52 @@ msgstr ""
 msgid "Not reviewed"
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:61
+#: theme/templates/report/security_objectives/declaration.html:57
 #: theme/templates/security_objectives/declaration.html:362
 msgid "Table of"
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:66
+#: theme/templates/report/security_objectives/declaration.html:62
 #: theme/templates/security_objectives/declaration.html:367
 msgid "Maturity Level"
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:69
+#: theme/templates/report/security_objectives/declaration.html:65
 #: theme/templates/security_objectives/declaration.html:370
 msgid "Security Measure"
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:72
+#: theme/templates/report/security_objectives/declaration.html:68
 #: theme/templates/security_objectives/declaration.html:373
 msgid "Evidence"
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:75
+#: theme/templates/report/security_objectives/declaration.html:71
 #: theme/templates/security_objectives/declaration.html:376
 msgid "Measure Implemented?"
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:83
+#: theme/templates/report/security_objectives/declaration.html:79
 #: theme/templates/security_objectives/declaration.html:384
 msgid "Justification"
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:87
+#: theme/templates/report/security_objectives/declaration.html:83
 #: theme/templates/security_objectives/declaration.html:388
 msgid "Review Comment"
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:152
+#: theme/templates/report/security_objectives/declaration.html:148
 #: theme/templates/security_objectives/declaration.html:453
 msgid "No security measures data available."
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:158
+#: theme/templates/report/security_objectives/declaration.html:154
 #: theme/templates/security_objectives/declaration.html:459
 msgid "Planned Measures"
 msgstr ""
 
-#: theme/templates/report/security_objectives/declaration.html:176
+#: theme/templates/report/security_objectives/declaration.html:172
 #: theme/templates/security_objectives/declaration.html:474
 msgid "No security objectives data available."
 msgstr ""

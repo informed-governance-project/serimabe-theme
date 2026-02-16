@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-09 16:13+0100\n"
+"POT-Creation-Date: 2026-02-12 16:39+0100\n"
 "PO-Revision-Date: 2025-05-26 10:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -71,7 +71,7 @@ msgstr "Geen aanzienlijke gevolgen"
 msgid "Justification required"
 msgstr ""
 
-#: theme/static/js/so_declaration.js:42
+#: theme/static/js/so_declaration.js:43
 msgid ""
 "Please list your current and planned measures, including a schedule with the "
 "individual stages."
