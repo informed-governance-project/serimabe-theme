@@ -194,7 +194,7 @@ function initSortableHeaders(options = {}) {
     const $th = $(this);
     const sortFieldAttr = $th.data('sort-field').trim();
 
-    const label = $th.text().trim();
+    const label = $(document.createTextNode($th.text().trim()));
     $th.empty();
 
     const $container = $('<div>', {
