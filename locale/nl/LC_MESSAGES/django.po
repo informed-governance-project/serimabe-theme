@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-12 16:47+0100\n"
 "PO-Revision-Date: 2026-02-26 15:27+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,7 +28,7 @@ msgstr "Wijzigingen opslaan"
 
 #: theme/templates/admin/base_site.html:16
 msgid "Django admin area"
-msgstr "Admin-gebied van Django"
+msgstr "Beheerzone Django"
 
 #: theme/templates/admin/base_site.html:21
 msgid "Account security"
@@ -36,7 +36,7 @@ msgstr "Accountbeveiliging"
 
 #: theme/templates/admin/base_site.html:22
 msgid "Password change"
-msgstr "Wijziging van wachtwoord"
+msgstr "Wachtwoord wijzigen"
 
 #: theme/templates/admin/base_site.html:24
 msgid "Return to user interface"
