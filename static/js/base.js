@@ -114,6 +114,19 @@ $(document).ready(function () {
     });
   });
 
+  $('.create_report_project').on("click", function () {
+    let $popup = $("#create_report_project");
+    let popup_url = this.href;
+
+    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr) {
+      if (xhr.status === 403) {
+        window.location.reload();
+      } else {
+        $popup.modal("show");
+      }
+    });
+  });
+
   // Accesibility hack to be compliant with RGAA 11.2
   $('[data-bs-toggle="tooltip"]').filter('input, textarea, i').removeAttr('aria-label');
 
