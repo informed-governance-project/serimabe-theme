@@ -8,7 +8,13 @@
   <div class="modal-content">
     <div class="modal-header bg-primary text-white px-4 small">
       <h5 class="modal-title" id="create_report_project_label">
-        {% translate "New project" %}
+        {% if is_copy %}
+          {% translate "Duplicate project" %}
+        {% elif is_edit %}
+          {% translate "Edit project" %}
+        {% else %}
+          {% translate "New project" %}
+        {% endif %}
       </h5>
       <button type="button"
               class="btn-close btn-close-white"
@@ -34,7 +40,13 @@
             {% translate "Cancel" %}
           </button>
           <button type="submit" class="btn btn-primary">
-            {% translate "Create" %}
+            {% if is_copy %}
+              {% translate "Duplicate" %}
+            {% elif is_edit %}
+              {% translate "Save" %}
+            {% else %}
+              {% translate "Create" %}
+            {% endif %}
           </button>
         </div>
       {% endif %}

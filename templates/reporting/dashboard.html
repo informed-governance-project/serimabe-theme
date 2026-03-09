@@ -177,6 +177,26 @@
             </td>
             <td class="col-auto table-group-divider py-3">
               <div class="d-flex align-items-center justify-content-between">
+                <a class="btn border-0 p-0 text-dark create_report_project"
+                   href="{% url 'edit_report_project' '0' %}"
+                   data-bs-toggle="modal"
+                   data-bs-target="#create_report_project">
+                  <i class="custom-icon-edit h4"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     title="{% translate 'Edit' %}">
+                  </i>
+                </a>
+                <a class="btn border-0 p-0 text-dark create_report_project"
+                   href="{% url 'copy_report_project' '0' %}"
+                   data-bs-toggle="modal"
+                   data-bs-target="#create_report_project">
+                  <i class="custom-icon-duplicate h4"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     title="{% translate 'Duplicate' %}">
+                  </i>
+                </a>
                 <a class="btn border-0 p-0 text-dark spinner-trigger"
                    href="{% url 'report_recommendations' form.initial.id form.initial.sector.id form.year.value %}">
                   <i class="bi bi-list-stars h4"
