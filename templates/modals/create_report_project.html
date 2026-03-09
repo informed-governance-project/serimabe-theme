@@ -27,19 +27,17 @@
       <div class="modal-body">
         {% bootstrap_form_errors form %}
         {% bootstrap_messages %}
-        {% if not messages %}
-          {% bootstrap_field form.project_name %}
-          {% bootstrap_field form.regulation %}
-          {% bootstrap_field form.year %}
-          {% bootstrap_field form.sectors %}
-        {% endif %}
+        {% bootstrap_field form.project_name %}
+        {% bootstrap_field form.regulation %}
+        {% bootstrap_field form.year %}
+        {% bootstrap_field form.sectors %}
       </div>
       {% if not messages %}
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
             {% translate "Cancel" %}
           </button>
-          <button type="submit" class="btn btn-primary spinner-trigger">
+          <button type="submit" class="btn btn-primary">
             {% if is_copy %}
               {% translate "Duplicate" %}
             {% elif is_edit %}
