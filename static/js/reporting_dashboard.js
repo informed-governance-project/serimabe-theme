@@ -51,11 +51,6 @@ $(document).ready(function () {
       },
       {
         targets: 6,
-        orderable: true,
-        type: 'num'
-      },
-      {
-        targets: 7,
         orderable: false,
         type: 'html'
       },
