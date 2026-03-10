@@ -15,6 +15,8 @@
   <script src='{% static "js/reporting_dashboard.js" %}'></script>
 {% endblock %}
 {% block content %}
+  {{ sort_field|default:'updated_at'|json_script:"sort_field_reporting_table" }}
+  {{ sort_direction|default:'desc'|json_script:"sort_direction_reporting_table" }}
   <div class="d-flex justify-content-between align-items-center">
     <div>
       <h3 class="fw-bolder">
@@ -70,28 +72,42 @@
       <caption class="visually-hidden">{% translate "Report generation table" %}</caption>
       <thead>
         <tr>
-          <th class="d-flex align-items-center justify-content-center">
-            <input id="select_all_companies"
-                   class="form-check-input large-checkbox"
-                   type="checkbox">
+          <th class="col-1 align-middle">
           </th>
-          <th class="col-auto">
-            {% translate "Year" %}
+          <th class="col-1 sortable align-middle default-sort-field"
+              data-sort-field="updated_at">
+            {% translate "Modified" %}
           </th>
-          <th class="col-auto">
-            {% translate "Operator" %}
+          <th class="col-1 sortable align-middle" data-sort-field="created_at">
+            {% translate "Created" %}
           </th>
-          <th class="col-auto">
-            {% translate "Sector" %}
+          <th class="col-1 sortable align-middle" data-sort-field="created_by">
+            {% translate "Autor" %}
           </th>
-          <th class="col-auto">
-            {% translate "Security objectives" %}
+          <th class="col-1 sortable align-middle" data-sort-field="name">
+            {% translate "Name" %}
           </th>
-          <th class="col-auto">
-            {% translate "Risk analysis" %}
+          <th class="col-1 sortable align-middle" data-sort-field="regulation">
+            {% translate "Regulation" %}
           </th>
-          <th class="col-auto">
-            {% translate "Actions" %}
+          <th class="col-1 sortable align-middle" data-sort-field="standard">
+            {% translate "Standard" %}
+          </th>
+          <th class="col-1 sortable align-middle" data-sort-field="years">
+            {% translate "Years" %}
+          </th>
+          <th class="col-1 sortable align-middle" data-sort-field="sectors">
+            {% translate "Sectors" %}
+          </th>
+          <th class="col-1 align-middle">
+            <div class="d-flex align-items-center gap-1">
+              <span>{% translate "Actions" %}</span>
+              <button class="btn btn-sm btn-primary ms-auto"
+                      data-bs-toggle="modal"
+                      data-bs-target="#ReportinghideColumns">
+                <i class="bi bi-gear h5 m-0"></i>
+              </button>
+            </div>
           </th>
         </tr>
       </thead>
@@ -104,11 +120,32 @@
             <td class="col-1 table-group-divider py-3">
               {% bootstrap_field form.selected show_label=False field_class="large-checkbox" wrapper_class="d-flex align-items-center justify-content-center" %}
             </td>
-            <td class="col-auto table-group-divider py-3">
-              {{ form.year.value }}
+            <td class="col-1 table-group-divider py-3">
+              01/01/2000
+              <br />
+              <i class="bi bi-clock"></i>
+              12:00
+            </td>
+            <td class="col-1 table-group-divider py-3">
+              01/01/2000
+              <br />
+              <i class="bi bi-clock"></i>
+              12:00
+            </td>
+            <td class="col-1 table-group-divider py-3">
+              John Doe
+            </td>
+            <td class="col-1 table-group-divider py-3">
+              My Project Name
+            </td>
+            <td class="col-1 table-group-divider py-3">
+              NIS
+            </td>
+            <td class="col-1 table-group-divider py-3">
+              ENISA SO
             </td>
             <td class="col-auto table-group-divider py-3">
-              {{ form.name.value }}
+              {{ form.year.value }}
             </td>
             <td class="col-auto table-group-divider py-3 list-sectors">
               <span class="fw-bolder">
@@ -119,54 +156,6 @@
                   {{ form.initial.sector.get_safe_translation }}
                 </li>
               </ul>
-            </td>
-            <td class="col-auto table-group-divider py-3">
-              {% security_objective_exists form.initial.object form.year.value form.initial.sector as exists %}
-              <div class="d-flex align-items-center justify-content-center">
-                {% if not exists %}
-                  <a class="btn btn-sm import_so_declaration"
-                     data-bs-toggle="modal"
-                     data-bs-target="#import_so_declaration"
-                     data-year="{{ form.year.value }}"
-                     data-sector-id="{{ form.initial.sector.id }}"
-                     data-company-id="{{ form.initial.id }}">
-                  {% endif %}
-                  <div class="form-check boolean-checkbox">
-                    <input class="form-check-input large-checkbox no-opacity"
-                           type="checkbox"
-                           {% if exists %}
-                             checked
-                           {% endif %}
-                           disabled>
-                  </div>
-                  {% if not exists %}
-                  </a>
-                {% endif %}
-              </div>
-            </td>
-            <td class="col-auto table-group-divider py-3">
-              {% risk_analysis_exists form.initial.object form.year.value form.initial.sector as exists %}
-              <div class="d-flex align-items-center justify-content-center">
-                {% if not exists %}
-                  <a class="btn btn-sm import_risk_analysis"
-                     data-bs-toggle="modal"
-                     data-bs-target="#import_risk_analysis"
-                     data-year="{{ form.year.value }}"
-                     data-sector-id="{{ form.initial.sector.id }}"
-                     data-company-id="{{ form.initial.id }}">
-                  {% endif %}
-                  <div class="form-check boolean-checkbox">
-                    <input class="form-check-input large-checkbox no-opacity"
-                           type="checkbox"
-                           {% if exists %}
-                             checked
-                           {% endif %}
-                           disabled>
-                  </div>
-                  {% if not exists %}
-                  </a>
-                {% endif %}
-              </div>
             </td>
             <td class="col-auto table-group-divider py-3">
               <div class="d-flex align-items-center justify-content-between">

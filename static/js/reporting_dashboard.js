@@ -1,9 +1,3 @@
-$.fn.dataTable.ext.order['dom-checkbox'] = function (settings, col) {
-  return this.api().column(col, { order: 'index' }).nodes().map(function (td, i) {
-    return $('input[type="checkbox"]', td).prop('checked') ? 1 : 0;
-  });
-};
-
 $(document).ready(function () {
   const checkboxes = $(".company-select-checkbox");
   const generateButton = $("#generateButton");
@@ -11,51 +5,16 @@ $(document).ready(function () {
   const checkAllInput = $("#select_all_companies");
   const companyTableForm = $("#companyTableForm");
 
-  let table = $('#reporting-table').DataTable({
-    autoWidth: false,
-    paging: false,
-    searching: false,
-    info: false,
-    order: [],
-    columnDefs: [
-      {
-        targets: 0,
-        orderable: false,
-      },
-      {
-        targets: 1,
-        orderable: false,
-        type: 'string-utf8'
-      },
-      {
-        targets: 2,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 3,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 4,
-        orderable: true,
-        orderDataType: 'dom-checkbox',
-        type: 'html'
-      },
-      {
-        targets: 5,
-        orderable: true,
-        orderDataType: 'dom-checkbox',
-        type: 'html'
-      },
-      {
-        targets: 6,
-        orderable: false,
-        type: 'html'
-      },
-    ],
-  });
+  // Dashboard columns sort management
+  sort_field_from_context = $('#sort_field_reporting_table').text() ? JSON.parse($('#sort_field_reporting_table').text()) : null,
+  sort_direction_from_context = $('#sort_direction_reporting_table').text() ? JSON.parse($('#sort_direction_reporting_table').text()) : "desc",
+
+  initSortableHeaders(
+    {
+      sortField: sort_field_from_context,
+      sortDirection: sort_direction_from_context,
+    }
+  );
 
   $(document).on("click", '.reporting_access_log', function () {
     var $popup = $("#reporting_access_log");
@@ -113,11 +72,8 @@ $(document).ready(function () {
 
   generateButton.on('click', function () {
     if (companyTableForm.length) {
-      paginationParams = table.page.info();
-      table.page.len(-1).draw();
       const csrftoken = getCsrftoken();
       let formdata = companyTableForm.serialize();
-      table.page.len(paginationParams.length).draw();
       load_spinner();
 
       fetch("/reporting/", {
