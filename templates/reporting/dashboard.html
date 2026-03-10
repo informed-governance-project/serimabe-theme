@@ -197,6 +197,17 @@
                      title="{% translate 'Access Log' %}">
                   </i>
                 </button>
+                <button class="btn border-0 p-0 delete_report_project"
+                        type="button"
+                        data-delete-url="{% url 'delete_report_project' 0 %}"
+                        data-bs-toggle="modal"
+                        data-bs-target="#delete_report_project">
+                  <i class="custom-icon-trash h4"
+                     data-bs-placement="top"
+                     data-bs-toggle="tooltip"
+                     title="{% translate 'Delete' %}">
+                  </i>
+                </button>
               </div>
             </td>
           </tr>
