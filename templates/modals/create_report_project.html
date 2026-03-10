@@ -29,7 +29,28 @@
         {% bootstrap_messages %}
         {% bootstrap_field form.project_name %}
         {% bootstrap_field form.regulation %}
-        {% bootstrap_field form.standard %}
+        <div class="mb-3 required-field">
+          <label for="id_standard" class="form-label">
+            {{ form.standard.label }}
+          </label>
+          <select name="standard"
+                  id="id_standard"
+                  class="form-select"
+                  required
+                  {% if form.fields.standard.disabled %}
+                    disabled
+                  {% endif %}>
+            <option value selected>
+              ---------
+            </option>
+            {% for standard in form.fields.standard.queryset %}
+              <option value="{{ standard.id }}"
+                      data-regulation="{{ standard.regulation.id }}">
+                {{ standard }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
         {% bootstrap_field form.year %}
         {% bootstrap_field form.sectors %}
       </div>

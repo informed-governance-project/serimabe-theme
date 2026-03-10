@@ -19,4 +19,20 @@ $(document).ready(function () {
       optionGroup: '<button type="button" class="multiselect-group dropdown-item fw-bolder"></button>',
     }
   });
+
+  const $standard = $('#id_standard');
+  $standard.find('option[data-regulation]').hide();
+
+  $('#id_regulation').on('change', function () {
+    const selectedReg = $(this).val();
+    $standard.find('option').each(function () {
+      const regulation = $(this).data('regulation');
+      if (!regulation || regulation == selectedReg) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
+    $standard.val('');
+  });
 })
