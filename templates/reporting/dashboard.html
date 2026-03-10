@@ -103,6 +103,7 @@
             <div class="d-flex align-items-center gap-1">
               <span>{% translate "Actions" %}</span>
               <button class="btn btn-sm btn-primary ms-auto"
+                      type="button"
                       data-bs-toggle="modal"
                       data-bs-target="#ReportinghideColumns">
                 <i class="bi bi-gear h5 m-0"></i>
@@ -286,6 +287,16 @@
        aria-labelledby="create_report_project_label"
        aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
+    </div>
+  </div>
+  <div class="modal fade"
+       id="ReportinghideColumns"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="reporting_hide_columns_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      {% include "modals/repoting_dashboard_hide_columns.html" %}
     </div>
   </div>
 {% endblock %}

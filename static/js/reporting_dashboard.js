@@ -38,6 +38,16 @@ $(document).ready(function () {
     $("#filterModal").modal("show");
   })
 
+  // Dashboard columns visibility management
+  const $tableDashboard = $('#reporting-table');
+  $(document).on('show.bs.modal', '#ReportinghideColumns', function () {
+    initColumnsChoice($tableDashboard);
+  });
+  $(document).on('change', '.column-toggle', function () {
+    changeColumnVisibility($tableDashboard, this);
+  });
+  loadColumnDashboardState($tableDashboard);
+
   function updateCheckAll() {
     checkAllInput.prop('checked', checkboxes.not(":disabled").length === checkboxes.not(":disabled").filter(":checked").length);
   }

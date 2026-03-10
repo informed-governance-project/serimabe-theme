@@ -287,7 +287,7 @@ function saveLocalStorageData(data) {
 
 function setColumnVisible($table, colIdx, visible) {
   $table.find('tr').each(function () {
-    $(this).children().eq(colIdx).toggle(visible);
+    $(this).children('td, th').eq(colIdx).toggle(visible);
   });
 }
 
@@ -312,6 +312,7 @@ function loadColumnDashboardState($table) {
 
 function changeColumnVisibility($table, checkbox) {
   const colIdx = $(checkbox).data('column');
+  console.log(colIdx);
   const visible = checkbox.checked;
   setColumnVisible($table,colIdx, visible);
   saveColumnDashboardState();
