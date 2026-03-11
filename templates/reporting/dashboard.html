@@ -160,10 +160,16 @@
             </td>
             <td class="col-auto table-group-divider py-3">
               <div class="d-flex align-items-center justify-content-between">
-                <button class="btn btn-sm btn-secondary" type="button">
+                <button id="open_project"
+                        class="btn btn-sm btn-secondary"
+                        type="button"
+                        disabled>
                   {% translate "Open" %}
                 </button>
-                <button class="btn btn-sm btn-primary" type="button">
+                <button id="download_reports"
+                        class="btn btn-sm btn-primary"
+                        type="button"
+                        disabled>
                   {% translate "Download" %} <i class="bi bi-download"></i>
                 </button>
                 <a class="btn border-0 p-0 text-dark create_report_project"
