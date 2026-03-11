@@ -65,15 +65,11 @@
       </button>
     </div>
   </div>
-  <form id="companyTableForm" method="post" action="">
-    {% csrf_token %}
-    {{ formset.management_form }}
+  {% if filter.qs %}
     <table id="reporting-table" class="table align-middle table-sm small">
       <caption class="visually-hidden">{% translate "Report generation table" %}</caption>
       <thead>
         <tr>
-          <th class="col-1 align-middle">
-          </th>
           <th class="col-1 sortable align-middle default-sort-field"
               data-sort-field="updated_at">
             {% translate "Modified" %}
@@ -113,49 +109,58 @@
         </tr>
       </thead>
       <tbody>
-        {% for form in formset %}
+        {% for project in projects %}
           <tr>
-            {% bootstrap_field form.id %}
-            {% bootstrap_field form.name %}
-            {% bootstrap_field form.sector %}
             <td class="col-1 table-group-divider py-3">
-              {% bootstrap_field form.selected show_label=False field_class="large-checkbox" wrapper_class="d-flex align-items-center justify-content-center" %}
-            </td>
-            <td class="col-1 table-group-divider py-3">
-              01/01/2000
+              {{ project.updated_at|date:"d/m/y" }}
               <br />
               <i class="bi bi-clock"></i>
-              12:00
+              {{ project.updated_at|date:"H:i" }}
             </td>
             <td class="col-1 table-group-divider py-3">
-              01/01/2000
+              {{ project.created_at|date:"d/m/y" }}
               <br />
               <i class="bi bi-clock"></i>
-              12:00
+              {{ project.created_at|date:"H:i" }}
             </td>
             <td class="col-1 table-group-divider py-3">
-              John Doe
+              {{ project.author }}
             </td>
             <td class="col-1 table-group-divider py-3">
-              My Project Name
+              {{ project.name }}
             </td>
             <td class="col-1 table-group-divider py-3">
-              NIS
+              {{ project.standard.regulation }}
             </td>
             <td class="col-1 table-group-divider py-3">
-              ENISA SO
+              {{ project.standard }}
             </td>
             <td class="col-auto table-group-divider py-3">
-              {{ form.year.value }}
+              {{ project.years }}
             </td>
             <td class="col-auto table-group-divider py-3 list-sectors">
-              <span class="fw-bolder">
-                {{ form.initial.sector.parent.get_safe_translation }}
-              </span>
-              <ul class="list-unstyled">
-                <li>
-                  {{ form.initial.sector.get_safe_translation }}
-                </li>
+              {% for root_sector in project.get_no_childrens_sectors %}
+                <ul class="m-0 p-0 list-sectors">
+                  <span class="fw-bolder">
+                    {{ root_sector.get_safe_translation }}
+                  </span>
+                </ul>
+              {% endfor %}
+              <ul class="m-0 p-0 list-sectors">
+                {% for root_sector in project.get_root_sectors %}
+                  <span class="fw-bolder">
+                    {{ root_sector.get_safe_translation }}
+                  </span>
+                  <ul class="list-unstyled">
+                    {% for sector in root_sector.children.all %}
+                      {% if sector in project.sectors.all %}
+                        <li>
+                          {{ sector.get_safe_translation }}
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% endfor %}
               </ul>
             </td>
             <td class="col-auto table-group-divider py-3">
@@ -220,10 +225,10 @@
         {% endfor %}
       </tbody>
     </table>
-    {% with pagination_data=pagination_data %}
-      {% include "parts/pagination.html" %}
-    {% endwith %}
-  </form>
+  {% endif %}
+  {% with pagination_data=pagination_data %}
+    {% include "parts/pagination.html" %}
+  {% endwith %}
   <div class="modal fade"
        id="review_comment_report"
        data-bs-keyboard="false"
@@ -260,9 +265,9 @@
         </div>
         <form method="get">
           <div class="modal-body small">
-            {% bootstrap_field filter.form.year label_class="fw-bold" wrapper_class="mb-3" %}
             {% bootstrap_field filter.form.name label_class="fw-bold" wrapper_class="mb-3" %}
-            {% bootstrap_field filter.form.sectors label_class="fw-bold" wrapper_class="sector-filter mb-3" %}
+            {% bootstrap_field filter.form.author label_class="fw-bold" wrapper_class="mb-3" %}
+            {% bootstrap_field filter.form.sectors label_class="fw-bold" wrapper_class="mb-3" %}
           </div>
           <div class="modal-footer">
             <button class="btn btn-secondary btn-sm spinner-trigger"
