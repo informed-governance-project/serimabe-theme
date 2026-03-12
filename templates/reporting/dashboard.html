@@ -210,6 +210,7 @@
                 </button>
                 <button class="btn border-0 p-0 delete_report_project"
                         type="button"
+                        data-project-id="{{ project.id }}"
                         data-delete-url="{% url 'delete_report_project' 0 %}"
                         data-bs-toggle="modal"
                         data-bs-target="#delete_report_project">
@@ -287,6 +288,17 @@
   </div>
 {% endblock %}
 {% block app_modals %}
+  <div class="modal fade"
+       id="delete_report_project"
+       data-bs-backdrop="static"
+       data-bs-keyboard="false"
+       tabindex="-1"
+       aria-labelledby="delete_report_project_label"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      {% include "modals/delete_report_project.html" %}
+    </div>
+  </div>
   <div class="modal fade"
        id="import_so_declaration"
        data-bs-backdrop="static"

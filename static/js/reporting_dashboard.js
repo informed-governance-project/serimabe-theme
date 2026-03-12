@@ -1,4 +1,12 @@
 $(document).ready(function () {
+  $(document).on("click", ".delete_report_project", function () {
+    let $this = $(this);
+    let modalDeleteForm = $("#modal-delete-report-form");
+    let deleteUrlBase = $this.data('delete-url');
+    let projectId = $this.data('project-id');
+    let deleteUrl = deleteUrlBase.replace('0', projectId);
+    modalDeleteForm.attr('action', deleteUrl);
+  });
   const checkboxes = $(".company-select-checkbox");
   const generateButton = $("#generateButton");
   const checkboxesDisabled = checkboxes.filter(':disabled');
