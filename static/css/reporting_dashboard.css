@@ -20,3 +20,15 @@
   background-color: var(--bs-gray-dark) !important;
   border-color: var(--bs-gray-dark) !important;
 }
+
+.btn-running {
+  background-color: transparent !important;
+  border-color: #2673e5 !important;
+  color: #2673e5 !important;
+}
+
+.btn-stop {
+  background-color: transparent !important;
+  border-color: #e40521 !important;
+  color: #e40521 !important;
+}

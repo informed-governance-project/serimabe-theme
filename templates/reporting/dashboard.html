@@ -165,17 +165,16 @@
             </td>
             <td class="col-auto table-group-divider py-3">
               <div class="d-flex align-items-center justify-content-between">
-                <button id="open_project"
-                        class="btn btn-sm btn-secondary"
-                        type="button"
-                        disabled>
+                <button id="open_project" class="btn btn-sm btn-secondary">
                   {% translate "Open" %}
                 </button>
                 <button id="download_reports"
                         class="btn btn-sm btn-primary"
-                        type="button"
-                        disabled>
-                  {% translate "Download" %} <i class="bi bi-download"></i>
+                        data-project-id="{{ project.id }}"
+                        {% if not project.task_id and project.task_status == 'DONE' %}
+                          disabled
+                        {% endif %}>
+                  {% translate "Download" %} <i class="ms-2 bi bi-download"></i>
                 </button>
                 <a class="btn border-0 p-0 text-dark create_report_project"
                    href="{% url 'edit_report_project' '0' %}"
