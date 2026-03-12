@@ -59,11 +59,40 @@ $(document).ready(function () {
   let pollTimer = null;
 
   function startPolling(projectId) {
+    downloadButton.off("mouseenter.running mouseleave.running click.running")
+
+    downloadButton.on("mouseenter.running", function () {
+      downloadButton.empty()
+      downloadButton.removeClass("btn-running").addClass("btn-stop")
+      downloadButton.append($('<i>', { class: "bi bi-sign-stop-fill" }))
+      downloadButton.append($('<span>', { class: "ms-2", text: "Stop generating" }))
+    })
+
+    downloadButton.on("mouseleave.running", function () {
+      downloadButton.empty()
+      downloadButton.removeClass("btn-stop").addClass("btn-running")
+      downloadButton.append($('<div>', { class: "spinner-border spinner-border-sm", role: "status" }))
+      downloadButton.append($('<span>', { class: "ms-2", text: "Generating report" }))
+    })
+
+    downloadButton.on("click.running", function (e) {
+      e.preventDefault()
+      e.stopPropagation()
+      const csrftoken = getCsrftoken();
+      const project_id = $(this).data("project-id")
+      $.ajax({
+        url: `project/${project_id}/report/cancel`,
+        method: "POST",
+        headers: { "X-CSRFToken": csrftoken },
+      })
+    })
+
     stopPolling();
     pollTimer = setInterval(function () {
       $.get(`project/${projectId}/report/status`, function (data) {
         updateUI(data)
         if (isTerminalState(data.status)) {
+          downloadButton.off("mouseenter.running mouseleave.running click.running")
           stopPolling();
           onTaskFinished(data);
         }
@@ -102,29 +131,6 @@ $(document).ready(function () {
         downloadButton.addClass("btn-running ")
         downloadButton.append($spinner).append($text_running)
 
-        downloadButton.on("mouseenter.running", function () {
-          downloadButton.empty()
-          downloadButton.removeClass("btn-running").addClass("btn-stop")
-          downloadButton.append($('<i>', { class: "bi bi-sign-stop-fill" }))
-          downloadButton.append($('<span>', { class: "ms-2", text: "Stop generating" }))
-        })
-
-        downloadButton.on("mouseleave.running", function () {
-          downloadButton.empty()
-          downloadButton.removeClass("btn-stop").addClass("btn-running")
-          downloadButton.append($('<div>', { class: "spinner-border spinner-border-sm", role: "status" }))
-          downloadButton.append($('<span>', { class: "ms-2", text: "Generating report" }))
-        })
-
-        downloadButton.on("click.running", function () {
-          const csrftoken = getCsrftoken();
-          $.ajax({
-            url: `project/1/report/cancel`,
-            method: "POST",
-            headers: { "X-CSRFToken": csrftoken },
-          })
-        })
-
         if (downloadButton.is(":hover")) {
           downloadButton.trigger("mouseenter.running")
         }
@@ -144,7 +150,6 @@ $(document).ready(function () {
   generateButton.on('click', function () {
     const csrftoken = getCsrftoken();
     let formdata = {}
-    load_spinner();
     updateUI({ status: "RUNNING" })
 
     fetch("/reporting/", {

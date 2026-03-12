@@ -171,6 +171,7 @@
                 <a id="download_reports"
                    class="btn btn-sm btn-primary"
                    data-project-id="{{ project.id }}"
+                   href="{% url 'download_report' project.generated_report.last.file_uuid %}"
                    {% if not project.task_id and project.task_status == 'DONE' %}
                      disabled
                    {% endif %}>
