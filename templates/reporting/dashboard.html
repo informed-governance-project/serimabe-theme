@@ -168,14 +168,14 @@
                 <button id="open_project" class="btn btn-sm btn-secondary">
                   {% translate "Open" %}
                 </button>
-                <button id="download_reports"
-                        class="btn btn-sm btn-primary"
-                        data-project-id="{{ project.id }}"
-                        {% if not project.task_id and project.task_status == 'DONE' %}
-                          disabled
-                        {% endif %}>
+                <a id="download_reports"
+                   class="btn btn-sm btn-primary"
+                   data-project-id="{{ project.id }}"
+                   {% if not project.task_id and project.task_status == 'DONE' %}
+                     disabled
+                   {% endif %}>
                   {% translate "Download" %} <i class="ms-2 bi bi-download"></i>
-                </button>
+                </a>
                 <a class="btn border-0 p-0 text-dark create_report_project"
                    href="{% url 'edit_report_project' '0' %}"
                    data-bs-toggle="modal"

@@ -65,6 +65,7 @@ $(document).ready(function () {
         updateUI(data)
         if (isTerminalState(data.status)) {
           stopPolling();
+          onTaskFinished(data);
         }
       }).fail(function () {
         console.warn("Error");
@@ -127,6 +128,12 @@ $(document).ready(function () {
         if (downloadButton.is(":hover")) {
           downloadButton.trigger("mouseenter.running")
         }
+    }
+  }
+
+  function onTaskFinished(data) {
+    if (data.download_uuid) {
+      downloadButton.attr("href", `download/${data.download_uuid}/`);
     }
   }
 
