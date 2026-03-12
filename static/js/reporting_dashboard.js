@@ -1,9 +1,7 @@
 $(document).ready(function () {
-  const checkboxes = $(".company-select-checkbox");
+
   const generateButton = $("#generateButton");
-  const checkboxesDisabled = checkboxes.filter(':disabled');
-  const checkAllInput = $("#select_all_companies");
-  const companyTableForm = $("#companyTableForm");
+  const downloadButton = $("#download_reports")
 
   // Dashboard columns sort management
   sort_field_from_context = $('#sort_field_reporting_table').text() ? JSON.parse($('#sort_field_reporting_table').text()) : null,
@@ -48,81 +46,129 @@ $(document).ready(function () {
   });
   loadColumnDashboardState($tableDashboard);
 
-  function updateCheckAll() {
-    checkAllInput.prop('checked', checkboxes.not(":disabled").length === checkboxes.not(":disabled").filter(":checked").length);
+
+
+
+  let pollTimer = null;
+
+  function startPolling(projectId) {
+    stopPolling();
+    pollTimer = setInterval(function () {
+      $.get(`project/${projectId}/report/status`, function (data) {
+        updateUI(data)
+        if (isTerminalState(data.status)) {
+          stopPolling();
+        }
+      }).fail(function () {
+        console.warn("Error");
+      });
+    }, 1500);
   }
 
-  function processCheckboxSelection(checkbox) {
-    generateButton.prop("disabled", !checkboxes.is(":checked"));
+  function stopPolling() {
+    if (pollTimer) {
+      clearInterval(pollTimer);
+      pollTimer = null;
+    }
   }
 
-  checkboxes.on("change", function () {
-    updateCheckAll();
-    processCheckboxSelection($(this));
-  });
+  function updateUI(data) {
+    downloadButton.removeClass("btn-primary btn-running btn-stop");
+    downloadButton.removeAttr("disabled")
+    downloadButton.empty()
+    switch (data.status) {
+      case "FAIL":
+      case "ABORT":
+      case "DONE":
+        const $icon = $('<i>', { class: "ms-2 bi bi-download" })
+        const $text_done = $('<span>', { text: "Download" })
+        downloadButton.off("mouseenter.running mouseleave.running click.running")
+        downloadButton.addClass("btn-primary")
+        downloadButton.append($text_done).append($icon)
+        break;
 
-  checkAllInput.on("change", function () {
-    const isChecked = this.checked;
-    checkboxes.not(":disabled").prop('checked', isChecked);
-    generateButton.prop("disabled", !isChecked);
-  });
+      case "RUNNING":
+        const $spinner = $('<div>', { class: "spinner-border spinner-border-sm", role: "status" })
+        const $text_running = $('<span>', { class: "ms-2", text: "Generating report" })
 
-  if (checkboxes.length > 0) {
-    processCheckboxSelection(checkboxes.filter(':checked').first());
-  } else {
-    generateButton.prop("disabled", true);
+        downloadButton.addClass("btn-running ")
+        downloadButton.append($spinner).append($text_running)
+
+        downloadButton.on("mouseenter.running", function () {
+          downloadButton.empty()
+          downloadButton.removeClass("btn-running").addClass("btn-stop")
+          downloadButton.append($('<i>', { class: "bi bi-sign-stop-fill" }))
+          downloadButton.append($('<span>', { class: "ms-2", text: "Stop generating" }))
+        })
+
+        downloadButton.on("mouseleave.running", function () {
+          downloadButton.empty()
+          downloadButton.removeClass("btn-stop").addClass("btn-running")
+          downloadButton.append($('<div>', { class: "spinner-border spinner-border-sm", role: "status" }))
+          downloadButton.append($('<span>', { class: "ms-2", text: "Generating report" }))
+        })
+
+        downloadButton.on("click.running", function () {
+          const csrftoken = getCsrftoken();
+          $.ajax({
+            url: `project/1/report/cancel`,
+            method: "POST",
+            headers: { "X-CSRFToken": csrftoken },
+          })
+        })
+
+        if (downloadButton.is(":hover")) {
+          downloadButton.trigger("mouseenter.running")
+        }
+    }
   }
 
-  if (checkboxesDisabled.length === checkboxes.length) {
-    checkAllInput.prop('disabled', true);
+  function isTerminalState(status) {
+    return ["FAIL", "DONE", "ABORT"].includes(status);
   }
-
-  updateCheckAll();
-
 
   generateButton.on('click', function () {
-    if (companyTableForm.length) {
-      const csrftoken = getCsrftoken();
-      let formdata = companyTableForm.serialize();
-      load_spinner();
+    const csrftoken = getCsrftoken();
+    let formdata = {}
+    load_spinner();
+    updateUI({ status: "RUNNING" })
 
-      fetch("/reporting/", {
-        method: "POST",
-        headers: {
-          "X-CSRFToken": csrftoken,
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: formdata,
-      })
-        .then(response => {
-          if (!response.ok) {
-            stop_spinner();
+    fetch("/reporting/", {
+      method: "POST",
+      headers: {
+        "X-CSRFToken": csrftoken,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: formdata,
+    })
+      .then(response => {
+        if (!response.ok) {
+          stop_spinner();
 
-            return response.json().then(data => {
-              if (data.messages) {
-                const messagesContainer = $("#messages-container");
-                if (messagesContainer.length) {
-                  messagesContainer.html(data.messages);
-                }
-                throw new Error(response.statusText);
-              }
-            });
-          }
-          stop_spinner()
           return response.json().then(data => {
             if (data.messages) {
               const messagesContainer = $("#messages-container");
               if (messagesContainer.length) {
                 messagesContainer.html(data.messages);
               }
+              throw new Error(response.statusText);
             }
           });
-        })
-        .catch(error => {
-          stop_spinner()
-          console.error("Error:", error);
+        }
+        stop_spinner()
+        return response.json().then(data => {
+          startPolling(1);
+          if (data.messages) {
+            const messagesContainer = $("#messages-container");
+            if (messagesContainer.length) {
+              messagesContainer.html(data.messages);
+            }
+          }
         });
-
-    }
+      })
+      .catch(error => {
+        stop_spinner()
+        console.error("Error:", error);
+      });
   });
 });
