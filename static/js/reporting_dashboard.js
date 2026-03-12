@@ -8,7 +8,6 @@ $(document).ready(function () {
     modalDeleteForm.attr('action', deleteUrl);
   });
   const generateButton = $("#generateButton");
-  const downloadButton = $("#download_reports")
 
   // Dashboard columns sort management
   sort_field_from_context = $('#sort_field_reporting_table').text() ? JSON.parse($('#sort_field_reporting_table').text()) : null,
@@ -59,6 +58,7 @@ $(document).ready(function () {
   let pollTimer = null;
 
   function startPolling(projectId) {
+    const downloadButton = $(`#download_reports[data-project-id="${projectId}"]`)
     downloadButton.off("mouseenter.running mouseleave.running click.running")
 
     downloadButton.on("mouseenter.running", function () {
@@ -79,9 +79,8 @@ $(document).ready(function () {
       e.preventDefault()
       e.stopPropagation()
       const csrftoken = getCsrftoken();
-      const project_id = $(this).data("project-id")
       $.ajax({
-        url: `project/${project_id}/report/cancel`,
+        url: `project/${projectId}/report/cancel`,
         method: "POST",
         headers: { "X-CSRFToken": csrftoken },
       })
@@ -90,11 +89,11 @@ $(document).ready(function () {
     stopPolling();
     pollTimer = setInterval(function () {
       $.get(`project/${projectId}/report/status`, function (data) {
-        updateUI(data)
+        updateUI(projectId, data)
         if (isTerminalState(data.status)) {
           downloadButton.off("mouseenter.running mouseleave.running click.running")
           stopPolling();
-          onTaskFinished(data);
+          onTaskFinished(projectId,data);
         }
       }).fail(function () {
         console.warn("Error");
@@ -109,7 +108,8 @@ $(document).ready(function () {
     }
   }
 
-  function updateUI(data) {
+  function updateUI(projectId, data) {
+    const downloadButton = $(`#download_reports[data-project-id="${projectId}"]`)
     downloadButton.removeClass("btn-primary btn-running btn-stop");
     downloadButton.removeAttr("disabled")
     downloadButton.empty()
@@ -137,8 +137,9 @@ $(document).ready(function () {
     }
   }
 
-  function onTaskFinished(data) {
+  function onTaskFinished(projectId, data) {
     if (data.download_uuid) {
+      const downloadButton = $(`#download_reports[data-project-id="${projectId}"]`)
       downloadButton.attr("href", `download/${data.download_uuid}/`);
     }
   }
@@ -148,9 +149,10 @@ $(document).ready(function () {
   }
 
   generateButton.on('click', function () {
+    const projectId = $(this).data("project-id")
     const csrftoken = getCsrftoken();
     let formdata = {}
-    updateUI({ status: "RUNNING" })
+    updateUI(projectId, { status: "RUNNING" })
 
     fetch("/reporting/", {
       method: "POST",
@@ -176,7 +178,7 @@ $(document).ready(function () {
         }
         stop_spinner()
         return response.json().then(data => {
-          startPolling(1);
+          startPolling(projectId);
           if (data.messages) {
             const messagesContainer = $("#messages-container");
             if (messagesContainer.length) {

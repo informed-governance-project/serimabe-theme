@@ -29,7 +29,9 @@
     </div>
     <div class="d-inline-flex gap-4">
       <div class="me-auto">
-        <button id="generateButton" class="btn btn-primary btn-sm">
+        <button id="generateButton"
+                data-project-id="1"
+                class="btn btn-primary btn-sm">
           {% translate "Generate report(s)" %}
         </button>
       </div>
@@ -168,17 +170,21 @@
                 <button id="open_project" class="btn btn-sm btn-secondary">
                   {% translate "Open" %}
                 </button>
-                <a id="download_reports"
-                   class="btn btn-sm btn-primary"
-                   data-project-id="{{ project.id }}"
-                   href="{% url 'download_report' project.generated_report.last.file_uuid %}"
-                   {% if not project.task_id and project.task_status == 'DONE' %}
-                     disabled
-                   {% endif %}>
-                  {% translate "Download" %} <i class="ms-2 bi bi-download"></i>
-                </a>
+                {% with report_file_uuid=project.generated_report.last.file_uuid %}
+                  <a id="download_reports"
+                     class="btn btn-sm btn-primary"
+                     data-project-id="{{ project.id }}"
+                     {% if report_file_uuid %}
+                       href="{% url 'download_report' report_file_uuid %}"
+                     {% endif %}
+                     {% if not project.task_id and project.task_status == 'DONE' %}
+                       disabled
+                     {% endif %}>
+                    {% translate "Download" %} <i class="ms-2 bi bi-download"></i>
+                  </a>
+                {% endwith %}
                 <a class="btn border-0 p-0 text-dark create_report_project"
-                   href="{% url 'edit_report_project' '0' %}"
+                   href="{% url 'edit_report_project' project.id %}"
                    data-bs-toggle="modal"
                    data-bs-target="#create_report_project">
                   <i class="custom-icon-edit h4"
