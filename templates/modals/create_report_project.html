@@ -27,7 +27,7 @@
       <div class="modal-body">
         {% bootstrap_form_errors form %}
         {% bootstrap_messages %}
-        {% bootstrap_field form.project_name %}
+        {% bootstrap_field form.name %}
         {% bootstrap_field form.regulation %}
         <div class="mb-3 required-field">
           <label for="id_standard" class="form-label">
@@ -51,7 +51,7 @@
             {% endfor %}
           </select>
         </div>
-        {% bootstrap_field form.year %}
+        {% bootstrap_field form.years %}
         {% bootstrap_field form.sectors %}
       </div>
       {% if not messages %}
