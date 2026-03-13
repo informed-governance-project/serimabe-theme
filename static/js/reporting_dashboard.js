@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
   $(document).on("click", ".delete_report_project", function () {
     let $this = $(this);
     let modalDeleteForm = $("#modal-delete-report-form");
@@ -60,19 +61,20 @@ $(document).ready(function () {
   function startPolling(projectId) {
     const downloadButton = $(`#download_reports[data-project-id="${projectId}"]`)
     downloadButton.off("mouseenter.running mouseleave.running click.running")
+    downloadButton.removeClass("disabled")
 
     downloadButton.on("mouseenter.running", function () {
       downloadButton.empty()
       downloadButton.removeClass("btn-running").addClass("btn-stop")
       downloadButton.append($('<i>', { class: "bi bi-sign-stop-fill" }))
-      downloadButton.append($('<span>', { class: "ms-2", text: "Stop generating" }))
+      downloadButton.append($('<span>', { class: "ms-2", text: gettext("Stop generating") }))
     })
 
     downloadButton.on("mouseleave.running", function () {
       downloadButton.empty()
       downloadButton.removeClass("btn-stop").addClass("btn-running")
       downloadButton.append($('<div>', { class: "spinner-border spinner-border-sm", role: "status" }))
-      downloadButton.append($('<span>', { class: "ms-2", text: "Generating report" }))
+      downloadButton.append($('<span>', { class: "ms-2", text: gettext("Generating report") }))
     })
 
     downloadButton.on("click.running", function (e) {
@@ -111,14 +113,13 @@ $(document).ready(function () {
   function updateUI(projectId, data) {
     const downloadButton = $(`#download_reports[data-project-id="${projectId}"]`)
     downloadButton.removeClass("btn-primary btn-running btn-stop");
-    downloadButton.removeAttr("disabled")
     downloadButton.empty()
     switch (data.status) {
       case "FAIL":
       case "ABORT":
       case "DONE":
         const $icon = $('<i>', { class: "ms-2 bi bi-download" })
-        const $text_done = $('<span>', { text: "Download" })
+        const $text_done = $('<span>', { text: gettext("Download") })
         downloadButton.off("mouseenter.running mouseleave.running click.running")
         downloadButton.addClass("btn-primary")
         downloadButton.append($text_done).append($icon)
@@ -126,7 +127,7 @@ $(document).ready(function () {
 
       case "RUNNING":
         const $spinner = $('<div>', { class: "spinner-border spinner-border-sm", role: "status" })
-        const $text_running = $('<span>', { class: "ms-2", text: "Generating report" })
+        const $text_running = $('<span>', { class: "ms-2", text: gettext("Generating report") })
 
         downloadButton.addClass("btn-running ")
         downloadButton.append($spinner).append($text_running)
@@ -138,15 +139,26 @@ $(document).ready(function () {
   }
 
   function onTaskFinished(projectId, data) {
+    const downloadButton = $(`#download_reports[data-project-id="${projectId}"]`)
     if (data.download_uuid) {
-      const downloadButton = $(`#download_reports[data-project-id="${projectId}"]`)
       downloadButton.attr("href", `download/${data.download_uuid}/`);
+    } else {
+      if (downloadButton.attr("href") === undefined) {
+        downloadButton.addClass("disabled")
+      }
     }
   }
 
   function isTerminalState(status) {
     return ["FAIL", "DONE", "ABORT"].includes(status);
   }
+
+  projectsRunning = $('#projects-running-data').text() ? JSON.parse($('#projects-running-data').text()) : [],
+
+  projectsRunning.forEach(function(project) {
+    updateUI(project.id, { status: "RUNNING" })
+    startPolling(project.id)
+  })
 
   generateButton.on('click', function () {
     const projectId = $(this).data("project-id")
