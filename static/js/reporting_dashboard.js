@@ -8,6 +8,7 @@ $(document).ready(function () {
     let deleteUrl = deleteUrlBase.replace('0', projectId);
     modalDeleteForm.attr('action', deleteUrl);
   });
+
   const generateButton = $("#generateButton");
 
   // Dashboard columns sort management
@@ -23,7 +24,7 @@ $(document).ready(function () {
 
   $(document).on("click", '.reporting_access_log', function () {
     var $popup = $("#reporting_access_log");
-    var popup_url = `access_log/${$(this).data("company-id")}/${$(this).data("sector-id")}/${$(this).data("year")}`;
+    var popup_url = `access_log/${$(this).data("project-id")}`;
 
     $(".modal-dialog", $popup).load(popup_url, function () {
       $popup.modal("show");

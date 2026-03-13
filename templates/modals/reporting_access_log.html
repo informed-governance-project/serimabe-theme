@@ -4,6 +4,10 @@
 {% load reporting_filters %}
 {% load static %}
 {% block bootstrap5_extra_script %}
+  <script type="text/javascript"
+          src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
+  <script type="text/javascript"
+          src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
   <script src='{% static "js/access_log.js" %}'></script>
 {% endblock %}
 {% block content %}
