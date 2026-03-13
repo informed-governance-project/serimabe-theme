@@ -163,44 +163,32 @@ $(document).ready(function () {
   generateButton.on('click', function () {
     const projectId = $(this).data("project-id")
     const csrftoken = getCsrftoken();
-    let formdata = {}
+    const url = `project/${projectId}/report/generate`
     updateUI(projectId, { status: "RUNNING" })
 
-    fetch("/reporting/", {
+    fetch(url, {
       method: "POST",
       headers: {
         "X-CSRFToken": csrftoken,
-        "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: formdata,
     })
-      .then(response => {
-        if (!response.ok) {
-          stop_spinner();
-
-          return response.json().then(data => {
-            if (data.messages) {
-              const messagesContainer = $("#messages-container");
-              if (messagesContainer.length) {
-                messagesContainer.html(data.messages);
-              }
-              throw new Error(response.statusText);
-            }
-          });
-        }
-        stop_spinner()
-        return response.json().then(data => {
-          startPolling(projectId);
-          if (data.messages) {
-            const messagesContainer = $("#messages-container");
-            if (messagesContainer.length) {
-              messagesContainer.html(data.messages);
-            }
+      .then(async response => {
+        const data = await response.json();
+        if (data.messages) {
+          const messagesContainer = $("#messages-container");
+          if (messagesContainer.length) {
+            messagesContainer.html(data.messages);
           }
-        });
+        }
+
+        if (!response.ok) {
+          updateUI(projectId, { status: "FAIL" })
+          throw new Error(response.statusText);
+        }
+
+        startPolling(projectId);
       })
       .catch(error => {
-        stop_spinner()
         console.error("Error:", error);
       });
   });
