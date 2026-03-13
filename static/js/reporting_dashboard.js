@@ -142,7 +142,7 @@ $(document).ready(function () {
   function onTaskFinished(projectId, data) {
     const downloadButton = $(`#download_reports[data-project-id="${projectId}"]`)
     if (data.download_uuid) {
-      downloadButton.attr("href", `download/${data.download_uuid}/`);
+      downloadButton.attr("href", `project/${projectId}/report/download/${data.download_uuid}`);
     } else {
       if (downloadButton.attr("href") === undefined) {
         downloadButton.addClass("disabled")
