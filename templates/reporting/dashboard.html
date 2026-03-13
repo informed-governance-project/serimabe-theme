@@ -182,7 +182,7 @@
                             {% endif %}"
                      data-project-id="{{ project.id }}"
                      {% if report_file_uuid %}
-                       href="{% url 'download_report' report_file_uuid %}"
+                       href="{% url 'download_report' project.id report_file_uuid %}"
                      {% endif %}>
                     {% translate "Download" %} <i class="ms-2 bi bi-download"></i>
                   </a>
