@@ -45,12 +45,15 @@
                   {% if form.fields.standard.disabled %}
                     disabled
                   {% endif %}>
-            <option value selected>
+            <option value="">
               ---------
             </option>
             {% for standard in form.fields.standard.queryset %}
               <option value="{{ standard.id }}"
-                      data-regulation="{{ standard.regulation.id }}">
+                      data-regulation="{{ standard.regulation.id }}"
+                      {% if form.standard.value|stringformat:"s" == standard.id|stringformat:"s" %}
+                        selected
+                      {% endif %}>
                 {{ standard }}
               </option>
             {% endfor %}
