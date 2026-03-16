@@ -22,7 +22,12 @@
               aria-label="{% translate 'Close' %}">
       </button>
     </div>
-    <form action="{% url 'create_report_project' %}" method="post">
+    {% if is_edit %}
+      {% url 'edit_report_project' form.instance.id as form_action %}
+    {% else %}
+      {% url 'create_report_project' as form_action %}
+    {% endif %}
+    <form action="{{ form_action }}" method="post">
       {% csrf_token %}
       <div class="modal-body">
         {% bootstrap_form_errors form %}
