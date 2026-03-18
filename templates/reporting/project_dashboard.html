@@ -1,40 +1,57 @@
 {% extends "reporting/base.html" %}
 {% load i18n %}
 {% load django_bootstrap5 %}
-{% load reporting_filters %}
 {% load static %}
 {% block bootstrap5_extra_script %}
   {{ block.super }}
-  <link rel="stylesheet"
-        href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/reporting_dashboard.css' %}" />
-  <script type="text/javascript"
-          src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
-  <script type="text/javascript"
-          src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
-  <script>
-  </script>
+  <script src='{% static "js/project_dashboard.js" %}'></script>
 {% endblock %}
 {% block content %}
-  {{ sort_field|default:'updated_at'|json_script:"sort_field_reporting_table" }}
-  {{ sort_direction|default:'desc'|json_script:"sort_direction_reporting_table" }}
-  {{ projects_running|json_script:"projects-running-data" }}
+  {{ sort_field|default:'updated_at'|json_script:"sort_field_project_dashboard_table" }}
+  {{ sort_direction|default:'desc'|json_script:"sort_project_dashboard_table" }}
   <div class="d-flex justify-content-between align-items-center">
-    <div>
-      <h3 class="fw-bolder">
-        {% block title %}
-          {{ project.name }}
-        {% endblock %}
-      </h3>
+    <div class="row py-3 gap-2 row-cols-3">
+      <div class="col-auto">
+        <h3 class="fw-bolder mb-0">
+          {% block title %}
+            {{ project.name }}
+          {% endblock %}
+        </h3>
+      </div>
+      <div class="p-0 vr">
+      </div>
+      <div class="col-auto small">
+        <div class="row gap-1">
+          <span class="col fw-bold">{% translate "Modified" %}</span>
+          <div class="col hstack">
+            {% if project.updated_at %}
+              {{ project.updated_at|date:"d/m/y" }}
+              <i class="bi bi-clock px-1"></i>
+              {{ project.updated_at|date:"H:i" }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="row gap-1">
+          <span class="col fw-bold">{% translate "Created" %}</span>
+          <div class="col hstack">
+            {{ project.created_at|date:"d/m/y" }}
+            <i class="bi bi-clock px-1"></i>
+            {{ project.created_at|date:"H:i" }}
+          </div>
+        </div>
+      </div>
+      <div class="col-auto small">
+        <div class="row gap-1">
+          <span class="col fw-bold">
+            {% translate "Author" %}
+          </span>
+          <div class="col">
+            {{ project.author }}
+          </div>
+        </div>
+      </div>
     </div>
     <div class="d-inline-flex gap-4">
-      <div class="me-auto">
-        <button id="generateButton"
-                data-project-id="1"
-                class="btn btn-primary btn-sm">
-          {% translate "Generate report(s)" %}
-        </button>
-      </div>
       <form id="search_bar_form" method="get">
         {% bootstrap_field filter.form.search label_class="fw-bold" addon_before="<i class='custom-icon-search h4'></i>" addon_before_class="input-group-text search_icon" addon_after="<button id='clearSearch' type='button' class='btn-close d-none'></button>" addon_after_class="input-group-text close_icon" show_label=false wrapper_class="mb-0" %}
       </form>
@@ -68,9 +85,10 @@
     </div>
   </div>
   {% if filter.qs %}
-    <table id="reporting-table" class="table align-middle table-sm small">
+    <table id="project-dashboard-table"
+           class="table align-middle table-sm small">
       <caption class="visually-hidden">{% translate "Report generation table" %}</caption>
-      <thead>
+      <thead class="border border-end-0 border-start-0 border-4 border-secondary">
         <tr>
           <th class="col-1 sortable align-middle" data-sort-field="is_selected">
           </th>
@@ -142,9 +160,34 @@
       </tbody>
     </table>
   {% endif %}
-  {% with pagination_data=pagination_data %}
+  {% with pagination_data=items %}
     {% include "parts/pagination.html" %}
   {% endwith %}
+  <div class="d-flex pt-3 justify-content-between align-items-center">
+    <a role="button"
+       class="btn btn-secondary d-inline-flex create_report_project"
+       href="{% url 'edit_report_project' project.id %}"
+       data-bs-toggle="modal"
+       data-bs-target="#create_report_project">
+      {% translate "Edit project" %}
+      <i class="ps-2 bi bi-pencil" aria-hidden="true"></i>
+    </a>
+    <div class="hstack gap-2">
+      <a class="btn btn-outline-secondary"
+         role="button"
+         href="{% url 'reporting' %}">
+        {% translate "Cancel" %}
+      </a>
+      <form method="post" action="{% url 'generate_report_project' project.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">
+          {% translate "Generate report(s)" %}
+        </button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+{% block app_modals %}
   <div class="modal fade right-modal pt-5 pe-5"
        id="filterModal"
        tabindex="-1"
@@ -181,8 +224,6 @@
       </div>
     </div>
   </div>
-{% endblock %}
-{% block app_modals %}
   <div class="modal fade"
        id="import_so_declaration"
        data-bs-backdrop="static"
@@ -211,16 +252,6 @@
        aria-labelledby="create_report_project_label"
        aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered">
-    </div>
-  </div>
-  <div class="modal fade"
-       id="ReportinghideColumns"
-       data-bs-keyboard="false"
-       tabindex="-1"
-       aria-labelledby="reporting_hide_columns_label"
-       aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      {% include "modals/repoting_dashboard_hide_columns.html" %}
     </div>
   </div>
 {% endblock %}
