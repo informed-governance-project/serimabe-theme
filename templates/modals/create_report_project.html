@@ -22,7 +22,9 @@
               aria-label="{% translate 'Close' %}">
       </button>
     </div>
-    {% if is_edit %}
+    {% if is_copy %}
+      {% url 'copy_report_project' form.instance.id as form_action %}
+    {% elif is_edit %}
       {% url 'edit_report_project' form.instance.id as form_action %}
     {% else %}
       {% url 'create_report_project' as form_action %}
