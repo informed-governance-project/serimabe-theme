@@ -83,14 +83,19 @@ $(document).ready(function () {
   });
 
   $('.import_so_declaration').on("click", function () {
-    let company_id = $(this).data("company-id");
-    let sector_id = $(this).data("sector-id");
-    let year = $(this).data("year");
-    var $popup = $("#import_so_declaration");
+    const company_id = $(this).data("company-id");
+    const sector_id = $(this).data("sector-id");
+    const year = $(this).data("year");
+    const standard_id = $(this).data("standard-id");
+    const $popup = $("#import_so_declaration");
     var popup_url = '/securityobjectives/import';
 
-    if (company_id && sector_id && year) {
-      popup_url = '/securityobjectives/import?company_id=' + company_id + '&sector_id=' + sector_id + '&year=' + year;
+    if (company_id && sector_id && year && standard_id) {
+      const company_param = `company_id=${company_id}`;
+      const sector_param = `sector_id=${sector_id}`;
+      const year_param = `year=${year}`;
+      const standard_param = `standard_id=${standard_id}`;
+      popup_url = `${popup_url}?${company_param}&${sector_param}&${year_param}&${standard_param}`;
     }
 
     $(".modal-dialog", $popup).load(popup_url, function () {
@@ -99,14 +104,17 @@ $(document).ready(function () {
   });
 
   $('.import_risk_analysis').on("click", function () {
-    let company_id = $(this).data("company-id");
-    let sector_id = $(this).data("sector-id");
-    let year = $(this).data("year");
-    var $popup = $("#import_risk_analysis");
+    const company_id = $(this).data("company-id");
+    const sector_id = $(this).data("sector-id");
+    const year = $(this).data("year");
+    const $popup = $("#import_risk_analysis");
     var popup_url = '/reporting/import_risk_analysis';
 
     if (company_id && sector_id && year) {
-      popup_url = '/reporting/import_risk_analysis?company_id=' + company_id + '&sector_id=' + sector_id + '&year=' + year;
+      const company_param = `company_id=${company_id}`;
+      const sector_param = `sector_id=${sector_id}`;
+      const year_param = `year=${year}`;
+      popup_url = `${popup_url}?${company_param}&${sector_param}&${year_param}`;
     }
 
     $(".modal-dialog", $popup).load(popup_url, function () {
