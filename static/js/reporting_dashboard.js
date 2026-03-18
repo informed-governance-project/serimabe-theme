@@ -29,10 +29,6 @@ $(document).ready(function () {
     });
   });
 
-  $("#openFilter").on("click", function () {
-    $("#filterModal").modal("show");
-  })
-
   // Dashboard columns visibility management
   const $tableDashboard = $('#reporting-table');
   $(document).on('show.bs.modal', '#ReportinghideColumns', function () {
