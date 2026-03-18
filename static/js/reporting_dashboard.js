@@ -9,8 +9,6 @@ $(document).ready(function () {
     modalDeleteForm.attr('action', deleteUrl);
   });
 
-  const generateButton = $("#generateButton");
-
   // Dashboard columns sort management
   sort_field_from_context = $('#sort_field_reporting_table').text() ? JSON.parse($('#sort_field_reporting_table').text()) : null,
   sort_direction_from_context = $('#sort_direction_reporting_table').text() ? JSON.parse($('#sort_direction_reporting_table').text()) : "desc",
@@ -25,15 +23,6 @@ $(document).ready(function () {
   $(document).on("click", '.reporting_access_log', function () {
     var $popup = $("#reporting_access_log");
     var popup_url = `access_log/${$(this).data("project-id")}`;
-
-    $(".modal-dialog", $popup).load(popup_url, function () {
-      $popup.modal("show");
-    });
-  });
-
-  $(document).on("click", '.review_comment_report', function () {
-    var $popup = $("#review_comment_report");
-    var popup_url = `review_comment_report/${$(this).data("company-id")}/${$(this).data("sector-id")}/${$(this).data("year")}`;
 
     $(".modal-dialog", $popup).load(popup_url, function () {
       $popup.modal("show");
@@ -161,36 +150,4 @@ $(document).ready(function () {
     startPolling(project.id)
   })
 
-  generateButton.on('click', function () {
-    const projectId = $(this).data("project-id")
-    const csrftoken = getCsrftoken();
-    const url = `project/${projectId}/report/generate`
-    updateUI(projectId, { status: "RUNNING" })
-
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "X-CSRFToken": csrftoken,
-      },
-    })
-      .then(async response => {
-        const data = await response.json();
-        if (data.messages) {
-          const messagesContainer = $("#messages-container");
-          if (messagesContainer.length) {
-            messagesContainer.html(data.messages);
-          }
-        }
-
-        if (!response.ok) {
-          updateUI(projectId, { status: "FAIL" })
-          throw new Error(response.statusText);
-        }
-
-        startPolling(projectId);
-      })
-      .catch(error => {
-        console.error("Error:", error);
-      });
-  });
 });

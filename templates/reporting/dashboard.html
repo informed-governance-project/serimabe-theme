@@ -5,16 +5,8 @@
 {% load static %}
 {% block bootstrap5_extra_script %}
   {{ block.super }}
-  <link rel="stylesheet"
-        href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
   <link rel="stylesheet" href="{% static 'css/reporting_dashboard.css' %}" />
-  <script type="text/javascript"
-          src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
-  <script type="text/javascript"
-          src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
   <script src='{% static "js/reporting_dashboard.js" %}'></script>
-  <script>
-  </script>
 {% endblock %}
 {% block content %}
   {{ sort_field|default:'updated_at'|json_script:"sort_field_reporting_table" }}
@@ -31,13 +23,6 @@
       </div>
     </div>
     <div class="d-inline-flex gap-4">
-      <div class="me-auto">
-        <button id="generateButton"
-                data-project-id="1"
-                class="btn btn-primary btn-sm">
-          {% translate "Generate report(s)" %}
-        </button>
-      </div>
       <form id="search_bar_form" method="get">
         {% bootstrap_field filter.form.search label_class="fw-bold" addon_before="<i class='custom-icon-search h4'></i>" addon_before_class="input-group-text search_icon" addon_after="<button id='clearSearch' type='button' class='btn-close d-none'></button>" addon_after_class="input-group-text close_icon" show_label=false wrapper_class="mb-0" %}
       </form>
@@ -239,18 +224,11 @@
       </tbody>
     </table>
   {% endif %}
-  {% with pagination_data=pagination_data %}
+  {% with pagination_data=projects %}
     {% include "parts/pagination.html" %}
   {% endwith %}
-  <div class="modal fade"
-       id="review_comment_report"
-       data-bs-keyboard="false"
-       tabindex="-1"
-       aria-labelledby="review_comment_report_label"
-       aria-hidden="false">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    </div>
-  </div>
+{% endblock %}
+{% block app_modals %}
   <div class="modal fade"
        id="reporting_access_log"
        data-bs-keyboard="false"
@@ -298,8 +276,6 @@
       </div>
     </div>
   </div>
-{% endblock %}
-{% block app_modals %}
   <div class="modal fade"
        id="delete_report_project"
        data-bs-backdrop="static"
@@ -309,16 +285,6 @@
        aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       {% include "modals/delete_report_project.html" %}
-    </div>
-  </div>
-  <div class="modal fade"
-       id="import_so_declaration"
-       data-bs-backdrop="static"
-       data-bs-keyboard="false"
-       tabindex="-1"
-       aria-labelledby="import_so_declaration_label"
-       aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
     </div>
   </div>
   <div class="modal fade"
