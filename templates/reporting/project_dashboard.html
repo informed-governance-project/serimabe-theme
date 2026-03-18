@@ -21,9 +21,9 @@
       <div class="p-0 vr">
       </div>
       <div class="col-auto small">
-        <div class="row gap-1">
-          <span class="col fw-bold">{% translate "Modified" %}</span>
-          <div class="col hstack">
+        <div class="row">
+          <span class="col-5 fw-bold">{% translate "Modified" %}</span>
+          <div class="col-7 hstack">
             {% if project.updated_at %}
               {{ project.updated_at|date:"d/m/y" }}
               <i class="bi bi-clock px-1"></i>
@@ -31,9 +31,9 @@
             {% endif %}
           </div>
         </div>
-        <div class="row gap-1">
-          <span class="col fw-bold">{% translate "Created" %}</span>
-          <div class="col hstack">
+        <div class="row">
+          <span class="col-5 fw-bold">{% translate "Created" %}</span>
+          <div class="col-7 hstack">
             {{ project.created_at|date:"d/m/y" }}
             <i class="bi bi-clock px-1"></i>
             {{ project.created_at|date:"H:i" }}
