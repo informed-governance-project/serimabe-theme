@@ -170,9 +170,12 @@
             </td>
             <td class="col-auto table-group-divider py-3">
               <div class="d-flex align-items-center justify-content-between">
-                <button id="open_project" class="btn btn-sm btn-secondary">
+                <a id="open_project"
+                   role="button"
+                   class="btn btn-sm btn-secondary"
+                   href="{% url 'dashboard_report_project' project.id %}">
                   {% translate "Open" %}
-                </button>
+                </a>
                 {% with report_file_uuid=project.generated_report.last.file_uuid %}
                   <a id="download_reports"
                      role="button"
