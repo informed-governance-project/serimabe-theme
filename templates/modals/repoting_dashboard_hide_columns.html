@@ -13,7 +13,7 @@
       </button>
     </div>
     <div class="modal-body row row-cols-2 mx-4 my-3">
-      {% with "Modified,Created,Autor,Name,Regulation,Standard,Years,Sectors" as dashboard_columns %}
+      {% with "Modified,Created,Autor,Name,Regulation,Standard,Reference year,Sectors" as dashboard_columns %}
         {% for d_col in dashboard_columns|split:"," %}
           <div class="form-check">
             <input class="form-check-input column-toggle"
