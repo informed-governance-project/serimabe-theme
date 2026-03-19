@@ -79,8 +79,8 @@
           <th class="col-1 sortable align-middle" data-sort-field="standard">
             {% translate "Standard" %}
           </th>
-          <th class="col-1 sortable align-middle" data-sort-field="years">
-            {% translate "Years" %}
+          <th class="col-1 sortable align-middle" data-sort-field="year">
+            {% translate "Reference year" %}
           </th>
           <th class="col-2 sortable align-middle" data-sort-field="sectors">
             {% translate "Sectors" %}
@@ -126,7 +126,7 @@
               {{ project.standard }}
             </td>
             <td class="col-1 table-group-divider py-3">
-              {{ project.years }}
+              {{ project.reference_year }}
             </td>
             <td class="col-2 table-group-divider py-3 list-sectors">
               {% for root_sector in project.get_no_childrens_sectors %}
