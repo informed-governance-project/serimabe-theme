@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $('.multiselectcheckbox').multiselect({
+  const multiselectConfig = {
     maxHeight: 400,
     buttonWidth: '100%',
     widthSynchronizationMode: 'always',
@@ -18,7 +18,9 @@ $(document).ready(function () {
       option: '<button class="multiselect-option dropdown-item"></button>',
       optionGroup: '<button type="button" class="multiselect-group dropdown-item fw-bolder"></button>',
     }
-  });
+  };
+
+  $('.multiselectcheckbox').multiselect(multiselectConfig);
 
   const $standard = $('#id_standard');
   $standard.find('option[data-regulation]').hide();
@@ -35,4 +37,44 @@ $(document).ready(function () {
     });
     $standard.val('');
   });
+
+
+  // Dinamic range on Year comparaison Dropdown
+  const $refField = $("#id_reference_year");
+  const $yearsField = $("#years");
+
+  function updateYears(refYear) {
+    let selectedValues = $yearsField.val() || [];
+
+    selectedValues = selectedValues.map(v => parseInt(v));
+
+    if ($yearsField.data('multiselect')) {
+      $yearsField.multiselect("destroy");
+    }
+
+    $yearsField.empty();
+
+    for (let i = 1; i <= 10; i++) {
+      const year = refYear - i;
+
+      const option = new Option(year, year);
+
+      if (selectedValues.includes(year)) {
+        option.selected = true;
+      }
+
+      $yearsField.append(option);
+    }
+
+    $yearsField.multiselect(multiselectConfig);
+  }
+
+  $refField.on("change", function () {
+    const refYear = parseInt($(this).val());
+    updateYears(refYear);
+  });
+
+  if ($refField.val()) {
+    updateYears(parseInt($refField.val()));
+  }
 })
