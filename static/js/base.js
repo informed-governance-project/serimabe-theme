@@ -320,7 +320,6 @@ function loadColumnDashboardState($table) {
 
 function changeColumnVisibility($table, checkbox) {
   const colIdx = $(checkbox).data('column');
-  console.log(colIdx);
   const visible = checkbox.checked;
   setColumnVisible($table,colIdx, visible);
   saveColumnDashboardState();
