@@ -90,7 +90,7 @@
       <caption class="visually-hidden">{% translate "Report generation table" %}</caption>
       <thead class="border border-end-0 border-start-0 border-4 border-secondary">
         <tr>
-          <th class="col-1 sortable align-middle" data-sort-field="is_selected">
+          <th class="col-1 align-middle">
           </th>
           <th class="col-3 sortable align-middle default-sort-field"
               data-sort-field="company">
@@ -126,10 +126,10 @@
             <td class="col-1 table-group-divider py-3 ">
               {% bootstrap_field item.formSelect.is_selected show_label=false wrapper_class="mb-0 d-flex justify-content-center align-items-center" %}
             </td>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-3 table-group-divider py-3">
               {{ item.company }}
             </td>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-3 table-group-divider py-3">
               {{ item.sector }}
             </td>
             <td class="col-1 table-group-divider py-3">
@@ -172,6 +172,39 @@
             </td>
           </tr>
         {% endfor %}
+        <tr class="text-center h5">
+          <td class="col-1 table-group-divider py-1 ">
+            <i class="bi bi-check2-square text-primary select-all-input"
+               data-project-id="{{ project.id }}"
+               data-is-all-selected="{{ selected_status.is_selected|lower }}"
+               data-field-target="is_selected">
+            </i>
+          </td>
+          <td class="col-3 table-group-divider py-1">
+          </td>
+          <td class="col-3 table-group-divider py-1">
+          </td>
+          <td class="col-1 table-group-divider py-1">
+          </td>
+          <td class="col-1 table-group-divider py-1">
+          </td>
+          <td class="col-1 table-group-divider py-1">
+          </td>
+          <td class="col-1 table-group-divider py-1">
+            <i class="bi bi-check2-square text-primary select-all-input"
+               data-project-id="{{ project.id }}"
+               data-is-all-selected="{{ selected_status.statistic_selected|lower }}"
+               data-field-target="statistic_selected">
+            </i>
+          </td>
+          <td class="col-1 table-group-divider py-1">
+            <i class="bi bi-check2-square text-primary select-all-input"
+               data-project-id="{{ project.id }}"
+               data-is-all-selected="{{ selected_status.governance_report_selected|lower }}"
+               data-field-target="governance_report_selected">
+            </i>
+          </td>
+        </tr>
       </tbody>
     </table>
   {% endif %}
@@ -221,6 +254,7 @@
         </div>
         <form method="get">
           <div class="modal-body small">
+            {% bootstrap_field filter.form.year label_class="fw-bold" wrapper_class="mb-3" %}
             {% bootstrap_field filter.form.sector label_class="fw-bold" wrapper_class="mb-3" %}
           </div>
           <div class="modal-footer">
