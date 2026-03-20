@@ -90,23 +90,23 @@
       <caption class="visually-hidden">{% translate "Report generation table" %}</caption>
       <thead class="border border-end-0 border-start-0 border-4 border-secondary">
         <tr>
-          <th class="col-1 align-middle">
+          <th class="col-1 sortable align-middle" data-sort-field="is_selected">
           </th>
           <th class="col-3 sortable align-middle default-sort-field"
               data-sort-field="company">
             {% translate "Company" %}
           </th>
-          <th class="col-3 sortable align-middle" data-sort-field="sector">
+          <th class="col-2 sortable align-middle" data-sort-field="sector">
             {% translate "Sector" %}
           </th>
           <th class="col-1 sortable align-middle" data-sort-field="year">
             {% translate "Year" %}
           </th>
-          <th class="col-1 sortable align-middle text-center"
+          <th class="col-2 sortable align-middle text-center"
               data-sort-field="has_security_objectives">
             {% translate "Security Objectives" %}
           </th>
-          <th class="col-1 sortable align-middle text-center"
+          <th class="col-2 sortable align-middle text-center"
               data-sort-field="has_risk_assessment">
             {% translate "Risk Assessment" %}
           </th>
@@ -129,13 +129,31 @@
             <td class="col-3 table-group-divider py-3">
               {{ item.company }}
             </td>
-            <td class="col-3 table-group-divider py-3">
-              {{ item.sector }}
+            <td class="col-2 table-group-divider py-3">
+              {% if not item.sector.parent %}
+                <ul class="m-0 p-0 list-sectors">
+                  <span class="fw-bolder">
+                    {{ item.sector.get_safe_translation }}
+                  </span>
+                </ul>
+              {% endif %}
+              <ul class="m-0 p-0 list-sectors">
+                {% if item.sector.parent %}
+                  <span class="fw-bolder">
+                    {{ item.sector.parent.get_safe_translation }}
+                  </span>
+                  <ul class="list-unstyled">
+                    <li>
+                      {{ item.sector.get_safe_translation }}
+                    </li>
+                  </ul>
+                {% endif %}
+              </ul>
             </td>
             <td class="col-1 table-group-divider py-3">
               {{ item.year }}
             </td>
-            <td class="col-1 table-group-divider py-3 text-center">
+            <td class="col-2 table-group-divider py-3 text-center">
               {% if item.has_security_objectives %}
                 <i class="bi bi-check-circle text-passed h5"></i>
               {% else %}
@@ -150,7 +168,7 @@
                 </a>
               {% endif %}
             </td>
-            <td class="col-1 table-group-divider py-3 text-center">
+            <td class="col-2 table-group-divider py-3 text-center">
               {% if item.has_risk_assessment %}
                 <i class="bi bi-check-circle text-passed h5"></i>
               {% else %}

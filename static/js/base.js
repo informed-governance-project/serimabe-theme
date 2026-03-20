@@ -70,6 +70,7 @@ $(document).ready(function () {
     templates: {
       button: '<button class="multiselect form-select dropdown-toggle" data-bs-toggle="dropdown"><span class="multiselect-selected-text"></span></button>',
       option: '<button class="multiselect-option dropdown-item"></button>',
+      optionGroup: '<button type="button" class="multiselect-group dropdown-item fw-bolder"></button>',
     }
   });
 
@@ -214,13 +215,22 @@ function initSortableHeaders(options = {}) {
   $('.sortable').each(function () {
     const $th = $(this);
     const sortFieldAttr = $th.data('sort-field').trim();
-
     const label = $(document.createTextNode($th.text().trim()));
+    const $label = $('<span>', {
+      class: $th.hasClass('text-center') ? 'mx-auto' : ''
+    });
+    $label.append(label)
+
     $th.empty();
 
     const $container = $('<div>', {
       class: 'd-flex align-items-center justify-content-between'
     });
+
+    if (label === "") {
+      $container.removeClassClass("justify-content-between")
+      $container.addClass("justify-content-end")
+    }
 
     const $icons = $('<span>', {
       class: 'd-flex flex-column ms-2'
@@ -244,7 +254,7 @@ function initSortableHeaders(options = {}) {
     }
 
     $icons.append($up, $down);
-    $container.append(label, $icons);
+    $container.append($label, $icons);
     $th.append($container);
   });
 }

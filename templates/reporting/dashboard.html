@@ -114,7 +114,7 @@
               {{ project.created_at|date:"H:i" }}
             </td>
             <td class="col-1 table-group-divider py-3">
-              {{ project.author }}
+              {{ project.author.get_full_name }}
             </td>
             <td class="col-1 table-group-divider py-3">
               {{ project.name }}
@@ -256,9 +256,11 @@
         </div>
         <form method="get">
           <div class="modal-body small">
-            {% bootstrap_field filter.form.name label_class="fw-bold" wrapper_class="mb-3" %}
-            {% bootstrap_field filter.form.author label_class="fw-bold" wrapper_class="mb-3" %}
+            {% bootstrap_field filter.form.reference_year label_class="fw-bold" wrapper_class="mb-3" %}
             {% bootstrap_field filter.form.sectors label_class="fw-bold" wrapper_class="mb-3" %}
+            {% bootstrap_field filter.form.author label_class="fw-bold" wrapper_class="mb-3" %}
+            {% bootstrap_field filter.form.standard__regulation label_class="fw-bold" wrapper_class="mb-3" %}
+            {% bootstrap_field filter.form.standard label_class="fw-bold" wrapper_class="mb-3" %}
           </div>
           <div class="modal-footer">
             <button class="btn btn-secondary btn-sm spinner-trigger"

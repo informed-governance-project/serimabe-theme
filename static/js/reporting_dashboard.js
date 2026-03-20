@@ -1,4 +1,16 @@
 $(document).ready(function () {
+  const multiselectConfig = {
+    numberDisplayed: 3,
+    enableClickableOptGroups: true,
+    includeSelectAllOption: true,
+    enableCollapsibleOptGroups: true,
+    collapseOptGroupsByDefault: true,
+    disableIfEmpty: true,
+    selectAllValue: 0,
+  };
+
+  $('.multiselectcheckbox').multiselect('setOptions', multiselectConfig).multiselect('rebuild');
+
 
   $(document).on("click", ".delete_report_project", function () {
     let $this = $(this);
