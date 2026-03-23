@@ -26,16 +26,15 @@ $(document).ready(function () {
     onChangeCompanyProject(this);
   });
 
-  $(document).on("click", ".select-all-input", function () {
+  $(document).on("change", ".select-all-input", function () {
     const id = $(this).data("project-id");
     const csrftoken = getCsrftoken();
     const url = `/reporting/project/${id}/company_project/bulk_update`
     const fieldName = $(this).data("field-target");
-    const fieldValue = $(this).data("is-all-selected");
-    $(this).data("is-all-selected",!fieldValue).attr("data-is-all-selected", !fieldValue)
+    const fieldValue = $(this).prop("checked");
     const data = {
       field: fieldName,
-      value: !fieldValue,
+      value: fieldValue,
     }
     $.ajax({
       type: "POST",
@@ -44,13 +43,26 @@ $(document).ready(function () {
       headers: {
         "X-CSRFToken": csrftoken
       },
+      success: function () {
+        $(`input[name="${fieldName}"]`).prop("checked", fieldValue);
+
+        const tooltip_value = (fieldValue === true)
+          ? gettext("Deselect all")
+          : gettext("Select all");
+
+        const $select_all_input = $(`.select-all-input[name="${fieldName}"]`);
+        let select_all_tooltip = bootstrap.Tooltip.getInstance($select_all_input);
+
+        if (select_all_tooltip != undefined) {
+          select_all_tooltip.setContent({ '.tooltip-inner': tooltip_value });
+          setTimeout(() => {
+            if (select_all_tooltip._element) select_all_tooltip.hide();
+          }, 1000);
+        }
+      },
       error: function (error) {
         console.log(error);
       },
-      complete: function () {
-
-        $(`input[name="${fieldName}"]`).prop("checked", !fieldValue);
-      }
     });
   });
 
@@ -75,6 +87,20 @@ function onChangeCompanyProject(input) {
     data: data,
     headers: {
       "X-CSRFToken": csrftoken
+    },
+    success: function () {
+      const $select_all_input = $(`.select-all-input[name="${fieldName}"]`);
+      if (fieldValue === false && $select_all_input.is(":checked")) {
+        $select_all_input .prop("checked", fieldValue);
+        const tooltip_value = gettext("Select all")
+        let select_all_tooltip = bootstrap.Tooltip.getInstance($select_all_input);
+        if (select_all_tooltip != undefined) {
+          select_all_tooltip.setContent({ '.tooltip-inner': tooltip_value });
+          setTimeout(() => {
+            if (select_all_tooltip._element) select_all_tooltip.hide();
+          }, 1000);
+        }
+      }
     },
     error: function (error) {
       console.log(error);
