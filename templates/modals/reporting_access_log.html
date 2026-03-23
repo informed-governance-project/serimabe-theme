@@ -33,7 +33,13 @@
                 {% translate "Date" %}
               </th>
               <th>
+                {% translate "Entity" %}
+              </th>
+              <th>
                 {% translate "User" %}
+              </th>
+              <th>
+                {% translate "Role" %}
               </th>
               <th>
                 {% translate "Action" %}
@@ -48,11 +54,17 @@
                   {{ record.timestamp|date:"d M Y, H:i" }}
                 </td>
                 <td>
+                  {{ record.entity_name }}
+                </td>
+                <td>
                   {% if record.user %}
                     {{ record.user.get_full_name }}
                   {% else %}
                     {{ record.user__full_name }}
                   {% endif %}
+                </td>
+                <td>
+                  {{ record.role }}
                 </td>
                 <td>
                   {{ record.action }}
