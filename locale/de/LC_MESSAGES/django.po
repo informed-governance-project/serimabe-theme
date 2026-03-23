@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-23 09:19+0100\n"
+"POT-Creation-Date: 2026-03-23 11:16+0100\n"
 "PO-Revision-Date: 2026-02-25 08:37+0000\n"
 "Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -2154,17 +2154,19 @@ msgid "Date"
 msgstr "Datum"
 
 #: theme/templates/modals/access_log.html:40
+#: theme/templates/modals/reporting_access_log.html:36
 #: theme/templates/modals/so_access_log.html:36
 msgid "Entity"
 msgstr "Entität"
 
 #: theme/templates/modals/access_log.html:44
-#: theme/templates/modals/reporting_access_log.html:36
+#: theme/templates/modals/reporting_access_log.html:39
 #: theme/templates/modals/so_access_log.html:39
 msgid "User"
 msgstr "Benutzer"
 
 #: theme/templates/modals/access_log.html:47
+#: theme/templates/modals/reporting_access_log.html:42
 #: theme/templates/modals/so_access_log.html:42
 #: theme/templates/report/incidents/contacts.html:17
 #: theme/templates/report/incidents/contacts.html:65
@@ -2177,14 +2179,14 @@ msgstr "Dokument"
 
 #: theme/templates/modals/access_log.html:53
 #: theme/templates/modals/report_versions.html:33
-#: theme/templates/modals/reporting_access_log.html:39
+#: theme/templates/modals/reporting_access_log.html:45
 #: theme/templates/modals/so_access_log.html:45
 #: theme/templates/modals/so_versions.html:27
 msgid "Action"
 msgstr "Aktion"
 
 #: theme/templates/modals/access_log.html:98
-#: theme/templates/modals/reporting_access_log.html:67
+#: theme/templates/modals/reporting_access_log.html:79
 #: theme/templates/modals/so_access_log.html:80
 msgid "No entries"
 msgstr "Keine Einträge"

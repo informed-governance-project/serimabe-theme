@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-23 09:19+0100\n"
+"POT-Creation-Date: 2026-03-23 11:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1740,17 +1740,19 @@ msgid "Date"
 msgstr ""
 
 #: theme/templates/modals/access_log.html:40
+#: theme/templates/modals/reporting_access_log.html:36
 #: theme/templates/modals/so_access_log.html:36
 msgid "Entity"
 msgstr ""
 
 #: theme/templates/modals/access_log.html:44
-#: theme/templates/modals/reporting_access_log.html:36
+#: theme/templates/modals/reporting_access_log.html:39
 #: theme/templates/modals/so_access_log.html:39
 msgid "User"
 msgstr ""
 
 #: theme/templates/modals/access_log.html:47
+#: theme/templates/modals/reporting_access_log.html:42
 #: theme/templates/modals/so_access_log.html:42
 #: theme/templates/report/incidents/contacts.html:17
 #: theme/templates/report/incidents/contacts.html:65
@@ -1763,14 +1765,14 @@ msgstr ""
 
 #: theme/templates/modals/access_log.html:53
 #: theme/templates/modals/report_versions.html:33
-#: theme/templates/modals/reporting_access_log.html:39
+#: theme/templates/modals/reporting_access_log.html:45
 #: theme/templates/modals/so_access_log.html:45
 #: theme/templates/modals/so_versions.html:27
 msgid "Action"
 msgstr ""
 
 #: theme/templates/modals/access_log.html:98
-#: theme/templates/modals/reporting_access_log.html:67
+#: theme/templates/modals/reporting_access_log.html:79
 #: theme/templates/modals/so_access_log.html:80
 msgid "No entries"
 msgstr ""
