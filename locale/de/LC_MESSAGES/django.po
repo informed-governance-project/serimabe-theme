@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-25 09:00+0100\n"
 "PO-Revision-Date: 2026-03-25 08:03+0000\n"
-"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
+"Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -2221,17 +2221,17 @@ msgstr "Duplizieren"
 
 #: theme/templates/modals/create_report_project.html:12
 msgid "Duplicate project"
-msgstr ""
+msgstr "Projekt duplizieren"
 
 #: theme/templates/modals/create_report_project.html:14
 #: theme/templates/reporting/project_dashboard.html:266
 msgid "Edit project"
-msgstr ""
+msgstr "Projekt bearbeiten"
 
 #: theme/templates/modals/create_report_project.html:16
 #: theme/templates/reporting/base.html:22
 msgid "New project"
-msgstr ""
+msgstr "Neues Projekt"
 
 #: theme/templates/modals/create_report_project.html:98
 #: theme/templates/modals/review_comment_so_declaration.html:40
@@ -2276,7 +2276,7 @@ msgstr ""
 
 #: theme/templates/modals/delete_report_project.html:19
 msgid "Are you sure you want to delete the project?"
-msgstr ""
+msgstr "Möchten Sie das Projekt wirklich löschen?"
 
 #: theme/templates/modals/delete_report_recommendation.html:7
 msgid "Confirm Deletion of Recommendation"
@@ -2925,21 +2925,21 @@ msgstr "Berichtsgenerierungstabelle"
 #: theme/templates/reporting/dashboard.html:65
 #: theme/templates/reporting/project_dashboard.html:26
 msgid "Modified"
-msgstr ""
+msgstr "Geändert"
 
 #: theme/templates/reporting/dashboard.html:68
 #: theme/templates/reporting/project_dashboard.html:36
 msgid "Created"
-msgstr ""
+msgstr "Erstellt"
 
 #: theme/templates/reporting/dashboard.html:71
 #: theme/templates/reporting/project_dashboard.html:47
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: theme/templates/reporting/dashboard.html:80
 msgid "Standard"
-msgstr ""
+msgstr "Standard"
 
 #: theme/templates/reporting/dashboard.html:83
 msgid "Base year"
@@ -2961,19 +2961,19 @@ msgstr "Sektor"
 
 #: theme/templates/reporting/project_dashboard.html:108
 msgid "Security Objectives"
-msgstr ""
+msgstr "Sicherheitsziele"
 
 #: theme/templates/reporting/project_dashboard.html:112
 msgid "Risk Assessment"
-msgstr ""
+msgstr "Risikoanalyse"
 
 #: theme/templates/reporting/project_dashboard.html:116
 msgid "Statistics"
-msgstr ""
+msgstr "Statistik"
 
 #: theme/templates/reporting/project_dashboard.html:120
 msgid "Governance report"
-msgstr ""
+msgstr "Governance"
 
 #: theme/templates/reporting/project_dashboard.html:204
 #: theme/templates/reporting/project_dashboard.html:230
