@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-25 09:41+0100\n"
+"POT-Creation-Date: 2026-03-23 09:19+0100\n"
 "PO-Revision-Date: 2025-11-25 14:09+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -31,11 +31,13 @@ msgstr "_MENU_ entrées par page"
 msgid ": Activate to sort"
 msgstr ": Activer pour trier"
 
-#: theme/static/js/base.js:67 theme/static/js/create_so_declaration.js:7
+#: theme/static/js/base.js:67 theme/static/js/create_report_project.js:7
+#: theme/static/js/create_so_declaration.js:7
 msgid "Nothing selected"
 msgstr "Rien sélectionné"
 
-#: theme/static/js/base.js:68 theme/static/js/create_so_declaration.js:8
+#: theme/static/js/base.js:68 theme/static/js/create_report_project.js:8
+#: theme/static/js/create_so_declaration.js:8
 msgid "items selected"
 msgstr "éléments sélectionnés"
 
@@ -66,6 +68,28 @@ msgstr "Incident ayant un impact significatif"
 #: theme/static/js/incidents_regulator.js:47
 msgid "No significant impact"
 msgstr "Pas d'impact significatif"
+
+#: theme/static/js/project_dashboard.js:50
+msgid "Deselect all"
+msgstr ""
+
+#: theme/static/js/project_dashboard.js:51
+#: theme/static/js/project_dashboard.js:95
+msgid "Select all"
+msgstr ""
+
+#: theme/static/js/reporting_dashboard.js:68
+msgid "Stop generating"
+msgstr ""
+
+#: theme/static/js/reporting_dashboard.js:75
+#: theme/static/js/reporting_dashboard.js:128
+msgid "Generating report"
+msgstr ""
+
+#: theme/static/js/reporting_dashboard.js:120
+msgid "Download"
+msgstr "Télécharger"
 
 #: theme/static/js/so_declaration.js:25
 msgid "Justification required"

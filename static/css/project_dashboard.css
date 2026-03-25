@@ -1,0 +1,15 @@
+.select-all-input {
+    cursor:pointer !important;
+    border: none !important;
+    background-color: transparent !important;
+    background-image: url('/static/images/icons/ico-uncheck.svg') !important;
+    margin-right: 10px !important;
+}
+.select-all-input:checked {
+    background-image: url('/static/images/icons/ico-check.svg') !important;
+}
+
+.select-all-input:focus {
+    border: none !important;
+    box-shadow: none !important;
+}

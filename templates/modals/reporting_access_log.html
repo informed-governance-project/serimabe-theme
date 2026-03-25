@@ -4,6 +4,10 @@
 {% load reporting_filters %}
 {% load static %}
 {% block bootstrap5_extra_script %}
+  <script type="text/javascript"
+          src="{% static 'npm_components/datatables.net/js/dataTables.min.js' %}"></script>
+  <script type="text/javascript"
+          src="{% static 'npm_components/datatables.net-bs5/js/dataTables.bootstrap5.min.js' %}"></script>
   <script src='{% static "js/access_log.js" %}'></script>
 {% endblock %}
 {% block content %}
@@ -29,7 +33,13 @@
                 {% translate "Date" %}
               </th>
               <th>
+                {% translate "Entity" %}
+              </th>
+              <th>
                 {% translate "User" %}
+              </th>
+              <th>
+                {% translate "Role" %}
               </th>
               <th>
                 {% translate "Action" %}
@@ -44,11 +54,17 @@
                   {{ record.timestamp|date:"d M Y, H:i" }}
                 </td>
                 <td>
+                  {{ record.entity_name }}
+                </td>
+                <td>
                   {% if record.user %}
                     {{ record.user.get_full_name }}
                   {% else %}
                     {{ record.user__full_name }}
                   {% endif %}
+                </td>
+                <td>
+                  {{ record.role }}
                 </td>
                 <td>
                   {{ record.action }}

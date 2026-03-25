@@ -1,167 +1,161 @@
-$.fn.dataTable.ext.order['dom-checkbox'] = function (settings, col) {
-  return this.api().column(col, { order: 'index' }).nodes().map(function (td, i) {
-    return $('input[type="checkbox"]', td).prop('checked') ? 1 : 0;
-  });
-};
-
 $(document).ready(function () {
-  const checkboxes = $(".company-select-checkbox");
-  const generateButton = $("#generateButton");
-  const checkboxesDisabled = checkboxes.filter(':disabled');
-  const checkAllInput = $("#select_all_companies");
-  const companyTableForm = $("#companyTableForm");
+  const multiselectConfig = {
+    numberDisplayed: 3,
+    enableClickableOptGroups: true,
+    includeSelectAllOption: true,
+    enableCollapsibleOptGroups: true,
+    collapseOptGroupsByDefault: true,
+    disableIfEmpty: true,
+    selectAllValue: 0,
+  };
 
-  let table = $('#reporting-table').DataTable({
-    autoWidth: false,
-    paging: false,
-    searching: false,
-    info: false,
-    order: [],
-    columnDefs: [
-      {
-        targets: 0,
-        orderable: false,
-      },
-      {
-        targets: 1,
-        orderable: false,
-        type: 'string-utf8'
-      },
-      {
-        targets: 2,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 3,
-        orderable: true,
-        type: 'string-utf8'
-      },
-      {
-        targets: 4,
-        orderable: true,
-        orderDataType: 'dom-checkbox',
-        type: 'html'
-      },
-      {
-        targets: 5,
-        orderable: true,
-        orderDataType: 'dom-checkbox',
-        type: 'html'
-      },
-      {
-        targets: 6,
-        orderable: true,
-        type: 'num'
-      },
-      {
-        targets: 7,
-        orderable: false,
-        type: 'html'
-      },
-    ],
+  $('.multiselectcheckbox').multiselect('setOptions', multiselectConfig).multiselect('rebuild');
+
+
+  $(document).on("click", ".delete_report_project", function () {
+    let $this = $(this);
+    let modalDeleteForm = $("#modal-delete-report-form");
+    let deleteUrlBase = $this.data('delete-url');
+    let projectId = $this.data('project-id');
+    let deleteUrl = deleteUrlBase.replace('0', projectId);
+    modalDeleteForm.attr('action', deleteUrl);
   });
+
+  // Dashboard columns sort management
+  sort_field_from_context = $('#sort_field_reporting_table').text() ? JSON.parse($('#sort_field_reporting_table').text()) : null,
+  sort_direction_from_context = $('#sort_direction_reporting_table').text() ? JSON.parse($('#sort_direction_reporting_table').text()) : "desc",
+
+  initSortableHeaders(
+    {
+      sortField: sort_field_from_context,
+      sortDirection: sort_direction_from_context,
+    }
+  );
 
   $(document).on("click", '.reporting_access_log', function () {
     var $popup = $("#reporting_access_log");
-    var popup_url = `access_log/${$(this).data("company-id")}/${$(this).data("sector-id")}/${$(this).data("year")}`;
+    var popup_url = `access_log/${$(this).data("project-id")}`;
 
     $(".modal-dialog", $popup).load(popup_url, function () {
       $popup.modal("show");
     });
   });
 
-  $(document).on("click", '.review_comment_report', function () {
-    var $popup = $("#review_comment_report");
-    var popup_url = `review_comment_report/${$(this).data("company-id")}/${$(this).data("sector-id")}/${$(this).data("year")}`;
-
-    $(".modal-dialog", $popup).load(popup_url, function () {
-      $popup.modal("show");
-    });
+  // Dashboard columns visibility management
+  const $tableDashboard = $('#reporting-table');
+  $(document).on('show.bs.modal', '#ReportinghideColumns', function () {
+    initColumnsChoice($tableDashboard);
   });
+  $(document).on('change', '.column-toggle', function () {
+    changeColumnVisibility($tableDashboard, this);
+  });
+  loadColumnDashboardState($tableDashboard);
 
-  $("#openFilter").on("click", function () {
-    $("#filterModal").modal("show");
+
+
+
+  let pollTimer = null;
+
+  function startPolling(projectId) {
+    const downloadButton = $(`#download_reports[data-project-id="${projectId}"]`)
+    downloadButton.off("mouseenter.running mouseleave.running click.running")
+    downloadButton.removeClass("disabled")
+
+    downloadButton.on("mouseenter.running", function () {
+      downloadButton.empty()
+      downloadButton.removeClass("btn-running").addClass("btn-stop")
+      downloadButton.append($('<i>', { class: "bi bi-sign-stop-fill" }))
+      downloadButton.append($('<span>', { class: "ms-2", text: gettext("Stop generating") }))
+    })
+
+    downloadButton.on("mouseleave.running", function () {
+      downloadButton.empty()
+      downloadButton.removeClass("btn-stop").addClass("btn-running")
+      downloadButton.append($('<div>', { class: "spinner-border spinner-border-sm", role: "status" }))
+      downloadButton.append($('<span>', { class: "ms-2", text: gettext("Generating report") }))
+    })
+
+    downloadButton.on("click.running", function (e) {
+      e.preventDefault()
+      e.stopPropagation()
+      const csrftoken = getCsrftoken();
+      $.ajax({
+        url: `project/${projectId}/report/cancel`,
+        method: "POST",
+        headers: { "X-CSRFToken": csrftoken },
+      })
+    })
+
+    stopPolling();
+    pollTimer = setInterval(function () {
+      $.get(`project/${projectId}/report/status`, function (data) {
+        updateUI(projectId, data)
+        if (isTerminalState(data.status)) {
+          downloadButton.off("mouseenter.running mouseleave.running click.running")
+          stopPolling();
+          onTaskFinished(projectId,data);
+        }
+      }).fail(function () {
+        console.warn("Error");
+      });
+    }, 1500);
+  }
+
+  function stopPolling() {
+    if (pollTimer) {
+      clearInterval(pollTimer);
+      pollTimer = null;
+    }
+  }
+
+  function updateUI(projectId, data) {
+    const downloadButton = $(`#download_reports[data-project-id="${projectId}"]`)
+    downloadButton.removeClass("btn-primary btn-running btn-stop");
+    downloadButton.empty()
+    switch (data.status) {
+      case "FAIL":
+      case "ABORT":
+      case "DONE":
+        const $icon = $('<i>', { class: "ms-2 bi bi-download" })
+        const $text_done = $('<span>', { text: gettext("Download") })
+        downloadButton.off("mouseenter.running mouseleave.running click.running")
+        downloadButton.addClass("btn-primary")
+        downloadButton.append($text_done).append($icon)
+        break;
+
+      case "RUNNING":
+        const $spinner = $('<div>', { class: "spinner-border spinner-border-sm", role: "status" })
+        const $text_running = $('<span>', { class: "ms-2", text: gettext("Generating report") })
+
+        downloadButton.addClass("btn-running ")
+        downloadButton.append($spinner).append($text_running)
+
+        if (downloadButton.is(":hover")) {
+          downloadButton.trigger("mouseenter.running")
+        }
+    }
+  }
+
+  function onTaskFinished(projectId, data) {
+    const downloadButton = $(`#download_reports[data-project-id="${projectId}"]`)
+    if (data.download_uuid) {
+      downloadButton.attr("href", `project/${projectId}/report/download/${data.download_uuid}`);
+    } else {
+      if (downloadButton.attr("href") === undefined) {
+        downloadButton.addClass("disabled")
+      }
+    }
+  }
+
+  function isTerminalState(status) {
+    return ["FAIL", "DONE", "ABORT"].includes(status);
+  }
+
+  projectsRunning = $('#projects-running-data').text() ? JSON.parse($('#projects-running-data').text()) : [],
+
+  projectsRunning.forEach(function(project) {
+    updateUI(project.id, { status: "RUNNING" })
+    startPolling(project.id)
   })
 
-  function updateCheckAll() {
-    checkAllInput.prop('checked', checkboxes.not(":disabled").length === checkboxes.not(":disabled").filter(":checked").length);
-  }
-
-  function processCheckboxSelection(checkbox) {
-    generateButton.prop("disabled", !checkboxes.is(":checked"));
-  }
-
-  checkboxes.on("change", function () {
-    updateCheckAll();
-    processCheckboxSelection($(this));
-  });
-
-  checkAllInput.on("change", function () {
-    const isChecked = this.checked;
-    checkboxes.not(":disabled").prop('checked', isChecked);
-    generateButton.prop("disabled", !isChecked);
-  });
-
-  if (checkboxes.length > 0) {
-    processCheckboxSelection(checkboxes.filter(':checked').first());
-  } else {
-    generateButton.prop("disabled", true);
-  }
-
-  if (checkboxesDisabled.length === checkboxes.length) {
-    checkAllInput.prop('disabled', true);
-  }
-
-  updateCheckAll();
-
-
-  generateButton.on('click', function () {
-    if (companyTableForm.length) {
-      paginationParams = table.page.info();
-      table.page.len(-1).draw();
-      const csrftoken = getCsrftoken();
-      let formdata = companyTableForm.serialize();
-      table.page.len(paginationParams.length).draw();
-      load_spinner();
-
-      fetch("/reporting/", {
-        method: "POST",
-        headers: {
-          "X-CSRFToken": csrftoken,
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: formdata,
-      })
-        .then(response => {
-          if (!response.ok) {
-            stop_spinner();
-
-            return response.json().then(data => {
-              if (data.messages) {
-                const messagesContainer = $("#messages-container");
-                if (messagesContainer.length) {
-                  messagesContainer.html(data.messages);
-                }
-                throw new Error(response.statusText);
-              }
-            });
-          }
-          stop_spinner()
-          return response.json().then(data => {
-            if (data.messages) {
-              const messagesContainer = $("#messages-container");
-              if (messagesContainer.length) {
-                messagesContainer.html(data.messages);
-              }
-            }
-          });
-        })
-        .catch(error => {
-          stop_spinner()
-          console.error("Error:", error);
-        });
-
-    }
-  });
 });

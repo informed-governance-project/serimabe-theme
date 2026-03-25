@@ -15,20 +15,12 @@
       <a class="fw-bold spinner-trigger" href="{% url 'reporting' %}">
         {% translate "Dashboard" %}
       </a>
-      <a class="fw-bold" href="{% url 'download_center' %}">
-        {% translate "Download Center" %}
-      </a>
-      <a class="fw-bold" href="{% url 'report_configuration' %}">
-        {% translate "Configuration" %}
-      </a>
-      <a class="fw-bold import_risk_analysis"
-         href="#"
+      <a class="btn btn-primary create_report_project"
+         href="{% url 'create_report_project' %}"
          data-bs-toggle="modal"
-         data-bs-target="#import_risk_analysis">
-        {% translate "Import risk analysis" %}
+         data-bs-target="#create_report_project">
+        {% translate "New project" %}
       </a>
     </div>
   </div>
-{% endblock %}
-{% block content %}
 {% endblock %}
