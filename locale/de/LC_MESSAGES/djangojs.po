@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-23 09:19+0100\n"
 "PO-Revision-Date: 2026-03-25 14:12+0000\n"
-"Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
+"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgstr "PDF-Bericht herunterladen"
 
 #: theme/static/js/incidents.js:34 theme/static/js/so_dashboard.js:10
 msgid "Review"
-msgstr "Überprüfung"
+msgstr "Prüfung"
 
 #: theme/static/js/incidents.js:35 theme/static/js/so_dashboard.js:11
 msgid "Comment"
@@ -58,7 +58,7 @@ msgstr "Der Vorfall wurde abgeschlossen"
 
 #: theme/static/js/incidents_regulator.js:43
 msgid "The incident is still ongoing"
-msgstr "Der Vorfall dauert noch an"
+msgstr "Der Vorfall ist noch nicht abgeschlossen"
 
 #: theme/static/js/incidents_regulator.js:46
 msgid "Incident with significant impact"
@@ -70,12 +70,12 @@ msgstr "Keine erheblichen Auswirkungen"
 
 #: theme/static/js/project_dashboard.js:50
 msgid "Deselect all"
-msgstr ""
+msgstr "Alle abwählen"
 
 #: theme/static/js/project_dashboard.js:51
 #: theme/static/js/project_dashboard.js:95
 msgid "Select all"
-msgstr ""
+msgstr "Alle auswählen"
 
 #: theme/static/js/reporting_dashboard.js:68
 msgid "Stop generating"
