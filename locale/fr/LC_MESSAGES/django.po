@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-25 09:00+0100\n"
 "PO-Revision-Date: 2026-03-25 13:15+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -2268,17 +2268,17 @@ msgstr "Dupliquer"
 
 #: theme/templates/modals/create_report_project.html:12
 msgid "Duplicate project"
-msgstr ""
+msgstr "Dupliquer le projet"
 
 #: theme/templates/modals/create_report_project.html:14
 #: theme/templates/reporting/project_dashboard.html:266
 msgid "Edit project"
-msgstr ""
+msgstr "Éditer le projet"
 
 #: theme/templates/modals/create_report_project.html:16
 #: theme/templates/reporting/base.html:22
 msgid "New project"
-msgstr ""
+msgstr "Nouveau projet"
 
 #: theme/templates/modals/create_report_project.html:98
 #: theme/templates/modals/review_comment_so_declaration.html:40
@@ -2319,11 +2319,11 @@ msgstr "Supprimer"
 
 #: theme/templates/modals/delete_report_project.html:7
 msgid "Confirm Deletion of Project"
-msgstr ""
+msgstr "Confirmer la suppression du projet"
 
 #: theme/templates/modals/delete_report_project.html:19
 msgid "Are you sure you want to delete the project?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer le projet ?"
 
 #: theme/templates/modals/delete_report_recommendation.html:7
 msgid "Confirm Deletion of Recommendation"
@@ -2972,21 +2972,21 @@ msgstr "Tableau indiquant les générations de rapports"
 #: theme/templates/reporting/dashboard.html:65
 #: theme/templates/reporting/project_dashboard.html:26
 msgid "Modified"
-msgstr ""
+msgstr "Modifié"
 
 #: theme/templates/reporting/dashboard.html:68
 #: theme/templates/reporting/project_dashboard.html:36
 msgid "Created"
-msgstr ""
+msgstr "Créé"
 
 #: theme/templates/reporting/dashboard.html:71
 #: theme/templates/reporting/project_dashboard.html:47
 msgid "Author"
-msgstr ""
+msgstr "Auteur"
 
 #: theme/templates/reporting/dashboard.html:80
 msgid "Standard"
-msgstr ""
+msgstr "Standard"
 
 #: theme/templates/reporting/dashboard.html:83
 msgid "Base year"
@@ -2994,7 +2994,7 @@ msgstr ""
 
 #: theme/templates/reporting/dashboard.html:162
 msgid "Open"
-msgstr ""
+msgstr "Ouvert"
 
 #: theme/templates/reporting/project_dashboard.html:98
 #: theme/templates/security_objectives/declaration.html:51
@@ -3008,31 +3008,31 @@ msgstr "Secteur"
 
 #: theme/templates/reporting/project_dashboard.html:108
 msgid "Security Objectives"
-msgstr ""
+msgstr "Objectifs de sécurité"
 
 #: theme/templates/reporting/project_dashboard.html:112
 msgid "Risk Assessment"
-msgstr ""
+msgstr "Analyse de risques"
 
 #: theme/templates/reporting/project_dashboard.html:116
 msgid "Statistics"
-msgstr ""
+msgstr "Statistiques"
 
 #: theme/templates/reporting/project_dashboard.html:120
 msgid "Governance report"
-msgstr ""
+msgstr "Gouvernance"
 
 #: theme/templates/reporting/project_dashboard.html:204
 #: theme/templates/reporting/project_dashboard.html:230
 #: theme/templates/reporting/project_dashboard.html:246
 msgid "Deselect all"
-msgstr ""
+msgstr "Tout désélectionner"
 
 #: theme/templates/reporting/project_dashboard.html:206
 #: theme/templates/reporting/project_dashboard.html:232
 #: theme/templates/reporting/project_dashboard.html:248
 msgid "Select all"
-msgstr ""
+msgstr "Tout sélectionner"
 
 #: theme/templates/reporting/project_dashboard.html:278
 msgid "Generate report(s)"
