@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-23 09:19+0100\n"
 "PO-Revision-Date: 2026-03-25 14:12+0000\n"
-"Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
+"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgstr ": Activer pour trier"
 #: theme/static/js/base.js:67 theme/static/js/create_report_project.js:7
 #: theme/static/js/create_so_declaration.js:7
 msgid "Nothing selected"
-msgstr "Rien sélectionné"
+msgstr "Rien de sélectionné"
 
 #: theme/static/js/base.js:68 theme/static/js/create_report_project.js:8
 #: theme/static/js/create_so_declaration.js:8
@@ -58,24 +58,24 @@ msgstr "L'incident est clos"
 
 #: theme/static/js/incidents_regulator.js:43
 msgid "The incident is still ongoing"
-msgstr "L'incident est toujours en cours"
+msgstr "L'incident est en cours"
 
 #: theme/static/js/incidents_regulator.js:46
 msgid "Incident with significant impact"
-msgstr "Incident ayant un impact significatif"
+msgstr "Incident à impact significatif"
 
 #: theme/static/js/incidents_regulator.js:47
 msgid "No significant impact"
-msgstr "Pas d'impact significatif"
+msgstr "Impact non significatif"
 
 #: theme/static/js/project_dashboard.js:50
 msgid "Deselect all"
-msgstr ""
+msgstr "Tout désélectionner"
 
 #: theme/static/js/project_dashboard.js:51
 #: theme/static/js/project_dashboard.js:95
 msgid "Select all"
-msgstr ""
+msgstr "Tout sélectionner"
 
 #: theme/static/js/reporting_dashboard.js:68
 msgid "Stop generating"
