@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-25 09:00+0100\n"
 "PO-Revision-Date: 2026-03-25 14:12+0000\n"
-"Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
+"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -2085,7 +2085,7 @@ msgstr "Réglage des colonnes"
 #: theme/templates/operator/incidents.html:33
 #: theme/templates/operator/incidents.html:36
 msgid "Incident with significant impact"
-msgstr "Incident ayant un impact significatif"
+msgstr "Incident à impact significatif"
 
 #: theme/templates/incidents/incidents_base.html:195
 #: theme/templates/observer/incidents.html:35
@@ -2093,7 +2093,7 @@ msgstr "Incident ayant un impact significatif"
 #: theme/templates/operator/incidents.html:41
 #: theme/templates/operator/incidents.html:44
 msgid "No significant impact"
-msgstr "Pas d'impact significatif"
+msgstr "Impact non significatif"
 
 #: theme/templates/incidents/incidents_base.html:213
 #: theme/templates/observer/incidents.html:10
