@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-25 09:00+0100\n"
-"PO-Revision-Date: 2026-03-25 14:12+0000\n"
-"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
+"PO-Revision-Date: 2026-03-26 08:31+0000\n"
+"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2525,7 +2525,7 @@ msgstr ""
 
 #: theme/templates/reporting/dashboard.html:80
 msgid "Standard"
-msgstr ""
+msgstr "Norm"
 
 #: theme/templates/reporting/dashboard.html:83
 msgid "Base year"
@@ -2547,7 +2547,7 @@ msgstr "Sector"
 
 #: theme/templates/reporting/project_dashboard.html:108
 msgid "Security Objectives"
-msgstr ""
+msgstr "Beveiligingsdoelstellingen"
 
 #: theme/templates/reporting/project_dashboard.html:112
 msgid "Risk Assessment"
