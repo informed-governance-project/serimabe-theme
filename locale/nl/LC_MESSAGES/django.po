@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-25 09:00+0100\n"
 "PO-Revision-Date: 2026-03-27 09:27+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2565,13 +2565,13 @@ msgstr ""
 #: theme/templates/reporting/project_dashboard.html:230
 #: theme/templates/reporting/project_dashboard.html:246
 msgid "Deselect all"
-msgstr ""
+msgstr "Alles deselecteren"
 
 #: theme/templates/reporting/project_dashboard.html:206
 #: theme/templates/reporting/project_dashboard.html:232
 #: theme/templates/reporting/project_dashboard.html:248
 msgid "Select all"
-msgstr ""
+msgstr "Alles selecteren"
 
 #: theme/templates/reporting/project_dashboard.html:278
 msgid "Generate report(s)"
