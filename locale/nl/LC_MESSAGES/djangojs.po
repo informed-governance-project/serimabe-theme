@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-23 09:19+0100\n"
-"PO-Revision-Date: 2026-03-25 14:12+0000\n"
+"POT-Creation-Date: 2026-03-26 09:27+0100\n"
+"PO-Revision-Date: 2026-03-26 08:33+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -40,6 +40,12 @@ msgstr "Niets geselecteerd"
 msgid "items selected"
 msgstr "items geselecteerd"
 
+#: theme/static/js/base.js:69 theme/static/js/create_report_project.js:9
+#: theme/static/js/project_dashboard.js:51
+#: theme/static/js/project_dashboard.js:95
+msgid "Select all"
+msgstr ""
+
 #: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:9
 msgid "Download PDF report"
 msgstr "Het PDF-verslag downloaden"
@@ -70,11 +76,6 @@ msgstr "Geen aanzienlijke gevolgen"
 
 #: theme/static/js/project_dashboard.js:50
 msgid "Deselect all"
-msgstr ""
-
-#: theme/static/js/project_dashboard.js:51
-#: theme/static/js/project_dashboard.js:95
-msgid "Select all"
 msgstr ""
 
 #: theme/static/js/reporting_dashboard.js:68
