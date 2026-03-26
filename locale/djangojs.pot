@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-25 09:00+0100\n"
+"POT-Creation-Date: 2026-03-26 09:28+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,6 +37,12 @@ msgstr ""
 #: theme/static/js/base.js:68 theme/static/js/create_report_project.js:8
 #: theme/static/js/create_so_declaration.js:8
 msgid "items selected"
+msgstr ""
+
+#: theme/static/js/base.js:69 theme/static/js/create_report_project.js:9
+#: theme/static/js/project_dashboard.js:51
+#: theme/static/js/project_dashboard.js:95
+msgid "Select all"
 msgstr ""
 
 #: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:9
@@ -69,11 +75,6 @@ msgstr ""
 
 #: theme/static/js/project_dashboard.js:50
 msgid "Deselect all"
-msgstr ""
-
-#: theme/static/js/project_dashboard.js:51
-#: theme/static/js/project_dashboard.js:95
-msgid "Select all"
 msgstr ""
 
 #: theme/static/js/reporting_dashboard.js:68
