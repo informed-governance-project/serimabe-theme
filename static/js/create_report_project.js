@@ -6,6 +6,7 @@ $(document).ready(function () {
     buttonTextAlignment: 'left',
     nonSelectedText: gettext('Nothing selected'),
     nSelectedText: gettext('items selected'),
+    selectAllText: gettext('Select all'),
     numberDisplayed: 4,
     enableClickableOptGroups: true,
     includeSelectAllOption: true,
