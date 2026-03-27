@@ -164,11 +164,11 @@
                 {% with report_file_uuid=project.generated_report.last.file_uuid %}
                   <a id="download_reports"
                      role="button"
+                     data-project-id="{{ project.id }}"
                      class="btn btn-sm btn-primary
                             {% if not report_file_uuid %}
                               disabled
                             {% endif %}"
-                     data-project-id="{{ project.id }}"
                      {% if report_file_uuid %}
                        href="{% url 'download_report' project.id report_file_uuid %}"
                      {% endif %}>

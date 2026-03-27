@@ -54,7 +54,7 @@ $(document).ready(function () {
 
 
 
-  let pollTimer = null;
+  const pollTimers = {};
 
   function startPolling(projectId) {
     const downloadButton = $(`#download_reports[data-project-id="${projectId}"]`)
@@ -86,13 +86,13 @@ $(document).ready(function () {
       })
     })
 
-    stopPolling();
-    pollTimer = setInterval(function () {
+    stopPolling(projectId);
+    pollTimers[projectId] = setInterval(function () {
       $.get(`project/${projectId}/report/status`, function (data) {
         updateUI(projectId, data)
         if (isTerminalState(data.status)) {
           downloadButton.off("mouseenter.running mouseleave.running click.running")
-          stopPolling();
+          stopPolling(projectId);
           onTaskFinished(projectId,data);
         }
       }).fail(function () {
@@ -101,10 +101,15 @@ $(document).ready(function () {
     }, 1500);
   }
 
-  function stopPolling() {
-    if (pollTimer) {
-      clearInterval(pollTimer);
-      pollTimer = null;
+  function stopPolling(projectId) {
+    if (projectId) {
+      clearInterval(pollTimers[projectId]);
+      delete pollTimers[projectId];
+    } else {
+      Object.keys(pollTimers).forEach(id => {
+        clearInterval(pollTimers[id]);
+        delete pollTimers[id];
+      });
     }
   }
 
