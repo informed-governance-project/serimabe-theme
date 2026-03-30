@@ -95,6 +95,12 @@ $(document).ready(function () {
           stopPolling(projectId);
           onTaskFinished(projectId,data);
         }
+        if (data.messages) {
+          const messagesContainer = $("#messages-container");
+          if (messagesContainer.length) {
+            messagesContainer.html(data.messages);
+          }
+        }
       }).fail(function () {
         console.warn("Error");
       });
