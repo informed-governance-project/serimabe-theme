@@ -145,8 +145,8 @@ msgid ""
 "We have noticed that the user account %(new_user_name)s (%(new_user_email)s) "
 "has been created on SERIMA and it may be part of your organization."
 msgstr ""
-"We hebben vastgesteld dat op SERIMA de gebruikersaccount %(new_user_name)s (%"
-"(new_user_email)s) is aangemaakt, die mogelijk deel uitmaakt van uw "
+"We hebben vastgesteld dat op SERIMA de gebruikersaccount %(new_user_name)s "
+"(%(new_user_email)s) is aangemaakt, die mogelijk deel uitmaakt van uw "
 "organisatie."
 
 #: theme/templates/emails/suggestion_link_user_account.html:19
