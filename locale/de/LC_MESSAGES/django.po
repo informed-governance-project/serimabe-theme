@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-25 09:00+0100\n"
-"PO-Revision-Date: 2026-03-26 08:33+0000\n"
+"PO-Revision-Date: 2026-04-09 15:27+0000\n"
 "Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -47,7 +47,7 @@ msgstr "Zurück zur Benutzeroberfläche"
 #: theme/templates/admin/base_site.html:26
 #: theme/templates/parts/header.html:106
 msgid "Log out"
-msgstr "Abmelden"
+msgstr "Abmeldung"
 
 #: theme/templates/admin/reset_accepted_terms.html:8
 msgid "Reset accepted terms"
@@ -2497,7 +2497,7 @@ msgstr "Anmelden"
 #: theme/templates/registration/base.html:45
 #: theme/templates/registration/login.html:61
 msgid "Login"
-msgstr "Anmeldung"
+msgstr "Login"
 
 #: theme/templates/registration/base.html:50
 #: theme/templates/registration/login.html:96
