@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-13 11:03+0200\n"
-"PO-Revision-Date: 2026-04-13 08:59+0000\n"
+"PO-Revision-Date: 2026-04-13 11:03+0000\n"
 "Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -1921,7 +1921,7 @@ msgstr "Erhebliche Auswirkungen"
 
 #: theme/templates/incidents/incidents_base.html:78
 msgid "Ongoing"
-msgstr "Laufend"
+msgstr "Andauernd"
 
 #: theme/templates/incidents/incidents_base.html:82
 msgid "Closed"
@@ -1940,7 +1940,7 @@ msgstr "Wird geprüft"
 
 #: theme/templates/incidents/incidents_base.html:94
 msgid "Submission overdue"
-msgstr "Bericht-Einreichung überfällig"
+msgstr "Einreichung überfällig"
 
 #: theme/templates/incidents/incidents_base.html:98
 msgid "Late submission"
