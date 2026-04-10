@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-25 09:00+0100\n"
+"POT-Creation-Date: 2026-04-10 08:33+0200\n"
 "PO-Revision-Date: 2026-04-09 15:27+0000\n"
 "Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -202,7 +202,7 @@ msgstr "Vielen Dank."
 msgid "Best regards,"
 msgstr "Mit freundlichen Grüßen,"
 
-#: theme/templates/home/bootstrap.html:51
+#: theme/templates/home/bootstrap.html:49
 msgid "Skip to main content"
 msgstr "Zum Hauptinhalt springen"
 

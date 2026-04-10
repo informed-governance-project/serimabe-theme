@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-25 09:00+0100\n"
+"POT-Creation-Date: 2026-04-10 08:33+0200\n"
 "PO-Revision-Date: 2026-03-26 08:34+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
@@ -200,7 +200,7 @@ msgstr "Merci."
 msgid "Best regards,"
 msgstr "Cordialement,"
 
-#: theme/templates/home/bootstrap.html:51
+#: theme/templates/home/bootstrap.html:49
 msgid "Skip to main content"
 msgstr "Passer au contenu principal"
 
