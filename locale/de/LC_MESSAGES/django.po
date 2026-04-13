@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-10 08:33+0200\n"
-"PO-Revision-Date: 2026-04-09 15:27+0000\n"
+"PO-Revision-Date: 2026-04-13 08:59+0000\n"
 "Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -2802,7 +2802,7 @@ msgstr "Datum des Vorfallbeginns"
 
 #: theme/templates/report/incidents/timeline.html:43
 msgid "Incident resolution date"
-msgstr "Datum der Vorfallsbehebung"
+msgstr "Datum der Vorfalllösung"
 
 #: theme/templates/report/incidents/timeline.html:53
 msgid "Report Timeline"
