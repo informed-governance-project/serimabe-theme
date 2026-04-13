@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-10 08:33+0200\n"
+"POT-Creation-Date: 2026-04-13 11:03+0200\n"
 "PO-Revision-Date: 2026-03-26 08:34+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
@@ -1919,9 +1919,9 @@ msgid "Overview of reported incidents"
 msgstr "Vue d'ensemble des incidents signalés"
 
 #: theme/templates/incidents/incidents_base.html:40
-#: theme/templates/security_objectives/so_dashboard_base.html:35
-msgid "Filter by status, sector, etc."
-msgstr "Filtrer par statut, secteur, etc."
+#| msgid "Filter by status, sector, etc."
+msgid "Filter incidents by status, sector, etc"
+msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:41
 #: theme/templates/incidents/incidents_base.html:448
@@ -3060,6 +3060,10 @@ msgstr "Copie de l'année précédente"
 #: theme/templates/security_objectives/base.html:36
 msgid "New submission"
 msgstr "Nouvelle soumission"
+
+#: theme/templates/security_objectives/so_dashboard_base.html:35
+msgid "Filter by status, sector, etc."
+msgstr "Filtrer par statut, secteur, etc."
 
 #: theme/templates/security_objectives/so_dashboard_base.html:74
 msgid "Security objectives table"

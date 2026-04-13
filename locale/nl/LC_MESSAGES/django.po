@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-10 08:33+0200\n"
+"POT-Creation-Date: 2026-04-13 11:03+0200\n"
 "PO-Revision-Date: 2026-03-27 09:27+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -1464,8 +1464,7 @@ msgid "Overview of reported incidents"
 msgstr "Overzicht van de gemelde incidenten"
 
 #: theme/templates/incidents/incidents_base.html:40
-#: theme/templates/security_objectives/so_dashboard_base.html:35
-msgid "Filter by status, sector, etc."
+msgid "Filter incidents by status, sector, etc"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:41
@@ -2595,6 +2594,10 @@ msgstr ""
 
 #: theme/templates/security_objectives/base.html:36
 msgid "New submission"
+msgstr ""
+
+#: theme/templates/security_objectives/so_dashboard_base.html:35
+msgid "Filter by status, sector, etc."
 msgstr ""
 
 #: theme/templates/security_objectives/so_dashboard_base.html:74

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-10 08:33+0200\n"
+"POT-Creation-Date: 2026-04-13 11:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1457,8 +1457,7 @@ msgid "Overview of reported incidents"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:40
-#: theme/templates/security_objectives/so_dashboard_base.html:35
-msgid "Filter by status, sector, etc."
+msgid "Filter incidents by status, sector, etc"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:41
@@ -2568,6 +2567,10 @@ msgstr ""
 
 #: theme/templates/security_objectives/base.html:36
 msgid "New submission"
+msgstr ""
+
+#: theme/templates/security_objectives/so_dashboard_base.html:35
+msgid "Filter by status, sector, etc."
 msgstr ""
 
 #: theme/templates/security_objectives/so_dashboard_base.html:74
