@@ -309,14 +309,19 @@
                         <li class="mb-1">
                           <div class="hstack gap-2 d-inline"
                                data-bs-placement="top"
-                               data-bs-toggle="tooltip"
-                               title="{{ report.tooltip }}">
+                               data-bs-toggle="tooltip">
                             <i class="custom-icon-{{ report.css_class }} align-middle"
-                               aria-hidden="true"></i>
+                               aria-hidden="true"
+                               data-bs-toggle="tooltip"
+                               data-bs-placement="top"
+                               title="{{ report.tooltip }}"></i>
                             <a class="text-{{ report.css_class }}
                                       {% if not latest_incident_workflow %}
                                         text-decoration-none
                                       {% endif %}"
+                               title="{{ report.tooltip }}"
+                               data-bs-toggle="tooltip"
+                               data-bs-placement="top"
                                {% if latest_incident_workflow %}
                                  href="{% url incident_view_action %}?incident_workflow_id={{ latest_incident_workflow.id }}"
                                {% endif %}>{{ report.name }}</a>
