@@ -29,7 +29,7 @@
           <caption class="visually-hidden">{% translate "Access log table" %}</caption>
           <thead class="table-light">
             <tr>
-              <th class="text-start">
+              <th>
                 {% translate "Date" %}
               </th>
               <th>
@@ -50,8 +50,8 @@
             {% for record in log %}
               {% timezone time_zone %}
               <tr>
-                <td class="text-start">
-                  {{ record.timestamp|date:"d M Y, H:i" }}
+                <td data-order="{{ record.timestamp.timestamp }}">
+                  {{ record.timestamp|date:"d/m/y, H:i" }}
                 </td>
                 <td>
                   {{ record.entity_name }}
