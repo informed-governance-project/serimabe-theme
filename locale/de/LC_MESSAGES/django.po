@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-21 16:43+0200\n"
+"POT-Creation-Date: 2026-04-22 14:04+0200\n"
 "PO-Revision-Date: 2026-04-13 11:03+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -366,12 +366,12 @@ msgstr "Term defined in Article 1 of SERIMA's Terms of Use."
 msgid "Home"
 msgstr "Startseite"
 
-#: theme/templates/home/index.html:35
+#: theme/templates/home/index.html:41
 #: theme/templates/registration/login.html:22
 msgid "Report cybersecurity incidents to the competent authority"
 msgstr "Melden Sie Cybersicherheitsvorfälle der zuständigen Behörde"
 
-#: theme/templates/home/index.html:37
+#: theme/templates/home/index.html:43
 msgid ""
 "A self-assessment module to fulfill security objectives evaluation and "
 "provide evidences for security measures in place"
@@ -379,7 +379,7 @@ msgstr ""
 "Ein Modul für die Selbstbewertung der Sicherheitsziele zu erfüllen und die "
 "Nachweise für die getroffenen Sicherheitsmaßnahmen zu liefern"
 
-#: theme/templates/home/index.html:39
+#: theme/templates/home/index.html:45
 msgid ""
 "Generate annual reports from the security objectives and risk analysis "
 "towards informed governance."
@@ -387,7 +387,7 @@ msgstr ""
 "Erstellen Sie Jahresberichte auf der Grundlage der Sicherheitsziele und "
 "Risikoanalysen, um eine informierte Sicherheitsführung zu erreichen."
 
-#: theme/templates/home/index.html:44
+#: theme/templates/home/index.html:50
 msgid "Go to dashboard"
 msgstr "Zum Dashboard gehen"
 
@@ -1810,7 +1810,7 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 #: theme/templates/incidents/declaration.html:156
-#: theme/templates/incidents/incidents_base.html:458
+#: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:20
 #: theme/templates/modals/contacts_incident.html:12
@@ -1873,7 +1873,7 @@ msgid "Filter incidents by status, sector, etc"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:41
-#: theme/templates/incidents/incidents_base.html:453
+#: theme/templates/incidents/incidents_base.html:463
 #: theme/templates/reporting/add_recommendations.html:42
 #: theme/templates/reporting/add_recommendations.html:43
 #: theme/templates/reporting/add_recommendations.html:60
@@ -1961,49 +1961,49 @@ msgstr "Bestanden"
 msgid "Incidents table"
 msgstr "Tabelle der Vorfälle"
 
-#: theme/templates/incidents/incidents_base.html:119
+#: theme/templates/incidents/incidents_base.html:121
 #: theme/templates/modals/report_versions.html:30
 #: theme/templates/modals/so_versions.html:24
 #: theme/templates/security_objectives/so_dashboard_base.html:79
 msgid "Status"
 msgstr "Status"
 
-#: theme/templates/incidents/incidents_base.html:124
+#: theme/templates/incidents/incidents_base.html:126
 #: theme/templates/report/security_objectives/cover.html:53
 #: theme/templates/security_objectives/declaration.html:30
 #: theme/templates/security_objectives/so_dashboard_base.html:83
 msgid "Last update"
 msgstr "Letzte Aktualisierung"
 
-#: theme/templates/incidents/incidents_base.html:129
+#: theme/templates/incidents/incidents_base.html:131
 msgid "Creation date"
 msgstr "Erstelldatum"
 
-#: theme/templates/incidents/incidents_base.html:135
+#: theme/templates/incidents/incidents_base.html:137
 msgid "Operator Acronym"
 msgstr "Betreiber Akronym"
 
-#: theme/templates/incidents/incidents_base.html:140
+#: theme/templates/incidents/incidents_base.html:142
 msgid "Operator Name"
 msgstr "Betreibername"
 
-#: theme/templates/incidents/incidents_base.html:145
+#: theme/templates/incidents/incidents_base.html:149
 #: theme/templates/report/incidents/details.html:35
 msgid "Regulator"
 msgstr "Regulierungsbehörde"
 
-#: theme/templates/incidents/incidents_base.html:151
+#: theme/templates/incidents/incidents_base.html:155
 #: theme/templates/reporting/dashboard.html:77
 msgid "Regulation"
 msgstr "Verordnung"
 
-#: theme/templates/incidents/incidents_base.html:154
+#: theme/templates/incidents/incidents_base.html:160
 #: theme/templates/report/incidents/cover.html:19
 #: theme/templates/report/incidents/details.html:11
 msgid "Reference"
 msgstr "Referenz"
 
-#: theme/templates/incidents/incidents_base.html:157
+#: theme/templates/incidents/incidents_base.html:165
 #: theme/templates/report/security_objectives/cover.html:18
 #: theme/templates/reporting/add_recommendations.html:110
 #: theme/templates/reporting/dashboard.html:86
@@ -2011,7 +2011,7 @@ msgstr "Referenz"
 msgid "Sectors"
 msgstr "Sektoren"
 
-#: theme/templates/incidents/incidents_base.html:160
+#: theme/templates/incidents/incidents_base.html:168
 #: theme/templates/modals/create_report_project.html:40
 #: theme/templates/report/base/template.html:8
 #: theme/templates/report/incidents/cover.html:5
@@ -2019,18 +2019,18 @@ msgstr "Sektoren"
 msgid "Report"
 msgstr "Bericht"
 
-#: theme/templates/incidents/incidents_base.html:164
+#: theme/templates/incidents/incidents_base.html:172
 #: theme/templates/reporting/dashboard.html:90
 #: theme/templates/reporting/recommendations.html:56
 #: theme/templates/security_objectives/so_dashboard_base.html:119
 msgid "Actions"
 msgstr "Aktionen"
 
-#: theme/templates/incidents/incidents_base.html:172
+#: theme/templates/incidents/incidents_base.html:180
 msgid "Column settings"
 msgstr "Spalten anpassen"
 
-#: theme/templates/incidents/incidents_base.html:193
+#: theme/templates/incidents/incidents_base.html:201
 #: theme/templates/observer/incidents.html:27
 #: theme/templates/observer/incidents.html:30
 #: theme/templates/operator/incidents.html:33
@@ -2038,7 +2038,7 @@ msgstr "Spalten anpassen"
 msgid "Incident with significant impact"
 msgstr "Vorfall mit erheblichen Auswirkungen"
 
-#: theme/templates/incidents/incidents_base.html:195
+#: theme/templates/incidents/incidents_base.html:203
 #: theme/templates/observer/incidents.html:35
 #: theme/templates/observer/incidents.html:38
 #: theme/templates/operator/incidents.html:41
@@ -2046,30 +2046,30 @@ msgstr "Vorfall mit erheblichen Auswirkungen"
 msgid "No significant impact"
 msgstr "Keine erheblichen Auswirkungen"
 
-#: theme/templates/incidents/incidents_base.html:213
+#: theme/templates/incidents/incidents_base.html:221
 #: theme/templates/observer/incidents.html:10
 #: theme/templates/operator/incidents.html:14
 #: theme/templates/operator/incidents.html:17
 msgid "The incident is still ongoing"
 msgstr "Der Vorfall ist noch nicht abgeschlossen"
 
-#: theme/templates/incidents/incidents_base.html:215
+#: theme/templates/incidents/incidents_base.html:223
 #: theme/templates/observer/incidents.html:17
 #: theme/templates/operator/incidents.html:22
 #: theme/templates/operator/incidents.html:25
 msgid "The incident has been closed"
 msgstr "Der Vorfall wurde abgeschlossen"
 
-#: theme/templates/incidents/incidents_base.html:229
+#: theme/templates/incidents/incidents_base.html:237
 msgid "Last update date"
 msgstr "Letztes Aktualisierungsdatum"
 
-#: theme/templates/incidents/incidents_base.html:241
+#: theme/templates/incidents/incidents_base.html:249
 msgid "Incident notification submission date"
 msgstr "Einreichungsdatum der Vorfallmeldung"
 
-#: theme/templates/incidents/incidents_base.html:343
-#: theme/templates/incidents/incidents_base.html:345
+#: theme/templates/incidents/incidents_base.html:352
+#: theme/templates/incidents/incidents_base.html:354
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
 #: theme/templates/modals/so_versions.html:7
@@ -2088,14 +2088,14 @@ msgstr "Einreichungsdatum der Vorfallmeldung"
 msgid "Version control"
 msgstr "Versionsverwaltung"
 
-#: theme/templates/incidents/incidents_base.html:353
-#: theme/templates/incidents/incidents_base.html:383
-#: theme/templates/incidents/incidents_base.html:385
+#: theme/templates/incidents/incidents_base.html:362
+#: theme/templates/incidents/incidents_base.html:393
+#: theme/templates/incidents/incidents_base.html:395
 msgid "Download PDF report"
 msgstr "PDF-Bericht herunterladen"
 
-#: theme/templates/incidents/incidents_base.html:375
-#: theme/templates/incidents/incidents_base.html:377
+#: theme/templates/incidents/incidents_base.html:385
+#: theme/templates/incidents/incidents_base.html:387
 #: theme/templates/modals/access_log base.html:15
 #: theme/templates/operator/so_dashboard.html:127
 #: theme/templates/regulator/so_dashboard.html:127
@@ -2103,11 +2103,11 @@ msgstr "PDF-Bericht herunterladen"
 msgid "Access Log"
 msgstr "Zugriffsprotokoll"
 
-#: theme/templates/incidents/incidents_base.html:400
+#: theme/templates/incidents/incidents_base.html:410
 msgid "No incident reports have been submitted yet."
 msgstr "Es wurden noch keine Vorfallberichte eingereicht."
 
-#: theme/templates/incidents/incidents_base.html:474
+#: theme/templates/incidents/incidents_base.html:484
 #: theme/templates/reporting/add_recommendations.html:80
 #: theme/templates/reporting/dashboard.html:271
 #: theme/templates/reporting/project_dashboard.html:312
@@ -2115,7 +2115,7 @@ msgstr "Es wurden noch keine Vorfallberichte eingereicht."
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: theme/templates/incidents/incidents_base.html:477
+#: theme/templates/incidents/incidents_base.html:487
 #: theme/templates/reporting/add_recommendations.html:83
 #: theme/templates/reporting/dashboard.html:274
 #: theme/templates/reporting/project_dashboard.html:315

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-07 09:22+0200\n"
+"POT-Creation-Date: 2026-04-22 14:04+0200\n"
 "PO-Revision-Date: 2026-03-27 09:27+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language-Team: \n"
@@ -46,15 +46,15 @@ msgstr "items geselecteerd"
 msgid "Select all"
 msgstr "Alles selecteren"
 
-#: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:9
+#: theme/static/js/incidents.js:44 theme/static/js/so_dashboard.js:20
 msgid "Download PDF report"
 msgstr "Het PDF-verslag downloaden"
 
-#: theme/static/js/incidents.js:34 theme/static/js/so_dashboard.js:10
+#: theme/static/js/incidents.js:45 theme/static/js/so_dashboard.js:21
 msgid "Review"
 msgstr "Beoordeling"
 
-#: theme/static/js/incidents.js:35 theme/static/js/so_dashboard.js:11
+#: theme/static/js/incidents.js:46 theme/static/js/so_dashboard.js:22
 msgid "Comment"
 msgstr "Opmerking"
 

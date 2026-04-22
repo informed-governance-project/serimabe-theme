@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-07 09:22+0200\n"
+"POT-Creation-Date: 2026-04-22 14:04+0200\n"
 "PO-Revision-Date: 2026-03-26 08:33+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -46,15 +46,15 @@ msgstr "Objekte ausgewählt"
 msgid "Select all"
 msgstr "Alle auswählen"
 
-#: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:9
+#: theme/static/js/incidents.js:44 theme/static/js/so_dashboard.js:20
 msgid "Download PDF report"
 msgstr "PDF-Bericht herunterladen"
 
-#: theme/static/js/incidents.js:34 theme/static/js/so_dashboard.js:10
+#: theme/static/js/incidents.js:45 theme/static/js/so_dashboard.js:21
 msgid "Review"
 msgstr "Prüfung"
 
-#: theme/static/js/incidents.js:35 theme/static/js/so_dashboard.js:11
+#: theme/static/js/incidents.js:46 theme/static/js/so_dashboard.js:22
 msgid "Comment"
 msgstr "Kommentar"
 
