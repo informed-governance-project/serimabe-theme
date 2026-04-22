@@ -11,7 +11,13 @@
 {% endblock %}
 {% block content %}
   <div id="user-modules-container"
-       class="row row-cols-1 row-cols-xl-{{ user_modules|length }} d-flex align-items-center justify-content-center h-xl-100 gap-3 gap-xl-0 py-4 px-xl-5">
+       class="row row-cols-1
+              {% if user_modules|length > 1 %}
+                row-cols-xl-{{ user_modules|length }}
+              {% else %}
+                row-cols-xl-3
+              {% endif %}
+              d-flex align-items-center justify-content-center h-xl-100 gap-3 gap-xl-0 py-4 px-xl-5">
     {% for user_module in user_modules %}
       <div class="col">
         <div class="card shadow rounded-1 p-3">
