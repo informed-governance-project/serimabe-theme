@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-25 09:00+0100\n"
-"PO-Revision-Date: 2026-03-26 08:34+0000\n"
-"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
+"POT-Creation-Date: 2026-04-22 14:04+0200\n"
+"PO-Revision-Date: 2026-03-27 09:27+0000\n"
+"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -189,8 +189,8 @@ msgid ""
 "We have noticed that the user account %(new_user_name)s (%(new_user_email)s) "
 "has been created on SERIMA and it may be part of your organization."
 msgstr ""
-"We hebben vastgesteld dat op SERIMA de gebruikersaccount %(new_user_name)s (%"
-"(new_user_email)s) is aangemaakt, die mogelijk deel uitmaakt van uw "
+"We hebben vastgesteld dat op SERIMA de gebruikersaccount %(new_user_name)s "
+"(%(new_user_email)s) is aangemaakt, die mogelijk deel uitmaakt van uw "
 "organisatie."
 
 #: theme/templates/emails/suggestion_link_user_account.html:19
@@ -234,7 +234,7 @@ msgstr ""
 msgid "Best regards,"
 msgstr ""
 
-#: theme/templates/home/bootstrap.html:51
+#: theme/templates/home/bootstrap.html:52
 msgid "Skip to main content"
 msgstr "Overgaan naar de hoofdinhoud"
 
@@ -373,24 +373,24 @@ msgstr ""
 msgid "Home"
 msgstr "Home"
 
-#: theme/templates/home/index.html:34
+#: theme/templates/home/index.html:41
 #: theme/templates/registration/login.html:22
 msgid "Report cybersecurity incidents to the competent authority"
 msgstr ""
 
-#: theme/templates/home/index.html:36
+#: theme/templates/home/index.html:43
 msgid ""
 "A self-assessment module to fulfill security objectives evaluation and "
 "provide evidences for security measures in place"
 msgstr ""
 
-#: theme/templates/home/index.html:38
+#: theme/templates/home/index.html:45
 msgid ""
 "Generate annual reports from the security objectives and risk analysis "
 "towards informed governance."
 msgstr ""
 
-#: theme/templates/home/index.html:43
+#: theme/templates/home/index.html:50
 msgid "Go to dashboard"
 msgstr ""
 
@@ -1447,9 +1447,9 @@ msgid "Cancel"
 msgstr "Annuleren"
 
 #: theme/templates/incidents/declaration.html:156
-#: theme/templates/incidents/incidents_base.html:453
+#: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
-#: theme/templates/modals/access_log.html:23
+#: theme/templates/modals/access_log base.html:20
 #: theme/templates/modals/contacts_incident.html:12
 #: theme/templates/modals/copy_so_declaration.html:16
 #: theme/templates/modals/create_report_project.html:22
@@ -1463,12 +1463,10 @@ msgstr "Annuleren"
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:12
 #: theme/templates/modals/report_versions.html:12
 #: theme/templates/modals/report_versions_workflow_comment.html:8
-#: theme/templates/modals/reporting_access_log.html:23
 #: theme/templates/modals/repoting_dashboard_hide_columns.html:12
 #: theme/templates/modals/review_comment_report.html:15
 #: theme/templates/modals/review_comment_so_declaration.html:14
 #: theme/templates/modals/risk_analysis_import.html:16
-#: theme/templates/modals/so_access_log.html:23
 #: theme/templates/modals/so_contacts.html:13
 #: theme/templates/modals/so_dashboard_hide_columns.html:12
 #: theme/templates/modals/so_versions.html:12
@@ -1508,12 +1506,11 @@ msgid "Overview of reported incidents"
 msgstr "Overzicht van de gemelde incidenten"
 
 #: theme/templates/incidents/incidents_base.html:40
-#: theme/templates/security_objectives/so_dashboard_base.html:35
-msgid "Filter by status, sector, etc."
+msgid "Filter incidents by status, sector, etc"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:41
-#: theme/templates/incidents/incidents_base.html:448
+#: theme/templates/incidents/incidents_base.html:463
 #: theme/templates/reporting/add_recommendations.html:42
 #: theme/templates/reporting/add_recommendations.html:43
 #: theme/templates/reporting/add_recommendations.html:60
@@ -1601,49 +1598,49 @@ msgstr "Geslaagd"
 msgid "Incidents table"
 msgstr "Tabel Incidenten"
 
-#: theme/templates/incidents/incidents_base.html:119
+#: theme/templates/incidents/incidents_base.html:121
 #: theme/templates/modals/report_versions.html:30
 #: theme/templates/modals/so_versions.html:24
 #: theme/templates/security_objectives/so_dashboard_base.html:79
 msgid "Status"
 msgstr "Status"
 
-#: theme/templates/incidents/incidents_base.html:124
+#: theme/templates/incidents/incidents_base.html:126
 #: theme/templates/report/security_objectives/cover.html:53
 #: theme/templates/security_objectives/declaration.html:30
 #: theme/templates/security_objectives/so_dashboard_base.html:83
 msgid "Last update"
 msgstr "Laatste update"
 
-#: theme/templates/incidents/incidents_base.html:129
+#: theme/templates/incidents/incidents_base.html:131
 msgid "Creation date"
 msgstr "Aanmaakdatum"
 
-#: theme/templates/incidents/incidents_base.html:135
+#: theme/templates/incidents/incidents_base.html:137
 msgid "Operator Acronym"
 msgstr ""
 
-#: theme/templates/incidents/incidents_base.html:140
+#: theme/templates/incidents/incidents_base.html:142
 msgid "Operator Name"
 msgstr ""
 
-#: theme/templates/incidents/incidents_base.html:145
+#: theme/templates/incidents/incidents_base.html:149
 #: theme/templates/report/incidents/details.html:35
 msgid "Regulator"
 msgstr "Regulator"
 
-#: theme/templates/incidents/incidents_base.html:151
+#: theme/templates/incidents/incidents_base.html:155
 #: theme/templates/reporting/dashboard.html:77
 msgid "Regulation"
 msgstr "Regelgeving"
 
-#: theme/templates/incidents/incidents_base.html:154
+#: theme/templates/incidents/incidents_base.html:160
 #: theme/templates/report/incidents/cover.html:19
 #: theme/templates/report/incidents/details.html:11
 msgid "Reference"
 msgstr "Referentie"
 
-#: theme/templates/incidents/incidents_base.html:157
+#: theme/templates/incidents/incidents_base.html:165
 #: theme/templates/report/security_objectives/cover.html:18
 #: theme/templates/reporting/add_recommendations.html:110
 #: theme/templates/reporting/dashboard.html:86
@@ -1651,7 +1648,7 @@ msgstr "Referentie"
 msgid "Sectors"
 msgstr "Sectoren"
 
-#: theme/templates/incidents/incidents_base.html:160
+#: theme/templates/incidents/incidents_base.html:168
 #: theme/templates/modals/create_report_project.html:40
 #: theme/templates/report/base/template.html:8
 #: theme/templates/report/incidents/cover.html:5
@@ -1659,18 +1656,18 @@ msgstr "Sectoren"
 msgid "Report"
 msgstr "Rapport"
 
-#: theme/templates/incidents/incidents_base.html:164
+#: theme/templates/incidents/incidents_base.html:172
 #: theme/templates/reporting/dashboard.html:90
 #: theme/templates/reporting/recommendations.html:56
 #: theme/templates/security_objectives/so_dashboard_base.html:119
 msgid "Actions"
 msgstr "Acties"
 
-#: theme/templates/incidents/incidents_base.html:172
+#: theme/templates/incidents/incidents_base.html:180
 msgid "Column settings"
 msgstr ""
 
-#: theme/templates/incidents/incidents_base.html:193
+#: theme/templates/incidents/incidents_base.html:201
 #: theme/templates/observer/incidents.html:27
 #: theme/templates/observer/incidents.html:30
 #: theme/templates/operator/incidents.html:33
@@ -1678,7 +1675,7 @@ msgstr ""
 msgid "Incident with significant impact"
 msgstr "Incident met aanzienlijke gevolgen"
 
-#: theme/templates/incidents/incidents_base.html:195
+#: theme/templates/incidents/incidents_base.html:203
 #: theme/templates/observer/incidents.html:35
 #: theme/templates/observer/incidents.html:38
 #: theme/templates/operator/incidents.html:41
@@ -1686,30 +1683,30 @@ msgstr "Incident met aanzienlijke gevolgen"
 msgid "No significant impact"
 msgstr "Geen aanzienlijke gevolgen"
 
-#: theme/templates/incidents/incidents_base.html:213
+#: theme/templates/incidents/incidents_base.html:221
 #: theme/templates/observer/incidents.html:10
 #: theme/templates/operator/incidents.html:14
 #: theme/templates/operator/incidents.html:17
 msgid "The incident is still ongoing"
 msgstr "Het incident is nog aan de gang"
 
-#: theme/templates/incidents/incidents_base.html:215
+#: theme/templates/incidents/incidents_base.html:223
 #: theme/templates/observer/incidents.html:17
 #: theme/templates/operator/incidents.html:22
 #: theme/templates/operator/incidents.html:25
 msgid "The incident has been closed"
 msgstr "Het incident is afgesloten"
 
-#: theme/templates/incidents/incidents_base.html:229
+#: theme/templates/incidents/incidents_base.html:237
 msgid "Last update date"
 msgstr ""
 
-#: theme/templates/incidents/incidents_base.html:241
+#: theme/templates/incidents/incidents_base.html:249
 msgid "Incident notification submission date"
 msgstr "Datum van indiening van de incidentmelding"
 
-#: theme/templates/incidents/incidents_base.html:338
-#: theme/templates/incidents/incidents_base.html:340
+#: theme/templates/incidents/incidents_base.html:352
+#: theme/templates/incidents/incidents_base.html:354
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
 #: theme/templates/modals/so_versions.html:7
@@ -1728,28 +1725,26 @@ msgstr "Datum van indiening van de incidentmelding"
 msgid "Version control"
 msgstr "Versiebeheer"
 
-#: theme/templates/incidents/incidents_base.html:348
-#: theme/templates/incidents/incidents_base.html:378
-#: theme/templates/incidents/incidents_base.html:380
+#: theme/templates/incidents/incidents_base.html:362
+#: theme/templates/incidents/incidents_base.html:393
+#: theme/templates/incidents/incidents_base.html:395
 msgid "Download PDF report"
 msgstr "Het PDF-verslag downloaden"
 
-#: theme/templates/incidents/incidents_base.html:370
-#: theme/templates/incidents/incidents_base.html:372
-#: theme/templates/modals/access_log.html:18
-#: theme/templates/modals/reporting_access_log.html:18
-#: theme/templates/modals/so_access_log.html:18
+#: theme/templates/incidents/incidents_base.html:385
+#: theme/templates/incidents/incidents_base.html:387
+#: theme/templates/modals/access_log base.html:15
 #: theme/templates/operator/so_dashboard.html:127
 #: theme/templates/regulator/so_dashboard.html:127
 #: theme/templates/reporting/dashboard.html:205
 msgid "Access Log"
 msgstr ""
 
-#: theme/templates/incidents/incidents_base.html:395
+#: theme/templates/incidents/incidents_base.html:410
 msgid "No incident reports have been submitted yet."
 msgstr ""
 
-#: theme/templates/incidents/incidents_base.html:469
+#: theme/templates/incidents/incidents_base.html:484
 #: theme/templates/reporting/add_recommendations.html:80
 #: theme/templates/reporting/dashboard.html:271
 #: theme/templates/reporting/project_dashboard.html:312
@@ -1757,7 +1752,7 @@ msgstr ""
 msgid "Reset"
 msgstr "Resetten"
 
-#: theme/templates/incidents/incidents_base.html:472
+#: theme/templates/incidents/incidents_base.html:487
 #: theme/templates/reporting/add_recommendations.html:83
 #: theme/templates/reporting/dashboard.html:274
 #: theme/templates/reporting/project_dashboard.html:315
@@ -1777,54 +1772,54 @@ msgstr "Algemene gebruiksvoorwaarden"
 msgid "Continue"
 msgstr "Verder"
 
-#: theme/templates/modals/access_log.html:32
-#: theme/templates/modals/reporting_access_log.html:29
-#: theme/templates/modals/so_access_log.html:29
+#: theme/templates/modals/access_log.html:12
+#: theme/templates/modals/reporting_access_log.html:9
+#: theme/templates/modals/so_access_log.html:9
 msgid "Access log table"
 msgstr "Toegangslogboek tabel"
 
-#: theme/templates/modals/access_log.html:36
+#: theme/templates/modals/access_log.html:16
 #: theme/templates/modals/report_versions.html:25
-#: theme/templates/modals/reporting_access_log.html:33
-#: theme/templates/modals/so_access_log.html:33
+#: theme/templates/modals/reporting_access_log.html:13
+#: theme/templates/modals/so_access_log.html:13
 msgid "Date"
 msgstr "Datum"
 
-#: theme/templates/modals/access_log.html:40
-#: theme/templates/modals/reporting_access_log.html:36
-#: theme/templates/modals/so_access_log.html:36
+#: theme/templates/modals/access_log.html:20
+#: theme/templates/modals/reporting_access_log.html:16
+#: theme/templates/modals/so_access_log.html:16
 msgid "Entity"
 msgstr "Entiteit"
 
-#: theme/templates/modals/access_log.html:44
-#: theme/templates/modals/reporting_access_log.html:39
-#: theme/templates/modals/so_access_log.html:39
+#: theme/templates/modals/access_log.html:24
+#: theme/templates/modals/reporting_access_log.html:19
+#: theme/templates/modals/so_access_log.html:19
 msgid "User"
 msgstr "Gebruiker"
 
-#: theme/templates/modals/access_log.html:47
-#: theme/templates/modals/reporting_access_log.html:42
-#: theme/templates/modals/so_access_log.html:42
+#: theme/templates/modals/access_log.html:27
+#: theme/templates/modals/reporting_access_log.html:22
+#: theme/templates/modals/so_access_log.html:22
 #: theme/templates/report/incidents/contacts.html:17
 #: theme/templates/report/incidents/contacts.html:65
 msgid "Role"
 msgstr "Rol"
 
-#: theme/templates/modals/access_log.html:50
+#: theme/templates/modals/access_log.html:30
 msgid "Document"
 msgstr "Document"
 
-#: theme/templates/modals/access_log.html:53
+#: theme/templates/modals/access_log.html:33
 #: theme/templates/modals/report_versions.html:33
-#: theme/templates/modals/reporting_access_log.html:45
-#: theme/templates/modals/so_access_log.html:45
+#: theme/templates/modals/reporting_access_log.html:25
+#: theme/templates/modals/so_access_log.html:25
 #: theme/templates/modals/so_versions.html:27
 msgid "Action"
 msgstr "Actie"
 
-#: theme/templates/modals/access_log.html:98
-#: theme/templates/modals/reporting_access_log.html:79
-#: theme/templates/modals/so_access_log.html:80
+#: theme/templates/modals/access_log.html:78
+#: theme/templates/modals/reporting_access_log.html:59
+#: theme/templates/modals/so_access_log.html:60
 msgid "No entries"
 msgstr "Geen registraties"
 
@@ -2605,13 +2600,13 @@ msgstr ""
 #: theme/templates/reporting/project_dashboard.html:230
 #: theme/templates/reporting/project_dashboard.html:246
 msgid "Deselect all"
-msgstr ""
+msgstr "Alles deselecteren"
 
 #: theme/templates/reporting/project_dashboard.html:206
 #: theme/templates/reporting/project_dashboard.html:232
 #: theme/templates/reporting/project_dashboard.html:248
 msgid "Select all"
-msgstr ""
+msgstr "Alles selecteren"
 
 #: theme/templates/reporting/project_dashboard.html:278
 msgid "Generate report(s)"
@@ -2635,6 +2630,10 @@ msgstr ""
 
 #: theme/templates/security_objectives/base.html:36
 msgid "New submission"
+msgstr ""
+
+#: theme/templates/security_objectives/so_dashboard_base.html:35
+msgid "Filter by status, sector, etc."
 msgstr ""
 
 #: theme/templates/security_objectives/so_dashboard_base.html:74

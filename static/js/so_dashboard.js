@@ -1,4 +1,15 @@
 $(document).ready(function () {
+  const multiselectConfig = {
+    numberDisplayed: 3,
+    enableClickableOptGroups: true,
+    includeSelectAllOption: true,
+    enableCollapsibleOptGroups: true,
+    collapseOptGroupsByDefault: true,
+    disableIfEmpty: true,
+  };
+
+  $('.multiselectcheckbox').multiselect('setOptions', multiselectConfig).multiselect('rebuild');
+
   $(document).on("click", '.so_versions', function () {
     let $this = $(this);
     let versions = $this.data('so-versions');

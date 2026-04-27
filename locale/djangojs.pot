@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-26 09:28+0100\n"
+"POT-Creation-Date: 2026-04-22 14:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,15 +45,15 @@ msgstr ""
 msgid "Select all"
 msgstr ""
 
-#: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:9
+#: theme/static/js/incidents.js:44 theme/static/js/so_dashboard.js:20
 msgid "Download PDF report"
 msgstr ""
 
-#: theme/static/js/incidents.js:34 theme/static/js/so_dashboard.js:10
+#: theme/static/js/incidents.js:45 theme/static/js/so_dashboard.js:21
 msgid "Review"
 msgstr ""
 
-#: theme/static/js/incidents.js:35 theme/static/js/so_dashboard.js:11
+#: theme/static/js/incidents.js:46 theme/static/js/so_dashboard.js:22
 msgid "Comment"
 msgstr ""
 
@@ -82,11 +82,11 @@ msgid "Stop generating"
 msgstr ""
 
 #: theme/static/js/reporting_dashboard.js:75
-#: theme/static/js/reporting_dashboard.js:128
+#: theme/static/js/reporting_dashboard.js:139
 msgid "Generating report"
 msgstr ""
 
-#: theme/static/js/reporting_dashboard.js:120
+#: theme/static/js/reporting_dashboard.js:131
 msgid "Download"
 msgstr ""
 

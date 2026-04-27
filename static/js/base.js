@@ -69,9 +69,8 @@ $(document).ready(function () {
     selectAllText: gettext('Select all'),
     numberDisplayed: 1,
     templates: {
-      button: '<button class="multiselect form-select dropdown-toggle" data-bs-toggle="dropdown"><span class="multiselect-selected-text"></span></button>',
-      option: '<button class="multiselect-option dropdown-item"></button>',
-      optionGroup: '<button type="button" class="multiselect-group dropdown-item fw-bolder"></button>',
+      option: '<button class="multiselect-option dropdown-item text-wrap small"></button>',
+      optionGroup: '<button type="button" class="multiselect-group dropdown-item d-flex fw-bolder text-wrap small"></button>',
     }
   });
 

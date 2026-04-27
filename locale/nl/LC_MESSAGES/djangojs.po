@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-26 09:27+0100\n"
-"PO-Revision-Date: 2026-03-26 08:33+0000\n"
-"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
+"POT-Creation-Date: 2026-04-22 14:04+0200\n"
+"PO-Revision-Date: 2026-03-27 09:27+0000\n"
+"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -44,17 +44,17 @@ msgstr "items geselecteerd"
 #: theme/static/js/project_dashboard.js:51
 #: theme/static/js/project_dashboard.js:95
 msgid "Select all"
-msgstr ""
+msgstr "Alles selecteren"
 
-#: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:9
+#: theme/static/js/incidents.js:44 theme/static/js/so_dashboard.js:20
 msgid "Download PDF report"
 msgstr "Het PDF-verslag downloaden"
 
-#: theme/static/js/incidents.js:34 theme/static/js/so_dashboard.js:10
+#: theme/static/js/incidents.js:45 theme/static/js/so_dashboard.js:21
 msgid "Review"
 msgstr "Beoordeling"
 
-#: theme/static/js/incidents.js:35 theme/static/js/so_dashboard.js:11
+#: theme/static/js/incidents.js:46 theme/static/js/so_dashboard.js:22
 msgid "Comment"
 msgstr "Opmerking"
 
@@ -76,27 +76,29 @@ msgstr "Geen aanzienlijke gevolgen"
 
 #: theme/static/js/project_dashboard.js:50
 msgid "Deselect all"
-msgstr ""
+msgstr "Alles deselecteren"
 
 #: theme/static/js/reporting_dashboard.js:68
 msgid "Stop generating"
-msgstr ""
+msgstr "Stop met genereren"
 
 #: theme/static/js/reporting_dashboard.js:75
-#: theme/static/js/reporting_dashboard.js:128
+#: theme/static/js/reporting_dashboard.js:139
 msgid "Generating report"
-msgstr ""
+msgstr "Rapport aan het genereren"
 
-#: theme/static/js/reporting_dashboard.js:120
+#: theme/static/js/reporting_dashboard.js:131
 msgid "Download"
 msgstr "Downloaden"
 
 #: theme/static/js/so_declaration.js:25
 msgid "Justification required"
-msgstr ""
+msgstr "Motivering vereist"
 
 #: theme/static/js/so_declaration.js:43
 msgid ""
 "Please list your current and planned measures, including a schedule with the "
 "individual stages."
 msgstr ""
+"Geef een overzicht van uw huidige en geplande maatregelen, inclusief een "
+"tijdschema met de afzonderlijke fasen."

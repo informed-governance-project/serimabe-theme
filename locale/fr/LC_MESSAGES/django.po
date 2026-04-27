@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-25 09:00+0100\n"
+"POT-Creation-Date: 2026-04-22 14:04+0200\n"
 "PO-Revision-Date: 2026-03-26 08:34+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
@@ -191,8 +191,8 @@ msgid ""
 "We have noticed that the user account %(new_user_name)s (%(new_user_email)s) "
 "has been created on SERIMA and it may be part of your organization."
 msgstr ""
-"Nous avons constaté que le compte utilisateur %(new_user_name)s (%"
-"(new_user_email)s) a été créé sur SERIMA et il pourrait faire partie de "
+"Nous avons constaté que le compte utilisateur %(new_user_name)s "
+"(%(new_user_email)s) a été créé sur SERIMA et il pourrait faire partie de "
 "votre organisation."
 
 #: theme/templates/emails/suggestion_link_user_account.html:19
@@ -211,8 +211,8 @@ msgid ""
 "organization."
 msgstr ""
 "Dans le cadre de nos efforts pour améliorer la qualité des données et "
-"rationaliser la gestion des comptes, nous (%(regulator)s) suggérons de lier %"
-"(new_user_name)s à votre organisation."
+"rationaliser la gestion des comptes, nous (%(regulator)s) suggérons de lier "
+"%(new_user_name)s à votre organisation."
 
 #: theme/templates/emails/suggestion_link_user_account.html:30
 msgid ""
@@ -244,7 +244,7 @@ msgstr "Merci."
 msgid "Best regards,"
 msgstr "Cordialement,"
 
-#: theme/templates/home/bootstrap.html:51
+#: theme/templates/home/bootstrap.html:52
 msgid "Skip to main content"
 msgstr "Passer au contenu principal"
 
@@ -411,12 +411,12 @@ msgstr "Terme défini à l’article 1 des conditions d’utilisation de SERIMA.
 msgid "Home"
 msgstr "Accueil"
 
-#: theme/templates/home/index.html:34
+#: theme/templates/home/index.html:41
 #: theme/templates/registration/login.html:22
 msgid "Report cybersecurity incidents to the competent authority"
 msgstr "Signaler les incidents de cybersécurité à l'autorité compétente"
 
-#: theme/templates/home/index.html:36
+#: theme/templates/home/index.html:43
 msgid ""
 "A self-assessment module to fulfill security objectives evaluation and "
 "provide evidences for security measures in place"
@@ -424,7 +424,7 @@ msgstr ""
 "Un module d'auto-évaluation pour évaluer les objectifs de sécurité et "
 "fournir les évidences concernant les mesures en place"
 
-#: theme/templates/home/index.html:38
+#: theme/templates/home/index.html:45
 msgid ""
 "Generate annual reports from the security objectives and risk analysis "
 "towards informed governance."
@@ -432,7 +432,7 @@ msgstr ""
 "Générer les rapports annuels à partir des objectifs de sécurité et des "
 "analyses de risques dans l'optique d'une gouvernance éclairée."
 
-#: theme/templates/home/index.html:43
+#: theme/templates/home/index.html:50
 msgid "Go to dashboard"
 msgstr "Aller au tableau de bord"
 
@@ -487,7 +487,8 @@ msgstr "ILR : 17, rue du Fossé, L-1536 Luxembourg ; Tél. : (+352) 28 228 228"
 
 #: theme/templates/home/privacy_policy.html:60
 msgid "CSSF: 283 Rte d'Arlon, 2991 Belair Luxembourg; Tel.: (+352) 26 25 11"
-msgstr "CSSF : 283 Rte d'Arlon, 2991 Belair Luxembourg ; Tél. : (+352) 26 25 11"
+msgstr ""
+"CSSF : 283 Rte d'Arlon, 2991 Belair Luxembourg ; Tél. : (+352) 26 25 11"
 
 #: theme/templates/home/privacy_policy.html:65
 msgid ""
@@ -547,8 +548,8 @@ msgid ""
 "measures to the Regulators."
 msgstr ""
 "Les données à caractère personnel sont traitées en conformité avec le <a "
-"href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/"
-"?uri=CELEX:32016R0679\" target=\"_blank\" rel=\"noopener noreferrer\">RGPD</"
+"href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/?"
+"uri=CELEX:32016R0679\" target=\"_blank\" rel=\"noopener noreferrer\">RGPD</"
 "a>. Les données de l’Utilisateur ne sont enregistrées et traitées par le "
 "Régulateur concerné qu'aux seules fins de la gestion des procédures qui "
 "relèvent de ce dernier. Le traitement de données est effectué dans le cadre "
@@ -792,8 +793,8 @@ msgid ""
 "lu\">dpo@cssf.lu</a>."
 msgstr ""
 "En ce qui concerne la CSSF, les personnes concernées peuvent faire valoir "
-"leurs droits en contactant le délégué à la protection des données de la CSSF "
-": <a href=\"mailto:dpo@cssf.lu\">dpo@cssf.lu</a>."
+"leurs droits en contactant le délégué à la protection des données de la "
+"CSSF : <a href=\"mailto:dpo@cssf.lu\">dpo@cssf.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:265
 msgid ""
@@ -802,8 +803,8 @@ msgid ""
 "etat.lu\">info@cgpd.etat.lu</a>."
 msgstr ""
 "En ce qui concerne l’HCPN, les personnes concernées peuvent faire valoir "
-"leurs droits en contactant le délégué à la protection des données de l’HCPN "
-": <a href=\"mailto:info@cgpd.etat.lu\">info@cgpd.etat.lu</a>."
+"leurs droits en contactant le délégué à la protection des données de "
+"l’HCPN : <a href=\"mailto:info@cgpd.etat.lu\">info@cgpd.etat.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:271
 msgid ""
@@ -812,8 +813,8 @@ msgid ""
 "lu\">dpo@cnpd.lu</a>."
 msgstr ""
 "En ce qui concerne la CNPD, les personnes concernées peuvent faire valoir "
-"leurs droits en contactant le délégué à la protection des données de la CNPD "
-": <a href=\"mailto:dpo@cnpd.lu\">dpo@cnpd.lu</a>."
+"leurs droits en contactant le délégué à la protection des données de la "
+"CNPD : <a href=\"mailto:dpo@cnpd.lu\">dpo@cnpd.lu</a>."
 
 #: theme/templates/home/privacy_policy.html:279
 msgid "Complaints"
@@ -1064,7 +1065,8 @@ msgstr "« ILR » : signifie l’Institut Luxembourgeois de Régulation."
 
 #: theme/templates/home/terms.html:177
 msgid "\"CSSF\": means the Commission de Surveillance du Secteur Financier."
-msgstr "« CSSF » : signifie la Commission de Surveillance du Secteur Financier."
+msgstr ""
+"« CSSF » : signifie la Commission de Surveillance du Secteur Financier."
 
 #: theme/templates/home/terms.html:182
 msgid ""
@@ -1615,10 +1617,10 @@ msgid ""
 msgstr ""
 "En cas d’indisponibilité de SERIMA ou de tout dysfonctionnement, "
 "l’Utilisateur peut s’adresser à l’ILR par le biais des adresses "
-"électroniques dédiées : <a href=\"mailto:incident_notification@ilr.lu\">"
-"incident_notification@ilr.lu</a> pour tout élément en lien avec le Module de "
-"notification d’incidents et <a href=\"mailto:serima@ilr.lu\">serima@ilr.lu</"
-"a> pour tout autre Module."
+"électroniques dédiées : <a href=\"mailto:incident_notification@ilr."
+"lu\">incident_notification@ilr.lu</a> pour tout élément en lien avec le "
+"Module de notification d’incidents et <a href=\"mailto:serima@ilr."
+"lu\">serima@ilr.lu</a> pour tout autre Module."
 
 #: theme/templates/home/terms.html:577
 msgid ""
@@ -1716,8 +1718,8 @@ msgid ""
 "rel=\"noopener noreferrer\">GDPR</a>."
 msgstr ""
 "Les données à caractère personnel sont traitées en conformité avec le <a "
-"href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/"
-"?uri=CELEX:32016R0679\" target=\"_blank\" rel=\"noopener noreferrer\">RGPD</"
+"href=\"https://eur-lex.europa.eu/legal-content/FR/TXT/?"
+"uri=CELEX:32016R0679\" target=\"_blank\" rel=\"noopener noreferrer\">RGPD</"
 "a>."
 
 #: theme/templates/home/terms.html:654
@@ -1900,9 +1902,9 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #: theme/templates/incidents/declaration.html:156
-#: theme/templates/incidents/incidents_base.html:453
+#: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
-#: theme/templates/modals/access_log.html:23
+#: theme/templates/modals/access_log base.html:20
 #: theme/templates/modals/contacts_incident.html:12
 #: theme/templates/modals/copy_so_declaration.html:16
 #: theme/templates/modals/create_report_project.html:22
@@ -1916,12 +1918,10 @@ msgstr "Annuler"
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:12
 #: theme/templates/modals/report_versions.html:12
 #: theme/templates/modals/report_versions_workflow_comment.html:8
-#: theme/templates/modals/reporting_access_log.html:23
 #: theme/templates/modals/repoting_dashboard_hide_columns.html:12
 #: theme/templates/modals/review_comment_report.html:15
 #: theme/templates/modals/review_comment_so_declaration.html:14
 #: theme/templates/modals/risk_analysis_import.html:16
-#: theme/templates/modals/so_access_log.html:23
 #: theme/templates/modals/so_contacts.html:13
 #: theme/templates/modals/so_dashboard_hide_columns.html:12
 #: theme/templates/modals/so_versions.html:12
@@ -1961,12 +1961,11 @@ msgid "Overview of reported incidents"
 msgstr "Vue d'ensemble des incidents signalés"
 
 #: theme/templates/incidents/incidents_base.html:40
-#: theme/templates/security_objectives/so_dashboard_base.html:35
-msgid "Filter by status, sector, etc."
-msgstr "Filtrer par statut, secteur, etc."
+msgid "Filter incidents by status, sector, etc"
+msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:41
-#: theme/templates/incidents/incidents_base.html:448
+#: theme/templates/incidents/incidents_base.html:463
 #: theme/templates/reporting/add_recommendations.html:42
 #: theme/templates/reporting/add_recommendations.html:43
 #: theme/templates/reporting/add_recommendations.html:60
@@ -2054,49 +2053,49 @@ msgstr "Réussi"
 msgid "Incidents table"
 msgstr "Tableau des incidents"
 
-#: theme/templates/incidents/incidents_base.html:119
+#: theme/templates/incidents/incidents_base.html:121
 #: theme/templates/modals/report_versions.html:30
 #: theme/templates/modals/so_versions.html:24
 #: theme/templates/security_objectives/so_dashboard_base.html:79
 msgid "Status"
 msgstr "Statut"
 
-#: theme/templates/incidents/incidents_base.html:124
+#: theme/templates/incidents/incidents_base.html:126
 #: theme/templates/report/security_objectives/cover.html:53
 #: theme/templates/security_objectives/declaration.html:30
 #: theme/templates/security_objectives/so_dashboard_base.html:83
 msgid "Last update"
 msgstr "Dernière mise à jour"
 
-#: theme/templates/incidents/incidents_base.html:129
+#: theme/templates/incidents/incidents_base.html:131
 msgid "Creation date"
 msgstr "Date de création"
 
-#: theme/templates/incidents/incidents_base.html:135
+#: theme/templates/incidents/incidents_base.html:137
 msgid "Operator Acronym"
 msgstr "Acronyme de l'opérateur"
 
-#: theme/templates/incidents/incidents_base.html:140
+#: theme/templates/incidents/incidents_base.html:142
 msgid "Operator Name"
 msgstr "Nom de l'opérateur"
 
-#: theme/templates/incidents/incidents_base.html:145
+#: theme/templates/incidents/incidents_base.html:149
 #: theme/templates/report/incidents/details.html:35
 msgid "Regulator"
 msgstr "Régulateur"
 
-#: theme/templates/incidents/incidents_base.html:151
+#: theme/templates/incidents/incidents_base.html:155
 #: theme/templates/reporting/dashboard.html:77
 msgid "Regulation"
 msgstr "Régulation"
 
-#: theme/templates/incidents/incidents_base.html:154
+#: theme/templates/incidents/incidents_base.html:160
 #: theme/templates/report/incidents/cover.html:19
 #: theme/templates/report/incidents/details.html:11
 msgid "Reference"
 msgstr "Référence"
 
-#: theme/templates/incidents/incidents_base.html:157
+#: theme/templates/incidents/incidents_base.html:165
 #: theme/templates/report/security_objectives/cover.html:18
 #: theme/templates/reporting/add_recommendations.html:110
 #: theme/templates/reporting/dashboard.html:86
@@ -2104,7 +2103,7 @@ msgstr "Référence"
 msgid "Sectors"
 msgstr "Secteurs"
 
-#: theme/templates/incidents/incidents_base.html:160
+#: theme/templates/incidents/incidents_base.html:168
 #: theme/templates/modals/create_report_project.html:40
 #: theme/templates/report/base/template.html:8
 #: theme/templates/report/incidents/cover.html:5
@@ -2112,18 +2111,18 @@ msgstr "Secteurs"
 msgid "Report"
 msgstr "Rapport"
 
-#: theme/templates/incidents/incidents_base.html:164
+#: theme/templates/incidents/incidents_base.html:172
 #: theme/templates/reporting/dashboard.html:90
 #: theme/templates/reporting/recommendations.html:56
 #: theme/templates/security_objectives/so_dashboard_base.html:119
 msgid "Actions"
 msgstr "Actions"
 
-#: theme/templates/incidents/incidents_base.html:172
+#: theme/templates/incidents/incidents_base.html:180
 msgid "Column settings"
 msgstr "Réglage des colonnes"
 
-#: theme/templates/incidents/incidents_base.html:193
+#: theme/templates/incidents/incidents_base.html:201
 #: theme/templates/observer/incidents.html:27
 #: theme/templates/observer/incidents.html:30
 #: theme/templates/operator/incidents.html:33
@@ -2131,7 +2130,7 @@ msgstr "Réglage des colonnes"
 msgid "Incident with significant impact"
 msgstr "Incident à impact significatif"
 
-#: theme/templates/incidents/incidents_base.html:195
+#: theme/templates/incidents/incidents_base.html:203
 #: theme/templates/observer/incidents.html:35
 #: theme/templates/observer/incidents.html:38
 #: theme/templates/operator/incidents.html:41
@@ -2139,30 +2138,30 @@ msgstr "Incident à impact significatif"
 msgid "No significant impact"
 msgstr "Impact non significatif"
 
-#: theme/templates/incidents/incidents_base.html:213
+#: theme/templates/incidents/incidents_base.html:221
 #: theme/templates/observer/incidents.html:10
 #: theme/templates/operator/incidents.html:14
 #: theme/templates/operator/incidents.html:17
 msgid "The incident is still ongoing"
 msgstr "L'incident est en cours"
 
-#: theme/templates/incidents/incidents_base.html:215
+#: theme/templates/incidents/incidents_base.html:223
 #: theme/templates/observer/incidents.html:17
 #: theme/templates/operator/incidents.html:22
 #: theme/templates/operator/incidents.html:25
 msgid "The incident has been closed"
 msgstr "L'incident est clos"
 
-#: theme/templates/incidents/incidents_base.html:229
+#: theme/templates/incidents/incidents_base.html:237
 msgid "Last update date"
 msgstr "Date de la dernière mise à jour"
 
-#: theme/templates/incidents/incidents_base.html:241
+#: theme/templates/incidents/incidents_base.html:249
 msgid "Incident notification submission date"
 msgstr "Date de soumission de la notification d'incident"
 
-#: theme/templates/incidents/incidents_base.html:338
-#: theme/templates/incidents/incidents_base.html:340
+#: theme/templates/incidents/incidents_base.html:352
+#: theme/templates/incidents/incidents_base.html:354
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
 #: theme/templates/modals/so_versions.html:7
@@ -2181,28 +2180,26 @@ msgstr "Date de soumission de la notification d'incident"
 msgid "Version control"
 msgstr "Gestion de versions"
 
-#: theme/templates/incidents/incidents_base.html:348
-#: theme/templates/incidents/incidents_base.html:378
-#: theme/templates/incidents/incidents_base.html:380
+#: theme/templates/incidents/incidents_base.html:362
+#: theme/templates/incidents/incidents_base.html:393
+#: theme/templates/incidents/incidents_base.html:395
 msgid "Download PDF report"
 msgstr "Télécharger le rapport PDF"
 
-#: theme/templates/incidents/incidents_base.html:370
-#: theme/templates/incidents/incidents_base.html:372
-#: theme/templates/modals/access_log.html:18
-#: theme/templates/modals/reporting_access_log.html:18
-#: theme/templates/modals/so_access_log.html:18
+#: theme/templates/incidents/incidents_base.html:385
+#: theme/templates/incidents/incidents_base.html:387
+#: theme/templates/modals/access_log base.html:15
 #: theme/templates/operator/so_dashboard.html:127
 #: theme/templates/regulator/so_dashboard.html:127
 #: theme/templates/reporting/dashboard.html:205
 msgid "Access Log"
 msgstr "Journal des accès"
 
-#: theme/templates/incidents/incidents_base.html:395
+#: theme/templates/incidents/incidents_base.html:410
 msgid "No incident reports have been submitted yet."
 msgstr "Aucun rapport d'incident n'a encore été soumis."
 
-#: theme/templates/incidents/incidents_base.html:469
+#: theme/templates/incidents/incidents_base.html:484
 #: theme/templates/reporting/add_recommendations.html:80
 #: theme/templates/reporting/dashboard.html:271
 #: theme/templates/reporting/project_dashboard.html:312
@@ -2210,7 +2207,7 @@ msgstr "Aucun rapport d'incident n'a encore été soumis."
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: theme/templates/incidents/incidents_base.html:472
+#: theme/templates/incidents/incidents_base.html:487
 #: theme/templates/reporting/add_recommendations.html:83
 #: theme/templates/reporting/dashboard.html:274
 #: theme/templates/reporting/project_dashboard.html:315
@@ -2230,54 +2227,54 @@ msgstr "Conditions générales d'utilisation"
 msgid "Continue"
 msgstr "Continuer"
 
-#: theme/templates/modals/access_log.html:32
-#: theme/templates/modals/reporting_access_log.html:29
-#: theme/templates/modals/so_access_log.html:29
+#: theme/templates/modals/access_log.html:12
+#: theme/templates/modals/reporting_access_log.html:9
+#: theme/templates/modals/so_access_log.html:9
 msgid "Access log table"
 msgstr "Tableau des journaux d'accès"
 
-#: theme/templates/modals/access_log.html:36
+#: theme/templates/modals/access_log.html:16
 #: theme/templates/modals/report_versions.html:25
-#: theme/templates/modals/reporting_access_log.html:33
-#: theme/templates/modals/so_access_log.html:33
+#: theme/templates/modals/reporting_access_log.html:13
+#: theme/templates/modals/so_access_log.html:13
 msgid "Date"
 msgstr "Date"
 
-#: theme/templates/modals/access_log.html:40
-#: theme/templates/modals/reporting_access_log.html:36
-#: theme/templates/modals/so_access_log.html:36
+#: theme/templates/modals/access_log.html:20
+#: theme/templates/modals/reporting_access_log.html:16
+#: theme/templates/modals/so_access_log.html:16
 msgid "Entity"
 msgstr "Entité"
 
-#: theme/templates/modals/access_log.html:44
-#: theme/templates/modals/reporting_access_log.html:39
-#: theme/templates/modals/so_access_log.html:39
+#: theme/templates/modals/access_log.html:24
+#: theme/templates/modals/reporting_access_log.html:19
+#: theme/templates/modals/so_access_log.html:19
 msgid "User"
 msgstr "Utilisateur"
 
-#: theme/templates/modals/access_log.html:47
-#: theme/templates/modals/reporting_access_log.html:42
-#: theme/templates/modals/so_access_log.html:42
+#: theme/templates/modals/access_log.html:27
+#: theme/templates/modals/reporting_access_log.html:22
+#: theme/templates/modals/so_access_log.html:22
 #: theme/templates/report/incidents/contacts.html:17
 #: theme/templates/report/incidents/contacts.html:65
 msgid "Role"
 msgstr "Rôle"
 
-#: theme/templates/modals/access_log.html:50
+#: theme/templates/modals/access_log.html:30
 msgid "Document"
 msgstr "Document"
 
-#: theme/templates/modals/access_log.html:53
+#: theme/templates/modals/access_log.html:33
 #: theme/templates/modals/report_versions.html:33
-#: theme/templates/modals/reporting_access_log.html:45
-#: theme/templates/modals/so_access_log.html:45
+#: theme/templates/modals/reporting_access_log.html:25
+#: theme/templates/modals/so_access_log.html:25
 #: theme/templates/modals/so_versions.html:27
 msgid "Action"
 msgstr "Action"
 
-#: theme/templates/modals/access_log.html:98
-#: theme/templates/modals/reporting_access_log.html:79
-#: theme/templates/modals/so_access_log.html:80
+#: theme/templates/modals/access_log.html:78
+#: theme/templates/modals/reporting_access_log.html:59
+#: theme/templates/modals/so_access_log.html:60
 msgid "No entries"
 msgstr "Aucun élément"
 
@@ -2674,7 +2671,8 @@ msgstr "Réinitialisation du mot de passe terminée"
 
 #: theme/templates/registration/password_reset_complete.html:15
 msgid "Your password has been set. You may log in now."
-msgstr "Votre mot de passe a été défini. Vous pouvez maintenant vous connecter."
+msgstr ""
+"Votre mot de passe a été défini. Vous pouvez maintenant vous connecter."
 
 #: theme/templates/registration/password_reset_complete.html:18
 msgid "Log in"
@@ -3097,6 +3095,10 @@ msgstr "Copie de l'année précédente"
 #: theme/templates/security_objectives/base.html:36
 msgid "New submission"
 msgstr "Nouvelle soumission"
+
+#: theme/templates/security_objectives/so_dashboard_base.html:35
+msgid "Filter by status, sector, etc."
+msgstr "Filtrer par statut, secteur, etc."
 
 #: theme/templates/security_objectives/so_dashboard_base.html:74
 msgid "Security objectives table"
