@@ -36,8 +36,6 @@
           href="{% static 'images/favicon.svg' %}" />
     <!-- Bootstrap CSS -->
     {% bootstrap_css %}
-    <link rel="stylesheet"
-          href="{% static 'npm_components/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}" />
     <!-- Bootstrap JavaScript if it is in head -->
     {% if BOOTSTRAP_JAVASCRIPT_IN_HEAD %}
@@ -50,6 +48,7 @@
     {{ cookiebanner_version|default:''|json_script:"cookiebanner_version" }}
     <a class="visually-hidden-focusable bg-transparent d-inline text-center"
        href="#main_content">{% translate "Skip to main content" %}</a>
+    {% bootstrap_javascript %}
     {% block bootstrap5_before_content %}
     {% endblock %}
     {% block bootstrap5_content %}
