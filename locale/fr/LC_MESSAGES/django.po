@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-22 14:04+0200\n"
-"PO-Revision-Date: 2026-03-26 08:34+0000\n"
+"POT-Creation-Date: 2026-04-28 11:31+0200\n"
+"PO-Revision-Date: 2026-04-28 09:34+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -244,7 +244,7 @@ msgstr "Merci."
 msgid "Best regards,"
 msgstr "Cordialement,"
 
-#: theme/templates/home/bootstrap.html:52
+#: theme/templates/home/bootstrap.html:50
 msgid "Skip to main content"
 msgstr "Passer au contenu principal"
 
@@ -1904,7 +1904,7 @@ msgstr "Annuler"
 #: theme/templates/incidents/declaration.html:156
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
-#: theme/templates/modals/access_log base.html:20
+#: theme/templates/modals/access_log base.html:22
 #: theme/templates/modals/contacts_incident.html:12
 #: theme/templates/modals/copy_so_declaration.html:16
 #: theme/templates/modals/create_report_project.html:22
@@ -1962,7 +1962,7 @@ msgstr "Vue d'ensemble des incidents signalés"
 
 #: theme/templates/incidents/incidents_base.html:40
 msgid "Filter incidents by status, sector, etc"
-msgstr ""
+msgstr "Filtrer les incidents par statut, secteur, etc."
 
 #: theme/templates/incidents/incidents_base.html:41
 #: theme/templates/incidents/incidents_base.html:463
@@ -2188,7 +2188,7 @@ msgstr "Télécharger le rapport PDF"
 
 #: theme/templates/incidents/incidents_base.html:385
 #: theme/templates/incidents/incidents_base.html:387
-#: theme/templates/modals/access_log base.html:15
+#: theme/templates/modals/access_log base.html:17
 #: theme/templates/operator/so_dashboard.html:127
 #: theme/templates/regulator/so_dashboard.html:127
 #: theme/templates/reporting/dashboard.html:205

@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-22 14:04+0200\n"
-"PO-Revision-Date: 2026-03-27 09:27+0000\n"
-"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
+"POT-Creation-Date: 2026-04-28 11:31+0200\n"
+"PO-Revision-Date: 2026-04-28 09:34+0000\n"
+"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -234,7 +234,7 @@ msgstr ""
 msgid "Best regards,"
 msgstr ""
 
-#: theme/templates/home/bootstrap.html:52
+#: theme/templates/home/bootstrap.html:50
 msgid "Skip to main content"
 msgstr "Overgaan naar de hoofdinhoud"
 
@@ -1449,7 +1449,7 @@ msgstr "Annuleren"
 #: theme/templates/incidents/declaration.html:156
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
-#: theme/templates/modals/access_log base.html:20
+#: theme/templates/modals/access_log base.html:22
 #: theme/templates/modals/contacts_incident.html:12
 #: theme/templates/modals/copy_so_declaration.html:16
 #: theme/templates/modals/create_report_project.html:22
@@ -1733,7 +1733,7 @@ msgstr "Het PDF-verslag downloaden"
 
 #: theme/templates/incidents/incidents_base.html:385
 #: theme/templates/incidents/incidents_base.html:387
-#: theme/templates/modals/access_log base.html:15
+#: theme/templates/modals/access_log base.html:17
 #: theme/templates/operator/so_dashboard.html:127
 #: theme/templates/regulator/so_dashboard.html:127
 #: theme/templates/reporting/dashboard.html:205
