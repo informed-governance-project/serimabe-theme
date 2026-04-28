@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-22 14:04+0200\n"
+"POT-Creation-Date: 2026-04-28 11:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,24 +31,24 @@ msgstr ""
 msgid "Save changes"
 msgstr ""
 
-#: theme/templates/admin/base_site.html:16
+#: theme/templates/admin/base_site.html:19
 msgid "Django admin area"
 msgstr ""
 
-#: theme/templates/admin/base_site.html:21
+#: theme/templates/admin/base_site.html:24
 msgid "Account security"
 msgstr ""
 
-#: theme/templates/admin/base_site.html:22
+#: theme/templates/admin/base_site.html:25
 msgid "Password change"
 msgstr ""
 
-#: theme/templates/admin/base_site.html:24
+#: theme/templates/admin/base_site.html:27
 msgid "Return to user interface"
 msgstr ""
 
-#: theme/templates/admin/base_site.html:26
-#: theme/templates/parts/header.html:106
+#: theme/templates/admin/base_site.html:29
+#: theme/templates/parts/header.html:104
 msgid "Log out"
 msgstr ""
 
@@ -187,7 +187,7 @@ msgstr ""
 msgid "Best regards,"
 msgstr ""
 
-#: theme/templates/home/bootstrap.html:52
+#: theme/templates/home/bootstrap.html:50
 msgid "Skip to main content"
 msgstr ""
 
@@ -345,11 +345,11 @@ msgstr ""
 msgid "Go to dashboard"
 msgstr ""
 
-#: theme/templates/home/language_selector.html:24
+#: theme/templates/home/language_selector.html:23
 msgid "Change the site language - currently in "
 msgstr ""
 
-#: theme/templates/home/language_selector.html:39
+#: theme/templates/home/language_selector.html:38
 msgid "English version"
 msgstr ""
 
@@ -1398,7 +1398,7 @@ msgstr ""
 #: theme/templates/incidents/declaration.html:156
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
-#: theme/templates/modals/access_log base.html:20
+#: theme/templates/modals/access_log base.html:22
 #: theme/templates/modals/contacts_incident.html:12
 #: theme/templates/modals/copy_so_declaration.html:16
 #: theme/templates/modals/create_report_project.html:22
@@ -1682,7 +1682,7 @@ msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:385
 #: theme/templates/incidents/incidents_base.html:387
-#: theme/templates/modals/access_log base.html:15
+#: theme/templates/modals/access_log base.html:17
 #: theme/templates/operator/so_dashboard.html:127
 #: theme/templates/regulator/so_dashboard.html:127
 #: theme/templates/reporting/dashboard.html:205
@@ -2021,28 +2021,28 @@ msgstr ""
 msgid "Accessibility statement"
 msgstr ""
 
-#: theme/templates/parts/header.html:11
-#: theme/templates/registration/base.html:22
+#: theme/templates/parts/header.html:9
+#: theme/templates/registration/base.html:20
 msgid "Main menu"
 msgstr ""
 
-#: theme/templates/parts/header.html:78
+#: theme/templates/parts/header.html:76
 msgid "Settings"
 msgstr ""
 
-#: theme/templates/parts/header.html:94
+#: theme/templates/parts/header.html:92
 msgid "Account"
 msgstr ""
 
-#: theme/templates/parts/header.html:97
+#: theme/templates/parts/header.html:95
 msgid "Security"
 msgstr ""
 
-#: theme/templates/parts/header.html:100
+#: theme/templates/parts/header.html:98
 msgid "Password"
 msgstr ""
 
-#: theme/templates/parts/header.html:113
+#: theme/templates/parts/header.html:111
 msgid "Contact"
 msgstr ""
 
@@ -2066,17 +2066,17 @@ msgstr ""
 msgid "entries"
 msgstr ""
 
-#: theme/templates/registration/base.html:16
+#: theme/templates/registration/base.html:14
 #: theme/templates/registration/login.html:37
 msgid "Sign in"
 msgstr ""
 
-#: theme/templates/registration/base.html:45
+#: theme/templates/registration/base.html:43
 #: theme/templates/registration/login.html:61
 msgid "Login"
 msgstr ""
 
-#: theme/templates/registration/base.html:50
+#: theme/templates/registration/base.html:48
 #: theme/templates/registration/login.html:96
 #: theme/templates/registration/signup.html:11
 #: theme/templates/registration/signup.html:66

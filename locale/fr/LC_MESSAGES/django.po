@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-22 14:04+0200\n"
+"POT-Creation-Date: 2026-04-28 11:31+0200\n"
 "PO-Revision-Date: 2026-03-26 08:34+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
@@ -27,24 +27,24 @@ msgstr "Les champs marqués d'un astérisque (*) sont obligatoires."
 msgid "Save changes"
 msgstr "Sauvegarder les modifications"
 
-#: theme/templates/admin/base_site.html:16
+#: theme/templates/admin/base_site.html:19
 msgid "Django admin area"
 msgstr "Page d'administration Django"
 
-#: theme/templates/admin/base_site.html:21
+#: theme/templates/admin/base_site.html:24
 msgid "Account security"
 msgstr "Sécurité du compte"
 
-#: theme/templates/admin/base_site.html:22
+#: theme/templates/admin/base_site.html:25
 msgid "Password change"
 msgstr "Changement du mot de passe"
 
-#: theme/templates/admin/base_site.html:24
+#: theme/templates/admin/base_site.html:27
 msgid "Return to user interface"
 msgstr "Retour à l'interface utilisateur"
 
-#: theme/templates/admin/base_site.html:26
-#: theme/templates/parts/header.html:106
+#: theme/templates/admin/base_site.html:29
+#: theme/templates/parts/header.html:104
 msgid "Log out"
 msgstr "Déconnexion"
 
@@ -200,7 +200,7 @@ msgstr "Merci."
 msgid "Best regards,"
 msgstr "Cordialement,"
 
-#: theme/templates/home/bootstrap.html:52
+#: theme/templates/home/bootstrap.html:50
 msgid "Skip to main content"
 msgstr "Passer au contenu principal"
 
@@ -392,11 +392,11 @@ msgstr ""
 msgid "Go to dashboard"
 msgstr "Aller au tableau de bord"
 
-#: theme/templates/home/language_selector.html:24
+#: theme/templates/home/language_selector.html:23
 msgid "Change the site language - currently in "
 msgstr "Changer la langue du site - actuellement en "
 
-#: theme/templates/home/language_selector.html:39
+#: theme/templates/home/language_selector.html:38
 msgid "English version"
 msgstr "Version française"
 
@@ -1860,7 +1860,7 @@ msgstr "Annuler"
 #: theme/templates/incidents/declaration.html:156
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
-#: theme/templates/modals/access_log base.html:20
+#: theme/templates/modals/access_log base.html:22
 #: theme/templates/modals/contacts_incident.html:12
 #: theme/templates/modals/copy_so_declaration.html:16
 #: theme/templates/modals/create_report_project.html:22
@@ -2144,7 +2144,7 @@ msgstr "Télécharger le rapport PDF"
 
 #: theme/templates/incidents/incidents_base.html:385
 #: theme/templates/incidents/incidents_base.html:387
-#: theme/templates/modals/access_log base.html:15
+#: theme/templates/modals/access_log base.html:17
 #: theme/templates/operator/so_dashboard.html:127
 #: theme/templates/regulator/so_dashboard.html:127
 #: theme/templates/reporting/dashboard.html:205
@@ -2487,28 +2487,28 @@ msgstr "Politique de cookies"
 msgid "Accessibility statement"
 msgstr "Déclaration d'accessibilité"
 
-#: theme/templates/parts/header.html:11
-#: theme/templates/registration/base.html:22
+#: theme/templates/parts/header.html:9
+#: theme/templates/registration/base.html:20
 msgid "Main menu"
 msgstr "Menu principal"
 
-#: theme/templates/parts/header.html:78
+#: theme/templates/parts/header.html:76
 msgid "Settings"
 msgstr "Paramètres"
 
-#: theme/templates/parts/header.html:94
+#: theme/templates/parts/header.html:92
 msgid "Account"
 msgstr "Compte"
 
-#: theme/templates/parts/header.html:97
+#: theme/templates/parts/header.html:95
 msgid "Security"
 msgstr "Sécurité"
 
-#: theme/templates/parts/header.html:100
+#: theme/templates/parts/header.html:98
 msgid "Password"
 msgstr "Mot de passe"
 
-#: theme/templates/parts/header.html:113
+#: theme/templates/parts/header.html:111
 msgid "Contact"
 msgstr "Contact"
 
@@ -2532,17 +2532,17 @@ msgstr "sur"
 msgid "entries"
 msgstr "entrées"
 
-#: theme/templates/registration/base.html:16
+#: theme/templates/registration/base.html:14
 #: theme/templates/registration/login.html:37
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: theme/templates/registration/base.html:45
+#: theme/templates/registration/base.html:43
 #: theme/templates/registration/login.html:61
 msgid "Login"
 msgstr "Connexion"
 
-#: theme/templates/registration/base.html:50
+#: theme/templates/registration/base.html:48
 #: theme/templates/registration/login.html:96
 #: theme/templates/registration/signup.html:11
 #: theme/templates/registration/signup.html:66
