@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-28 11:31+0200\n"
+"POT-Creation-Date: 2026-04-30 14:25+0200\n"
 "PO-Revision-Date: 2026-04-28 09:34+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language-Team: \n"
@@ -2273,7 +2273,7 @@ msgid "Edit project"
 msgstr "Éditer le projet"
 
 #: theme/templates/modals/create_report_project.html:16
-#: theme/templates/reporting/base.html:22
+#: theme/templates/reporting/base.html:34
 msgid "New project"
 msgstr "Nouveau projet"
 
@@ -2380,6 +2380,7 @@ msgid "Review"
 msgstr "Revue"
 
 #: theme/templates/modals/risk_analysis_import.html:11
+#: theme/templates/reporting/base.html:22
 msgid "Import risk analysis"
 msgstr "Importer l'analyse de risques"
 
@@ -2956,6 +2957,11 @@ msgstr "Table des recommandations"
 #: theme/templates/security_objectives/so_dashboard_base.html:20
 msgid "Dashboard"
 msgstr "Tableau de bord"
+
+#: theme/templates/reporting/base.html:28
+#| msgid "Import Security Objectives Statement"
+msgid "Import security objectives"
+msgstr ""
 
 #: theme/templates/reporting/dashboard.html:34
 #: theme/templates/reporting/project_dashboard.html:64

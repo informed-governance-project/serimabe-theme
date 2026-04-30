@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-28 11:31+0200\n"
+"POT-Creation-Date: 2026-04-30 14:25+0200\n"
 "PO-Revision-Date: 2026-04-30 07:27+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -342,7 +342,8 @@ msgstr ""
 #: theme/templates/home/cookies_policy.html:72
 #: theme/templates/home/cookies_policy.html:75
 msgid "Term defined in Article 1 of SERIMA's Terms of Use."
-msgstr "Begrip gedefinieerd in artikel 1 van de Gebruiksvoorwaarden van SERIMA."
+msgstr ""
+"Begrip gedefinieerd in artikel 1 van de Gebruiksvoorwaarden van SERIMA."
 
 #: theme/templates/home/index.html:10
 msgid "Home"
@@ -2204,7 +2205,7 @@ msgid "Edit project"
 msgstr ""
 
 #: theme/templates/modals/create_report_project.html:16
-#: theme/templates/reporting/base.html:22
+#: theme/templates/reporting/base.html:34
 msgid "New project"
 msgstr ""
 
@@ -2310,6 +2311,7 @@ msgid "Review"
 msgstr "Beoordeling"
 
 #: theme/templates/modals/risk_analysis_import.html:11
+#: theme/templates/reporting/base.html:22
 msgid "Import risk analysis"
 msgstr "Risicoanalyse importeren"
 
@@ -2879,6 +2881,11 @@ msgstr "Tabel aanbevelingen"
 #: theme/templates/security_objectives/so_dashboard_base.html:20
 msgid "Dashboard"
 msgstr "Dashboard"
+
+#: theme/templates/reporting/base.html:28
+#| msgid "Import Security Objectives Statement"
+msgid "Import security objectives"
+msgstr ""
 
 #: theme/templates/reporting/dashboard.html:34
 #: theme/templates/reporting/project_dashboard.html:64

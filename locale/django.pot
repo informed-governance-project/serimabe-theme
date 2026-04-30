@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-28 11:35+0200\n"
+"POT-Creation-Date: 2026-04-30 14:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1811,7 +1811,7 @@ msgid "Edit project"
 msgstr ""
 
 #: theme/templates/modals/create_report_project.html:16
-#: theme/templates/reporting/base.html:22
+#: theme/templates/reporting/base.html:34
 msgid "New project"
 msgstr ""
 
@@ -1916,6 +1916,7 @@ msgid "Review"
 msgstr ""
 
 #: theme/templates/modals/risk_analysis_import.html:11
+#: theme/templates/reporting/base.html:22
 msgid "Import risk analysis"
 msgstr ""
 
@@ -2464,6 +2465,10 @@ msgstr ""
 #: theme/templates/security_objectives/base.html:22
 #: theme/templates/security_objectives/so_dashboard_base.html:20
 msgid "Dashboard"
+msgstr ""
+
+#: theme/templates/reporting/base.html:28
+msgid "Import security objectives"
 msgstr ""
 
 #: theme/templates/reporting/dashboard.html:34
