@@ -15,6 +15,18 @@
       <a class="fw-bold spinner-trigger" href="{% url 'reporting' %}">
         {% translate "Dashboard" %}
       </a>
+      <a class="fw-bold import_risk_analysis"
+         href="#"
+         data-bs-toggle="modal"
+         data-bs-target="#import_risk_analysis">
+        {% translate "Import risk analysis" %}
+      </a>
+      <a class="fw-bold import_so_declaration"
+         href="#"
+         data-bs-toggle="modal"
+         data-bs-target="#import_so_declaration">
+        {% translate "Import security objectives" %}
+      </a>
       <a class="btn btn-primary create_report_project"
          href="{% url 'create_report_project' %}"
          data-bs-toggle="modal"
