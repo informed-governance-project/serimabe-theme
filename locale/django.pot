@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-28 11:39+0200\n"
+"POT-Creation-Date: 2026-05-08 08:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,7 +66,7 @@ msgid "Account management"
 msgstr ""
 
 #: theme/templates/account/edit.html:15 theme/templates/home/contact.html:22
-#: theme/templates/incidents/declaration.html:25
+#: theme/templates/incidents/declaration.html:26
 #: theme/templates/registration/signup.html:18
 msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr ""
@@ -1357,7 +1357,7 @@ msgid "Notify an incident"
 msgstr ""
 
 #: theme/templates/incidents/base.html:28
-#: theme/templates/modals/export_incidents.html:80
+#: theme/templates/modals/export_incidents.html:81
 msgid "Export"
 msgstr ""
 
@@ -1404,27 +1404,27 @@ msgstr ""
 msgid "Optional"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:19
+#: theme/templates/incidents/declaration.html:20
 msgid "Report an incident"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:34
+#: theme/templates/incidents/declaration.html:35
 msgid "Incident notification steps"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:154
+#: theme/templates/incidents/declaration.html:155
 #: theme/templates/modals/delete_incident.html:26
-#: theme/templates/modals/export_incidents.html:77
+#: theme/templates/modals/export_incidents.html:78
 msgid "Cancel"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:156
+#: theme/templates/incidents/declaration.html:157
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
 #: theme/templates/modals/contacts_incident.html:12
 #: theme/templates/modals/delete_incident.html:12
-#: theme/templates/modals/export_incidents.html:19
+#: theme/templates/modals/export_incidents.html:20
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:12
 #: theme/templates/modals/report_versions.html:12
 #: theme/templates/modals/report_versions_workflow_comment.html:8
@@ -1434,15 +1434,15 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:169
+#: theme/templates/incidents/declaration.html:170
 msgid "Previous"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:188
+#: theme/templates/incidents/declaration.html:189
 msgid "Submit"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:190
+#: theme/templates/incidents/declaration.html:191
 msgid "Next"
 msgstr ""
 
@@ -1725,7 +1725,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: theme/templates/modals/export_incidents.html:14
+#: theme/templates/modals/export_incidents.html:15
 msgid "Export incidents"
 msgstr ""
 
