@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-30 14:25+0200\n"
+"POT-Creation-Date: 2026-05-08 08:24+0200\n"
 "PO-Revision-Date: 2026-04-30 12:29+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language: nl\n"
@@ -17,7 +17,7 @@ msgid "Account management"
 msgstr "Accountbeheer"
 
 #: theme/templates/account/edit.html:15 theme/templates/home/contact.html:22
-#: theme/templates/incidents/declaration.html:25
+#: theme/templates/incidents/declaration.html:26
 #: theme/templates/registration/signup.html:18
 msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr "Velden met een sterretje (*) zijn verplicht."
@@ -145,8 +145,8 @@ msgid ""
 "We have noticed that the user account %(new_user_name)s (%(new_user_email)s) "
 "has been created on SERIMA and it may be part of your organization."
 msgstr ""
-"We hebben vastgesteld dat op SERIMA de gebruikersaccount %(new_user_name)s (%"
-"(new_user_email)s) is aangemaakt, die mogelijk deel uitmaakt van uw "
+"We hebben vastgesteld dat op SERIMA de gebruikersaccount %(new_user_name)s "
+"(%(new_user_email)s) is aangemaakt, die mogelijk deel uitmaakt van uw "
 "organisatie."
 
 #: theme/templates/emails/suggestion_link_user_account.html:19
@@ -342,7 +342,8 @@ msgstr ""
 #: theme/templates/home/cookies_policy.html:72
 #: theme/templates/home/cookies_policy.html:75
 msgid "Term defined in Article 1 of SERIMA's Terms of Use."
-msgstr "Begrip gedefinieerd in artikel 1 van de Gebruiksvoorwaarden van SERIMA."
+msgstr ""
+"Begrip gedefinieerd in artikel 1 van de Gebruiksvoorwaarden van SERIMA."
 
 #: theme/templates/home/index.html:10
 msgid "Home"
@@ -1718,7 +1719,7 @@ msgstr "Een incident melden"
 
 #: theme/templates/incidents/base.html:28
 #: theme/templates/modals/create_report_project.html:78
-#: theme/templates/modals/export_incidents.html:80
+#: theme/templates/modals/export_incidents.html:81
 msgid "Export"
 msgstr "Exporteren"
 
@@ -1768,27 +1769,27 @@ msgstr "Referenties"
 msgid "Optional"
 msgstr "Optioneel"
 
-#: theme/templates/incidents/declaration.html:19
+#: theme/templates/incidents/declaration.html:20
 msgid "Report an incident"
 msgstr "Een incident melden"
 
-#: theme/templates/incidents/declaration.html:34
+#: theme/templates/incidents/declaration.html:35
 msgid "Incident notification steps"
 msgstr "Stappen incidentmelding"
 
-#: theme/templates/incidents/declaration.html:154
+#: theme/templates/incidents/declaration.html:155
 #: theme/templates/modals/create_report_project.html:92
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/delete_report_project.html:24
 #: theme/templates/modals/delete_report_recommendation.html:22
 #: theme/templates/modals/delete_so_declaration.html:24
-#: theme/templates/modals/export_incidents.html:77
+#: theme/templates/modals/export_incidents.html:78
 #: theme/templates/reporting/add_recommendations.html:34
 #: theme/templates/reporting/project_dashboard.html:273
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: theme/templates/incidents/declaration.html:156
+#: theme/templates/incidents/declaration.html:157
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1800,7 +1801,7 @@ msgstr "Annuleren"
 #: theme/templates/modals/delete_report_project.html:12
 #: theme/templates/modals/delete_report_recommendation.html:12
 #: theme/templates/modals/delete_so_declaration.html:12
-#: theme/templates/modals/export_incidents.html:19
+#: theme/templates/modals/export_incidents.html:20
 #: theme/templates/modals/import_so_declaration.html:16
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:12
 #: theme/templates/modals/report_versions.html:12
@@ -1825,17 +1826,17 @@ msgstr "Annuleren"
 msgid "Close"
 msgstr "Sluiten"
 
-#: theme/templates/incidents/declaration.html:169
+#: theme/templates/incidents/declaration.html:170
 msgid "Previous"
 msgstr "Vorig"
 
-#: theme/templates/incidents/declaration.html:188
+#: theme/templates/incidents/declaration.html:189
 #: theme/templates/operator/so_dashboard.html:20
 #: theme/templates/security_objectives/declaration.html:180
 msgid "Submit"
 msgstr "Indienen"
 
-#: theme/templates/incidents/declaration.html:190
+#: theme/templates/incidents/declaration.html:191
 msgid "Next"
 msgstr "Volgend"
 
@@ -2270,7 +2271,7 @@ msgid "Are you sure you want to delete the security objectives statement?"
 msgstr ""
 "Weet u zeker dat u de beveiligingsdoelstellingenverklaring wilt verwijderen?"
 
-#: theme/templates/modals/export_incidents.html:14
+#: theme/templates/modals/export_incidents.html:15
 msgid "Export incidents"
 msgstr "Incidenten exporteren"
 
@@ -2882,7 +2883,6 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 #: theme/templates/reporting/base.html:28
-#| msgid "Import Security Objectives Statement"
 msgid "Import security objectives"
 msgstr ""
 
