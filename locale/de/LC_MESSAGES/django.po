@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-28 11:31+0200\n"
-"PO-Revision-Date: 2026-04-28 09:34+0000\n"
+"POT-Creation-Date: 2026-05-08 08:24+0200\n"
+"PO-Revision-Date: 2026-05-08 06:23+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -62,7 +62,7 @@ msgid "Account management"
 msgstr "Kontoverwaltung"
 
 #: theme/templates/account/edit.html:15 theme/templates/home/contact.html:22
-#: theme/templates/incidents/declaration.html:25
+#: theme/templates/incidents/declaration.html:26
 #: theme/templates/registration/signup.html:18
 msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr ""
@@ -1783,7 +1783,7 @@ msgstr "Vorfall melden"
 
 #: theme/templates/incidents/base.html:28
 #: theme/templates/modals/create_report_project.html:78
-#: theme/templates/modals/export_incidents.html:80
+#: theme/templates/modals/export_incidents.html:81
 msgid "Export"
 msgstr "Exportieren"
 
@@ -1833,27 +1833,27 @@ msgstr "Referenzen"
 msgid "Optional"
 msgstr "Optional"
 
-#: theme/templates/incidents/declaration.html:19
+#: theme/templates/incidents/declaration.html:20
 msgid "Report an incident"
 msgstr "Einen Vorfall melden"
 
-#: theme/templates/incidents/declaration.html:34
+#: theme/templates/incidents/declaration.html:35
 msgid "Incident notification steps"
 msgstr "Schritte zur Vorfallmeldung"
 
-#: theme/templates/incidents/declaration.html:154
+#: theme/templates/incidents/declaration.html:155
 #: theme/templates/modals/create_report_project.html:92
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/delete_report_project.html:24
 #: theme/templates/modals/delete_report_recommendation.html:22
 #: theme/templates/modals/delete_so_declaration.html:24
-#: theme/templates/modals/export_incidents.html:77
+#: theme/templates/modals/export_incidents.html:78
 #: theme/templates/reporting/add_recommendations.html:34
 #: theme/templates/reporting/project_dashboard.html:273
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: theme/templates/incidents/declaration.html:156
+#: theme/templates/incidents/declaration.html:157
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1865,7 +1865,7 @@ msgstr "Abbrechen"
 #: theme/templates/modals/delete_report_project.html:12
 #: theme/templates/modals/delete_report_recommendation.html:12
 #: theme/templates/modals/delete_so_declaration.html:12
-#: theme/templates/modals/export_incidents.html:19
+#: theme/templates/modals/export_incidents.html:20
 #: theme/templates/modals/import_so_declaration.html:16
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:12
 #: theme/templates/modals/report_versions.html:12
@@ -1890,17 +1890,17 @@ msgstr "Abbrechen"
 msgid "Close"
 msgstr "Schließen"
 
-#: theme/templates/incidents/declaration.html:169
+#: theme/templates/incidents/declaration.html:170
 msgid "Previous"
 msgstr "Zurück"
 
-#: theme/templates/incidents/declaration.html:188
+#: theme/templates/incidents/declaration.html:189
 #: theme/templates/operator/so_dashboard.html:20
 #: theme/templates/security_objectives/declaration.html:180
 msgid "Submit"
 msgstr "Einreichen"
 
-#: theme/templates/incidents/declaration.html:190
+#: theme/templates/incidents/declaration.html:191
 msgid "Next"
 msgstr "Weiter"
 
@@ -2270,7 +2270,7 @@ msgid "Edit project"
 msgstr "Projekt bearbeiten"
 
 #: theme/templates/modals/create_report_project.html:16
-#: theme/templates/reporting/base.html:22
+#: theme/templates/reporting/base.html:34
 msgid "New project"
 msgstr "Neues Projekt"
 
@@ -2336,7 +2336,7 @@ msgid "Are you sure you want to delete the security objectives statement?"
 msgstr ""
 "Sind Sie sicher, dass Sie die Erklärung der Sicherheitsziele löschen möchten?"
 
-#: theme/templates/modals/export_incidents.html:14
+#: theme/templates/modals/export_incidents.html:15
 msgid "Export incidents"
 msgstr "Vorfälle exportieren"
 
@@ -2376,6 +2376,7 @@ msgid "Review"
 msgstr "Prüfung"
 
 #: theme/templates/modals/risk_analysis_import.html:11
+#: theme/templates/reporting/base.html:22
 msgid "Import risk analysis"
 msgstr "Risikoanalyse importieren"
 
@@ -2948,6 +2949,10 @@ msgstr "Empfehlungstabelle"
 #: theme/templates/security_objectives/so_dashboard_base.html:20
 msgid "Dashboard"
 msgstr "Dashboard"
+
+#: theme/templates/reporting/base.html:28
+msgid "Import security objectives"
+msgstr "Sicherheitsziele importieren"
 
 #: theme/templates/reporting/dashboard.html:34
 #: theme/templates/reporting/project_dashboard.html:64

@@ -155,33 +155,33 @@
               {{ item.year }}
             </td>
             <td class="col-2 table-group-divider py-3 text-center">
-              {% if item.has_security_objectives %}
-                <i class="bi bi-check-circle text-passed h5"></i>
-              {% else %}
-                <a class="btn btn-sm import_so_declaration"
-                   data-bs-toggle="modal"
-                   data-bs-target="#import_so_declaration"
-                   data-year="{{ item.year }}"
-                   data-sector-id="{{ item.sector.id }}"
-                   data-company-id="{{ item.company.id }}"
-                   data-standard-id="{{ project.standard.id }}">
+              <a class="btn btn-sm import_so_declaration"
+                 data-bs-toggle="modal"
+                 data-bs-target="#import_so_declaration"
+                 data-year="{{ item.year }}"
+                 data-sector-id="{{ item.sector.id }}"
+                 data-company-id="{{ item.company.id }}"
+                 data-standard-id="{{ project.standard.id }}">
+                {% if item.has_security_objectives %}
+                  <i class="bi bi-check-circle text-passed h5"></i>
+                {% else %}
                   <i class="bi bi-x-circle text-failed h5"></i>
-                </a>
-              {% endif %}
+                {% endif %}
+              </a>
             </td>
             <td class="col-2 table-group-divider py-3 text-center">
-              {% if item.has_risk_assessment %}
-                <i class="bi bi-check-circle text-passed h5"></i>
-              {% else %}
-                <a class="btn btn-sm import_risk_analysis"
-                   data-bs-toggle="modal"
-                   data-bs-target="#import_risk_analysis"
-                   data-year="{{ item.year }}"
-                   data-sector-id="{{ item.sector.id }}"
-                   data-company-id="{{ item.company.id }}">
+              <a class="btn btn-sm import_risk_analysis"
+                 data-bs-toggle="modal"
+                 data-bs-target="#import_risk_analysis"
+                 data-year="{{ item.year }}"
+                 data-sector-id="{{ item.sector.id }}"
+                 data-company-id="{{ item.company.id }}">
+                {% if item.has_risk_assessment %}
+                  <i class="bi bi-check-circle text-passed h5"></i>
+                {% else %}
                   <i class="bi bi-x-circle text-failed h5"></i>
-                </a>
-              {% endif %}
+                {% endif %}
+              </a>
             </td>
             <td class="col-1 table-group-divider py-3">
               {% bootstrap_field item.formSelect.statistic_selected show_label=false wrapper_class="mb-0 d-flex justify-content-center align-items-center" %}
