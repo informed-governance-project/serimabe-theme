@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-30 14:25+0200\n"
-"PO-Revision-Date: 2026-04-30 12:29+0000\n"
+"PO-Revision-Date: 2026-05-08 06:23+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -2909,9 +2909,8 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 #: theme/templates/reporting/base.html:28
-#| msgid "Import Security Objectives Statement"
 msgid "Import security objectives"
-msgstr ""
+msgstr "Sicherheitsziele importieren"
 
 #: theme/templates/reporting/dashboard.html:34
 #: theme/templates/reporting/project_dashboard.html:64
