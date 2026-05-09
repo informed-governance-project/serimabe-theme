@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-08 08:24+0200\n"
-"PO-Revision-Date: 2026-04-30 12:29+0000\n"
-"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
+"PO-Revision-Date: 2026-05-09 10:27+0000\n"
+"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -518,8 +518,8 @@ msgid ""
 "resolution of security incidents related to SERIMA in order to guarantee the "
 "security of SERIMA;"
 msgstr ""
-"De afhandeling van beveiligingsincidenten in verband met SERIMA om de "
-"beveiliging van SERIMA te verzekeren."
+"afhandeling van beveiligingsincidenten in verband met SERIMA om de "
+"beveiliging van SERIMA te verzekeren;"
 
 #: theme/templates/home/privacy_policy.html:139
 msgid ""
@@ -1122,11 +1122,11 @@ msgstr ""
 
 #: theme/templates/home/terms.html:284
 msgid "incident notification and follow-up of incident notifications;"
-msgstr "Melding van incidenten en follow-up van meldingen."
+msgstr "melding van incidenten en follow-up van meldingen;"
 
 #: theme/templates/home/terms.html:289
 msgid "carrying out, submitting and reviewing risk analyses;"
-msgstr "Het uitvoeren, indienen en doornemen van risicoanalyses."
+msgstr "het uitvoeren, indienen en doornemen van risicoanalyses;"
 
 #: theme/templates/home/terms.html:294
 msgid ""
@@ -1205,12 +1205,12 @@ msgid ""
 "the reasons for the request, i.e. the legal framework to which the Operator "
 "is subject;"
 msgstr ""
-"De redenen voor het verzoek, meer bepaald het wettelijke kader waaraan de "
-"Operator onderworpen is."
+"redenen voor het verzoek, meer bepaald het wettelijke kader waaraan de "
+"Operator onderworpen is;"
 
 #: theme/templates/home/terms.html:352
 msgid "the official name of the organisation;"
-msgstr "De officiële naam van de organisatie."
+msgstr "de officiële naam van de organisatie;"
 
 #: theme/templates/home/terms.html:357
 msgid ""
@@ -2248,7 +2248,7 @@ msgstr "Verwijderen"
 
 #: theme/templates/modals/delete_report_project.html:7
 msgid "Confirm Deletion of Project"
-msgstr ""
+msgstr "Bevestig het verwijderen van het project"
 
 #: theme/templates/modals/delete_report_project.html:19
 msgid "Are you sure you want to delete the project?"
