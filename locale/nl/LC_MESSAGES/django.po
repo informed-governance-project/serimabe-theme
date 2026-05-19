@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 08:24+0200\n"
+"POT-Creation-Date: 2026-05-19 13:31+0200\n"
 "PO-Revision-Date: 2026-05-09 10:27+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -1777,7 +1777,7 @@ msgstr "Een incident melden"
 msgid "Incident notification steps"
 msgstr "Stappen incidentmelding"
 
-#: theme/templates/incidents/declaration.html:155
+#: theme/templates/incidents/declaration.html:156
 #: theme/templates/modals/create_report_project.html:92
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/delete_report_project.html:24
@@ -1789,7 +1789,7 @@ msgstr "Stappen incidentmelding"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: theme/templates/incidents/declaration.html:157
+#: theme/templates/incidents/declaration.html:158
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1826,17 +1826,17 @@ msgstr "Annuleren"
 msgid "Close"
 msgstr "Sluiten"
 
-#: theme/templates/incidents/declaration.html:170
+#: theme/templates/incidents/declaration.html:171
 msgid "Previous"
 msgstr "Vorig"
 
-#: theme/templates/incidents/declaration.html:189
+#: theme/templates/incidents/declaration.html:190
 #: theme/templates/operator/so_dashboard.html:20
 #: theme/templates/security_objectives/declaration.html:180
 msgid "Submit"
 msgstr "Indienen"
 
-#: theme/templates/incidents/declaration.html:191
+#: theme/templates/incidents/declaration.html:192
 msgid "Next"
 msgstr "Volgend"
 

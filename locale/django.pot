@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 08:24+0200\n"
+"POT-Creation-Date: 2026-05-19 13:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1383,7 +1383,7 @@ msgstr ""
 msgid "Incident notification steps"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:155
+#: theme/templates/incidents/declaration.html:156
 #: theme/templates/modals/create_report_project.html:92
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/delete_report_project.html:24
@@ -1395,7 +1395,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:157
+#: theme/templates/incidents/declaration.html:158
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1432,17 +1432,17 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:170
+#: theme/templates/incidents/declaration.html:171
 msgid "Previous"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:189
+#: theme/templates/incidents/declaration.html:190
 #: theme/templates/operator/so_dashboard.html:20
 #: theme/templates/security_objectives/declaration.html:180
 msgid "Submit"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:191
+#: theme/templates/incidents/declaration.html:192
 msgid "Next"
 msgstr ""
 

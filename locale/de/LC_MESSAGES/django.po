@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 08:24+0200\n"
+"POT-Creation-Date: 2026-05-19 13:31+0200\n"
 "PO-Revision-Date: 2026-05-08 06:23+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -1797,7 +1797,7 @@ msgstr "Einen Vorfall melden"
 msgid "Incident notification steps"
 msgstr "Schritte zur Vorfallmeldung"
 
-#: theme/templates/incidents/declaration.html:155
+#: theme/templates/incidents/declaration.html:156
 #: theme/templates/modals/create_report_project.html:92
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/delete_report_project.html:24
@@ -1809,7 +1809,7 @@ msgstr "Schritte zur Vorfallmeldung"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: theme/templates/incidents/declaration.html:157
+#: theme/templates/incidents/declaration.html:158
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1846,17 +1846,17 @@ msgstr "Abbrechen"
 msgid "Close"
 msgstr "Schließen"
 
-#: theme/templates/incidents/declaration.html:170
+#: theme/templates/incidents/declaration.html:171
 msgid "Previous"
 msgstr "Zurück"
 
-#: theme/templates/incidents/declaration.html:189
+#: theme/templates/incidents/declaration.html:190
 #: theme/templates/operator/so_dashboard.html:20
 #: theme/templates/security_objectives/declaration.html:180
 msgid "Submit"
 msgstr "Einreichen"
 
-#: theme/templates/incidents/declaration.html:191
+#: theme/templates/incidents/declaration.html:192
 msgid "Next"
 msgstr "Weiter"
 
