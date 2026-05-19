@@ -66,7 +66,7 @@ $(document).ready(function () {
     buttonTextAlignment: 'left',
     nonSelectedText: gettext('Nothing selected'),
     nSelectedText: gettext('items selected'),
-    selectAllText: gettext('Select all'),
+    allSelectedText: gettext('All selected'),
     numberDisplayed: 1,
     templates: {
       option: '<button class="multiselect-option dropdown-item text-wrap small"></button>',
