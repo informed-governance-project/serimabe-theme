@@ -42,10 +42,8 @@ msgstr "Objekte ausgewählt"
 
 #: theme/static/js/base.js:69 theme/static/js/create_report_project.js:10
 #: theme/static/js/create_so_declaration.js:9
-#, fuzzy
-#| msgid "items selected"
 msgid "All selected"
-msgstr "Objekte ausgewählt"
+msgstr ""
 
 #: theme/static/js/create_report_project.js:9
 #: theme/static/js/project_dashboard.js:51
