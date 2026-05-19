@@ -7,6 +7,7 @@ $(document).ready(function () {
     nonSelectedText: gettext('Nothing selected'),
     nSelectedText: gettext('items selected'),
     selectAllText: gettext('Select all'),
+    allSelectedText: gettext('All selected'),
     numberDisplayed: 4,
     enableClickableOptGroups: true,
     includeSelectAllOption: true,
