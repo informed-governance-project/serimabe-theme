@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load static %}
 {% block bootstrap5_extra_script %}
-  <script src='{% static "js/create_so_declaration.js" %}'></script>
+  <script src='{% static "js/risk_analysis_import.js" %}'></script>
 {% endblock %}
 {% block content %}
   <div class="modal-content">
@@ -16,7 +16,8 @@
               aria-label="{% translate 'Close' %}">
       </button>
     </div>
-    <form action="{% url 'import_risk_analysis' %}"
+    <form id="importRiskAnalysisForm"
+          action="{% url 'import_risk_analysis' %}"
           method="post"
           enctype="multipart/form-data"
           onsubmit="load_spinner()">
