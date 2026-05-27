@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-19 13:32+0200\n"
+"POT-Creation-Date: 2026-05-27 11:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,16 +31,19 @@ msgstr ""
 
 #: theme/static/js/base.js:67 theme/static/js/create_report_project.js:7
 #: theme/static/js/create_so_declaration.js:7
+#: theme/static/js/risk_analysis_import.js:7
 msgid "Nothing selected"
 msgstr ""
 
 #: theme/static/js/base.js:68 theme/static/js/create_report_project.js:8
 #: theme/static/js/create_so_declaration.js:8
+#: theme/static/js/risk_analysis_import.js:8
 msgid "items selected"
 msgstr ""
 
 #: theme/static/js/base.js:69 theme/static/js/create_report_project.js:10
 #: theme/static/js/create_so_declaration.js:9
+#: theme/static/js/risk_analysis_import.js:9
 msgid "All selected"
 msgstr ""
 

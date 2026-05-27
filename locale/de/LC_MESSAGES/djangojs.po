@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-19 13:31+0200\n"
+"POT-Creation-Date: 2026-05-27 11:50+0200\n"
 "PO-Revision-Date: 2026-04-30 12:29+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -32,16 +32,19 @@ msgstr ": Aktivieren zum Sortieren"
 
 #: theme/static/js/base.js:67 theme/static/js/create_report_project.js:7
 #: theme/static/js/create_so_declaration.js:7
+#: theme/static/js/risk_analysis_import.js:7
 msgid "Nothing selected"
 msgstr "Nichts ausgewählt"
 
 #: theme/static/js/base.js:68 theme/static/js/create_report_project.js:8
 #: theme/static/js/create_so_declaration.js:8
+#: theme/static/js/risk_analysis_import.js:8
 msgid "items selected"
 msgstr "Objekte ausgewählt"
 
 #: theme/static/js/base.js:69 theme/static/js/create_report_project.js:10
 #: theme/static/js/create_so_declaration.js:9
+#: theme/static/js/risk_analysis_import.js:9
 msgid "All selected"
 msgstr ""
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-19 13:31+0200\n"
+"POT-Creation-Date: 2026-05-27 11:50+0200\n"
 "PO-Revision-Date: 2026-05-08 06:23+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -2349,7 +2349,7 @@ msgid "Import Security Objectives Statement"
 msgstr "Importer la déclaration des objectifs de sécurité"
 
 #: theme/templates/modals/import_so_declaration.html:38
-#: theme/templates/modals/risk_analysis_import.html:37
+#: theme/templates/modals/risk_analysis_import.html:38
 #: theme/templates/security_objectives/base.html:29
 msgid "Import"
 msgstr "Importer"

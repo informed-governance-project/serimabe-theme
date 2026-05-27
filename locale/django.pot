@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-19 13:32+0200\n"
+"POT-Creation-Date: 2026-05-27 11:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1885,7 +1885,7 @@ msgid "Import Security Objectives Statement"
 msgstr ""
 
 #: theme/templates/modals/import_so_declaration.html:38
-#: theme/templates/modals/risk_analysis_import.html:37
+#: theme/templates/modals/risk_analysis_import.html:38
 #: theme/templates/security_objectives/base.html:29
 msgid "Import"
 msgstr ""
