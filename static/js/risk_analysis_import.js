@@ -70,7 +70,14 @@ $(document).ready(function () {
                     }, { once: true });
                     modal.hide();
                   }
-                  stop_spinner()
+                  stop_spinner();
+
+                  if (data.messages) {
+                    const messagesContainer = $("#messages-container");
+                    if (messagesContainer.length) {
+                      messagesContainer.html(data.messages);
+                    }
+                  }
                 }
               }).fail(function () {
                 console.warn("Error");
