@@ -3,8 +3,15 @@
 {% load custom_filters %}
 {% load static %}
 {% load i18n %}
+{% block bootstrap5_extra_head %}
+  {{ block.super }}
+  <link rel="stylesheet"
+        type="text/css"
+        href="{% static 'npm_components/summernote/dist/summernote-bs5.min.css' %}" />
+{% endblock %}
 {% block bootstrap5_extra_script %}
   {{ block.super }}
+  <script src='{% static "npm_components/summernote/dist/summernote-bs5.min.js" %}'></script>
   <link rel="stylesheet" href="{% static 'css/incidents.css' %}" />
   <script src='{% static "js/declaration.js" %}'></script>
   <!-- Tempus Dominus v6 -->

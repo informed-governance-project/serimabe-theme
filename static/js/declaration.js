@@ -3,6 +3,15 @@ $(document).ready(function () {
     numberDisplayed: 5,
   }).multiselect('rebuild');
 
+  $('.summernote').summernote({
+    height: 300,
+    toolbar: [
+      ['style', ['style']],
+      ['font', ['bold', 'italic', 'underline', 'clear']],
+      ['para', ['ul', 'ol', 'paragraph']],
+    ]
+  });
+
   $("#id_0-incident_detection_date").on("change.td", function () {
     const startingDateInputId = "id_0-incident_starting_date";
     const resolutionDateInputId = "id_0-incident_resolution_date";
