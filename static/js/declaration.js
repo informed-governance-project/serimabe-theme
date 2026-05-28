@@ -4,6 +4,7 @@ $(document).ready(function () {
   }).multiselect('rebuild');
 
   $('.summernote').summernote({
+    height: 300,
     codeviewFilter: true,
     codeviewIframeFilter: true,
     disableDragAndDrop: true,
