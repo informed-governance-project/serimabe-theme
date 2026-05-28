@@ -3,6 +3,19 @@ $(document).ready(function () {
     numberDisplayed: 5,
   }).multiselect('rebuild');
 
+  $('.summernote').summernote({
+    codeviewFilter: true,
+    codeviewIframeFilter: true,
+    disableDragAndDrop: true,
+    toolbar: [
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['fontstyle', ['fontsize', 'color']],
+      ['para', ['ul', 'ol', 'paragraph', 'height']],
+      ['insert', ['link', 'picture']],
+      ['misc', ['fullscreen', 'undo', 'redo']]
+    ]
+  });
+
   $("#id_0-incident_detection_date").on("change.td", function () {
     const startingDateInputId = "id_0-incident_starting_date";
     const resolutionDateInputId = "id_0-incident_resolution_date";
