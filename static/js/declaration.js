@@ -4,11 +4,15 @@ $(document).ready(function () {
   }).multiselect('rebuild');
 
   $('.summernote').summernote({
-    height: 300,
+    codeviewFilter: true,
+    codeviewIframeFilter: true,
+    disableDragAndDrop: true,
     toolbar: [
-      ['style', ['style']],
-      ['font', ['bold', 'italic', 'underline', 'clear']],
-      ['para', ['ul', 'ol', 'paragraph']],
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['fontstyle', ['fontsize', 'color']],
+      ['para', ['ul', 'ol', 'paragraph', 'height']],
+      ['insert', ['link', 'picture']],
+      ['misc', ['fullscreen', 'undo', 'redo']]
     ]
   });
 
