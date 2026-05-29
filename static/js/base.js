@@ -20,6 +20,35 @@ var datatableTranslations = {
   lengthMenu: gettext("_MENU_ entries per page"),
   aria: { orderable: gettext(": Activate to sort") },
 };
+// Default options for Summernote Editor
+const summernoteMap = {
+  en: "en-US",
+  fr: "fr-FR",
+  de: "de-DE",
+  nl: "nl-NL",
+};
+const summernoteLang = summernoteMap[$('html').attr('lang')] || "en-US";
+const summernoteScript = document.createElement("script");
+summernoteScript.src =`/static/npm_components/summernote/dist/lang/summernote-${summernoteLang}.min.js`;
+const summernoteDefaultOptions = {
+  lang: summernoteLang,
+  height: 300,
+  codeviewFilter: true,
+  codeviewIframeFilter: true,
+  disableDragAndDrop: true,
+  toolbar: [
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+    ['fontstyle', ['fontsize', 'color']],
+    ['para', ['ul', 'ol', 'paragraph', 'height']],
+    ['insert', ['link', 'picture']],
+    ['misc', ['fullscreen', 'undo', 'redo']]
+  ],
+  callbacks: {
+    onInit: function () {
+      $('.summernote').removeClass('d-none');
+    }
+  }
+};
 
 // Default options for tempus dominus
 const defaultTempusdOptions = {
