@@ -1439,7 +1439,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:157
+#: theme/templates/incidents/declaration.html:158
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1476,7 +1476,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:170
+#: theme/templates/incidents/declaration.html:171
 msgid "Previous"
 msgstr ""
 
@@ -1486,7 +1486,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: theme/templates/incidents/declaration.html:191
+#: theme/templates/incidents/declaration.html:192
 msgid "Next"
 msgstr ""
 
@@ -1929,7 +1929,7 @@ msgid "Import Security Objectives Statement"
 msgstr ""
 
 #: theme/templates/modals/import_so_declaration.html:38
-#: theme/templates/modals/risk_analysis_import.html:37
+#: theme/templates/modals/risk_analysis_import.html:38
 #: theme/templates/security_objectives/base.html:29
 msgid "Import"
 msgstr ""

@@ -1853,7 +1853,7 @@ msgstr "Schritte zur Vorfallmeldung"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: theme/templates/incidents/declaration.html:157
+#: theme/templates/incidents/declaration.html:158
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1890,7 +1890,7 @@ msgstr "Abbrechen"
 msgid "Close"
 msgstr "Schließen"
 
-#: theme/templates/incidents/declaration.html:170
+#: theme/templates/incidents/declaration.html:171
 msgid "Previous"
 msgstr "Zurück"
 
@@ -1900,7 +1900,7 @@ msgstr "Zurück"
 msgid "Submit"
 msgstr "Einreichen"
 
-#: theme/templates/incidents/declaration.html:191
+#: theme/templates/incidents/declaration.html:192
 msgid "Next"
 msgstr "Weiter"
 
@@ -2345,7 +2345,7 @@ msgid "Import Security Objectives Statement"
 msgstr "Erklärung der Sicherheitsziele importieren"
 
 #: theme/templates/modals/import_so_declaration.html:38
-#: theme/templates/modals/risk_analysis_import.html:37
+#: theme/templates/modals/risk_analysis_import.html:38
 #: theme/templates/security_objectives/base.html:29
 msgid "Import"
 msgstr "Importieren"

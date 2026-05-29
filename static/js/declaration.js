@@ -3,6 +3,40 @@ $(document).ready(function () {
     numberDisplayed: 5,
   }).multiselect('rebuild');
 
+  // Summernote Editor Initialization
+  const summernoteMap = {
+    en: "en-US",
+    fr: "fr-FR",
+    de: "de-DE",
+    nl: "nl-NL",
+  };
+  const djangoLanguage = $('html').attr('lang');
+  const summernoteLang = summernoteMap[djangoLanguage] || "en-US";
+  const summernoteScript = document.createElement("script");
+  summernoteScript.src =`/static/npm_components/summernote/dist/lang/summernote-${summernoteLang}.min.js`;
+  summernoteScript.onload = function () {
+    $('.summernote').summernote({
+      lang: summernoteLang,
+      height: 300,
+      codeviewFilter: true,
+      codeviewIframeFilter: true,
+      disableDragAndDrop: true,
+      toolbar: [
+        ['style', ['bold', 'italic', 'underline', 'clear']],
+        ['fontstyle', ['fontsize', 'color']],
+        ['para', ['ul', 'ol', 'paragraph', 'height']],
+        ['insert', ['link', 'picture']],
+        ['misc', ['fullscreen', 'undo', 'redo']]
+      ],
+      callbacks: {
+        onInit: function () {
+          $('.summernote').removeClass('d-none');
+        }
+      }
+    });
+  };
+  document.head.appendChild(summernoteScript);
+
   $("#id_0-incident_detection_date").on("change.td", function () {
     const startingDateInputId = "id_0-incident_starting_date";
     const resolutionDateInputId = "id_0-incident_resolution_date";
@@ -187,4 +221,17 @@ $(document).ready(function () {
         $this[0].options[0].disabled = true;
       }
     });
+
+  $(".answer-modified").each(function () {
+    $(this).closest("#question-answer-container")
+      .prev('#question-label-container')
+      .addClass("text-warning");
+  });
+
+  $(".st-mt-answer-modified").each(function () {
+    $(this).closest("#st-sm-details-container")
+      .prev('#question-answer-container')
+      .prev('#question-label-container')
+      .addClass("text-warning");
+  });
 });

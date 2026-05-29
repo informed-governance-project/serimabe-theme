@@ -66,14 +66,13 @@ $(document).ready(function () {
     buttonTextAlignment: 'left',
     nonSelectedText: gettext('Nothing selected'),
     nSelectedText: gettext('items selected'),
-    selectAllText: gettext('Select all'),
+    allSelectedText: gettext('All selected'),
     numberDisplayed: 1,
     templates: {
       option: '<button class="multiselect-option dropdown-item text-wrap small"></button>',
       optionGroup: '<button type="button" class="multiselect-group dropdown-item d-flex fw-bolder text-wrap small"></button>',
     }
   });
-
   $('.create_so_declaration').on("click", function () {
     var $popup = $("#create_so_declaration");
     var popup_url = '/securityobjectives/create';

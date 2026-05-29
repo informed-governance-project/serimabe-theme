@@ -118,7 +118,11 @@ $(document).ready(function () {
     // Show the comment
     $(document).on('click', '.comment-btn', function () {
       let comment = decodeURIComponent($(this).data('comment') || '');
-      $('#report_version_workflow_comment #modal-workflow-comment').val(comment);
+      let $modalWorkflowComment = $('#report_version_workflow_comment').find('#modal-workflow-comment');
+      $modalWorkflowComment.summernote("code", comment);
+      $modalWorkflowComment.summernote("disable");
+      $modalWorkflowComment.next('.note-editor').find('.note-statusbar').remove();
+
     });
     $modalWorkflowRows.find('[data-bs-toggle="tooltip"]').tooltip();
   });

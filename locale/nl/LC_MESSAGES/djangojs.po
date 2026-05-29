@@ -32,15 +32,23 @@ msgstr ": Activeren om te sorteren"
 
 #: theme/static/js/base.js:67 theme/static/js/create_report_project.js:7
 #: theme/static/js/create_so_declaration.js:7
+#: theme/static/js/risk_analysis_import.js:7
 msgid "Nothing selected"
 msgstr "Niets geselecteerd"
 
 #: theme/static/js/base.js:68 theme/static/js/create_report_project.js:8
 #: theme/static/js/create_so_declaration.js:8
+#: theme/static/js/risk_analysis_import.js:8
 msgid "items selected"
 msgstr "items geselecteerd"
 
-#: theme/static/js/base.js:69 theme/static/js/create_report_project.js:9
+#: theme/static/js/base.js:69 theme/static/js/create_report_project.js:10
+#: theme/static/js/create_so_declaration.js:9
+#: theme/static/js/risk_analysis_import.js:9
+msgid "All selected"
+msgstr ""
+
+#: theme/static/js/create_report_project.js:9
 #: theme/static/js/project_dashboard.js:51
 #: theme/static/js/project_dashboard.js:95
 msgid "Select all"

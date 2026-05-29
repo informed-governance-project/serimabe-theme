@@ -44,7 +44,7 @@ $(document).ready(function () {
         "X-CSRFToken": csrftoken
       },
       success: function () {
-        $(`input[name="${fieldName}"]`).prop("checked", fieldValue);
+        $(`input[name="${fieldName}"]`).not("[disabled]").prop("checked", fieldValue);
 
         const tooltip_value = (fieldValue === true)
           ? gettext("Deselect all")
