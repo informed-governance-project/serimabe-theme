@@ -73,7 +73,6 @@ $(document).ready(function () {
       option: '<button class="multiselect-option dropdown-item"></button>',
     }
   });
-
   $('.create_so_declaration').on("click", function () {
     var $popup = $("#create_so_declaration");
     var popup_url = '/securityobjectives/create';
