@@ -135,7 +135,7 @@ $(document).ready(function () {
     });
   });
 
-  function loadReviewCommentModal($popup, popupUrl) {
+  function loadReviewCommentModal($popup, popupUrl, forceDisabled = false) {
     $popup.find(".modal-dialog").empty();
 
     $(".modal-dialog", $popup).load(
@@ -149,7 +149,7 @@ $(document).ready(function () {
         const $reviewComment =
           $popup.find("#id_review_comment");
 
-        const options = $reviewComment.is(":disabled")
+        const options = $reviewComment.is(":disabled") || forceDisabled
           ? summernoteDisabledOptions
           : summernoteDefaultOptions;
 
@@ -174,7 +174,7 @@ $(document).ready(function () {
     let standardAnswerId = $this.data('standard-answer-id');
     let $popup = $("#so_versions_review_comment_so_declaration");
     let popup_url = `/securityobjectives/review_comment/${standardAnswerId}?from=versions`;
-    loadReviewCommentModal($popup, popup_url);
+    loadReviewCommentModal($popup, popup_url, true);
   });
 
   $(document).on("click", '.so_access_log', function () {
