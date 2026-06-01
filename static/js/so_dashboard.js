@@ -135,36 +135,46 @@ $(document).ready(function () {
     });
   });
 
+  function loadReviewCommentModal($popup, popupUrl) {
+    $popup.find(".modal-dialog").empty();
+
+    $(".modal-dialog", $popup).load(
+      popupUrl,
+      function (response, status, xhr) {
+        if (xhr.status === 403 || xhr.status === 404) {
+          window.location.reload();
+          return;
+        }
+
+        const $reviewComment =
+          $popup.find("#id_review_comment");
+
+        const options = $reviewComment.is(":disabled")
+          ? summernoteDisabledOptions
+          : summernoteDefaultOptions;
+
+        $reviewComment.summernote(options);
+
+        $popup.modal("show");
+      }
+    );
+  }
+
   $(document).on("click", ".review_comment_so_declaration", function () {
     let $this = $(this);
     let standardAnswerId = $this.data('standard-answer-id');
     let $popup = $("#review_comment_so_declaration");
     let popup_url = `/securityobjectives/review_comment/${standardAnswerId}`;
-    $popup.find(".modal-dialog").empty();
-
-    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr) {
-      if (xhr.status === 403 || xhr.status === 404) {
-        window.location.reload();
-      } else {
-        $popup.modal("show");
-      }
-    });
+    loadReviewCommentModal($popup, popup_url);
   });
+
 
   $(document).on("click", ".so_versions_review_comment_so_declaration", function () {
     let $this = $(this);
     let standardAnswerId = $this.data('standard-answer-id');
     let $popup = $("#so_versions_review_comment_so_declaration");
     let popup_url = `/securityobjectives/review_comment/${standardAnswerId}?from=versions`;
-    $popup.find(".modal-dialog").empty();
-
-    $(".modal-dialog", $popup).load(popup_url, function (response, status, xhr) {
-      if (xhr.status === 403 || xhr.status === 404) {
-        window.location.reload();
-      } else {
-        $popup.modal("show");
-      }
-    });
+    loadReviewCommentModal($popup, popup_url);
   });
 
   $(document).on("click", '.so_access_log', function () {
