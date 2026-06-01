@@ -10,6 +10,7 @@ $(document).ready(function () {
       .attr("class","form-select fw-bolder text-white")
       .addClass(`bg-${reviewStatusCssClass}`)
       .html(`<option value="${reviewStatusCssClass}" selected>${status}</option>`);
+    $modalWorkflowComment.summernote(summernoteDisabledOptions);
     $modalWorkflowComment.summernote("code", workflowComment);
   });
 });
