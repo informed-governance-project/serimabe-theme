@@ -109,9 +109,6 @@ $(document).ready(function () {
       let comment = decodeURIComponent($(this).data('comment') || '');
       let $modalWorkflowComment = $('#report_version_workflow_comment').find('#modal-workflow-comment');
       $modalWorkflowComment.summernote("code", comment);
-      $modalWorkflowComment.summernote("disable");
-      $modalWorkflowComment.next('.note-editor').find('.note-statusbar').remove();
-
     });
     $modalWorkflowRows.find('[data-bs-toggle="tooltip"]').tooltip();
   });

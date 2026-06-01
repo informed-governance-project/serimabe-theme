@@ -4,7 +4,5 @@ $(document).ready(function () {
     let workflowComment =decodeURIComponent($this.data('workflow-comment') || '');
     let $modalWorkflowComment = $('#workflow_comment').find('#modal-workflow-comment');
     $modalWorkflowComment.summernote("code", workflowComment);
-    $modalWorkflowComment.summernote("disable");
-    $modalWorkflowComment.next('.note-editor').find('.note-statusbar').remove();
   });
 });
