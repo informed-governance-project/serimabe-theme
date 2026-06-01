@@ -108,6 +108,7 @@ $(document).ready(function () {
     $(document).on('click', '.comment-btn', function () {
       let comment = decodeURIComponent($(this).data('comment') || '');
       let $modalWorkflowComment = $('#report_version_workflow_comment').find('#modal-workflow-comment');
+      $modalWorkflowComment.summernote(summernoteDisabledOptions);
       $modalWorkflowComment.summernote("code", comment);
     });
     $modalWorkflowRows.find('[data-bs-toggle="tooltip"]').tooltip();

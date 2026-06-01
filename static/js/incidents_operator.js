@@ -3,6 +3,7 @@ $(document).ready(function () {
     let $this = $(this);
     let workflowComment =decodeURIComponent($this.data('workflow-comment') || '');
     let $modalWorkflowComment = $('#workflow_comment').find('#modal-workflow-comment');
+    $modalWorkflowComment.summernote(summernoteDisabledOptions);
     $modalWorkflowComment.summernote("code", workflowComment);
   });
 });
