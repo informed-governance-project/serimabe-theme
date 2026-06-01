@@ -45,10 +45,27 @@ const summernoteDefaultOptions = {
   ],
   callbacks: {
     onInit: function () {
-      $('.summernote').removeClass('d-none');
+      $(this).removeClass('d-none');
     }
   }
 };
+
+const summernoteDisabledOptions = {
+  codeviewFilter: true,
+  codeviewIframeFilter: true,
+  disableResizeEditor: true,
+  disableDragAndDrop: true,
+  shortcuts: false,
+  toolbar: [],
+  callbacks: {
+    onInit: function () {
+      $(this).summernote('disable');
+      $(this).next('.note-editor').find('.note-statusbar').remove()
+    }
+  }
+};
+
+
 
 // Default options for tempus dominus
 const defaultTempusdOptions = {
