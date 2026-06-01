@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  document.body.appendChild(summernoteScript);
   const multiselectConfig = {
     numberDisplayed: 3,
     enableClickableOptGroups: true,

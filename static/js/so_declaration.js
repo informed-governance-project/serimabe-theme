@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  document.body.appendChild(summernoteScript);
   $('.so_status_form').find('option').addClass("bg-body text-dark");
 
   let $security_objectives_carousel = $('#security_objectives_carousel');

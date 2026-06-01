@@ -4,6 +4,10 @@
 {% block bootstrap5_extra_script %}
   {{ block.super }}
   <link rel="stylesheet"
+        type="text/css"
+        href="{% static 'npm_components/summernote/dist/summernote-bs5.min.css' %}" />
+  <script src='{% static "npm_components/summernote/dist/summernote-bs5.min.js" %}'></script>
+  <link rel="stylesheet"
         href="{% static 'npm_components/@eonasdan/tempus-dominus/dist/css/tempus-dominus.min.css' %}">
   <script src="{% static 'npm_components/@eonasdan/tempus-dominus/dist/js/tempus-dominus.min.js' %}"></script>
 {% endblock %}
