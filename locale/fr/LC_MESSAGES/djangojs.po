@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-02 08:53+0200\n"
-"PO-Revision-Date: 2026-04-30 12:29+0000\n"
-"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
+"PO-Revision-Date: 2026-06-02 10:28+0000\n"
+"Last-Translator: Edgar Dugourd <Edd@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgstr "éléments sélectionnés"
 #: theme/static/js/create_so_declaration.js:9
 #: theme/static/js/risk_analysis_import.js:9
 msgid "All selected"
-msgstr ""
+msgstr "Tous sélectionné"
 
 #: theme/static/js/create_report_project.js:9
 #: theme/static/js/project_dashboard.js:51
