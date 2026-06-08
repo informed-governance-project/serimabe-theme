@@ -61,7 +61,7 @@ msgid "Account management"
 msgstr "Accountbeheer"
 
 #: theme/templates/account/edit.html:15 theme/templates/home/contact.html:22
-#: theme/templates/incidents/declaration.html:26
+#: theme/templates/incidents/declaration.html:33
 #: theme/templates/registration/signup.html:18
 msgid "Fields marked with an asterisk (*) are mandatory."
 msgstr "Velden met een sterretje (*) zijn verplicht."
@@ -1813,11 +1813,11 @@ msgstr "Referenties"
 msgid "Optional"
 msgstr "Optioneel"
 
-#: theme/templates/incidents/declaration.html:20
+#: theme/templates/incidents/declaration.html:27
 msgid "Report an incident"
 msgstr "Een incident melden"
 
-#: theme/templates/incidents/declaration.html:35
+#: theme/templates/incidents/declaration.html:42
 msgid "Incident notification steps"
 msgstr "Stappen incidentmelding"
 
