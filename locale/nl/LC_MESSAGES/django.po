@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 08:24+0200\n"
-"PO-Revision-Date: 2026-04-30 12:29+0000\n"
-"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
+"POT-Creation-Date: 2026-06-02 08:53+0200\n"
+"PO-Revision-Date: 2026-05-09 10:27+0000\n"
+"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1821,7 +1821,7 @@ msgstr "Een incident melden"
 msgid "Incident notification steps"
 msgstr "Stappen incidentmelding"
 
-#: theme/templates/incidents/declaration.html:155
+#: theme/templates/incidents/declaration.html:163
 #: theme/templates/modals/create_report_project.html:92
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/delete_report_project.html:24
@@ -1833,7 +1833,7 @@ msgstr "Stappen incidentmelding"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: theme/templates/incidents/declaration.html:158
+#: theme/templates/incidents/declaration.html:165
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1859,7 +1859,7 @@ msgstr "Annuleren"
 #: theme/templates/modals/so_versions.html:12
 #: theme/templates/modals/so_versions_review_comment_so_declaration.html:8
 #: theme/templates/modals/update_so_declaration.html:12
-#: theme/templates/modals/workflow_comment.html:13
+#: theme/templates/modals/workflow_comment.html:20
 #: theme/templates/parts/messages.html:16
 #: theme/templates/parts/messages.html:17
 #: theme/templates/reporting/add_recommendations.html:65
@@ -1870,17 +1870,17 @@ msgstr "Annuleren"
 msgid "Close"
 msgstr "Sluiten"
 
-#: theme/templates/incidents/declaration.html:171
+#: theme/templates/incidents/declaration.html:178
 msgid "Previous"
 msgstr "Vorig"
 
-#: theme/templates/incidents/declaration.html:189
+#: theme/templates/incidents/declaration.html:197
 #: theme/templates/operator/so_dashboard.html:20
 #: theme/templates/security_objectives/declaration.html:180
 msgid "Submit"
 msgstr "Indienen"
 
-#: theme/templates/incidents/declaration.html:192
+#: theme/templates/incidents/declaration.html:199
 msgid "Next"
 msgstr "Volgend"
 
@@ -1988,6 +1988,7 @@ msgstr "Tabel Incidenten"
 #: theme/templates/incidents/incidents_base.html:121
 #: theme/templates/modals/report_versions.html:30
 #: theme/templates/modals/so_versions.html:24
+#: theme/templates/modals/workflow_comment.html:27
 #: theme/templates/security_objectives/so_dashboard_base.html:79
 msgid "Status"
 msgstr "Status"
@@ -2098,9 +2099,9 @@ msgstr "Datum van indiening van de incidentmelding"
 #: theme/templates/modals/report_versions.html:21
 #: theme/templates/modals/so_versions.html:7
 #: theme/templates/modals/so_versions.html:17
-#: theme/templates/operator/incidents.html:124
 #: theme/templates/operator/incidents.html:126
-#: theme/templates/operator/incidents.html:133
+#: theme/templates/operator/incidents.html:128
+#: theme/templates/operator/incidents.html:135
 #: theme/templates/operator/so_dashboard.html:59
 #: theme/templates/operator/so_dashboard.html:61
 #: theme/templates/operator/so_dashboard.html:69
@@ -2279,8 +2280,8 @@ msgstr "Weet u zeker dat u het incident wilt verwijderen?"
 #: theme/templates/modals/delete_report_project.html:27
 #: theme/templates/modals/delete_report_recommendation.html:28
 #: theme/templates/modals/delete_so_declaration.html:27
-#: theme/templates/operator/incidents.html:156
-#: theme/templates/operator/incidents.html:159
+#: theme/templates/operator/incidents.html:158
+#: theme/templates/operator/incidents.html:161
 #: theme/templates/operator/so_dashboard.html:149
 #: theme/templates/operator/so_dashboard.html:204
 #: theme/templates/regulator/so_dashboard.html:138
@@ -2325,7 +2326,7 @@ msgstr "Beveiligingsdoelstellingenverklaring importeren"
 
 #: theme/templates/modals/import_so_declaration.html:38
 #: theme/templates/modals/risk_analysis_import.html:38
-#: theme/templates/security_objectives/base.html:29
+#: theme/templates/security_objectives/base.html:33
 msgid "Import"
 msgstr "Importeren"
 
@@ -2336,10 +2337,10 @@ msgid "Choice of columns"
 msgstr "Kolommenkeuze"
 
 #: theme/templates/modals/review_comment_report.html:10
-#: theme/templates/modals/workflow_comment.html:7
-#: theme/templates/operator/incidents.html:98
-#: theme/templates/operator/incidents.html:101
-#: theme/templates/operator/incidents.html:107
+#: theme/templates/modals/workflow_comment.html:34
+#: theme/templates/operator/incidents.html:100
+#: theme/templates/operator/incidents.html:103
+#: theme/templates/operator/incidents.html:109
 #: theme/templates/operator/so_dashboard.html:103
 #: theme/templates/regulator/so_dashboard.html:80
 #: theme/templates/regulator/so_dashboard.html:91
@@ -2349,6 +2350,7 @@ msgstr "Opmerking bekijken"
 
 #: theme/templates/modals/review_comment_so_declaration.html:8
 #: theme/templates/modals/update_so_declaration.html:25
+#: theme/templates/modals/workflow_comment.html:14
 #: theme/templates/operator/so_dashboard.html:91
 #: theme/templates/regulator/so_dashboard.html:111
 msgid "Review"
@@ -2917,7 +2919,7 @@ msgstr "Tabel aanbevelingen"
 
 #: theme/templates/reporting/base.html:16
 #: theme/templates/reporting/dashboard.html:19
-#: theme/templates/security_objectives/base.html:22
+#: theme/templates/security_objectives/base.html:26
 #: theme/templates/security_objectives/so_dashboard_base.html:20
 msgid "Dashboard"
 msgstr "Dashboard"
@@ -3021,7 +3023,7 @@ msgstr "Volgorde"
 msgid "Copy from last year"
 msgstr "Kopiëren van vorig jaar"
 
-#: theme/templates/security_objectives/base.html:36
+#: theme/templates/security_objectives/base.html:40
 msgid "New submission"
 msgstr "Nieuwe invoer"
 

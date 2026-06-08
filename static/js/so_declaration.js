@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  document.body.appendChild(summernoteScript);
   $('.so_status_form').find('option').addClass("bg-body text-dark");
 
   let $security_objectives_carousel = $('#security_objectives_carousel');
@@ -118,8 +119,14 @@ $(document).ready(function () {
     }
     $popup.find(".modal-dialog").empty();
     $(".modal-dialog", $popup).load(popup_url, function () {
-      $popup.modal("show");
       $("#so-review-comment-form").attr("action", popup_url);
+      const $reviewComment = $popup.find("#id_review_comment");
+      const options = $reviewComment.is(":disabled")
+        ? summernoteDisabledOptions
+        : summernoteDefaultOptions;
+
+      $reviewComment.summernote(options);
+      $popup.modal("show");
     });
   });
 
