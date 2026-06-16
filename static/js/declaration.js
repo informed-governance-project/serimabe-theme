@@ -205,4 +205,96 @@ $(document).ready(function () {
       .prev('#question-label-container')
       .addClass("text-warning");
   });
+
+  // Conditional Questions
+  initConditionalInputs();
+  syncConditionals();
+
+  $(document).on("change", "input[type='radio']", function () {
+    var groupName = $(this).attr("name");
+    $("input[name='" + groupName + "'][data-next-question-id]").each(function () {
+      hideQuestion($(this).data("next-question-id"));
+    });
+    syncConditionals();
+  });
+
+  $(document).on("change", "input[type='checkbox']", function () {
+    syncConditionals();
+  });
+
 });
+
+function initConditionalInputs() {
+  $("[data_conditionals]").each(function () {
+    var $wrapper = $(this);
+    var map;
+    try {
+      map = JSON.parse($wrapper.attr("data_conditionals"));
+    } catch (e) {
+      return;
+    }
+
+
+    $.each(map, function (answerId, nextQuestionOptionsId) {
+      $wrapper
+        .find("input[type='radio'][value='" + answerId + "']," +
+          "input[type='checkbox'][value='" + answerId + "']")
+        .attr("data-next-question-id", nextQuestionOptionsId);
+    });
+  });
+}
+
+/**
+ * Build the field name (= data-question-id on the containers) from
+ * a QuestionOptions id. Field names follow the pattern set in
+ * QuestionForm.create_question: "__question__<question_option_id>".
+ */
+function fieldName(questionOptionsId) {
+  return "__question__" + questionOptionsId;
+}
+
+/**
+ * Hide a conditional question and recursively hide any further
+ * conditional questions it may itself have triggered.
+ */
+function hideQuestion(questionOptionsId) {
+  var name = fieldName(questionOptionsId);
+  var $containers = $("[data-question-id='" + name + "']");
+  $containers.addClass("d-none");
+
+  // uncheck inputs inside so nested conditionals are cleared
+  $containers.find("input[type='radio'], input[type='checkbox']").prop("checked", false);
+
+  // recurse into any nested conditionals
+  $containers.find("input[data-next-question-id]").each(function () {
+    hideQuestion($(this).data("next-question-id"));
+  });
+}
+
+/**
+ * Show the question containers for the given QuestionOptions id.
+ */
+function showQuestion(questionOptionsId) {
+  var name = fieldName(questionOptionsId);
+  $("[data-question-id='" + name + "']").removeClass("d-none");
+}
+
+/**
+ * Re-evaluate all conditional inputs and sync visibility.
+ */
+function syncConditionals() {
+  $("input[data-next-question-id]").each(function () {
+    var nextId = $(this).data("next-question-id");
+
+    if ($(this).is(":checked")) {
+      showQuestion(nextId);
+    } else {
+      var stillActive = $(
+        "input[data-next-question-id='" + nextId + "']:checked"
+      ).length > 0;
+      if (!stillActive) {
+        hideQuestion(nextId);
+      }
+    }
+  });
+}
