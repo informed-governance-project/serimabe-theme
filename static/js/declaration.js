@@ -259,7 +259,7 @@ function fieldName(questionOptionsId) {
  */
 function hideQuestion(questionOptionsId) {
   var name = fieldName(questionOptionsId);
-  var $containers = $("[data-question-id='" + name + "']");
+  var $containers = $("[data-question-id*='" + name + "']");
   $containers.addClass("d-none");
 
   // uncheck inputs inside so nested conditionals are cleared
@@ -276,7 +276,7 @@ function hideQuestion(questionOptionsId) {
  */
 function showQuestion(questionOptionsId) {
   var name = fieldName(questionOptionsId);
-  $("[data-question-id='" + name + "']").removeClass("d-none");
+  $("[data-question-id*='" + name + "']").removeClass("d-none");
 }
 
 /**

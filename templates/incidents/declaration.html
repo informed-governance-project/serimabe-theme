@@ -130,16 +130,16 @@
                 {% include "incidents/detection_date_form.html" %}
               {% else %}
                 {% for field in wizard.form %}
-                  {% if "_freetext_answer" in field.id_for_label %}
-                    <div id="st-sm-details-container">
-                      {% bootstrap_label field.label label_class="form-check-label" label_for=field.id_for_label %}
-                      {% bootstrap_field field show_label=False %}
-                    </div>
-                  {% else %}
-                    <div data-question-id="{{ field.name }}"
-                         class="{% if field.field.is_conditional %}
-                                  d-none
-                                {% endif %}">
+                  <div data-question-id="{{ field.name }}"
+                       class="{% if field.field.is_conditional %}
+                                d-none
+                              {% endif %}">
+                    {% if "_freetext_answer" in field.id_for_label %}
+                      <div id="st-sm-details-container">
+                        {% bootstrap_label field.label label_class="form-check-label" label_for=field.id_for_label %}
+                        {% bootstrap_field field show_label=False %}
+                      </div>
+                    {% else %}
                       <div id="question-label-container"
                            class="d-flex align-items-center
                                   {% if field.field.required %}
@@ -151,8 +151,8 @@
                       <div id="question-answer-container" class="pt-4">
                         {% bootstrap_field field show_label=False %}
                       </div>
-                    </div>
-                  {% endif %}
+                    {% endif %}
+                  </div>
                 {% endfor %}
               {% endif %}
             {% endwith %}
