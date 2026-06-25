@@ -5,7 +5,14 @@ $(document).ready(function () {
 
   // Summernote Editor Initialization
   document.body.appendChild(summernoteScript);
-  summernoteScript.onload = () => $('.summernote').summernote(summernoteDefaultOptions);
+  let $summernote_textarea = $('.summernote')
+  let summernoteOptions = $summernote_textarea.is(':disabled')
+    ? summernoteDisabledOptions
+    : summernoteDefaultOptions;
+
+  summernoteScript.onload = () => {
+    $summernote_textarea.summernote(summernoteOptions);
+  };
 
 
   $("#id_0-incident_detection_date").on("change.td", function () {
