@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-25 13:46+0200\n"
+"POT-Creation-Date: 2026-06-25 13:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1333,6 +1333,7 @@ msgstr ""
 
 #: theme/templates/incidents/contact_form.html:6
 #: theme/templates/report/incidents/cover.html:15
+#: theme/templates/report/security_objectives/cover.html:12
 msgid "Legal Entity Name"
 msgstr ""
 
@@ -2362,10 +2363,6 @@ msgstr ""
 #: theme/templates/report/security_objectives/cover.html:5
 #: theme/templates/report/security_objectives/header.html:5
 msgid "Security objectives statement"
-msgstr ""
-
-#: theme/templates/report/security_objectives/cover.html:12
-msgid "Name of the Operator"
 msgstr ""
 
 #: theme/templates/report/security_objectives/cover.html:29

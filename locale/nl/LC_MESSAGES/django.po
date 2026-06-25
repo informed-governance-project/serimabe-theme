@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-25 13:46+0200\n"
+"POT-Creation-Date: 2026-06-25 13:49+0200\n"
 "PO-Revision-Date: 2026-05-09 10:27+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -1725,6 +1725,7 @@ msgstr "Exporteren"
 
 #: theme/templates/incidents/contact_form.html:6
 #: theme/templates/report/incidents/cover.html:15
+#: theme/templates/report/security_objectives/cover.html:12
 msgid "Legal Entity Name"
 msgstr ""
 
@@ -2776,10 +2777,6 @@ msgstr "Tijdlijn van de verslagen"
 #: theme/templates/report/security_objectives/header.html:5
 msgid "Security objectives statement"
 msgstr "Rapport van beveiligingsdoelstellingen"
-
-#: theme/templates/report/security_objectives/cover.html:12
-msgid "Name of the Operator"
-msgstr "Naam van de operator"
 
 #: theme/templates/report/security_objectives/cover.html:29
 #: theme/templates/security_objectives/declaration.html:57

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-25 13:46+0200\n"
+"POT-Creation-Date: 2026-06-25 13:49+0200\n"
 "PO-Revision-Date: 2026-05-08 06:23+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -1793,6 +1793,7 @@ msgstr "Exporter"
 
 #: theme/templates/incidents/contact_form.html:6
 #: theme/templates/report/incidents/cover.html:15
+#: theme/templates/report/security_objectives/cover.html:12
 msgid "Legal Entity Name"
 msgstr ""
 
@@ -2852,10 +2853,6 @@ msgstr "Chronologie des rapports"
 #: theme/templates/report/security_objectives/header.html:5
 msgid "Security objectives statement"
 msgstr "Déclaration des objectifs de sécurité"
-
-#: theme/templates/report/security_objectives/cover.html:12
-msgid "Name of the Operator"
-msgstr "Nom de l’opérateur"
 
 #: theme/templates/report/security_objectives/cover.html:29
 #: theme/templates/security_objectives/declaration.html:57
