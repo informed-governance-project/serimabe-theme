@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-02 08:53+0200\n"
+"POT-Creation-Date: 2026-06-25 13:46+0200\n"
 "PO-Revision-Date: 2026-05-08 06:23+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -1745,13 +1745,14 @@ msgstr "Exportieren"
 
 #: theme/templates/incidents/contact_form.html:6
 #: theme/templates/report/incidents/cover.html:15
-#: theme/templates/report/security_objectives/cover.html:12
-msgid "Name of the Operator"
-msgstr "Name des Betreibers"
+msgid "Legal Entity Name"
+msgstr ""
 
 #: theme/templates/incidents/contact_form.html:12
-msgid "Incident Notification Manager"
-msgstr "Verantwortlicher für die Vorfallmeldung"
+#: theme/templates/modals/contacts_incident.html:24
+#: theme/templates/report/incidents/contacts.html:18
+msgid "Contact Information"
+msgstr ""
 
 #: theme/templates/incidents/contact_form.html:16
 #: theme/templates/incidents/contact_form.html:49
@@ -1772,14 +1773,12 @@ msgstr "Telefon"
 #: theme/templates/incidents/contact_form.html:40
 #: theme/templates/modals/contacts_incident.html:50
 #: theme/templates/report/incidents/contacts.html:66
-msgid "Technical contact"
-msgstr "Technischer Ansprechpartner"
+msgid "Technical Contact Information"
+msgstr ""
 
 #: theme/templates/incidents/contact_form.html:43
-msgid "Is the incident notification manager also the technical contact?"
+msgid "Is the contact also the technical contact?"
 msgstr ""
-"Ist der Verantwortliche für die Vorfallmeldung ebenfalls der technische "
-"Ansprechpartner?"
 
 #: theme/templates/incidents/contact_form.html:74
 msgid "References"
@@ -1797,7 +1796,7 @@ msgstr "Einen Vorfall melden"
 msgid "Incident notification steps"
 msgstr "Schritte zur Vorfallmeldung"
 
-#: theme/templates/incidents/declaration.html:163
+#: theme/templates/incidents/declaration.html:168
 #: theme/templates/modals/create_report_project.html:92
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/delete_report_project.html:24
@@ -1809,7 +1808,7 @@ msgstr "Schritte zur Vorfallmeldung"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: theme/templates/incidents/declaration.html:165
+#: theme/templates/incidents/declaration.html:170
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1846,17 +1845,17 @@ msgstr "Abbrechen"
 msgid "Close"
 msgstr "Schließen"
 
-#: theme/templates/incidents/declaration.html:178
+#: theme/templates/incidents/declaration.html:183
 msgid "Previous"
 msgstr "Zurück"
 
-#: theme/templates/incidents/declaration.html:197
+#: theme/templates/incidents/declaration.html:202
 #: theme/templates/operator/so_dashboard.html:20
 #: theme/templates/security_objectives/declaration.html:180
 msgid "Submit"
 msgstr "Einreichen"
 
-#: theme/templates/incidents/declaration.html:199
+#: theme/templates/incidents/declaration.html:204
 msgid "Next"
 msgstr "Weiter"
 
@@ -2195,15 +2194,9 @@ msgstr "Keine Einträge"
 msgid "Contacts"
 msgstr "Kontakte"
 
-#: theme/templates/modals/contacts_incident.html:24
-#: theme/templates/report/incidents/contacts.html:18
-msgid "Incident notification manager"
-msgstr "Verantwortlicher für die Vorfallmeldung"
-
 #: theme/templates/modals/contacts_incident.html:27
-msgid "Incident notification manager and technical contact"
+msgid "Contact and Technical Contact Information"
 msgstr ""
-"Verantwortlicher für die Vorfallmeldung und technischer Ansprechpartner"
 
 #: theme/templates/modals/copy_so_declaration.html:11
 msgid "Duplicate the selected security objectives statement to"
@@ -2810,6 +2803,10 @@ msgstr "Chronologie der Berichte"
 #: theme/templates/report/security_objectives/header.html:5
 msgid "Security objectives statement"
 msgstr "Erklärung zu den Sicherheitszielen"
+
+#: theme/templates/report/security_objectives/cover.html:12
+msgid "Name of the Operator"
+msgstr "Name des Betreibers"
 
 #: theme/templates/report/security_objectives/cover.html:29
 #: theme/templates/security_objectives/declaration.html:57

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-02 08:53+0200\n"
+"POT-Creation-Date: 2026-06-25 13:46+0200\n"
 "PO-Revision-Date: 2026-05-09 10:27+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -1725,13 +1725,14 @@ msgstr "Exporteren"
 
 #: theme/templates/incidents/contact_form.html:6
 #: theme/templates/report/incidents/cover.html:15
-#: theme/templates/report/security_objectives/cover.html:12
-msgid "Name of the Operator"
-msgstr "Naam van de operator"
+msgid "Legal Entity Name"
+msgstr ""
 
 #: theme/templates/incidents/contact_form.html:12
-msgid "Incident Notification Manager"
-msgstr "Verantwoordelijke voor de incidentmelding"
+#: theme/templates/modals/contacts_incident.html:24
+#: theme/templates/report/incidents/contacts.html:18
+msgid "Contact Information"
+msgstr ""
 
 #: theme/templates/incidents/contact_form.html:16
 #: theme/templates/incidents/contact_form.html:49
@@ -1752,14 +1753,12 @@ msgstr "Telefoon"
 #: theme/templates/incidents/contact_form.html:40
 #: theme/templates/modals/contacts_incident.html:50
 #: theme/templates/report/incidents/contacts.html:66
-msgid "Technical contact"
-msgstr "Technisch aanspreekpunt"
+msgid "Technical Contact Information"
+msgstr ""
 
 #: theme/templates/incidents/contact_form.html:43
-msgid "Is the incident notification manager also the technical contact?"
+msgid "Is the contact also the technical contact?"
 msgstr ""
-"Is de verantwoordelijke voor de incidentmelding ook het technisch "
-"aanspreekpunt?"
 
 #: theme/templates/incidents/contact_form.html:74
 msgid "References"
@@ -1777,7 +1776,7 @@ msgstr "Een incident melden"
 msgid "Incident notification steps"
 msgstr "Stappen incidentmelding"
 
-#: theme/templates/incidents/declaration.html:163
+#: theme/templates/incidents/declaration.html:168
 #: theme/templates/modals/create_report_project.html:92
 #: theme/templates/modals/delete_incident.html:26
 #: theme/templates/modals/delete_report_project.html:24
@@ -1789,7 +1788,7 @@ msgstr "Stappen incidentmelding"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: theme/templates/incidents/declaration.html:165
+#: theme/templates/incidents/declaration.html:170
 #: theme/templates/incidents/incidents_base.html:468
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1826,17 +1825,17 @@ msgstr "Annuleren"
 msgid "Close"
 msgstr "Sluiten"
 
-#: theme/templates/incidents/declaration.html:178
+#: theme/templates/incidents/declaration.html:183
 msgid "Previous"
 msgstr "Vorig"
 
-#: theme/templates/incidents/declaration.html:197
+#: theme/templates/incidents/declaration.html:202
 #: theme/templates/operator/so_dashboard.html:20
 #: theme/templates/security_objectives/declaration.html:180
 msgid "Submit"
 msgstr "Indienen"
 
-#: theme/templates/incidents/declaration.html:199
+#: theme/templates/incidents/declaration.html:204
 msgid "Next"
 msgstr "Volgend"
 
@@ -2175,14 +2174,9 @@ msgstr "Geen registraties"
 msgid "Contacts"
 msgstr "Aanspreekpunten"
 
-#: theme/templates/modals/contacts_incident.html:24
-#: theme/templates/report/incidents/contacts.html:18
-msgid "Incident notification manager"
-msgstr "Verantwoordelijke voor de incidentmelding"
-
 #: theme/templates/modals/contacts_incident.html:27
-msgid "Incident notification manager and technical contact"
-msgstr "Verantwoordelijke voor de incidentmelding en technisch aanspreekpunt"
+msgid "Contact and Technical Contact Information"
+msgstr ""
 
 #: theme/templates/modals/copy_so_declaration.html:11
 msgid "Duplicate the selected security objectives statement to"
@@ -2782,6 +2776,10 @@ msgstr "Tijdlijn van de verslagen"
 #: theme/templates/report/security_objectives/header.html:5
 msgid "Security objectives statement"
 msgstr "Rapport van beveiligingsdoelstellingen"
+
+#: theme/templates/report/security_objectives/cover.html:12
+msgid "Name of the Operator"
+msgstr "Naam van de operator"
 
 #: theme/templates/report/security_objectives/cover.html:29
 #: theme/templates/security_objectives/declaration.html:57
