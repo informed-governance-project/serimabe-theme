@@ -50,6 +50,7 @@ $(document).ready(function () {
               }
               throw new Error(response.statusText);
             }
+            stop_spinner();
           });
         }
         response.json().then(data => {
