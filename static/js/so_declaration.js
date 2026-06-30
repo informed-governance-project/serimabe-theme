@@ -225,11 +225,13 @@ function update_so_declaration(form) {
             if (data.data.status) {
               let so_id = data.id;
               let $so_reg_objective_button = $("#security_objective_selector").find(`#reg_${so_id}`);
-              let active_SO_Id = $('#security_objectives_carousel .carousel-item.active').attr('id')
+              let active_SO_Id = $('#security_objectives_carousel .carousel-item.active').attr('id');
               let form_SO_StatusId = '#form_status_' + active_SO_Id;
-              let $select_SO_form = $(form_SO_StatusId).find('.so_status_form')
+              let $select_SO_form = $(form_SO_StatusId).find('.so_status_form');
+              let $all_buttons = $("#security_objective_selector").find("button");
+              let $all_so_status_form = $('.so_status_form');
               $so_reg_objective_button.removeClass("btn-passed btn-warning btn-failed");
-              $select_SO_form.removeClass("text-white bg-passed bg-failed")
+              $select_SO_form.removeClass("text-white bg-passed bg-failed");
               switch (data.data.status) {
                 case "PASS":
                   $select_SO_form
@@ -240,6 +242,28 @@ function update_so_declaration(form) {
                   $select_SO_form
                     .addClass("text-white bg-failed")
                   $so_reg_objective_button.addClass("btn-failed");
+                  break;
+                case "ALL_PASS":
+                  $all_so_status_form.find("option").removeAttr("selected");
+                  $all_so_status_form
+                    .removeClass("text-white bg-passed bg-failed")
+                    .addClass("text-white bg-passed")
+                    .find("option[value='PASS']")
+                    .attr("selected", "selected");
+                  $all_buttons
+                    .removeClass("btn-passed btn-warning btn-failed")
+                    .addClass("btn-passed");
+                  break;
+                case "ALL_FAIL":
+                  $all_so_status_form.find("option").removeAttr("selected");
+                  $all_so_status_form
+                    .removeClass("text-white bg-passed bg-failed")
+                    .addClass("text-white bg-failed")
+                    .find("option[value='FAIL']")
+                    .attr("selected", "selected");
+                  $all_buttons
+                    .removeClass("btn-passed btn-warning btn-failed")
+                    .addClass("btn-failed");
                   break;
                 default:
                   $select_SO_form
