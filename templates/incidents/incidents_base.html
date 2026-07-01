@@ -164,7 +164,7 @@
               data-sort-field="sectors">
             {% translate "Sectors" %}
           </th>
-          <th scope="col" class="col-2 align-middle">
+          <th scope="col" class="col-3 align-middle">
             {% translate "Report" %}
           </th>
           <th scope="col" class="col-1 align-middle">
@@ -308,7 +308,7 @@
               {% endfor %}
             </td>
             <!-- Report name and status -->
-            <td class="col-2 table-group-divider py-3">
+            <td class="col-3 table-group-divider py-3">
               {% with incident_view_action="edit_workflow" %}
                 {% block content_table_report %}
                   <ul class="list-unstyled mb-0">
