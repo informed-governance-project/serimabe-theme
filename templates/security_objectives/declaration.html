@@ -14,7 +14,7 @@
   {% csrf_token %}
   <div class="card border border-0">
     <div class="small card-header py-0 border border-0 bg-transparent">
-      <div class="row py-3 gap-2 row-cols-3">
+      <div class="row py-3 row-cols-3">
         <div class="col-auto col-xl-3">
           <div class="row gap-1">
             <span class="col fw-bold">{% translate "Submission date" %}</span>
@@ -90,7 +90,7 @@
           </ul>
         </div>
         <div class="col-auto ms-auto">
-          <div class="row gap-3 d-flex justify-content-end">
+          <div class="row gap-2 d-flex justify-content-end">
             {% if is_regulator %}
               <button type="button"
                       class="col-auto btn border-0 p-0 review_comment_so_declaration"
