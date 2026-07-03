@@ -51,6 +51,18 @@ function onChangeIncident(input) {
 
       $incident_status_checkbox.prop("disabled", newIncidentstatus === "CLOSE");
 
+      if (newImpactstatus === true) {
+        $impact_status_html.removeClass("custom-icon-impact-disabled logo-status").addClass("custom-icon-impact logo-status");
+      } else {
+        $impact_status_html.removeClass("custom-icon-impact logo-status").addClass("custom-icon-impact-disabled logo-status");
+      }
+
+      if (newIncidentstatus === "GOING") {
+        $incident_status_html.removeClass("custom-icon-closed logo-status").addClass("custom-icon-ongoing logo-status");
+      } else {
+        $incident_status_html.removeClass("custom-icon-ongoing logo-status").addClass("custom-icon-closed logo-status");
+      }
+
       if (incident_tooltip && newIncidentstatus != undefined) {
         incident_tooltip.setContent({ '.tooltip-inner': incident_status_tooltip });
         setTimeout(() => {
