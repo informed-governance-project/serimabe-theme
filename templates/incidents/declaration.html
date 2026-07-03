@@ -128,6 +128,8 @@
                 {% include "incidents/sector_form.html" %}
               {% elif form_class_name == 'DetectionDateForm' %}
                 {% include "incidents/detection_date_form.html" %}
+              {% elif form_class_name == 'RegulatorIncidentWorkflowCommentForm' %}
+                {% include "incidents/regulator_review_comment_form.html" %}
               {% else %}
                 {% for field in wizard.form %}
                   <div data-question-id="{{ field.name }}"
