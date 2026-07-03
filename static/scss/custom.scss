@@ -468,3 +468,7 @@ th.sortable {
 .grid-auto-first-column {
     grid-template-columns: auto 1fr;
 }
+
+.more-actions-dropdown {
+    --bs-dropdown-link-active-bg: var(--bs-body-bg);
+}
