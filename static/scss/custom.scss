@@ -465,3 +465,6 @@ th.sortable {
     border-top: calc(var(--bs-border-width) * 1.5) dashed currentColor;
 }
 
+.grid-auto-first-column {
+    grid-template-columns: auto 1fr;
+}
