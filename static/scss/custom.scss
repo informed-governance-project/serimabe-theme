@@ -456,3 +456,12 @@ th.sortable {
     border-top-right-radius: 0 !important;
     border-radius: var(--bs-border-radius);
 }
+
+.border-left-dashed {
+    border-left: calc(var(--bs-border-width) * 2) dashed currentColor;
+}
+
+.border-top-dashed {
+    border-top: calc(var(--bs-border-width) * 1.5) dashed currentColor;
+}
+
