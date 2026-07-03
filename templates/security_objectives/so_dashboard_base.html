@@ -206,6 +206,66 @@
               <div class="hstack gap-2">
                 {% block content_table_actions %}
                 {% endblock %}
+                <!-- More actions -->
+                <div class="dropdown">
+                  <i class="custom-icon-more-options h4"
+                     href="#"
+                     role="button"
+                     data-bs-toggle="dropdown"
+                     aria-expanded="false"></i>
+                  <ul class="dropdown-menu more-actions-dropdown">
+                    <!-- Logs -->
+                    <li>
+                      <div class="dropdown-item">
+                        <button class="btn btn-sm border-0 p-0 so_access_log"
+                                data-standard-answer-id="{{ standard.id }}">
+                          <i class="custom-icon-log h4"
+                             data-bs-placement="top"
+                             data-bs-toggle="tooltip"
+                             title="{% translate 'Access Log' %}">
+                          </i>
+                          <span class="visually-hidden">{% translate "Access Log" %}</span>
+                          {% translate "Access Log" %}
+                        </button>
+                      </div>
+                    </li>
+                    <!-- Version Control -->
+                    <li>
+                      {% get_all_versions standard as versions %}
+                      <div class="dropdown-item">
+                        {% if versions %}
+                          <button class="btn btn-sm text-dark p-0 ps-1 border-0 so_versions"
+                                  data-so-versions="{{ versions }}"
+                                  data-review-url="{% url 'so_declaration' %}"
+                                  data-download-url="{% url 'download_so_declaration_pdf' 0 %}"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#so_versions">
+                            <i class="custom-icon-versioning h4 align-self-center"
+                               aria-hidden="true"
+                               data-so-versions="{{ standard.get_all_versions }}"
+                               data-bs-placement="top"
+                               data-bs-toggle="tooltip"
+                               title="{% translate 'Version control' %}">
+                            </i>
+                            <span class="visually-hidden">{% translate "Version control" %}</span>
+                            {% translate "Version control" %}
+                          </button>
+                        {% else %}
+                          <button class="btn btn-sm text-dark p-0 ps-1 border-0" disabled>
+                            <i class="custom-icon-versioning-disabled h4 align-self-center"
+                               aria-hidden="true"
+                               data-bs-placement="top"
+                               data-bs-toggle="tooltip"
+                               title="{% translate 'Version control' %}">
+                            </i>
+                            <span class="visually-hidden">{% translate "Version control" %}</span>
+                            {% translate "Version control" %}
+                          </button>
+                        {% endif %}
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </td>
           </tr>
