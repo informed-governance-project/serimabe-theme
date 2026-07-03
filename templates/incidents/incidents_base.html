@@ -314,7 +314,7 @@
                   <ul class="list-unstyled mb-0">
                     {% for report in incident.all_reports %}
                       {% with latest_incident_workflow=report.latest_incident_workflow %}
-                        <li class="mb-1">
+                        <li class="mb-1 d-flex">
                           <div class="hstack gap-2 d-inline"
                                data-bs-placement="top"
                                data-bs-toggle="tooltip">
@@ -333,8 +333,10 @@
                                {% if latest_incident_workflow %}
                                  href="{% url incident_view_action %}?incident_workflow_id={{ latest_incident_workflow.id }}"
                                {% endif %}>{{ report.name }}</a>
-                            {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
-                              {% if incident_workflows or latest_incident_workflow %}
+                          </div>
+                          {% with incident_workflows=incident|get_incident_workflow_by_workflow:report.id %}
+                            {% if incident_workflows or latest_incident_workflow %}
+                              <div class="m-auto ps-2 me-2">
                                 <div class="d-inline-flex align-items-center">
                                   {% if incident_workflows %}
                                     <button class="btn text-dark p-0 ps-1 border-0 report_versions"
@@ -364,9 +366,9 @@
                                     </a>
                                   {% endif %}
                                 </div>
-                              {% endif %}
-                            {% endwith %}
-                          </div>
+                              </div>
+                            {% endif %}
+                          {% endwith %}
                         </li>
                       {% endwith %}
                     {% endfor %}
