@@ -1,12 +1,13 @@
 {% extends "incidents/incidents_base.html" %}
 {% load static %}
 {% load i18n %}
+{% load django_bootstrap5 %}
 {% block bootstrap5_extra_script %}
   {{ block.super }}
   <script src='{% static "js/incidents_regulator.js" %}'></script>
 {% endblock %}
 {% block content_table_actions %}
-  {{ block.super }}
+  <!-- Contacts -->
   <button class="btn p-0 border-0 contacts_incident"
           data-contacts='{ "contact_name": "{{ incident.contact_firstname }} {{ incident.contact_lastname }}", "contact_jobtitle": "{{ incident.contact_title }}", "contact_email": "{{ incident.contact_email }}", "contact_telephone": "{{ incident.contact_telephone }}", "technical_name": "{{ incident.technical_firstname }} {{ incident.technical_lastname }}", "technical_jobtitle": "{{ incident.technical_title }}", "technical_email": "{{ incident.technical_email }}", "technical_telephone": "{{ incident.technical_telephone }}" }'
           data-bs-toggle="modal"
@@ -19,6 +20,59 @@
     </i>
     <span class="visually-hidden">{% translate "Contacts" %}</span>
   </button>
+{% endblock %}
+<!-- More actions -->
+{% block more_options_actions %}
+  <!-- Significative Impact -->
+  <li>
+    {% for field in incident.formsStatus %}
+      {% if field.name == "is_significative_impact" %}
+        <div class="dropdown-item small">
+          <div id="impact_status_{{ incident.id }}"
+               class="is_significative_impact_container"
+               data-bs-placement="top"
+               data-bs-toggle="tooltip"
+               {% if field.initial == True %}
+                 title="{% translate 'Incident with significant impact' %}"
+               {% else %}
+                 title="{% translate 'No significant impact' %}"
+               {% endif %}>
+            {% bootstrap_field field wrapper_class="m-0" label_class="ps-1" %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </li>
+  <!-- Incident Status -->
+  <li>
+    {% for field in incident.formsStatus %}
+      {% if field.name == "incident_status" %}
+        <div class="dropdown-item small"
+             data-bs-placement="top"
+             data-bs-toggle="tooltip"
+             {% if field.initial == "GOING" %}
+               checked title="{% translate 'The incident is still ongoing' %}"
+             {% else %}
+               title="{% translate 'The incident has been closed' %}"
+             {% endif %}>
+          <div class="form-check ps-0 pt-1 m-0">
+            <input type="checkbox"
+                   name="incident_status"
+                   class="form-check-input status_checkbox large-checkbox m-0 incident-input-field"
+                   data-incident-id="{{ incident.id }}"
+                   id="id_incident_status_{{ incident.id }}"
+                   {% if field.initial == "GOING" %}
+                     checked
+                   {% endif %}>
+            <label class="form-check-label ps-1"
+                   for="id_incident_status_{{ incident.id }}">
+              {% translate "Change the status" %}
+            </label>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </li>
 {% endblock %}
 {% block content_modals %}
   {{ block.super }}

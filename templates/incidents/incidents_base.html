@@ -379,26 +379,48 @@
               {% endwith %}
             </td>
             <!-- Actions -->
-            <td class="col-1 table-group-divider py-3">
-              <div class="col d-flex align-items-center">
+            <td class="col-1 table-group-divider py-3 border-left-dashed">
+              <div class="col d-flex align-items-center ps-2 gap-2">
+                <!-- PDF Download -->
+                <a class="btn p-0 border-0"
+                   href="{% url 'download_incident_pdf' incident.id %}"
+                   data-bs-placement="top"
+                   data-bs-toggle="tooltip"
+                   title="{% translate 'Download PDF report' %}">
+                  <i class="custom-icon-pdf h4" aria-hidden="true"></i>
+                  <span class="visually-hidden">{% translate "Download PDF report" %}</span>
+                </a>
                 {% block content_table_actions %}
-                  <button class="btn access_log p-0"
-                          data-incident-id="{{ incident.id }}"
-                          data-bs-placement="top"
-                          data-bs-toggle="tooltip"
-                          title="{% translate 'Access Log' %}">
-                    <i class="custom-icon-log  h4" aria-hidden="true"></i>
-                    <span class="visually-hidden">{% translate "Access Log" %}</span>
-                  </button>
-                  <a class="btn p-0 border-0"
-                     href="{% url 'download_incident_pdf' incident.id %}"
+                {% endblock %}
+                <div class="dropdown"
+                     aria-hidden="true"
                      data-bs-placement="top"
                      data-bs-toggle="tooltip"
-                     title="{% translate 'Download PDF report' %}">
-                    <i class="custom-icon-pdf h4" aria-hidden="true"></i>
-                    <span class="visually-hidden">{% translate "Download PDF report" %}</span>
-                  </a>
-                {% endblock %}
+                     title="{% translate 'More options' %}">
+                  <i class="custom-icon-more-options h4"
+                     role="button"
+                     data-bs-toggle="dropdown"
+                     aria-expanded="false">
+                  </i>
+                  <ul class="dropdown-menu more-actions-dropdown">
+                    <!-- Access Log -->
+                    <li>
+                      <div class="dropdown-item">
+                        <button class="btn btn-sm access_log p-0"
+                                data-incident-id="{{ incident.id }}"
+                                data-bs-placement="top"
+                                data-bs-toggle="tooltip"
+                                title="{% translate 'Access Log' %}">
+                          <i class="custom-icon-log  h4" aria-hidden="true"></i>
+                          <span class="visually-hidden">{% translate "Access Log" %}</span>
+                          {% translate "Access Log" %}
+                        </button>
+                      </div>
+                    </li>
+                    {% block more_options_actions %}
+                    {% endblock %}
+                  </ul>
+                </div>
               </div>
             </td>
           </tr>
