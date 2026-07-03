@@ -70,13 +70,12 @@
 }
 
 .status_checkbox {
-    cursor:pointer !important;
     border: none !important;
     background-color: transparent !important;
-    background-image: url('/static/images/icons/ico-closed.svg') !important;
+    background-image: url('/static/images/icons/ico-on_going.svg') !important;
 }
 .status_checkbox:checked {
-    background-image: url('/static/images/icons/ico-on_going.svg') !important;
+    background-image: url('/static/images/icons/ico-closed.svg') !important;
 }
 
 .status_checkbox:focus {
@@ -91,15 +90,13 @@
 }
 
 .is_significative_impact_checkbox {
-    cursor:pointer !important;
     border: none !important;
     background-color: transparent !important;
-    background-image: url('/static/images/icons/ico-impact-disabled.svg') !important;
-
+    background-image: url('/static/images/icons/ico-impact.svg') !important;
 }
 
 .is_significative_impact_checkbox:checked {
-    background-image: url('/static/images/icons/ico-impact.svg') !important;
+    background-image: url('/static/images/icons/ico-impact-disabled.svg') !important;
 }
 
 .is_significative_impact_checkbox:focus {
