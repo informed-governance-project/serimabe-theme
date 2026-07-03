@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-02 08:53+0200\n"
+"POT-Creation-Date: 2026-07-03 16:41+0200\n"
 "PO-Revision-Date: 2026-05-30 07:28+0000\n"
 "Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -66,20 +66,40 @@ msgstr "Prüfung"
 msgid "Comment"
 msgstr "Kommentar"
 
-#: theme/static/js/incidents_regulator.js:42
+#: theme/static/js/incidents_regulator.js:58
 msgid "The incident has been closed"
 msgstr "Der Vorfall wurde abgeschlossen"
 
-#: theme/static/js/incidents_regulator.js:43
+#: theme/static/js/incidents_regulator.js:62
+msgid "Set to Active"
+msgstr ""
+
+#: theme/static/js/incidents_regulator.js:64
 msgid "The incident is still ongoing"
 msgstr "Der Vorfall ist noch nicht abgeschlossen"
 
-#: theme/static/js/incidents_regulator.js:46
+#: theme/static/js/incidents_regulator.js:68
+msgid "Set to Inactive"
+msgstr ""
+
+#: theme/static/js/incidents_regulator.js:72
 msgid "Incident with significant impact"
 msgstr "Vorfall mit erheblichen Auswirkungen"
 
-#: theme/static/js/incidents_regulator.js:47
+#: theme/static/js/incidents_regulator.js:74
+#, fuzzy
+#| msgid "No significant impact"
+msgid "Set to no significant impact"
+msgstr "Keine erheblichen Auswirkungen"
+
+#: theme/static/js/incidents_regulator.js:76
 msgid "No significant impact"
+msgstr "Keine erheblichen Auswirkungen"
+
+#: theme/static/js/incidents_regulator.js:78
+#, fuzzy
+#| msgid "No significant impact"
+msgid "Set to significant impact"
 msgstr "Keine erheblichen Auswirkungen"
 
 #: theme/static/js/project_dashboard.js:50
