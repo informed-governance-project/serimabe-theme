@@ -13899,5 +13899,9 @@ th.sortable {
 .more-actions-dropdown {
   --bs-dropdown-link-active-bg: var(--bs-body-bg);
 }
+.more-actions-dropdown .dropdown-item input,
+.more-actions-dropdown .dropdown-item label {
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=custom.css.map */

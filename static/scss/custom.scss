@@ -471,4 +471,10 @@ th.sortable {
 
 .more-actions-dropdown {
     --bs-dropdown-link-active-bg: var(--bs-body-bg);
+    .dropdown-item {
+        input,
+        label {
+            cursor: pointer;
+        }
+    }
 }

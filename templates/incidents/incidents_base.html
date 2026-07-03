@@ -406,11 +406,8 @@
                     <!-- Access Log -->
                     <li>
                       <div class="dropdown-item">
-                        <button class="btn btn-sm access_log p-0"
-                                data-incident-id="{{ incident.id }}"
-                                data-bs-placement="top"
-                                data-bs-toggle="tooltip"
-                                title="{% translate 'Access Log' %}">
+                        <button class="btn btn-sm access_log p-0 d-flex justify-content-start w-100 text-start"
+                                data-incident-id="{{ incident.id }}">
                           <i class="custom-icon-log  h4" aria-hidden="true"></i>
                           <span class="visually-hidden">{% translate "Access Log" %}</span>
                           {% translate "Access Log" %}
