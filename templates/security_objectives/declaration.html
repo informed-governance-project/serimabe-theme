@@ -14,21 +14,19 @@
   {% csrf_token %}
   <div class="card border border-0">
     <div class="small card-header py-0 border border-0 bg-transparent">
-      <div class="row py-3 row-cols-3">
-        <div class="col-auto col-xl-3">
-          <div class="row gap-1">
-            <span class="col fw-bold">{% translate "Submission date" %}</span>
-            <div class="col">
+      <div class="row gap-2 py-3">
+        <div class="col-auto">
+          <div class="d-grid grid-auto-first-column">
+            <span class="fw-bold">{% translate "Submission date" %}</span>
+            <div class="ps-3">
               {% if standard_answer.submit_date %}
                 {{ standard_answer.submit_date|date:"d/m/y" }}
                 <i class="bi bi-clock px-1"></i>
                 {{ standard_answer.submit_date|date:"H:i" }}
               {% endif %}
             </div>
-          </div>
-          <div class="row gap-1">
-            <span class="col fw-bold">{% translate "Last update" %}</span>
-            <div class="col">
+            <span class="fw-bold">{% translate "Last update" %}</span>
+            <div class="ps-3">
               {{ standard_answer.last_update|date:"d/m/y" }}
               <i class="bi bi-clock px-1"></i>
               {{ standard_answer.last_update|date:"H:i" }}
@@ -37,27 +35,23 @@
         </div>
         <div class="p-0 vr">
         </div>
-        <div class="col-auto col-xl-4">
-          <div class="row gap-2">
-            <button class="col-1 btn p-0 border-0 so_contacts"
+        <div class="col-auto">
+          <div class="d-flex gap-2">
+            <button class="btn p-0 border-0 so_contacts"
                     data-bs-toggle="modal"
                     data-bs-target="#so_contacts"
                     data-contacts='{ "contact_name": "{{ standard_answer.submitter_user.last_name }}", "contact_first_name": "{{ standard_answer.submitter_user.first_name }}", "contact_email": "{{ standard_answer.submitter_user.email }}", "contact_telephone": "{{ standard_answer.submitter_user.phone_number }}"}'>
               <i class="custom-icon-contact h3"></i>
               <span class="visually-hidden">{% translate "Profile" %}</span>
             </button>
-            <div class="col">
-              <div class="row">
-                <span class="col-5 fw-bold">{% translate "Company" %}</span>
-                <div class="col-7">
-                  {{ standard_answer.submitter_company }}
-                </div>
+            <div class="d-grid grid-auto-first-column">
+              <span class="fw-bold">{% translate "Company" %}</span>
+              <div class="ps-3">
+                {{ standard_answer.submitter_company }}
               </div>
-              <div class="row">
-                <span class="col-5 fw-bold">{% translate "Evaluation Framework" %}</span>
-                <div class="col-7">
-                  {{ standard_answer.standard }}
-                </div>
+              <span class="fw-bold">{% translate "Evaluation Framework" %}</span>
+              <div class="ps-3">
+                {{ standard_answer.standard }}
               </div>
             </div>
           </div>
@@ -90,10 +84,10 @@
           </ul>
         </div>
         <div class="col-auto ms-auto">
-          <div class="row gap-2 d-flex justify-content-end">
+          <div class="d-flex gap-2">
             {% if is_regulator %}
               <button type="button"
-                      class="col-auto btn border-0 p-0 review_comment_so_declaration"
+                      class="btn border-0 p-0 review_comment_so_declaration"
                       data-standard-answer-id="{{ standard_answer.id }}"
                       data-only-review-comment="true"
                       data-bs-toggle="modal"
@@ -104,27 +98,27 @@
               </button>
             {% else %}
               {% if standard_answer.review_comment and standard_answer.status in ',PASSM,FAILM,' %}
-                <button class="col-auto btn border-0 p-0 review_comment_so_declaration"
+                <button class="btn border-0 p-0 review_comment_so_declaration"
                         data-standard-answer-id="{{ standard_answer.id }}"
                         data-bs-toggle="modal"
                         data-bs-target="#review_comment_so_declaration">
                   <i class="custom-icon-comments h3"
-                     data-bs-placement="top"
-                     data-bs-toggle="tooltip"
-                     title="{% translate 'Review comment' %}">
+                    data-bs-placement="top"
+                    data-bs-toggle="tooltip"
+                    title="{% translate 'Review comment' %}">
                   </i>
                 </button>
               {% else %}
-                <button class="col-auto btn border-0 p-0" disabled>
+                <button class="btn border-0 p-0" disabled>
                   <i class="custom-icon-comments-disabled h3">
                   </i>
                 </button>
               {% endif %}
             {% endif %}
-            <div id="so_status_form" class="col-auto p-0">
+            <div id="so_status_form" class="p-0">
               {% for security_objective, maturity_levels in security_objectives.items %}
                 <div id="form_status_slide_{{ security_objective.id }}"
-                     class="d-none h-100">
+                    class="d-none h-100">
                   {% if is_regulator and standard_answer.status in ",PASS,FAIL,DELIV," %}
                     {% bootstrap_field security_objective.status_form.status show_label=False wrapper_class="m-0" %}
                   {% elif standard_answer.status in ",PASS,PASSM,FAIL,FAILM," and security_objective.status.status %}
@@ -138,14 +132,14 @@
                                 {% endif %}
                                 }">
                       <h4 class="m-0 fw-bold
-                                 {% if security_objective.status.status == 'PASS' %}
-                                   text-passed
-                                 {% elif security_objective.status.status == 'FAIL' %}
-                                   text-failed
-                                 {% else %}
-                                   text-dark
-                                 {% endif %}
-                                 }">
+                                {% if security_objective.status.status == 'PASS' %}
+                                  text-passed
+                                {% elif security_objective.status.status == 'FAIL' %}
+                                  text-failed
+                                {% else %}
+                                  text-dark
+                                {% endif %}
+                                }">
                         {{ security_objective.status.get_status_display }}
                       </h4>
                     </div>
@@ -156,7 +150,7 @@
             {% if is_regulator and standard_answer.status in ",PASS,FAIL,DELIV," %}
               <button id="so_send_button"
                       type="button"
-                      class="col-auto btn btn-passed review_comment_so_declaration"
+                      class="btn btn-passed review_comment_so_declaration"
                       {% if not standard_answer.ready_to_send %}
                         disabled
                       {% endif %}
@@ -167,7 +161,7 @@
                 <i class="custom-icon-submit h4"></i>
               </button>
             {% elif standard_answer.status == "UNDE" %}
-              <form method="post" class="col-auto" action="{% url 'submit_so_declaration' standard_answer.id %}">
+              <form method="post" action="{% url 'submit_so_declaration' standard_answer.id %}">
                 {% csrf_token %}
                 <button id="so_submit_button" type="submit" 
                     class="btn btn-passed
@@ -183,8 +177,8 @@
               </form>
             {% endif %}
             <a type="button"
-               class="col-auto btn btn-primary spinner-trigger"
-               href="{% url 'securityobjectives' %}">
+              class="btn btn-primary spinner-trigger"
+              href="{% url 'securityobjectives' %}">
               {% translate "Close" %}
             </a>
           </div>
