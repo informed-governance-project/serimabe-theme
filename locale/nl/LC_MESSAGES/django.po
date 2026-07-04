@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-03 16:41+0200\n"
-"PO-Revision-Date: 2026-06-26 13:18+0000\n"
+"PO-Revision-Date: 2026-07-04 15:28+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1777,13 +1777,13 @@ msgstr "Exporteren"
 #: theme/templates/report/incidents/cover.html:15
 #: theme/templates/report/security_objectives/cover.html:12
 msgid "Legal Entity Name"
-msgstr ""
+msgstr "Naam juridische entiteit"
 
 #: theme/templates/incidents/contact_form.html:12
 #: theme/templates/modals/contacts_incident.html:24
 #: theme/templates/report/incidents/contacts.html:18
 msgid "Contact Information"
-msgstr ""
+msgstr "Informatie aanspreekpunt"
 
 #: theme/templates/incidents/contact_form.html:16
 #: theme/templates/incidents/contact_form.html:49
@@ -1805,11 +1805,11 @@ msgstr "Telefoon"
 #: theme/templates/modals/contacts_incident.html:50
 #: theme/templates/report/incidents/contacts.html:66
 msgid "Technical Contact Information"
-msgstr ""
+msgstr "Informatie technisch aanspreekpunt"
 
 #: theme/templates/incidents/contact_form.html:43
 msgid "Is the contact also the technical contact?"
-msgstr ""
+msgstr "Is het aanspreekpunt ook het technisch aanspreekpunt?"
 
 #: theme/templates/incidents/contact_form.html:74
 msgid "References"
@@ -2135,7 +2135,7 @@ msgstr "Het PDF-verslag downloaden"
 
 #: theme/templates/incidents/incidents_base.html:399
 msgid "More options"
-msgstr ""
+msgstr "Meer opties"
 
 #: theme/templates/incidents/incidents_base.html:412
 #: theme/templates/incidents/incidents_base.html:413
@@ -2169,7 +2169,7 @@ msgstr "Zoeken"
 
 #: theme/templates/incidents/regulator_review_comment_form.html:20
 msgid "Saved automatically - Last saved at"
-msgstr ""
+msgstr "Automatisch opgeslagen - Laatst opgeslagen op"
 
 #: theme/templates/modals/accept_terms.html:9
 #: theme/templates/modals/accept_terms.html:23
@@ -2236,7 +2236,7 @@ msgstr "Geen registraties"
 
 #: theme/templates/modals/contacts_incident.html:27
 msgid "Contact and Technical Contact Information"
-msgstr ""
+msgstr "Informatie aanspreekpunt en technisch aanspreekpunt"
 
 #: theme/templates/modals/copy_so_declaration.html:11
 msgid "Duplicate the selected security objectives statement to"
