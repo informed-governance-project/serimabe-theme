@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-06 09:41+0200\n"
-"PO-Revision-Date: 2026-07-06 08:45+0000\n"
-"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
+"PO-Revision-Date: 2026-07-06 14:00+0000\n"
+"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -1753,13 +1753,13 @@ msgstr "Exportieren"
 #: theme/templates/report/incidents/cover.html:15
 #: theme/templates/report/security_objectives/cover.html:12
 msgid "Legal Entity Name"
-msgstr ""
+msgstr "Name der juristischen Entität"
 
 #: theme/templates/incidents/contact_form.html:12
 #: theme/templates/modals/contacts_incident.html:24
 #: theme/templates/report/incidents/contacts.html:18
 msgid "Contact Information"
-msgstr ""
+msgstr "Kontaktdaten"
 
 #: theme/templates/incidents/contact_form.html:16
 #: theme/templates/incidents/contact_form.html:49
@@ -1781,11 +1781,11 @@ msgstr "Telefon"
 #: theme/templates/modals/contacts_incident.html:50
 #: theme/templates/report/incidents/contacts.html:66
 msgid "Technical Contact Information"
-msgstr ""
+msgstr "Technische Kontaktdaten"
 
 #: theme/templates/incidents/contact_form.html:43
 msgid "Is the contact also the technical contact?"
-msgstr ""
+msgstr "Ist der Ansprechpartner auch der technische Ansprechpartner?"
 
 #: theme/templates/incidents/contact_form.html:74
 msgid "References"
@@ -2111,7 +2111,7 @@ msgstr "PDF-Bericht herunterladen"
 
 #: theme/templates/incidents/incidents_base.html:399
 msgid "More options"
-msgstr ""
+msgstr "Weitere Optionen"
 
 #: theme/templates/incidents/incidents_base.html:412
 #: theme/templates/incidents/incidents_base.html:413
@@ -2145,7 +2145,7 @@ msgstr "Suchen"
 
 #: theme/templates/incidents/regulator_review_comment_form.html:20
 msgid "Saved automatically - Last saved at"
-msgstr ""
+msgstr "Wurde automatisch gespeichert – Zuletzt gespeichert am"
 
 #: theme/templates/modals/accept_terms.html:9
 #: theme/templates/modals/accept_terms.html:23
@@ -2212,7 +2212,7 @@ msgstr "Keine Einträge"
 
 #: theme/templates/modals/contacts_incident.html:27
 msgid "Contact and Technical Contact Information"
-msgstr ""
+msgstr "Kontakt- und technische Kontaktdaten"
 
 #: theme/templates/modals/copy_so_declaration.html:11
 msgid "Duplicate the selected security objectives statement to"
