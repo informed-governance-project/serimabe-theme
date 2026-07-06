@@ -222,14 +222,14 @@ $(document).ready(function () {
   $(".answer-modified").each(function () {
     $(this).closest("#question-answer-container")
       .prev('#question-label-container')
-      .addClass("text-warning");
+      .addClass("display-previous-answer");
   });
 
   $(".st-mt-answer-modified").each(function () {
     $(this).closest("#st-sm-details-container")
       .prev('#question-answer-container')
       .prev('#question-label-container')
-      .addClass("text-warning");
+      .addClass("display-previous-answer");
   });
 
   // Conditional Questions
