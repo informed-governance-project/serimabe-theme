@@ -41,34 +41,22 @@
   {% endwith %}
 {% endblock %}
 {% block content_table_actions %}
-  {% get_all_versions standard as versions %}
-  {% if versions %}
-    <button class="btn text-dark p-0 ps-1 border-0 so_versions"
-            data-so-versions="{{ versions }}"
-            data-review-url="{% url 'so_declaration' %}"
-            data-download-url="{% url 'download_so_declaration_pdf' 0 %}"
-            data-bs-toggle="modal"
-            data-bs-target="#so_versions">
-      <i class="custom-icon-versioning h4 align-self-center"
-         aria-hidden="true"
-         data-so-versions="{{ standard.get_all_versions }}"
-         data-bs-placement="top"
-         data-bs-toggle="tooltip"
-         title="{% translate 'Version control' %}">
-      </i>
-      <span class="visually-hidden">{% translate "Version control" %}</span>
-    </button>
-  {% else %}
-    <button class="btn text-dark p-0 ps-1 border-0" disabled>
-      <i class="custom-icon-versioning-disabled h4 align-self-center"
-         aria-hidden="true"
-         data-bs-placement="top"
-         data-bs-toggle="tooltip"
-         title="{% translate 'Version control' %}">
-      </i>
-      <span class="visually-hidden">{% translate "Version control" %}</span>
-    </button>
-  {% endif %}
+  <!-- Open -->
+  <a class="btn border-0 p-0 spinner-trigger
+            {% if standard.status == 'UNDE' %}
+              disabled
+            {% endif %}"
+     href="{% url 'so_declaration' %}?id={{ standard.id }}"
+     {% if standard.status == 'UNDE' %}
+       aria-disabled="true" disabled
+     {% endif %}>
+    <i class="custom-icon-edit h4"
+       data-bs-placement="top"
+       data-bs-toggle="tooltip"
+       title="{% translate 'Review' %}">
+    </i>
+  </a>
+  <!-- Review comment -->
   {% if standard.reviewed_percentage == 100 and standard.status in ",PASS,FAIL,DELIV," %}
     <button class="btn border-0 p-0 review_comment_so_declaration"
             data-standard-answer-id="{{ standard.id }}"
@@ -97,20 +85,7 @@
       </i>
     </button>
   {% endif %}
-  <a class="btn border-0 p-0 spinner-trigger
-            {% if standard.status == 'UNDE' %}
-              disabled
-            {% endif %}"
-     href="{% url 'so_declaration' %}?id={{ standard.id }}"
-     {% if standard.status == 'UNDE' %}
-       aria-disabled="true" disabled
-     {% endif %}>
-    <i class="custom-icon-edit h4"
-       data-bs-placement="top"
-       data-bs-toggle="tooltip"
-       title="{% translate 'Review' %}">
-    </i>
-  </a>
+  <!-- PDF Download -->
   <button class="btn border-0 p-0 download-link"
           data-standard-answer-id="{{ standard.id }}">
     <i class="custom-icon-pdf h4"
@@ -119,14 +94,7 @@
        title="{% translate 'Download' %}">
     </i>
   </button>
-  <button class="btn border-0 p-0 so_access_log"
-          data-standard-answer-id="{{ standard.id }}">
-    <i class="custom-icon-log h4"
-       data-bs-placement="top"
-       data-bs-toggle="tooltip"
-       title="{% translate 'Access Log' %}">
-    </i>
-  </button>
+  <!-- Delete -->
   <button class="btn border-0 p-0 delete_so_declaration"
           data-standard-answer-id="{{ standard.id }}"
           data-delete-url="{% url 'delete_so_declaration' 0 %}"

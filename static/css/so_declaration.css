@@ -47,14 +47,6 @@
     box-shadow: none;
 }
 
-.focus-effect {
-    color: var(--bs-btn-hover-color);
-    background-color: var(--bs-btn-hover-bg);
-    border-color: var(--bs-btn-hover-border-color);
-    font-weight: bold;
-    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25) !important;
-}
-
 /* For larger screens */
 @media (min-width: 1200px) {
     .card-body {

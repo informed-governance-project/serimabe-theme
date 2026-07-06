@@ -111,7 +111,7 @@
               data-sort-field="has_risk_assessment">
             {% translate "Risk Assessment" %}
           </th>
-          <th class="col-1 sortable align-middle text-center"
+          <th class="col-1 sortable align-middle text-center border-left-dashed"
               data-sort-field="statistic_selected">
             {% translate "Statistics" %}
           </th>
@@ -124,13 +124,37 @@
       <tbody>
         {% for item in items %}
           <tr>
-            <td class="col-1 table-group-divider py-3 ">
+            <td class="col-1
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3">
               {% bootstrap_field item.formSelect.is_selected show_label=false wrapper_class="mb-0 d-flex justify-content-center align-items-center" %}
             </td>
-            <td class="col-3 table-group-divider py-3">
-              {{ item.company }}
+            <td class="col-3
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3">
+              {% ifchanged item.company %}
+                {{ item.company }}
+              {% else %}
+                <span class="text-body text-opacity-25">
+                  {{ item.company }}
+                </span>
+              {% endifchanged %}
             </td>
-            <td class="col-2 table-group-divider py-3">
+            <td class="col-2
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3">
               {% if not item.sector.parent %}
                 <ul class="m-0 p-0 list-sectors">
                   <span class="fw-bolder">
@@ -151,10 +175,22 @@
                 {% endif %}
               </ul>
             </td>
-            <td class="col-1 table-group-divider py-3">
+            <td class="col-1
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3">
               {{ item.year }}
             </td>
-            <td class="col-2 table-group-divider py-3 text-center">
+            <td class="col-2
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3 text-center">
               <a class="btn btn-sm import_so_declaration"
                  data-bs-toggle="modal"
                  data-bs-target="#import_so_declaration"
@@ -169,7 +205,13 @@
                 {% endif %}
               </a>
             </td>
-            <td class="col-2 table-group-divider py-3 text-center">
+            <td class="col-2
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3 text-center">
               <a class="btn btn-sm import_risk_analysis"
                  data-bs-toggle="modal"
                  data-bs-target="#import_risk_analysis"
@@ -183,16 +225,28 @@
                 {% endif %}
               </a>
             </td>
-            <td class="col-1 table-group-divider py-3">
-              {% bootstrap_field item.formSelect.statistic_selected show_label=false wrapper_class="mb-0 d-flex justify-content-center align-items-center" %}
+            <td class="col-1
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3 border-left-dashed checkbox-as-switch">
+              {% bootstrap_field item.formSelect.statistic_selected show_label=false wrapper_class="mb-0 form-switch d-flex justify-content-center align-items-center" %}
             </td>
-            <td class="col-1 table-group-divider py-3">
-              {% bootstrap_field item.formSelect.governance_report_selected show_label=false wrapper_class="mb-0 d-flex justify-content-center align-items-center" %}
+            <td class="col-1
+                       {% ifchanged item.company %}
+                         table-group-divider
+                       {% else %}
+                         border-top-dashed
+                       {% endifchanged %}
+                       py-3 checkbox-as-switch">
+              {% bootstrap_field item.formSelect.governance_report_selected show_label=false wrapper_class="mb-0 form-switch d-flex justify-content-center align-items-center" %}
             </td>
           </tr>
         {% endfor %}
-        <tr class="text-center h5">
-          <td class="col-1 table-group-divider px-0">
+        <tr class="text-center">
+          <td class="col-1 table-group-divider px-0 py-2">
             <input type="checkbox"
                    name="is_selected"
                    class="form-check-input m-0 select-all-input"
@@ -218,37 +272,45 @@
           </td>
           <td class="col-1 table-group-divider py-1">
           </td>
-          <td class="col-1 table-group-divider py-1">
-            <input type="checkbox"
-                   name="statistic_selected"
-                   class="form-check-input m-0 select-all-input"
-                   data-project-id="{{ project.id }}"
-                   data-field-target="statistic_selected"
-                   data-bs-placement="top"
-                   data-bs-toggle="tooltip"
-                   {% if selected_status.statistic_selected %}
-                     checked title="{% translate 'Deselect all' %}"
-                   {% else %}
-                     title="{% translate 'Select all' %}"
-                   {% endif %}
-                   data-bs-placement="top"
-                   data-bs-toggle="tooltip">
+          <td class="col-1 table-group-divider py-1 border-left-dashed checkbox-as-switch">
+            <div class="form-switch d-flex justify-content-center align-items-center">
+              <div class="mb-0 form-check">
+                <input type="checkbox"
+                       name="statistic_selected"
+                       class="form-check-input select-all-input switch-input"
+                       data-project-id="{{ project.id }}"
+                       data-field-target="statistic_selected"
+                       data-bs-placement="top"
+                       data-bs-toggle="tooltip"
+                       {% if selected_status.statistic_selected %}
+                         checked title="{% translate 'Deselect all' %}"
+                       {% else %}
+                         title="{% translate 'Select all' %}"
+                       {% endif %}
+                       data-bs-placement="top"
+                       data-bs-toggle="tooltip">
+              </div>
+            </div>
           </td>
-          <td class="col-1 table-group-divider">
-            <input type="checkbox"
-                   name="governance_report_selected"
-                   class="form-check-input m-0 select-all-input"
-                   data-project-id="{{ project.id }}"
-                   data-field-target="governance_report_selected"
-                   data-bs-placement="top"
-                   data-bs-toggle="tooltip"
-                   {% if selected_status.governance_report_selected %}
-                     checked title="{% translate 'Deselect all' %}"
-                   {% else %}
-                     title="{% translate 'Select all' %}"
-                   {% endif %}
-                   data-bs-placement="top"
-                   data-bs-toggle="tooltip">
+          <td class="col-1 table-group-divider checkbox-as-switch">
+            <div class="form-switch d-flex justify-content-center align-items-center">
+              <div class="mb-0 form-check">
+                <input type="checkbox"
+                       name="governance_report_selected"
+                       class="form-check-input select-all-input switch-input"
+                       data-project-id="{{ project.id }}"
+                       data-field-target="governance_report_selected"
+                       data-bs-placement="top"
+                       data-bs-toggle="tooltip"
+                       {% if selected_status.governance_report_selected %}
+                         checked title="{% translate 'Deselect all' %}"
+                       {% else %}
+                         title="{% translate 'Select all' %}"
+                       {% endif %}
+                       data-bs-placement="top"
+                       data-bs-toggle="tooltip">
+              </div>
+            </div>
           </td>
         </tr>
       </tbody>
