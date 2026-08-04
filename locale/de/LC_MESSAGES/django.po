@@ -1895,7 +1895,7 @@ msgstr "Schritte zur Vorfallmeldung"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: theme/templates/incidents/declaration.html:265
+#: theme/templates/incidents/declaration.html:272
 #: theme/templates/incidents/incidents_base.html:491
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log base.html:22
@@ -1910,6 +1910,7 @@ msgstr "Abbrechen"
 #: theme/templates/modals/export_incidents.html:20
 #: theme/templates/modals/import_so_declaration.html:16
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:12
+#: theme/templates/modals/previous_answer.html:11
 #: theme/templates/modals/report_versions.html:12
 #: theme/templates/modals/report_versions_workflow_comment.html:8
 #: theme/templates/modals/repoting_dashboard_hide_columns.html:12
@@ -1932,7 +1933,7 @@ msgstr "Abbrechen"
 msgid "Close"
 msgstr "Schließen"
 
-#: theme/templates/incidents/declaration.html:278
+#: theme/templates/incidents/declaration.html:285
 msgid "Previous"
 msgstr "Zurück"
 
@@ -1942,9 +1943,17 @@ msgstr "Zurück"
 msgid "Submit"
 msgstr "Einreichen"
 
-#: theme/templates/incidents/declaration.html:299
+#: theme/templates/incidents/declaration.html:306
 msgid "Next"
 msgstr "Weiter"
+
+#: theme/templates/incidents/declaration.html:327
+msgid "View previous version"
+msgstr "Vorherige Version anzeigen"
+
+#: theme/templates/incidents/declaration.html:328
+msgid "Conditional question"
+msgstr "Bedingte Frage"
 
 #: theme/templates/incidents/incidents_base.html:8
 msgid "Incident notification"
