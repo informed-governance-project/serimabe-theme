@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-01 14:45+0200\n"
-"PO-Revision-Date: 2026-08-03 10:11+0000\n"
-"Last-Translator: Edgar Dugourd <Edd@ilr.lu>\n"
+"PO-Revision-Date: 2026-09-11 05:28+0000\n"
+"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -85,7 +85,7 @@ msgstr ""
 
 #: theme/templates/admin/includes/email_placeholders_help.html:8
 msgid "Available placeholders"
-msgstr ""
+msgstr "Espaces réservés disponibles"
 
 #: theme/templates/admin/includes/email_placeholders_help.html:11
 msgid ""
@@ -95,11 +95,11 @@ msgstr ""
 
 #: theme/templates/admin/includes/email_placeholders_help.html:17
 msgid "Placeholder"
-msgstr ""
+msgstr "Espace réservé"
 
 #: theme/templates/admin/includes/email_placeholders_help.html:20
 msgid "Replaced by"
-msgstr ""
+msgstr "Remplacé par"
 
 #: theme/templates/admin/includes/email_placeholders_help.html:39
 #: theme/templates/incidents/declaration.html:272
