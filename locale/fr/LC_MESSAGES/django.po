@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-01 14:45+0200\n"
-"PO-Revision-Date: 2026-09-11 05:28+0000\n"
+"PO-Revision-Date: 2026-09-12 10:28+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -52,7 +52,7 @@ msgstr "Déconnexion"
 #: theme/templates/admin/custom_change_user_form.html:12
 #, python-format
 msgid "Add this user to Company %(company)s?"
-msgstr ""
+msgstr "Ajouter cet utilisateur à l'entreprise %(company)s?"
 
 #: theme/templates/admin/custom_change_user_list.html:8
 msgid "Reset accepted terms"
@@ -64,7 +64,7 @@ msgstr "Réinitialiser l'acceptation des cookies"
 
 #: theme/templates/admin/includes/account_actions_confirm.html:14
 msgid "Attention"
-msgstr ""
+msgstr "Attention"
 
 #: theme/templates/admin/includes/account_actions_confirm.html:20
 #: theme/templates/incidents/declaration.html:270
@@ -81,7 +81,7 @@ msgstr "Annuler"
 
 #: theme/templates/admin/includes/account_actions_confirm.html:23
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmez"
 
 #: theme/templates/admin/includes/email_placeholders_help.html:8
 msgid "Available placeholders"
@@ -92,6 +92,8 @@ msgid ""
 "Type one of these in the subject or in the content. It is replaced when the "
 "email is sent."
 msgstr ""
+"Saisissez l'un de ces éléments dans l'objet ou dans le corps du message. Il "
+"sera remplacé lors de l'envoi de l'e-mail."
 
 #: theme/templates/admin/includes/email_placeholders_help.html:17
 msgid "Placeholder"
