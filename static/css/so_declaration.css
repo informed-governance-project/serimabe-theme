@@ -111,6 +111,10 @@
     left: 40% !important
 }
 
+#score_container.score-only {
+    width: 60px;
+}
+
 .so_contacts .custom-icon-contact:hover {
     background-image: url('/static/images/icons/ico-contact-hover.svg');
     transition: background-image 0.25s ease-out;
