@@ -57,7 +57,7 @@ $(document).ready(function () {
       const checkboxId = $(this).attr('id');
       const justificationId = checkboxId.replace('is_implemented', 'justification');
       const textarea = $('#' + justificationId).not(".not-required");
-      const placeholdertext = gettext("Justification required");
+      const placeholdertext = $('#security_objectives_carousel').data('justification-placeholder');
       if (textarea.length && $(this).is(':checked') && textarea.val().trim() === "") {
         textarea
           .addClass("border border-danger border-2")
@@ -71,6 +71,10 @@ $(document).ready(function () {
   }
 
   function checkActions() {
+    // Optional for this standard: nothing to prompt for.
+    if ($('#security_objectives_carousel').data('actions-mandatory') === false) {
+      return;
+    }
     const $activeSlide = $('.carousel-item.active');
     const $actionstextarea = $activeSlide.find(".so_actions_form");
     const $firstSwitchMeasure = $activeSlide.find(".is-implemented-first-switch");
