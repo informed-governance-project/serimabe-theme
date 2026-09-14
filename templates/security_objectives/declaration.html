@@ -270,6 +270,7 @@
               <i class="carousel-control-next-icon bi bi-arrow-right text-secondary h2"></i>
             </button>
           </div>
+          {% if column_config.maturity_level.visible %}
           <button id="so_declaration_status_legend_btn"
                   type="button"
                   class="btn btn-primary bg-body border-0 p-0"
@@ -284,10 +285,12 @@
                title="{% translate 'Icon Guide' %}">
             </i>
           </button>
+          {% endif %}
         </div>
       </div>
     </div>
     <!-- Legend -->
+    {% if column_config.maturity_level.visible %}
     <div class="my-2">
       <div id="collapseLegend" class="collapse">
         <div class="legend">
@@ -311,9 +314,12 @@
         </div>
       </div>
     </div>
+    {% endif %}
     <div class="card-body">
       <div id="security_objectives_carousel"
            class="carousel slide"
+           data-justification-placeholder="{{ justification_placeholder }}"
+           data-actions-mandatory="{{ actions_config.mandatory|yesno:"true,false" }}"
            data-bs-touch="false"
            data-bs-interval="false"
            data-bs-wrap="false">
@@ -333,22 +339,28 @@
                     {{ security_objective.description }}
                   </h6>
                 </div>
-                <div class="col-auto">
-                  <div class="d-flex align-items-center justify-content-end">
-                    <div id="score_container" class="position-relative">
-                      <img src="{% static 'images/icons/ico-score.svg' %}"
-                           class="img-fluid"
-                           alt="Score ico">
-                      <div class="position-absolute top-50 translate-middle fw-bold text-dark start-40">
-                        <div class="small">
-                          <span id="so-score" class="h5 m-0 fw-bold">{{ security_objective.status.score|default:0|stringformat:"0.1f" }}</span>
-                          <span>/</span>
-                          <span>{{ last_maturity_level }}</span>
+                {% if score_display.visible %}
+                  <div class="col-auto">
+                    <div class="d-flex align-items-center justify-content-end">
+                      <div id="score_container"
+                           class="position-relative {% if not score_display.with_maximum %}score-only{% endif %}">
+                        <img src="{% static 'images/icons/ico-score.svg' %}"
+                             class="img-fluid"
+                             alt="Score ico">
+                        <div class="position-absolute top-50 translate-middle fw-bold text-dark
+                                    {% if score_display.with_maximum %}start-40{% else %}start-50{% endif %}">
+                          <div class="small">
+                            <span id="so-score" class="h5 m-0 fw-bold">{{ security_objective.status.score|default:0|stringformat:"0.1f" }}</span>
+                            {% if score_display.with_maximum %}
+                              <span>/</span>
+                              <span>{{ last_maturity_level }}</span>
+                            {% endif %}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                {% endif %}
               </div>
               <table id="declaration_table"
                      class="table table-borderless border-bottom border-2 border-dark">
@@ -357,29 +369,30 @@
                 </caption>
                 <thead>
                   <tr>
-                    <th class="col-1 text-center align-middle">
-                      {% translate "Maturity Level" %}
+                    {% if column_config.maturity_level.visible %}
+                      <th class="col-{{ column_config.maturity_level.width }} text-center align-middle">
+                        {{ column_config.maturity_level.label }}
+                      </th>
+                    {% endif %}
+                    <th class="col-{{ column_config.security_measure.width }} text-center align-middle">
+                      {{ column_config.security_measure.label }}
                     </th>
-                    <th class="col-3 text-center align-middle">
-                      {% translate "Security Measure" %}
+                    {% if column_config.evidence.visible %}
+                      <th class="col-{{ column_config.evidence.width }} text-center align-middle">
+                        {{ column_config.evidence.label }}
+                      </th>
+                    {% endif %}
+                    <th class="col-{{ column_config.is_implemented.width }} text-center align-middle">
+                      {{ column_config.is_implemented.label }}
                     </th>
-                    <th class="col-3 text-center align-middle">
-                      {% translate "Evidence" %}
-                    </th>
-                    <th class="col-1 text-center align-middle">
-                      {% translate "Measure Implemented?" %}
-                    </th>
-                    <th class="{% if is_regulator or security_objective.review_comment or security_objective.declaration_status != 'UNDE' %}
-                                 col-2
-                               {% else %}
-                                 col-4
-                               {% endif %}
-                               text-center align-middle">
-                      {% translate "Justification" %}
-                    </th>
-                    {% if is_regulator or security_objective.review_comment or security_objective.declaration_status != "UNDE" %}
-                      <th class="col-2 text-center align-middle">
-                        {% translate "Review Comment" %}
+                    {% if column_config.justification.visible %}
+                      <th class="col-{{ column_config.justification.width }} text-center align-middle">
+                        {{ column_config.justification.label }}
+                      </th>
+                    {% endif %}
+                    {% if column_config.review_comment.visible %}
+                      <th class="col-{{ column_config.review_comment.width }} text-center align-middle">
+                        {{ column_config.review_comment.label }}
                       </th>
                     {% endif %}
                   </tr>
@@ -388,13 +401,13 @@
                   {% for maturity_level, measures in maturity_levels.items %}
                     {% for measure in measures %}
                       <tr class="{% if measure.answer_modified %}so-previous-answer-row{% endif %}">
-                        {% if forloop.first %}
+                        {% if column_config.maturity_level.visible and forloop.first %}
                           <th rowspan="{{ measures|length }}"
-                              class="col-1 h3 fw-bolder table-group-divider text-center lh-sm">
+                              class="col-{{ column_config.maturity_level.width }} h3 fw-bolder table-group-divider text-center lh-sm">
                             {{ maturity_level.level }}
                           </th>
                         {% endif %}
-                        <td class="col-3 lh-sm
+                        <td class="col-{{ column_config.security_measure.width }} lh-sm
                                    {% if forloop.first %}
                                      table-group-divider
                                    {% endif %}">
@@ -414,13 +427,15 @@
                             </button>
                           {% endif %}
                         </td>
-                        <td class="col-3 lh-sm
-                                   {% if forloop.first %}
-                                     table-group-divider
-                                   {% endif %}">
-                          {{ measure.evidence|linebreaksbr }}
-                        </td>
-                        <td class="col-1 align-middle
+                        {% if column_config.evidence.visible %}
+                          <td class="col-{{ column_config.evidence.width }} lh-sm
+                                     {% if forloop.first %}
+                                       table-group-divider
+                                     {% endif %}">
+                            {{ measure.evidence|linebreaksbr }}
+                          </td>
+                        {% endif %}
+                        <td class="col-{{ column_config.is_implemented.width }} align-middle
                                    {% if forloop.first %}
                                      table-group-divider
                                    {% endif %}">
@@ -432,23 +447,20 @@
                             {% endif %}
                           </div>
                         </td>
-                        <td class="{% if is_regulator or security_objective.review_comment or security_objective.declaration_status != 'UNDE' %}
-                                     col-2
-                                   {% else %}
-                                     col-4
-                                   {% endif %}
-                                   lh-sm
-                                   {% if forloop.first %}
-                                     table-group-divider
-                                   {% endif %}">
-                          {% if forloop.parentloop.first %}
-                            {% bootstrap_field measure.answer_form.justification show_label=False wrapper_class="m-0" field_class="not-required" %}
-                          {% else %}
-                            {% bootstrap_field measure.answer_form.justification show_label=False wrapper_class="m-0" %}
-                          {% endif %}
-                        </td>
-                        {% if is_regulator or security_objective.review_comment or security_objective.declaration_status != "UNDE"  %}
-                          <td class="col-2 lh-sm
+                        {% if column_config.justification.visible %}
+                          <td class="col-{{ column_config.justification.width }} lh-sm
+                                     {% if forloop.first %}
+                                       table-group-divider
+                                     {% endif %}">
+                            {% if forloop.parentloop.first or not justification_mandatory %}
+                              {% bootstrap_field measure.answer_form.justification show_label=False wrapper_class="m-0" field_class="not-required" %}
+                            {% else %}
+                              {% bootstrap_field measure.answer_form.justification show_label=False wrapper_class="m-0" %}
+                            {% endif %}
+                          </td>
+                        {% endif %}
+                        {% if column_config.review_comment.visible %}
+                          <td class="col-{{ column_config.review_comment.width }} lh-sm
                                      {% if forloop.first %}
                                        table-group-divider
                                      {% endif %}">
@@ -461,14 +473,14 @@
                         {% translate "No security measures data available." %}
                       </h3>
                     {% endfor %}
-                    {% if forloop.last %}
+                    {% if forloop.last and actions_config.visible %}
                       <tr>
-                        <td colspan="6" class="col-auto table-group-divider pb-0 fw-bolder">
-                          {% translate "Planned Measures" %}
+                        <td colspan="{{ visible_column_count }}" class="col-auto table-group-divider pb-0 fw-bolder">
+                          {{ actions_config.label }}
                         </td>
                       </tr>
                       <tr class="{% if security_objective.actions_modified %}so-previous-answer-row so-previous-answer-row-full{% endif %}">
-                        <td colspan="6" class="col-auto">
+                        <td colspan="{{ visible_column_count }}" class="col-auto">
                           {% bootstrap_field security_objective.status_form.actions show_label=False wrapper_class="m-0" %}
                           {% if security_objective.actions_modified %}
                             <button type="button"
@@ -522,7 +534,9 @@
        aria-labelledby="so_previous_planned_label"
        aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-      {% include "modals/so_previous_version_planned_actions.html" %}
+      {% if actions_config.visible %}
+        {% include "modals/so_previous_version_planned_actions.html" %}
+      {% endif %}
     </div>
   </div>
 {% endblock %}
