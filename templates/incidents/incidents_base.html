@@ -340,13 +340,7 @@
             </td>
             <!-- Reference -->
             <td class="col-2 table-group-divider py-3">
-              {% block content_table_incident_id %}
-                {% for field in incident.formsStatus %}
-                  {% if field.name == "incident_id" %}
-                    {% bootstrap_field field show_label=False wrapper_class="m-0" %}
-                  {% endif %}
-                {% endfor %}
-              {% endblock %}
+              {{ incident.incident_id }}
             </td>
             <!-- Sectors -->
             <td class="col-2 table-group-divider py-3 px-2 list-sectors">
