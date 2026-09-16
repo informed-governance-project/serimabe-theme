@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-16 09:43+0200\n"
+"POT-Creation-Date: 2026-09-16 09:48+0200\n"
 "PO-Revision-Date: 2026-09-12 10:28+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -2108,17 +2108,14 @@ msgid "Status"
 msgstr "Statut"
 
 #: theme/templates/incidents/incidents_base.html:136
-#| msgid "Creation date"
 msgid "Detection date"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:141
-#| msgid "Last update"
 msgid "Start date"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:146
-#| msgid "Incident resolution date"
 msgid "Resolution date"
 msgstr ""
 
@@ -2202,7 +2199,6 @@ msgid "Incident detection date"
 msgstr "Date de détection de l’incident"
 
 #: theme/templates/incidents/incidents_base.html:292
-#| msgid "Incident start date"
 msgid "Incident starting date"
 msgstr ""
 

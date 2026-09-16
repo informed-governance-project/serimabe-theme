@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-16 09:43+0200\n"
+"POT-Creation-Date: 2026-09-16 09:48+0200\n"
 "PO-Revision-Date: 2026-09-01 12:44+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -2065,17 +2065,14 @@ msgid "Status"
 msgstr "Status"
 
 #: theme/templates/incidents/incidents_base.html:136
-#| msgid "Creation date"
 msgid "Detection date"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:141
-#| msgid "Last update"
 msgid "Start date"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:146
-#| msgid "Incident resolution date"
 msgid "Resolution date"
 msgstr ""
 
@@ -2159,7 +2156,6 @@ msgid "Incident detection date"
 msgstr "Datum waarop het incident is ontdekt"
 
 #: theme/templates/incidents/incidents_base.html:292
-#| msgid "Incident start date"
 msgid "Incident starting date"
 msgstr ""
 
