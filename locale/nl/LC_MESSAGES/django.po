@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 09:52+0200\n"
-"PO-Revision-Date: 2026-08-03 10:25+0000\n"
-"Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
+"POT-Creation-Date: 2026-09-16 15:12+0200\n"
+"PO-Revision-Date: 2026-09-16 10:37+0000\n"
+"Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -150,7 +150,7 @@ msgstr "Vervangen door"
 #: theme/templates/incidents/declaration.html:272
 #: theme/templates/incidents/incidents_base.html:548
 #: theme/templates/modals/accept_terms.html:37
-#: ⁨theme/templates/modals/access_log base.html⁩:22
+#: theme/templates/modals/access_log_base.html:22
 #: theme/templates/modals/contacts_incident.html:12
 #: theme/templates/modals/copy_so_declaration.html:16
 #: theme/templates/modals/create_report_project.html:22
@@ -2316,7 +2316,7 @@ msgstr "Meer opties"
 
 #: theme/templates/incidents/incidents_base.html:469
 #: theme/templates/incidents/incidents_base.html:470
-#: ⁨theme/templates/modals/access_log base.html⁩:17
+#: theme/templates/modals/access_log_base.html:17
 #: theme/templates/reporting/dashboard.html:205
 #: theme/templates/security_objectives/so_dashboard_base.html:225
 #: theme/templates/security_objectives/so_dashboard_base.html:227

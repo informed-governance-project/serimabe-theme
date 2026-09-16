@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 09:52+0200\n"
+"POT-Creation-Date: 2026-09-16 15:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,7 +153,7 @@ msgstr ""
 #: theme/templates/incidents/declaration.html:272
 #: theme/templates/incidents/incidents_base.html:548
 #: theme/templates/modals/accept_terms.html:37
-#: ⁨theme/templates/modals/access_log base.html⁩:22
+#: theme/templates/modals/access_log_base.html:22
 #: theme/templates/modals/contacts_incident.html:12
 #: theme/templates/modals/copy_so_declaration.html:16
 #: theme/templates/modals/create_report_project.html:22
@@ -1870,7 +1870,7 @@ msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:469
 #: theme/templates/incidents/incidents_base.html:470
-#: ⁨theme/templates/modals/access_log base.html⁩:17
+#: theme/templates/modals/access_log_base.html:17
 #: theme/templates/reporting/dashboard.html:205
 #: theme/templates/security_objectives/so_dashboard_base.html:225
 #: theme/templates/security_objectives/so_dashboard_base.html:227

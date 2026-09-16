@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-04 09:52+0200\n"
-"PO-Revision-Date: 2026-08-04 05:29+0000\n"
-"Last-Translator: Chris Frings <Chris.frings+RegAdmin@ilr.lu>\n"
+"POT-Creation-Date: 2026-09-16 15:12+0200\n"
+"PO-Revision-Date: 2026-09-16 12:29+0000\n"
+"Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -152,7 +152,7 @@ msgstr "Ersetzt durch"
 #: theme/templates/incidents/declaration.html:272
 #: theme/templates/incidents/incidents_base.html:548
 #: theme/templates/modals/accept_terms.html:37
-#: ⁨theme/templates/modals/access_log base.html⁩:22
+#: theme/templates/modals/access_log_base.html:22
 #: theme/templates/modals/contacts_incident.html:12
 #: theme/templates/modals/copy_so_declaration.html:16
 #: theme/templates/modals/create_report_project.html:22
@@ -2287,7 +2287,7 @@ msgstr "Weitere Optionen"
 
 #: theme/templates/incidents/incidents_base.html:469
 #: theme/templates/incidents/incidents_base.html:470
-#: ⁨theme/templates/modals/access_log base.html⁩:17
+#: theme/templates/modals/access_log_base.html:17
 #: theme/templates/reporting/dashboard.html:205
 #: theme/templates/security_objectives/so_dashboard_base.html:225
 #: theme/templates/security_objectives/so_dashboard_base.html:227
