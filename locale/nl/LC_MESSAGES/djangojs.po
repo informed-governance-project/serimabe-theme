@@ -115,11 +115,7 @@ msgstr "Rapport aan het genereren"
 msgid "Download"
 msgstr "Downloaden"
 
-#: theme/static/js/so_declaration.js:60
-msgid "Justification required"
-msgstr "Motivering vereist"
-
-#: theme/static/js/so_declaration.js:78
+#: theme/static/js/so_declaration.js:82
 msgid ""
 "Please list your current and planned measures, including a schedule with the "
 "individual stages."

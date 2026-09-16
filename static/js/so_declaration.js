@@ -57,7 +57,7 @@ $(document).ready(function () {
       const checkboxId = $(this).attr('id');
       const justificationId = checkboxId.replace('is_implemented', 'justification');
       const textarea = $('#' + justificationId).not(".not-required");
-      const placeholdertext = gettext("Justification required");
+      const placeholdertext = $('#security_objectives_carousel').data('justification-placeholder');
       if (textarea.length && $(this).is(':checked') && textarea.val().trim() === "") {
         textarea
           .addClass("border border-danger border-2")
@@ -71,6 +71,10 @@ $(document).ready(function () {
   }
 
   function checkActions() {
+    // Optional for this standard: nothing to prompt for.
+    if ($('#security_objectives_carousel').data('actions-mandatory') === false) {
+      return;
+    }
     const $activeSlide = $('.carousel-item.active');
     const $actionstextarea = $activeSlide.find(".so_actions_form");
     const $firstSwitchMeasure = $activeSlide.find(".is-implemented-first-switch");
@@ -165,6 +169,7 @@ $(document).ready(function () {
   });
 
   $(document).on('submit', '#so-review-comment-form', function (e) {
+    load_spinner();
     let $form = $(this);
     let is_only_review_comment = $form.attr('is_only_review_comment');
     if (is_only_review_comment=="False"){
@@ -231,6 +236,11 @@ $(document).ready(function () {
 
   $(document).on("change", ".so-input-field", function () {
     update_so_declaration(this);
+  });
+
+  // Prevent multiple submissions of the SO declaration form
+  $(document).on("submit", "#so_declaration_submit_form", function () {
+    load_spinner();
   });
 });
 

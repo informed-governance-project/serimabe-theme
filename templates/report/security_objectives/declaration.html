@@ -38,17 +38,21 @@
             </h5>
           {% endif %}
         {% endif %}
-        <h6 class="card-subtitle text-end text-muted m-0">
-          <div class="d-flex align-items-center justify-content-end">
-            <div id="score_container" class="position-relative pe-3">
-              <img src="images/icons/ico-score.svg" class="img-fluid" alt="Score ico">
-              <div class="score_text position-absolute fw-bold text-dark">
-                <span class="h6 fw-bold">{{ security_objective.status.score|default:0|stringformat:"0.1f" }}</span>
-                <span>/ {{ last_maturity_level }}</span>
+        {% if score_display.visible %}
+          <h6 class="card-subtitle text-end text-muted m-0">
+            <div class="d-flex align-items-center justify-content-end">
+              <div id="score_container" class="position-relative pe-3">
+                <img src="images/icons/ico-score.svg" class="img-fluid" alt="Score ico">
+                <div class="score_text position-absolute fw-bold text-dark">
+                  <span class="h6 fw-bold">{{ security_objective.status.score|default:0|stringformat:"0.1f" }}</span>
+                  {% if score_display.with_maximum %}
+                    <span>/ {{ last_maturity_level }}</span>
+                  {% endif %}
+                </div>
               </div>
             </div>
-          </div>
-        </h6>
+          </h6>
+        {% endif %}
       </div>
     </div>
     <table id="declaration_table"
@@ -58,29 +62,30 @@
       </caption>
       <thead>
         <tr>
-          <th class="col-1 text-center align-middle">
-            {% translate "Maturity Level" %}
+          {% if column_config.maturity_level.visible %}
+            <th class="col-{{ column_config.maturity_level.width }} text-center align-middle">
+              {{ column_config.maturity_level.label }}
+            </th>
+          {% endif %}
+          <th class="col-{{ column_config.security_measure.width }} text-center align-middle">
+            {{ column_config.security_measure.label }}
           </th>
-          <th class="col-3 text-center align-middle">
-            {% translate "Security Measure" %}
+          {% if column_config.evidence.visible %}
+            <th class="col-{{ column_config.evidence.width }} text-center align-middle">
+              {{ column_config.evidence.label }}
+            </th>
+          {% endif %}
+          <th class="col-{{ column_config.is_implemented.width }} text-center align-middle">
+            {{ column_config.is_implemented.label }}
           </th>
-          <th class="col-3 text-center align-middle">
-            {% translate "Evidence" %}
-          </th>
-          <th class="col-1 text-center align-middle">
-            {% translate "Measure Implemented?" %}
-          </th>
-          <th class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}
-                       col-2
-                     {% else %}
-                       col-4
-                     {% endif %}
-                     text-center align-middle">
-            {% translate "Justification" %}
-          </th>
-          {% if is_regulator or security_objective.declaration_status != "UNDE" %}
-            <th class="col-2 text-center align-middle">
-              {% translate "Review Comment" %}
+          {% if column_config.justification.visible %}
+            <th class="col-{{ column_config.justification.width }} text-center align-middle">
+              {{ column_config.justification.label }}
+            </th>
+          {% endif %}
+          {% if column_config.review_comment.visible %}
+            <th class="col-{{ column_config.review_comment.width }} text-center align-middle">
+              {{ column_config.review_comment.label }}
             </th>
           {% endif %}
         </tr>
@@ -89,25 +94,27 @@
         {% for maturity_level, measures in maturity_levels.items %}
           {% for measure in measures %}
             <tr>
-              {% if forloop.first %}
+              {% if column_config.maturity_level.visible and forloop.first %}
                 <th rowspan="{{ measures|length }}"
-                    class="col-1 table-group-divider text-center align-middle lh-sm">
+                    class="col-{{ column_config.maturity_level.width }} table-group-divider text-center align-middle lh-sm">
                   {{ maturity_level }}
                 </th>
               {% endif %}
-              <td class="col-3 lh-sm
+              <td class="col-{{ column_config.security_measure.width }} lh-sm
                          {% if forloop.first %}
                            table-group-divider
                          {% endif %}">
                 {{ measure }}
               </td>
-              <td class="col-3 lh-sm
-                         {% if forloop.first %}
-                           table-group-divider
-                         {% endif %}">
-                {{ measure.evidence|linebreaksbr }}
-              </td>
-              <td class="col-1 align-middle
+              {% if column_config.evidence.visible %}
+                <td class="col-{{ column_config.evidence.width }} lh-sm
+                           {% if forloop.first %}
+                             table-group-divider
+                           {% endif %}">
+                  {{ measure.evidence|linebreaksbr }}
+                </td>
+              {% endif %}
+              <td class="col-{{ column_config.is_implemented.width }} align-middle
                          {% if forloop.first %}
                            table-group-divider
                          {% endif %}">
@@ -123,19 +130,16 @@
                   </div>
                 </div>
               </td>
-              <td class="{% if is_regulator or security_objective.declaration_status != 'UNDE' %}
-                           col-2
-                         {% else %}
-                           col-4
-                         {% endif %}
-                         lh-sm
-                         {% if forloop.first %}
-                           table-group-divider
-                         {% endif %}">
-                {{ measure.justification|default:""|linebreaksbr }}
-              </td>
-              {% if is_regulator or security_objective.declaration_status != "UNDE" %}
-                <td class="col-auto lh-sm
+              {% if column_config.justification.visible %}
+                <td class="col-{{ column_config.justification.width }} lh-sm
+                           {% if forloop.first %}
+                             table-group-divider
+                           {% endif %}">
+                  {{ measure.justification|default:""|linebreaksbr }}
+                </td>
+              {% endif %}
+              {% if column_config.review_comment.visible %}
+                <td class="col-{{ column_config.review_comment.width }} lh-sm
                            {% if forloop.first %}
                              table-group-divider
                            {% endif %}">
@@ -148,14 +152,15 @@
               {% translate "No security measures data available." %}
             </h3>
           {% endfor %}
-          {% if forloop.last %}
+          {% if forloop.last and actions_config.visible %}
             <tr>
-              <td colspan="6" class="col-auto table-group-divider pb-0 fw-bolder">
-                {% translate "Planned Measures" %}
+              <td colspan="{{ visible_column_count }}"
+                  class="col-auto table-group-divider pb-0 fw-bolder">
+                {{ actions_config.label }}
               </td>
             </tr>
             <tr>
-              <td colspan="6" class="col-auto">
+              <td colspan="{{ visible_column_count }}" class="col-auto">
                 {{ security_objective.status.actions|default:""|linebreaksbr }}
               </td>
             </tr>
