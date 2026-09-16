@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-16 09:48+0200\n"
+"POT-Creation-Date: 2026-09-16 10:07+0200\n"
 "PO-Revision-Date: 2026-09-12 10:28+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -2199,8 +2199,9 @@ msgid "Incident detection date"
 msgstr "Date de détection de l’incident"
 
 #: theme/templates/incidents/incidents_base.html:292
-msgid "Incident starting date"
-msgstr ""
+#: theme/templates/report/incidents/timeline.html:35
+msgid "Incident start date"
+msgstr "Date de début de l’incident"
 
 #: theme/templates/incidents/incidents_base.html:310
 #: theme/templates/report/incidents/timeline.html:43
@@ -2928,10 +2929,6 @@ msgstr "Fuseau horaire"
 #: theme/templates/report/incidents/timeline.html:19
 msgid "Incident notification creation date"
 msgstr "Date de création de la notification d’incident"
-
-#: theme/templates/report/incidents/timeline.html:35
-msgid "Incident start date"
-msgstr "Date de début de l’incident"
 
 #: theme/templates/report/incidents/timeline.html:53
 msgid "Report Timeline"

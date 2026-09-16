@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-16 09:49+0200\n"
+"POT-Creation-Date: 2026-09-16 10:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1735,7 +1735,8 @@ msgid "Incident detection date"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:292
-msgid "Incident starting date"
+#: theme/templates/report/incidents/timeline.html:35
+msgid "Incident start date"
 msgstr ""
 
 #: theme/templates/incidents/incidents_base.html:310
@@ -2433,10 +2434,6 @@ msgstr ""
 
 #: theme/templates/report/incidents/timeline.html:19
 msgid "Incident notification creation date"
-msgstr ""
-
-#: theme/templates/report/incidents/timeline.html:35
-msgid "Incident start date"
 msgstr ""
 
 #: theme/templates/report/incidents/timeline.html:53

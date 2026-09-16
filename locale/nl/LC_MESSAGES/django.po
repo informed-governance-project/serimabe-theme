@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-16 09:48+0200\n"
+"POT-Creation-Date: 2026-09-16 10:07+0200\n"
 "PO-Revision-Date: 2026-09-01 12:44+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -2156,8 +2156,9 @@ msgid "Incident detection date"
 msgstr "Datum waarop het incident is ontdekt"
 
 #: theme/templates/incidents/incidents_base.html:292
-msgid "Incident starting date"
-msgstr ""
+#: theme/templates/report/incidents/timeline.html:35
+msgid "Incident start date"
+msgstr "Datum van aanvang van het incident"
 
 #: theme/templates/incidents/incidents_base.html:310
 #: theme/templates/report/incidents/timeline.html:43
@@ -2876,10 +2877,6 @@ msgstr "Tijdzone"
 #: theme/templates/report/incidents/timeline.html:19
 msgid "Incident notification creation date"
 msgstr "Datum waarop de incidentmelding is gemaakt"
-
-#: theme/templates/report/incidents/timeline.html:35
-msgid "Incident start date"
-msgstr "Datum van aanvang van het incident"
 
 #: theme/templates/report/incidents/timeline.html:53
 msgid "Report Timeline"
