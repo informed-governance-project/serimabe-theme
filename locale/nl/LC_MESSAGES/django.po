@@ -95,7 +95,7 @@ msgstr "Uitloggen"
 #: theme/templates/admin/custom_change_user_form.html:12
 #, python-format
 msgid "Add this user to Company %(company)s?"
-msgstr ""
+msgstr "Deze gebruiker toevoegen aan Onderneming%(company)s?"
 
 #: theme/templates/admin/custom_change_user_list.html:8
 msgid "Reset accepted terms"
@@ -107,7 +107,7 @@ msgstr "Aanvaarde cookies resetten"
 
 #: theme/templates/admin/includes/account_actions_confirm.html:14
 msgid "Attention"
-msgstr ""
+msgstr "Opgelet"
 
 #: theme/templates/admin/includes/account_actions_confirm.html:20
 #: theme/templates/incidents/declaration.html:270
@@ -128,21 +128,23 @@ msgstr "Bevestigen"
 
 #: theme/templates/admin/includes/email_placeholders_help.html:8
 msgid "Available placeholders"
-msgstr ""
+msgstr "Beschikbare placeholders"
 
 #: theme/templates/admin/includes/email_placeholders_help.html:11
 msgid ""
 "Type one of these in the subject or in the content. It is replaced when the "
 "email is sent."
 msgstr ""
+"Typ een van deze opties in het onderwerp of in de inhoud. Dit wordt "
+"vervangen wanneer de e-mail wordt verzonden."
 
 #: theme/templates/admin/includes/email_placeholders_help.html:17
 msgid "Placeholder"
-msgstr ""
+msgstr "Placeholder"
 
 #: theme/templates/admin/includes/email_placeholders_help.html:20
 msgid "Replaced by"
-msgstr ""
+msgstr "Vervangen door"
 
 #: theme/templates/admin/includes/email_placeholders_help.html:39
 #: theme/templates/incidents/declaration.html:272
@@ -1015,6 +1017,13 @@ msgid ""
 "concernant des mesures destinées à assurer un niveau élevé de cybersécurité” "
 "into Luxembourg law."
 msgstr ""
+"'NIS 2': betekent Richtlijn (EU) 2022/2555 van het Europees Parlement en de "
+"Raad van 14 december 2022 betreffende maatregelen voor een hoog gezamenlijk "
+"niveau van cyberbeveiliging in de Unie, tot wijziging van Verordening (EU) "
+"nr. 910/2014 en Richtlijn (EU) 2018/1972 en tot intrekking van Richtlijn "
+"(EU) 2016/1148 (NIS2-richtlijn), alsmede de wet die deze omzet in "
+"Luxemburgse wetgeving via de “loi du 5 mai 2026 concernant des mesures "
+"destinées à assurer un niveau élevé de cybersécurité”."
 
 #: theme/templates/home/terms.html:106
 msgid ""
@@ -1024,6 +1033,11 @@ msgid ""
 "the “loi du 5 mai 2026 sur la résilience des entités critiques” into "
 "Luxembourg law."
 msgstr ""
+"'CER': betekent Richtlijn (EU) 2022/2557 van het Europees Parlement en de "
+"Raad van 14 december 2022 betreffende de weerbaarheid van kritieke "
+"entiteiten en tot intrekking van Richtlijn 2008/114/EG van de Raad, alsmede "
+"de omzetting ervan in Luxemburgse wetgeving via de “loi du 5 mai 2026 sur la "
+"résilience des entités critiques”."
 
 #: theme/templates/home/terms.html:114
 msgid ""
@@ -1184,6 +1198,13 @@ msgid ""
 "transmitted to this Operator. It is created either by the Main Administrator "
 "Operator or by another Administrator Operator."
 msgstr ""
+"'Beheerder van de Operator': betekent iedere natuurlijke persoon die deel "
+"uitmaakt van een Operator en wiens belangrijkste verantwoordelijkheden "
+"bestaan in het beheer van de Gebruikers aangewezen door de Operator. De "
+"Beheerder heeft tevens een algemeen overzicht van de informatie en "
+"documenten die toebehoren of verzonden worden aan die Operator. Deze functie "
+"wordt ofwel aangemaakt door de Hoofdbeheerder van de Operator of door een "
+"andere Beheerder van de Operator."
 
 #: theme/templates/home/terms.html:220
 msgid ""
@@ -1199,6 +1220,10 @@ msgid ""
 "responsibilities are to produce and manage the information and documents to "
 "be sent to the Regulator."
 msgstr ""
+"'Gebruiker van de Operator': betekent iedere natuurlijke persoon die is "
+"aangewezen door de Operator en wiens belangrijkste verantwoordelijkheden "
+"bestaan in het aanmaken en beheren van de informatie en documenten die naar "
+"de Regulator moeten worden verstuurd."
 
 #: theme/templates/home/terms.html:232
 msgid ""
@@ -2162,15 +2187,15 @@ msgstr "Status"
 
 #: theme/templates/incidents/incidents_base.html:136
 msgid "Detection date"
-msgstr ""
+msgstr "Datum van ontdekking"
 
 #: theme/templates/incidents/incidents_base.html:141
 msgid "Start date"
-msgstr ""
+msgstr "Datum van aanvang"
 
 #: theme/templates/incidents/incidents_base.html:146
 msgid "Resolution date"
-msgstr ""
+msgstr "Datum van oplossing"
 
 #: theme/templates/incidents/incidents_base.html:152
 msgid "Operator Acronym"

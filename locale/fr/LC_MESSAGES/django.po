@@ -2205,15 +2205,15 @@ msgstr "Statut"
 
 #: theme/templates/incidents/incidents_base.html:136
 msgid "Detection date"
-msgstr ""
+msgstr "Date de détection"
 
 #: theme/templates/incidents/incidents_base.html:141
 msgid "Start date"
-msgstr ""
+msgstr "Date de début"
 
 #: theme/templates/incidents/incidents_base.html:146
 msgid "Resolution date"
-msgstr ""
+msgstr "Date de résolution"
 
 #: theme/templates/incidents/incidents_base.html:152
 msgid "Operator Acronym"
