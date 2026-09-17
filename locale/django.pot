@@ -124,7 +124,7 @@ msgstr ""
 #: theme/templates/modals/previous_answer.html:11
 #: theme/templates/modals/report_versions.html:12
 #: theme/templates/modals/report_versions_workflow_comment.html:8
-#: theme/templates/modals/repoting_dashboard_hide_columns.html:12
+#: theme/templates/modals/reporting_dashboard_hide_columns.html:12
 #: theme/templates/modals/review_comment_report.html:15
 #: theme/templates/modals/review_comment_so_declaration.html:14
 #: theme/templates/modals/risk_analysis_import.html:16
@@ -1975,7 +1975,7 @@ msgid "Import"
 msgstr ""
 
 #: theme/templates/modals/incidents_dashboard_hide_columns.html:7
-#: theme/templates/modals/repoting_dashboard_hide_columns.html:7
+#: theme/templates/modals/reporting_dashboard_hide_columns.html:7
 #: theme/templates/modals/so_dashboard_hide_columns.html:7
 msgid "Choice of columns"
 msgstr ""
