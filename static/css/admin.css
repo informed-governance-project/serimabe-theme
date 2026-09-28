@@ -181,6 +181,30 @@
     margin-top: 1.5rem;
 }
 
+/* Object tools that post through the confirmation dialog are buttons, which Django's admin CSS
+   leaves unstyled, so they copy the look of its object-tools links. */
+.object-tools .object-tools-button {
+    display: block;
+    float: left;
+    padding: 3px 12px;
+    border: none;
+    border-radius: 15px;
+    background: var(--object-tools-bg);
+    color: var(--object-tools-fg);
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 0.6875rem;
+    line-height: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+.object-tools .object-tools-button:focus,
+.object-tools .object-tools-button:hover {
+    background-color: var(--object-tools-hover-bg);
+}
+
 /* Prompt shown above the user detail form while a suggestion to link the account is pending. */
 .pending-link-prompt {
     max-width: 500px;
