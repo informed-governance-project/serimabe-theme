@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-25 09:38+0200\n"
+"POT-Creation-Date: 2026-09-28 16:47+0200\n"
 "PO-Revision-Date: 2026-09-16 10:37+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -53,11 +53,23 @@ msgstr "Uitloggen"
 msgid "Add this user to Company %(company)s?"
 msgstr "Deze gebruiker toevoegen aan Onderneming%(company)s?"
 
-#: theme/templates/admin/custom_change_user_list.html:8
+#: theme/templates/admin/custom_change_user_list.html:12
+msgid ""
+"Resetting the accepted terms will require every user to accept the terms of "
+"service again at their next login."
+msgstr ""
+
+#: theme/templates/admin/custom_change_user_list.html:13
 msgid "Reset accepted terms"
 msgstr "Voorwaarden opnieuw instellen"
 
-#: theme/templates/admin/custom_change_user_list.html:13
+#: theme/templates/admin/custom_change_user_list.html:23
+msgid ""
+"Resetting the accepted cookies will show the cookie banner again to every "
+"user."
+msgstr ""
+
+#: theme/templates/admin/custom_change_user_list.html:24
 msgid "Reset accepted cookies"
 msgstr "Aanvaarde cookies resetten"
 

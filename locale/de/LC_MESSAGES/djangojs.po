@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-25 09:38+0200\n"
+"POT-Creation-Date: 2026-09-28 16:47+0200\n"
 "PO-Revision-Date: 2026-08-03 10:11+0000\n"
 "Last-Translator: Sascha Maurer <Sascha.maurer+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -46,6 +46,14 @@ msgstr "Alle ausgewählt"
 #: theme/static/js/project_dashboard.js:83
 msgid "Select all"
 msgstr "Alle auswählen"
+
+#: theme/static/js/export_security_objectives.js:53
+msgid "Close"
+msgstr ""
+
+#: theme/static/js/export_security_objectives.js:88
+msgid "The export is taking longer than expected. Please try again later."
+msgstr ""
 
 #: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:12
 msgid "Download PDF report"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-25 09:38+0200\n"
+"POT-Creation-Date: 2026-09-28 16:47+0200\n"
 "PO-Revision-Date: 2026-09-16 12:29+0000\n"
 "Last-Translator: Edgar Dugourd <Edd@ilr.lu>\n"
 "Language-Team: \n"
@@ -54,11 +54,23 @@ msgstr "Déconnexion"
 msgid "Add this user to Company %(company)s?"
 msgstr "Ajouter cet utilisateur à l'entreprise %(company)s?"
 
-#: theme/templates/admin/custom_change_user_list.html:8
+#: theme/templates/admin/custom_change_user_list.html:12
+msgid ""
+"Resetting the accepted terms will require every user to accept the terms of "
+"service again at their next login."
+msgstr ""
+
+#: theme/templates/admin/custom_change_user_list.html:13
 msgid "Reset accepted terms"
 msgstr "Réinitialiser l'acceptation des conditions d’utilisation"
 
-#: theme/templates/admin/custom_change_user_list.html:13
+#: theme/templates/admin/custom_change_user_list.html:23
+msgid ""
+"Resetting the accepted cookies will show the cookie banner again to every "
+"user."
+msgstr ""
+
+#: theme/templates/admin/custom_change_user_list.html:24
 msgid "Reset accepted cookies"
 msgstr "Réinitialiser l'acceptation des cookies"
 

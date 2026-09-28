@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-25 09:38+0200\n"
+"POT-Creation-Date: 2026-09-28 16:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,6 +44,14 @@ msgstr ""
 #: theme/static/js/base.js:115 theme/static/js/project_dashboard.js:39
 #: theme/static/js/project_dashboard.js:83
 msgid "Select all"
+msgstr ""
+
+#: theme/static/js/export_security_objectives.js:53
+msgid "Close"
+msgstr ""
+
+#: theme/static/js/export_security_objectives.js:88
+msgid "The export is taking longer than expected. Please try again later."
 msgstr ""
 
 #: theme/static/js/incidents.js:33 theme/static/js/so_dashboard.js:12

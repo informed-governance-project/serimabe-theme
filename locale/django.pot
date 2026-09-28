@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-25 09:38+0200\n"
+"POT-Creation-Date: 2026-09-28 16:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,11 +58,23 @@ msgstr ""
 msgid "Add this user to Company %(company)s?"
 msgstr ""
 
-#: theme/templates/admin/custom_change_user_list.html:8
-msgid "Reset accepted terms"
+#: theme/templates/admin/custom_change_user_list.html:12
+msgid ""
+"Resetting the accepted terms will require every user to accept the terms of "
+"service again at their next login."
 msgstr ""
 
 #: theme/templates/admin/custom_change_user_list.html:13
+msgid "Reset accepted terms"
+msgstr ""
+
+#: theme/templates/admin/custom_change_user_list.html:23
+msgid ""
+"Resetting the accepted cookies will show the cookie banner again to every "
+"user."
+msgstr ""
+
+#: theme/templates/admin/custom_change_user_list.html:24
 msgid "Reset accepted cookies"
 msgstr ""
 
