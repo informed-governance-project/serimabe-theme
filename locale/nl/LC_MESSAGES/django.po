@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-28 16:47+0200\n"
+"POT-Creation-Date: 2026-10-02 10:39+0200\n"
 "PO-Revision-Date: 2026-09-16 10:37+0000\n"
 "Last-Translator: Christophe Vermeulen <Christophe.Vermeulen@ibpt.be>\n"
 "Language: nl\n"
@@ -117,7 +117,7 @@ msgstr "Vervangen door"
 
 #: theme/templates/admin/includes/email_placeholders_help.html:39
 #: theme/templates/incidents/declaration.html:272
-#: theme/templates/incidents/incidents_base.html:548
+#: theme/templates/incidents/incidents_base.html:552
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log_base.html:22
 #: theme/templates/modals/contacts_incident.html:12
@@ -2030,7 +2030,7 @@ msgid "Filter incidents by status, sector, etc"
 msgstr "Filteren op status, sector enz"
 
 #: theme/templates/incidents/incidents_base.html:41
-#: theme/templates/incidents/incidents_base.html:543
+#: theme/templates/incidents/incidents_base.html:547
 #: theme/templates/reporting/add_recommendations.html:42
 #: theme/templates/reporting/add_recommendations.html:43
 #: theme/templates/reporting/add_recommendations.html:60
@@ -2212,23 +2212,23 @@ msgstr "Laatste update"
 msgid "Incident notification submission date"
 msgstr "Datum van indiening van de incidentmelding"
 
-#: theme/templates/incidents/incidents_base.html:278
+#: theme/templates/incidents/incidents_base.html:279
 #: theme/templates/report/incidents/timeline.html:27
 msgid "Incident detection date"
 msgstr "Datum waarop het incident is ontdekt"
 
-#: theme/templates/incidents/incidents_base.html:292
+#: theme/templates/incidents/incidents_base.html:296
 #: theme/templates/report/incidents/timeline.html:35
 msgid "Incident start date"
 msgstr "Datum van aanvang van het incident"
 
-#: theme/templates/incidents/incidents_base.html:310
+#: theme/templates/incidents/incidents_base.html:314
 #: theme/templates/report/incidents/timeline.html:43
 msgid "Incident resolution date"
 msgstr "Datum van oplossing van het incident"
 
-#: theme/templates/incidents/incidents_base.html:413
-#: theme/templates/incidents/incidents_base.html:415
+#: theme/templates/incidents/incidents_base.html:417
+#: theme/templates/incidents/incidents_base.html:419
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
 #: theme/templates/modals/so_versions.html:7
@@ -2245,18 +2245,18 @@ msgstr "Datum van oplossing van het incident"
 msgid "Version control"
 msgstr "Versiebeheer"
 
-#: theme/templates/incidents/incidents_base.html:423
-#: theme/templates/incidents/incidents_base.html:446
-#: theme/templates/incidents/incidents_base.html:448
+#: theme/templates/incidents/incidents_base.html:427
+#: theme/templates/incidents/incidents_base.html:450
+#: theme/templates/incidents/incidents_base.html:452
 msgid "Download PDF report"
 msgstr "Het PDF-verslag downloaden"
 
-#: theme/templates/incidents/incidents_base.html:456
+#: theme/templates/incidents/incidents_base.html:460
 msgid "More options"
 msgstr "Meer opties"
 
-#: theme/templates/incidents/incidents_base.html:469
-#: theme/templates/incidents/incidents_base.html:470
+#: theme/templates/incidents/incidents_base.html:473
+#: theme/templates/incidents/incidents_base.html:474
 #: theme/templates/modals/access_log_base.html:17
 #: theme/templates/reporting/dashboard.html:205
 #: theme/templates/security_objectives/so_dashboard_base.html:225
@@ -2265,11 +2265,11 @@ msgstr "Meer opties"
 msgid "Access Log"
 msgstr "Toegangsregister"
 
-#: theme/templates/incidents/incidents_base.html:490
+#: theme/templates/incidents/incidents_base.html:494
 msgid "No incident reports have been submitted yet."
 msgstr "Nog geen incidentrapporten ingediend."
 
-#: theme/templates/incidents/incidents_base.html:564
+#: theme/templates/incidents/incidents_base.html:568
 #: theme/templates/reporting/add_recommendations.html:80
 #: theme/templates/reporting/dashboard.html:271
 #: theme/templates/reporting/project_dashboard.html:374
@@ -2277,7 +2277,7 @@ msgstr "Nog geen incidentrapporten ingediend."
 msgid "Reset"
 msgstr "Resetten"
 
-#: theme/templates/incidents/incidents_base.html:567
+#: theme/templates/incidents/incidents_base.html:571
 #: theme/templates/reporting/add_recommendations.html:83
 #: theme/templates/reporting/dashboard.html:274
 #: theme/templates/reporting/project_dashboard.html:377

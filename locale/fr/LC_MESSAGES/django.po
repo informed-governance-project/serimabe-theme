@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-28 16:47+0200\n"
+"POT-Creation-Date: 2026-10-02 10:39+0200\n"
 "PO-Revision-Date: 2026-10-01 07:32+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -122,7 +122,7 @@ msgstr "Remplacé par"
 
 #: theme/templates/admin/includes/email_placeholders_help.html:39
 #: theme/templates/incidents/declaration.html:272
-#: theme/templates/incidents/incidents_base.html:548
+#: theme/templates/incidents/incidents_base.html:552
 #: theme/templates/modals/accept_terms.html:37
 #: theme/templates/modals/access_log_base.html:22
 #: theme/templates/modals/contacts_incident.html:12
@@ -2056,7 +2056,7 @@ msgid "Filter incidents by status, sector, etc"
 msgstr "Filtrer les incidents par statut, secteur, etc."
 
 #: theme/templates/incidents/incidents_base.html:41
-#: theme/templates/incidents/incidents_base.html:543
+#: theme/templates/incidents/incidents_base.html:547
 #: theme/templates/reporting/add_recommendations.html:42
 #: theme/templates/reporting/add_recommendations.html:43
 #: theme/templates/reporting/add_recommendations.html:60
@@ -2238,23 +2238,23 @@ msgstr "Date de la dernière mise à jour"
 msgid "Incident notification submission date"
 msgstr "Date de soumission de la notification d'incident"
 
-#: theme/templates/incidents/incidents_base.html:278
+#: theme/templates/incidents/incidents_base.html:279
 #: theme/templates/report/incidents/timeline.html:27
 msgid "Incident detection date"
 msgstr "Date de détection de l’incident"
 
-#: theme/templates/incidents/incidents_base.html:292
+#: theme/templates/incidents/incidents_base.html:296
 #: theme/templates/report/incidents/timeline.html:35
 msgid "Incident start date"
 msgstr "Date de début de l’incident"
 
-#: theme/templates/incidents/incidents_base.html:310
+#: theme/templates/incidents/incidents_base.html:314
 #: theme/templates/report/incidents/timeline.html:43
 msgid "Incident resolution date"
 msgstr "Date de résolution de l'incident"
 
-#: theme/templates/incidents/incidents_base.html:413
-#: theme/templates/incidents/incidents_base.html:415
+#: theme/templates/incidents/incidents_base.html:417
+#: theme/templates/incidents/incidents_base.html:419
 #: theme/templates/modals/report_versions.html:7
 #: theme/templates/modals/report_versions.html:21
 #: theme/templates/modals/so_versions.html:7
@@ -2271,18 +2271,18 @@ msgstr "Date de résolution de l'incident"
 msgid "Version control"
 msgstr "Gestion de versions"
 
-#: theme/templates/incidents/incidents_base.html:423
-#: theme/templates/incidents/incidents_base.html:446
-#: theme/templates/incidents/incidents_base.html:448
+#: theme/templates/incidents/incidents_base.html:427
+#: theme/templates/incidents/incidents_base.html:450
+#: theme/templates/incidents/incidents_base.html:452
 msgid "Download PDF report"
 msgstr "Télécharger le rapport PDF"
 
-#: theme/templates/incidents/incidents_base.html:456
+#: theme/templates/incidents/incidents_base.html:460
 msgid "More options"
 msgstr "Plus d'options"
 
-#: theme/templates/incidents/incidents_base.html:469
-#: theme/templates/incidents/incidents_base.html:470
+#: theme/templates/incidents/incidents_base.html:473
+#: theme/templates/incidents/incidents_base.html:474
 #: theme/templates/modals/access_log_base.html:17
 #: theme/templates/reporting/dashboard.html:205
 #: theme/templates/security_objectives/so_dashboard_base.html:225
@@ -2291,11 +2291,11 @@ msgstr "Plus d'options"
 msgid "Access Log"
 msgstr "Journal des accès"
 
-#: theme/templates/incidents/incidents_base.html:490
+#: theme/templates/incidents/incidents_base.html:494
 msgid "No incident reports have been submitted yet."
 msgstr "Aucun rapport d'incident n'a encore été soumis."
 
-#: theme/templates/incidents/incidents_base.html:564
+#: theme/templates/incidents/incidents_base.html:568
 #: theme/templates/reporting/add_recommendations.html:80
 #: theme/templates/reporting/dashboard.html:271
 #: theme/templates/reporting/project_dashboard.html:374
@@ -2303,7 +2303,7 @@ msgstr "Aucun rapport d'incident n'a encore été soumis."
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: theme/templates/incidents/incidents_base.html:567
+#: theme/templates/incidents/incidents_base.html:571
 #: theme/templates/reporting/add_recommendations.html:83
 #: theme/templates/reporting/dashboard.html:274
 #: theme/templates/reporting/project_dashboard.html:377
