@@ -2042,7 +2042,7 @@ msgid "Previous"
 msgstr "Vorig"
 
 #: theme/templates/incidents/declaration.html:304
-#: theme/templates/operator/so_dashboard.html:21
+#: theme/templates/operator/so_dashboard.html:20
 #: theme/templates/security_objectives/declaration.html:174
 msgid "Submit"
 msgstr "Indienen"
@@ -2465,7 +2465,7 @@ msgstr "Verwijderen"
 
 #: theme/templates/modals/delete_report_project.html:7
 msgid "Confirm Deletion of Project"
-msgstr "Bevestig het verwijderen van het project"
+msgstr ""
 
 #: theme/templates/modals/delete_report_project.html:19
 msgid "Are you sure you want to delete the project?"
@@ -2516,7 +2516,7 @@ msgstr "Kolommenkeuze"
 #: theme/templates/modals/so_previous_version_measure.html:6
 #: theme/templates/modals/so_previous_version_planned_actions.html:6
 msgid "Previous version"
-msgstr "Vorige versie"
+msgstr ""
 
 #: theme/templates/modals/review_comment_report.html:10
 #: theme/templates/modals/workflow_comment.html:34

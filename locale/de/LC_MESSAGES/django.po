@@ -2023,7 +2023,7 @@ msgid "Previous"
 msgstr "Zurück"
 
 #: theme/templates/incidents/declaration.html:304
-#: theme/templates/operator/so_dashboard.html:21
+#: theme/templates/operator/so_dashboard.html:20
 #: theme/templates/security_objectives/declaration.html:174
 msgid "Submit"
 msgstr "Einreichen"
