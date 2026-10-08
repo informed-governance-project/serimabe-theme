@@ -152,8 +152,12 @@ $(document).ready(function () {
   projectsRunning = $('#projects-running-data').text() ? JSON.parse($('#projects-running-data').text()) : [],
 
   projectsRunning.forEach(function(project) {
-    updateUI(project.id, { status: "RUNNING" })
-    startPolling(project.id)
+    const projectId = Number.parseInt(project.id, 10)
+    if (Number.isNaN(projectId)) {
+      return
+    }
+    updateUI(projectId, { status: "RUNNING" })
+    startPolling(projectId)
   })
 
 });
