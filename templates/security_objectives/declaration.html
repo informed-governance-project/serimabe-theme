@@ -56,33 +56,35 @@
             </div>
           </div>
         </div>
-        <div class="p-0 vr">
-        </div>
-        <div class="col-auto">
-          {% for root_sector in standard_answer.get_no_childrens_sectors %}
-            <ul class="m-0 p-0 list-sectors">
-              <span class="fw-bolder">
-                {{ root_sector.get_safe_translation }}
-              </span>
-            </ul>
-          {% endfor %}
-          <ul class="m-0 p-0 list-sectors">
-            {% for root_sector in standard_answer.get_root_sectors %}
-              <span class="fw-bolder">
-                {{ root_sector.get_safe_translation }}
-              </span>
-              <ul class="list-unstyled">
-                {% for sector in root_sector.children.all %}
-                  {% if sector in standard_answer.sectors.all %}
-                    <li>
-                      {{ sector.get_safe_translation }}
-                    </li>
-                  {% endif %}
-                {% endfor %}
+        {% if is_regulator %}
+          <div class="p-0 vr">
+          </div>
+          <div class="col-auto">
+            {% for root_sector in standard_answer.get_no_childrens_sectors %}
+              <ul class="m-0 p-0 list-sectors">
+                <span class="fw-bolder">
+                  {{ root_sector.get_safe_translation }}
+                </span>
               </ul>
             {% endfor %}
-          </ul>
-        </div>
+            <ul class="m-0 p-0 list-sectors">
+              {% for root_sector in standard_answer.get_root_sectors %}
+                <span class="fw-bolder">
+                  {{ root_sector.get_safe_translation }}
+                </span>
+                <ul class="list-unstyled">
+                  {% for sector in root_sector.children.all %}
+                    {% if sector in standard_answer.get_sectors %}
+                      <li>
+                        {{ sector.get_safe_translation }}
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
         <div class="col-auto ms-auto">
           <div class="d-flex gap-2">
             {% if is_regulator %}
