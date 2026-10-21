@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-02 10:39+0200\n"
+"POT-Creation-Date: 2026-10-21 11:18+0200\n"
 "PO-Revision-Date: 2026-10-01 07:32+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -1986,7 +1986,7 @@ msgstr "Date de création"
 
 #: theme/templates/incidents/declaration.html:49
 #: theme/templates/incidents/incidents_base.html:126
-#: theme/templates/report/security_objectives/cover.html:57
+#: theme/templates/report/security_objectives/cover.html:51
 #: theme/templates/security_objectives/declaration.html:28
 #: theme/templates/security_objectives/so_dashboard_base.html:83
 msgid "Last update"
@@ -2129,14 +2129,12 @@ msgstr "Soumission tardive"
 #: theme/templates/incidents/incidents_base.html:102
 #: theme/templates/operator/so_dashboard.html:145
 #: theme/templates/regulator/so_dashboard.html:135
-#: theme/templates/report/security_objectives/cover.html:44
 msgid "Revision required"
 msgstr "Améliorations requises"
 
 #: theme/templates/incidents/incidents_base.html:106
 #: theme/templates/operator/so_dashboard.html:133
 #: theme/templates/regulator/so_dashboard.html:117
-#: theme/templates/report/security_objectives/cover.html:42
 msgid "Passed"
 msgstr "Réussi"
 
@@ -2538,7 +2536,7 @@ msgid "Creator"
 msgstr "Créateur"
 
 #: theme/templates/modals/so_versions.html:21
-#: theme/templates/report/security_objectives/cover.html:63
+#: theme/templates/report/security_objectives/cover.html:57
 #: theme/templates/security_objectives/declaration.html:20
 #: theme/templates/security_objectives/so_dashboard_base.html:86
 msgid "Submission date"
@@ -3003,13 +3001,13 @@ msgstr "Cadre d'évaluation"
 msgid "Review status"
 msgstr "Statut de revue"
 
-#: theme/templates/report/security_objectives/cover.html:51
+#: theme/templates/report/security_objectives/cover.html:45
 #: theme/templates/reporting/project_dashboard.html:104
 #: theme/templates/security_objectives/so_dashboard_base.html:107
 msgid "Year"
 msgstr "Année"
 
-#: theme/templates/report/security_objectives/cover.html:69
+#: theme/templates/report/security_objectives/cover.html:63
 #: theme/templates/security_objectives/so_dashboard_base.html:115
 msgid "Progress"
 msgstr "Progrès"
