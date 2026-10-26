@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-22 15:02+0200\n"
+"POT-Creation-Date: 2026-10-26 09:01+0100\n"
 "PO-Revision-Date: 2026-10-21 09:26+0000\n"
 "Last-Translator: Weblate Admin <admin@users.noreply.weblate.nc3.lu>\n"
 "Language: nl\n"
@@ -95,11 +95,12 @@ msgstr "Annuleren"
 msgid "Confirm"
 msgstr "Bevestigen"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:8
+#: theme/templates/admin/includes/email_placeholders_help.html:5
+#: theme/templates/admin/includes/email_placeholders_help.html:11
 msgid "Available placeholders"
 msgstr "Beschikbare placeholders"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:11
+#: theme/templates/admin/includes/email_placeholders_help.html:14
 msgid ""
 "Type one of these in the subject or in the content. It is replaced when the "
 "email is sent."
@@ -107,15 +108,15 @@ msgstr ""
 "Typ een van deze opties in het onderwerp of in de inhoud. Dit wordt "
 "vervangen wanneer de e-mail wordt verzonden."
 
-#: theme/templates/admin/includes/email_placeholders_help.html:17
+#: theme/templates/admin/includes/email_placeholders_help.html:20
 msgid "Placeholder"
 msgstr "Placeholder"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:20
+#: theme/templates/admin/includes/email_placeholders_help.html:23
 msgid "Replaced by"
 msgstr "Vervangen door"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:39
+#: theme/templates/admin/includes/email_placeholders_help.html:42
 #: theme/templates/incidents/declaration.html:272
 #: theme/templates/incidents/incidents_base.html:552
 #: theme/templates/modals/accept_terms.html:37
@@ -2510,7 +2511,6 @@ msgid "Submission date"
 msgstr "Verzenddatum"
 
 #: theme/templates/modals/update_so_declaration.html:7
-#| msgid "Update or review security objectives statement"
 msgid "View or update security objectives statement"
 msgstr ""
 

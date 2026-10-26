@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-22 15:02+0200\n"
+"POT-Creation-Date: 2026-10-26 09:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -100,25 +100,26 @@ msgstr ""
 msgid "Confirm"
 msgstr ""
 
-#: theme/templates/admin/includes/email_placeholders_help.html:8
+#: theme/templates/admin/includes/email_placeholders_help.html:5
+#: theme/templates/admin/includes/email_placeholders_help.html:11
 msgid "Available placeholders"
 msgstr ""
 
-#: theme/templates/admin/includes/email_placeholders_help.html:11
+#: theme/templates/admin/includes/email_placeholders_help.html:14
 msgid ""
 "Type one of these in the subject or in the content. It is replaced when the "
 "email is sent."
 msgstr ""
 
-#: theme/templates/admin/includes/email_placeholders_help.html:17
+#: theme/templates/admin/includes/email_placeholders_help.html:20
 msgid "Placeholder"
 msgstr ""
 
-#: theme/templates/admin/includes/email_placeholders_help.html:20
+#: theme/templates/admin/includes/email_placeholders_help.html:23
 msgid "Replaced by"
 msgstr ""
 
-#: theme/templates/admin/includes/email_placeholders_help.html:39
+#: theme/templates/admin/includes/email_placeholders_help.html:42
 #: theme/templates/incidents/declaration.html:272
 #: theme/templates/incidents/incidents_base.html:552
 #: theme/templates/modals/accept_terms.html:37

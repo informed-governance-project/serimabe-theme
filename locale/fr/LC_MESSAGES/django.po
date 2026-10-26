@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-22 15:02+0200\n"
+"POT-Creation-Date: 2026-10-26 09:01+0100\n"
 "PO-Revision-Date: 2026-10-01 07:32+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
@@ -100,11 +100,12 @@ msgstr "Annuler"
 msgid "Confirm"
 msgstr "Confirmez"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:8
+#: theme/templates/admin/includes/email_placeholders_help.html:5
+#: theme/templates/admin/includes/email_placeholders_help.html:11
 msgid "Available placeholders"
 msgstr "Espaces réservés disponibles"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:11
+#: theme/templates/admin/includes/email_placeholders_help.html:14
 msgid ""
 "Type one of these in the subject or in the content. It is replaced when the "
 "email is sent."
@@ -112,15 +113,15 @@ msgstr ""
 "Saisissez l'un de ces éléments dans l'objet ou dans le corps du message. Il "
 "sera remplacé lors de l'envoi de l'e-mail."
 
-#: theme/templates/admin/includes/email_placeholders_help.html:17
+#: theme/templates/admin/includes/email_placeholders_help.html:20
 msgid "Placeholder"
 msgstr "Espace réservé"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:20
+#: theme/templates/admin/includes/email_placeholders_help.html:23
 msgid "Replaced by"
 msgstr "Remplacé par"
 
-#: theme/templates/admin/includes/email_placeholders_help.html:39
+#: theme/templates/admin/includes/email_placeholders_help.html:42
 #: theme/templates/incidents/declaration.html:272
 #: theme/templates/incidents/incidents_base.html:552
 #: theme/templates/modals/accept_terms.html:37
@@ -2538,7 +2539,6 @@ msgid "Submission date"
 msgstr "Date de soumission"
 
 #: theme/templates/modals/update_so_declaration.html:7
-#| msgid "Update or review security objectives statement"
 msgid "View or update security objectives statement"
 msgstr ""
 
