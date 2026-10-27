@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-26 09:01+0100\n"
-"PO-Revision-Date: 2026-10-01 07:32+0000\n"
+"PO-Revision-Date: 2026-10-27 13:06+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -2537,7 +2537,7 @@ msgstr "Einreichungsdatum"
 
 #: theme/templates/modals/update_so_declaration.html:7
 msgid "View or update security objectives statement"
-msgstr ""
+msgstr "Sicherheitsziele anzeigen oder aktualisieren"
 
 #: theme/templates/modals/update_so_declaration.html:17
 msgid "What do you want to do ?"
@@ -2545,7 +2545,7 @@ msgstr "Was möchten Sie tun?"
 
 #: theme/templates/modals/update_so_declaration.html:25
 msgid "View"
-msgstr ""
+msgstr "Anzeigen"
 
 #: theme/templates/modals/update_so_declaration.html:31
 msgid "Update"
