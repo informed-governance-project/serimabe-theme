@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-26 09:01+0100\n"
-"PO-Revision-Date: 2026-10-27 13:06+0000\n"
+"POT-Creation-Date: 2026-11-11 09:22+0100\n"
+"PO-Revision-Date: 2026-11-11 09:14+0000\n"
 "Last-Translator: Pascal Bertrand <Pascal.bertrand+RegAdmin@ilr.lu>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -204,7 +204,8 @@ msgstr "Ersetzt durch"
 #: theme/templates/reporting/add_recommendations.html:65
 #: theme/templates/reporting/dashboard.html:254
 #: theme/templates/reporting/project_dashboard.html:359
-#: theme/templates/security_objectives/declaration.html:184
+#: theme/templates/security_objectives/declaration.html:196
+#: theme/templates/security_objectives/declaration.html:584
 #: theme/templates/security_objectives/so_dashboard_base.html:342
 msgid "Close"
 msgstr "Schließen"
@@ -423,7 +424,7 @@ msgstr ""
 #: theme/templates/modals/review_comment_report.html:31
 #: theme/templates/modals/review_comment_so_declaration.html:42
 #: theme/templates/regulator/so_dashboard.html:19
-#: theme/templates/security_objectives/declaration.html:162
+#: theme/templates/security_objectives/declaration.html:174
 msgid "Send"
 msgstr "Senden"
 
@@ -1987,7 +1988,7 @@ msgstr "Erstelldatum"
 #: theme/templates/incidents/declaration.html:49
 #: theme/templates/incidents/incidents_base.html:126
 #: theme/templates/report/security_objectives/cover.html:53
-#: theme/templates/security_objectives/declaration.html:28
+#: theme/templates/security_objectives/declaration.html:40
 #: theme/templates/security_objectives/so_dashboard_base.html:83
 msgid "Last update"
 msgstr "Letzte Aktualisierung"
@@ -2004,7 +2005,7 @@ msgstr "Kontakte"
 
 #: theme/templates/incidents/declaration.html:77
 #: theme/templates/reporting/project_dashboard.html:98
-#: theme/templates/security_objectives/declaration.html:48
+#: theme/templates/security_objectives/declaration.html:60
 #: theme/templates/security_objectives/so_dashboard_base.html:100
 msgid "Company"
 msgstr "Unternehmen"
@@ -2025,7 +2026,7 @@ msgstr "Zurück"
 
 #: theme/templates/incidents/declaration.html:304
 #: theme/templates/operator/so_dashboard.html:21
-#: theme/templates/security_objectives/declaration.html:176
+#: theme/templates/security_objectives/declaration.html:188
 msgid "Submit"
 msgstr "Einreichen"
 
@@ -2034,8 +2035,8 @@ msgid "Next"
 msgstr "Weiter"
 
 #: theme/templates/incidents/declaration.html:327
-#: theme/templates/security_objectives/declaration.html:467
-#: theme/templates/security_objectives/declaration.html:533
+#: theme/templates/security_objectives/declaration.html:480
+#: theme/templates/security_objectives/declaration.html:546
 msgid "View previous version"
 msgstr "Vorherige Version anzeigen"
 
@@ -2080,13 +2081,13 @@ msgstr "Aktiv"
 #: theme/templates/incidents/incidents_base.html:58
 #: theme/templates/reporting/dashboard.html:54
 #: theme/templates/reporting/project_dashboard.html:84
-#: theme/templates/security_objectives/declaration.html:286
+#: theme/templates/security_objectives/declaration.html:292
 #: theme/templates/security_objectives/so_dashboard_base.html:55
 msgid "Icon Guide"
 msgstr "Icon Beschreibung"
 
 #: theme/templates/incidents/incidents_base.html:66
-#: theme/templates/security_objectives/declaration.html:297
+#: theme/templates/security_objectives/declaration.html:303
 #: theme/templates/security_objectives/so_dashboard_base.html:64
 msgid "Legend"
 msgstr "Legende"
@@ -2129,7 +2130,7 @@ msgstr "Verspätete Einreichung"
 #: theme/templates/incidents/incidents_base.html:102
 #: theme/templates/operator/so_dashboard.html:145
 #: theme/templates/regulator/so_dashboard.html:135
-#: theme/templates/security_objectives/declaration.html:335
+#: theme/templates/security_objectives/declaration.html:341
 msgid "Revision required"
 msgstr "Überarbeitung erforderlich"
 
@@ -2507,7 +2508,7 @@ msgstr "Vorherige Version"
 #: theme/templates/operator/so_dashboard.html:78
 #: theme/templates/regulator/so_dashboard.html:68
 #: theme/templates/regulator/so_dashboard.html:79
-#: theme/templates/security_objectives/declaration.html:110
+#: theme/templates/security_objectives/declaration.html:122
 msgid "Review comment"
 msgstr "Review Kommentar"
 
@@ -2524,13 +2525,13 @@ msgid "Import risk analysis"
 msgstr "Risikoanalyse importieren"
 
 #: theme/templates/modals/so_contacts.html:8
-#: theme/templates/security_objectives/declaration.html:45
+#: theme/templates/security_objectives/declaration.html:57
 msgid "Profile"
 msgstr "Profil"
 
 #: theme/templates/modals/so_versions.html:21
 #: theme/templates/report/security_objectives/cover.html:59
-#: theme/templates/security_objectives/declaration.html:20
+#: theme/templates/security_objectives/declaration.html:32
 #: theme/templates/security_objectives/so_dashboard_base.html:86
 msgid "Submission date"
 msgstr "Einreichungsdatum"
@@ -2893,6 +2894,9 @@ msgstr "Korrektur erforderlich und gesendet"
 
 #: theme/templates/report/base/toc.html:3
 #: theme/templates/report/security_objectives/toc.html:3
+#: theme/templates/security_objectives/declaration.html:273
+#: theme/templates/security_objectives/declaration.html:278
+#: theme/templates/security_objectives/declaration.html:573
 msgid "Table of contents"
 msgstr "Inhaltsverzeichnis"
 
@@ -2985,7 +2989,7 @@ msgid "Identifier"
 msgstr "Kennung"
 
 #: theme/templates/report/security_objectives/cover.html:35
-#: theme/templates/security_objectives/declaration.html:52
+#: theme/templates/security_objectives/declaration.html:64
 #: theme/templates/security_objectives/so_dashboard_base.html:92
 msgid "Evaluation Framework"
 msgstr "Bewertungsrahmen"
@@ -3006,22 +3010,22 @@ msgid "Progress"
 msgstr "Fortschritt"
 
 #: theme/templates/report/security_objectives/declaration.html:37
-#: theme/templates/security_objectives/declaration.html:319
+#: theme/templates/security_objectives/declaration.html:325
 msgid "Not reviewed"
 msgstr "Nicht überprüft"
 
 #: theme/templates/report/security_objectives/declaration.html:61
-#: theme/templates/security_objectives/declaration.html:409
+#: theme/templates/security_objectives/declaration.html:422
 msgid "Table of"
 msgstr "Tabelle von"
 
 #: theme/templates/report/security_objectives/declaration.html:152
-#: theme/templates/security_objectives/declaration.html:514
+#: theme/templates/security_objectives/declaration.html:527
 msgid "No security measures data available."
 msgstr "Keine Daten zu Sicherheitsmaßnahmen verfügbar."
 
 #: theme/templates/report/security_objectives/declaration.html:177
-#: theme/templates/security_objectives/declaration.html:545
+#: theme/templates/security_objectives/declaration.html:558
 msgid "No security objectives data available."
 msgstr "Keine Daten zu Sicherheitszielen verfügbar."
 
@@ -3141,24 +3145,80 @@ msgid "Copy from last year"
 msgstr "Kopie vom letzten Jahr"
 
 #: theme/templates/security_objectives/base.html:48
-msgid "New submission"
-msgstr "Neue Einreichung"
+msgid "New assessment"
+msgstr "Neue Bewertung"
 
-#: theme/templates/security_objectives/declaration.html:305
+#: theme/templates/security_objectives/declaration.html:21
+#, python-format
+msgid ""
+"The operator submitted a newer version of this declaration on "
+"%(submit_date)s. This version can no longer be reviewed."
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:23
+msgid "Open the newer version"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:204
+msgid "Security objectives"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:213
+#, python-format
+msgid "Objectives %(first)s to %(last)s"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:230
+msgid "Previous objectives"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:238
+msgid "Next objectives"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:311
 msgid "Not filled"
 msgstr "Nicht ausgefüllt"
 
-#: theme/templates/security_objectives/declaration.html:312
+#: theme/templates/security_objectives/declaration.html:318
 msgid "Partially filled"
 msgstr "Teilweise ausgefüllt"
 
-#: theme/templates/security_objectives/declaration.html:326
+#: theme/templates/security_objectives/declaration.html:332
 msgid "Fully filled"
 msgstr "Vollständig ausgefüllt"
 
-#: theme/templates/security_objectives/declaration.html:328
+#: theme/templates/security_objectives/declaration.html:334
 msgid "Review passed"
 msgstr "Überprüfung bestanden"
+
+#: theme/templates/security_objectives/declaration.html:386
+#, python-format
+msgid "Objective %(position)s of %(total)s in this domain"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:577
+#, python-format
+msgid "%(counter)s objective"
+msgid_plural "%(counter)s objectives"
+msgstr[0] ""
+msgstr[1] ""
+
+#: theme/templates/security_objectives/declaration.html:578
+#, python-format
+msgid "%(counter)s domain"
+msgid_plural "%(counter)s domains"
+msgstr[0] ""
+msgstr[1] ""
+
+#: theme/templates/security_objectives/declaration.html:595
+#: theme/templates/security_objectives/declaration.html:597
+msgid "Expand all"
+msgstr ""
+
+#: theme/templates/security_objectives/declaration.html:596
+msgid "Collapse all"
+msgstr ""
 
 #: theme/templates/security_objectives/so_dashboard_base.html:35
 msgid "Filter by status, sector, etc."
@@ -3173,8 +3233,8 @@ msgid "Creator"
 msgstr "Ersteller"
 
 #: theme/templates/security_objectives/so_dashboard_base.html:285
-msgid "No security objectives statements have been submitted yet."
-msgstr "Es wurden noch keine Erklärungen zu den Sicherheitszielen abgegeben."
+msgid "No security objectives statements have been created yet."
+msgstr "Es wurde noch keine Sicherheitszielerklärung erstellt."
 
 #: theme/templates/two_factor/core/setup_complete.html:6
 msgid "Enable Two-Factor Authentication"
